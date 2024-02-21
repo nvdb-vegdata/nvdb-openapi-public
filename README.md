@@ -49,8 +49,26 @@ openapi-generator-cli generate --input-spec https://nvdbapiles.atlas.vegvesen.no
   --additional-properties serializationLibrary=jackson,packageName=no.eksempel.nvdb.datakatalog,sourceFolder=src/main/kotlin
 ```
 
-### Konfigurasjon
+## Konfigurasjon
 
 Det kan være nyttig å kjenne til alle parametre som kan sendes med som `--global-property`, [her er en oversikt](https://openapi-generator.tech/docs/globals).
 
 I tillegg kan man [se alle generatorene her](https://openapi-generator.tech/docs/generators), med hver sine konfigurasjoner som kan sendes med som `--additional-properties`.
+
+### openapitools.json
+
+Hvis man foretrekker å definere konfigurasjonen i en fil, kan man bruke `openapitools.json`. Denne genereres første gang man kjører `openapi-generator-cli`, og kan utvides med faste konfigurasjoner for flere OpenAPI-samlinger.
+
+Vi anbefaler å initialisere en `package.json` og legge inn `@openapitools/openapi-generator-cli`, da vil man få bedre skjemastøtte når man redigerer `openapitools.json`:
+
+```json
+{
+  "private": true,
+  "scripts": {
+    "generate:datakatalog": "openapi-generator-cli generate --generator-key datakatalog"
+  },
+  "dependencies": {
+    "@openapitools/openapi-generator-cli": "^2.9.0"
+  }
+}
+```

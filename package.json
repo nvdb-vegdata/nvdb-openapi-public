@@ -1,0 +1,9 @@
+{
+  "private": true,
+  "scripts": {
+    "generate:datakatalog": "openapi-generator-cli generate --generator-key datakatalog"
+  },
+  "dependencies": {
+    "@openapitools/openapi-generator-cli": "^2.9.0"
+  }
+}
