@@ -20,12 +20,12 @@ npm install @openapitools/openapi-generator-cli -g
 For å generere f.eks. en ferdig Kotlin-klient mot vår datakatalog, med `RestClient` og Jackson-serialisering, kall dette:
 
 ```
-openapi-generator-cli generate --input-spec https://nvdbapiles.atlas.vegvesen.no/api-docs/datakatalog \
+openapi-generator-cli generate --input-spec https://nvdbapiles.utv.atlas.vegvesen.no/api-docs/datakatalog \
   --generator-name kotlin \
   --output nvdb-datakatalog \
   --global-property models,apis,modelDocs=false \
   --library jvm-spring-restclient \
-  --additional-properties useSpringBoot3=true,serializationLibrary=jackson,packageName=no.eksempel.nvdb.datakatalog,sourceFolder=src/main/kotlin
+  --additional-properties useSpringBoot3=true,serializationLibrary=jackson,packageName=no.vegvesen.nvdb.datakatalog,sourceFolder=src/main/kotlin
 ```
 
 Hvis du heller ønsker en full Kotlin-implementasjon med `kotlinx.serialization`, kall dette:
@@ -36,7 +36,7 @@ openapi-generator-cli generate --input-spec https://nvdbapiles.atlas.vegvesen.no
   --output nvdb-datakatalog \
   --global-property models,apis,modelDocs=false \
   --library multiplatform \
-  --additional-properties dateLibrary=kotlinx-datetime,packageName=no.eksempel.nvdb.datakatalog,sourceFolder=src/main/kotlin
+  --additional-properties dateLibrary=kotlinx-datetime,packageName=no.vegevesen.nvdb.datakatalog,sourceFolder=src/main/kotlin
 ```
 
 For å bare generere modeller, med f.eks. Jackson serialisering, kall dette:
@@ -46,7 +46,7 @@ openapi-generator-cli generate --input-spec https://nvdbapiles.atlas.vegvesen.no
   --generator-name kotlin \
   --output nvdb-datakatalog \
   --global-property models,modelDocs=false \
-  --additional-properties serializationLibrary=jackson,packageName=no.eksempel.nvdb.datakatalog,sourceFolder=src/main/kotlin
+  --additional-properties serializationLibrary=jackson,packageName=no.vegevesen.nvdb.datakatalog,sourceFolder=src/main/kotlin
 ```
 
 ## Konfigurasjon
@@ -65,10 +65,45 @@ Vi anbefaler å initialisere en `package.json` og legge inn `@openapitools/opena
 {
   "private": true,
   "scripts": {
-    "generate:datakatalog": "openapi-generator-cli generate --generator-key datakatalog"
+    "generate:datakatalog": "rm -rf datakatalog openapi-generator-cli generate --generator-key datakatalog"
   },
   "dependencies": {
     "@openapitools/openapi-generator-cli": "^2.9.0"
   }
 }
 ```
+
+Her er et eksempel på `openapitools.json`:
+
+```json
+{
+  "$schema": "./node_modules/@openapitools/openapi-generator-cli/config.schema.json",
+  "spaces": 2,
+  "generator-cli": {
+    "version": "7.3.0",
+    "generators": {
+      "datakatalog": {
+        "inputSpec": "https://nvdbapiles.atlas.vegvesen.no/api-docs/datakatalog",
+        "output": "datakatalog",
+        "generatorName": "kotlin",
+        "library": "multiplatform",
+        "apiPackage": "no.vegvesen.nvdb.datakatalog.api",
+        "modelPackage": "no.vegvesen.nvdb.datakatalog.model",
+        "globalProperty": "models,apis,modelDocs=false,modelTests=false,apiTests=false",
+        "additionalProperties": {
+          "dateLibrary": "kotlinx-datetime",
+          "sourceFolder": "src/main/kotlin"
+        }
+      }
+    }
+  }
+}
+```
+
+For å generere koden kjører man så:
+
+```
+npm run generate:datakatalog
+```
+
+Se også [package.json](package.json) og [openapitools.json](openapitools.json) i dette repoet for flere eksempler.

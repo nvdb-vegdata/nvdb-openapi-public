@@ -1,9 +1,13 @@
 {
   "private": true,
   "scripts": {
-    "generate:datakatalog": "openapi-generator-cli generate --generator-key datakatalog"
+    "generate:datakatalog-java": "rm -rf datakatalog-java && openapi-generator-cli generate --generator-key datakatalog-java",
+    "generate:datakatalog-kotlin": "rm -rf datakatalog-kotlin && openapi-generator-cli generate --generator-key datakatalog-kotlin",
+    "generate:datakatalog-ts": "rm -rf datakatalog-ts && openapi-generator-cli generate --generator-key datakatalog-ts",
+    "generate": "run-p generate:*"
   },
   "dependencies": {
-    "@openapitools/openapi-generator-cli": "^2.9.0"
+    "@openapitools/openapi-generator-cli": "^2.9.0",
+    "npm-run-all2": "^6.1.2"
   }
 }

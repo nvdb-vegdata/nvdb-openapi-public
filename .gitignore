@@ -36,3 +36,7 @@ build/
 ### TypeScript ###
 *.tsbuildinfo
 node_modules
+
+### Lockfiles ###
+package-lock.json
+bun.lockb
