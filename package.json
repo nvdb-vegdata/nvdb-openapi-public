@@ -1,9 +1,9 @@
 {
   "private": true,
   "scripts": {
-    "generate:datakatalog-java": "rm -rf datakatalog-java && openapi-generator-cli generate --generator-key datakatalog-java",
-    "generate:datakatalog-kotlin": "rm -rf datakatalog-kotlin && openapi-generator-cli generate --generator-key datakatalog-kotlin",
-    "generate:datakatalog-ts": "rm -rf datakatalog-ts && openapi-generator-cli generate --generator-key datakatalog-ts",
+    "generate:datakatalog-java": "rm -rf java/datakatalog && openapi-generator-cli generate --generator-key datakatalog-java",
+    "generate:datakatalog-kotlin": "rm -rf kotlin/datakatalog && openapi-generator-cli generate --generator-key datakatalog-kotlin",
+    "generate:datakatalog-ts": "rm -rf typescript/datakatalog && openapi-generator-cli generate --generator-key datakatalog-ts",
     "generate": "run-p generate:*"
   },
   "dependencies": {

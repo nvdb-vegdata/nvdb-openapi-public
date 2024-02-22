@@ -6,7 +6,7 @@
     "generators": {
       "datakatalog-java": {
         "inputSpec": "https://nvdbapiles.atlas.vegvesen.no/api-docs/datakatalog",
-        "output": "datakatalog-java",
+        "output": "java/datakatalog",
         "generatorName": "java",
         "library": "webclient",
         "apiPackage": "no.vegvesen.nvdb.datakatalog.api",
@@ -15,7 +15,7 @@
       },
       "datakatalog-kotlin": {
         "inputSpec": "https://nvdbapiles.atlas.vegvesen.no/api-docs/datakatalog",
-        "output": "datakatalog-kotlin",
+        "output": "kotlin/datakatalog",
         "generatorName": "kotlin",
         "library": "multiplatform",
         "apiPackage": "no.vegvesen.nvdb.datakatalog.api",
@@ -28,7 +28,7 @@
       },
       "datakatalog-ts": {
         "inputSpec": "https://nvdbapiles.atlas.vegvesen.no/api-docs/datakatalog",
-        "output": "datakatalog-ts",
+        "output": "typescript/datakatalog",
         "generatorName": "typescript-fetch"
       }
     }

@@ -110,6 +110,6 @@ Se også [package.json](package.json) og [openapitools.json](openapitools.json) 
 
 ### Ferdig genererte eksempler
 
-- [Java-klient for datakatalogen, med Spring Reactive WebClient og Jackson](./datakatalog-java/)
-- [Kotlin-klient for datakatalogen, med Ktor HttpClient og kotlinx.serialization](./datakatalog-kotlin/)
-- [TypeScript-klient for datakatalogen, med fetch](./datakatalog-ts/)
+- [Java-klient for datakatalogen, med Spring Reactive WebClient og Jackson](./java/datakatalog/)
+- [Kotlin-klient for datakatalogen, med Ktor HttpClient og kotlinx.serialization](./kotlin/datakatalog/)
+- [TypeScript-klient for datakatalogen, med fetch](./typescript/datakatalog/)
