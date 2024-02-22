@@ -56,7 +56,7 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
   Vegobjekttype.JSON_PROPERTY_RELASJONSTYPER,
   Vegobjekttype.JSON_PROPERTY_SENSITIV
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-02-22T10:51:46.288517Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class Vegobjekttype {
   public static final String JSON_PROPERTY_ID = "id";
   private Integer id;

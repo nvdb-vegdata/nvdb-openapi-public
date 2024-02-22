@@ -35,7 +35,7 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
   AssosiasjonstypeListeInnhold.JSON_PROPERTY_EGENSKAPSTYPE,
   AssosiasjonstypeListeInnhold.JSON_PROPERTY_TYPE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-02-22T10:51:46.288517Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class AssosiasjonstypeListeInnhold {
   /**
    * Gets or Sets innenforMor

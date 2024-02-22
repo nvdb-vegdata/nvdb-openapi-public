@@ -33,7 +33,7 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
   EgenskapstypeKategori.JSON_PROPERTY_SORTERINGSNUMMER,
   EgenskapstypeKategori.JSON_PROPERTY_BESKRIVELSE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-02-22T10:51:46.288517Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class EgenskapstypeKategori {
   public static final String JSON_PROPERTY_ID = "id";
   private Integer id;

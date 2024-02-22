@@ -34,7 +34,7 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
   Relasjonstyper.JSON_PROPERTY_FORELDRE,
   Relasjonstyper.JSON_PROPERTY_BARN
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-02-22T10:51:46.288517Z[Etc/UTC]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 public class Relasjonstyper {
   public static final String JSON_PROPERTY_FORELDRE = "foreldre";
   private List<Assosiasjonstype> foreldre = new ArrayList<>();
