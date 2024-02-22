@@ -1,5 +1,7 @@
 # NVDB OpenAPI
 
+[Nasjonal vegdatabank (NVDB)](https://nvdb.atlas.vegvesen.no/) er en database med informasjon om statlige, kommunale, private, fylkes- og skogsbilveger, levert av Statens vegvesen.
+
 Her finner du kode og eksempler for bruk av verktøy som [openapi-generator](https://openapi-generator.tech/) til å generere modeller fra NVDBs APIer.
 
 ## APIer
@@ -120,4 +122,4 @@ Støtten for TypeScript i `openapi-generator` er noe grunnleggende. Dersom man �
 
 I dette repoet finnes et eksempel som genererer ferdige hooks med TanStack Query for React, inkludert fulle Zod-skjema for validering.
 
-Se [package.json](package.json) for installerte pakker (alle som starter med `@kubb`), og [kubb.config.ts](kubb.config.ts) for oppsettet. Generert kode finnes [her](./typescript/datakatalog-kubb/).
+Se [package.json](package.json) for installerte pakker (alle som starter med `@kubb`), og [kubb.config.ts](kubb.config.ts) for oppsettet. Generert kode finnes for [datakatalogen](./typescript/datakatalog-kubb/) og [vegobjekter fra NVDB LES API v4](./typescript/vegobjekter/).
