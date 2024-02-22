@@ -2,19 +2,17 @@
 
 All URIs are relative to *https://nvdbapiles.atlas.vegvesen.no/datakatalog*
 
-| Method | HTTP request | Description |
-|------------- | ------------- | -------------|
-| [**getEgenskapstype**](DatakatalogenApi.md#getEgenskapstype) | **GET** /api/v1/egenskapstyper/{egenskapstypeid} | Returnerer angitt egenskapstype |
-| [**getEgenskapstypeForVegobjekttype**](DatakatalogenApi.md#getEgenskapstypeForVegobjekttype) | **GET** /api/v1/vegobjekttyper/{vegobjekttypeid}/{egenskapstypeid} | Returnerer angitt egenskapstype for angitt vegobjekttype |
-| [**getEgenskapstypeKategorier**](DatakatalogenApi.md#getEgenskapstypeKategorier) | **GET** /api/v1/egenskapstypekategorier | Returnerer alle kategorier for egenskapstypene |
-| [**getEnheter**](DatakatalogenApi.md#getEnheter) | **GET** /api/v1/enheter | Returnerer alle enheter |
-| [**getKategorier**](DatakatalogenApi.md#getKategorier) | **GET** /api/v1/kategorier | Returnerer alle kategorier for vegobjekter |
-| [**getVegobjekttype**](DatakatalogenApi.md#getVegobjekttype) | **GET** /api/v1/vegobjekttyper/{vegobjekttypeid} | Returnerer angitt vegobjekttype |
-| [**getVegobjekttyper**](DatakatalogenApi.md#getVegobjekttyper) | **GET** /api/v1/vegobjekttyper | Returnerer alle vegobjekttypene |
-| [**getVegobjekttyperHistorisk**](DatakatalogenApi.md#getVegobjekttyperHistorisk) | **GET** /api/v1/vegobjekttyper/historisk/{versjon} | Returnerer alle vegobjekttypene for en gitt versjon av datakatalogen, f.eks. 2.31 |
-| [**getVersjon**](DatakatalogenApi.md#getVersjon) | **GET** /api/v1/versjon | Returnerer aktiv versjon på datakatalog |
-
-
+| Method                                                                                       | HTTP request                                                       | Description                                                                       |
+| -------------------------------------------------------------------------------------------- | ------------------------------------------------------------------ | --------------------------------------------------------------------------------- |
+| [**getEgenskapstype**](DatakatalogenApi.md#getEgenskapstype)                                 | **GET** /api/v1/egenskapstyper/{egenskapstypeid}                   | Returnerer angitt egenskapstype                                                   |
+| [**getEgenskapstypeForVegobjekttype**](DatakatalogenApi.md#getEgenskapstypeForVegobjekttype) | **GET** /api/v1/vegobjekttyper/{vegobjekttypeid}/{egenskapstypeid} | Returnerer angitt egenskapstype for angitt vegobjekttype                          |
+| [**getEgenskapstypeKategorier**](DatakatalogenApi.md#getEgenskapstypeKategorier)             | **GET** /api/v1/egenskapstypekategorier                            | Returnerer alle kategorier for egenskapstypene                                    |
+| [**getEnheter**](DatakatalogenApi.md#getEnheter)                                             | **GET** /api/v1/enheter                                            | Returnerer alle enheter                                                           |
+| [**getKategorier**](DatakatalogenApi.md#getKategorier)                                       | **GET** /api/v1/kategorier                                         | Returnerer alle kategorier for vegobjekter                                        |
+| [**getVegobjekttype**](DatakatalogenApi.md#getVegobjekttype)                                 | **GET** /api/v1/vegobjekttyper/{vegobjekttypeid}                   | Returnerer angitt vegobjekttype                                                   |
+| [**getVegobjekttyper**](DatakatalogenApi.md#getVegobjekttyper)                               | **GET** /api/v1/vegobjekttyper                                     | Returnerer alle vegobjekttypene                                                   |
+| [**getVegobjekttyperHistorisk**](DatakatalogenApi.md#getVegobjekttyperHistorisk)             | **GET** /api/v1/vegobjekttyper/historisk/{versjon}                 | Returnerer alle vegobjekttypene for en gitt versjon av datakatalogen, f.eks. 2.31 |
+| [**getVersjon**](DatakatalogenApi.md#getVersjon)                                             | **GET** /api/v1/versjon                                            | Returnerer aktiv versjon på datakatalog                                           |
 
 ## getEgenskapstype
 
@@ -38,7 +36,7 @@ public class Example {
         defaultClient.setBasePath("https://nvdbapiles.atlas.vegvesen.no/datakatalog");
 
         DatakatalogenApi apiInstance = new DatakatalogenApi(defaultClient);
-        Integer egenskapstypeid = 56; // Integer | 
+        Integer egenskapstypeid = 56; // Integer |
         try {
             Egenskapstype result = apiInstance.getEgenskapstype(egenskapstypeid);
             System.out.println(result);
@@ -55,10 +53,9 @@ public class Example {
 
 ### Parameters
 
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **egenskapstypeid** | **Integer**|  | |
+| Name                | Type        | Description | Notes |
+| ------------------- | ----------- | ----------- | ----- |
+| **egenskapstypeid** | **Integer** |             |       |
 
 ### Return type
 
@@ -71,17 +68,16 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: */*
-
+- **Accept**: _/_
 
 ### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **500** | Internal Server Error |  -  |
-| **503** | Service Unavailable |  -  |
-| **404** | Not Found |  -  |
-| **200** | OK |  -  |
 
+| Status code | Description           | Response headers |
+| ----------- | --------------------- | ---------------- |
+| **500**     | Internal Server Error | -                |
+| **503**     | Service Unavailable   | -                |
+| **404**     | Not Found             | -                |
+| **200**     | OK                    | -                |
 
 ## getEgenskapstypeForVegobjekttype
 
@@ -105,8 +101,8 @@ public class Example {
         defaultClient.setBasePath("https://nvdbapiles.atlas.vegvesen.no/datakatalog");
 
         DatakatalogenApi apiInstance = new DatakatalogenApi(defaultClient);
-        Integer vegobjekttypeid = 56; // Integer | 
-        Integer egenskapstypeid = 56; // Integer | 
+        Integer vegobjekttypeid = 56; // Integer |
+        Integer egenskapstypeid = 56; // Integer |
         try {
             Egenskapstype result = apiInstance.getEgenskapstypeForVegobjekttype(vegobjekttypeid, egenskapstypeid);
             System.out.println(result);
@@ -123,11 +119,10 @@ public class Example {
 
 ### Parameters
 
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **vegobjekttypeid** | **Integer**|  | |
-| **egenskapstypeid** | **Integer**|  | |
+| Name                | Type        | Description | Notes |
+| ------------------- | ----------- | ----------- | ----- |
+| **vegobjekttypeid** | **Integer** |             |       |
+| **egenskapstypeid** | **Integer** |             |       |
 
 ### Return type
 
@@ -140,17 +135,16 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: */*
-
+- **Accept**: _/_
 
 ### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **500** | Internal Server Error |  -  |
-| **503** | Service Unavailable |  -  |
-| **404** | Not Found |  -  |
-| **200** | OK |  -  |
 
+| Status code | Description           | Response headers |
+| ----------- | --------------------- | ---------------- |
+| **500**     | Internal Server Error | -                |
+| **503**     | Service Unavailable   | -                |
+| **404**     | Not Found             | -                |
+| **200**     | OK                    | -                |
 
 ## getEgenskapstypeKategorier
 
@@ -203,17 +197,16 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: */*
-
+- **Accept**: _/_
 
 ### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **500** | Internal Server Error |  -  |
-| **503** | Service Unavailable |  -  |
-| **404** | Not Found |  -  |
-| **200** | OK |  -  |
 
+| Status code | Description           | Response headers |
+| ----------- | --------------------- | ---------------- |
+| **500**     | Internal Server Error | -                |
+| **503**     | Service Unavailable   | -                |
+| **404**     | Not Found             | -                |
+| **200**     | OK                    | -                |
 
 ## getEnheter
 
@@ -266,17 +259,16 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: */*
-
+- **Accept**: _/_
 
 ### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **500** | Internal Server Error |  -  |
-| **503** | Service Unavailable |  -  |
-| **404** | Not Found |  -  |
-| **200** | OK |  -  |
 
+| Status code | Description           | Response headers |
+| ----------- | --------------------- | ---------------- |
+| **500**     | Internal Server Error | -                |
+| **503**     | Service Unavailable   | -                |
+| **404**     | Not Found             | -                |
+| **200**     | OK                    | -                |
 
 ## getKategorier
 
@@ -329,17 +321,16 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: */*
-
+- **Accept**: _/_
 
 ### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **500** | Internal Server Error |  -  |
-| **503** | Service Unavailable |  -  |
-| **404** | Not Found |  -  |
-| **200** | OK |  -  |
 
+| Status code | Description           | Response headers |
+| ----------- | --------------------- | ---------------- |
+| **500**     | Internal Server Error | -                |
+| **503**     | Service Unavailable   | -                |
+| **404**     | Not Found             | -                |
+| **200**     | OK                    | -                |
 
 ## getVegobjekttype
 
@@ -363,7 +354,7 @@ public class Example {
         defaultClient.setBasePath("https://nvdbapiles.atlas.vegvesen.no/datakatalog");
 
         DatakatalogenApi apiInstance = new DatakatalogenApi(defaultClient);
-        Integer vegobjekttypeid = 56; // Integer | 
+        Integer vegobjekttypeid = 56; // Integer |
         List<String> inkluder = Arrays.asList(); // List<String> | Kommaseparert liste med hvilke informasjonsfelter som skal inkluderes i tillegg til vegobjekttypenes metadata.
         try {
             Vegobjekttype result = apiInstance.getVegobjekttype(vegobjekttypeid, inkluder);
@@ -381,11 +372,10 @@ public class Example {
 
 ### Parameters
 
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **vegobjekttypeid** | **Integer**|  | |
-| **inkluder** | [**List&lt;String&gt;**](String.md)| Kommaseparert liste med hvilke informasjonsfelter som skal inkluderes i tillegg til vegobjekttypenes metadata. | [optional] [enum: egenskapstyper, relasjonstyper, stedfesting, alle, minimum] |
+| Name                | Type                                | Description                                                                                                    | Notes                                                                         |
+| ------------------- | ----------------------------------- | -------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
+| **vegobjekttypeid** | **Integer**                         |                                                                                                                |                                                                               |
+| **inkluder**        | [**List&lt;String&gt;**](String.md) | Kommaseparert liste med hvilke informasjonsfelter som skal inkluderes i tillegg til vegobjekttypenes metadata. | [optional] [enum: egenskapstyper, relasjonstyper, stedfesting, alle, minimum] |
 
 ### Return type
 
@@ -398,17 +388,16 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: */*
-
+- **Accept**: _/_
 
 ### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **500** | Internal Server Error |  -  |
-| **503** | Service Unavailable |  -  |
-| **404** | Not Found |  -  |
-| **200** | OK |  -  |
 
+| Status code | Description           | Response headers |
+| ----------- | --------------------- | ---------------- |
+| **500**     | Internal Server Error | -                |
+| **503**     | Service Unavailable   | -                |
+| **404**     | Not Found             | -                |
+| **200**     | OK                    | -                |
 
 ## getVegobjekttyper
 
@@ -450,11 +439,10 @@ public class Example {
 
 ### Parameters
 
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **inkluder** | [**List&lt;String&gt;**](String.md)| Kommaseparert liste med hvilke informasjonsfelter som skal inkluderes i tillegg til vegobjekttypenes metadata. | [optional] [enum: egenskapstyper, relasjonstyper, stedfesting, alle, minimum] |
-| **kategori** | **Integer**| Begrens vegobjekttyper etter kategori. (/vegobjekttyper/kategorier) | [optional] |
+| Name         | Type                                | Description                                                                                                    | Notes                                                                         |
+| ------------ | ----------------------------------- | -------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
+| **inkluder** | [**List&lt;String&gt;**](String.md) | Kommaseparert liste med hvilke informasjonsfelter som skal inkluderes i tillegg til vegobjekttypenes metadata. | [optional] [enum: egenskapstyper, relasjonstyper, stedfesting, alle, minimum] |
+| **kategori** | **Integer**                         | Begrens vegobjekttyper etter kategori. (/vegobjekttyper/kategorier)                                            | [optional]                                                                    |
 
 ### Return type
 
@@ -467,17 +455,16 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: */*
-
+- **Accept**: _/_
 
 ### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **500** | Internal Server Error |  -  |
-| **503** | Service Unavailable |  -  |
-| **404** | Not Found |  -  |
-| **200** | OK |  -  |
 
+| Status code | Description           | Response headers |
+| ----------- | --------------------- | ---------------- |
+| **500**     | Internal Server Error | -                |
+| **503**     | Service Unavailable   | -                |
+| **404**     | Not Found             | -                |
+| **200**     | OK                    | -                |
 
 ## getVegobjekttyperHistorisk
 
@@ -501,7 +488,7 @@ public class Example {
         defaultClient.setBasePath("https://nvdbapiles.atlas.vegvesen.no/datakatalog");
 
         DatakatalogenApi apiInstance = new DatakatalogenApi(defaultClient);
-        String versjon = "versjon_example"; // String | 
+        String versjon = "versjon_example"; // String |
         List<String> inkluder = Arrays.asList(); // List<String> | Kommaseparert liste med hvilke informasjonsfelter som skal inkluderes i tillegg til vegobjekttypenes metadata.
         Integer kategori = 56; // Integer | Begrens vegobjekttyper etter kategori. (/vegobjekttyper/kategorier)
         try {
@@ -520,12 +507,11 @@ public class Example {
 
 ### Parameters
 
-
-| Name | Type | Description  | Notes |
-|------------- | ------------- | ------------- | -------------|
-| **versjon** | **String**|  | |
-| **inkluder** | [**List&lt;String&gt;**](String.md)| Kommaseparert liste med hvilke informasjonsfelter som skal inkluderes i tillegg til vegobjekttypenes metadata. | [optional] [enum: egenskapstyper, relasjonstyper, stedfesting, alle, minimum] |
-| **kategori** | **Integer**| Begrens vegobjekttyper etter kategori. (/vegobjekttyper/kategorier) | [optional] |
+| Name         | Type                                | Description                                                                                                    | Notes                                                                         |
+| ------------ | ----------------------------------- | -------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
+| **versjon**  | **String**                          |                                                                                                                |                                                                               |
+| **inkluder** | [**List&lt;String&gt;**](String.md) | Kommaseparert liste med hvilke informasjonsfelter som skal inkluderes i tillegg til vegobjekttypenes metadata. | [optional] [enum: egenskapstyper, relasjonstyper, stedfesting, alle, minimum] |
+| **kategori** | **Integer**                         | Begrens vegobjekttyper etter kategori. (/vegobjekttyper/kategorier)                                            | [optional]                                                                    |
 
 ### Return type
 
@@ -538,17 +524,16 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: */*
-
+- **Accept**: _/_
 
 ### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **500** | Internal Server Error |  -  |
-| **503** | Service Unavailable |  -  |
-| **404** | Not Found |  -  |
-| **200** | OK |  -  |
 
+| Status code | Description           | Response headers |
+| ----------- | --------------------- | ---------------- |
+| **500**     | Internal Server Error | -                |
+| **503**     | Service Unavailable   | -                |
+| **404**     | Not Found             | -                |
+| **200**     | OK                    | -                |
 
 ## getVersjon
 
@@ -601,14 +586,13 @@ No authorization required
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: */*
-
+- **Accept**: _/_
 
 ### HTTP response details
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-| **500** | Internal Server Error |  -  |
-| **503** | Service Unavailable |  -  |
-| **404** | Not Found |  -  |
-| **200** | OK |  -  |
 
+| Status code | Description           | Response headers |
+| ----------- | --------------------- | ---------------- |
+| **500**     | Internal Server Error | -                |
+| **503**     | Service Unavailable   | -                |
+| **404**     | Not Found             | -                |
+| **200**     | OK                    | -                |

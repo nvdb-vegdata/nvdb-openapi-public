@@ -113,3 +113,11 @@ Se også [package.json](package.json) og [openapitools.json](openapitools.json) 
 - [Java-klient for datakatalogen, med Spring Reactive WebClient og Jackson](./java/datakatalog/)
 - [Kotlin-klient for datakatalogen, med Ktor HttpClient og kotlinx.serialization](./kotlin/datakatalog/)
 - [TypeScript-klient for datakatalogen, med fetch](./typescript/datakatalog/)
+
+# Bedre Frontend-støtte med [Kubb](https://www.kubb.dev/)
+
+Støtten for TypeScript i `openapi-generator` er noe grunnleggende. Dersom man ønsker mer avansert funksjonalitet, som generering av [Zod-skjemaer](https://zod.dev) eller [TanStack Query-hooks](https://tanstack.com/query/latest), kan man ta i bruk [Kubb](https://www.kubb.dev/).
+
+I dette repoet finnes et eksempel som genererer ferdige hooks med TanStack Query for React, inkludert fulle Zod-skjema for validering.
+
+Se [package.json](package.json) for installerte pakker (alle som starter med `@kubb`), og [kubb.config.ts](kubb.config.ts) for oppsettet. Generert kode finnes [her](./typescript/datakatalog-kubb/).

@@ -4,10 +4,22 @@
     "generate:datakatalog-java": "rm -rf java/datakatalog && openapi-generator-cli generate --generator-key datakatalog-java",
     "generate:datakatalog-kotlin": "rm -rf kotlin/datakatalog && openapi-generator-cli generate --generator-key datakatalog-kotlin",
     "generate:datakatalog-ts": "rm -rf typescript/datakatalog && openapi-generator-cli generate --generator-key datakatalog-ts",
-    "generate": "run-p generate:*"
+    "generate:kubb": "kubb",
+    "generate": "run-p generate:*",
+    "lint": "prettier --write ."
   },
   "dependencies": {
+    "@kubb/cli": "^2.6.3",
+    "@kubb/core": "^2.6.3",
+    "@kubb/swagger": "^2.6.3",
+    "@kubb/swagger-tanstack-query": "^2.6.3",
+    "@kubb/swagger-ts": "^2.6.3",
+    "@kubb/swagger-zod": "^2.6.3",
     "@openapitools/openapi-generator-cli": "^2.9.0",
-    "npm-run-all2": "^6.1.2"
+    "@tanstack/react-query": "^5.22.2",
+    "axios": "^1.6.7",
+    "npm-run-all2": "^6.1.2",
+    "prettier": "^3.2.5",
+    "zod": "^3.22.4"
   }
 }

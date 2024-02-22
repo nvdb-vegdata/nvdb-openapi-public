@@ -1,0 +1,5 @@
+export * from './useGetVegobjektById'
+export * from './useGetVegobjektById1'
+export * from './useGetVegobjektByIdAndVersjon'
+export * from './useGetVegobjektVersjoner'
+export * from './useGetVegobjekterByType'
