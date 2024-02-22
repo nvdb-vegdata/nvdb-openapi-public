@@ -25,9 +25,9 @@ import kotlinx.serialization.encoding.*
  * 
  *
  * @param id 
- * @param egenskapstype 
  * @param sorteringsnummer 
  * @param avledet 
+ * @param egenskapstype 
  * @param obligatoriskVerdi 
  * @param skrivebeskyttet 
  * @param sensitivitet 
@@ -39,12 +39,12 @@ import kotlinx.serialization.encoding.*
  * @param kategori 
  * @param dimensjoner 
  * @param geometritype 
- * @param navn 
  * @param kortnavn 
  * @param beskrivelse 
  * @param sosinavn 
  * @param sosinvdbnavn 
  * @param komplementærEgenskapstype 
+ * @param navn 
  * @param gruppesorteringsnummer 
  * @param veiledning 
  * @param grunnrissreferanse 
@@ -58,11 +58,11 @@ data class EgenskapstypeGeometri (
 
     @SerialName(value = "id") @Required override val id: kotlin.Int,
 
-    @SerialName(value = "egenskapstype") @Required override val egenskapstype: EgenskapstypeGeometri.Egenskapstype,
-
     @SerialName(value = "sorteringsnummer") @Required override val sorteringsnummer: kotlin.Int,
 
     @SerialName(value = "avledet") @Required override val avledet: kotlin.Boolean,
+
+    @SerialName(value = "egenskapstype") @Required override val egenskapstype: EgenskapstypeGeometri.Egenskapstype,
 
     @SerialName(value = "obligatorisk_verdi") @Required override val obligatoriskVerdi: kotlin.Boolean,
 
@@ -86,8 +86,6 @@ data class EgenskapstypeGeometri (
 
     @SerialName(value = "geometritype") @Required val geometritype: EgenskapstypeGeometri.Geometritype,
 
-    @SerialName(value = "navn") override val navn: kotlin.String? = null,
-
     @SerialName(value = "kortnavn") override val kortnavn: kotlin.String? = null,
 
     @SerialName(value = "beskrivelse") override val beskrivelse: kotlin.String? = null,
@@ -97,6 +95,8 @@ data class EgenskapstypeGeometri (
     @SerialName(value = "sosinvdbnavn") override val sosinvdbnavn: kotlin.String? = null,
 
     @SerialName(value = "komplementær_egenskapstype") override val komplementærEgenskapstype: kotlin.Int? = null,
+
+    @SerialName(value = "navn") override val navn: kotlin.String? = null,
 
     @SerialName(value = "gruppesorteringsnummer") override val gruppesorteringsnummer: kotlin.Int? = null,
 

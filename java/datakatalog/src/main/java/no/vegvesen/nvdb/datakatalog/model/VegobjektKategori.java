@@ -37,7 +37,7 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
   VegobjektKategori.JSON_PROPERTY_BESKRIVELSE,
   VegobjektKategori.JSON_PROPERTY_START_DATO
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-02-22T10:19:05.929254+01:00[Europe/Oslo]")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", date = "2024-02-22T10:51:46.288517Z[Etc/UTC]")
 public class VegobjektKategori {
   public static final String JSON_PROPERTY_ID = "id";
   private Integer id;

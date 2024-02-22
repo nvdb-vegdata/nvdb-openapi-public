@@ -31,6 +31,14 @@ export type Egenskapstype = {
   /**
    * @type string | undefined
    */
+  navn?: string
+  /**
+   * @type string
+   */
+  egenskapstype: EgenskapstypeEgenskapstype
+  /**
+   * @type string | undefined
+   */
   kortnavn?: string
   /**
    * @type string | undefined
@@ -56,14 +64,6 @@ export type Egenskapstype = {
    * @type integer | undefined int32
    */
   komplementær_egenskapstype?: number
-  /**
-   * @type string | undefined
-   */
-  navn?: string
-  /**
-   * @type string
-   */
-  egenskapstype: EgenskapstypeEgenskapstype
   /**
    * @type boolean
    */

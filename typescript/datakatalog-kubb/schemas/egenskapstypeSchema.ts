@@ -2,6 +2,13 @@ import { z } from 'zod'
 
 export const egenskapstypeSchema = z.object({
   id: z.number(),
+  kortnavn: z.string().optional(),
+  beskrivelse: z.string().optional(),
+  sosinavn: z.string().optional(),
+  sosinvdbnavn: z.string().optional(),
+  sorteringsnummer: z.number(),
+  avledet: z.boolean(),
+  komplementær_egenskapstype: z.number().optional(),
   navn: z.string().optional(),
   egenskapstype: z.enum([
     `Assosiasjon`,
@@ -21,13 +28,6 @@ export const egenskapstypeSchema = z.object({
     `Heltallenum`,
     `Flyttallenum`,
   ]),
-  kortnavn: z.string().optional(),
-  beskrivelse: z.string().optional(),
-  sosinavn: z.string().optional(),
-  sosinvdbnavn: z.string().optional(),
-  sorteringsnummer: z.number(),
-  avledet: z.boolean(),
-  komplementær_egenskapstype: z.number().optional(),
   obligatorisk_verdi: z.boolean(),
   skrivebeskyttet: z.boolean(),
   sensitivitet: z.number(),

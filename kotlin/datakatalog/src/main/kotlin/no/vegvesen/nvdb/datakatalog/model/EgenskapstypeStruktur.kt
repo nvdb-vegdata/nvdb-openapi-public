@@ -25,9 +25,9 @@ import kotlinx.serialization.encoding.*
  * 
  *
  * @param id 
- * @param egenskapstype 
  * @param sorteringsnummer 
  * @param avledet 
+ * @param egenskapstype 
  * @param obligatoriskVerdi 
  * @param skrivebeskyttet 
  * @param sensitivitet 
@@ -38,12 +38,12 @@ import kotlinx.serialization.encoding.*
  * @param viktighet 
  * @param kategori 
  * @param egenskapstyper Egenskapstyper som kan inngå i strukturen
- * @param navn 
  * @param kortnavn 
  * @param beskrivelse 
  * @param sosinavn 
  * @param sosinvdbnavn 
  * @param komplementærEgenskapstype 
+ * @param navn 
  * @param gruppesorteringsnummer 
  * @param veiledning 
  * @param grunnrissreferanse 
@@ -56,11 +56,11 @@ data class EgenskapstypeStruktur (
 
     @SerialName(value = "id") @Required override val id: kotlin.Int,
 
-    @SerialName(value = "egenskapstype") @Required override val egenskapstype: EgenskapstypeStruktur.Egenskapstype,
-
     @SerialName(value = "sorteringsnummer") @Required override val sorteringsnummer: kotlin.Int,
 
     @SerialName(value = "avledet") @Required override val avledet: kotlin.Boolean,
+
+    @SerialName(value = "egenskapstype") @Required override val egenskapstype: EgenskapstypeStruktur.Egenskapstype,
 
     @SerialName(value = "obligatorisk_verdi") @Required override val obligatoriskVerdi: kotlin.Boolean,
 
@@ -83,8 +83,6 @@ data class EgenskapstypeStruktur (
     /* Egenskapstyper som kan inngå i strukturen */
     @SerialName(value = "egenskapstyper") @Required val egenskapstyper: kotlin.collections.List<Egenskapstype>,
 
-    @SerialName(value = "navn") override val navn: kotlin.String? = null,
-
     @SerialName(value = "kortnavn") override val kortnavn: kotlin.String? = null,
 
     @SerialName(value = "beskrivelse") override val beskrivelse: kotlin.String? = null,
@@ -94,6 +92,8 @@ data class EgenskapstypeStruktur (
     @SerialName(value = "sosinvdbnavn") override val sosinvdbnavn: kotlin.String? = null,
 
     @SerialName(value = "komplementær_egenskapstype") override val komplementærEgenskapstype: kotlin.Int? = null,
+
+    @SerialName(value = "navn") override val navn: kotlin.String? = null,
 
     @SerialName(value = "gruppesorteringsnummer") override val gruppesorteringsnummer: kotlin.Int? = null,
 
