@@ -30,6 +30,19 @@
         "inputSpec": "https://nvdbapiles.atlas.vegvesen.no/api-docs/datakatalog",
         "output": "typescript/datakatalog",
         "generatorName": "typescript-fetch"
+      },
+      "vegobjekter-kotlin": {
+        "inputSpec": "https://nvdbapiles.atlas.vegvesen.no/api-docs/vegobjekter",
+        "output": "kotlin/vegobjekter",
+        "generatorName": "kotlin",
+        "library": "multiplatform",
+        "apiPackage": "no.vegvesen.nvdb.vegobjekter.api",
+        "modelPackage": "no.vegvesen.nvdb.vegobjekter.model",
+        "globalProperty": "models,apis,modelDocs=false,modelTests=false,apiTests=false",
+        "additionalProperties": {
+          "dateLibrary": "kotlinx-datetime",
+          "sourceFolder": "src/main/kotlin"
+        }
       }
     }
   }
