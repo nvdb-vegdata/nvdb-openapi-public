@@ -1,0 +1,31 @@
+name: Run generate script and commit changes
+
+on:
+  push:
+    paths:
+      - 'kubb.config.ts'
+      - 'package.json'
+      - 'openapitools.json'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v1
+      - run: bun generate
+
+      - name: Check for changes
+        id: git-check
+        run: |
+          git diff --quiet && echo "No changes" || echo "Changes detected"
+          echo "status=$(if git diff --quiet; then echo "no changes"; else echo "changes"; fi)" >> $GITHUB_OUTPUT
+
+      - name: Commit and push if changed
+        if: steps.git-check.outputs.status == 'changes'
+        run: |
+          git config --global user.name 'GitHub Actions'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git commit -am 'Automated commit from GitHub Actions'
+          git push
