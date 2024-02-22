@@ -11,7 +11,10 @@
         "library": "webclient",
         "apiPackage": "no.vegvesen.nvdb.datakatalog.api",
         "modelPackage": "no.vegvesen.nvdb.datakatalog.model",
-        "globalProperty": "models,apis,modelDocs=false,modelTests=false,apiTests=false"
+        "globalProperty": "models,apis,modelDocs=false,modelTests=false,apiTests=false",
+        "additionalProperties": {
+          "hideGenerationTimestamp": true
+        }
       },
       "datakatalog-kotlin": {
         "inputSpec": "https://nvdbapiles.atlas.vegvesen.no/api-docs/datakatalog",
