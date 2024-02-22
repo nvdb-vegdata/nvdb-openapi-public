@@ -107,3 +107,9 @@ npm run generate:datakatalog
 ```
 
 Se også [package.json](package.json) og [openapitools.json](openapitools.json) i dette repoet for flere eksempler.
+
+### Ferdig genererte eksempler
+
+- [Java-klient for datakatalogen, med Spring Reactive WebClient og Jackson](./datakatalog-java/)
+- [Kotlin-klient for datakatalogen, med Ktor HttpClient og kotlinx.serialization](./datakatalog-kotlin/)
+- [TypeScript-klient for datakatalogen, med fetch](./datakatalog-ts/)
