@@ -6,6 +6,7 @@ on:
       - 'kubb.config.ts'
       - 'package.json'
       - 'openapitools.json'
+  workflow_dispatch:
 
 jobs:
   build:
@@ -14,6 +15,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: oven-sh/setup-bun@v1
+      - run: bun install
       - run: bun generate
 
       - name: Check for changes
