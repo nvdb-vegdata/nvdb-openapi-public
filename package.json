@@ -4,6 +4,7 @@
     "generate:datakatalog-java": "rm -rf java/datakatalog && openapi-generator-cli generate --generator-key datakatalog-java",
     "generate:datakatalog-kotlin": "rm -rf kotlin/datakatalog && openapi-generator-cli generate --generator-key datakatalog-kotlin",
     "generate:datakatalog-ts": "rm -rf typescript/datakatalog && openapi-generator-cli generate --generator-key datakatalog-ts",
+    "generate:vegobjekter-kotlin": "rm -rf kotlin/vegobjekter && openapi-generator-cli generate --generator-key vegobjekter-kotlin",
     "generate:kubb": "kubb",
     "generate": "run-p generate:*",
     "lint": "prettier --write ."
