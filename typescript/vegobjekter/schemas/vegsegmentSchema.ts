@@ -16,7 +16,7 @@ export const vegsegmentSchema = z.object({
     `DETALJERT_KONNEKTERING`,
     `HOVED`,
   ]),
-  detaljnivå: z.enum([
+  'detaljniv\u00E5': z.enum([
     `Vegtrase`,
     `Kjørebane`,
     `Kjørefelt`,
@@ -66,6 +66,6 @@ export const vegsegmentSchema = z.object({
   kommune: z.number(),
   fylke: z.number(),
   vegsystemreferanse: z.lazy(() => vegsystemreferanseSchema),
-  kontraktsområder: z.array(z.number()).optional(),
+  'kontraktsomr\u00E5der': z.array(z.number()).optional(),
   riksvegruter: z.array(z.number()).optional(),
 })

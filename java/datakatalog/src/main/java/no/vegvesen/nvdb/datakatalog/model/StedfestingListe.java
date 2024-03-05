@@ -141,48 +141,6 @@ public class StedfestingListe extends Stedfesting {
   }
 
   @Override
-  public StedfestingListe kortnavn(String kortnavn) {
-    this.setKortnavn(kortnavn);
-    return this;
-  }
-
-  @Override
-  public StedfestingListe beskrivelse(String beskrivelse) {
-    this.setBeskrivelse(beskrivelse);
-    return this;
-  }
-
-  @Override
-  public StedfestingListe sosinavn(String sosinavn) {
-    this.setSosinavn(sosinavn);
-    return this;
-  }
-
-  @Override
-  public StedfestingListe sosinvdbnavn(String sosinvdbnavn) {
-    this.setSosinvdbnavn(sosinvdbnavn);
-    return this;
-  }
-
-  @Override
-  public StedfestingListe sorteringsnummer(Integer sorteringsnummer) {
-    this.setSorteringsnummer(sorteringsnummer);
-    return this;
-  }
-
-  @Override
-  public StedfestingListe avledet(Boolean avledet) {
-    this.setAvledet(avledet);
-    return this;
-  }
-
-  @Override
-  public StedfestingListe komplementærEgenskapstype(Integer komplementærEgenskapstype) {
-    this.setKomplementærEgenskapstype(komplementærEgenskapstype);
-    return this;
-  }
-
-  @Override
   public StedfestingListe navn(String navn) {
     this.setNavn(navn);
     return this;
@@ -191,6 +149,12 @@ public class StedfestingListe extends Stedfesting {
   @Override
   public StedfestingListe egenskapstype(EgenskapstypeEnum egenskapstype) {
     this.setEgenskapstype(egenskapstype);
+    return this;
+  }
+
+  @Override
+  public StedfestingListe komplementærEgenskapstype(Integer komplementærEgenskapstype) {
+    this.setKomplementærEgenskapstype(komplementærEgenskapstype);
     return this;
   }
 
@@ -275,6 +239,42 @@ public class StedfestingListe extends Stedfesting {
   @Override
   public StedfestingListe kategori(Integer kategori) {
     this.setKategori(kategori);
+    return this;
+  }
+
+  @Override
+  public StedfestingListe kortnavn(String kortnavn) {
+    this.setKortnavn(kortnavn);
+    return this;
+  }
+
+  @Override
+  public StedfestingListe beskrivelse(String beskrivelse) {
+    this.setBeskrivelse(beskrivelse);
+    return this;
+  }
+
+  @Override
+  public StedfestingListe sosinavn(String sosinavn) {
+    this.setSosinavn(sosinavn);
+    return this;
+  }
+
+  @Override
+  public StedfestingListe sosinvdbnavn(String sosinvdbnavn) {
+    this.setSosinvdbnavn(sosinvdbnavn);
+    return this;
+  }
+
+  @Override
+  public StedfestingListe sorteringsnummer(Integer sorteringsnummer) {
+    this.setSorteringsnummer(sorteringsnummer);
+    return this;
+  }
+
+  @Override
+  public StedfestingListe avledet(Boolean avledet) {
+    this.setAvledet(avledet);
     return this;
   }
 

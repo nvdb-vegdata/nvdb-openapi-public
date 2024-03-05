@@ -12,6 +12,6 @@ export const egenskapstypeKortdatoSchema = z
       standardverdi: z.number().optional(),
       min_anbefalt: z.number().optional(),
       maks_anbefalt: z.number().optional(),
-      feltmønster: z.string().optional(),
+      'feltm\u00F8nster': z.string().optional(),
     }),
   )

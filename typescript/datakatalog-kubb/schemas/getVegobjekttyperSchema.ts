@@ -1,6 +1,6 @@
 import { z } from 'zod'
-import { problemDetailSchema } from './problemDetailSchema'
 import { vegobjekttypeSchema } from './vegobjekttypeSchema'
+import { problemDetailSchema } from './problemDetailSchema'
 
 export const getVegobjekttyperQueryParamsSchema = z
   .object({
@@ -26,6 +26,13 @@ export const getVegobjekttyperQueryParamsSchema = z
       .optional(),
   })
   .optional()
+
+/**
+ * @description OK
+ */
+export const getVegobjekttyper200Schema = z.array(
+  z.lazy(() => vegobjekttypeSchema),
+)
 
 /**
  * @description Not Found

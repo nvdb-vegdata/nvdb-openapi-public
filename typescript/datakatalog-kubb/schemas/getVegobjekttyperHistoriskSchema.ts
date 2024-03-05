@@ -1,6 +1,6 @@
 import { z } from 'zod'
-import { problemDetailSchema } from './problemDetailSchema'
 import { vegobjekttypeSchema } from './vegobjekttypeSchema'
+import { problemDetailSchema } from './problemDetailSchema'
 
 export const getVegobjekttyperHistoriskPathParamsSchema = z.object({
   versjon: z.string(),
@@ -29,6 +29,13 @@ export const getVegobjekttyperHistoriskQueryParamsSchema = z
       .optional(),
   })
   .optional()
+
+/**
+ * @description OK
+ */
+export const getVegobjekttyperHistorisk200Schema = z.array(
+  z.lazy(() => vegobjekttypeSchema),
+)
 
 /**
  * @description Not Found

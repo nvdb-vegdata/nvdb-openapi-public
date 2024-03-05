@@ -7,7 +7,7 @@ export const stedfestingSchema = z.object({
   startposisjon: z.number().optional(),
   sluttposisjon: z.number().optional(),
   retning: z.enum([`MED`, `MOT`]).optional(),
-  kjørefelt: z.array(z.string()).optional(),
+  'kj\u00F8refelt': z.array(z.string()).optional(),
   kortform: z.string().optional(),
   sideposisjon: z
     .enum([

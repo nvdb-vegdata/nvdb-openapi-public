@@ -8,7 +8,7 @@ export const stedfestingEnkelSchema = z
       stedfestingstype: z.enum([`Punkt`, `Linje`, `Sving`]).optional(),
       geometritype: z.enum([`PUNKT`, `LINJE`, `SVING`]).optional(),
       overlapp_ok: z.boolean().optional(),
-      kjørefelt_relevant: z.enum([`KAN`, `NEI`, `MÅ`]).optional(),
+      'kj\u00F8refelt_relevant': z.enum([`KAN`, `NEI`, `MÅ`]).optional(),
       sideposisjon_relevant: z.enum([`KAN`, `NEI`, `MÅ`]).optional(),
       innenfor_mor: z.boolean().optional(),
       vegnettsajourhold_splitt: z

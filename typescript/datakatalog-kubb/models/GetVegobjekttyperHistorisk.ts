@@ -1,5 +1,5 @@
-import type { ProblemDetail } from './ProblemDetail'
 import type { Vegobjekttype } from './Vegobjekttype'
+import type { ProblemDetail } from './ProblemDetail'
 
 export type GetVegobjekttyperHistoriskPathParams = {
   /**
@@ -28,6 +28,11 @@ export type GetVegobjekttyperHistoriskQueryParams =
       kategori?: number
     }
   | undefined
+
+/**
+ * @description OK
+ */
+export type GetVegobjekttyperHistorisk200 = Vegobjekttype[]
 
 /**
  * @description Not Found

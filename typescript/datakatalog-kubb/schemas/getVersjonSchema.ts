@@ -1,6 +1,11 @@
 import { z } from 'zod'
-import { problemDetailSchema } from './problemDetailSchema'
 import { versjonSchema } from './versjonSchema'
+import { problemDetailSchema } from './problemDetailSchema'
+
+/**
+ * @description OK
+ */
+export const getVersjon200Schema = z.lazy(() => versjonSchema)
 
 /**
  * @description Not Found

@@ -1,6 +1,6 @@
 import { z } from 'zod'
-import { problemDetailSchema } from './problemDetailSchema'
 import { vegobjekterSideSchema } from './vegobjekterSideSchema'
+import { problemDetailSchema } from './problemDetailSchema'
 
 export const getVegobjekterByTypePathParamsSchema = z.object({
   vegobjekttypeId: z
@@ -185,6 +185,11 @@ export const getVegobjekterByTypeQueryParamsSchema = z
       .optional(),
   })
   .optional()
+
+/**
+ * @description OK
+ */
+export const getVegobjekterByType200Schema = z.lazy(() => vegobjekterSideSchema)
 
 /**
  * @description Bad Request

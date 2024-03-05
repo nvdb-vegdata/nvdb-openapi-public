@@ -12,6 +12,6 @@ export const egenskapstypeTidSchema = z
       standardverdi: z.string().optional(),
       min_anbefalt: z.string().optional(),
       maks_anbefalt: z.string().optional(),
-      feltmønster: z.string().optional(),
+      'feltm\u00F8nster': z.string().optional(),
     }),
   )

@@ -37,30 +37,6 @@ export type Egenskapstype = {
    */
   egenskapstype: EgenskapstypeEgenskapstype
   /**
-   * @type string | undefined
-   */
-  kortnavn?: string
-  /**
-   * @type string | undefined
-   */
-  beskrivelse?: string
-  /**
-   * @type string | undefined
-   */
-  sosinavn?: string
-  /**
-   * @type string | undefined
-   */
-  sosinvdbnavn?: string
-  /**
-   * @type integer int32
-   */
-  sorteringsnummer: number
-  /**
-   * @type boolean
-   */
-  avledet: boolean
-  /**
    * @type integer | undefined int32
    */
   komplementær_egenskapstype?: number
@@ -120,4 +96,28 @@ export type Egenskapstype = {
    * @type integer int32
    */
   kategori: number
+  /**
+   * @type string | undefined
+   */
+  kortnavn?: string
+  /**
+   * @type string | undefined
+   */
+  beskrivelse?: string
+  /**
+   * @type string | undefined
+   */
+  sosinavn?: string
+  /**
+   * @type string | undefined
+   */
+  sosinvdbnavn?: string
+  /**
+   * @type integer int32
+   */
+  sorteringsnummer: number
+  /**
+   * @type boolean
+   */
+  avledet: boolean
 }

@@ -1,6 +1,6 @@
 import { z } from 'zod'
-import { problemDetailSchema } from './problemDetailSchema'
 import { vegobjektSchema } from './vegobjektSchema'
+import { problemDetailSchema } from './problemDetailSchema'
 
 export const getVegobjektById1PathParamsSchema = z.object({
   vegobjekttypeId: z
@@ -76,6 +76,11 @@ export const getVegobjektById1QueryParamsSchema = z
       .optional(),
   })
   .optional()
+
+/**
+ * @description OK
+ */
+export const getVegobjektById1200Schema = z.lazy(() => vegobjektSchema)
 
 /**
  * @description Bad Request

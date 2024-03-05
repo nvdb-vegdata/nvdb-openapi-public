@@ -25,9 +25,9 @@ import kotlinx.serialization.encoding.*
  * 
  *
  * @param id 
+ * @param egenskapstype 
  * @param sorteringsnummer 
  * @param avledet 
- * @param egenskapstype 
  * @param obligatoriskVerdi 
  * @param skrivebeskyttet 
  * @param sensitivitet 
@@ -39,12 +39,12 @@ import kotlinx.serialization.encoding.*
  * @param kategori 
  * @param lengdeavhengigVerdi 
  * @param ajourholdSnu 
+ * @param navn 
  * @param kortnavn 
  * @param beskrivelse 
  * @param sosinavn 
  * @param sosinvdbnavn 
  * @param komplementærEgenskapstype 
- * @param navn 
  * @param gruppesorteringsnummer 
  * @param veiledning 
  * @param grunnrissreferanse 
@@ -63,11 +63,11 @@ data class EgenskapstypeDato (
 
     @SerialName(value = "id") @Required override val id: kotlin.Int,
 
+    @SerialName(value = "egenskapstype") @Required override val egenskapstype: EgenskapstypeDato.Egenskapstype,
+
     @SerialName(value = "sorteringsnummer") @Required override val sorteringsnummer: kotlin.Int,
 
     @SerialName(value = "avledet") @Required override val avledet: kotlin.Boolean,
-
-    @SerialName(value = "egenskapstype") @Required override val egenskapstype: EgenskapstypeDato.Egenskapstype,
 
     @SerialName(value = "obligatorisk_verdi") @Required override val obligatoriskVerdi: kotlin.Boolean,
 
@@ -91,6 +91,8 @@ data class EgenskapstypeDato (
 
     @SerialName(value = "ajourhold_snu") @Required val ajourholdSnu: kotlin.Boolean,
 
+    @SerialName(value = "navn") override val navn: kotlin.String? = null,
+
     @SerialName(value = "kortnavn") override val kortnavn: kotlin.String? = null,
 
     @SerialName(value = "beskrivelse") override val beskrivelse: kotlin.String? = null,
@@ -100,8 +102,6 @@ data class EgenskapstypeDato (
     @SerialName(value = "sosinvdbnavn") override val sosinvdbnavn: kotlin.String? = null,
 
     @SerialName(value = "komplementær_egenskapstype") override val komplementærEgenskapstype: kotlin.Int? = null,
-
-    @SerialName(value = "navn") override val navn: kotlin.String? = null,
 
     @SerialName(value = "gruppesorteringsnummer") override val gruppesorteringsnummer: kotlin.Int? = null,
 

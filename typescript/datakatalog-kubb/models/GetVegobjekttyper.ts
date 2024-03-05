@@ -1,5 +1,5 @@
-import type { ProblemDetail } from './ProblemDetail'
 import type { Vegobjekttype } from './Vegobjekttype'
+import type { ProblemDetail } from './ProblemDetail'
 
 export type GetVegobjekttyperQueryParamsInkluder =
   | 'egenskapstyper'
@@ -21,6 +21,11 @@ export type GetVegobjekttyperQueryParams =
       kategori?: number
     }
   | undefined
+
+/**
+ * @description OK
+ */
+export type GetVegobjekttyper200 = Vegobjekttype[]
 
 /**
  * @description Not Found

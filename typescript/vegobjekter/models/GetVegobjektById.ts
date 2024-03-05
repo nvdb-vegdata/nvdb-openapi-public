@@ -1,5 +1,5 @@
-import type { ProblemDetail } from './ProblemDetail'
 import type { Vegobjekt } from './Vegobjekt'
+import type { ProblemDetail } from './ProblemDetail'
 
 export type GetVegobjektByIdQueryParamsInkluder =
   | 'metadata'
@@ -74,6 +74,11 @@ export type GetVegobjektByIdQueryParams = {
    */
   tidspunkt?: string
 }
+
+/**
+ * @description OK
+ */
+export type GetVegobjektById200 = Vegobjekt
 
 /**
  * @description Bad Request

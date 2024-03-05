@@ -35,6 +35,6 @@ export const geometriEgenskapSchema = z
       temakode: z.number().optional(),
       referansegeometri: z.boolean().optional(),
       lengde: z.number().optional(),
-      høydereferanse: z.number().optional(),
+      'h\u00F8ydereferanse': z.number().optional(),
     }),
   )

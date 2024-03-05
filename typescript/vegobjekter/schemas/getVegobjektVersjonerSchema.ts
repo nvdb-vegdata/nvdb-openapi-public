@@ -1,6 +1,6 @@
 import { z } from 'zod'
-import { problemDetailSchema } from './problemDetailSchema'
 import { vegobjektSchema } from './vegobjektSchema'
+import { problemDetailSchema } from './problemDetailSchema'
 
 export const getVegobjektVersjonerPathParamsSchema = z.object({
   vegobjekttypeId: z
@@ -76,6 +76,13 @@ export const getVegobjektVersjonerQueryParamsSchema = z
       .optional(),
   })
   .optional()
+
+/**
+ * @description OK
+ */
+export const getVegobjektVersjoner200Schema = z.array(
+  z.lazy(() => vegobjektSchema),
+)
 
 /**
  * @description Bad Request

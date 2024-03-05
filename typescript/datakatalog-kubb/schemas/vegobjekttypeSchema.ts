@@ -19,7 +19,7 @@ export const vegobjekttypeSchema = z.object({
   konnekteringslenke_ok: z.boolean().optional(),
   abstrakt_type: z.boolean(),
   avledet: z.boolean(),
-  må_ha_mor: z.boolean(),
+  'm\u00E5_ha_mor': z.boolean(),
   en_versjon: z.boolean(),
   tilleggsinformasjon: z.string().optional(),
   kategorier: z.array(z.lazy(() => vegobjektKategoriSchema)),

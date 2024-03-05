@@ -484,48 +484,6 @@ public class EgenskapstypeFlyttallenum extends Egenskapstype {
   }
 
   @Override
-  public EgenskapstypeFlyttallenum kortnavn(String kortnavn) {
-    this.setKortnavn(kortnavn);
-    return this;
-  }
-
-  @Override
-  public EgenskapstypeFlyttallenum beskrivelse(String beskrivelse) {
-    this.setBeskrivelse(beskrivelse);
-    return this;
-  }
-
-  @Override
-  public EgenskapstypeFlyttallenum sosinavn(String sosinavn) {
-    this.setSosinavn(sosinavn);
-    return this;
-  }
-
-  @Override
-  public EgenskapstypeFlyttallenum sosinvdbnavn(String sosinvdbnavn) {
-    this.setSosinvdbnavn(sosinvdbnavn);
-    return this;
-  }
-
-  @Override
-  public EgenskapstypeFlyttallenum sorteringsnummer(Integer sorteringsnummer) {
-    this.setSorteringsnummer(sorteringsnummer);
-    return this;
-  }
-
-  @Override
-  public EgenskapstypeFlyttallenum avledet(Boolean avledet) {
-    this.setAvledet(avledet);
-    return this;
-  }
-
-  @Override
-  public EgenskapstypeFlyttallenum komplementærEgenskapstype(Integer komplementærEgenskapstype) {
-    this.setKomplementærEgenskapstype(komplementærEgenskapstype);
-    return this;
-  }
-
-  @Override
   public EgenskapstypeFlyttallenum navn(String navn) {
     this.setNavn(navn);
     return this;
@@ -534,6 +492,12 @@ public class EgenskapstypeFlyttallenum extends Egenskapstype {
   @Override
   public EgenskapstypeFlyttallenum egenskapstype(EgenskapstypeEnum egenskapstype) {
     this.setEgenskapstype(egenskapstype);
+    return this;
+  }
+
+  @Override
+  public EgenskapstypeFlyttallenum komplementærEgenskapstype(Integer komplementærEgenskapstype) {
+    this.setKomplementærEgenskapstype(komplementærEgenskapstype);
     return this;
   }
 
@@ -618,6 +582,42 @@ public class EgenskapstypeFlyttallenum extends Egenskapstype {
   @Override
   public EgenskapstypeFlyttallenum kategori(Integer kategori) {
     this.setKategori(kategori);
+    return this;
+  }
+
+  @Override
+  public EgenskapstypeFlyttallenum kortnavn(String kortnavn) {
+    this.setKortnavn(kortnavn);
+    return this;
+  }
+
+  @Override
+  public EgenskapstypeFlyttallenum beskrivelse(String beskrivelse) {
+    this.setBeskrivelse(beskrivelse);
+    return this;
+  }
+
+  @Override
+  public EgenskapstypeFlyttallenum sosinavn(String sosinavn) {
+    this.setSosinavn(sosinavn);
+    return this;
+  }
+
+  @Override
+  public EgenskapstypeFlyttallenum sosinvdbnavn(String sosinvdbnavn) {
+    this.setSosinvdbnavn(sosinvdbnavn);
+    return this;
+  }
+
+  @Override
+  public EgenskapstypeFlyttallenum sorteringsnummer(Integer sorteringsnummer) {
+    this.setSorteringsnummer(sorteringsnummer);
+    return this;
+  }
+
+  @Override
+  public EgenskapstypeFlyttallenum avledet(Boolean avledet) {
+    this.setAvledet(avledet);
     return this;
   }
 

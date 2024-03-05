@@ -291,48 +291,6 @@ public class EgenskapstypeTid extends Egenskapstype {
   }
 
   @Override
-  public EgenskapstypeTid kortnavn(String kortnavn) {
-    this.setKortnavn(kortnavn);
-    return this;
-  }
-
-  @Override
-  public EgenskapstypeTid beskrivelse(String beskrivelse) {
-    this.setBeskrivelse(beskrivelse);
-    return this;
-  }
-
-  @Override
-  public EgenskapstypeTid sosinavn(String sosinavn) {
-    this.setSosinavn(sosinavn);
-    return this;
-  }
-
-  @Override
-  public EgenskapstypeTid sosinvdbnavn(String sosinvdbnavn) {
-    this.setSosinvdbnavn(sosinvdbnavn);
-    return this;
-  }
-
-  @Override
-  public EgenskapstypeTid sorteringsnummer(Integer sorteringsnummer) {
-    this.setSorteringsnummer(sorteringsnummer);
-    return this;
-  }
-
-  @Override
-  public EgenskapstypeTid avledet(Boolean avledet) {
-    this.setAvledet(avledet);
-    return this;
-  }
-
-  @Override
-  public EgenskapstypeTid komplementærEgenskapstype(Integer komplementærEgenskapstype) {
-    this.setKomplementærEgenskapstype(komplementærEgenskapstype);
-    return this;
-  }
-
-  @Override
   public EgenskapstypeTid navn(String navn) {
     this.setNavn(navn);
     return this;
@@ -341,6 +299,12 @@ public class EgenskapstypeTid extends Egenskapstype {
   @Override
   public EgenskapstypeTid egenskapstype(EgenskapstypeEnum egenskapstype) {
     this.setEgenskapstype(egenskapstype);
+    return this;
+  }
+
+  @Override
+  public EgenskapstypeTid komplementærEgenskapstype(Integer komplementærEgenskapstype) {
+    this.setKomplementærEgenskapstype(komplementærEgenskapstype);
     return this;
   }
 
@@ -425,6 +389,42 @@ public class EgenskapstypeTid extends Egenskapstype {
   @Override
   public EgenskapstypeTid kategori(Integer kategori) {
     this.setKategori(kategori);
+    return this;
+  }
+
+  @Override
+  public EgenskapstypeTid kortnavn(String kortnavn) {
+    this.setKortnavn(kortnavn);
+    return this;
+  }
+
+  @Override
+  public EgenskapstypeTid beskrivelse(String beskrivelse) {
+    this.setBeskrivelse(beskrivelse);
+    return this;
+  }
+
+  @Override
+  public EgenskapstypeTid sosinavn(String sosinavn) {
+    this.setSosinavn(sosinavn);
+    return this;
+  }
+
+  @Override
+  public EgenskapstypeTid sosinvdbnavn(String sosinvdbnavn) {
+    this.setSosinvdbnavn(sosinvdbnavn);
+    return this;
+  }
+
+  @Override
+  public EgenskapstypeTid sorteringsnummer(Integer sorteringsnummer) {
+    this.setSorteringsnummer(sorteringsnummer);
+    return this;
+  }
+
+  @Override
+  public EgenskapstypeTid avledet(Boolean avledet) {
+    this.setAvledet(avledet);
     return this;
   }
 

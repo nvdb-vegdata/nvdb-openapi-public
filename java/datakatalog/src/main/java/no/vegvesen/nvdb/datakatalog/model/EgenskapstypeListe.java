@@ -140,48 +140,6 @@ public class EgenskapstypeListe extends Egenskapstype {
   }
 
   @Override
-  public EgenskapstypeListe kortnavn(String kortnavn) {
-    this.setKortnavn(kortnavn);
-    return this;
-  }
-
-  @Override
-  public EgenskapstypeListe beskrivelse(String beskrivelse) {
-    this.setBeskrivelse(beskrivelse);
-    return this;
-  }
-
-  @Override
-  public EgenskapstypeListe sosinavn(String sosinavn) {
-    this.setSosinavn(sosinavn);
-    return this;
-  }
-
-  @Override
-  public EgenskapstypeListe sosinvdbnavn(String sosinvdbnavn) {
-    this.setSosinvdbnavn(sosinvdbnavn);
-    return this;
-  }
-
-  @Override
-  public EgenskapstypeListe sorteringsnummer(Integer sorteringsnummer) {
-    this.setSorteringsnummer(sorteringsnummer);
-    return this;
-  }
-
-  @Override
-  public EgenskapstypeListe avledet(Boolean avledet) {
-    this.setAvledet(avledet);
-    return this;
-  }
-
-  @Override
-  public EgenskapstypeListe komplementærEgenskapstype(Integer komplementærEgenskapstype) {
-    this.setKomplementærEgenskapstype(komplementærEgenskapstype);
-    return this;
-  }
-
-  @Override
   public EgenskapstypeListe navn(String navn) {
     this.setNavn(navn);
     return this;
@@ -190,6 +148,12 @@ public class EgenskapstypeListe extends Egenskapstype {
   @Override
   public EgenskapstypeListe egenskapstype(EgenskapstypeEnum egenskapstype) {
     this.setEgenskapstype(egenskapstype);
+    return this;
+  }
+
+  @Override
+  public EgenskapstypeListe komplementærEgenskapstype(Integer komplementærEgenskapstype) {
+    this.setKomplementærEgenskapstype(komplementærEgenskapstype);
     return this;
   }
 
@@ -274,6 +238,42 @@ public class EgenskapstypeListe extends Egenskapstype {
   @Override
   public EgenskapstypeListe kategori(Integer kategori) {
     this.setKategori(kategori);
+    return this;
+  }
+
+  @Override
+  public EgenskapstypeListe kortnavn(String kortnavn) {
+    this.setKortnavn(kortnavn);
+    return this;
+  }
+
+  @Override
+  public EgenskapstypeListe beskrivelse(String beskrivelse) {
+    this.setBeskrivelse(beskrivelse);
+    return this;
+  }
+
+  @Override
+  public EgenskapstypeListe sosinavn(String sosinavn) {
+    this.setSosinavn(sosinavn);
+    return this;
+  }
+
+  @Override
+  public EgenskapstypeListe sosinvdbnavn(String sosinvdbnavn) {
+    this.setSosinvdbnavn(sosinvdbnavn);
+    return this;
+  }
+
+  @Override
+  public EgenskapstypeListe sorteringsnummer(Integer sorteringsnummer) {
+    this.setSorteringsnummer(sorteringsnummer);
+    return this;
+  }
+
+  @Override
+  public EgenskapstypeListe avledet(Boolean avledet) {
+    this.setAvledet(avledet);
     return this;
   }
 
