@@ -1,13 +1,6 @@
 import { z } from 'zod'
-import { egenskapstypeKategoriSchema } from './egenskapstypeKategoriSchema'
 import { problemDetailSchema } from './problemDetailSchema'
-
-/**
- * @description OK
- */
-export const getEgenskapstypeKategorier200Schema = z.array(
-  z.lazy(() => egenskapstypeKategoriSchema),
-)
+import { egenskapstypeKategoriSchema } from './egenskapstypeKategoriSchema'
 
 /**
  * @description Not Found

@@ -1,11 +1,6 @@
 import { z } from 'zod'
-import { enhetSchema } from './enhetSchema'
 import { problemDetailSchema } from './problemDetailSchema'
-
-/**
- * @description OK
- */
-export const getEnheter200Schema = z.array(z.lazy(() => enhetSchema))
+import { enhetSchema } from './enhetSchema'
 
 /**
  * @description Not Found

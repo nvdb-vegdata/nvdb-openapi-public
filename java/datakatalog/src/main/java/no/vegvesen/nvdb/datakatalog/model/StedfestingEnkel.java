@@ -517,6 +517,42 @@ public class StedfestingEnkel extends Stedfesting {
   }
 
   @Override
+  public StedfestingEnkel kortnavn(String kortnavn) {
+    this.setKortnavn(kortnavn);
+    return this;
+  }
+
+  @Override
+  public StedfestingEnkel beskrivelse(String beskrivelse) {
+    this.setBeskrivelse(beskrivelse);
+    return this;
+  }
+
+  @Override
+  public StedfestingEnkel sosinavn(String sosinavn) {
+    this.setSosinavn(sosinavn);
+    return this;
+  }
+
+  @Override
+  public StedfestingEnkel sosinvdbnavn(String sosinvdbnavn) {
+    this.setSosinvdbnavn(sosinvdbnavn);
+    return this;
+  }
+
+  @Override
+  public StedfestingEnkel sorteringsnummer(Integer sorteringsnummer) {
+    this.setSorteringsnummer(sorteringsnummer);
+    return this;
+  }
+
+  @Override
+  public StedfestingEnkel avledet(Boolean avledet) {
+    this.setAvledet(avledet);
+    return this;
+  }
+
+  @Override
   public StedfestingEnkel komplementærEgenskapstype(Integer komplementærEgenskapstype) {
     this.setKomplementærEgenskapstype(komplementærEgenskapstype);
     return this;
@@ -603,42 +639,6 @@ public class StedfestingEnkel extends Stedfesting {
   @Override
   public StedfestingEnkel kategori(Integer kategori) {
     this.setKategori(kategori);
-    return this;
-  }
-
-  @Override
-  public StedfestingEnkel kortnavn(String kortnavn) {
-    this.setKortnavn(kortnavn);
-    return this;
-  }
-
-  @Override
-  public StedfestingEnkel beskrivelse(String beskrivelse) {
-    this.setBeskrivelse(beskrivelse);
-    return this;
-  }
-
-  @Override
-  public StedfestingEnkel sosinavn(String sosinavn) {
-    this.setSosinavn(sosinavn);
-    return this;
-  }
-
-  @Override
-  public StedfestingEnkel sosinvdbnavn(String sosinvdbnavn) {
-    this.setSosinvdbnavn(sosinvdbnavn);
-    return this;
-  }
-
-  @Override
-  public StedfestingEnkel sorteringsnummer(Integer sorteringsnummer) {
-    this.setSorteringsnummer(sorteringsnummer);
-    return this;
-  }
-
-  @Override
-  public StedfestingEnkel avledet(Boolean avledet) {
-    this.setAvledet(avledet);
     return this;
   }
 

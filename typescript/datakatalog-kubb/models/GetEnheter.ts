@@ -1,10 +1,5 @@
-import type { Enhet } from './Enhet'
 import type { ProblemDetail } from './ProblemDetail'
-
-/**
- * @description OK
- */
-export type GetEnheter200 = Enhet[]
+import type { Enhet } from './Enhet'
 
 /**
  * @description Not Found

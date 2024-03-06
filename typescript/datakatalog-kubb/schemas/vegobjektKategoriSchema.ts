@@ -2,7 +2,7 @@ import { z } from 'zod'
 
 export const vegobjektKategoriSchema = z.object({
   id: z.number(),
-  'prim\u00E6rkategori': z.boolean(),
+  primærkategori: z.boolean(),
   nummer: z.number(),
   navn: z.string().optional(),
   kortnavn: z.string().optional(),

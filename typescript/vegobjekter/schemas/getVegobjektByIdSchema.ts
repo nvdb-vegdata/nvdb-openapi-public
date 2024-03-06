@@ -1,6 +1,6 @@
 import { z } from 'zod'
-import { vegobjektSchema } from './vegobjektSchema'
 import { problemDetailSchema } from './problemDetailSchema'
+import { vegobjektSchema } from './vegobjektSchema'
 
 export const getVegobjektByIdQueryParamsSchema = z.object({
   id: z.number().describe(`ID for vegobjekt som skal hentes.`),
@@ -67,11 +67,6 @@ export const getVegobjektByIdQueryParamsSchema = z.object({
     .describe(`Finner versjonen som var gyldig denne datoen.`)
     .optional(),
 })
-
-/**
- * @description OK
- */
-export const getVegobjektById200Schema = z.lazy(() => vegobjektSchema)
 
 /**
  * @description Bad Request

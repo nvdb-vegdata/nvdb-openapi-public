@@ -26,8 +26,6 @@ import kotlinx.serialization.encoding.*
  *
  * @param id 
  * @param egenskapstype 
- * @param sorteringsnummer 
- * @param avledet 
  * @param obligatoriskVerdi 
  * @param skrivebeskyttet 
  * @param sensitivitet 
@@ -37,19 +35,21 @@ import kotlinx.serialization.encoding.*
  * @param referansegeometriTilstrekkelig 
  * @param viktighet 
  * @param kategori 
+ * @param sorteringsnummer 
+ * @param avledet 
  * @param dimensjoner 
  * @param geometritype 
  * @param navn 
- * @param kortnavn 
- * @param beskrivelse 
- * @param sosinavn 
- * @param sosinvdbnavn 
  * @param komplementærEgenskapstype 
  * @param gruppesorteringsnummer 
  * @param veiledning 
  * @param grunnrissreferanse 
  * @param høydereferanse 
  * @param sosiReferanse 
+ * @param kortnavn 
+ * @param beskrivelse 
+ * @param sosinavn 
+ * @param sosinvdbnavn 
  * @param innenforMor 
  */
 @Serializable
@@ -59,10 +59,6 @@ data class EgenskapstypeGeometri (
     @SerialName(value = "id") @Required override val id: kotlin.Int,
 
     @SerialName(value = "egenskapstype") @Required override val egenskapstype: EgenskapstypeGeometri.Egenskapstype,
-
-    @SerialName(value = "sorteringsnummer") @Required override val sorteringsnummer: kotlin.Int,
-
-    @SerialName(value = "avledet") @Required override val avledet: kotlin.Boolean,
 
     @SerialName(value = "obligatorisk_verdi") @Required override val obligatoriskVerdi: kotlin.Boolean,
 
@@ -82,19 +78,15 @@ data class EgenskapstypeGeometri (
 
     @SerialName(value = "kategori") @Required override val kategori: kotlin.Int,
 
+    @SerialName(value = "sorteringsnummer") @Required override val sorteringsnummer: kotlin.Int,
+
+    @SerialName(value = "avledet") @Required override val avledet: kotlin.Boolean,
+
     @SerialName(value = "dimensjoner") @Required val dimensjoner: kotlin.Int,
 
     @SerialName(value = "geometritype") @Required val geometritype: EgenskapstypeGeometri.Geometritype,
 
     @SerialName(value = "navn") override val navn: kotlin.String? = null,
-
-    @SerialName(value = "kortnavn") override val kortnavn: kotlin.String? = null,
-
-    @SerialName(value = "beskrivelse") override val beskrivelse: kotlin.String? = null,
-
-    @SerialName(value = "sosinavn") override val sosinavn: kotlin.String? = null,
-
-    @SerialName(value = "sosinvdbnavn") override val sosinvdbnavn: kotlin.String? = null,
 
     @SerialName(value = "komplementær_egenskapstype") override val komplementærEgenskapstype: kotlin.Int? = null,
 
@@ -107,6 +99,14 @@ data class EgenskapstypeGeometri (
     @SerialName(value = "høydereferanse") override val høydereferanse: kotlin.String? = null,
 
     @SerialName(value = "sosi_referanse") override val sosiReferanse: kotlin.String? = null,
+
+    @SerialName(value = "kortnavn") override val kortnavn: kotlin.String? = null,
+
+    @SerialName(value = "beskrivelse") override val beskrivelse: kotlin.String? = null,
+
+    @SerialName(value = "sosinavn") override val sosinavn: kotlin.String? = null,
+
+    @SerialName(value = "sosinvdbnavn") override val sosinvdbnavn: kotlin.String? = null,
 
     @SerialName(value = "innenfor_mor") val innenforMor: kotlin.Boolean? = null
 

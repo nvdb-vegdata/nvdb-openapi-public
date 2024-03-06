@@ -1,10 +1,5 @@
-import type { Versjon } from './Versjon'
 import type { ProblemDetail } from './ProblemDetail'
-
-/**
- * @description OK
- */
-export type GetVersjon200 = Versjon
+import type { Versjon } from './Versjon'
 
 /**
  * @description Not Found

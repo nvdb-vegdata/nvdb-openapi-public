@@ -12,7 +12,7 @@ export const egenskapstypeTekstenumSchema = z
       ajourhold_snu: z.boolean().optional(),
       standardverdi: z.string().optional(),
       feltlengde: z.number().optional(),
-      'feltm\u00F8nster': z.string().optional(),
+      feltmønster: z.string().optional(),
       tillatte_verdier: z.array(z.lazy(() => enumverdiTekstSchema)).optional(),
     }),
   )

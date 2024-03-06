@@ -1,5 +1,5 @@
-import type { Vegobjekt } from './Vegobjekt'
 import type { ProblemDetail } from './ProblemDetail'
+import type { Vegobjekt } from './Vegobjekt'
 
 export type GetVegobjektById1PathParams = {
   /**
@@ -86,11 +86,6 @@ export type GetVegobjektById1QueryParams =
       tidspunkt?: string
     }
   | undefined
-
-/**
- * @description OK
- */
-export type GetVegobjektById1200 = Vegobjekt
 
 /**
  * @description Bad Request

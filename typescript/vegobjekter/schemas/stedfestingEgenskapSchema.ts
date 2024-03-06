@@ -26,7 +26,7 @@ export const stedfestingEgenskapSchema = z
           `R0`,
         ])
         .optional(),
-      'kj\u00F8refelt': z.array(z.string()).optional(),
+      kjørefelt: z.array(z.string()).optional(),
       relativPosisjon: z.number().optional(),
       startposisjon: z.number().optional(),
       sluttposisjon: z.number().optional(),

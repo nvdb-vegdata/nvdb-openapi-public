@@ -1,5 +1,5 @@
-import type { Egenskapstype } from './Egenskapstype'
 import type { ProblemDetail } from './ProblemDetail'
+import type { Egenskapstype } from './Egenskapstype'
 
 export type GetEgenskapstypeForVegobjekttypePathParams = {
   /**
@@ -11,11 +11,6 @@ export type GetEgenskapstypeForVegobjekttypePathParams = {
    */
   egenskapstypeid: number
 }
-
-/**
- * @description OK
- */
-export type GetEgenskapstypeForVegobjekttype200 = Egenskapstype
 
 /**
  * @description Not Found

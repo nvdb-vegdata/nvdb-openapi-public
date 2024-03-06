@@ -213,6 +213,42 @@ public class EgenskapstypeBoolsk extends Egenskapstype {
   }
 
   @Override
+  public EgenskapstypeBoolsk kortnavn(String kortnavn) {
+    this.setKortnavn(kortnavn);
+    return this;
+  }
+
+  @Override
+  public EgenskapstypeBoolsk beskrivelse(String beskrivelse) {
+    this.setBeskrivelse(beskrivelse);
+    return this;
+  }
+
+  @Override
+  public EgenskapstypeBoolsk sosinavn(String sosinavn) {
+    this.setSosinavn(sosinavn);
+    return this;
+  }
+
+  @Override
+  public EgenskapstypeBoolsk sosinvdbnavn(String sosinvdbnavn) {
+    this.setSosinvdbnavn(sosinvdbnavn);
+    return this;
+  }
+
+  @Override
+  public EgenskapstypeBoolsk sorteringsnummer(Integer sorteringsnummer) {
+    this.setSorteringsnummer(sorteringsnummer);
+    return this;
+  }
+
+  @Override
+  public EgenskapstypeBoolsk avledet(Boolean avledet) {
+    this.setAvledet(avledet);
+    return this;
+  }
+
+  @Override
   public EgenskapstypeBoolsk komplementærEgenskapstype(Integer komplementærEgenskapstype) {
     this.setKomplementærEgenskapstype(komplementærEgenskapstype);
     return this;
@@ -299,42 +335,6 @@ public class EgenskapstypeBoolsk extends Egenskapstype {
   @Override
   public EgenskapstypeBoolsk kategori(Integer kategori) {
     this.setKategori(kategori);
-    return this;
-  }
-
-  @Override
-  public EgenskapstypeBoolsk kortnavn(String kortnavn) {
-    this.setKortnavn(kortnavn);
-    return this;
-  }
-
-  @Override
-  public EgenskapstypeBoolsk beskrivelse(String beskrivelse) {
-    this.setBeskrivelse(beskrivelse);
-    return this;
-  }
-
-  @Override
-  public EgenskapstypeBoolsk sosinavn(String sosinavn) {
-    this.setSosinavn(sosinavn);
-    return this;
-  }
-
-  @Override
-  public EgenskapstypeBoolsk sosinvdbnavn(String sosinvdbnavn) {
-    this.setSosinvdbnavn(sosinvdbnavn);
-    return this;
-  }
-
-  @Override
-  public EgenskapstypeBoolsk sorteringsnummer(Integer sorteringsnummer) {
-    this.setSorteringsnummer(sorteringsnummer);
-    return this;
-  }
-
-  @Override
-  public EgenskapstypeBoolsk avledet(Boolean avledet) {
-    this.setAvledet(avledet);
     return this;
   }
 

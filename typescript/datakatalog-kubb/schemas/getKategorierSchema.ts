@@ -1,11 +1,6 @@
 import { z } from 'zod'
-import { kategoriSchema } from './kategoriSchema'
 import { problemDetailSchema } from './problemDetailSchema'
-
-/**
- * @description OK
- */
-export const getKategorier200Schema = z.array(z.lazy(() => kategoriSchema))
+import { kategoriSchema } from './kategoriSchema'
 
 /**
  * @description Not Found

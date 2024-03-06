@@ -315,6 +315,42 @@ public class EgenskapstypeTekstenum extends Egenskapstype {
   }
 
   @Override
+  public EgenskapstypeTekstenum kortnavn(String kortnavn) {
+    this.setKortnavn(kortnavn);
+    return this;
+  }
+
+  @Override
+  public EgenskapstypeTekstenum beskrivelse(String beskrivelse) {
+    this.setBeskrivelse(beskrivelse);
+    return this;
+  }
+
+  @Override
+  public EgenskapstypeTekstenum sosinavn(String sosinavn) {
+    this.setSosinavn(sosinavn);
+    return this;
+  }
+
+  @Override
+  public EgenskapstypeTekstenum sosinvdbnavn(String sosinvdbnavn) {
+    this.setSosinvdbnavn(sosinvdbnavn);
+    return this;
+  }
+
+  @Override
+  public EgenskapstypeTekstenum sorteringsnummer(Integer sorteringsnummer) {
+    this.setSorteringsnummer(sorteringsnummer);
+    return this;
+  }
+
+  @Override
+  public EgenskapstypeTekstenum avledet(Boolean avledet) {
+    this.setAvledet(avledet);
+    return this;
+  }
+
+  @Override
   public EgenskapstypeTekstenum komplementærEgenskapstype(Integer komplementærEgenskapstype) {
     this.setKomplementærEgenskapstype(komplementærEgenskapstype);
     return this;
@@ -401,42 +437,6 @@ public class EgenskapstypeTekstenum extends Egenskapstype {
   @Override
   public EgenskapstypeTekstenum kategori(Integer kategori) {
     this.setKategori(kategori);
-    return this;
-  }
-
-  @Override
-  public EgenskapstypeTekstenum kortnavn(String kortnavn) {
-    this.setKortnavn(kortnavn);
-    return this;
-  }
-
-  @Override
-  public EgenskapstypeTekstenum beskrivelse(String beskrivelse) {
-    this.setBeskrivelse(beskrivelse);
-    return this;
-  }
-
-  @Override
-  public EgenskapstypeTekstenum sosinavn(String sosinavn) {
-    this.setSosinavn(sosinavn);
-    return this;
-  }
-
-  @Override
-  public EgenskapstypeTekstenum sosinvdbnavn(String sosinvdbnavn) {
-    this.setSosinvdbnavn(sosinvdbnavn);
-    return this;
-  }
-
-  @Override
-  public EgenskapstypeTekstenum sorteringsnummer(Integer sorteringsnummer) {
-    this.setSorteringsnummer(sorteringsnummer);
-    return this;
-  }
-
-  @Override
-  public EgenskapstypeTekstenum avledet(Boolean avledet) {
-    this.setAvledet(avledet);
     return this;
   }
 

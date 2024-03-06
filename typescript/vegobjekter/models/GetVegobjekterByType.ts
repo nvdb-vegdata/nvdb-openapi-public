@@ -1,5 +1,5 @@
-import type { VegobjekterSide } from './VegobjekterSide'
 import type { ProblemDetail } from './ProblemDetail'
+import type { VegobjekterSide } from './VegobjekterSide'
 
 export type GetVegobjekterByTypePathParams = {
   /**
@@ -199,11 +199,6 @@ export type GetVegobjekterByTypeQueryParams =
       sortert?: boolean
     }
   | undefined
-
-/**
- * @description OK
- */
-export type GetVegobjekterByType200 = VegobjekterSide
 
 /**
  * @description Bad Request

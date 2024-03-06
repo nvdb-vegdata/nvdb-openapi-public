@@ -1,10 +1,5 @@
-import type { Kategori } from './Kategori'
 import type { ProblemDetail } from './ProblemDetail'
-
-/**
- * @description OK
- */
-export type GetKategorier200 = Kategori[]
+import type { Kategori } from './Kategori'
 
 /**
  * @description Not Found

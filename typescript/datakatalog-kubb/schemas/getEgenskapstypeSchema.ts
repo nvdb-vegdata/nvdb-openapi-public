@@ -1,15 +1,10 @@
 import { z } from 'zod'
-import { egenskapstypeSchema } from './egenskapstypeSchema'
 import { problemDetailSchema } from './problemDetailSchema'
+import { egenskapstypeSchema } from './egenskapstypeSchema'
 
 export const getEgenskapstypePathParamsSchema = z.object({
   egenskapstypeid: z.number(),
 })
-
-/**
- * @description OK
- */
-export const getEgenskapstype200Schema = z.lazy(() => egenskapstypeSchema)
 
 /**
  * @description Not Found

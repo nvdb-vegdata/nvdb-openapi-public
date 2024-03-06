@@ -10,7 +10,7 @@ export const enumverdiTekstSchema = z.object({
   objektliste_dato: z.string().optional(),
   sluttdato: z.string().optional(),
   standardverdi: z.boolean(),
-  'komplement\u00E6r_enumverdi': z.number().optional(),
+  komplementær_enumverdi: z.number().optional(),
   verdi: z.string().optional(),
   type: z.string(),
 })

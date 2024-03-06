@@ -1,5 +1,5 @@
-import type { Vegobjekttype } from './Vegobjekttype'
 import type { ProblemDetail } from './ProblemDetail'
+import type { Vegobjekttype } from './Vegobjekttype'
 
 export type GetVegobjekttypePathParams = {
   /**
@@ -23,11 +23,6 @@ export type GetVegobjekttypeQueryParams =
       inkluder?: GetVegobjekttypeQueryParamsInkluder[]
     }
   | undefined
-
-/**
- * @description OK
- */
-export type GetVegobjekttype200 = Vegobjekttype
 
 /**
  * @description Not Found

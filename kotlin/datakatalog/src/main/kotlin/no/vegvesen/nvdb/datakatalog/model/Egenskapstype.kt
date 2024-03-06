@@ -25,8 +25,6 @@ import kotlinx.serialization.encoding.*
  *
  * @param id 
  * @param egenskapstype 
- * @param sorteringsnummer 
- * @param avledet 
  * @param obligatoriskVerdi 
  * @param skrivebeskyttet 
  * @param sensitivitet 
@@ -36,17 +34,19 @@ import kotlinx.serialization.encoding.*
  * @param referansegeometriTilstrekkelig 
  * @param viktighet 
  * @param kategori 
+ * @param sorteringsnummer 
+ * @param avledet 
  * @param navn 
- * @param kortnavn 
- * @param beskrivelse 
- * @param sosinavn 
- * @param sosinvdbnavn 
  * @param komplementærEgenskapstype 
  * @param gruppesorteringsnummer 
  * @param veiledning 
  * @param grunnrissreferanse 
  * @param høydereferanse 
  * @param sosiReferanse 
+ * @param kortnavn 
+ * @param beskrivelse 
+ * @param sosinavn 
+ * @param sosinvdbnavn 
  */
 
 
@@ -54,8 +54,6 @@ interface Egenskapstype {
 
     @SerialName(value = "id") @Required val id: kotlin.Int
     @SerialName(value = "egenskapstype") @Required val egenskapstype: Egenskapstype.Egenskapstype
-    @SerialName(value = "sorteringsnummer") @Required val sorteringsnummer: kotlin.Int
-    @SerialName(value = "avledet") @Required val avledet: kotlin.Boolean
     @SerialName(value = "obligatorisk_verdi") @Required val obligatoriskVerdi: kotlin.Boolean
     @SerialName(value = "skrivebeskyttet") @Required val skrivebeskyttet: kotlin.Boolean
     @SerialName(value = "sensitivitet") @Required val sensitivitet: kotlin.Int
@@ -65,17 +63,19 @@ interface Egenskapstype {
     @SerialName(value = "referansegeometri_tilstrekkelig") @Required val referansegeometriTilstrekkelig: kotlin.Boolean
     @SerialName(value = "viktighet") @Required val viktighet: Egenskapstype.Viktighet
     @SerialName(value = "kategori") @Required val kategori: kotlin.Int
+    @SerialName(value = "sorteringsnummer") @Required val sorteringsnummer: kotlin.Int
+    @SerialName(value = "avledet") @Required val avledet: kotlin.Boolean
     @SerialName(value = "navn") val navn: kotlin.String?
-    @SerialName(value = "kortnavn") val kortnavn: kotlin.String?
-    @SerialName(value = "beskrivelse") val beskrivelse: kotlin.String?
-    @SerialName(value = "sosinavn") val sosinavn: kotlin.String?
-    @SerialName(value = "sosinvdbnavn") val sosinvdbnavn: kotlin.String?
     @SerialName(value = "komplementær_egenskapstype") val komplementærEgenskapstype: kotlin.Int?
     @SerialName(value = "gruppesorteringsnummer") val gruppesorteringsnummer: kotlin.Int?
     @SerialName(value = "veiledning") val veiledning: kotlin.String?
     @SerialName(value = "grunnrissreferanse") val grunnrissreferanse: kotlin.String?
     @SerialName(value = "høydereferanse") val høydereferanse: kotlin.String?
     @SerialName(value = "sosi_referanse") val sosiReferanse: kotlin.String?
+    @SerialName(value = "kortnavn") val kortnavn: kotlin.String?
+    @SerialName(value = "beskrivelse") val beskrivelse: kotlin.String?
+    @SerialName(value = "sosinavn") val sosinavn: kotlin.String?
+    @SerialName(value = "sosinvdbnavn") val sosinvdbnavn: kotlin.String?
     /**
      * 
      *

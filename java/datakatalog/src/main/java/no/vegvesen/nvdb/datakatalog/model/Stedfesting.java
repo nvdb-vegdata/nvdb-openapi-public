@@ -33,6 +33,12 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
   Stedfesting.JSON_PROPERTY_ID,
   Stedfesting.JSON_PROPERTY_NAVN,
   Stedfesting.JSON_PROPERTY_EGENSKAPSTYPE,
+  Stedfesting.JSON_PROPERTY_KORTNAVN,
+  Stedfesting.JSON_PROPERTY_BESKRIVELSE,
+  Stedfesting.JSON_PROPERTY_SOSINAVN,
+  Stedfesting.JSON_PROPERTY_SOSINVDBNAVN,
+  Stedfesting.JSON_PROPERTY_SORTERINGSNUMMER,
+  Stedfesting.JSON_PROPERTY_AVLEDET,
   Stedfesting.JSON_PROPERTY_KOMPLEMENTæR_EGENSKAPSTYPE,
   Stedfesting.JSON_PROPERTY_OBLIGATORISK_VERDI,
   Stedfesting.JSON_PROPERTY_SKRIVEBESKYTTET,
@@ -47,13 +53,7 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
   Stedfesting.JSON_PROPERTY_SOSI_REFERANSE,
   Stedfesting.JSON_PROPERTY_REFERANSEGEOMETRI_TILSTREKKELIG,
   Stedfesting.JSON_PROPERTY_VIKTIGHET,
-  Stedfesting.JSON_PROPERTY_KATEGORI,
-  Stedfesting.JSON_PROPERTY_KORTNAVN,
-  Stedfesting.JSON_PROPERTY_BESKRIVELSE,
-  Stedfesting.JSON_PROPERTY_SOSINAVN,
-  Stedfesting.JSON_PROPERTY_SOSINVDBNAVN,
-  Stedfesting.JSON_PROPERTY_SORTERINGSNUMMER,
-  Stedfesting.JSON_PROPERTY_AVLEDET
+  Stedfesting.JSON_PROPERTY_KATEGORI
 })
 @javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
 @JsonIgnoreProperties(
@@ -138,6 +138,24 @@ public class Stedfesting {
 
   public static final String JSON_PROPERTY_EGENSKAPSTYPE = "egenskapstype";
   protected EgenskapstypeEnum egenskapstype;
+
+  public static final String JSON_PROPERTY_KORTNAVN = "kortnavn";
+  private String kortnavn;
+
+  public static final String JSON_PROPERTY_BESKRIVELSE = "beskrivelse";
+  private String beskrivelse;
+
+  public static final String JSON_PROPERTY_SOSINAVN = "sosinavn";
+  private String sosinavn;
+
+  public static final String JSON_PROPERTY_SOSINVDBNAVN = "sosinvdbnavn";
+  private String sosinvdbnavn;
+
+  public static final String JSON_PROPERTY_SORTERINGSNUMMER = "sorteringsnummer";
+  private Integer sorteringsnummer;
+
+  public static final String JSON_PROPERTY_AVLEDET = "avledet";
+  private Boolean avledet;
 
   public static final String JSON_PROPERTY_KOMPLEMENTæR_EGENSKAPSTYPE = "komplementær_egenskapstype";
   private Integer komplementærEgenskapstype;
@@ -229,24 +247,6 @@ public class Stedfesting {
   public static final String JSON_PROPERTY_KATEGORI = "kategori";
   private Integer kategori;
 
-  public static final String JSON_PROPERTY_KORTNAVN = "kortnavn";
-  private String kortnavn;
-
-  public static final String JSON_PROPERTY_BESKRIVELSE = "beskrivelse";
-  private String beskrivelse;
-
-  public static final String JSON_PROPERTY_SOSINAVN = "sosinavn";
-  private String sosinavn;
-
-  public static final String JSON_PROPERTY_SOSINVDBNAVN = "sosinvdbnavn";
-  private String sosinvdbnavn;
-
-  public static final String JSON_PROPERTY_SORTERINGSNUMMER = "sorteringsnummer";
-  private Integer sorteringsnummer;
-
-  public static final String JSON_PROPERTY_AVLEDET = "avledet";
-  private Boolean avledet;
-
   public Stedfesting() {
   }
 
@@ -325,6 +325,162 @@ public class Stedfesting {
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setEgenskapstype(EgenskapstypeEnum egenskapstype) {
     this.egenskapstype = egenskapstype;
+  }
+
+
+  public Stedfesting kortnavn(String kortnavn) {
+    
+    this.kortnavn = kortnavn;
+    return this;
+  }
+
+   /**
+   * Get kortnavn
+   * @return kortnavn
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_KORTNAVN)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getKortnavn() {
+    return kortnavn;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_KORTNAVN)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setKortnavn(String kortnavn) {
+    this.kortnavn = kortnavn;
+  }
+
+
+  public Stedfesting beskrivelse(String beskrivelse) {
+    
+    this.beskrivelse = beskrivelse;
+    return this;
+  }
+
+   /**
+   * Get beskrivelse
+   * @return beskrivelse
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_BESKRIVELSE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getBeskrivelse() {
+    return beskrivelse;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_BESKRIVELSE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setBeskrivelse(String beskrivelse) {
+    this.beskrivelse = beskrivelse;
+  }
+
+
+  public Stedfesting sosinavn(String sosinavn) {
+    
+    this.sosinavn = sosinavn;
+    return this;
+  }
+
+   /**
+   * Get sosinavn
+   * @return sosinavn
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SOSINAVN)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getSosinavn() {
+    return sosinavn;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_SOSINAVN)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setSosinavn(String sosinavn) {
+    this.sosinavn = sosinavn;
+  }
+
+
+  public Stedfesting sosinvdbnavn(String sosinvdbnavn) {
+    
+    this.sosinvdbnavn = sosinvdbnavn;
+    return this;
+  }
+
+   /**
+   * Get sosinvdbnavn
+   * @return sosinvdbnavn
+  **/
+  @javax.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SOSINVDBNAVN)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getSosinvdbnavn() {
+    return sosinvdbnavn;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_SOSINVDBNAVN)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setSosinvdbnavn(String sosinvdbnavn) {
+    this.sosinvdbnavn = sosinvdbnavn;
+  }
+
+
+  public Stedfesting sorteringsnummer(Integer sorteringsnummer) {
+    
+    this.sorteringsnummer = sorteringsnummer;
+    return this;
+  }
+
+   /**
+   * Get sorteringsnummer
+   * @return sorteringsnummer
+  **/
+  @javax.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_SORTERINGSNUMMER)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public Integer getSorteringsnummer() {
+    return sorteringsnummer;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_SORTERINGSNUMMER)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setSorteringsnummer(Integer sorteringsnummer) {
+    this.sorteringsnummer = sorteringsnummer;
+  }
+
+
+  public Stedfesting avledet(Boolean avledet) {
+    
+    this.avledet = avledet;
+    return this;
+  }
+
+   /**
+   * Get avledet
+   * @return avledet
+  **/
+  @javax.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_AVLEDET)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public Boolean getAvledet() {
+    return avledet;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_AVLEDET)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setAvledet(Boolean avledet) {
+    this.avledet = avledet;
   }
 
 
@@ -717,162 +873,6 @@ public class Stedfesting {
     this.kategori = kategori;
   }
 
-
-  public Stedfesting kortnavn(String kortnavn) {
-    
-    this.kortnavn = kortnavn;
-    return this;
-  }
-
-   /**
-   * Get kortnavn
-   * @return kortnavn
-  **/
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_KORTNAVN)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public String getKortnavn() {
-    return kortnavn;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_KORTNAVN)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setKortnavn(String kortnavn) {
-    this.kortnavn = kortnavn;
-  }
-
-
-  public Stedfesting beskrivelse(String beskrivelse) {
-    
-    this.beskrivelse = beskrivelse;
-    return this;
-  }
-
-   /**
-   * Get beskrivelse
-   * @return beskrivelse
-  **/
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_BESKRIVELSE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public String getBeskrivelse() {
-    return beskrivelse;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_BESKRIVELSE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setBeskrivelse(String beskrivelse) {
-    this.beskrivelse = beskrivelse;
-  }
-
-
-  public Stedfesting sosinavn(String sosinavn) {
-    
-    this.sosinavn = sosinavn;
-    return this;
-  }
-
-   /**
-   * Get sosinavn
-   * @return sosinavn
-  **/
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SOSINAVN)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public String getSosinavn() {
-    return sosinavn;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_SOSINAVN)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setSosinavn(String sosinavn) {
-    this.sosinavn = sosinavn;
-  }
-
-
-  public Stedfesting sosinvdbnavn(String sosinvdbnavn) {
-    
-    this.sosinvdbnavn = sosinvdbnavn;
-    return this;
-  }
-
-   /**
-   * Get sosinvdbnavn
-   * @return sosinvdbnavn
-  **/
-  @javax.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SOSINVDBNAVN)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public String getSosinvdbnavn() {
-    return sosinvdbnavn;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_SOSINVDBNAVN)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setSosinvdbnavn(String sosinvdbnavn) {
-    this.sosinvdbnavn = sosinvdbnavn;
-  }
-
-
-  public Stedfesting sorteringsnummer(Integer sorteringsnummer) {
-    
-    this.sorteringsnummer = sorteringsnummer;
-    return this;
-  }
-
-   /**
-   * Get sorteringsnummer
-   * @return sorteringsnummer
-  **/
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_SORTERINGSNUMMER)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
-  public Integer getSorteringsnummer() {
-    return sorteringsnummer;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_SORTERINGSNUMMER)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setSorteringsnummer(Integer sorteringsnummer) {
-    this.sorteringsnummer = sorteringsnummer;
-  }
-
-
-  public Stedfesting avledet(Boolean avledet) {
-    
-    this.avledet = avledet;
-    return this;
-  }
-
-   /**
-   * Get avledet
-   * @return avledet
-  **/
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_AVLEDET)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
-  public Boolean getAvledet() {
-    return avledet;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_AVLEDET)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setAvledet(Boolean avledet) {
-    this.avledet = avledet;
-  }
-
   @Override
   public boolean equals(Object o) {
     if (this == o) {
@@ -885,6 +885,12 @@ public class Stedfesting {
     return Objects.equals(this.id, stedfesting.id) &&
         Objects.equals(this.navn, stedfesting.navn) &&
         Objects.equals(this.egenskapstype, stedfesting.egenskapstype) &&
+        Objects.equals(this.kortnavn, stedfesting.kortnavn) &&
+        Objects.equals(this.beskrivelse, stedfesting.beskrivelse) &&
+        Objects.equals(this.sosinavn, stedfesting.sosinavn) &&
+        Objects.equals(this.sosinvdbnavn, stedfesting.sosinvdbnavn) &&
+        Objects.equals(this.sorteringsnummer, stedfesting.sorteringsnummer) &&
+        Objects.equals(this.avledet, stedfesting.avledet) &&
         Objects.equals(this.komplementærEgenskapstype, stedfesting.komplementærEgenskapstype) &&
         Objects.equals(this.obligatoriskVerdi, stedfesting.obligatoriskVerdi) &&
         Objects.equals(this.skrivebeskyttet, stedfesting.skrivebeskyttet) &&
@@ -899,18 +905,12 @@ public class Stedfesting {
         Objects.equals(this.sosiReferanse, stedfesting.sosiReferanse) &&
         Objects.equals(this.referansegeometriTilstrekkelig, stedfesting.referansegeometriTilstrekkelig) &&
         Objects.equals(this.viktighet, stedfesting.viktighet) &&
-        Objects.equals(this.kategori, stedfesting.kategori) &&
-        Objects.equals(this.kortnavn, stedfesting.kortnavn) &&
-        Objects.equals(this.beskrivelse, stedfesting.beskrivelse) &&
-        Objects.equals(this.sosinavn, stedfesting.sosinavn) &&
-        Objects.equals(this.sosinvdbnavn, stedfesting.sosinvdbnavn) &&
-        Objects.equals(this.sorteringsnummer, stedfesting.sorteringsnummer) &&
-        Objects.equals(this.avledet, stedfesting.avledet);
+        Objects.equals(this.kategori, stedfesting.kategori);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, navn, egenskapstype, komplementærEgenskapstype, obligatoriskVerdi, skrivebeskyttet, sensitivitet, gruppesorteringsnummer, veiledning, grunnrissreferanse, høydereferanse, høydereferanseTall, nøyaktighetskravGrunnriss, nøyaktighetskravHøyde, sosiReferanse, referansegeometriTilstrekkelig, viktighet, kategori, kortnavn, beskrivelse, sosinavn, sosinvdbnavn, sorteringsnummer, avledet);
+    return Objects.hash(id, navn, egenskapstype, kortnavn, beskrivelse, sosinavn, sosinvdbnavn, sorteringsnummer, avledet, komplementærEgenskapstype, obligatoriskVerdi, skrivebeskyttet, sensitivitet, gruppesorteringsnummer, veiledning, grunnrissreferanse, høydereferanse, høydereferanseTall, nøyaktighetskravGrunnriss, nøyaktighetskravHøyde, sosiReferanse, referansegeometriTilstrekkelig, viktighet, kategori);
   }
 
   @Override
@@ -920,6 +920,12 @@ public class Stedfesting {
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    navn: ").append(toIndentedString(navn)).append("\n");
     sb.append("    egenskapstype: ").append(toIndentedString(egenskapstype)).append("\n");
+    sb.append("    kortnavn: ").append(toIndentedString(kortnavn)).append("\n");
+    sb.append("    beskrivelse: ").append(toIndentedString(beskrivelse)).append("\n");
+    sb.append("    sosinavn: ").append(toIndentedString(sosinavn)).append("\n");
+    sb.append("    sosinvdbnavn: ").append(toIndentedString(sosinvdbnavn)).append("\n");
+    sb.append("    sorteringsnummer: ").append(toIndentedString(sorteringsnummer)).append("\n");
+    sb.append("    avledet: ").append(toIndentedString(avledet)).append("\n");
     sb.append("    komplementærEgenskapstype: ").append(toIndentedString(komplementærEgenskapstype)).append("\n");
     sb.append("    obligatoriskVerdi: ").append(toIndentedString(obligatoriskVerdi)).append("\n");
     sb.append("    skrivebeskyttet: ").append(toIndentedString(skrivebeskyttet)).append("\n");
@@ -935,12 +941,6 @@ public class Stedfesting {
     sb.append("    referansegeometriTilstrekkelig: ").append(toIndentedString(referansegeometriTilstrekkelig)).append("\n");
     sb.append("    viktighet: ").append(toIndentedString(viktighet)).append("\n");
     sb.append("    kategori: ").append(toIndentedString(kategori)).append("\n");
-    sb.append("    kortnavn: ").append(toIndentedString(kortnavn)).append("\n");
-    sb.append("    beskrivelse: ").append(toIndentedString(beskrivelse)).append("\n");
-    sb.append("    sosinavn: ").append(toIndentedString(sosinavn)).append("\n");
-    sb.append("    sosinvdbnavn: ").append(toIndentedString(sosinvdbnavn)).append("\n");
-    sb.append("    sorteringsnummer: ").append(toIndentedString(sorteringsnummer)).append("\n");
-    sb.append("    avledet: ").append(toIndentedString(avledet)).append("\n");
     sb.append("}");
     return sb.toString();
   }

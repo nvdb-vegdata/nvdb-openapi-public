@@ -1,10 +1,5 @@
-import type { EgenskapstypeKategori } from './EgenskapstypeKategori'
 import type { ProblemDetail } from './ProblemDetail'
-
-/**
- * @description OK
- */
-export type GetEgenskapstypeKategorier200 = EgenskapstypeKategori[]
+import type { EgenskapstypeKategori } from './EgenskapstypeKategori'
 
 /**
  * @description Not Found
