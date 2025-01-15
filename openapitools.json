@@ -29,6 +29,19 @@
           "sourceFolder": "src/main/kotlin"
         }
       },
+      "vegnett-kotlin": {
+        "inputSpec": "https://nvdbapiles.atlas.vegvesen.no/api-docs/vegnett",
+        "output": "kotlin/vegnett",
+        "generatorName": "kotlin",
+        "library": "multiplatform",
+        "apiPackage": "no.vegvesen.nvdb.vegnett.api",
+        "modelPackage": "no.vegvesen.nvdb.vegnett.model",
+        "globalProperty": "models,apis,modelDocs=false,modelTests=false,apiTests=false",
+        "additionalProperties": {
+          "dateLibrary": "kotlinx-datetime",
+          "sourceFolder": "src/main/kotlin"
+        }
+      },
       "datakatalog-ts": {
         "inputSpec": "https://nvdbapiles.atlas.vegvesen.no/api-docs/datakatalog",
         "output": "typescript/datakatalog",

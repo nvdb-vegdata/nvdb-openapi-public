@@ -1,0 +1,35 @@
+; EditorConfig helps developers define and maintain consistent
+; coding styles between different editors and IDEs.
+
+; For more visit http://editorconfig.org.
+root = true
+
+; Choose between lf or rf on "end_of_line" property
+[*]
+indent_style = space
+charset = utf-8
+trim_trailing_whitespace = true
+insert_final_newline = true
+indent_size = 4
+
+[*.md]
+trim_trailing_whitespace = false
+max_line_length = off
+ij_markdown_wrap_text_if_long = false
+
+[*.{yml,yaml}]
+indent_size = 2
+
+[*.json]
+indent_size = 2
+
+[*.{ts,js,tsx,jsx}]
+indent_size = 2
+
+[*.{kt,kts}]
+ktlint_code_style = intellij_idea
+ktlint_standard_enum-entry-name-case = disabled
+ktlint_standard_no-wildcard-imports = disabled
+
+[*.xml]
+max_line_length = off

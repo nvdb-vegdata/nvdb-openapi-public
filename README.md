@@ -115,6 +115,7 @@ Se også [package.json](package.json) og [openapitools.json](openapitools.json) 
 - [Java-klient for datakatalogen, med Spring Reactive WebClient og Jackson](./java/datakatalog/)
 - [Kotlin-klient for datakatalogen, med Ktor HttpClient og kotlinx.serialization](./kotlin/datakatalog/)
 - [TypeScript-klient for datakatalogen, med fetch](./typescript/datakatalog/)
+- [Kotlin-klient for vegnett-APIet, med Ktor HttpClient og kotlinx.serialization](./kotlin/vegnett/)
 
 # Bedre Frontend-støtte med [Kubb](https://www.kubb.dev/)
 
