@@ -17,7 +17,7 @@ export type EgenskapEgenskapstype =
   | 'Flyttallenum'
 export type Egenskap = {
   /**
-   * @type integer int32
+   * @type integer, int32
    */
   id: number
   /**

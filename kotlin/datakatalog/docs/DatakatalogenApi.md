@@ -2,17 +2,18 @@
 
 All URIs are relative to *https://nvdbapiles.atlas.vegvesen.no/datakatalog*
 
-| Method                                                                                       | HTTP request                                                       | Description                                                                       |
-| -------------------------------------------------------------------------------------------- | ------------------------------------------------------------------ | --------------------------------------------------------------------------------- |
-| [**getEgenskapstype**](DatakatalogenApi.md#getEgenskapstype)                                 | **GET** /api/v1/egenskapstyper/{egenskapstypeid}                   | Returnerer angitt egenskapstype                                                   |
-| [**getEgenskapstypeForVegobjekttype**](DatakatalogenApi.md#getEgenskapstypeForVegobjekttype) | **GET** /api/v1/vegobjekttyper/{vegobjekttypeid}/{egenskapstypeid} | Returnerer angitt egenskapstype for angitt vegobjekttype                          |
-| [**getEgenskapstypeKategorier**](DatakatalogenApi.md#getEgenskapstypeKategorier)             | **GET** /api/v1/egenskapstypekategorier                            | Returnerer alle kategorier for egenskapstypene                                    |
-| [**getEnheter**](DatakatalogenApi.md#getEnheter)                                             | **GET** /api/v1/enheter                                            | Returnerer alle enheter                                                           |
-| [**getKategorier**](DatakatalogenApi.md#getKategorier)                                       | **GET** /api/v1/kategorier                                         | Returnerer alle kategorier for vegobjekter                                        |
-| [**getVegobjekttype**](DatakatalogenApi.md#getVegobjekttype)                                 | **GET** /api/v1/vegobjekttyper/{vegobjekttypeid}                   | Returnerer angitt vegobjekttype                                                   |
-| [**getVegobjekttyper**](DatakatalogenApi.md#getVegobjekttyper)                               | **GET** /api/v1/vegobjekttyper                                     | Returnerer alle vegobjekttypene                                                   |
-| [**getVegobjekttyperHistorisk**](DatakatalogenApi.md#getVegobjekttyperHistorisk)             | **GET** /api/v1/vegobjekttyper/historisk/{versjon}                 | Returnerer alle vegobjekttypene for en gitt versjon av datakatalogen, f.eks. 2.31 |
-| [**getVersjon**](DatakatalogenApi.md#getVersjon)                                             | **GET** /api/v1/versjon                                            | Returnerer aktiv versjon på datakatalog                                           |
+| Method                                                                                       | HTTP request                                                          | Description                                                                       |
+| -------------------------------------------------------------------------------------------- | --------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
+| [**getEgenskapstype**](DatakatalogenApi.md#getEgenskapstype)                                 | **GET** /api/v1/egenskapstyper/{egenskapstypeid}                      | Returnerer angitt egenskapstype                                                   |
+| [**getEgenskapstypeForVegobjekttype**](DatakatalogenApi.md#getEgenskapstypeForVegobjekttype) | **GET** /api/v1/vegobjekttyper/{vegobjekttypeid}/{egenskapstypeid}    | Returnerer angitt egenskapstype for angitt vegobjekttype                          |
+| [**getEgenskapstypeKategorier**](DatakatalogenApi.md#getEgenskapstypeKategorier)             | **GET** /api/v1/egenskapstypekategorier                               | Returnerer alle kategorier for egenskapstypene                                    |
+| [**getEnheter**](DatakatalogenApi.md#getEnheter)                                             | **GET** /api/v1/enheter                                               | Returnerer alle enheter                                                           |
+| [**getKategorier**](DatakatalogenApi.md#getKategorier)                                       | **GET** /api/v1/kategorier                                            | Returnerer alle kategorier for vegobjekter                                        |
+| [**getProduktspesifikasjon**](DatakatalogenApi.md#getProduktspesifikasjon)                   | **GET** /api/v1/vegobjekttyper/{vegobjekttypeid}/produktspesifikasjon | Returnerer produktspesifikasjonen til den angitte vegobjekttypen                  |
+| [**getVegobjekttype**](DatakatalogenApi.md#getVegobjekttype)                                 | **GET** /api/v1/vegobjekttyper/{vegobjekttypeid}                      | Returnerer angitt vegobjekttype                                                   |
+| [**getVegobjekttyper**](DatakatalogenApi.md#getVegobjekttyper)                               | **GET** /api/v1/vegobjekttyper                                        | Returnerer alle vegobjekttypene                                                   |
+| [**getVegobjekttyperHistorisk**](DatakatalogenApi.md#getVegobjekttyperHistorisk)             | **GET** /api/v1/vegobjekttyper/historisk/{versjon}                    | Returnerer alle vegobjekttypene for en gitt versjon av datakatalogen, f.eks. 2.31 |
+| [**getVersjon**](DatakatalogenApi.md#getVersjon)                                             | **GET** /api/v1/versjon                                               | Returnerer aktiv versjon på datakatalog                                           |
 
 <a id="getEgenskapstype"></a>
 
@@ -237,6 +238,54 @@ This endpoint does not need any parameter.
 ### Return type
 
 **kotlin.collections.List&lt;Kategori&gt;**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: _/_
+
+<a id="getProduktspesifikasjon"></a>
+
+# **getProduktspesifikasjon**
+
+> ProductSpecification getProduktspesifikasjon(vegobjekttypeid)
+
+Returnerer produktspesifikasjonen til den angitte vegobjekttypen
+
+### Example
+
+```kotlin
+// Import classes:
+//import org.openapitools.client.infrastructure.*
+//import no.vegvesen.nvdb.datakatalog.model.*
+
+val apiInstance = DatakatalogenApi()
+val vegobjekttypeid : kotlin.Int = 56 // kotlin.Int |
+try {
+    val result : ProductSpecification = apiInstance.getProduktspesifikasjon(vegobjekttypeid)
+    println(result)
+} catch (e: ClientException) {
+    println("4xx response calling DatakatalogenApi#getProduktspesifikasjon")
+    e.printStackTrace()
+} catch (e: ServerException) {
+    println("5xx response calling DatakatalogenApi#getProduktspesifikasjon")
+    e.printStackTrace()
+}
+```
+
+### Parameters
+
+| Name                | Type           | Description | Notes |
+| ------------------- | -------------- | ----------- | ----- |
+| **vegobjekttypeid** | **kotlin.Int** |             |
+
+### Return type
+
+**ProductSpecification**
 
 ### Authorization
 

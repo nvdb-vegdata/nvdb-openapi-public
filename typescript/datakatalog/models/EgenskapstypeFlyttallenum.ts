@@ -19,6 +19,12 @@ import {
   EgenskapstypeFromJSONTyped,
   EgenskapstypeToJSON,
 } from './Egenskapstype'
+import type { EgenskapstypeEnum } from './EgenskapstypeEnum'
+import {
+  EgenskapstypeEnumFromJSON,
+  EgenskapstypeEnumFromJSONTyped,
+  EgenskapstypeEnumToJSON,
+} from './EgenskapstypeEnum'
 import type { Enhet } from './Enhet'
 import { EnhetFromJSON, EnhetFromJSONTyped, EnhetToJSON } from './Enhet'
 import type { EnumverdiFlyttall } from './EnumverdiFlyttall'
@@ -27,6 +33,12 @@ import {
   EnumverdiFlyttallFromJSONTyped,
   EnumverdiFlyttallToJSON,
 } from './EnumverdiFlyttall'
+import type { Viktighet } from './Viktighet'
+import {
+  ViktighetFromJSON,
+  ViktighetFromJSONTyped,
+  ViktighetToJSON,
+} from './Viktighet'
 
 /**
  *

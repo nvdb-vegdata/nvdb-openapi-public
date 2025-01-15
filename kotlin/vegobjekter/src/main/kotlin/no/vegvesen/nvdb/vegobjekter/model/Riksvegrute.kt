@@ -23,22 +23,16 @@ import kotlinx.serialization.encoding.*
 /**
  * 
  *
- * @param id 
- * @param nummer 
- * @param navn 
- * @param periode 
+ * @param enumid 
+ * @param riksvegrute 
  */
 @Serializable
 
 data class Riksvegrute (
 
-    @SerialName(value = "id") @Required val id: kotlin.Long,
+    @SerialName(value = "enumid") @Required val enumid: kotlin.Int,
 
-    @SerialName(value = "nummer") @Required val nummer: kotlin.String,
-
-    @SerialName(value = "navn") @Required val navn: kotlin.String,
-
-    @SerialName(value = "periode") @Required val periode: kotlin.String
+    @SerialName(value = "riksvegrute") @Required val riksvegrute: kotlin.String
 
 )
 

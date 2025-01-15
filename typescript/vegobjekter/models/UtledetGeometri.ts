@@ -1,4 +1,4 @@
-export type UtledetGeometriSrid = '5972' | '5973' | '5974' | '5975' | '4326'
+export type UtledetGeometriSrid = '5972' | '5973' | '5975' | '4326'
 export type UtledetGeometri = {
   /**
    * @type string

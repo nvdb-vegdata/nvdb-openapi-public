@@ -25,9 +25,12 @@ import kotlinx.serialization.encoding.*
  *
  * @param type 
  * @param veglenkesekvensid 
+ * @param nodeid 
  * @param relativPosisjon 
  * @param startposisjon 
  * @param sluttposisjon 
+ * @param startpunkt 
+ * @param sluttpunkt 
  * @param retning 
  * @param kjørefelt 
  * @param kortform 
@@ -39,13 +42,19 @@ data class Stedfesting (
 
     @SerialName(value = "type") @Required val type: Stedfesting.Type,
 
-    @SerialName(value = "veglenkesekvensid") @Required val veglenkesekvensid: kotlin.Long,
+    @SerialName(value = "veglenkesekvensid") val veglenkesekvensid: kotlin.Long? = null,
+
+    @SerialName(value = "nodeid") val nodeid: kotlin.Long? = null,
 
     @SerialName(value = "relativPosisjon") val relativPosisjon: kotlin.Double? = null,
 
     @SerialName(value = "startposisjon") val startposisjon: kotlin.Double? = null,
 
     @SerialName(value = "sluttposisjon") val sluttposisjon: kotlin.Double? = null,
+
+    @SerialName(value = "startpunkt") val startpunkt: Stedfesting? = null,
+
+    @SerialName(value = "sluttpunkt") val sluttpunkt: Stedfesting? = null,
 
     @SerialName(value = "retning") val retning: Stedfesting.Retning? = null,
 

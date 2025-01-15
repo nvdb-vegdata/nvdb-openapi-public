@@ -5,7 +5,7 @@ import type { Relasjonstyper } from './Relasjonstyper'
 
 export type Vegobjekttype = {
   /**
-   * @type integer int32
+   * @type integer, int32
    */
   id: number
   /**
@@ -20,6 +20,9 @@ export type Vegobjekttype = {
    * @type string | undefined
    */
   beskrivelse?: string
+  /**
+   * @type object | undefined
+   */
   stedfesting?: Stedfesting
   /**
    * @type string | undefined
@@ -30,7 +33,7 @@ export type Vegobjekttype = {
    */
   sosinvdbnavn?: string
   /**
-   * @type integer int32
+   * @type integer, int32
    */
   sorteringsnummer: number
   /**
@@ -77,6 +80,9 @@ export type Vegobjekttype = {
    * @type array | undefined
    */
   egenskapstyper?: Egenskapstype[]
+  /**
+   * @type object | undefined
+   */
   relasjonstyper?: Relasjonstyper
   /**
    * @type boolean

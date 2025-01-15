@@ -1,10 +1,11 @@
+import type { RelasjonMedIder } from './RelasjonMedIder'
 import type { Relasjon } from './Relasjon'
 
 export type Relasjoner = {
   /**
    * @type array | undefined
    */
-  foreldre?: Relasjon[]
+  foreldre?: RelasjonMedIder[]
   /**
    * @type array | undefined
    */

@@ -3,4 +3,4 @@ import { z } from 'zod'
 
 export const assosiasjonEgenskapSchema = z
   .lazy(() => egenskapSchema)
-  .and(z.object({ verdi: z.number().optional() }))
+  .and(z.object({ verdi: z.number().int().optional() }))

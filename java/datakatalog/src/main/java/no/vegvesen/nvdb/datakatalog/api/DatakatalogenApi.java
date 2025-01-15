@@ -7,6 +7,7 @@ import no.vegvesen.nvdb.datakatalog.model.EgenskapstypeKategori;
 import no.vegvesen.nvdb.datakatalog.model.Enhet;
 import no.vegvesen.nvdb.datakatalog.model.Kategori;
 import no.vegvesen.nvdb.datakatalog.model.ProblemDetail;
+import no.vegvesen.nvdb.datakatalog.model.ProductSpecification;
 import no.vegvesen.nvdb.datakatalog.model.Vegobjekttype;
 import no.vegvesen.nvdb.datakatalog.model.Versjon;
 
@@ -460,6 +461,92 @@ public class DatakatalogenApi {
      */
     public ResponseSpec getKategorierWithResponseSpec() throws WebClientResponseException {
         return getKategorierRequestCreation();
+    }
+    /**
+     * Returnerer produktspesifikasjonen til den angitte vegobjekttypen
+     * 
+     * <p><b>500</b> - Internal Server Error
+     * <p><b>503</b> - Service Unavailable
+     * <p><b>404</b> - Not Found
+     * <p><b>200</b> - OK
+     * @param vegobjekttypeid The vegobjekttypeid parameter
+     * @return ProductSpecification
+     * @throws WebClientResponseException if an error occurs while attempting to invoke the API
+     */
+    private ResponseSpec getProduktspesifikasjonRequestCreation(Integer vegobjekttypeid) throws WebClientResponseException {
+        Object postBody = null;
+        // verify the required parameter 'vegobjekttypeid' is set
+        if (vegobjekttypeid == null) {
+            throw new WebClientResponseException("Missing the required parameter 'vegobjekttypeid' when calling getProduktspesifikasjon", HttpStatus.BAD_REQUEST.value(), HttpStatus.BAD_REQUEST.getReasonPhrase(), null, null, null);
+        }
+        // create path and map variables
+        final Map<String, Object> pathParams = new HashMap<String, Object>();
+
+        pathParams.put("vegobjekttypeid", vegobjekttypeid);
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<String, String>();
+        final HttpHeaders headerParams = new HttpHeaders();
+        final MultiValueMap<String, String> cookieParams = new LinkedMultiValueMap<String, String>();
+        final MultiValueMap<String, Object> formParams = new LinkedMultiValueMap<String, Object>();
+
+        final String[] localVarAccepts = { 
+            "*/*"
+        };
+        final List<MediaType> localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        final String[] localVarContentTypes = { };
+        final MediaType localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+        String[] localVarAuthNames = new String[] {  };
+
+        ParameterizedTypeReference<ProductSpecification> localVarReturnType = new ParameterizedTypeReference<ProductSpecification>() {};
+        return apiClient.invokeAPI("/api/v1/vegobjekttyper/{vegobjekttypeid}/produktspesifikasjon", HttpMethod.GET, pathParams, queryParams, postBody, headerParams, cookieParams, formParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+    }
+
+    /**
+     * Returnerer produktspesifikasjonen til den angitte vegobjekttypen
+     * 
+     * <p><b>500</b> - Internal Server Error
+     * <p><b>503</b> - Service Unavailable
+     * <p><b>404</b> - Not Found
+     * <p><b>200</b> - OK
+     * @param vegobjekttypeid The vegobjekttypeid parameter
+     * @return ProductSpecification
+     * @throws WebClientResponseException if an error occurs while attempting to invoke the API
+     */
+    public Mono<ProductSpecification> getProduktspesifikasjon(Integer vegobjekttypeid) throws WebClientResponseException {
+        ParameterizedTypeReference<ProductSpecification> localVarReturnType = new ParameterizedTypeReference<ProductSpecification>() {};
+        return getProduktspesifikasjonRequestCreation(vegobjekttypeid).bodyToMono(localVarReturnType);
+    }
+
+    /**
+     * Returnerer produktspesifikasjonen til den angitte vegobjekttypen
+     * 
+     * <p><b>500</b> - Internal Server Error
+     * <p><b>503</b> - Service Unavailable
+     * <p><b>404</b> - Not Found
+     * <p><b>200</b> - OK
+     * @param vegobjekttypeid The vegobjekttypeid parameter
+     * @return ResponseEntity&lt;ProductSpecification&gt;
+     * @throws WebClientResponseException if an error occurs while attempting to invoke the API
+     */
+    public Mono<ResponseEntity<ProductSpecification>> getProduktspesifikasjonWithHttpInfo(Integer vegobjekttypeid) throws WebClientResponseException {
+        ParameterizedTypeReference<ProductSpecification> localVarReturnType = new ParameterizedTypeReference<ProductSpecification>() {};
+        return getProduktspesifikasjonRequestCreation(vegobjekttypeid).toEntity(localVarReturnType);
+    }
+
+    /**
+     * Returnerer produktspesifikasjonen til den angitte vegobjekttypen
+     * 
+     * <p><b>500</b> - Internal Server Error
+     * <p><b>503</b> - Service Unavailable
+     * <p><b>404</b> - Not Found
+     * <p><b>200</b> - OK
+     * @param vegobjekttypeid The vegobjekttypeid parameter
+     * @return ResponseSpec
+     * @throws WebClientResponseException if an error occurs while attempting to invoke the API
+     */
+    public ResponseSpec getProduktspesifikasjonWithResponseSpec(Integer vegobjekttypeid) throws WebClientResponseException {
+        return getProduktspesifikasjonRequestCreation(vegobjekttypeid);
     }
     /**
      * Returnerer angitt vegobjekttype

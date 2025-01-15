@@ -7,7 +7,7 @@ export const egenskapstypeStrukturSchema = z
     z.object({
       egenskapstyper: z
         .array(z.lazy(() => egenskapstypeSchema))
-        .describe(`Egenskapstyper som kan inngå i strukturen`)
+        .describe('Egenskapstyper som kan inng\u00E5 i strukturen')
         .optional(),
     }),
   )

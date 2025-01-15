@@ -28,7 +28,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import no.vegvesen.nvdb.datakatalog.model.Egenskapstype;
+import no.vegvesen.nvdb.datakatalog.model.EgenskapstypeEnum;
 import no.vegvesen.nvdb.datakatalog.model.EnumverdiTekst;
+import no.vegvesen.nvdb.datakatalog.model.Viktighet;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 
@@ -339,12 +341,6 @@ public class EgenskapstypeTekstenum extends Egenskapstype {
   }
 
   @Override
-  public EgenskapstypeTekstenum sorteringsnummer(Integer sorteringsnummer) {
-    this.setSorteringsnummer(sorteringsnummer);
-    return this;
-  }
-
-  @Override
   public EgenskapstypeTekstenum avledet(Boolean avledet) {
     this.setAvledet(avledet);
     return this;
@@ -353,6 +349,12 @@ public class EgenskapstypeTekstenum extends Egenskapstype {
   @Override
   public EgenskapstypeTekstenum komplementærEgenskapstype(Integer komplementærEgenskapstype) {
     this.setKomplementærEgenskapstype(komplementærEgenskapstype);
+    return this;
+  }
+
+  @Override
+  public EgenskapstypeTekstenum sorteringsnummer(Integer sorteringsnummer) {
+    this.setSorteringsnummer(sorteringsnummer);
     return this;
   }
 
@@ -429,7 +431,7 @@ public class EgenskapstypeTekstenum extends Egenskapstype {
   }
 
   @Override
-  public EgenskapstypeTekstenum viktighet(ViktighetEnum viktighet) {
+  public EgenskapstypeTekstenum viktighet(Viktighet viktighet) {
     this.setViktighet(viktighet);
     return this;
   }

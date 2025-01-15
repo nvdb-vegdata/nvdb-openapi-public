@@ -16,6 +16,7 @@
 package no.vegvesen.nvdb.vegobjekter.model
 
 import no.vegvesen.nvdb.vegobjekter.model.Egenskap
+import no.vegvesen.nvdb.vegobjekter.model.Stedfesting
 
 import kotlinx.serialization.*
 import kotlinx.serialization.descriptors.*
@@ -36,6 +37,8 @@ import kotlinx.serialization.encoding.*
  * @param relativPosisjon 
  * @param startposisjon 
  * @param sluttposisjon 
+ * @param startpunkt 
+ * @param sluttpunkt 
  */
 @Serializable
 
@@ -47,7 +50,7 @@ data class StedfestingEgenskap (
 
     @SerialName(value = "egenskapstype") @Required override val egenskapstype: StedfestingEgenskap.Egenskapstype,
 
-    @SerialName(value = "veglenkesekvensid") @Required val veglenkesekvensid: kotlin.Long,
+    @SerialName(value = "veglenkesekvensid") val veglenkesekvensid: kotlin.Long? = null,
 
     @SerialName(value = "nodeid") val nodeid: kotlin.Long? = null,
 
@@ -63,7 +66,11 @@ data class StedfestingEgenskap (
 
     @SerialName(value = "startposisjon") val startposisjon: kotlin.Double? = null,
 
-    @SerialName(value = "sluttposisjon") val sluttposisjon: kotlin.Double? = null
+    @SerialName(value = "sluttposisjon") val sluttposisjon: kotlin.Double? = null,
+
+    @SerialName(value = "startpunkt") val startpunkt: Stedfesting? = null,
+
+    @SerialName(value = "sluttpunkt") val sluttpunkt: Stedfesting? = null
 
 ) : Egenskap {
 

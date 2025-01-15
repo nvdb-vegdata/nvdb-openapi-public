@@ -23,8 +23,6 @@ import kotlinx.serialization.encoding.*
 /**
  * 
  *
- * @param id 
- * @param versjon 
  * @param kryssystem 
  * @param kryssdel 
  * @param retning 
@@ -36,10 +34,6 @@ import kotlinx.serialization.encoding.*
 @Serializable
 
 data class Kryssystem (
-
-    @SerialName(value = "id") @Required val id: kotlin.Long,
-
-    @SerialName(value = "versjon") @Required val versjon: kotlin.Int,
 
     @SerialName(value = "kryssystem") @Required val kryssystem: kotlin.Int,
 

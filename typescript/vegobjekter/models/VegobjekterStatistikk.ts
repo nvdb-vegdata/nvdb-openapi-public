@@ -1,10 +1,10 @@
 export type VegobjekterStatistikk = {
   /**
-   * @type integer | undefined int32
+   * @type integer | undefined, int32
    */
   antall?: number
   /**
-   * @type number | undefined double
+   * @type number | undefined, double
    */
   lengde?: number
 }

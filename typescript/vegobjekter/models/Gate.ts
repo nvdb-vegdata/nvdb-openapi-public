@@ -4,7 +4,7 @@ export type Gate = {
    */
   navn: string
   /**
-   * @type integer int32
+   * @type integer, int32
    */
   gatekode: number
   /**

@@ -1,18 +1,10 @@
 export type Riksvegrute = {
   /**
-   * @type integer int64
+   * @type integer, int32
    */
-  id: number
+  enumid: number
   /**
    * @type string
    */
-  nummer: string
-  /**
-   * @type string
-   */
-  navn: string
-  /**
-   * @type string
-   */
-  periode: string
+  riksvegrute: string
 }

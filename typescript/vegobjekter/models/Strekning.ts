@@ -3,19 +3,11 @@ export type StrekningTrafikantgruppe = 'K' | 'G'
 export type StrekningRetning = 'MED' | 'MOT'
 export type Strekning = {
   /**
-   * @type integer int64
-   */
-  id: number
-  /**
-   * @type integer int32
-   */
-  versjon: number
-  /**
-   * @type integer int32
+   * @type integer, int32
    */
   strekning: number
   /**
-   * @type integer int32
+   * @type integer, int32
    */
   delstrekning: number
   /**
@@ -35,15 +27,19 @@ export type Strekning = {
    */
   retning: StrekningRetning
   /**
-   * @type number | undefined double
+   * @type number | undefined, double
    */
   meter?: number
   /**
-   * @type number | undefined double
+   * @type number | undefined, double
    */
   fra_meter?: number
   /**
-   * @type number | undefined double
+   * @type number | undefined, double
    */
   til_meter?: number
+  /**
+   * @type string | undefined
+   */
+  adskilte_løp_nummer?: string
 }

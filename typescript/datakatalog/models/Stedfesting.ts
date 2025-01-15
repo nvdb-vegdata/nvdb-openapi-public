@@ -13,6 +13,19 @@
  */
 
 import { exists, mapValues } from '../runtime'
+import type { EgenskapstypeEnum } from './EgenskapstypeEnum'
+import {
+  EgenskapstypeEnumFromJSON,
+  EgenskapstypeEnumFromJSONTyped,
+  EgenskapstypeEnumToJSON,
+} from './EgenskapstypeEnum'
+import type { Viktighet } from './Viktighet'
+import {
+  ViktighetFromJSON,
+  ViktighetFromJSONTyped,
+  ViktighetToJSON,
+} from './Viktighet'
+
 import {
   StedfestingListeFromJSONTyped,
   StedfestingEnkelFromJSONTyped,
@@ -38,10 +51,10 @@ export interface Stedfesting {
   navn?: string
   /**
    *
-   * @type {string}
+   * @type {EgenskapstypeEnum}
    * @memberof Stedfesting
    */
-  egenskapstype: StedfestingEgenskapstypeEnum
+  egenskapstype: EgenskapstypeEnum
   /**
    *
    * @type {string}
@@ -68,12 +81,6 @@ export interface Stedfesting {
   sosinvdbnavn?: string
   /**
    *
-   * @type {number}
-   * @memberof Stedfesting
-   */
-  sorteringsnummer: number
-  /**
-   *
    * @type {boolean}
    * @memberof Stedfesting
    */
@@ -84,6 +91,12 @@ export interface Stedfesting {
    * @memberof Stedfesting
    */
   komplementrEgenskapstype?: number
+  /**
+   *
+   * @type {number}
+   * @memberof Stedfesting
+   */
+  sorteringsnummer: number
   /**
    *
    * @type {boolean}
@@ -158,10 +171,10 @@ export interface Stedfesting {
   referansegeometriTilstrekkelig: boolean
   /**
    *
-   * @type {string}
+   * @type {Viktighet}
    * @memberof Stedfesting
    */
-  viktighet: StedfestingViktighetEnum
+  viktighet: Viktighet
   /**
    *
    * @type {number}
@@ -171,53 +184,14 @@ export interface Stedfesting {
 }
 
 /**
- * @export
- */
-export const StedfestingEgenskapstypeEnum = {
-  Assosiasjon: 'Assosiasjon',
-  Boolsk: 'Boolsk',
-  Binr: 'Binær',
-  Tekst: 'Tekst',
-  Dato: 'Dato',
-  Flyttall: 'Flyttall',
-  Heltall: 'Heltall',
-  Struktur: 'Struktur',
-  Geometri: 'Geometri',
-  Stedfesting: 'Stedfesting',
-  Kortdato: 'Kortdato',
-  Tid: 'Tid',
-  Liste: 'Liste',
-  Tekstenum: 'Tekstenum',
-  Heltallenum: 'Heltallenum',
-  Flyttallenum: 'Flyttallenum',
-} as const
-export type StedfestingEgenskapstypeEnum =
-  (typeof StedfestingEgenskapstypeEnum)[keyof typeof StedfestingEgenskapstypeEnum]
-
-/**
- * @export
- */
-export const StedfestingViktighetEnum = {
-  IkkeSatt: 'IKKE_SATT',
-  PkrevdAbsolutt: 'PÅKREVD_ABSOLUTT',
-  PkrevdIkkeAbsolutt: 'PÅKREVD_IKKE_ABSOLUTT',
-  Betinget: 'BETINGET',
-  Opsjonell: 'OPSJONELL',
-  MindreViktig: 'MINDRE_VIKTIG',
-  Historisk: 'HISTORISK',
-} as const
-export type StedfestingViktighetEnum =
-  (typeof StedfestingViktighetEnum)[keyof typeof StedfestingViktighetEnum]
-
-/**
  * Check if a given object implements the Stedfesting interface.
  */
 export function instanceOfStedfesting(value: object): boolean {
   let isInstance = true
   isInstance = isInstance && 'id' in value
   isInstance = isInstance && 'egenskapstype' in value
-  isInstance = isInstance && 'sorteringsnummer' in value
   isInstance = isInstance && 'avledet' in value
+  isInstance = isInstance && 'sorteringsnummer' in value
   isInstance = isInstance && 'obligatoriskVerdi' in value
   isInstance = isInstance && 'skrivebeskyttet' in value
   isInstance = isInstance && 'sensitivitet' in value
@@ -253,18 +227,18 @@ export function StedfestingFromJSONTyped(
   return {
     id: json['id'],
     navn: !exists(json, 'navn') ? undefined : json['navn'],
-    egenskapstype: json['egenskapstype'],
+    egenskapstype: EgenskapstypeEnumFromJSON(json['egenskapstype']),
     kortnavn: !exists(json, 'kortnavn') ? undefined : json['kortnavn'],
     beskrivelse: !exists(json, 'beskrivelse') ? undefined : json['beskrivelse'],
     sosinavn: !exists(json, 'sosinavn') ? undefined : json['sosinavn'],
     sosinvdbnavn: !exists(json, 'sosinvdbnavn')
       ? undefined
       : json['sosinvdbnavn'],
-    sorteringsnummer: json['sorteringsnummer'],
     avledet: json['avledet'],
     komplementrEgenskapstype: !exists(json, 'komplementær_egenskapstype')
       ? undefined
       : json['komplementær_egenskapstype'],
+    sorteringsnummer: json['sorteringsnummer'],
     obligatoriskVerdi: json['obligatorisk_verdi'],
     skrivebeskyttet: json['skrivebeskyttet'],
     sensitivitet: json['sensitivitet'],
@@ -285,7 +259,7 @@ export function StedfestingFromJSONTyped(
       ? undefined
       : json['sosi_referanse'],
     referansegeometriTilstrekkelig: json['referansegeometri_tilstrekkelig'],
-    viktighet: json['viktighet'],
+    viktighet: ViktighetFromJSON(json['viktighet']),
     kategori: json['kategori'],
   }
 }
@@ -300,14 +274,14 @@ export function StedfestingToJSON(value?: Stedfesting | null): any {
   return {
     id: value.id,
     navn: value.navn,
-    egenskapstype: value.egenskapstype,
+    egenskapstype: EgenskapstypeEnumToJSON(value.egenskapstype),
     kortnavn: value.kortnavn,
     beskrivelse: value.beskrivelse,
     sosinavn: value.sosinavn,
     sosinvdbnavn: value.sosinvdbnavn,
-    sorteringsnummer: value.sorteringsnummer,
     avledet: value.avledet,
     komplementær_egenskapstype: value.komplementrEgenskapstype,
+    sorteringsnummer: value.sorteringsnummer,
     obligatorisk_verdi: value.obligatoriskVerdi,
     skrivebeskyttet: value.skrivebeskyttet,
     sensitivitet: value.sensitivitet,
@@ -320,7 +294,7 @@ export function StedfestingToJSON(value?: Stedfesting | null): any {
     nøyaktighetskrav_høyde: value.nyaktighetskravHyde,
     sosi_referanse: value.sosiReferanse,
     referansegeometri_tilstrekkelig: value.referansegeometriTilstrekkelig,
-    viktighet: value.viktighet,
+    viktighet: ViktighetToJSON(value.viktighet),
     kategori: value.kategori,
   }
 }

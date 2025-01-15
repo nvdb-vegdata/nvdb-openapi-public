@@ -1,10 +1,9 @@
 import { vegobjektTypeSchema } from './vegobjektTypeSchema'
-import { vegobjektEllerIdListeSchema } from './vegobjektEllerIdListeSchema'
 import { z } from 'zod'
 
 export const relasjonSchema = z.object({
-  listeid: z.number(),
-  id: z.number(),
+  relasjonstype: z.enum(['vegobjekter', 'vegobjektIder']),
+  id: z.number().int(),
   type: z.lazy(() => vegobjektTypeSchema),
-  vegobjekter: z.lazy(() => vegobjektEllerIdListeSchema),
+  listeid: z.number().int(),
 })

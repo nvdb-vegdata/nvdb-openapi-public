@@ -51,29 +51,33 @@ export type VegsegmentTypeVegSosi =
   | 'annet'
 export type Vegsegment = {
   /**
-   * @type integer int64
+   * @type integer, int64
    */
   veglenkesekvensid: number
   /**
-   * @type number | undefined double
+   * @type number | undefined, double
    */
   startposisjon?: number
   /**
-   * @type number | undefined double
+   * @type number | undefined, double
    */
   sluttposisjon?: number
   /**
-   * @type number | undefined double
+   * @type number | undefined, double
    */
   relativPosisjon?: number
   /**
-   * @type number | undefined double
+   * @type number | undefined, double
    */
   lengde?: number
   /**
-   * @type string
+   * @type string | undefined
    */
-  retning: VegsegmentRetning
+  retning?: VegsegmentRetning
+  /**
+   * @type array | undefined
+   */
+  feltoversikt?: string[]
   /**
    * @type string
    */
@@ -91,23 +95,29 @@ export type Vegsegment = {
    */
   typeVeg_sosi: VegsegmentTypeVegSosi
   /**
-   * @type string date
+   * @type string, date
    */
   startdato: string
   /**
-   * @type string | undefined date
+   * @type string | undefined, date
    */
   sluttdato?: string
+  /**
+   * @type object
+   */
   geometri: Geometri
   /**
-   * @type integer int32
+   * @type integer, int32
    */
   kommune: number
   /**
-   * @type integer int32
+   * @type integer, int32
    */
   fylke: number
-  vegsystemreferanse: Vegsystemreferanse
+  /**
+   * @type object | undefined
+   */
+  vegsystemreferanse?: Vegsystemreferanse
   /**
    * @type array | undefined
    */

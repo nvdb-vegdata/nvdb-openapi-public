@@ -20,6 +20,7 @@ import no.vegvesen.nvdb.datakatalog.model.EgenskapstypeKategori
 import no.vegvesen.nvdb.datakatalog.model.Enhet
 import no.vegvesen.nvdb.datakatalog.model.Kategori
 import no.vegvesen.nvdb.datakatalog.model.ProblemDetail
+import no.vegvesen.nvdb.datakatalog.model.ProductSpecification
 import no.vegvesen.nvdb.datakatalog.model.Vegobjekttype
 import no.vegvesen.nvdb.datakatalog.model.Versjon
 
@@ -237,6 +238,39 @@ open class DatakatalogenApi : ApiClient {
             override fun deserialize(decoder: Decoder) = GetKategorierResponse(serializer.deserialize(decoder))
         }
     }
+
+    /**
+     * Returnerer produktspesifikasjonen til den angitte vegobjekttypen
+     * 
+     * @param vegobjekttypeid 
+     * @return ProductSpecification
+     */
+    @Suppress("UNCHECKED_CAST")
+    open suspend fun getProduktspesifikasjon(vegobjekttypeid: kotlin.Int): HttpResponse<ProductSpecification> {
+
+        val localVariableAuthNames = listOf<String>()
+
+        val localVariableBody = 
+            io.ktor.client.utils.EmptyContent
+
+        val localVariableQuery = mutableMapOf<String, List<String>>()
+        val localVariableHeaders = mutableMapOf<String, String>()
+
+        val localVariableConfig = RequestConfig<kotlin.Any?>(
+            RequestMethod.GET,
+            "/api/v1/vegobjekttyper/{vegobjekttypeid}/produktspesifikasjon".replace("{" + "vegobjekttypeid" + "}", "$vegobjekttypeid"),
+            query = localVariableQuery,
+            headers = localVariableHeaders,
+            requiresAuthentication = false,
+        )
+
+        return request(
+            localVariableConfig,
+            localVariableBody,
+            localVariableAuthNames
+        ).wrap()
+    }
+
 
 
     /**

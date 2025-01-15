@@ -20,21 +20,33 @@ export type Stedfesting = {
    */
   type: StedfestingType
   /**
-   * @type integer int64
+   * @type integer | undefined, int64
    */
-  veglenkesekvensid: number
+  veglenkesekvensid?: number
   /**
-   * @type number | undefined double
+   * @type integer | undefined, int64
+   */
+  nodeid?: number
+  /**
+   * @type number | undefined, double
    */
   relativPosisjon?: number
   /**
-   * @type number | undefined double
+   * @type number | undefined, double
    */
   startposisjon?: number
   /**
-   * @type number | undefined double
+   * @type number | undefined, double
    */
   sluttposisjon?: number
+  /**
+   * @type object | undefined
+   */
+  startpunkt?: Stedfesting
+  /**
+   * @type object | undefined
+   */
+  sluttpunkt?: Stedfesting
   /**
    * @type string | undefined
    */

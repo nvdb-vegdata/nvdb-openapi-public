@@ -13,12 +13,24 @@
  */
 
 import { exists, mapValues } from '../runtime'
+import type { EgenskapstypeEnum } from './EgenskapstypeEnum'
+import {
+  EgenskapstypeEnumFromJSON,
+  EgenskapstypeEnumFromJSONTyped,
+  EgenskapstypeEnumToJSON,
+} from './EgenskapstypeEnum'
 import type { Stedfesting } from './Stedfesting'
 import {
   StedfestingFromJSON,
   StedfestingFromJSONTyped,
   StedfestingToJSON,
 } from './Stedfesting'
+import type { Viktighet } from './Viktighet'
+import {
+  ViktighetFromJSON,
+  ViktighetFromJSONTyped,
+  ViktighetToJSON,
+} from './Viktighet'
 
 /**
  *

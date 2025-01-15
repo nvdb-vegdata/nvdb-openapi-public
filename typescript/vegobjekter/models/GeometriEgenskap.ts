@@ -1,7 +1,7 @@
 import type { Egenskap } from './Egenskap'
 import type { GeometriKvalitet } from './GeometriKvalitet'
 
-export type Medium =
+export type GeometriEgenskapMedium =
   | 'T'
   | 'B'
   | 'L'
@@ -20,17 +20,20 @@ export type GeometriEgenskap = Egenskap & {
    * @type string | undefined
    */
   verdi?: string
+  /**
+   * @type object | undefined
+   */
   kvalitet?: GeometriKvalitet
   /**
-   * @type string | undefined date
+   * @type string | undefined, date
    */
   datafangstdato?: string
   /**
-   * @type string | undefined date
+   * @type string | undefined, date
    */
   verifiseringsdato?: string
   /**
-   * @type string | undefined date
+   * @type string | undefined, date
    */
   oppdateringsdato?: string
   /**
@@ -38,15 +41,15 @@ export type GeometriEgenskap = Egenskap & {
    */
   prosesshistoriskk?: string
   /**
-   * @type integer | undefined int32
+   * @type integer | undefined, int32
    */
   kommune?: number
   /**
    * @type string | undefined
    */
-  medium?: Medium
+  medium?: GeometriEgenskapMedium
   /**
-   * @type integer | undefined int32
+   * @type integer | undefined, int32
    */
   medium_nvdb?: number
   /**
@@ -54,7 +57,7 @@ export type GeometriEgenskap = Egenskap & {
    */
   sosinavn?: string
   /**
-   * @type integer | undefined int32
+   * @type integer | undefined, int32
    */
   temakode?: number
   /**
@@ -62,11 +65,11 @@ export type GeometriEgenskap = Egenskap & {
    */
   referansegeometri?: boolean
   /**
-   * @type number | undefined double
+   * @type number | undefined, double
    */
   lengde?: number
   /**
-   * @type integer | undefined int32
+   * @type integer | undefined, int32
    */
   høydereferanse?: number
 }

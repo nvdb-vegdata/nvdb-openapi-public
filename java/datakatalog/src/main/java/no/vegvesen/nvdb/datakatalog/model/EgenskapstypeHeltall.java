@@ -25,7 +25,9 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.time.LocalDate;
 import no.vegvesen.nvdb.datakatalog.model.Egenskapstype;
+import no.vegvesen.nvdb.datakatalog.model.EgenskapstypeEnum;
 import no.vegvesen.nvdb.datakatalog.model.Enhet;
+import no.vegvesen.nvdb.datakatalog.model.Viktighet;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 
@@ -448,12 +450,6 @@ public class EgenskapstypeHeltall extends Egenskapstype {
   }
 
   @Override
-  public EgenskapstypeHeltall sorteringsnummer(Integer sorteringsnummer) {
-    this.setSorteringsnummer(sorteringsnummer);
-    return this;
-  }
-
-  @Override
   public EgenskapstypeHeltall avledet(Boolean avledet) {
     this.setAvledet(avledet);
     return this;
@@ -462,6 +458,12 @@ public class EgenskapstypeHeltall extends Egenskapstype {
   @Override
   public EgenskapstypeHeltall komplementærEgenskapstype(Integer komplementærEgenskapstype) {
     this.setKomplementærEgenskapstype(komplementærEgenskapstype);
+    return this;
+  }
+
+  @Override
+  public EgenskapstypeHeltall sorteringsnummer(Integer sorteringsnummer) {
+    this.setSorteringsnummer(sorteringsnummer);
     return this;
   }
 
@@ -538,7 +540,7 @@ public class EgenskapstypeHeltall extends Egenskapstype {
   }
 
   @Override
-  public EgenskapstypeHeltall viktighet(ViktighetEnum viktighet) {
+  public EgenskapstypeHeltall viktighet(Viktighet viktighet) {
     this.setViktighet(viktighet);
     return this;
   }

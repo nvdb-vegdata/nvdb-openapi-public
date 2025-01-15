@@ -16,6 +16,8 @@
 package no.vegvesen.nvdb.datakatalog.model
 
 import no.vegvesen.nvdb.datakatalog.model.Egenskapstype
+import no.vegvesen.nvdb.datakatalog.model.EgenskapstypeEnum
+import no.vegvesen.nvdb.datakatalog.model.Viktighet
 
 import kotlinx.serialization.*
 import kotlinx.serialization.descriptors.*
@@ -26,6 +28,8 @@ import kotlinx.serialization.encoding.*
  *
  * @param id 
  * @param egenskapstype 
+ * @param avledet 
+ * @param sorteringsnummer 
  * @param obligatoriskVerdi 
  * @param skrivebeskyttet 
  * @param sensitivitet 
@@ -35,19 +39,17 @@ import kotlinx.serialization.encoding.*
  * @param referansegeometriTilstrekkelig 
  * @param viktighet 
  * @param kategori 
- * @param sorteringsnummer 
- * @param avledet 
  * @param navn 
+ * @param kortnavn 
+ * @param beskrivelse 
+ * @param sosinavn 
+ * @param sosinvdbnavn 
  * @param komplementærEgenskapstype 
  * @param gruppesorteringsnummer 
  * @param veiledning 
  * @param grunnrissreferanse 
  * @param høydereferanse 
  * @param sosiReferanse 
- * @param kortnavn 
- * @param beskrivelse 
- * @param sosinavn 
- * @param sosinvdbnavn 
  * @param tilknytning 
  * @param vegobjekttypeid 
  * @param innenforMor 
@@ -62,7 +64,11 @@ data class EgenskapstypeAssosiasjon (
 
     @SerialName(value = "id") @Required override val id: kotlin.Int,
 
-    @SerialName(value = "egenskapstype") @Required override val egenskapstype: EgenskapstypeAssosiasjon.Egenskapstype,
+    @SerialName(value = "egenskapstype") @Required override val egenskapstype: EgenskapstypeEnum,
+
+    @SerialName(value = "avledet") @Required override val avledet: kotlin.Boolean,
+
+    @SerialName(value = "sorteringsnummer") @Required override val sorteringsnummer: kotlin.Int,
 
     @SerialName(value = "obligatorisk_verdi") @Required override val obligatoriskVerdi: kotlin.Boolean,
 
@@ -78,15 +84,19 @@ data class EgenskapstypeAssosiasjon (
 
     @SerialName(value = "referansegeometri_tilstrekkelig") @Required override val referansegeometriTilstrekkelig: kotlin.Boolean,
 
-    @SerialName(value = "viktighet") @Required override val viktighet: EgenskapstypeAssosiasjon.Viktighet,
+    @SerialName(value = "viktighet") @Required override val viktighet: Viktighet,
 
     @SerialName(value = "kategori") @Required override val kategori: kotlin.Int,
 
-    @SerialName(value = "sorteringsnummer") @Required override val sorteringsnummer: kotlin.Int,
-
-    @SerialName(value = "avledet") @Required override val avledet: kotlin.Boolean,
-
     @SerialName(value = "navn") override val navn: kotlin.String? = null,
+
+    @SerialName(value = "kortnavn") override val kortnavn: kotlin.String? = null,
+
+    @SerialName(value = "beskrivelse") override val beskrivelse: kotlin.String? = null,
+
+    @SerialName(value = "sosinavn") override val sosinavn: kotlin.String? = null,
+
+    @SerialName(value = "sosinvdbnavn") override val sosinvdbnavn: kotlin.String? = null,
 
     @SerialName(value = "komplementær_egenskapstype") override val komplementærEgenskapstype: kotlin.Int? = null,
 
@@ -99,14 +109,6 @@ data class EgenskapstypeAssosiasjon (
     @SerialName(value = "høydereferanse") override val høydereferanse: kotlin.String? = null,
 
     @SerialName(value = "sosi_referanse") override val sosiReferanse: kotlin.String? = null,
-
-    @SerialName(value = "kortnavn") override val kortnavn: kotlin.String? = null,
-
-    @SerialName(value = "beskrivelse") override val beskrivelse: kotlin.String? = null,
-
-    @SerialName(value = "sosinavn") override val sosinavn: kotlin.String? = null,
-
-    @SerialName(value = "sosinvdbnavn") override val sosinvdbnavn: kotlin.String? = null,
 
     @SerialName(value = "tilknytning") val tilknytning: kotlin.Int? = null,
 

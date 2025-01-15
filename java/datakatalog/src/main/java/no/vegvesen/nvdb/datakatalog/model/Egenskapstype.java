@@ -23,6 +23,8 @@ import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import no.vegvesen.nvdb.datakatalog.model.EgenskapstypeEnum;
+import no.vegvesen.nvdb.datakatalog.model.Viktighet;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 
@@ -37,9 +39,9 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
   Egenskapstype.JSON_PROPERTY_BESKRIVELSE,
   Egenskapstype.JSON_PROPERTY_SOSINAVN,
   Egenskapstype.JSON_PROPERTY_SOSINVDBNAVN,
-  Egenskapstype.JSON_PROPERTY_SORTERINGSNUMMER,
   Egenskapstype.JSON_PROPERTY_AVLEDET,
   Egenskapstype.JSON_PROPERTY_KOMPLEMENTæR_EGENSKAPSTYPE,
+  Egenskapstype.JSON_PROPERTY_SORTERINGSNUMMER,
   Egenskapstype.JSON_PROPERTY_OBLIGATORISK_VERDI,
   Egenskapstype.JSON_PROPERTY_SKRIVEBESKYTTET,
   Egenskapstype.JSON_PROPERTY_SENSITIVITET,
@@ -87,69 +89,6 @@ public class Egenskapstype {
   public static final String JSON_PROPERTY_NAVN = "navn";
   private String navn;
 
-  /**
-   * Gets or Sets egenskapstype
-   */
-  public enum EgenskapstypeEnum {
-    ASSOSIASJON("Assosiasjon"),
-    
-    BOOLSK("Boolsk"),
-    
-    BIN_R("Binær"),
-    
-    TEKST("Tekst"),
-    
-    DATO("Dato"),
-    
-    FLYTTALL("Flyttall"),
-    
-    HELTALL("Heltall"),
-    
-    STRUKTUR("Struktur"),
-    
-    GEOMETRI("Geometri"),
-    
-    STEDFESTING("Stedfesting"),
-    
-    KORTDATO("Kortdato"),
-    
-    TID("Tid"),
-    
-    LISTE("Liste"),
-    
-    TEKSTENUM("Tekstenum"),
-    
-    HELTALLENUM("Heltallenum"),
-    
-    FLYTTALLENUM("Flyttallenum");
-
-    private String value;
-
-    EgenskapstypeEnum(String value) {
-      this.value = value;
-    }
-
-    @JsonValue
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-
-    @JsonCreator
-    public static EgenskapstypeEnum fromValue(String value) {
-      for (EgenskapstypeEnum b : EgenskapstypeEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
-        }
-      }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
-    }
-  }
-
   public static final String JSON_PROPERTY_EGENSKAPSTYPE = "egenskapstype";
   protected EgenskapstypeEnum egenskapstype;
 
@@ -165,14 +104,14 @@ public class Egenskapstype {
   public static final String JSON_PROPERTY_SOSINVDBNAVN = "sosinvdbnavn";
   private String sosinvdbnavn;
 
-  public static final String JSON_PROPERTY_SORTERINGSNUMMER = "sorteringsnummer";
-  private Integer sorteringsnummer;
-
   public static final String JSON_PROPERTY_AVLEDET = "avledet";
   private Boolean avledet;
 
   public static final String JSON_PROPERTY_KOMPLEMENTæR_EGENSKAPSTYPE = "komplementær_egenskapstype";
   private Integer komplementærEgenskapstype;
+
+  public static final String JSON_PROPERTY_SORTERINGSNUMMER = "sorteringsnummer";
+  private Integer sorteringsnummer;
 
   public static final String JSON_PROPERTY_OBLIGATORISK_VERDI = "obligatorisk_verdi";
   private Boolean obligatoriskVerdi;
@@ -210,53 +149,8 @@ public class Egenskapstype {
   public static final String JSON_PROPERTY_REFERANSEGEOMETRI_TILSTREKKELIG = "referansegeometri_tilstrekkelig";
   private Boolean referansegeometriTilstrekkelig;
 
-  /**
-   * Gets or Sets viktighet
-   */
-  public enum ViktighetEnum {
-    IKKE_SATT("IKKE_SATT"),
-    
-    P_KREVD_ABSOLUTT("PÅKREVD_ABSOLUTT"),
-    
-    P_KREVD_IKKE_ABSOLUTT("PÅKREVD_IKKE_ABSOLUTT"),
-    
-    BETINGET("BETINGET"),
-    
-    OPSJONELL("OPSJONELL"),
-    
-    MINDRE_VIKTIG("MINDRE_VIKTIG"),
-    
-    HISTORISK("HISTORISK");
-
-    private String value;
-
-    ViktighetEnum(String value) {
-      this.value = value;
-    }
-
-    @JsonValue
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-
-    @JsonCreator
-    public static ViktighetEnum fromValue(String value) {
-      for (ViktighetEnum b : ViktighetEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
-        }
-      }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
-    }
-  }
-
   public static final String JSON_PROPERTY_VIKTIGHET = "viktighet";
-  private ViktighetEnum viktighet;
+  private Viktighet viktighet;
 
   public static final String JSON_PROPERTY_KATEGORI = "kategori";
   private Integer kategori;
@@ -446,32 +340,6 @@ public class Egenskapstype {
   }
 
 
-  public Egenskapstype sorteringsnummer(Integer sorteringsnummer) {
-    
-    this.sorteringsnummer = sorteringsnummer;
-    return this;
-  }
-
-   /**
-   * Get sorteringsnummer
-   * @return sorteringsnummer
-  **/
-  @javax.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_SORTERINGSNUMMER)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
-  public Integer getSorteringsnummer() {
-    return sorteringsnummer;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_SORTERINGSNUMMER)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setSorteringsnummer(Integer sorteringsnummer) {
-    this.sorteringsnummer = sorteringsnummer;
-  }
-
-
   public Egenskapstype avledet(Boolean avledet) {
     
     this.avledet = avledet;
@@ -521,6 +389,32 @@ public class Egenskapstype {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setKomplementærEgenskapstype(Integer komplementærEgenskapstype) {
     this.komplementærEgenskapstype = komplementærEgenskapstype;
+  }
+
+
+  public Egenskapstype sorteringsnummer(Integer sorteringsnummer) {
+    
+    this.sorteringsnummer = sorteringsnummer;
+    return this;
+  }
+
+   /**
+   * Get sorteringsnummer
+   * @return sorteringsnummer
+  **/
+  @javax.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_SORTERINGSNUMMER)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public Integer getSorteringsnummer() {
+    return sorteringsnummer;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_SORTERINGSNUMMER)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setSorteringsnummer(Integer sorteringsnummer) {
+    this.sorteringsnummer = sorteringsnummer;
   }
 
 
@@ -836,7 +730,7 @@ public class Egenskapstype {
   }
 
 
-  public Egenskapstype viktighet(ViktighetEnum viktighet) {
+  public Egenskapstype viktighet(Viktighet viktighet) {
     
     this.viktighet = viktighet;
     return this;
@@ -850,14 +744,14 @@ public class Egenskapstype {
   @JsonProperty(JSON_PROPERTY_VIKTIGHET)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public ViktighetEnum getViktighet() {
+  public Viktighet getViktighet() {
     return viktighet;
   }
 
 
   @JsonProperty(JSON_PROPERTY_VIKTIGHET)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setViktighet(ViktighetEnum viktighet) {
+  public void setViktighet(Viktighet viktighet) {
     this.viktighet = viktighet;
   }
 
@@ -903,9 +797,9 @@ public class Egenskapstype {
         Objects.equals(this.beskrivelse, egenskapstype.beskrivelse) &&
         Objects.equals(this.sosinavn, egenskapstype.sosinavn) &&
         Objects.equals(this.sosinvdbnavn, egenskapstype.sosinvdbnavn) &&
-        Objects.equals(this.sorteringsnummer, egenskapstype.sorteringsnummer) &&
         Objects.equals(this.avledet, egenskapstype.avledet) &&
         Objects.equals(this.komplementærEgenskapstype, egenskapstype.komplementærEgenskapstype) &&
+        Objects.equals(this.sorteringsnummer, egenskapstype.sorteringsnummer) &&
         Objects.equals(this.obligatoriskVerdi, egenskapstype.obligatoriskVerdi) &&
         Objects.equals(this.skrivebeskyttet, egenskapstype.skrivebeskyttet) &&
         Objects.equals(this.sensitivitet, egenskapstype.sensitivitet) &&
@@ -924,7 +818,7 @@ public class Egenskapstype {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, navn, egenskapstype, kortnavn, beskrivelse, sosinavn, sosinvdbnavn, sorteringsnummer, avledet, komplementærEgenskapstype, obligatoriskVerdi, skrivebeskyttet, sensitivitet, gruppesorteringsnummer, veiledning, grunnrissreferanse, høydereferanse, høydereferanseTall, nøyaktighetskravGrunnriss, nøyaktighetskravHøyde, sosiReferanse, referansegeometriTilstrekkelig, viktighet, kategori);
+    return Objects.hash(id, navn, egenskapstype, kortnavn, beskrivelse, sosinavn, sosinvdbnavn, avledet, komplementærEgenskapstype, sorteringsnummer, obligatoriskVerdi, skrivebeskyttet, sensitivitet, gruppesorteringsnummer, veiledning, grunnrissreferanse, høydereferanse, høydereferanseTall, nøyaktighetskravGrunnriss, nøyaktighetskravHøyde, sosiReferanse, referansegeometriTilstrekkelig, viktighet, kategori);
   }
 
   @Override
@@ -938,9 +832,9 @@ public class Egenskapstype {
     sb.append("    beskrivelse: ").append(toIndentedString(beskrivelse)).append("\n");
     sb.append("    sosinavn: ").append(toIndentedString(sosinavn)).append("\n");
     sb.append("    sosinvdbnavn: ").append(toIndentedString(sosinvdbnavn)).append("\n");
-    sb.append("    sorteringsnummer: ").append(toIndentedString(sorteringsnummer)).append("\n");
     sb.append("    avledet: ").append(toIndentedString(avledet)).append("\n");
     sb.append("    komplementærEgenskapstype: ").append(toIndentedString(komplementærEgenskapstype)).append("\n");
+    sb.append("    sorteringsnummer: ").append(toIndentedString(sorteringsnummer)).append("\n");
     sb.append("    obligatoriskVerdi: ").append(toIndentedString(obligatoriskVerdi)).append("\n");
     sb.append("    skrivebeskyttet: ").append(toIndentedString(skrivebeskyttet)).append("\n");
     sb.append("    sensitivitet: ").append(toIndentedString(sensitivitet)).append("\n");

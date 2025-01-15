@@ -19,6 +19,7 @@ import type {
   Enhet,
   Kategori,
   ProblemDetail,
+  ProductSpecification,
   Vegobjekttype,
   Versjon,
 } from '../models/index'
@@ -33,6 +34,8 @@ import {
   KategoriToJSON,
   ProblemDetailFromJSON,
   ProblemDetailToJSON,
+  ProductSpecificationFromJSON,
+  ProductSpecificationToJSON,
   VegobjekttypeFromJSON,
   VegobjekttypeToJSON,
   VersjonFromJSON,
@@ -46,6 +49,10 @@ export interface GetEgenskapstypeRequest {
 export interface GetEgenskapstypeForVegobjekttypeRequest {
   vegobjekttypeid: number
   egenskapstypeid: number
+}
+
+export interface GetProduktspesifikasjonRequest {
+  vegobjekttypeid: number
 }
 
 export interface GetVegobjekttypeRequest {
@@ -291,6 +298,59 @@ export class DatakatalogenApi extends runtime.BaseAPI {
     initOverrides?: RequestInit | runtime.InitOverrideFunction,
   ): Promise<Array<Kategori>> {
     const response = await this.getKategorierRaw(initOverrides)
+    return await response.value()
+  }
+
+  /**
+   * Returnerer produktspesifikasjonen til den angitte vegobjekttypen
+   */
+  async getProduktspesifikasjonRaw(
+    requestParameters: GetProduktspesifikasjonRequest,
+    initOverrides?: RequestInit | runtime.InitOverrideFunction,
+  ): Promise<runtime.ApiResponse<ProductSpecification>> {
+    if (
+      requestParameters.vegobjekttypeid === null ||
+      requestParameters.vegobjekttypeid === undefined
+    ) {
+      throw new runtime.RequiredError(
+        'vegobjekttypeid',
+        'Required parameter requestParameters.vegobjekttypeid was null or undefined when calling getProduktspesifikasjon.',
+      )
+    }
+
+    const queryParameters: any = {}
+
+    const headerParameters: runtime.HTTPHeaders = {}
+
+    const response = await this.request(
+      {
+        path: `/api/v1/vegobjekttyper/{vegobjekttypeid}/produktspesifikasjon`.replace(
+          `{${'vegobjekttypeid'}}`,
+          encodeURIComponent(String(requestParameters.vegobjekttypeid)),
+        ),
+        method: 'GET',
+        headers: headerParameters,
+        query: queryParameters,
+      },
+      initOverrides,
+    )
+
+    return new runtime.JSONApiResponse(response, (jsonValue) =>
+      ProductSpecificationFromJSON(jsonValue),
+    )
+  }
+
+  /**
+   * Returnerer produktspesifikasjonen til den angitte vegobjekttypen
+   */
+  async getProduktspesifikasjon(
+    requestParameters: GetProduktspesifikasjonRequest,
+    initOverrides?: RequestInit | runtime.InitOverrideFunction,
+  ): Promise<ProductSpecification> {
+    const response = await this.getProduktspesifikasjonRaw(
+      requestParameters,
+      initOverrides,
+    )
     return await response.value()
   }
 

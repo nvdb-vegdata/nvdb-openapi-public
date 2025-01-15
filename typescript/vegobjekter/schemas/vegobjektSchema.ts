@@ -8,12 +8,12 @@ import { vegsegmentSchema } from './vegsegmentSchema'
 import { z } from 'zod'
 
 export const vegobjektSchema = z.object({
-  id: z.number(),
+  id: z.number().int(),
   href: z.string(),
   metadata: z.lazy(() => vegobjektMetadataSchema).optional(),
   egenskaper: z.array(z.lazy(() => egenskapSchema)).optional(),
   geometri: z.lazy(() => utledetGeometriSchema).optional(),
-  geometrimål: z.lazy(() => geometrimalSchema).optional(),
+  'geometrim\u00E5l': z.lazy(() => geometrimalSchema).optional(),
   lokasjon: z.lazy(() => lokasjonSchema).optional(),
   relasjoner: z.lazy(() => relasjonerSchema).optional(),
   vegsegmenter: z.array(z.lazy(() => vegsegmentSchema)).optional(),

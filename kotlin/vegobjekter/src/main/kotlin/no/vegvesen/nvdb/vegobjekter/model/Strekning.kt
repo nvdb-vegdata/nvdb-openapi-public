@@ -23,8 +23,6 @@ import kotlinx.serialization.encoding.*
 /**
  * 
  *
- * @param id 
- * @param versjon 
  * @param strekning 
  * @param delstrekning 
  * @param arm 
@@ -34,14 +32,11 @@ import kotlinx.serialization.encoding.*
  * @param meter 
  * @param fraMeter 
  * @param tilMeter 
+ * @param adskilteLøpNummer 
  */
 @Serializable
 
 data class Strekning (
-
-    @SerialName(value = "id") @Required val id: kotlin.Long,
-
-    @SerialName(value = "versjon") @Required val versjon: kotlin.Int,
 
     @SerialName(value = "strekning") @Required val strekning: kotlin.Int,
 
@@ -59,7 +54,9 @@ data class Strekning (
 
     @SerialName(value = "fra_meter") val fraMeter: kotlin.Double? = null,
 
-    @SerialName(value = "til_meter") val tilMeter: kotlin.Double? = null
+    @SerialName(value = "til_meter") val tilMeter: kotlin.Double? = null,
+
+    @SerialName(value = "adskilte_løp_nummer") val adskilteLøpNummer: kotlin.String? = null
 
 ) {
 

@@ -25,6 +25,8 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.time.LocalDate;
 import no.vegvesen.nvdb.datakatalog.model.Egenskapstype;
+import no.vegvesen.nvdb.datakatalog.model.EgenskapstypeEnum;
+import no.vegvesen.nvdb.datakatalog.model.Viktighet;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 
@@ -327,12 +329,6 @@ public class EgenskapstypeDato extends Egenskapstype {
   }
 
   @Override
-  public EgenskapstypeDato sorteringsnummer(Integer sorteringsnummer) {
-    this.setSorteringsnummer(sorteringsnummer);
-    return this;
-  }
-
-  @Override
   public EgenskapstypeDato avledet(Boolean avledet) {
     this.setAvledet(avledet);
     return this;
@@ -341,6 +337,12 @@ public class EgenskapstypeDato extends Egenskapstype {
   @Override
   public EgenskapstypeDato komplementærEgenskapstype(Integer komplementærEgenskapstype) {
     this.setKomplementærEgenskapstype(komplementærEgenskapstype);
+    return this;
+  }
+
+  @Override
+  public EgenskapstypeDato sorteringsnummer(Integer sorteringsnummer) {
+    this.setSorteringsnummer(sorteringsnummer);
     return this;
   }
 
@@ -417,7 +419,7 @@ public class EgenskapstypeDato extends Egenskapstype {
   }
 
   @Override
-  public EgenskapstypeDato viktighet(ViktighetEnum viktighet) {
+  public EgenskapstypeDato viktighet(Viktighet viktighet) {
     this.setViktighet(viktighet);
     return this;
   }

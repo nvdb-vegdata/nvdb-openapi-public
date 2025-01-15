@@ -2,20 +2,22 @@
 
 All URIs are relative to *https://nvdbapiles.atlas.vegvesen.no/vegnett*
 
-Method | HTTP request | Description
-------------- | ------------- | -------------
-[**findPosisjon**](PosisjonApi.md#findPosisjon) | **GET** /api/v4/posisjon | Finn nærmeste posisjon på vegnettet for gitte koordinater. Koordinater kan angis som &#x60;nord&#x60; og &#x60;ost&#x60; eller &#x60;lat&#x60; og &#x60;lon&#x60;.
-[**findPosisjonForVeg**](PosisjonApi.md#findPosisjonForVeg) | **GET** /api/v4/veg | Slå opp posisjon på veglenkesekvens eller vegsystemreferanse
-[**findPosisjonerForVeg**](PosisjonApi.md#findPosisjonerForVeg) | **GET** /api/v4/veg/batch | Slå opp flere posisjoner på veglenkesekvens eller vegsystemreferanse
-
+| Method                                                          | HTTP request              | Description                                                                                                                                                        |
+| --------------------------------------------------------------- | ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| [**findPosisjon**](PosisjonApi.md#findPosisjon)                 | **GET** /api/v4/posisjon  | Finn nærmeste posisjon på vegnettet for gitte koordinater. Koordinater kan angis som &#x60;nord&#x60; og &#x60;ost&#x60; eller &#x60;lat&#x60; og &#x60;lon&#x60;. |
+| [**findPosisjonForVeg**](PosisjonApi.md#findPosisjonForVeg)     | **GET** /api/v4/veg       | Slå opp posisjon på veglenkesekvens eller vegsystemreferanse                                                                                                       |
+| [**findPosisjonerForVeg**](PosisjonApi.md#findPosisjonerForVeg) | **GET** /api/v4/veg/batch | Slå opp flere posisjoner på veglenkesekvens eller vegsystemreferanse                                                                                               |
 
 <a id="findPosisjon"></a>
+
 # **findPosisjon**
+
 > kotlin.collections.List&lt;PosisjonMedAvstand&gt; findPosisjon(nord, ost, lat, lon, maksAvstand, maksAntall, konnekteringslenker, detaljerteLenker, tidspunkt, vegsystemreferanse, srid, trafikantgruppe)
 
 Finn nærmeste posisjon på vegnettet for gitte koordinater. Koordinater kan angis som &#x60;nord&#x60; og &#x60;ost&#x60; eller &#x60;lat&#x60; og &#x60;lon&#x60;.
 
 ### Example
+
 ```kotlin
 // Import classes:
 //import org.openapitools.client.infrastructure.*
@@ -48,20 +50,20 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **nord** | **kotlin.Double**| Nordlig koordinat | [optional]
- **ost** | **kotlin.Double**| Østlig koordinat | [optional]
- **lat** | **kotlin.Double**| Breddegrad | [optional]
- **lon** | **kotlin.Double**| Lengdegrad | [optional]
- **maksAvstand** | **kotlin.Int**| Angir søkeavstand i meter | [optional]
- **maksAntall** | **kotlin.Int**| Angir maks antall treff | [optional]
- **konnekteringslenker** | **kotlin.Boolean**| Angir om det skal returneres treff på konnekteringslenker | [optional]
- **detaljerteLenker** | **kotlin.Boolean**| Angir om det skal returneres treff på detaljerte lenker | [optional]
- **tidspunkt** | **java.time.LocalDate**| Begrens spørring til det gitte tidspunktet. | [optional]
- **vegsystemreferanse** | **kotlin.collections.Set&lt;kotlin.String&gt;**| Filtrer på [vegsystemreferanse](https://nvdbapiles-v3.atlas.vegvesen.no/dokumentasjon/#vegsystemreferanse). Kommaseparert liste. Legg til kommunenummer i starten av vegsystemreferansen for å filtrere på område.  Eksempel: &#x60;EV6S1D1 m12&#x60; | [optional]
- **srid** | **kotlin.String**| Angir hvilket geografisk referansesystem geometrien skal returneres i. Utdata i UTM-formater begrenses til 3 desimaler, 4326/WGS84 begrenses til 8 desimaler. Mer informasjon: &lt;a href&#x3D;&#39;https://epsg.io/5972&#39;&gt;EPSG:5972&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5973&#39;&gt;EPSG:5973&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5975&#39;&gt;EPSG:5975&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/4326&#39;&gt;EPSG:4326&lt;/a&gt;. | [optional] [enum: 5972, 5973, 5975, 4326, UTM32, UTM33, UTM35, WGS84]
- **trafikantgruppe** | **kotlin.String**| Filtrer på trafikantgruppe. | [optional] [enum: K, G]
+| Name                    | Type                                            | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                             | Notes                                                                 |
+| ----------------------- | ----------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------- |
+| **nord**                | **kotlin.Double**                               | Nordlig koordinat                                                                                                                                                                                                                                                                                                                                                                                                                                                       | [optional]                                                            |
+| **ost**                 | **kotlin.Double**                               | Østlig koordinat                                                                                                                                                                                                                                                                                                                                                                                                                                                        | [optional]                                                            |
+| **lat**                 | **kotlin.Double**                               | Breddegrad                                                                                                                                                                                                                                                                                                                                                                                                                                                              | [optional]                                                            |
+| **lon**                 | **kotlin.Double**                               | Lengdegrad                                                                                                                                                                                                                                                                                                                                                                                                                                                              | [optional]                                                            |
+| **maksAvstand**         | **kotlin.Int**                                  | Angir søkeavstand i meter                                                                                                                                                                                                                                                                                                                                                                                                                                               | [optional]                                                            |
+| **maksAntall**          | **kotlin.Int**                                  | Angir maks antall treff                                                                                                                                                                                                                                                                                                                                                                                                                                                 | [optional]                                                            |
+| **konnekteringslenker** | **kotlin.Boolean**                              | Angir om det skal returneres treff på konnekteringslenker                                                                                                                                                                                                                                                                                                                                                                                                               | [optional]                                                            |
+| **detaljerteLenker**    | **kotlin.Boolean**                              | Angir om det skal returneres treff på detaljerte lenker                                                                                                                                                                                                                                                                                                                                                                                                                 | [optional]                                                            |
+| **tidspunkt**           | **java.time.LocalDate**                         | Begrens spørring til det gitte tidspunktet.                                                                                                                                                                                                                                                                                                                                                                                                                             | [optional]                                                            |
+| **vegsystemreferanse**  | **kotlin.collections.Set&lt;kotlin.String&gt;** | Filtrer på [vegsystemreferanse](https://nvdbapiles-v3.atlas.vegvesen.no/dokumentasjon/#vegsystemreferanse). Kommaseparert liste. Legg til kommunenummer i starten av vegsystemreferansen for å filtrere på område. Eksempel: &#x60;EV6S1D1 m12&#x60;                                                                                                                                                                                                                    | [optional]                                                            |
+| **srid**                | **kotlin.String**                               | Angir hvilket geografisk referansesystem geometrien skal returneres i. Utdata i UTM-formater begrenses til 3 desimaler, 4326/WGS84 begrenses til 8 desimaler. Mer informasjon: &lt;a href&#x3D;&#39;https://epsg.io/5972&#39;&gt;EPSG:5972&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5973&#39;&gt;EPSG:5973&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5975&#39;&gt;EPSG:5975&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/4326&#39;&gt;EPSG:4326&lt;/a&gt;. | [optional] [enum: 5972, 5973, 5975, 4326, UTM32, UTM33, UTM35, WGS84] |
+| **trafikantgruppe**     | **kotlin.String**                               | Filtrer på trafikantgruppe.                                                                                                                                                                                                                                                                                                                                                                                                                                             | [optional] [enum: K, G]                                               |
 
 ### Return type
 
@@ -73,16 +75,19 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: */*
+- **Content-Type**: Not defined
+- **Accept**: _/_
 
 <a id="findPosisjonForVeg"></a>
+
 # **findPosisjonForVeg**
+
 > Posisjon findPosisjonForVeg(vegsystemreferanse, veglenkesekvens, tidspunkt, srid, kommune)
 
 Slå opp posisjon på veglenkesekvens eller vegsystemreferanse
 
 ### Example
+
 ```kotlin
 // Import classes:
 //import org.openapitools.client.infrastructure.*
@@ -108,13 +113,13 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **vegsystemreferanse** | **kotlin.String**| Finn posisjon for [vegsystemreferanse](https://nvdbapiles-v3.atlas.vegvesen.no/dokumentasjon/#vegsystemreferanse). Må inneholde én enkelt meterverdi. Legg til kommunenummer i starten av vegsystemreferansen for å filtrere på område.  Eksempel: &#x60;EV6S1D1m341&#x60; | [optional]
- **veglenkesekvens** | **kotlin.String**| Finn posisjon på veglenkesekvens. Format: &#x60;posisjon@veglenkesekvensid&#x60;.  Eksempel: &#x60;0.456@1226&#x60; | [optional]
- **tidspunkt** | **java.time.LocalDate**| Begrens spørring til det gitte tidspunktet. | [optional]
- **srid** | **kotlin.String**| Angir hvilket geografisk referansesystem geometrien skal returneres i. Utdata i UTM-formater begrenses til 3 desimaler, 4326/WGS84 begrenses til 8 desimaler. Mer informasjon: &lt;a href&#x3D;&#39;https://epsg.io/5972&#39;&gt;EPSG:5972&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5973&#39;&gt;EPSG:5973&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5975&#39;&gt;EPSG:5975&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/4326&#39;&gt;EPSG:4326&lt;/a&gt;. | [optional] [enum: 5972, 5973, 5975, 4326, UTM32, UTM33, UTM35, WGS84]
- **kommune** | **kotlin.collections.Set&lt;kotlin.Int&gt;**| Filtrer på kommune. Kommaseparert liste. Se [/omrader/api/v4/kommuner](https://nvdbapiles.atlas.vegvesen.no/webjars/swagger-ui/index.html?urls.primaryName&#x3D;Omr%C3%A5der) for mulige verdier.  Eksempel: &#x60;5001&#x60; | [optional]
+| Name                   | Type                                         | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                             | Notes                                                                 |
+| ---------------------- | -------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------- |
+| **vegsystemreferanse** | **kotlin.String**                            | Finn posisjon for [vegsystemreferanse](https://nvdbapiles-v3.atlas.vegvesen.no/dokumentasjon/#vegsystemreferanse). Må inneholde én enkelt meterverdi. Legg til kommunenummer i starten av vegsystemreferansen for å filtrere på område. Eksempel: &#x60;EV6S1D1m341&#x60;                                                                                                                                                                                               | [optional]                                                            |
+| **veglenkesekvens**    | **kotlin.String**                            | Finn posisjon på veglenkesekvens. Format: &#x60;posisjon@veglenkesekvensid&#x60;. Eksempel: &#x60;0.456@1226&#x60;                                                                                                                                                                                                                                                                                                                                                      | [optional]                                                            |
+| **tidspunkt**          | **java.time.LocalDate**                      | Begrens spørring til det gitte tidspunktet.                                                                                                                                                                                                                                                                                                                                                                                                                             | [optional]                                                            |
+| **srid**               | **kotlin.String**                            | Angir hvilket geografisk referansesystem geometrien skal returneres i. Utdata i UTM-formater begrenses til 3 desimaler, 4326/WGS84 begrenses til 8 desimaler. Mer informasjon: &lt;a href&#x3D;&#39;https://epsg.io/5972&#39;&gt;EPSG:5972&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5973&#39;&gt;EPSG:5973&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5975&#39;&gt;EPSG:5975&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/4326&#39;&gt;EPSG:4326&lt;/a&gt;. | [optional] [enum: 5972, 5973, 5975, 4326, UTM32, UTM33, UTM35, WGS84] |
+| **kommune**            | **kotlin.collections.Set&lt;kotlin.Int&gt;** | Filtrer på kommune. Kommaseparert liste. Se [/omrader/api/v4/kommuner](https://nvdbapiles.atlas.vegvesen.no/webjars/swagger-ui/index.html?urls.primaryName=Omr%C3%A5der) for mulige verdier. Eksempel: &#x60;5001&#x60;                                                                                                                                                                                                                                                 | [optional]                                                            |
 
 ### Return type
 
@@ -126,16 +131,19 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: */*
+- **Content-Type**: Not defined
+- **Accept**: _/_
 
 <a id="findPosisjonerForVeg"></a>
+
 # **findPosisjonerForVeg**
+
 > AlwaysIncludeMapStringPosisjon findPosisjonerForVeg(vegsystemreferanser, veglenkesekvenser, kommune, srid)
 
 Slå opp flere posisjoner på veglenkesekvens eller vegsystemreferanse
 
 ### Example
+
 ```kotlin
 // Import classes:
 //import org.openapitools.client.infrastructure.*
@@ -160,12 +168,12 @@ try {
 
 ### Parameters
 
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **vegsystemreferanser** | **kotlin.collections.List&lt;kotlin.String&gt;**| Finn posisjoner for [vegsystemreferanser](https://nvdbapiles-v3.atlas.vegvesen.no/dokumentasjon/#vegsystemreferanse). Må inneholde én enkelt meterverdi. Legg til kommunenummer i starten av vegsystemreferansen for å filtrere på område.  Eksempel: &#x60;EV6S1D1m341&#x60; | [optional]
- **veglenkesekvenser** | **kotlin.collections.List&lt;kotlin.String&gt;**| Finn posisjoner på veglenkesekvenser. Format: &#x60;posisjon@veglenkesekvensid&#x60;.  Eksempel: &#x60;0.456@1226&#x60; | [optional]
- **kommune** | **kotlin.collections.Set&lt;kotlin.Int&gt;**| Filtrer på kommune. Kommaseparert liste. Se [/omrader/api/v4/kommuner](https://nvdbapiles.atlas.vegvesen.no/webjars/swagger-ui/index.html?urls.primaryName&#x3D;Omr%C3%A5der) for mulige verdier.  Eksempel: &#x60;5001&#x60; | [optional]
- **srid** | **kotlin.String**| Angir hvilket geografisk referansesystem geometrien skal returneres i. Utdata i UTM-formater begrenses til 3 desimaler, 4326/WGS84 begrenses til 8 desimaler. Mer informasjon: &lt;a href&#x3D;&#39;https://epsg.io/5972&#39;&gt;EPSG:5972&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5973&#39;&gt;EPSG:5973&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5975&#39;&gt;EPSG:5975&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/4326&#39;&gt;EPSG:4326&lt;/a&gt;. | [optional] [enum: 5972, 5973, 5975, 4326, UTM32, UTM33, UTM35, WGS84]
+| Name                    | Type                                             | Description                                                                                                                                                                                                                                                                                                                                                                                                                                                             | Notes                                                                 |
+| ----------------------- | ------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------- |
+| **vegsystemreferanser** | **kotlin.collections.List&lt;kotlin.String&gt;** | Finn posisjoner for [vegsystemreferanser](https://nvdbapiles-v3.atlas.vegvesen.no/dokumentasjon/#vegsystemreferanse). Må inneholde én enkelt meterverdi. Legg til kommunenummer i starten av vegsystemreferansen for å filtrere på område. Eksempel: &#x60;EV6S1D1m341&#x60;                                                                                                                                                                                            | [optional]                                                            |
+| **veglenkesekvenser**   | **kotlin.collections.List&lt;kotlin.String&gt;** | Finn posisjoner på veglenkesekvenser. Format: &#x60;posisjon@veglenkesekvensid&#x60;. Eksempel: &#x60;0.456@1226&#x60;                                                                                                                                                                                                                                                                                                                                                  | [optional]                                                            |
+| **kommune**             | **kotlin.collections.Set&lt;kotlin.Int&gt;**     | Filtrer på kommune. Kommaseparert liste. Se [/omrader/api/v4/kommuner](https://nvdbapiles.atlas.vegvesen.no/webjars/swagger-ui/index.html?urls.primaryName=Omr%C3%A5der) for mulige verdier. Eksempel: &#x60;5001&#x60;                                                                                                                                                                                                                                                 | [optional]                                                            |
+| **srid**                | **kotlin.String**                                | Angir hvilket geografisk referansesystem geometrien skal returneres i. Utdata i UTM-formater begrenses til 3 desimaler, 4326/WGS84 begrenses til 8 desimaler. Mer informasjon: &lt;a href&#x3D;&#39;https://epsg.io/5972&#39;&gt;EPSG:5972&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5973&#39;&gt;EPSG:5973&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5975&#39;&gt;EPSG:5975&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/4326&#39;&gt;EPSG:4326&lt;/a&gt;. | [optional] [enum: 5972, 5973, 5975, 4326, UTM32, UTM33, UTM35, WGS84] |
 
 ### Return type
 
@@ -177,6 +185,5 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
- - **Accept**: */*
-
+- **Content-Type**: Not defined
+- **Accept**: _/_

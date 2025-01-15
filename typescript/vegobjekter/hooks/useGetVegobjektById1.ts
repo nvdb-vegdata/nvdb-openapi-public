@@ -90,7 +90,8 @@ export function getVegobjektById1QueryOptions(
 }
 /**
  * @summary Hent gjeldende versjon av et vegobjekt
- * @link /api/v4/vegobjekter/:vegobjekttypeId/:vegobjektId */
+ * @link /api/v4/vegobjekter/:vegobjekttypeId/:vegobjektId
+ */
 export function useGetVegobjektById1<
   TData = GetVegobjektById1['response'],
   TQueryData = GetVegobjektById1['response'],
@@ -124,7 +125,7 @@ export function useGetVegobjektById1<
       vegobjektId,
       params,
       clientOptions,
-    ) as QueryObserverOptions),
+    ) as unknown as QueryObserverOptions),
     queryKey,
     ...(queryOptions as unknown as Omit<QueryObserverOptions, 'queryKey'>),
   }) as UseQueryResult<TData, GetVegobjektById1['error']> & {
@@ -177,7 +178,8 @@ export function getVegobjektById1SuspenseQueryOptions(
 }
 /**
  * @summary Hent gjeldende versjon av et vegobjekt
- * @link /api/v4/vegobjekter/:vegobjekttypeId/:vegobjektId */
+ * @link /api/v4/vegobjekter/:vegobjekttypeId/:vegobjektId
+ */
 export function useGetVegobjektById1Suspense<
   TData = GetVegobjektById1['response'],
   TQueryKey extends QueryKey = GetVegobjektById1SuspenseQueryKey,
@@ -209,9 +211,9 @@ export function useGetVegobjektById1Suspense<
       vegobjektId,
       params,
       clientOptions,
-    ) as QueryObserverOptions),
+    ) as unknown as UseSuspenseQueryOptions),
     queryKey,
-    ...(queryOptions as unknown as Omit<QueryObserverOptions, 'queryKey'>),
+    ...(queryOptions as unknown as Omit<UseSuspenseQueryOptions, 'queryKey'>),
   }) as UseSuspenseQueryResult<TData, GetVegobjektById1['error']> & {
     queryKey: TQueryKey
   }

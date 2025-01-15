@@ -1,10 +1,19 @@
 import type { Egenskapstype } from './Egenskapstype'
 
-export type Stedfestingstype = 'Punkt' | 'Linje' | 'Sving'
-export type Geometritype2 = 'PUNKT' | 'LINJE' | 'SVING'
-export type KjørefeltRelevant = 'KAN' | 'NEI' | 'M\u00C5'
-export type SideposisjonRelevant = 'KAN' | 'NEI' | 'M\u00C5'
-export type VegnettsajourholdSplitt =
+export type EgenskapstypeStedfestingStedfestingstype =
+  | 'Punkt'
+  | 'Linje'
+  | 'Sving'
+export type EgenskapstypeStedfestingGeometritype = 'PUNKT' | 'LINJE' | 'SVING'
+export type EgenskapstypeStedfestingKjørefeltRelevant =
+  | 'KAN'
+  | 'NEI'
+  | 'M\u00C5'
+export type EgenskapstypeStedfestingSideposisjonRelevant =
+  | 'KAN'
+  | 'NEI'
+  | 'M\u00C5'
+export type EgenskapstypeStedfestingVegnettsajourholdSplitt =
   | 'IKKE_TATT_STILLING'
   | 'KAN_IKKE_SPLITTES'
   | 'KAN_SPLITTES'
@@ -12,11 +21,11 @@ export type EgenskapstypeStedfesting = Egenskapstype & {
   /**
    * @type string | undefined
    */
-  stedfestingstype?: Stedfestingstype
+  stedfestingstype?: EgenskapstypeStedfestingStedfestingstype
   /**
    * @type string | undefined
    */
-  geometritype?: Geometritype2
+  geometritype?: EgenskapstypeStedfestingGeometritype
   /**
    * @type boolean | undefined
    */
@@ -24,11 +33,11 @@ export type EgenskapstypeStedfesting = Egenskapstype & {
   /**
    * @type string | undefined
    */
-  kjørefelt_relevant?: KjørefeltRelevant
+  kjørefelt_relevant?: EgenskapstypeStedfestingKjørefeltRelevant
   /**
    * @type string | undefined
    */
-  sideposisjon_relevant?: SideposisjonRelevant
+  sideposisjon_relevant?: EgenskapstypeStedfestingSideposisjonRelevant
   /**
    * @type boolean | undefined
    */
@@ -36,7 +45,7 @@ export type EgenskapstypeStedfesting = Egenskapstype & {
   /**
    * @type string | undefined
    */
-  vegnettsajourhold_splitt?: VegnettsajourholdSplitt
+  vegnettsajourhold_splitt?: EgenskapstypeStedfestingVegnettsajourholdSplitt
   /**
    * @type string | undefined
    */

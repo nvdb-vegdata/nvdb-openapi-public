@@ -1,10 +1,10 @@
 import type { Stedfesting } from './Stedfesting'
 
-export type Stedfestingstype2 = 'Punkt' | 'Linje' | 'Sving'
-export type Geometritype3 = 'PUNKT' | 'LINJE' | 'SVING'
-export type KjørefeltRelevant2 = 'KAN' | 'NEI' | 'M\u00C5'
-export type SideposisjonRelevant2 = 'KAN' | 'NEI' | 'M\u00C5'
-export type VegnettsajourholdSplitt2 =
+export type StedfestingEnkelStedfestingstype = 'Punkt' | 'Linje' | 'Sving'
+export type StedfestingEnkelGeometritype = 'PUNKT' | 'LINJE' | 'SVING'
+export type StedfestingEnkelKjørefeltRelevant = 'KAN' | 'NEI' | 'M\u00C5'
+export type StedfestingEnkelSideposisjonRelevant = 'KAN' | 'NEI' | 'M\u00C5'
+export type StedfestingEnkelVegnettsajourholdSplitt =
   | 'IKKE_TATT_STILLING'
   | 'KAN_IKKE_SPLITTES'
   | 'KAN_SPLITTES'
@@ -12,11 +12,11 @@ export type StedfestingEnkel = Stedfesting & {
   /**
    * @type string | undefined
    */
-  stedfestingstype?: Stedfestingstype2
+  stedfestingstype?: StedfestingEnkelStedfestingstype
   /**
    * @type string | undefined
    */
-  geometritype?: Geometritype3
+  geometritype?: StedfestingEnkelGeometritype
   /**
    * @type boolean | undefined
    */
@@ -24,11 +24,11 @@ export type StedfestingEnkel = Stedfesting & {
   /**
    * @type string | undefined
    */
-  kjørefelt_relevant?: KjørefeltRelevant2
+  kjørefelt_relevant?: StedfestingEnkelKjørefeltRelevant
   /**
    * @type string | undefined
    */
-  sideposisjon_relevant?: SideposisjonRelevant2
+  sideposisjon_relevant?: StedfestingEnkelSideposisjonRelevant
   /**
    * @type boolean | undefined
    */
@@ -36,7 +36,7 @@ export type StedfestingEnkel = Stedfesting & {
   /**
    * @type string | undefined
    */
-  vegnettsajourhold_splitt?: VegnettsajourholdSplitt2
+  vegnettsajourhold_splitt?: StedfestingEnkelVegnettsajourholdSplitt
   /**
    * @type string | undefined
    */

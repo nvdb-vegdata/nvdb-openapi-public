@@ -24,22 +24,28 @@ import kotlinx.serialization.encoding.*
 /**
  * 
  *
- * @param listeid 
+ * @param relasjonstype 
  * @param id 
  * @param type 
- * @param vegobjekter 
+ * @param listeid 
  */
-@Serializable
 
-data class Relasjon (
 
-    @SerialName(value = "listeid") @Required val listeid: kotlin.Int,
+interface Relasjon {
 
-    @SerialName(value = "id") @Required val id: kotlin.Int,
-
-    @SerialName(value = "type") @Required val type: VegobjektType,
-
-    @SerialName(value = "vegobjekter") @Required val vegobjekter: kotlin.String
-
-)
+    @SerialName(value = "relasjonstype") @Required val relasjonstype: Relasjon.Relasjonstype
+    @SerialName(value = "id") @Required val id: kotlin.Int
+    @SerialName(value = "type") @Required val type: VegobjektType
+    @SerialName(value = "listeid") @Required val listeid: kotlin.Int
+    /**
+     * 
+     *
+     * Values: vegobjekter,vegobjektIder
+     */
+    @Serializable
+    enum class Relasjonstype(val value: kotlin.String) {
+        @SerialName(value = "vegobjekter") vegobjekter("vegobjekter"),
+        @SerialName(value = "vegobjektIder") vegobjektIder("vegobjektIder");
+    }
+}
 

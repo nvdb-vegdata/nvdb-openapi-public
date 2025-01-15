@@ -28,8 +28,10 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import no.vegvesen.nvdb.datakatalog.model.Egenskapstype;
+import no.vegvesen.nvdb.datakatalog.model.EgenskapstypeEnum;
 import no.vegvesen.nvdb.datakatalog.model.Enhet;
 import no.vegvesen.nvdb.datakatalog.model.EnumverdiHeltall;
+import no.vegvesen.nvdb.datakatalog.model.Viktighet;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 
@@ -490,12 +492,6 @@ public class EgenskapstypeHeltallenum extends Egenskapstype {
   }
 
   @Override
-  public EgenskapstypeHeltallenum sorteringsnummer(Integer sorteringsnummer) {
-    this.setSorteringsnummer(sorteringsnummer);
-    return this;
-  }
-
-  @Override
   public EgenskapstypeHeltallenum avledet(Boolean avledet) {
     this.setAvledet(avledet);
     return this;
@@ -504,6 +500,12 @@ public class EgenskapstypeHeltallenum extends Egenskapstype {
   @Override
   public EgenskapstypeHeltallenum komplementærEgenskapstype(Integer komplementærEgenskapstype) {
     this.setKomplementærEgenskapstype(komplementærEgenskapstype);
+    return this;
+  }
+
+  @Override
+  public EgenskapstypeHeltallenum sorteringsnummer(Integer sorteringsnummer) {
+    this.setSorteringsnummer(sorteringsnummer);
     return this;
   }
 
@@ -580,7 +582,7 @@ public class EgenskapstypeHeltallenum extends Egenskapstype {
   }
 
   @Override
-  public EgenskapstypeHeltallenum viktighet(ViktighetEnum viktighet) {
+  public EgenskapstypeHeltallenum viktighet(Viktighet viktighet) {
     this.setViktighet(viktighet);
     return this;
   }

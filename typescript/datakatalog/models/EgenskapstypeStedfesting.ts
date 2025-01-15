@@ -19,6 +19,18 @@ import {
   EgenskapstypeFromJSONTyped,
   EgenskapstypeToJSON,
 } from './Egenskapstype'
+import type { EgenskapstypeEnum } from './EgenskapstypeEnum'
+import {
+  EgenskapstypeEnumFromJSON,
+  EgenskapstypeEnumFromJSONTyped,
+  EgenskapstypeEnumToJSON,
+} from './EgenskapstypeEnum'
+import type { Viktighet } from './Viktighet'
+import {
+  ViktighetFromJSON,
+  ViktighetFromJSONTyped,
+  ViktighetToJSON,
+} from './Viktighet'
 
 /**
  *

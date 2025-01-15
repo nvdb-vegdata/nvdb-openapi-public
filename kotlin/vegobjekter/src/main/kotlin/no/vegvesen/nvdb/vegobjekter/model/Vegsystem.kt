@@ -23,8 +23,6 @@ import kotlinx.serialization.encoding.*
 /**
  * 
  *
- * @param id 
- * @param versjon 
  * @param vegkategori 
  * @param fase 
  * @param nummer 
@@ -33,15 +31,11 @@ import kotlinx.serialization.encoding.*
 
 data class Vegsystem (
 
-    @SerialName(value = "id") @Required val id: kotlin.Long,
-
-    @SerialName(value = "versjon") @Required val versjon: kotlin.Int,
-
     @SerialName(value = "vegkategori") @Required val vegkategori: Vegsystem.Vegkategori,
 
     @SerialName(value = "fase") @Required val fase: Vegsystem.Fase,
 
-    @SerialName(value = "nummer") @Required val nummer: kotlin.Int
+    @SerialName(value = "nummer") val nummer: kotlin.Int? = null
 
 ) {
 

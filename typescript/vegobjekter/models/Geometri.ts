@@ -1,4 +1,4 @@
-export type GeometriSrid = '5972' | '5973' | '5974' | '5975' | '4326'
+export type GeometriSrid = '5972' | '5973' | '5975' | '4326'
 export type Geometri = {
   /**
    * @type string
@@ -12,4 +12,8 @@ export type Geometri = {
    * @type boolean | undefined
    */
   forenklet?: boolean
+  /**
+   * @type boolean | undefined
+   */
+  egengeometri?: boolean
 }

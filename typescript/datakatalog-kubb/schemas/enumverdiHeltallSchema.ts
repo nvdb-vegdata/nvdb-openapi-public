@@ -1,16 +1,16 @@
 import { z } from 'zod'
 
 export const enumverdiHeltallSchema = z.object({
-  id: z.number(),
+  id: z.number().int(),
   kortnavn: z.string().optional(),
-  kortnavnlengde: z.number().optional(),
+  kortnavnlengde: z.number().int().optional(),
   kortnavn_brukbar: z.boolean(),
   beskrivelse: z.string().optional(),
-  sorteringsnummer: z.number(),
-  objektliste_dato: z.string().optional(),
-  sluttdato: z.string().optional(),
+  sorteringsnummer: z.number().int(),
+  objektliste_dato: z.string().date().optional(),
+  sluttdato: z.string().date().optional(),
   standardverdi: z.boolean(),
-  komplementær_enumverdi: z.number().optional(),
-  verdi: z.number().optional(),
+  'komplement\u00E6r_enumverdi': z.number().int().optional(),
+  verdi: z.number().int().optional(),
   type: z.string(),
 })

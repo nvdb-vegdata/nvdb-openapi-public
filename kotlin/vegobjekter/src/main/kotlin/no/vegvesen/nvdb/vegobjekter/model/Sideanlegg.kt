@@ -23,8 +23,6 @@ import kotlinx.serialization.encoding.*
 /**
  * 
  *
- * @param id 
- * @param versjon 
  * @param sideanlegg 
  * @param sideanleggsdel 
  * @param retning 
@@ -36,10 +34,6 @@ import kotlinx.serialization.encoding.*
 @Serializable
 
 data class Sideanlegg (
-
-    @SerialName(value = "id") @Required val id: kotlin.Long,
-
-    @SerialName(value = "versjon") @Required val versjon: kotlin.Int,
 
     @SerialName(value = "sideanlegg") @Required val sideanlegg: kotlin.Int,
 

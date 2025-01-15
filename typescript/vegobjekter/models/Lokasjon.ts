@@ -34,9 +34,12 @@ export type Lokasjon = {
    * @type array
    */
   stedfestinger: Stedfesting[]
+  /**
+   * @type object | undefined
+   */
   geometri?: Geometri
   /**
-   * @type number | undefined double
+   * @type number | undefined, double
    */
   lengde?: number
 }

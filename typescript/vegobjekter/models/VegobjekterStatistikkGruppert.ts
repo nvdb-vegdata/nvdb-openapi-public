@@ -7,19 +7,19 @@ export type VegobjekterStatistikkGruppertVegkategori =
   | 'S'
 export type VegobjekterStatistikkGruppert = {
   /**
-   * @type integer | undefined int32
+   * @type integer | undefined, int32
    */
   antall?: number
   /**
-   * @type number | undefined double
+   * @type number | undefined, double
    */
   lengde?: number
   /**
-   * @type integer | undefined int32
+   * @type integer | undefined, int32
    */
   fylke?: number
   /**
-   * @type integer | undefined int32
+   * @type integer | undefined, int32
    */
   kommune?: number
   /**

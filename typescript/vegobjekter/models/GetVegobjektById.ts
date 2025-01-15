@@ -1,5 +1,5 @@
-import type { ProblemDetail } from './ProblemDetail'
 import type { Vegobjekt } from './Vegobjekt'
+import type { ProblemDetail } from './ProblemDetail'
 
 export type GetVegobjektByIdQueryParamsInkluder =
   | 'metadata'
@@ -13,12 +13,10 @@ export type GetVegobjektByIdQueryParamsInkluder =
 export type GetVegobjektByIdQueryParamsSrid =
   | '5972'
   | '5973'
-  | '5974'
   | '5975'
   | '4326'
   | 'UTM32'
   | 'UTM33'
-  | 'UTM34'
   | 'UTM35'
   | 'WGS84'
 export type GetVegobjektByIdQueryParamsInkludergeometri =
@@ -35,7 +33,7 @@ export type GetVegobjektByIdQueryParamsInkluderEgenskaper =
 export type GetVegobjektByIdQueryParams = {
   /**
    * @description ID for vegobjekt som skal hentes.
-   * @type integer int64
+   * @type integer, int64
    */
   id: number
   /**
@@ -44,7 +42,7 @@ export type GetVegobjektByIdQueryParams = {
    */
   inkluder?: GetVegobjektByIdQueryParamsInkluder[]
   /**
-   * @description Angir hvilket geografisk referansesystem som benyttes for geografisk søk, og som geometrien skal returneres i (hvis relevant). Utdata i UTM-formater begrenses til 3 desimaler, 4326/WGS84 begrenses til 8 desimaler. Mer informasjon: <a href='https://epsg.io/5972'>EPSG:5972</a> <a href='https://epsg.io/5973'>EPSG:5973</a> <a href='https://epsg.io/5974'>EPSG:5974</a> <a href='https://epsg.io/5975'>EPSG:5975</a> <a href='https://epsg.io/4326'>EPSG:4326</a>.
+   * @description Angir hvilket geografisk referansesystem som benyttes for geografisk søk, og som geometrien skal returneres i (hvis relevant). Utdata i UTM-formater begrenses til 3 desimaler, 4326/WGS84 begrenses til 8 desimaler. Mer informasjon: <a href=\'https://epsg.io/5972\'>EPSG:5972</a> <a href=\'https://epsg.io/5973\'>EPSG:5973</a> <a href=\'https://epsg.io/5975\'>EPSG:5975</a> <a href=\'https://epsg.io/4326\'>EPSG:4326</a>.
    * @type string | undefined
    */
   srid?: GetVegobjektByIdQueryParamsSrid
@@ -59,47 +57,45 @@ export type GetVegobjektByIdQueryParams = {
    */
   inkluder_egenskaper?: GetVegobjektByIdQueryParamsInkluderEgenskaper
   /**
-   * @description Hvor mange nivå barn skal inkluderes. 1 betyr bare IDer, 2-n betyr ett eller flere mellomnivåer, 'full' betyr alle nivåer.
+   * @description Hvor mange nivå barn skal inkluderes. 1 betyr bare IDer, 2-n betyr ett eller flere mellomnivåer, \'full\' betyr alle nivåer.
    * @type string | undefined
    */
   dybde?: string
   /**
    * @description Angir om det skal returneres en forenklet geometri. Dersom parameteren utelates, returneres full geometri for vegobjektene. Nummeret angir distansetoleranse i meter for generering av forenklet geometri.
-   * @type integer | undefined int32
+   * @type integer | undefined, int32
    */
   geometritoleranse?: number
   /**
    * @description Finner versjonen som var gyldig denne datoen.
-   * @type string | undefined date
+   * @type string | undefined, date
    */
   tidspunkt?: string
 }
-
+/**
+ * @description OK
+ */
+export type GetVegobjektById200 = Vegobjekt
 /**
  * @description Bad Request
  */
 export type GetVegobjektById400 = ProblemDetail
-
 /**
  * @description Unauthorized
  */
 export type GetVegobjektById401 = ProblemDetail
-
 /**
  * @description Forbidden
  */
 export type GetVegobjektById403 = ProblemDetail
-
 /**
  * @description Not Found
  */
 export type GetVegobjektById404 = ProblemDetail
-
 /**
  * @description Internal Server Error
  */
 export type GetVegobjektById500 = ProblemDetail
-
 /**
  * @description OK
  */

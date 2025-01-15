@@ -26,7 +26,6 @@ import kotlinx.serialization.encoding.*
  * 
  *
  * @param veglenkesekvensid 
- * @param retning 
  * @param veglenkeType 
  * @param detaljnivå 
  * @param typeVeg 
@@ -35,12 +34,14 @@ import kotlinx.serialization.encoding.*
  * @param geometri 
  * @param kommune 
  * @param fylke 
- * @param vegsystemreferanse 
  * @param startposisjon 
  * @param sluttposisjon 
  * @param relativPosisjon 
  * @param lengde 
+ * @param retning 
+ * @param feltoversikt 
  * @param sluttdato 
+ * @param vegsystemreferanse 
  * @param kontraktsområder 
  * @param riksvegruter 
  */
@@ -49,8 +50,6 @@ import kotlinx.serialization.encoding.*
 data class Vegsegment (
 
     @SerialName(value = "veglenkesekvensid") @Required val veglenkesekvensid: kotlin.Long,
-
-    @SerialName(value = "retning") @Required val retning: Vegsegment.Retning,
 
     @SerialName(value = "veglenkeType") @Required val veglenkeType: Vegsegment.VeglenkeType,
 
@@ -68,8 +67,6 @@ data class Vegsegment (
 
     @SerialName(value = "fylke") @Required val fylke: kotlin.Int,
 
-    @SerialName(value = "vegsystemreferanse") @Required val vegsystemreferanse: Vegsystemreferanse,
-
     @SerialName(value = "startposisjon") val startposisjon: kotlin.Double? = null,
 
     @SerialName(value = "sluttposisjon") val sluttposisjon: kotlin.Double? = null,
@@ -78,24 +75,20 @@ data class Vegsegment (
 
     @SerialName(value = "lengde") val lengde: kotlin.Double? = null,
 
+    @SerialName(value = "retning") val retning: Vegsegment.Retning? = null,
+
+    @SerialName(value = "feltoversikt") val feltoversikt: kotlin.collections.List<kotlin.String>? = null,
+
     @SerialName(value = "sluttdato") val sluttdato: java.time.LocalDate? = null,
+
+    @SerialName(value = "vegsystemreferanse") val vegsystemreferanse: Vegsystemreferanse? = null,
 
     @SerialName(value = "kontraktsområder") val kontraktsområder: kotlin.collections.Set<kotlin.Long>? = null,
 
-    @SerialName(value = "riksvegruter") val riksvegruter: kotlin.collections.Set<kotlin.Long>? = null
+    @SerialName(value = "riksvegruter") val riksvegruter: kotlin.collections.Set<kotlin.Int>? = null
 
 ) {
 
-    /**
-     * 
-     *
-     * Values: mED,mOT
-     */
-    @Serializable
-    enum class Retning(val value: kotlin.String) {
-        @SerialName(value = "MED") mED("MED"),
-        @SerialName(value = "MOT") mOT("MOT");
-    }
     /**
      * 
      *
@@ -170,6 +163,16 @@ data class Vegsegment (
         @SerialName(value = "traktorveg") traktorveg("traktorveg"),
         @SerialName(value = "sti") sti("sti"),
         @SerialName(value = "annet") annet("annet");
+    }
+    /**
+     * 
+     *
+     * Values: mED,mOT
+     */
+    @Serializable
+    enum class Retning(val value: kotlin.String) {
+        @SerialName(value = "MED") mED("MED"),
+        @SerialName(value = "MOT") mOT("MOT");
     }
 }
 

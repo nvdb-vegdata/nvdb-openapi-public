@@ -2,11 +2,11 @@ import type { Egenskapstype } from './Egenskapstype'
 
 export type EgenskapstypeKortdato = Egenskapstype & {
   /**
-   * @type string | undefined date
+   * @type string | undefined, date
    */
   objektliste_dato?: string
   /**
-   * @type string | undefined date
+   * @type string | undefined, date
    */
   slutt_dato?: string
   /**
@@ -18,15 +18,15 @@ export type EgenskapstypeKortdato = Egenskapstype & {
    */
   ajourhold_snu?: boolean
   /**
-   * @type integer | undefined int32
+   * @type integer | undefined, int32
    */
   standardverdi?: number
   /**
-   * @type integer | undefined int32
+   * @type integer | undefined, int32
    */
   min_anbefalt?: number
   /**
-   * @type integer | undefined int32
+   * @type integer | undefined, int32
    */
   maks_anbefalt?: number
   /**

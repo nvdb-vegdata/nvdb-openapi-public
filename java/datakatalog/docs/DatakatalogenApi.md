@@ -2,17 +2,18 @@
 
 All URIs are relative to *https://nvdbapiles.atlas.vegvesen.no/datakatalog*
 
-| Method                                                                                       | HTTP request                                                       | Description                                                                       |
-| -------------------------------------------------------------------------------------------- | ------------------------------------------------------------------ | --------------------------------------------------------------------------------- |
-| [**getEgenskapstype**](DatakatalogenApi.md#getEgenskapstype)                                 | **GET** /api/v1/egenskapstyper/{egenskapstypeid}                   | Returnerer angitt egenskapstype                                                   |
-| [**getEgenskapstypeForVegobjekttype**](DatakatalogenApi.md#getEgenskapstypeForVegobjekttype) | **GET** /api/v1/vegobjekttyper/{vegobjekttypeid}/{egenskapstypeid} | Returnerer angitt egenskapstype for angitt vegobjekttype                          |
-| [**getEgenskapstypeKategorier**](DatakatalogenApi.md#getEgenskapstypeKategorier)             | **GET** /api/v1/egenskapstypekategorier                            | Returnerer alle kategorier for egenskapstypene                                    |
-| [**getEnheter**](DatakatalogenApi.md#getEnheter)                                             | **GET** /api/v1/enheter                                            | Returnerer alle enheter                                                           |
-| [**getKategorier**](DatakatalogenApi.md#getKategorier)                                       | **GET** /api/v1/kategorier                                         | Returnerer alle kategorier for vegobjekter                                        |
-| [**getVegobjekttype**](DatakatalogenApi.md#getVegobjekttype)                                 | **GET** /api/v1/vegobjekttyper/{vegobjekttypeid}                   | Returnerer angitt vegobjekttype                                                   |
-| [**getVegobjekttyper**](DatakatalogenApi.md#getVegobjekttyper)                               | **GET** /api/v1/vegobjekttyper                                     | Returnerer alle vegobjekttypene                                                   |
-| [**getVegobjekttyperHistorisk**](DatakatalogenApi.md#getVegobjekttyperHistorisk)             | **GET** /api/v1/vegobjekttyper/historisk/{versjon}                 | Returnerer alle vegobjekttypene for en gitt versjon av datakatalogen, f.eks. 2.31 |
-| [**getVersjon**](DatakatalogenApi.md#getVersjon)                                             | **GET** /api/v1/versjon                                            | Returnerer aktiv versjon på datakatalog                                           |
+| Method                                                                                       | HTTP request                                                          | Description                                                                       |
+| -------------------------------------------------------------------------------------------- | --------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
+| [**getEgenskapstype**](DatakatalogenApi.md#getEgenskapstype)                                 | **GET** /api/v1/egenskapstyper/{egenskapstypeid}                      | Returnerer angitt egenskapstype                                                   |
+| [**getEgenskapstypeForVegobjekttype**](DatakatalogenApi.md#getEgenskapstypeForVegobjekttype) | **GET** /api/v1/vegobjekttyper/{vegobjekttypeid}/{egenskapstypeid}    | Returnerer angitt egenskapstype for angitt vegobjekttype                          |
+| [**getEgenskapstypeKategorier**](DatakatalogenApi.md#getEgenskapstypeKategorier)             | **GET** /api/v1/egenskapstypekategorier                               | Returnerer alle kategorier for egenskapstypene                                    |
+| [**getEnheter**](DatakatalogenApi.md#getEnheter)                                             | **GET** /api/v1/enheter                                               | Returnerer alle enheter                                                           |
+| [**getKategorier**](DatakatalogenApi.md#getKategorier)                                       | **GET** /api/v1/kategorier                                            | Returnerer alle kategorier for vegobjekter                                        |
+| [**getProduktspesifikasjon**](DatakatalogenApi.md#getProduktspesifikasjon)                   | **GET** /api/v1/vegobjekttyper/{vegobjekttypeid}/produktspesifikasjon | Returnerer produktspesifikasjonen til den angitte vegobjekttypen                  |
+| [**getVegobjekttype**](DatakatalogenApi.md#getVegobjekttype)                                 | **GET** /api/v1/vegobjekttyper/{vegobjekttypeid}                      | Returnerer angitt vegobjekttype                                                   |
+| [**getVegobjekttyper**](DatakatalogenApi.md#getVegobjekttyper)                               | **GET** /api/v1/vegobjekttyper                                        | Returnerer alle vegobjekttypene                                                   |
+| [**getVegobjekttyperHistorisk**](DatakatalogenApi.md#getVegobjekttyperHistorisk)             | **GET** /api/v1/vegobjekttyper/historisk/{versjon}                    | Returnerer alle vegobjekttypene for en gitt versjon av datakatalogen, f.eks. 2.31 |
+| [**getVersjon**](DatakatalogenApi.md#getVersjon)                                             | **GET** /api/v1/versjon                                               | Returnerer aktiv versjon på datakatalog                                           |
 
 ## getEgenskapstype
 
@@ -313,6 +314,71 @@ This endpoint does not need any parameter.
 ### Return type
 
 [**List&lt;Kategori&gt;**](Kategori.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: _/_
+
+### HTTP response details
+
+| Status code | Description           | Response headers |
+| ----------- | --------------------- | ---------------- |
+| **500**     | Internal Server Error | -                |
+| **503**     | Service Unavailable   | -                |
+| **404**     | Not Found             | -                |
+| **200**     | OK                    | -                |
+
+## getProduktspesifikasjon
+
+> ProductSpecification getProduktspesifikasjon(vegobjekttypeid)
+
+Returnerer produktspesifikasjonen til den angitte vegobjekttypen
+
+### Example
+
+```java
+// Import classes:
+import no.vegvesen.nvdb.datakatalog.ApiClient;
+import no.vegvesen.nvdb.datakatalog.ApiException;
+import no.vegvesen.nvdb.datakatalog.Configuration;
+import no.vegvesen.nvdb.datakatalog.models.*;
+import no.vegvesen.nvdb.datakatalog.api.DatakatalogenApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://nvdbapiles.atlas.vegvesen.no/datakatalog");
+
+        DatakatalogenApi apiInstance = new DatakatalogenApi(defaultClient);
+        Integer vegobjekttypeid = 56; // Integer |
+        try {
+            ProductSpecification result = apiInstance.getProduktspesifikasjon(vegobjekttypeid);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling DatakatalogenApi#getProduktspesifikasjon");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+| Name                | Type        | Description | Notes |
+| ------------------- | ----------- | ----------- | ----- |
+| **vegobjekttypeid** | **Integer** |             |       |
+
+### Return type
+
+[**ProductSpecification**](ProductSpecification.md)
 
 ### Authorization
 

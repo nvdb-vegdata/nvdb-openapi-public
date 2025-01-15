@@ -5,13 +5,13 @@ export const egenskapstypeDatoSchema = z
   .lazy(() => egenskapstypeSchema)
   .and(
     z.object({
-      objektliste_dato: z.string().optional(),
-      slutt_dato: z.string().optional(),
+      objektliste_dato: z.string().date().optional(),
+      slutt_dato: z.string().date().optional(),
       lengdeavhengig_verdi: z.boolean().optional(),
       ajourhold_snu: z.boolean().optional(),
-      standardverdi: z.string().optional(),
-      min_anbefalt: z.string().optional(),
-      maks_anbefalt: z.string().optional(),
-      feltmønster: z.string().optional(),
+      standardverdi: z.string().date().optional(),
+      min_anbefalt: z.string().date().optional(),
+      maks_anbefalt: z.string().date().optional(),
+      'feltm\u00F8nster': z.string().optional(),
     }),
   )

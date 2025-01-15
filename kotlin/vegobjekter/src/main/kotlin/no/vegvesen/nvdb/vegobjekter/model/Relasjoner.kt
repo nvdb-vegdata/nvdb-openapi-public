@@ -16,6 +16,7 @@
 package no.vegvesen.nvdb.vegobjekter.model
 
 import no.vegvesen.nvdb.vegobjekter.model.Relasjon
+import no.vegvesen.nvdb.vegobjekter.model.RelasjonMedIder
 
 import kotlinx.serialization.*
 import kotlinx.serialization.descriptors.*
@@ -31,7 +32,7 @@ import kotlinx.serialization.encoding.*
 
 data class Relasjoner (
 
-    @SerialName(value = "foreldre") val foreldre: kotlin.collections.List<Relasjon>? = null,
+    @SerialName(value = "foreldre") val foreldre: kotlin.collections.List<RelasjonMedIder>? = null,
 
     @SerialName(value = "barn") val barn: kotlin.collections.List<Relasjon>? = null
 

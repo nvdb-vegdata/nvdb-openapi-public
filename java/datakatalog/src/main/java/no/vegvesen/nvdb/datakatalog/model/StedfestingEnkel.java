@@ -23,7 +23,9 @@ import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import no.vegvesen.nvdb.datakatalog.model.EgenskapstypeEnum;
 import no.vegvesen.nvdb.datakatalog.model.Stedfesting;
+import no.vegvesen.nvdb.datakatalog.model.Viktighet;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 
@@ -541,12 +543,6 @@ public class StedfestingEnkel extends Stedfesting {
   }
 
   @Override
-  public StedfestingEnkel sorteringsnummer(Integer sorteringsnummer) {
-    this.setSorteringsnummer(sorteringsnummer);
-    return this;
-  }
-
-  @Override
   public StedfestingEnkel avledet(Boolean avledet) {
     this.setAvledet(avledet);
     return this;
@@ -555,6 +551,12 @@ public class StedfestingEnkel extends Stedfesting {
   @Override
   public StedfestingEnkel komplementærEgenskapstype(Integer komplementærEgenskapstype) {
     this.setKomplementærEgenskapstype(komplementærEgenskapstype);
+    return this;
+  }
+
+  @Override
+  public StedfestingEnkel sorteringsnummer(Integer sorteringsnummer) {
+    this.setSorteringsnummer(sorteringsnummer);
     return this;
   }
 
@@ -631,7 +633,7 @@ public class StedfestingEnkel extends Stedfesting {
   }
 
   @Override
-  public StedfestingEnkel viktighet(ViktighetEnum viktighet) {
+  public StedfestingEnkel viktighet(Viktighet viktighet) {
     this.setViktighet(viktighet);
     return this;
   }

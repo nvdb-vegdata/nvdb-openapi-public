@@ -45,13 +45,12 @@ data class UtledetGeometri (
     /**
      * 
      *
-     * Values: _5972,_5973,_5974,_5975,_4326
+     * Values: _5972,_5973,_5975,_4326
      */
     @Serializable
     enum class Srid(val value: kotlin.String) {
         @SerialName(value = "5972") _5972("5972"),
         @SerialName(value = "5973") _5973("5973"),
-        @SerialName(value = "5974") _5974("5974"),
         @SerialName(value = "5975") _5975("5975"),
         @SerialName(value = "4326") _4326("4326");
     }

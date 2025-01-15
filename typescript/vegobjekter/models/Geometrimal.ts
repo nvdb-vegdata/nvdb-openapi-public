@@ -1,10 +1,10 @@
 export type Geometrimal = {
   /**
-   * @type number | undefined double
+   * @type number | undefined, double
    */
   lengde?: number
   /**
-   * @type number | undefined double
+   * @type number | undefined, double
    */
   areal?: number
   /**

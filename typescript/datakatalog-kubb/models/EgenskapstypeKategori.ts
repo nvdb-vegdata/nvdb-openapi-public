@@ -1,6 +1,6 @@
 export type EgenskapstypeKategori = {
   /**
-   * @type integer int32
+   * @type integer, int32
    */
   id: number
   /**
@@ -12,7 +12,7 @@ export type EgenskapstypeKategori = {
    */
   kortnavn?: string
   /**
-   * @type integer int32
+   * @type integer, int32
    */
   sorteringsnummer: number
   /**

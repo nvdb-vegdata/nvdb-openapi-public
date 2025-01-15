@@ -13,6 +13,19 @@
  */
 
 import { exists, mapValues } from '../runtime'
+import type { EgenskapstypeEnum } from './EgenskapstypeEnum'
+import {
+  EgenskapstypeEnumFromJSON,
+  EgenskapstypeEnumFromJSONTyped,
+  EgenskapstypeEnumToJSON,
+} from './EgenskapstypeEnum'
+import type { Viktighet } from './Viktighet'
+import {
+  ViktighetFromJSON,
+  ViktighetFromJSONTyped,
+  ViktighetToJSON,
+} from './Viktighet'
+
 import {
   EgenskapstypeAssosiasjonFromJSONTyped,
   EgenskapstypeBinaerFromJSONTyped,
@@ -52,10 +65,10 @@ export interface Egenskapstype {
   navn?: string
   /**
    *
-   * @type {string}
+   * @type {EgenskapstypeEnum}
    * @memberof Egenskapstype
    */
-  egenskapstype: EgenskapstypeEgenskapstypeEnum
+  egenskapstype: EgenskapstypeEnum
   /**
    *
    * @type {string}
@@ -82,12 +95,6 @@ export interface Egenskapstype {
   sosinvdbnavn?: string
   /**
    *
-   * @type {number}
-   * @memberof Egenskapstype
-   */
-  sorteringsnummer: number
-  /**
-   *
    * @type {boolean}
    * @memberof Egenskapstype
    */
@@ -98,6 +105,12 @@ export interface Egenskapstype {
    * @memberof Egenskapstype
    */
   komplementrEgenskapstype?: number
+  /**
+   *
+   * @type {number}
+   * @memberof Egenskapstype
+   */
+  sorteringsnummer: number
   /**
    *
    * @type {boolean}
@@ -172,10 +185,10 @@ export interface Egenskapstype {
   referansegeometriTilstrekkelig: boolean
   /**
    *
-   * @type {string}
+   * @type {Viktighet}
    * @memberof Egenskapstype
    */
-  viktighet: EgenskapstypeViktighetEnum
+  viktighet: Viktighet
   /**
    *
    * @type {number}
@@ -185,53 +198,14 @@ export interface Egenskapstype {
 }
 
 /**
- * @export
- */
-export const EgenskapstypeEgenskapstypeEnum = {
-  Assosiasjon: 'Assosiasjon',
-  Boolsk: 'Boolsk',
-  Binr: 'Binær',
-  Tekst: 'Tekst',
-  Dato: 'Dato',
-  Flyttall: 'Flyttall',
-  Heltall: 'Heltall',
-  Struktur: 'Struktur',
-  Geometri: 'Geometri',
-  Stedfesting: 'Stedfesting',
-  Kortdato: 'Kortdato',
-  Tid: 'Tid',
-  Liste: 'Liste',
-  Tekstenum: 'Tekstenum',
-  Heltallenum: 'Heltallenum',
-  Flyttallenum: 'Flyttallenum',
-} as const
-export type EgenskapstypeEgenskapstypeEnum =
-  (typeof EgenskapstypeEgenskapstypeEnum)[keyof typeof EgenskapstypeEgenskapstypeEnum]
-
-/**
- * @export
- */
-export const EgenskapstypeViktighetEnum = {
-  IkkeSatt: 'IKKE_SATT',
-  PkrevdAbsolutt: 'PÅKREVD_ABSOLUTT',
-  PkrevdIkkeAbsolutt: 'PÅKREVD_IKKE_ABSOLUTT',
-  Betinget: 'BETINGET',
-  Opsjonell: 'OPSJONELL',
-  MindreViktig: 'MINDRE_VIKTIG',
-  Historisk: 'HISTORISK',
-} as const
-export type EgenskapstypeViktighetEnum =
-  (typeof EgenskapstypeViktighetEnum)[keyof typeof EgenskapstypeViktighetEnum]
-
-/**
  * Check if a given object implements the Egenskapstype interface.
  */
 export function instanceOfEgenskapstype(value: object): boolean {
   let isInstance = true
   isInstance = isInstance && 'id' in value
   isInstance = isInstance && 'egenskapstype' in value
-  isInstance = isInstance && 'sorteringsnummer' in value
   isInstance = isInstance && 'avledet' in value
+  isInstance = isInstance && 'sorteringsnummer' in value
   isInstance = isInstance && 'obligatoriskVerdi' in value
   isInstance = isInstance && 'skrivebeskyttet' in value
   isInstance = isInstance && 'sensitivitet' in value
@@ -309,18 +283,18 @@ export function EgenskapstypeFromJSONTyped(
   return {
     id: json['id'],
     navn: !exists(json, 'navn') ? undefined : json['navn'],
-    egenskapstype: json['egenskapstype'],
+    egenskapstype: EgenskapstypeEnumFromJSON(json['egenskapstype']),
     kortnavn: !exists(json, 'kortnavn') ? undefined : json['kortnavn'],
     beskrivelse: !exists(json, 'beskrivelse') ? undefined : json['beskrivelse'],
     sosinavn: !exists(json, 'sosinavn') ? undefined : json['sosinavn'],
     sosinvdbnavn: !exists(json, 'sosinvdbnavn')
       ? undefined
       : json['sosinvdbnavn'],
-    sorteringsnummer: json['sorteringsnummer'],
     avledet: json['avledet'],
     komplementrEgenskapstype: !exists(json, 'komplementær_egenskapstype')
       ? undefined
       : json['komplementær_egenskapstype'],
+    sorteringsnummer: json['sorteringsnummer'],
     obligatoriskVerdi: json['obligatorisk_verdi'],
     skrivebeskyttet: json['skrivebeskyttet'],
     sensitivitet: json['sensitivitet'],
@@ -341,7 +315,7 @@ export function EgenskapstypeFromJSONTyped(
       ? undefined
       : json['sosi_referanse'],
     referansegeometriTilstrekkelig: json['referansegeometri_tilstrekkelig'],
-    viktighet: json['viktighet'],
+    viktighet: ViktighetFromJSON(json['viktighet']),
     kategori: json['kategori'],
   }
 }
@@ -356,14 +330,14 @@ export function EgenskapstypeToJSON(value?: Egenskapstype | null): any {
   return {
     id: value.id,
     navn: value.navn,
-    egenskapstype: value.egenskapstype,
+    egenskapstype: EgenskapstypeEnumToJSON(value.egenskapstype),
     kortnavn: value.kortnavn,
     beskrivelse: value.beskrivelse,
     sosinavn: value.sosinavn,
     sosinvdbnavn: value.sosinvdbnavn,
-    sorteringsnummer: value.sorteringsnummer,
     avledet: value.avledet,
     komplementær_egenskapstype: value.komplementrEgenskapstype,
+    sorteringsnummer: value.sorteringsnummer,
     obligatorisk_verdi: value.obligatoriskVerdi,
     skrivebeskyttet: value.skrivebeskyttet,
     sensitivitet: value.sensitivitet,
@@ -376,7 +350,7 @@ export function EgenskapstypeToJSON(value?: Egenskapstype | null): any {
     nøyaktighetskrav_høyde: value.nyaktighetskravHyde,
     sosi_referanse: value.sosiReferanse,
     referansegeometri_tilstrekkelig: value.referansegeometriTilstrekkelig,
-    viktighet: value.viktighet,
+    viktighet: ViktighetToJSON(value.viktighet),
     kategori: value.kategori,
   }
 }

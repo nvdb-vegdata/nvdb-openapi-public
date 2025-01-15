@@ -15,6 +15,8 @@
 
 package no.vegvesen.nvdb.datakatalog.model
 
+import no.vegvesen.nvdb.datakatalog.model.EgenskapstypeEnum
+import no.vegvesen.nvdb.datakatalog.model.Viktighet
 
 import kotlinx.serialization.*
 import kotlinx.serialization.descriptors.*
@@ -25,6 +27,8 @@ import kotlinx.serialization.encoding.*
  *
  * @param id 
  * @param egenskapstype 
+ * @param avledet 
+ * @param sorteringsnummer 
  * @param obligatoriskVerdi 
  * @param skrivebeskyttet 
  * @param sensitivitet 
@@ -34,26 +38,26 @@ import kotlinx.serialization.encoding.*
  * @param referansegeometriTilstrekkelig 
  * @param viktighet 
  * @param kategori 
- * @param sorteringsnummer 
- * @param avledet 
  * @param navn 
+ * @param kortnavn 
+ * @param beskrivelse 
+ * @param sosinavn 
+ * @param sosinvdbnavn 
  * @param komplementærEgenskapstype 
  * @param gruppesorteringsnummer 
  * @param veiledning 
  * @param grunnrissreferanse 
  * @param høydereferanse 
  * @param sosiReferanse 
- * @param kortnavn 
- * @param beskrivelse 
- * @param sosinavn 
- * @param sosinvdbnavn 
  */
 
 
 interface Stedfesting {
 
     @SerialName(value = "id") @Required val id: kotlin.Int
-    @SerialName(value = "egenskapstype") @Required val egenskapstype: Stedfesting.Egenskapstype
+    @SerialName(value = "egenskapstype") @Required val egenskapstype: EgenskapstypeEnum
+    @SerialName(value = "avledet") @Required val avledet: kotlin.Boolean
+    @SerialName(value = "sorteringsnummer") @Required val sorteringsnummer: kotlin.Int
     @SerialName(value = "obligatorisk_verdi") @Required val obligatoriskVerdi: kotlin.Boolean
     @SerialName(value = "skrivebeskyttet") @Required val skrivebeskyttet: kotlin.Boolean
     @SerialName(value = "sensitivitet") @Required val sensitivitet: kotlin.Int
@@ -61,59 +65,18 @@ interface Stedfesting {
     @SerialName(value = "nøyaktighetskrav_grunnriss") @Required val nøyaktighetskravGrunnriss: kotlin.Double
     @SerialName(value = "nøyaktighetskrav_høyde") @Required val nøyaktighetskravHøyde: kotlin.Double
     @SerialName(value = "referansegeometri_tilstrekkelig") @Required val referansegeometriTilstrekkelig: kotlin.Boolean
-    @SerialName(value = "viktighet") @Required val viktighet: Stedfesting.Viktighet
+    @SerialName(value = "viktighet") @Required val viktighet: Viktighet
     @SerialName(value = "kategori") @Required val kategori: kotlin.Int
-    @SerialName(value = "sorteringsnummer") @Required val sorteringsnummer: kotlin.Int
-    @SerialName(value = "avledet") @Required val avledet: kotlin.Boolean
     @SerialName(value = "navn") val navn: kotlin.String?
+    @SerialName(value = "kortnavn") val kortnavn: kotlin.String?
+    @SerialName(value = "beskrivelse") val beskrivelse: kotlin.String?
+    @SerialName(value = "sosinavn") val sosinavn: kotlin.String?
+    @SerialName(value = "sosinvdbnavn") val sosinvdbnavn: kotlin.String?
     @SerialName(value = "komplementær_egenskapstype") val komplementærEgenskapstype: kotlin.Int?
     @SerialName(value = "gruppesorteringsnummer") val gruppesorteringsnummer: kotlin.Int?
     @SerialName(value = "veiledning") val veiledning: kotlin.String?
     @SerialName(value = "grunnrissreferanse") val grunnrissreferanse: kotlin.String?
     @SerialName(value = "høydereferanse") val høydereferanse: kotlin.String?
     @SerialName(value = "sosi_referanse") val sosiReferanse: kotlin.String?
-    @SerialName(value = "kortnavn") val kortnavn: kotlin.String?
-    @SerialName(value = "beskrivelse") val beskrivelse: kotlin.String?
-    @SerialName(value = "sosinavn") val sosinavn: kotlin.String?
-    @SerialName(value = "sosinvdbnavn") val sosinvdbnavn: kotlin.String?
-    /**
-     * 
-     *
-     * Values: assosiasjon,boolsk,binær,tekst,dato,flyttall,heltall,struktur,geometri,stedfesting,kortdato,tid,liste,tekstenum,heltallenum,flyttallenum
-     */
-    @Serializable
-    enum class Egenskapstype(val value: kotlin.String) {
-        @SerialName(value = "Assosiasjon") assosiasjon("Assosiasjon"),
-        @SerialName(value = "Boolsk") boolsk("Boolsk"),
-        @SerialName(value = "Binær") binær("Binær"),
-        @SerialName(value = "Tekst") tekst("Tekst"),
-        @SerialName(value = "Dato") dato("Dato"),
-        @SerialName(value = "Flyttall") flyttall("Flyttall"),
-        @SerialName(value = "Heltall") heltall("Heltall"),
-        @SerialName(value = "Struktur") struktur("Struktur"),
-        @SerialName(value = "Geometri") geometri("Geometri"),
-        @SerialName(value = "Stedfesting") stedfesting("Stedfesting"),
-        @SerialName(value = "Kortdato") kortdato("Kortdato"),
-        @SerialName(value = "Tid") tid("Tid"),
-        @SerialName(value = "Liste") liste("Liste"),
-        @SerialName(value = "Tekstenum") tekstenum("Tekstenum"),
-        @SerialName(value = "Heltallenum") heltallenum("Heltallenum"),
-        @SerialName(value = "Flyttallenum") flyttallenum("Flyttallenum");
-    }
-    /**
-     * 
-     *
-     * Values: iKKESATT,pÅKREVDABSOLUTT,pÅKREVDIKKEABSOLUTT,bETINGET,oPSJONELL,mINDREVIKTIG,hISTORISK
-     */
-    @Serializable
-    enum class Viktighet(val value: kotlin.String) {
-        @SerialName(value = "IKKE_SATT") iKKESATT("IKKE_SATT"),
-        @SerialName(value = "PÅKREVD_ABSOLUTT") pÅKREVDABSOLUTT("PÅKREVD_ABSOLUTT"),
-        @SerialName(value = "PÅKREVD_IKKE_ABSOLUTT") pÅKREVDIKKEABSOLUTT("PÅKREVD_IKKE_ABSOLUTT"),
-        @SerialName(value = "BETINGET") bETINGET("BETINGET"),
-        @SerialName(value = "OPSJONELL") oPSJONELL("OPSJONELL"),
-        @SerialName(value = "MINDRE_VIKTIG") mINDREVIKTIG("MINDRE_VIKTIG"),
-        @SerialName(value = "HISTORISK") hISTORISK("HISTORISK");
-    }
 }
 

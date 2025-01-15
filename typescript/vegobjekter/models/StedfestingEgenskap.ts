@@ -1,8 +1,9 @@
 import type { Egenskap } from './Egenskap'
+import type { Stedfesting } from './Stedfesting'
 
-export type Stedfestingstype = 'Punkt' | 'Linje' | 'Sving'
-export type Retning = 'MED' | 'MOT'
-export type Sideposisjon =
+export type StedfestingEgenskapStedfestingstype = 'Punkt' | 'Linje' | 'Sving'
+export type StedfestingEgenskapRetning = 'MED' | 'MOT'
+export type StedfestingEgenskapSideposisjon =
   | 'MH'
   | 'MV'
   | 'VT'
@@ -18,39 +19,47 @@ export type Sideposisjon =
   | 'R0'
 export type StedfestingEgenskap = Egenskap & {
   /**
-   * @type integer | undefined int64
+   * @type integer | undefined, int64
    */
   veglenkesekvensid?: number
   /**
-   * @type integer | undefined int64
+   * @type integer | undefined, int64
    */
   nodeid?: number
   /**
    * @type string | undefined
    */
-  stedfestingstype?: Stedfestingstype
+  stedfestingstype?: StedfestingEgenskapStedfestingstype
   /**
    * @type string | undefined
    */
-  retning?: Retning
+  retning?: StedfestingEgenskapRetning
   /**
    * @type string | undefined
    */
-  sideposisjon?: Sideposisjon
+  sideposisjon?: StedfestingEgenskapSideposisjon
   /**
    * @type array | undefined
    */
   kjørefelt?: string[]
   /**
-   * @type number | undefined double
+   * @type number | undefined, double
    */
   relativPosisjon?: number
   /**
-   * @type number | undefined double
+   * @type number | undefined, double
    */
   startposisjon?: number
   /**
-   * @type number | undefined double
+   * @type number | undefined, double
    */
   sluttposisjon?: number
+  /**
+   * @type object | undefined
+   */
+  startpunkt?: Stedfesting
+  /**
+   * @type object | undefined
+   */
+  sluttpunkt?: Stedfesting
 }
