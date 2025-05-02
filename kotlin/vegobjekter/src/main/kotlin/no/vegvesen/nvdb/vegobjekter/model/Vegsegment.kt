@@ -39,11 +39,15 @@ import kotlinx.serialization.encoding.*
  * @param relativPosisjon 
  * @param lengde 
  * @param retning 
+ * @param kjørefelt 
+ * @param sideposisjon 
  * @param feltoversikt 
  * @param sluttdato 
  * @param vegsystemreferanse 
  * @param kontraktsområder 
  * @param riksvegruter 
+ * @param vegforvaltere 
+ * @param adresser 
  */
 @Serializable
 
@@ -77,6 +81,10 @@ data class Vegsegment (
 
     @SerialName(value = "retning") val retning: Vegsegment.Retning? = null,
 
+    @SerialName(value = "kjørefelt") val kjørefelt: kotlin.collections.List<kotlin.String>? = null,
+
+    @SerialName(value = "sideposisjon") val sideposisjon: Vegsegment.Sideposisjon? = null,
+
     @SerialName(value = "feltoversikt") val feltoversikt: kotlin.collections.List<kotlin.String>? = null,
 
     @SerialName(value = "sluttdato") val sluttdato: java.time.LocalDate? = null,
@@ -85,7 +93,11 @@ data class Vegsegment (
 
     @SerialName(value = "kontraktsområder") val kontraktsområder: kotlin.collections.List<kotlin.Long>? = null,
 
-    @SerialName(value = "riksvegruter") val riksvegruter: kotlin.collections.List<kotlin.Int>? = null
+    @SerialName(value = "riksvegruter") val riksvegruter: kotlin.collections.List<kotlin.Int>? = null,
+
+    @SerialName(value = "vegforvaltere") val vegforvaltere: kotlin.collections.List<kotlin.Int>? = null,
+
+    @SerialName(value = "adresser") val adresser: kotlin.collections.List<kotlin.Long>? = null
 
 ) {
 
@@ -173,6 +185,27 @@ data class Vegsegment (
     enum class Retning(val value: kotlin.String) {
         @SerialName(value = "MED") mED("MED"),
         @SerialName(value = "MOT") mOT("MOT");
+    }
+    /**
+     * 
+     *
+     * Values: mH,mV,vT,m,h,hT,vH,hV,k,v,l,r,r0
+     */
+    @Serializable
+    enum class Sideposisjon(val value: kotlin.String) {
+        @SerialName(value = "MH") mH("MH"),
+        @SerialName(value = "MV") mV("MV"),
+        @SerialName(value = "VT") vT("VT"),
+        @SerialName(value = "M") m("M"),
+        @SerialName(value = "H") h("H"),
+        @SerialName(value = "HT") hT("HT"),
+        @SerialName(value = "VH") vH("VH"),
+        @SerialName(value = "HV") hV("HV"),
+        @SerialName(value = "K") k("K"),
+        @SerialName(value = "V") v("V"),
+        @SerialName(value = "L") l("L"),
+        @SerialName(value = "R") r("R"),
+        @SerialName(value = "R0") r0("R0");
     }
 }
 

@@ -25,8 +25,6 @@ import kotlinx.serialization.encoding.*
  *
  * @param enumid 
  * @param riksvegrute 
- * @param nummer 
- * @param navn 
  */
 @Serializable
 
@@ -34,11 +32,7 @@ data class Riksvegrute (
 
     @SerialName(value = "enumid") @Required val enumid: kotlin.Int,
 
-    @SerialName(value = "riksvegrute") @Required val riksvegrute: kotlin.String,
-
-    @SerialName(value = "nummer") val nummer: kotlin.String? = null,
-
-    @SerialName(value = "navn") val navn: kotlin.String? = null
+    @SerialName(value = "riksvegrute") @Required val riksvegrute: kotlin.String
 
 )
 

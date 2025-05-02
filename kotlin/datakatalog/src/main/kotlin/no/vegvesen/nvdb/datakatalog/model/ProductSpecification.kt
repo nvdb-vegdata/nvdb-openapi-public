@@ -13,7 +13,7 @@
     "UnusedImport"
 )
 
-package no.vegvesen.nvdb.vegobjekter.model
+package no.vegvesen.nvdb.datakatalog.model
 
 
 import kotlinx.serialization.*
@@ -23,19 +23,13 @@ import kotlinx.serialization.encoding.*
 /**
  * 
  *
- * @param navn 
- * @param gatekode 
- * @param sideveg 
+ * @param url 
  */
 @Serializable
 
-data class Gate (
+data class ProductSpecification (
 
-    @SerialName(value = "navn") @Required val navn: kotlin.String,
-
-    @SerialName(value = "gatekode") @Required val gatekode: kotlin.Int,
-
-    @SerialName(value = "sideveg") val sideveg: kotlin.Boolean? = null
+    @SerialName(value = "url") @Required val url: kotlin.String
 
 )
 

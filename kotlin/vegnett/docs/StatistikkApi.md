@@ -1,6 +1,6 @@
 # StatistikkApi
 
-All URIs are relative to *https://nvdbapiles.atlas.vegvesen.no/vegnett*
+All URIs are relative to *https://nvdbapiles.atlas.vegvesen.no/vegnett-blue*
 
 | Method                                                                                                | HTTP request                                                     | Description                                                               |
 | ----------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------- | ------------------------------------------------------------------------- |

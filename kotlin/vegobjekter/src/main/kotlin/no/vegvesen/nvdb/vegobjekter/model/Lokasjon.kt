@@ -15,11 +15,12 @@
 
 package no.vegvesen.nvdb.vegobjekter.model
 
-import no.vegvesen.nvdb.vegobjekter.model.Gate
+import no.vegvesen.nvdb.vegobjekter.model.Adresse
 import no.vegvesen.nvdb.vegobjekter.model.Geometri
 import no.vegvesen.nvdb.vegobjekter.model.Kontraktsomrade
 import no.vegvesen.nvdb.vegobjekter.model.Riksvegrute
 import no.vegvesen.nvdb.vegobjekter.model.Stedfesting
+import no.vegvesen.nvdb.vegobjekter.model.Vegforvalter
 import no.vegvesen.nvdb.vegobjekter.model.Vegsystemreferanse
 
 import kotlinx.serialization.*
@@ -33,7 +34,8 @@ import kotlinx.serialization.encoding.*
  * @param fylker 
  * @param kontraktsområder 
  * @param riksvegruter 
- * @param gater 
+ * @param vegforvaltere 
+ * @param adresser 
  * @param vegsystemreferanser 
  * @param stedfestinger 
  * @param geometri 
@@ -47,15 +49,17 @@ data class Lokasjon (
 
     @SerialName(value = "fylker") @Required val fylker: kotlin.collections.List<kotlin.Int>,
 
-    @SerialName(value = "kontraktsområder") @Required val kontraktsområder: kotlin.collections.List<Kontraktsomrade>,
+    @SerialName(value = "kontraktsområder") val kontraktsområder: kotlin.collections.List<Kontraktsomrade>? = null,
 
-    @SerialName(value = "riksvegruter") @Required val riksvegruter: kotlin.collections.List<Riksvegrute>,
+    @SerialName(value = "riksvegruter") val riksvegruter: kotlin.collections.List<Riksvegrute>? = null,
 
-    @SerialName(value = "gater") @Required val gater: kotlin.collections.List<Gate>,
+    @SerialName(value = "vegforvaltere") val vegforvaltere: kotlin.collections.List<Vegforvalter>? = null,
 
-    @SerialName(value = "vegsystemreferanser") @Required val vegsystemreferanser: kotlin.collections.List<Vegsystemreferanse>,
+    @SerialName(value = "adresser") val adresser: kotlin.collections.List<Adresse>? = null,
 
-    @SerialName(value = "stedfestinger") @Required val stedfestinger: kotlin.collections.List<Stedfesting>,
+    @SerialName(value = "vegsystemreferanser") val vegsystemreferanser: kotlin.collections.List<Vegsystemreferanse>? = null,
+
+    @SerialName(value = "stedfestinger") val stedfestinger: kotlin.collections.List<Stedfesting>? = null,
 
     @SerialName(value = "geometri") val geometri: Geometri? = null,
 

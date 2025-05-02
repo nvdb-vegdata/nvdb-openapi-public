@@ -29,11 +29,12 @@ import kotlinx.serialization.encoding.*
  * @param navn 
  * @param egenskapstype 
  * @param verdi 
+ * @param srid 
  * @param kvalitet 
  * @param datafangstdato 
  * @param verifiseringsdato 
  * @param oppdateringsdato 
- * @param prosesshistoriskk 
+ * @param prosesshistorikk 
  * @param kommune 
  * @param medium 
  * @param mediumNvdb 
@@ -55,6 +56,8 @@ data class GeometriEgenskap (
 
     @SerialName(value = "verdi") val verdi: kotlin.String? = null,
 
+    @SerialName(value = "srid") val srid: kotlin.Int? = null,
+
     @SerialName(value = "kvalitet") val kvalitet: GeometriKvalitet? = null,
 
     @SerialName(value = "datafangstdato") val datafangstdato: java.time.LocalDate? = null,
@@ -63,7 +66,7 @@ data class GeometriEgenskap (
 
     @SerialName(value = "oppdateringsdato") val oppdateringsdato: java.time.LocalDate? = null,
 
-    @SerialName(value = "prosesshistoriskk") val prosesshistoriskk: kotlin.String? = null,
+    @SerialName(value = "prosesshistorikk") val prosesshistorikk: kotlin.String? = null,
 
     @SerialName(value = "kommune") val kommune: kotlin.Int? = null,
 

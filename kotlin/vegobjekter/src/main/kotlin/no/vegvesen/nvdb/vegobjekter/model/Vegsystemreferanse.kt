@@ -16,6 +16,7 @@
 package no.vegvesen.nvdb.vegobjekter.model
 
 import no.vegvesen.nvdb.vegobjekter.model.Kryssystem
+import no.vegvesen.nvdb.vegobjekter.model.MetrertLokasjon
 import no.vegvesen.nvdb.vegobjekter.model.Sideanlegg
 import no.vegvesen.nvdb.vegobjekter.model.Strekning
 import no.vegvesen.nvdb.vegobjekter.model.Vegsystem
@@ -31,6 +32,7 @@ import kotlinx.serialization.encoding.*
  * @param strekning 
  * @param kryssystem 
  * @param sideanlegg 
+ * @param metrertLokasjon 
  * @param kortform 
  */
 @Serializable
@@ -44,6 +46,8 @@ data class Vegsystemreferanse (
     @SerialName(value = "kryssystem") val kryssystem: Kryssystem? = null,
 
     @SerialName(value = "sideanlegg") val sideanlegg: Sideanlegg? = null,
+
+    @SerialName(value = "metrertLokasjon") val metrertLokasjon: MetrertLokasjon? = null,
 
     @SerialName(value = "kortform") val kortform: kotlin.String? = null
 

@@ -24,7 +24,7 @@ import no.vegvesen.nvdb.datakatalog.model.ProductSpecification
 import no.vegvesen.nvdb.datakatalog.model.Vegobjekttype
 import no.vegvesen.nvdb.datakatalog.model.Versjon
 
-import org.openapitools.client.infrastructure.*
+import no.vegvesen.nvdb.datakatalog.infrastructure.*
 import io.ktor.client.HttpClient
 import io.ktor.client.HttpClientConfig
 import io.ktor.client.request.forms.formData

@@ -27,7 +27,7 @@ import kotlinx.serialization.encoding.*
  * @param type 
  * @param versjon 
  * @param startdato 
- * @param sistModifisert Dato og tid uten tidssone på formatet yyyy-MM-ddTHH:mm:ss
+ * @param sistModifisert Dato og tid i UTC-format: yyyy-MM-ddTHH:mm:ssZ
  * @param sluttdato 
  */
 @Serializable
@@ -40,7 +40,7 @@ data class VegobjektMetadata (
 
     @SerialName(value = "startdato") @Required val startdato: java.time.LocalDate,
 
-    /* Dato og tid uten tidssone på formatet yyyy-MM-ddTHH:mm:ss */
+    /* Dato og tid i UTC-format: yyyy-MM-ddTHH:mm:ssZ */
     @SerialName(value = "sist_modifisert") @Required val sistModifisert: kotlin.String,
 
     @SerialName(value = "sluttdato") val sluttdato: java.time.LocalDate? = null

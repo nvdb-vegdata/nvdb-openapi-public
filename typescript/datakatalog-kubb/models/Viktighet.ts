@@ -1,0 +1,8 @@
+export type Viktighet =
+  | 'IKKE_SATT'
+  | 'P\u00C5KREVD_ABSOLUTT'
+  | 'P\u00C5KREVD_IKKE_ABSOLUTT'
+  | 'BETINGET'
+  | 'OPSJONELL'
+  | 'MINDRE_VIKTIG'
+  | 'HISTORISK'

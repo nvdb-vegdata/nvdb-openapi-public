@@ -24,19 +24,19 @@ import kotlinx.serialization.encoding.*
 /**
  * 
  *
- * @param relasjonstype 
  * @param id 
  * @param type 
+ * @param relasjonstype 
  * @param listeid 
  */
 
 
 interface Relasjon {
 
-    @SerialName(value = "relasjonstype") @Required val relasjonstype: Relasjon.Relasjonstype
     @SerialName(value = "id") @Required val id: kotlin.Int
     @SerialName(value = "type") @Required val type: VegobjektType
-    @SerialName(value = "listeid") @Required val listeid: kotlin.Int
+    @SerialName(value = "relasjonstype") @Required val relasjonstype: Relasjon.Relasjonstype
+    @SerialName(value = "listeid") val listeid: kotlin.Int?
     /**
      * 
      *

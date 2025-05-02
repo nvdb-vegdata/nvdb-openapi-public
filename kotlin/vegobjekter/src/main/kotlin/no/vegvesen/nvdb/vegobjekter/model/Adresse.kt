@@ -23,19 +23,16 @@ import kotlinx.serialization.encoding.*
 /**
  * 
  *
- * @param egengeometri 
- * @param lengde 
- * @param areal 
+ * @param navn 
+ * @param adressekode 
  */
 @Serializable
 
-data class Geometrimal (
+data class Adresse (
 
-    @SerialName(value = "egengeometri") @Required val egengeometri: kotlin.Boolean,
+    @SerialName(value = "navn") @Required val navn: kotlin.String,
 
-    @SerialName(value = "lengde") val lengde: kotlin.Double? = null,
-
-    @SerialName(value = "areal") val areal: kotlin.Double? = null
+    @SerialName(value = "adressekode") @Required val adressekode: kotlin.Int
 
 )
 

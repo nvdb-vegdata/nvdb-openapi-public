@@ -157,7 +157,7 @@ open class RuteApi : ApiClient {
      * 
      * @param start Startposisjon som et punkt eller posisjon@veglenkesekvens.  Eksempler: &#x60;226761.786, 6564469.3787&#x60; &#x60;0.1@1234&#x60; (optional)
      * @param slutt Sluttposisjon som et punkt eller posisjon@veglenkesekvens.  Eksempler: &#x60;226855.034, 6564472.225&#x60; &#x60;0.9@4321&#x60; (optional)
-     * @param geometri Finn sammenhengende vegnett som passer med denne geometrien.  Eksempel: &#x60;LINESTRING Z(226778.2 6564468.6 5, 226747.1 6564470.1 5, 226717.5 6564466.4 5, 226705.9 6564462.7 6.2, 226687.2 6564462.9 6, 226657.7 6564460.7 6, 226628.5 6564459.5 6, 226611.3 6564459.6 6.2)&#x60; (optional)
+     * @param geometri Finn sammenhengende vegnett som passer med denne geometrien.  Eksempel: &#x60;LINESTRING Z (226778.2 6564468.6 5, 226747.1 6564470.1 5, 226717.5 6564466.4 5, 226705.9 6564462.7 6.2, 226687.2 6564462.9 6, 226657.7 6564460.7 6, 226628.5 6564459.5 6, 226611.3 6564459.6 6.2)&#x60; (optional)
      * @param maksAvstand Maks avstand i meter til veglenker.  Standardverdi: &#x60;10&#x60; (optional)
      * @param omkrets Konvolutt lagt rundt start- og slutt-punkt for å beregne rute.  Standardverdi: &#x60;200&#x60;. Må være større enn 0. (optional)
      * @param konnekteringslenker Inkluder konnekteringslenker.  Standardverdi: &#x60;true&#x60; (optional)

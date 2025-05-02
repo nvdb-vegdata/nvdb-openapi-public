@@ -15,12 +15,13 @@
 
 package no.vegvesen.nvdb.vegnett.model
 
-import no.vegvesen.nvdb.vegnett.model.Gate
+import no.vegvesen.nvdb.vegnett.model.Adresse
 import no.vegvesen.nvdb.vegnett.model.GeometriMedKvalitet
 import no.vegvesen.nvdb.vegnett.model.Kontraktsomrade
 import no.vegvesen.nvdb.vegnett.model.Metadata
 import no.vegvesen.nvdb.vegnett.model.Riksvegrute
 import no.vegvesen.nvdb.vegnett.model.Superstedfesting
+import no.vegvesen.nvdb.vegnett.model.Vegforvalter
 import no.vegvesen.nvdb.vegnett.model.Vegsystemreferanse
 
 import kotlinx.serialization.*
@@ -51,12 +52,13 @@ import kotlinx.serialization.encoding.*
  * @param fylke 
  * @param kommune 
  * @param vegsystemreferanse 
- * @param kontraktsområder 
- * @param riksvegruter 
  * @param måledato 
  * @param superstedfesting 
  * @param feltoversikt 
- * @param gate 
+ * @param kontraktsområder 
+ * @param riksvegruter 
+ * @param vegforvaltere 
+ * @param adresse 
  */
 @Serializable
 
@@ -104,17 +106,19 @@ data class Veglenkesegment (
 
     @SerialName(value = "vegsystemreferanse") @Required val vegsystemreferanse: Vegsystemreferanse,
 
-    @SerialName(value = "kontraktsområder") @Required val kontraktsområder: kotlin.collections.List<Kontraktsomrade>,
-
-    @SerialName(value = "riksvegruter") @Required val riksvegruter: kotlin.collections.List<Riksvegrute>,
-
     @SerialName(value = "måledato") val måledato: java.time.LocalDate? = null,
 
     @SerialName(value = "superstedfesting") val superstedfesting: Superstedfesting? = null,
 
     @SerialName(value = "feltoversikt") val feltoversikt: kotlin.collections.List<kotlin.String>? = null,
 
-    @SerialName(value = "gate") val gate: Gate? = null
+    @SerialName(value = "kontraktsområder") val kontraktsområder: kotlin.collections.List<Kontraktsomrade>? = null,
+
+    @SerialName(value = "riksvegruter") val riksvegruter: kotlin.collections.List<Riksvegrute>? = null,
+
+    @SerialName(value = "vegforvaltere") val vegforvaltere: kotlin.collections.List<Vegforvalter>? = null,
+
+    @SerialName(value = "adresse") val adresse: Adresse? = null
 
 ) {
 

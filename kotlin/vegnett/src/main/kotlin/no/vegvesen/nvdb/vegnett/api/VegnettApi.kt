@@ -261,6 +261,27 @@ open class VegnettApi : ApiClient {
 
 
     /**
+     * enum for parameter veglenketype
+     */
+    @Serializable
+    enum class VeglenketypeGetVeglenkesegmenter(val value: kotlin.String) {
+        
+        @SerialName(value = "Hoved")
+        hoved("Hoved"),
+        
+        @SerialName(value = "Detaljert")
+        detaljert("Detaljert"),
+        
+        @SerialName(value = "Konnektering")
+        konnektering("Konnektering"),
+        
+        @SerialName(value = "detaljert_konnektering")
+        detaljertKonnektering("detaljert_konnektering")
+        
+    }
+
+
+    /**
      * enum for parameter trafikantgruppe
      */
     @Serializable
@@ -283,6 +304,7 @@ open class VegnettApi : ApiClient {
      * @param kommune Filtrer på kommune. Kommaseparert liste. Se [/omrader/api/v4/kommuner](https://nvdbapiles.atlas.vegvesen.no/webjars/swagger-ui/index.html?urls.primaryName&#x3D;Omr%C3%A5der) for mulige verdier.  Eksempel: &#x60;5001&#x60; (optional)
      * @param kontraktsomrade Filtrer på kontraktsomrade. Kommaseparert liste. Se [/omrader/api/v4/kontraktsomrader](https://nvdbapiles.atlas.vegvesen.no/webjars/swagger-ui/index.html?urls.primaryName&#x3D;Omr%C3%A5der) for mulige verdier.  Eksempel: &#x60;1539 Tunnel- og bergsikr 2018-2023 Nordm og Romsd&#x60; (optional)
      * @param riksvegrute Filtrer på riksvegrute. Kommaseparert liste. Se [/omrader/api/v4/riksvegruter](https://nvdbapiles.atlas.vegvesen.no/webjars/swagger-ui/index.html?urls.primaryName&#x3D;Omr%C3%A5der) for mulige verdier.  Eksempel: &#x60;RUTE4A&#x60; eller som enumid &#x60;20290&#x60; (optional)
+     * @param vegforvalter Filtrer på vegforvalter. Kommaseparert liste. Se [/omrader/api/v4/vegforvaltere](https://nvdbapiles.atlas.vegvesen.no/webjars/swagger-ui/index.html?urls.primaryName&#x3D;Omr%C3%A5der) for mulige verdier.  Eksempel: &#x60;Møre og Romsdal fylkeskommune&#x60; eller som enumid &#x60;21774&#x60; (optional)
      * @param vegsystemreferanse Filtrer på [vegsystemreferanse](https://nvdbapiles-v3.atlas.vegvesen.no/dokumentasjon/#vegsystemreferanse). Kommaseparert liste. Legg til kommunenummer i starten av vegsystemreferansen for å filtrere på område.  Eksempel: &#x60;EV6S1D1 m12&#x60; (optional)
      * @param kartutsnitt Filtrer med kartutsnitt i det gjeldende geografiske referansesystemet (&#x60;srid&#x60;-paramteret). Formatet er &#x60;minX, minY, maxX, maxY&#x60;.  Eksempel: &#x60;265273, 7019372, 346553, 7061071&#x60; (optional)
      * @param polygon Filtrer med polygon i det gjeldende geografiske referansesystemet (&#x60;srid&#x60;-paramteret).  Eksempel: &#x60;20000 6520000, 20500 6520000, 21000 6500000, 20000 6520000&#x60; (optional)
@@ -292,6 +314,7 @@ open class VegnettApi : ApiClient {
      * @param adskiltelop Filtrer på om veglenkesegmentene er stedfestet hvor det er en Strekning med verdi satt for «adskilte løp». (optional)
      * @param kryssystem Filtrer på om de er stedfestet på samme sted hvor det er et Kryssystem. (optional)
      * @param sideanlegg Filtrer på om de er stedfestet på samme sted hvor det er et Sideanlegg. (optional)
+     * @param veglenketype Filtrer på veglenken sin veglenketype. Kommaseparert liste. (optional)
      * @param arm Filtrer veglenker på om de er stedfestet på en Strekning med verdi satt for «arm». (optional)
      * @param trafikantgruppe Filtrer på trafikantgruppe. (optional)
      * @param geometritoleranse Angir om det skal returneres en forenklet geometri. Dersom parameteren utelates, returneres full geometri. Nummeret angir distansetoleranse i meter for generering av forenklet geometri. (optional)
@@ -303,7 +326,7 @@ open class VegnettApi : ApiClient {
      * @return VeglenkesegmenterSide
      */
     @Suppress("UNCHECKED_CAST")
-    open suspend fun getVeglenkesegmenter(srid: SridGetVeglenkesegmenter? = null, ider: kotlin.collections.List<kotlin.Long>? = null, fylke: kotlin.collections.List<kotlin.Int>? = null, kommune: kotlin.collections.List<kotlin.Int>? = null, kontraktsomrade: kotlin.collections.List<kotlin.String>? = null, riksvegrute: kotlin.collections.List<kotlin.String>? = null, vegsystemreferanse: kotlin.collections.List<kotlin.String>? = null, kartutsnitt: kotlin.String? = null, polygon: kotlin.String? = null, detaljniva: kotlin.collections.List<DetaljnivaGetVeglenkesegmenter>? = null, typeveg: kotlin.collections.List<TypevegGetVeglenkesegmenter>? = null, superid: kotlin.Long? = null, adskiltelop: kotlin.collections.List<AdskiltelopGetVeglenkesegmenter>? = null, kryssystem: kotlin.Boolean? = null, sideanlegg: kotlin.Boolean? = null, arm: kotlin.Boolean? = null, trafikantgruppe: TrafikantgruppeGetVeglenkesegmenter? = null, geometritoleranse: kotlin.Int? = null, historisk: kotlin.Boolean? = null, tidspunkt: java.time.LocalDate? = null, antall: kotlin.Int? = null, start: kotlin.String? = null, inkluderAntall: kotlin.Boolean? = null): HttpResponse<VeglenkesegmenterSide> {
+    open suspend fun getVeglenkesegmenter(srid: SridGetVeglenkesegmenter? = null, ider: kotlin.collections.List<kotlin.Long>? = null, fylke: kotlin.collections.List<kotlin.Int>? = null, kommune: kotlin.collections.List<kotlin.Int>? = null, kontraktsomrade: kotlin.collections.List<kotlin.String>? = null, riksvegrute: kotlin.collections.List<kotlin.String>? = null, vegforvalter: kotlin.collections.List<kotlin.String>? = null, vegsystemreferanse: kotlin.collections.List<kotlin.String>? = null, kartutsnitt: kotlin.String? = null, polygon: kotlin.String? = null, detaljniva: kotlin.collections.List<DetaljnivaGetVeglenkesegmenter>? = null, typeveg: kotlin.collections.List<TypevegGetVeglenkesegmenter>? = null, superid: kotlin.Long? = null, adskiltelop: kotlin.collections.List<AdskiltelopGetVeglenkesegmenter>? = null, kryssystem: kotlin.Boolean? = null, sideanlegg: kotlin.Boolean? = null, veglenketype: kotlin.collections.List<VeglenketypeGetVeglenkesegmenter>? = null, arm: kotlin.Boolean? = null, trafikantgruppe: TrafikantgruppeGetVeglenkesegmenter? = null, geometritoleranse: kotlin.Int? = null, historisk: kotlin.Boolean? = null, tidspunkt: java.time.LocalDate? = null, antall: kotlin.Int? = null, start: kotlin.String? = null, inkluderAntall: kotlin.Boolean? = null): HttpResponse<VeglenkesegmenterSide> {
 
         val localVariableAuthNames = listOf<String>()
 
@@ -317,6 +340,7 @@ open class VegnettApi : ApiClient {
         kommune?.apply { localVariableQuery["kommune"] = toMultiValue(this, "multi") }
         kontraktsomrade?.apply { localVariableQuery["kontraktsomrade"] = toMultiValue(this, "multi") }
         riksvegrute?.apply { localVariableQuery["riksvegrute"] = toMultiValue(this, "multi") }
+        vegforvalter?.apply { localVariableQuery["vegforvalter"] = toMultiValue(this, "multi") }
         vegsystemreferanse?.apply { localVariableQuery["vegsystemreferanse"] = toMultiValue(this, "multi") }
         kartutsnitt?.apply { localVariableQuery["kartutsnitt"] = listOf("$kartutsnitt") }
         polygon?.apply { localVariableQuery["polygon"] = listOf("$polygon") }
@@ -326,6 +350,7 @@ open class VegnettApi : ApiClient {
         adskiltelop?.apply { localVariableQuery["adskiltelop"] = toMultiValue(this, "multi") }
         kryssystem?.apply { localVariableQuery["kryssystem"] = listOf("$kryssystem") }
         sideanlegg?.apply { localVariableQuery["sideanlegg"] = listOf("$sideanlegg") }
+        veglenketype?.apply { localVariableQuery["veglenketype"] = toMultiValue(this, "multi") }
         arm?.apply { localVariableQuery["arm"] = listOf("$arm") }
         trafikantgruppe?.apply { localVariableQuery["trafikantgruppe"] = listOf("$trafikantgruppe") }
         geometritoleranse?.apply { localVariableQuery["geometritoleranse"] = listOf("$geometritoleranse") }
@@ -480,8 +505,6 @@ open class VegnettApi : ApiClient {
      * @param kontraktsomrade Filtrer på kontraktsomrade. Kommaseparert liste. Se [/omrader/api/v4/kontraktsomrader](https://nvdbapiles.atlas.vegvesen.no/webjars/swagger-ui/index.html?urls.primaryName&#x3D;Omr%C3%A5der) for mulige verdier.  Eksempel: &#x60;1539 Tunnel- og bergsikr 2018-2023 Nordm og Romsd&#x60; (optional)
      * @param riksvegrute Filtrer på riksvegrute. Kommaseparert liste. Se [/omrader/api/v4/riksvegruter](https://nvdbapiles.atlas.vegvesen.no/webjars/swagger-ui/index.html?urls.primaryName&#x3D;Omr%C3%A5der) for mulige verdier.  Eksempel: &#x60;RUTE4A&#x60; eller som enumid &#x60;20290&#x60; (optional)
      * @param vegsystemreferanse Filtrer på [vegsystemreferanse](https://nvdbapiles-v3.atlas.vegvesen.no/dokumentasjon/#vegsystemreferanse). Kommaseparert liste. Legg til kommunenummer i starten av vegsystemreferansen for å filtrere på område.  Eksempel: &#x60;EV6S1D1 m12&#x60; (optional)
-     * @param kartutsnitt Filtrer med kartutsnitt i det gjeldende geografiske referansesystemet (&#x60;srid&#x60;-paramteret). Formatet er &#x60;minX, minY, maxX, maxY&#x60;.  Eksempel: &#x60;265273, 7019372, 346553, 7061071&#x60; (optional)
-     * @param polygon Filtrer med polygon i det gjeldende geografiske referansesystemet (&#x60;srid&#x60;-paramteret).  Eksempel: &#x60;20000 6520000, 20500 6520000, 21000 6500000, 20000 6520000&#x60; (optional)
      * @param topologiniva Hent kun elementer på det gitte topologinivået. - Dersom en veglenke har nivå vegtrasé er ofte feltet for topologinivå ikke tilstede. Man vil da få alle veglenker som ikke har verdi &#x60;kjørefelt&#x60; eller &#x60;kjørebane&#x60;. (optional)
      * @param superid Hent detaljerte veglenkesekvenser stedfestet på veglenkesekvens med denne IDen. (optional)
      * @param srid Angir hvilket geografisk referansesystem geometrien skal returneres i. Utdata i UTM-formater begrenses til 3 desimaler, 4326/WGS84 begrenses til 8 desimaler. Mer informasjon: &lt;a href&#x3D;&#39;https://epsg.io/5972&#39;&gt;EPSG:5972&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5973&#39;&gt;EPSG:5973&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5975&#39;&gt;EPSG:5975&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/4326&#39;&gt;EPSG:4326&lt;/a&gt;. (optional)
@@ -491,7 +514,7 @@ open class VegnettApi : ApiClient {
      * @return VeglenkesekvenserSide
      */
     @Suppress("UNCHECKED_CAST")
-    open suspend fun getVeglenkesekvenser(ider: kotlin.collections.List<kotlin.Long>? = null, fylke: kotlin.collections.List<kotlin.Int>? = null, kommune: kotlin.collections.List<kotlin.Int>? = null, kontraktsomrade: kotlin.collections.List<kotlin.String>? = null, riksvegrute: kotlin.collections.List<kotlin.String>? = null, vegsystemreferanse: kotlin.collections.List<kotlin.String>? = null, kartutsnitt: kotlin.String? = null, polygon: kotlin.String? = null, topologiniva: TopologinivaGetVeglenkesekvenser? = null, superid: kotlin.Long? = null, srid: SridGetVeglenkesekvenser? = null, antall: kotlin.Int? = null, start: kotlin.String? = null, inkluderAntall: kotlin.Boolean? = null): HttpResponse<VeglenkesekvenserSide> {
+    open suspend fun getVeglenkesekvenser(ider: kotlin.collections.List<kotlin.Long>? = null, fylke: kotlin.collections.List<kotlin.Int>? = null, kommune: kotlin.collections.List<kotlin.Int>? = null, kontraktsomrade: kotlin.collections.List<kotlin.String>? = null, riksvegrute: kotlin.collections.List<kotlin.String>? = null, vegsystemreferanse: kotlin.collections.List<kotlin.String>? = null, topologiniva: TopologinivaGetVeglenkesekvenser? = null, superid: kotlin.Long? = null, srid: SridGetVeglenkesekvenser? = null, antall: kotlin.Int? = null, start: kotlin.String? = null, inkluderAntall: kotlin.Boolean? = null): HttpResponse<VeglenkesekvenserSide> {
 
         val localVariableAuthNames = listOf<String>()
 
@@ -505,8 +528,6 @@ open class VegnettApi : ApiClient {
         kontraktsomrade?.apply { localVariableQuery["kontraktsomrade"] = toMultiValue(this, "multi") }
         riksvegrute?.apply { localVariableQuery["riksvegrute"] = toMultiValue(this, "multi") }
         vegsystemreferanse?.apply { localVariableQuery["vegsystemreferanse"] = toMultiValue(this, "multi") }
-        kartutsnitt?.apply { localVariableQuery["kartutsnitt"] = listOf("$kartutsnitt") }
-        polygon?.apply { localVariableQuery["polygon"] = listOf("$polygon") }
         topologiniva?.apply { localVariableQuery["topologiniva"] = listOf("$topologiniva") }
         superid?.apply { localVariableQuery["superid"] = listOf("$superid") }
         srid?.apply { localVariableQuery["srid"] = listOf("$srid") }

@@ -22,7 +22,7 @@ npm install @openapitools/openapi-generator-cli -g
 For å generere f.eks. en ferdig Kotlin-klient mot vår datakatalog, med `RestClient` og Jackson-serialisering, kall dette:
 
 ```
-openapi-generator-cli generate --input-spec https://nvdbapiles.utv.atlas.vegvesen.no/api-docs/datakatalog \
+openapi-generator-cli generate --input-spec https://nvdbapiles.atlas.vegvesen.no/api-docs/datakatalog \
   --generator-name kotlin \
   --output nvdb-datakatalog \
   --global-property models,apis,modelDocs=false \
