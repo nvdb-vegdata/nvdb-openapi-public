@@ -33,8 +33,8 @@ import kotlinx.serialization.encoding.*
  * @param sluttpunkt 
  * @param retning 
  * @param kjørefelt 
- * @param kortform 
  * @param sideposisjon 
+ * @param kortform 
  */
 @Serializable
 
@@ -60,9 +60,9 @@ data class Stedfesting (
 
     @SerialName(value = "kjørefelt") val kjørefelt: kotlin.collections.List<kotlin.String>? = null,
 
-    @SerialName(value = "kortform") val kortform: kotlin.String? = null,
+    @SerialName(value = "sideposisjon") val sideposisjon: Stedfesting.Sideposisjon? = null,
 
-    @SerialName(value = "sideposisjon") val sideposisjon: Stedfesting.Sideposisjon? = null
+    @SerialName(value = "kortform") val kortform: kotlin.String? = null
 
 ) {
 

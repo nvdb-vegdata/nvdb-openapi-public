@@ -141,12 +141,6 @@ open class VegobjekterApi : ApiClient {
         @SerialName(value = "basis")
         basis("basis"),
         
-        @SerialName(value = "assosiasjon")
-        assosiasjon("assosiasjon"),
-        
-        @SerialName(value = "stedfesting")
-        stedfesting("stedfesting"),
-        
         @SerialName(value = "geometri")
         geometri("geometri"),
         
@@ -299,12 +293,6 @@ open class VegobjekterApi : ApiClient {
         
         @SerialName(value = "basis")
         basis("basis"),
-        
-        @SerialName(value = "assosiasjon")
-        assosiasjon("assosiasjon"),
-        
-        @SerialName(value = "stedfesting")
-        stedfesting("stedfesting"),
         
         @SerialName(value = "geometri")
         geometri("geometri"),
@@ -459,12 +447,6 @@ open class VegobjekterApi : ApiClient {
         @SerialName(value = "basis")
         basis("basis"),
         
-        @SerialName(value = "assosiasjon")
-        assosiasjon("assosiasjon"),
-        
-        @SerialName(value = "stedfesting")
-        stedfesting("stedfesting"),
-        
         @SerialName(value = "geometri")
         geometri("geometri"),
         
@@ -618,12 +600,6 @@ open class VegobjekterApi : ApiClient {
         
         @SerialName(value = "basis")
         basis("basis"),
-        
-        @SerialName(value = "assosiasjon")
-        assosiasjon("assosiasjon"),
-        
-        @SerialName(value = "stedfesting")
-        stedfesting("stedfesting"),
         
         @SerialName(value = "geometri")
         geometri("geometri"),
@@ -787,12 +763,6 @@ open class VegobjekterApi : ApiClient {
         @SerialName(value = "basis")
         basis("basis"),
         
-        @SerialName(value = "assosiasjon")
-        assosiasjon("assosiasjon"),
-        
-        @SerialName(value = "stedfesting")
-        stedfesting("stedfesting"),
-        
         @SerialName(value = "geometri")
         geometri("geometri"),
         
@@ -948,16 +918,16 @@ open class VegobjekterApi : ApiClient {
      * @param srid Angir hvilket geografisk referansesystem som benyttes for geografisk søk, og som geometrien skal returneres i (hvis relevant). Utdata i UTM-formater begrenses til 3 desimaler, 4326/WGS84 begrenses til 8 desimaler. Mer informasjon: &lt;a href&#x3D;&#39;https://epsg.io/5972&#39;&gt;EPSG:5972&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5973&#39;&gt;EPSG:5973&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5975&#39;&gt;EPSG:5975&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/4326&#39;&gt;EPSG:4326&lt;/a&gt;. (optional)
      * @param inkludergeometri Et vegobjekt har opptil to geometrier, egengeometri og stedfestet geometri. Egengeometrien er plassert under &#x60;vegobjekt.egenskaper&#x60; om den finnes, stedfestet geometri er plassert under &#x60;vegobjekt.lokasjon&#x60;. I tillegg til de nevnte feltene på vegobjekt-responsen returneres også &#x60;vegobjekt.geometri&#x60; (dersom man har &#x60;inkluder&#x3D;geometri&#x60; eller &#x60;alle&#x60;), slik at man alltid finner geometrien for vegobjektet ett sted. Dette feltet er egengeometri dersom objektet har det, hvis ikke har feltet stedfestet geometri Ved hvilken av disse som er tilfelle finner man ut ved å se på &#x60;vegobjekt.geometri.egengeometri&#x60;. (optional)
      * @param inkluderEgenskaper Gir mulighet til å filtrere hvilke egenskaper som skal returneres med inkluder&#x3D;egenskaper. &#x60;basis&#x60; er alle egenskaper som ikke er assosiasjoner, stedfesting, geometri, eller lister av disse. (optional)
-     * @param segmentering Angir om strekningsobjekter skal segmenteres etter søkeområdet (fylke, kommune, vegsystemreferanse, kontraktsområde, riksvegrute).  Default: &#x60;true&#x60; (optional)
+     * @param segmentering Angir om lengde skal inkludere bare deler av vegnettet som er innenfor søkeparametre tilknyttet segmentering (fylke, kommune, vegsystemreferanse, kontraktsområde, riksvegrute, vegforvalter).  Default: &#x60;true&#x60; (optional)
      * @param fylke Filtrer på fylke. Kommaseparert liste. Se /omrader/fylker for mulige verdier.  Eksempel: &#x60;50&#x60; (optional)
      * @param kommune Filtrer på kommune. Kommaseparert liste. Se /omrader/kommuner for mulige verdier.  Eksempel: &#x60;5001&#x60; (optional)
      * @param kontraktsomrade Filtrer på kontraktsomrade. Kommaseparert liste. Se /omrader/kontraktsomrader for mulige verdier.  Eksempel: &#x60;1539 Tunnel- og bergsikr 2018-2023 Nordm og Romsd&#x60; (optional)
      * @param riksvegrute Filtrer på riksvegrute. Kommaseparert liste. Se /omrader/riksvegruter for mulige verdier.  Eksempel: &#x60;RUTE4A&#x60; eller som enumid &#x60;20290&#x60; (optional)
+     * @param vegforvalter Filtrer på vegforvalter. Kommaseparert liste. Se [/omrader/api/v4/vegforvaltere](https://nvdbapiles.atlas.vegvesen.no/webjars/swagger-ui/index.html?urls.primaryName&#x3D;Omr%C3%A5der) for mulige verdier.  Eksempel: &#x60;Møre og Romsdal fylkeskommune&#x60; eller som enumid &#x60;21774&#x60; (optional)
      * @param vegsystemreferanse Filtrer vegobjekter på [vegsystemreferanse](https://nvdbapiles-v3.atlas.vegvesen.no/dokumentasjon/#vegsystemreferanse). Kommaseparert liste. Legg til kommunenummer i starten av vegsystemreferansen for å filtrere på område.  Eksempel: &#x60;EV6S1D1 m12&#x60; (optional)
-     * @param kartutsnitt Filtrer vegobjekter med kartutsnitt i det gjeldende geografiske referansesystemet (&#x60;srid&#x60;-paramteret). Formatet er &#x60;minX, minY, maxX, maxY&#x60;.  Eksempel: &#x60;265273, 7019372, 346553, 7061071&#x60; (optional)
+     * @param kartutsnitt Filtrer vegobjekter med kartutsnitt i det gjeldende geografiske referansesystemet (&#x60;srid&#x60;-paramteret). Formatet er &#x60;minX, minY, maxX, maxY&#x60;. Merk at vegobjektets bounding box benyttes for sammenligning, som kan medføre at vegobjekter som er utenfor kartutsnittet også returneres. For å unngå dette, kan du bruke &#x60;polygon&#x60; i stedet.  Eksempel: &#x60;265273, 7019372, 346553, 7061071&#x60; (optional)
      * @param polygon Filtrer vegobjekter med polygon i det gjeldende geografiske referansesystemet (&#x60;srid&#x60;-paramteret).  Eksempel: &#x60;20000 6520000, 20500 6520000, 21000 6500000, 20000 6520000&#x60; (optional)
-     * @param typeveg Filtrer vegobjekter på type veg på vegnettet objektet er stedfestet på. Kommaseparert liste.  Eksempel: &#x60;kanalisertVeg, enkelBilveg, rampe, rundkjøring, bilferje, passasjerferje, gangOgSykkelveg, sykkelveg, gangveg, gågate, fortau, trapp, gangfelt, gatetun, traktorveg, sti, annet&#x60; (optional)
-     * @param overlappendeVegobjektIder Filtrer vegobjekter på om de har geometri som overlapper med vegobjekt med gitt id. Hvis flere vegobjekt-ider spesifiseres vil vegobjekter som overlapper med minst én av de bli returnert. (optional)
+     * @param typeveg Filtrer Relasjonstype.vegobjekter på type veg på vegnettet objektet er stedfestet på. Kommaseparert liste.  Eksempel: &#x60;kanalisertVeg, enkelBilveg, rampe, rundkjøring, bilferje, passasjerferje, gangOgSykkelveg, sykkelveg, gangveg, gågate, fortau, trapp, gangfelt, gatetun, traktorveg, sti, annet&#x60; (optional)
      * @param adskiltelop Filtrer vegobjekter på om de er stedfestet hvor det er en Strekning med verdi satt for «adskilte løp». (optional)
      * @param kryssystem Filtrer vegobjekter på om de er stedfestet på samme sted hvor det er et Kryssystem. (optional)
      * @param sideanlegg Filtrer vegobjekter på om de er stedfestet på samme sted hvor det er et Sideanlegg. (optional)
@@ -968,7 +938,6 @@ open class VegobjekterApi : ApiClient {
      * @param tidspunkt Finner versjonen som var gyldig denne datoen. (optional)
      * @param alleVersjoner Returner alle versjoner som matcher de oppgitte parametrene. Dersom ikke satt eller &#x60;false&#x60; vil kun objekter uten sluttdato returneres. (optional)
      * @param inkluderAntall Hvorvidt totalt antall objekter skal returneres i responsen. Default er &#x60;false&#x60;. (optional)
-     * @param sortert Hvorvidt resultatet skal sorteres på ID. Default er &#x60;true&#x60;. Bør være satt for paginering for å sikre deterministisk resultat, men kan slås av for å forbedre ytelse. Satt &#x60;false&#x60; som standard for søk med kartutsnitt eller polygon. (optional)
      * @param veglenkesekvens Filtrer vegobjekter på om de er stedfestet på gjeldende veglenkesekvenser. Kommaseparert liste.  Eksempel: &#x60;0.37@319531,0.83-0.97@41640&#x60; (optional)
      * @param egenskap Filtrer vegobjekter på egenskaper, relasjoner og overlapp. Se [dokumentasjon](https://nvdb.atlas.vegvesen.no/docs/produkter/nvdbapil/v4/introduksjon/Avanserte_filter) (optional)
      * @param overlapp Filtrer vegobjekter på overlapp. Se [dokumentasjon](https://nvdb.atlas.vegvesen.no/docs/produkter/nvdbapil/v4/introduksjon/Avanserte_filter) (optional)
@@ -978,7 +947,7 @@ open class VegobjekterApi : ApiClient {
      * @return VegobjekterSide
      */
     @Suppress("UNCHECKED_CAST")
-    open suspend fun getVegobjekterByType(vegobjekttypeId: kotlin.Int, ider: kotlin.collections.List<kotlin.Long>? = null, inkluder: kotlin.collections.List<InkluderGetVegobjekterByType>? = null, srid: SridGetVegobjekterByType? = null, inkludergeometri: InkludergeometriGetVegobjekterByType? = null, inkluderEgenskaper: InkluderEgenskaperGetVegobjekterByType? = null, segmentering: kotlin.Boolean? = null, fylke: kotlin.collections.List<kotlin.Int>? = null, kommune: kotlin.collections.List<kotlin.Int>? = null, kontraktsomrade: kotlin.collections.List<kotlin.String>? = null, riksvegrute: kotlin.collections.List<kotlin.String>? = null, vegsystemreferanse: kotlin.collections.List<kotlin.String>? = null, kartutsnitt: kotlin.String? = null, polygon: kotlin.String? = null, typeveg: kotlin.collections.List<TypevegGetVegobjekterByType>? = null, overlappendeVegobjektIder: kotlin.collections.List<kotlin.Long>? = null, adskiltelop: kotlin.collections.List<AdskiltelopGetVegobjekterByType>? = null, kryssystem: kotlin.Boolean? = null, sideanlegg: kotlin.Boolean? = null, trafikantgruppe: TrafikantgruppeGetVegobjekterByType? = null, antall: kotlin.Int? = null, start: kotlin.String? = null, geometritoleranse: kotlin.Int? = null, tidspunkt: java.time.LocalDate? = null, alleVersjoner: kotlin.Boolean? = null, inkluderAntall: kotlin.Boolean? = null, sortert: kotlin.Boolean? = null, veglenkesekvens: kotlin.collections.List<kotlin.String>? = null, egenskap: kotlin.collections.List<kotlin.String>? = null, overlapp: kotlin.collections.List<kotlin.String>? = null, veglenketype: kotlin.collections.List<VeglenketypeGetVegobjekterByType>? = null, detaljniva: kotlin.collections.List<DetaljnivaGetVegobjekterByType>? = null, endretEtter: kotlinx.datetime.Instant? = null): HttpResponse<VegobjekterSide> {
+    open suspend fun getVegobjekterByType(vegobjekttypeId: kotlin.Int, ider: kotlin.collections.List<kotlin.Long>? = null, inkluder: kotlin.collections.List<InkluderGetVegobjekterByType>? = null, srid: SridGetVegobjekterByType? = null, inkludergeometri: InkludergeometriGetVegobjekterByType? = null, inkluderEgenskaper: InkluderEgenskaperGetVegobjekterByType? = null, segmentering: kotlin.Boolean? = null, fylke: kotlin.collections.List<kotlin.Int>? = null, kommune: kotlin.collections.List<kotlin.Int>? = null, kontraktsomrade: kotlin.collections.List<kotlin.String>? = null, riksvegrute: kotlin.collections.List<kotlin.String>? = null, vegforvalter: kotlin.collections.List<kotlin.String>? = null, vegsystemreferanse: kotlin.collections.List<kotlin.String>? = null, kartutsnitt: kotlin.String? = null, polygon: kotlin.String? = null, typeveg: kotlin.collections.List<TypevegGetVegobjekterByType>? = null, adskiltelop: kotlin.collections.List<AdskiltelopGetVegobjekterByType>? = null, kryssystem: kotlin.Boolean? = null, sideanlegg: kotlin.Boolean? = null, trafikantgruppe: TrafikantgruppeGetVegobjekterByType? = null, antall: kotlin.Int? = null, start: kotlin.String? = null, geometritoleranse: kotlin.Int? = null, tidspunkt: java.time.LocalDate? = null, alleVersjoner: kotlin.Boolean? = null, inkluderAntall: kotlin.Boolean? = null, veglenkesekvens: kotlin.collections.List<kotlin.String>? = null, egenskap: kotlin.collections.List<kotlin.String>? = null, overlapp: kotlin.collections.List<kotlin.String>? = null, veglenketype: kotlin.collections.List<VeglenketypeGetVegobjekterByType>? = null, detaljniva: kotlin.collections.List<DetaljnivaGetVegobjekterByType>? = null, endretEtter: kotlinx.datetime.Instant? = null): HttpResponse<VegobjekterSide> {
 
         val localVariableAuthNames = listOf<String>("bearerAuth")
 
@@ -996,11 +965,11 @@ open class VegobjekterApi : ApiClient {
         kommune?.apply { localVariableQuery["kommune"] = toMultiValue(this, "multi") }
         kontraktsomrade?.apply { localVariableQuery["kontraktsomrade"] = toMultiValue(this, "multi") }
         riksvegrute?.apply { localVariableQuery["riksvegrute"] = toMultiValue(this, "multi") }
+        vegforvalter?.apply { localVariableQuery["vegforvalter"] = toMultiValue(this, "multi") }
         vegsystemreferanse?.apply { localVariableQuery["vegsystemreferanse"] = toMultiValue(this, "multi") }
         kartutsnitt?.apply { localVariableQuery["kartutsnitt"] = listOf("$kartutsnitt") }
         polygon?.apply { localVariableQuery["polygon"] = listOf("$polygon") }
         typeveg?.apply { localVariableQuery["typeveg"] = toMultiValue(this, "multi") }
-        overlappendeVegobjektIder?.apply { localVariableQuery["overlappendeVegobjektIder"] = toMultiValue(this, "multi") }
         adskiltelop?.apply { localVariableQuery["adskiltelop"] = toMultiValue(this, "multi") }
         kryssystem?.apply { localVariableQuery["kryssystem"] = listOf("$kryssystem") }
         sideanlegg?.apply { localVariableQuery["sideanlegg"] = listOf("$sideanlegg") }
@@ -1011,7 +980,6 @@ open class VegobjekterApi : ApiClient {
         tidspunkt?.apply { localVariableQuery["tidspunkt"] = listOf("$tidspunkt") }
         alleVersjoner?.apply { localVariableQuery["alle_versjoner"] = listOf("$alleVersjoner") }
         inkluderAntall?.apply { localVariableQuery["inkluderAntall"] = listOf("$inkluderAntall") }
-        sortert?.apply { localVariableQuery["sortert"] = listOf("$sortert") }
         veglenkesekvens?.apply { localVariableQuery["veglenkesekvens"] = toMultiValue(this, "multi") }
         egenskap?.apply { localVariableQuery["egenskap"] = toMultiValue(this, "multi") }
         overlapp?.apply { localVariableQuery["overlapp"] = toMultiValue(this, "multi") }

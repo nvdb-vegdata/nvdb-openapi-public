@@ -27,7 +27,7 @@ Returnerer angitt egenskapstype
 
 ```kotlin
 // Import classes:
-//import org.openapitools.client.infrastructure.*
+//import no.vegvesen.nvdb.datakatalog.infrastructure.*
 //import no.vegvesen.nvdb.datakatalog.model.*
 
 val apiInstance = DatakatalogenApi()
@@ -75,7 +75,7 @@ Returnerer angitt egenskapstype for angitt vegobjekttype
 
 ```kotlin
 // Import classes:
-//import org.openapitools.client.infrastructure.*
+//import no.vegvesen.nvdb.datakatalog.infrastructure.*
 //import no.vegvesen.nvdb.datakatalog.model.*
 
 val apiInstance = DatakatalogenApi()
@@ -125,7 +125,7 @@ Returnerer alle kategorier for egenskapstypene
 
 ```kotlin
 // Import classes:
-//import org.openapitools.client.infrastructure.*
+//import no.vegvesen.nvdb.datakatalog.infrastructure.*
 //import no.vegvesen.nvdb.datakatalog.model.*
 
 val apiInstance = DatakatalogenApi()
@@ -170,7 +170,7 @@ Returnerer alle enheter
 
 ```kotlin
 // Import classes:
-//import org.openapitools.client.infrastructure.*
+//import no.vegvesen.nvdb.datakatalog.infrastructure.*
 //import no.vegvesen.nvdb.datakatalog.model.*
 
 val apiInstance = DatakatalogenApi()
@@ -215,7 +215,7 @@ Returnerer alle kategorier for vegobjekter
 
 ```kotlin
 // Import classes:
-//import org.openapitools.client.infrastructure.*
+//import no.vegvesen.nvdb.datakatalog.infrastructure.*
 //import no.vegvesen.nvdb.datakatalog.model.*
 
 val apiInstance = DatakatalogenApi()
@@ -260,7 +260,7 @@ Returnerer produktspesifikasjonen til den angitte vegobjekttypen
 
 ```kotlin
 // Import classes:
-//import org.openapitools.client.infrastructure.*
+//import no.vegvesen.nvdb.datakatalog.infrastructure.*
 //import no.vegvesen.nvdb.datakatalog.model.*
 
 val apiInstance = DatakatalogenApi()
@@ -308,7 +308,7 @@ Returnerer angitt vegobjekttype
 
 ```kotlin
 // Import classes:
-//import org.openapitools.client.infrastructure.*
+//import no.vegvesen.nvdb.datakatalog.infrastructure.*
 //import no.vegvesen.nvdb.datakatalog.model.*
 
 val apiInstance = DatakatalogenApi()
@@ -358,7 +358,7 @@ Returnerer alle vegobjekttypene
 
 ```kotlin
 // Import classes:
-//import org.openapitools.client.infrastructure.*
+//import no.vegvesen.nvdb.datakatalog.infrastructure.*
 //import no.vegvesen.nvdb.datakatalog.model.*
 
 val apiInstance = DatakatalogenApi()
@@ -408,7 +408,7 @@ Returnerer alle vegobjekttypene for en gitt versjon av datakatalogen, f.eks. 2.3
 
 ```kotlin
 // Import classes:
-//import org.openapitools.client.infrastructure.*
+//import no.vegvesen.nvdb.datakatalog.infrastructure.*
 //import no.vegvesen.nvdb.datakatalog.model.*
 
 val apiInstance = DatakatalogenApi()
@@ -460,7 +460,7 @@ Returnerer aktiv versjon på datakatalog
 
 ```kotlin
 // Import classes:
-//import org.openapitools.client.infrastructure.*
+//import no.vegvesen.nvdb.datakatalog.infrastructure.*
 //import no.vegvesen.nvdb.datakatalog.model.*
 
 val apiInstance = DatakatalogenApi()

@@ -13,7 +13,7 @@
     "UnusedImport"
 )
 
-package no.vegvesen.nvdb.vegnett.model
+package no.vegvesen.nvdb.vegobjekter.model
 
 
 import kotlinx.serialization.*
@@ -23,19 +23,16 @@ import kotlinx.serialization.encoding.*
 /**
  * 
  *
- * @param id 
- * @param navn 
- * @param gatekode 
+ * @param enumid 
+ * @param vegforvalter 
  */
 @Serializable
 
-data class Gate (
+data class Vegforvalter (
 
-    @SerialName(value = "id") @Required val id: kotlin.Long,
+    @SerialName(value = "enumid") @Required val enumid: kotlin.Int,
 
-    @SerialName(value = "navn") @Required val navn: kotlin.String,
-
-    @SerialName(value = "gatekode") @Required val gatekode: kotlin.Int
+    @SerialName(value = "vegforvalter") @Required val vegforvalter: kotlin.String
 
 )
 

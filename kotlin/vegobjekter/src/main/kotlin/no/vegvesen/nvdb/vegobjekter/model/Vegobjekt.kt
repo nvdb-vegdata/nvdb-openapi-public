@@ -16,7 +16,6 @@
 package no.vegvesen.nvdb.vegobjekter.model
 
 import no.vegvesen.nvdb.vegobjekter.model.Egenskap
-import no.vegvesen.nvdb.vegobjekter.model.Geometrimal
 import no.vegvesen.nvdb.vegobjekter.model.Lokasjon
 import no.vegvesen.nvdb.vegobjekter.model.Relasjoner
 import no.vegvesen.nvdb.vegobjekter.model.UtledetGeometri
@@ -35,7 +34,6 @@ import kotlinx.serialization.encoding.*
  * @param metadata 
  * @param egenskaper 
  * @param geometri 
- * @param geometrimål 
  * @param lokasjon 
  * @param relasjoner 
  * @param vegsegmenter 
@@ -53,8 +51,6 @@ data class Vegobjekt (
     @SerialName(value = "egenskaper") val egenskaper: kotlin.collections.List<Egenskap>? = null,
 
     @SerialName(value = "geometri") val geometri: UtledetGeometri? = null,
-
-    @SerialName(value = "geometrimål") val geometrimål: Geometrimal? = null,
 
     @SerialName(value = "lokasjon") val lokasjon: Lokasjon? = null,
 

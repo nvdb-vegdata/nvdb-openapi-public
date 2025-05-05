@@ -15,7 +15,7 @@
 
 package no.vegvesen.nvdb.vegnett.model
 
-import no.vegvesen.nvdb.vegnett.model.Gate
+import no.vegvesen.nvdb.vegnett.model.Adresse
 import no.vegvesen.nvdb.vegnett.model.GeometriMedKvalitet
 import no.vegvesen.nvdb.vegnett.model.Kontraktsomrade
 import no.vegvesen.nvdb.vegnett.model.Metadata
@@ -56,7 +56,7 @@ import kotlinx.serialization.encoding.*
  * @param måledato 
  * @param superstedfesting 
  * @param feltoversikt 
- * @param gate 
+ * @param adresse 
  */
 @Serializable
 
@@ -114,7 +114,7 @@ data class Rutesegment (
 
     @SerialName(value = "feltoversikt") val feltoversikt: kotlin.collections.List<kotlin.String>? = null,
 
-    @SerialName(value = "gate") val gate: Gate? = null
+    @SerialName(value = "adresse") val adresse: Adresse? = null
 
 ) {
 

@@ -27,6 +27,8 @@ import kotlinx.serialization.encoding.*
  * @param srid 
  * @param egengeometri 
  * @param forenklet 
+ * @param lengde 
+ * @param areal 
  */
 @Serializable
 
@@ -38,7 +40,11 @@ data class UtledetGeometri (
 
     @SerialName(value = "egengeometri") @Required val egengeometri: kotlin.Boolean,
 
-    @SerialName(value = "forenklet") val forenklet: kotlin.Boolean? = null
+    @SerialName(value = "forenklet") val forenklet: kotlin.Boolean? = null,
+
+    @SerialName(value = "lengde") val lengde: kotlin.Double? = null,
+
+    @SerialName(value = "areal") val areal: kotlin.Double? = null
 
 ) {
 
