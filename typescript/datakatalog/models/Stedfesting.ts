@@ -57,48 +57,6 @@ export interface Stedfesting {
   egenskapstype: EgenskapstypeEnum
   /**
    *
-   * @type {number}
-   * @memberof Stedfesting
-   */
-  komplementrEgenskapstype?: number
-  /**
-   *
-   * @type {string}
-   * @memberof Stedfesting
-   */
-  kortnavn?: string
-  /**
-   *
-   * @type {string}
-   * @memberof Stedfesting
-   */
-  beskrivelse?: string
-  /**
-   *
-   * @type {string}
-   * @memberof Stedfesting
-   */
-  sosinavn?: string
-  /**
-   *
-   * @type {string}
-   * @memberof Stedfesting
-   */
-  sosinvdbnavn?: string
-  /**
-   *
-   * @type {number}
-   * @memberof Stedfesting
-   */
-  sorteringsnummer: number
-  /**
-   *
-   * @type {boolean}
-   * @memberof Stedfesting
-   */
-  avledet: boolean
-  /**
-   *
    * @type {boolean}
    * @memberof Stedfesting
    */
@@ -181,6 +139,48 @@ export interface Stedfesting {
    * @memberof Stedfesting
    */
   kategori: number
+  /**
+   *
+   * @type {number}
+   * @memberof Stedfesting
+   */
+  komplementrEgenskapstype?: number
+  /**
+   *
+   * @type {string}
+   * @memberof Stedfesting
+   */
+  kortnavn?: string
+  /**
+   *
+   * @type {string}
+   * @memberof Stedfesting
+   */
+  beskrivelse?: string
+  /**
+   *
+   * @type {string}
+   * @memberof Stedfesting
+   */
+  sosinavn?: string
+  /**
+   *
+   * @type {string}
+   * @memberof Stedfesting
+   */
+  sosinvdbnavn?: string
+  /**
+   *
+   * @type {number}
+   * @memberof Stedfesting
+   */
+  sorteringsnummer: number
+  /**
+   *
+   * @type {boolean}
+   * @memberof Stedfesting
+   */
+  avledet: boolean
 }
 
 /**
@@ -190,8 +190,6 @@ export function instanceOfStedfesting(value: object): boolean {
   let isInstance = true
   isInstance = isInstance && 'id' in value
   isInstance = isInstance && 'egenskapstype' in value
-  isInstance = isInstance && 'sorteringsnummer' in value
-  isInstance = isInstance && 'avledet' in value
   isInstance = isInstance && 'obligatoriskVerdi' in value
   isInstance = isInstance && 'skrivebeskyttet' in value
   isInstance = isInstance && 'sensitivitet' in value
@@ -201,6 +199,8 @@ export function instanceOfStedfesting(value: object): boolean {
   isInstance = isInstance && 'referansegeometriTilstrekkelig' in value
   isInstance = isInstance && 'viktighet' in value
   isInstance = isInstance && 'kategori' in value
+  isInstance = isInstance && 'sorteringsnummer' in value
+  isInstance = isInstance && 'avledet' in value
 
   return isInstance
 }
@@ -228,17 +228,6 @@ export function StedfestingFromJSONTyped(
     id: json['id'],
     navn: !exists(json, 'navn') ? undefined : json['navn'],
     egenskapstype: EgenskapstypeEnumFromJSON(json['egenskapstype']),
-    komplementrEgenskapstype: !exists(json, 'komplementær_egenskapstype')
-      ? undefined
-      : json['komplementær_egenskapstype'],
-    kortnavn: !exists(json, 'kortnavn') ? undefined : json['kortnavn'],
-    beskrivelse: !exists(json, 'beskrivelse') ? undefined : json['beskrivelse'],
-    sosinavn: !exists(json, 'sosinavn') ? undefined : json['sosinavn'],
-    sosinvdbnavn: !exists(json, 'sosinvdbnavn')
-      ? undefined
-      : json['sosinvdbnavn'],
-    sorteringsnummer: json['sorteringsnummer'],
-    avledet: json['avledet'],
     obligatoriskVerdi: json['obligatorisk_verdi'],
     skrivebeskyttet: json['skrivebeskyttet'],
     sensitivitet: json['sensitivitet'],
@@ -261,6 +250,17 @@ export function StedfestingFromJSONTyped(
     referansegeometriTilstrekkelig: json['referansegeometri_tilstrekkelig'],
     viktighet: ViktighetFromJSON(json['viktighet']),
     kategori: json['kategori'],
+    komplementrEgenskapstype: !exists(json, 'komplementær_egenskapstype')
+      ? undefined
+      : json['komplementær_egenskapstype'],
+    kortnavn: !exists(json, 'kortnavn') ? undefined : json['kortnavn'],
+    beskrivelse: !exists(json, 'beskrivelse') ? undefined : json['beskrivelse'],
+    sosinavn: !exists(json, 'sosinavn') ? undefined : json['sosinavn'],
+    sosinvdbnavn: !exists(json, 'sosinvdbnavn')
+      ? undefined
+      : json['sosinvdbnavn'],
+    sorteringsnummer: json['sorteringsnummer'],
+    avledet: json['avledet'],
   }
 }
 
@@ -275,13 +275,6 @@ export function StedfestingToJSON(value?: Stedfesting | null): any {
     id: value.id,
     navn: value.navn,
     egenskapstype: EgenskapstypeEnumToJSON(value.egenskapstype),
-    komplementær_egenskapstype: value.komplementrEgenskapstype,
-    kortnavn: value.kortnavn,
-    beskrivelse: value.beskrivelse,
-    sosinavn: value.sosinavn,
-    sosinvdbnavn: value.sosinvdbnavn,
-    sorteringsnummer: value.sorteringsnummer,
-    avledet: value.avledet,
     obligatorisk_verdi: value.obligatoriskVerdi,
     skrivebeskyttet: value.skrivebeskyttet,
     sensitivitet: value.sensitivitet,
@@ -296,5 +289,12 @@ export function StedfestingToJSON(value?: Stedfesting | null): any {
     referansegeometri_tilstrekkelig: value.referansegeometriTilstrekkelig,
     viktighet: ViktighetToJSON(value.viktighet),
     kategori: value.kategori,
+    komplementær_egenskapstype: value.komplementrEgenskapstype,
+    kortnavn: value.kortnavn,
+    beskrivelse: value.beskrivelse,
+    sosinavn: value.sosinavn,
+    sosinvdbnavn: value.sosinvdbnavn,
+    sorteringsnummer: value.sorteringsnummer,
+    avledet: value.avledet,
   }
 }
