@@ -10,8 +10,5 @@ export type StedfestingListe = Stedfesting & {
    * @type integer | undefined, int32
    */
   minimalt_antall_verdier?: number
-  /**
-   * @type object | undefined
-   */
   innhold?: EgenskapstypeStedfesting
 }

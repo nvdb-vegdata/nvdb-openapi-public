@@ -196,14 +196,6 @@ public class ProblemDetail {
     return this;
   }
 
-  public ProblemDetail putPropertiesItem(String key, Object propertiesItem) {
-    if (this.properties == null) {
-      this.properties = new HashMap<>();
-    }
-    this.properties.put(key, propertiesItem);
-    return this;
-  }
-
    /**
    * Get properties
    * @return properties

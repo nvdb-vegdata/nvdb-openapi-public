@@ -28,8 +28,6 @@ import kotlinx.serialization.encoding.*
  *
  * @param id 
  * @param egenskapstype 
- * @param avledet 
- * @param sorteringsnummer 
  * @param obligatoriskVerdi 
  * @param skrivebeskyttet 
  * @param sensitivitet 
@@ -39,19 +37,21 @@ import kotlinx.serialization.encoding.*
  * @param referansegeometriTilstrekkelig 
  * @param viktighet 
  * @param kategori 
+ * @param sorteringsnummer 
+ * @param avledet 
  * @param lengdeavhengigVerdi 
  * @param ajourholdSnu 
  * @param navn 
- * @param kortnavn 
- * @param beskrivelse 
- * @param sosinavn 
- * @param sosinvdbnavn 
- * @param komplementærEgenskapstype 
  * @param gruppesorteringsnummer 
  * @param veiledning 
  * @param grunnrissreferanse 
  * @param høydereferanse 
  * @param sosiReferanse 
+ * @param komplementærEgenskapstype 
+ * @param kortnavn 
+ * @param beskrivelse 
+ * @param sosinavn 
+ * @param sosinvdbnavn 
  * @param objektlisteDato 
  * @param sluttDato 
  * @param standardverdi 
@@ -66,10 +66,6 @@ data class EgenskapstypeKortdato (
     @SerialName(value = "id") @Required override val id: kotlin.Int,
 
     @SerialName(value = "egenskapstype") @Required override val egenskapstype: EgenskapstypeEnum,
-
-    @SerialName(value = "avledet") @Required override val avledet: kotlin.Boolean,
-
-    @SerialName(value = "sorteringsnummer") @Required override val sorteringsnummer: kotlin.Int,
 
     @SerialName(value = "obligatorisk_verdi") @Required override val obligatoriskVerdi: kotlin.Boolean,
 
@@ -89,21 +85,15 @@ data class EgenskapstypeKortdato (
 
     @SerialName(value = "kategori") @Required override val kategori: kotlin.Int,
 
+    @SerialName(value = "sorteringsnummer") @Required override val sorteringsnummer: kotlin.Int,
+
+    @SerialName(value = "avledet") @Required override val avledet: kotlin.Boolean,
+
     @SerialName(value = "lengdeavhengig_verdi") @Required val lengdeavhengigVerdi: kotlin.Boolean,
 
     @SerialName(value = "ajourhold_snu") @Required val ajourholdSnu: kotlin.Boolean,
 
     @SerialName(value = "navn") override val navn: kotlin.String? = null,
-
-    @SerialName(value = "kortnavn") override val kortnavn: kotlin.String? = null,
-
-    @SerialName(value = "beskrivelse") override val beskrivelse: kotlin.String? = null,
-
-    @SerialName(value = "sosinavn") override val sosinavn: kotlin.String? = null,
-
-    @SerialName(value = "sosinvdbnavn") override val sosinvdbnavn: kotlin.String? = null,
-
-    @SerialName(value = "komplementær_egenskapstype") override val komplementærEgenskapstype: kotlin.Int? = null,
 
     @SerialName(value = "gruppesorteringsnummer") override val gruppesorteringsnummer: kotlin.Int? = null,
 
@@ -114,6 +104,16 @@ data class EgenskapstypeKortdato (
     @SerialName(value = "høydereferanse") override val høydereferanse: kotlin.String? = null,
 
     @SerialName(value = "sosi_referanse") override val sosiReferanse: kotlin.String? = null,
+
+    @SerialName(value = "komplementær_egenskapstype") override val komplementærEgenskapstype: kotlin.Int? = null,
+
+    @SerialName(value = "kortnavn") override val kortnavn: kotlin.String? = null,
+
+    @SerialName(value = "beskrivelse") override val beskrivelse: kotlin.String? = null,
+
+    @SerialName(value = "sosinavn") override val sosinavn: kotlin.String? = null,
+
+    @SerialName(value = "sosinvdbnavn") override val sosinvdbnavn: kotlin.String? = null,
 
     @SerialName(value = "objektliste_dato") val objektlisteDato: java.time.LocalDate? = null,
 

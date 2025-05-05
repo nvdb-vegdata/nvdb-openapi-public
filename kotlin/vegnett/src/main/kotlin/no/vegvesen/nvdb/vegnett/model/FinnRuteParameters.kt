@@ -29,7 +29,6 @@ import kotlinx.serialization.encoding.*
  * @param detaljerteLenker 
  * @param kortform 
  * @param beholdTrafikantgruppe 
- * @param srid 
  * @param start 
  * @param slutt 
  * @param geometri 
@@ -37,6 +36,7 @@ import kotlinx.serialization.encoding.*
  * @param trafikantgruppe 
  * @param typeveg 
  * @param tidspunkt 
+ * @param srid 
  */
 @Serializable
 
@@ -54,36 +54,24 @@ data class FinnRuteParameters (
 
     @SerialName(value = "behold_trafikantgruppe") @Required val beholdTrafikantgruppe: kotlin.Boolean,
 
-    @SerialName(value = "srid") @Required val srid: FinnRuteParameters.Srid,
-
     @SerialName(value = "start") val start: kotlin.String? = null,
 
     @SerialName(value = "slutt") val slutt: kotlin.String? = null,
 
     @SerialName(value = "geometri") val geometri: kotlin.String? = null,
 
-    @SerialName(value = "vegsystemreferanse") val vegsystemreferanse: kotlin.collections.Set<kotlin.String>? = null,
+    @SerialName(value = "vegsystemreferanse") val vegsystemreferanse: kotlin.collections.List<kotlin.String>? = null,
 
     @SerialName(value = "trafikantgruppe") val trafikantgruppe: FinnRuteParameters.Trafikantgruppe? = null,
 
-    @SerialName(value = "typeveg") val typeveg: kotlin.collections.Set<FinnRuteParameters.Typeveg>? = null,
+    @SerialName(value = "typeveg") val typeveg: kotlin.collections.List<FinnRuteParameters.Typeveg>? = null,
 
-    @SerialName(value = "tidspunkt") val tidspunkt: java.time.LocalDate? = null
+    @SerialName(value = "tidspunkt") val tidspunkt: java.time.LocalDate? = null,
+
+    @SerialName(value = "srid") val srid: FinnRuteParameters.Srid? = null
 
 ) {
 
-    /**
-     * 
-     *
-     * Values: _5972,_5973,_5975,_4326
-     */
-    @Serializable
-    enum class Srid(val value: kotlin.String) {
-        @SerialName(value = "5972") _5972("5972"),
-        @SerialName(value = "5973") _5973("5973"),
-        @SerialName(value = "5975") _5975("5975"),
-        @SerialName(value = "4326") _4326("4326");
-    }
     /**
      * 
      *
@@ -118,6 +106,22 @@ data class FinnRuteParameters (
         @SerialName(value = "Traktorveg") traktorveg("Traktorveg"),
         @SerialName(value = "Sti") sti("Sti"),
         @SerialName(value = "Annet") annet("Annet");
+    }
+    /**
+     * 
+     *
+     * Values: _5972,_5973,_5975,_4326,uTM32,uTM33,uTM35,wGS84
+     */
+    @Serializable
+    enum class Srid(val value: kotlin.String) {
+        @SerialName(value = "5972") _5972("5972"),
+        @SerialName(value = "5973") _5973("5973"),
+        @SerialName(value = "5975") _5975("5975"),
+        @SerialName(value = "4326") _4326("4326"),
+        @SerialName(value = "UTM32") uTM32("UTM32"),
+        @SerialName(value = "UTM33") uTM33("UTM33"),
+        @SerialName(value = "UTM35") uTM35("UTM35"),
+        @SerialName(value = "WGS84") wGS84("WGS84");
     }
 }
 

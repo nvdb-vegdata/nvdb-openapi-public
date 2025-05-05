@@ -226,6 +226,26 @@ export const getVegobjekterByTypeQueryParamsSchema = z
         'Filtrer vegobjekter p\u00E5 overlapp. Se [dokumentasjon](https://nvdb.atlas.vegvesen.no/docs/produkter/nvdbapil/v4/introduksjon/Avanserte_filter)',
       )
       .optional(),
+    veglenketype: z
+      .array(
+        z.enum([
+          'ukjent',
+          'detaljert',
+          'konnektering',
+          'detaljert_konnektering',
+          'hoved',
+        ]),
+      )
+      .describe(
+        'Filtrer vegobjekter p\u00E5 veglenketype p\u00E5 vegnettet objektet er stedfestet. Kommaseparert liste.',
+      )
+      .optional(),
+    detaljniva: z
+      .array(z.enum(['VT', 'KB', 'KF', 'VTKB']))
+      .describe(
+        'Filtrer vegobjekter p\u00E5 detaljniv\u00E5 p\u00E5 vegnettet objektet er stedfestet p\u00E5 (kortnavn fra datakatalogen).',
+      )
+      .optional(),
     endret_etter: z
       .string()
       .datetime()

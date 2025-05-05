@@ -43,7 +43,7 @@ data class Node (
 
     @SerialName(value = "startdato") @Required val startdato: java.time.LocalDate,
 
-    @SerialName(value = "kommuner") @Required val kommuner: kotlin.collections.Set<kotlin.Int>,
+    @SerialName(value = "kommuner") @Required val kommuner: kotlin.collections.List<kotlin.Int>,
 
     @SerialName(value = "geometri") @Required val geometri: NodeGeometri,
 

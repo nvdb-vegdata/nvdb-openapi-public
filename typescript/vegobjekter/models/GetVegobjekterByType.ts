@@ -57,6 +57,17 @@ export type GetVegobjekterByTypeQueryParamsTypeveg =
   | 'annet'
 export type GetVegobjekterByTypeQueryParamsAdskiltelop = 'Med' | 'Mot' | 'Nei'
 export type GetVegobjekterByTypeQueryParamsTrafikantgruppe = 'K' | 'G'
+export type GetVegobjekterByTypeQueryParamsVeglenketype =
+  | 'ukjent'
+  | 'detaljert'
+  | 'konnektering'
+  | 'detaljert_konnektering'
+  | 'hoved'
+export type GetVegobjekterByTypeQueryParamsDetaljniva =
+  | 'VT'
+  | 'KB'
+  | 'KF'
+  | 'VTKB'
 export type GetVegobjekterByTypeQueryParams = {
   /**
    * @description Kommaseparert liste med vegobjekt-IDer.
@@ -203,6 +214,16 @@ export type GetVegobjekterByTypeQueryParams = {
    * @type array | undefined
    */
   overlapp?: string[]
+  /**
+   * @description Filtrer vegobjekter på veglenketype på vegnettet objektet er stedfestet. Kommaseparert liste.
+   * @type array | undefined
+   */
+  veglenketype?: GetVegobjekterByTypeQueryParamsVeglenketype[]
+  /**
+   * @description Filtrer vegobjekter på detaljnivå på vegnettet objektet er stedfestet på (kortnavn fra datakatalogen).
+   * @type array | undefined
+   */
+  detaljniva?: GetVegobjekterByTypeQueryParamsDetaljniva[]
   /**
    * @description Hente endringer siden sist. Eksempel: 2024-12-02T10:15:30.123456
    * @type string | undefined, date-time

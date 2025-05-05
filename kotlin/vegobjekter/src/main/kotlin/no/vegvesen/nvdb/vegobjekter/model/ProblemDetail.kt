@@ -44,7 +44,7 @@ data class ProblemDetail (
 
     @SerialName(value = "instance") val instance: kotlin.String? = null,
 
-    @SerialName(value = "properties") val properties: kotlin.collections.Map<kotlin.String, kotlin.String>? = null
+    @SerialName(value = "properties") val properties: kotlin.collections.Map<kotlin.String, kotlin.Any>? = null
 
 )
 

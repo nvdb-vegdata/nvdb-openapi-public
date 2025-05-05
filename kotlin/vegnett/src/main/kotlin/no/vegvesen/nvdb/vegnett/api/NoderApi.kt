@@ -163,7 +163,7 @@ open class NoderApi : ApiClient {
      * @return NodeSide
      */
     @Suppress("UNCHECKED_CAST")
-    open suspend fun getNoder(srid: SridGetNoder? = null, ider: kotlin.collections.Set<kotlin.Long>? = null, fylke: kotlin.collections.Set<kotlin.Int>? = null, kommune: kotlin.collections.Set<kotlin.Int>? = null, kontraktsomrade: kotlin.collections.Set<kotlin.String>? = null, vegsystemreferanse: kotlin.collections.Set<kotlin.String>? = null, kartutsnitt: kotlin.String? = null, polygon: kotlin.String? = null, superid: kotlin.Long? = null, antall: kotlin.Int? = null, start: kotlin.String? = null, inkluderAntall: kotlin.Boolean? = null): HttpResponse<NodeSide> {
+    open suspend fun getNoder(srid: SridGetNoder? = null, ider: kotlin.collections.List<kotlin.Long>? = null, fylke: kotlin.collections.List<kotlin.Int>? = null, kommune: kotlin.collections.List<kotlin.Int>? = null, kontraktsomrade: kotlin.collections.List<kotlin.String>? = null, vegsystemreferanse: kotlin.collections.List<kotlin.String>? = null, kartutsnitt: kotlin.String? = null, polygon: kotlin.String? = null, superid: kotlin.Long? = null, antall: kotlin.Int? = null, start: kotlin.String? = null, inkluderAntall: kotlin.Boolean? = null): HttpResponse<NodeSide> {
 
         val localVariableAuthNames = listOf<String>()
 

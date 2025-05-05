@@ -189,6 +189,51 @@ open class StatistikkApi : ApiClient {
         
     }
 
+
+    /**
+     * enum for parameter veglenketype
+     */
+    @Serializable
+    enum class VeglenketypeGetVegobjekterStatistikk(val value: kotlin.String) {
+        
+        @SerialName(value = "ukjent")
+        ukjent("ukjent"),
+        
+        @SerialName(value = "detaljert")
+        detaljert("detaljert"),
+        
+        @SerialName(value = "konnektering")
+        konnektering("konnektering"),
+        
+        @SerialName(value = "detaljert_konnektering")
+        detaljertKonnektering("detaljert_konnektering"),
+        
+        @SerialName(value = "hoved")
+        hoved("hoved")
+        
+    }
+
+
+    /**
+     * enum for parameter detaljniva
+     */
+    @Serializable
+    enum class DetaljnivaGetVegobjekterStatistikk(val value: kotlin.String) {
+        
+        @SerialName(value = "VT")
+        vT("VT"),
+        
+        @SerialName(value = "KB")
+        kB("KB"),
+        
+        @SerialName(value = "KF")
+        kF("KF"),
+        
+        @SerialName(value = "VTKB")
+        vTKB("VTKB")
+        
+    }
+
     /**
      * Hent statistikk for en vegobjekttype
      * 
@@ -210,11 +255,14 @@ open class StatistikkApi : ApiClient {
      * @param trafikantgruppe Filtrer vegobjekter på trafikantgruppe. (optional)
      * @param inkluder Kommaseparert liste av statistikkfelt som skal inkluderes i resultatet. (optional)
      * @param veglenkesekvens Filtrer vegobjekter på om de er stedfestet på gjeldende veglenkesekvenser. Kommaseparert liste.  Eksempel: &#x60;0.37@319531,0.83-0.97@41640&#x60; (optional)
+     * @param veglenketype Filtrer vegobjekter på veglenketype på vegnettet objektet er stedfestet. Kommaseparert liste. (optional)
+     * @param detaljniva Filtrer vegobjekter på detaljnivå på vegnettet objektet er stedfestet på (kortnavn fra datakatalogen). (optional)
      * @param endretEtter Hente endringer siden sist. Eksempel: 2024-12-02T10:15:30.123456 (optional)
+     * @param tidspunkt Finner versjonen som var gyldig denne datoen. (optional)
      * @return VegobjekterStatistikk
      */
     @Suppress("UNCHECKED_CAST")
-    open suspend fun getVegobjekterStatistikk(vegobjekttypeid: kotlin.Int, srid: SridGetVegobjekterStatistikk? = null, segmentering: kotlin.Boolean? = null, fylke: kotlin.collections.Set<kotlin.Int>? = null, kommune: kotlin.collections.Set<kotlin.Int>? = null, kontraktsomrade: kotlin.collections.Set<kotlin.String>? = null, riksvegrute: kotlin.collections.Set<kotlin.String>? = null, vegsystemreferanse: kotlin.collections.Set<kotlin.String>? = null, kartutsnitt: kotlin.String? = null, polygon: kotlin.String? = null, typeveg: kotlin.collections.List<TypevegGetVegobjekterStatistikk>? = null, overlappendeVegobjektIder: kotlin.collections.Set<kotlin.Long>? = null, adskiltelop: kotlin.collections.List<AdskiltelopGetVegobjekterStatistikk>? = null, kryssystem: kotlin.Boolean? = null, sideanlegg: kotlin.Boolean? = null, trafikantgruppe: TrafikantgruppeGetVegobjekterStatistikk? = null, inkluder: kotlin.collections.List<InkluderGetVegobjekterStatistikk>? = null, veglenkesekvens: kotlin.collections.Set<kotlin.String>? = null, endretEtter: kotlinx.datetime.Instant? = null): HttpResponse<VegobjekterStatistikk> {
+    open suspend fun getVegobjekterStatistikk(vegobjekttypeid: kotlin.Int, srid: SridGetVegobjekterStatistikk? = null, segmentering: kotlin.Boolean? = null, fylke: kotlin.collections.List<kotlin.Int>? = null, kommune: kotlin.collections.List<kotlin.Int>? = null, kontraktsomrade: kotlin.collections.List<kotlin.String>? = null, riksvegrute: kotlin.collections.List<kotlin.String>? = null, vegsystemreferanse: kotlin.collections.List<kotlin.String>? = null, kartutsnitt: kotlin.String? = null, polygon: kotlin.String? = null, typeveg: kotlin.collections.List<TypevegGetVegobjekterStatistikk>? = null, overlappendeVegobjektIder: kotlin.collections.List<kotlin.Long>? = null, adskiltelop: kotlin.collections.List<AdskiltelopGetVegobjekterStatistikk>? = null, kryssystem: kotlin.Boolean? = null, sideanlegg: kotlin.Boolean? = null, trafikantgruppe: TrafikantgruppeGetVegobjekterStatistikk? = null, inkluder: kotlin.collections.List<InkluderGetVegobjekterStatistikk>? = null, veglenkesekvens: kotlin.collections.List<kotlin.String>? = null, veglenketype: kotlin.collections.List<VeglenketypeGetVegobjekterStatistikk>? = null, detaljniva: kotlin.collections.List<DetaljnivaGetVegobjekterStatistikk>? = null, endretEtter: kotlinx.datetime.Instant? = null, tidspunkt: java.time.LocalDate? = null): HttpResponse<VegobjekterStatistikk> {
 
         val localVariableAuthNames = listOf<String>("bearerAuth")
 
@@ -239,7 +287,10 @@ open class StatistikkApi : ApiClient {
         trafikantgruppe?.apply { localVariableQuery["trafikantgruppe"] = listOf("$trafikantgruppe") }
         inkluder?.apply { localVariableQuery["inkluder"] = toMultiValue(this, "multi") }
         veglenkesekvens?.apply { localVariableQuery["veglenkesekvens"] = toMultiValue(this, "multi") }
+        veglenketype?.apply { localVariableQuery["veglenketype"] = toMultiValue(this, "multi") }
+        detaljniva?.apply { localVariableQuery["detaljniva"] = toMultiValue(this, "multi") }
         endretEtter?.apply { localVariableQuery["endret_etter"] = listOf("$endretEtter") }
+        tidspunkt?.apply { localVariableQuery["tidspunkt"] = listOf("$tidspunkt") }
         val localVariableHeaders = mutableMapOf<String, String>()
 
         val localVariableConfig = RequestConfig<kotlin.Any?>(
@@ -336,10 +387,11 @@ open class StatistikkApi : ApiClient {
      * @param kartutsnitt Filtrer vegobjekter med kartutsnitt i det gjeldende geografiske referansesystemet (&#x60;srid&#x60;-paramteret). Formatet er &#x60;minX, minY, maxX, maxY&#x60;.  Eksempel: &#x60;265273, 7019372, 346553, 7061071&#x60; (optional)
      * @param inkluder Kommaseparert liste av statistikkfelt som skal inkluderes i resultatet. (optional)
      * @param veglenkesekvens Filtrer vegobjekter på om de er stedfestet på gjeldende veglenkesekvenser. Kommaseparert liste.  Eksempel: &#x60;0.37@319531,0.83-0.97@41640&#x60; (optional)
+     * @param tidspunkt Finner versjonen som var gyldig denne datoen. (optional)
      * @return kotlin.collections.List<VegobjekterStatistikkGruppert>
      */
     @Suppress("UNCHECKED_CAST")
-    open suspend fun getVegobjekterStatistikkGruppert(vegobjekttypeid: kotlin.Int, gruppering: kotlin.collections.List<GrupperingGetVegobjekterStatistikkGruppert>, srid: SridGetVegobjekterStatistikkGruppert? = null, kartutsnitt: kotlin.String? = null, inkluder: kotlin.collections.List<InkluderGetVegobjekterStatistikkGruppert>? = null, veglenkesekvens: kotlin.collections.Set<kotlin.String>? = null): HttpResponse<kotlin.collections.List<VegobjekterStatistikkGruppert>> {
+    open suspend fun getVegobjekterStatistikkGruppert(vegobjekttypeid: kotlin.Int, gruppering: kotlin.collections.List<GrupperingGetVegobjekterStatistikkGruppert>, srid: SridGetVegobjekterStatistikkGruppert? = null, kartutsnitt: kotlin.String? = null, inkluder: kotlin.collections.List<InkluderGetVegobjekterStatistikkGruppert>? = null, veglenkesekvens: kotlin.collections.List<kotlin.String>? = null, tidspunkt: java.time.LocalDate? = null): HttpResponse<kotlin.collections.List<VegobjekterStatistikkGruppert>> {
 
         val localVariableAuthNames = listOf<String>("bearerAuth")
 
@@ -352,6 +404,7 @@ open class StatistikkApi : ApiClient {
         gruppering?.apply { localVariableQuery["gruppering"] = toMultiValue(this, "multi") }
         inkluder?.apply { localVariableQuery["inkluder"] = toMultiValue(this, "multi") }
         veglenkesekvens?.apply { localVariableQuery["veglenkesekvens"] = toMultiValue(this, "multi") }
+        tidspunkt?.apply { localVariableQuery["tidspunkt"] = listOf("$tidspunkt") }
         val localVariableHeaders = mutableMapOf<String, String>()
 
         val localVariableConfig = RequestConfig<kotlin.Any?>(
@@ -401,10 +454,11 @@ open class StatistikkApi : ApiClient {
      * Hent overordnet statistikk for alle vegobjekttyper
      * 
      * @param inkluder Kommaseparert liste av statistikkfelt som skal inkluderes i resultatet. (optional)
+     * @param tidspunkt Finner versjonen som var gyldig denne datoen. (optional)
      * @return kotlin.collections.List<VegobjekterStatistikkMedType>
      */
     @Suppress("UNCHECKED_CAST")
-    open suspend fun getVegobjekterStatistikkMedTyper(inkluder: kotlin.collections.List<InkluderGetVegobjekterStatistikkMedTyper>? = null): HttpResponse<kotlin.collections.List<VegobjekterStatistikkMedType>> {
+    open suspend fun getVegobjekterStatistikkMedTyper(inkluder: kotlin.collections.List<InkluderGetVegobjekterStatistikkMedTyper>? = null, tidspunkt: java.time.LocalDate? = null): HttpResponse<kotlin.collections.List<VegobjekterStatistikkMedType>> {
 
         val localVariableAuthNames = listOf<String>("bearerAuth")
 
@@ -413,6 +467,7 @@ open class StatistikkApi : ApiClient {
 
         val localVariableQuery = mutableMapOf<String, List<String>>()
         inkluder?.apply { localVariableQuery["inkluder"] = toMultiValue(this, "multi") }
+        tidspunkt?.apply { localVariableQuery["tidspunkt"] = listOf("$tidspunkt") }
         val localVariableHeaders = mutableMapOf<String, String>()
 
         val localVariableConfig = RequestConfig<kotlin.Any?>(

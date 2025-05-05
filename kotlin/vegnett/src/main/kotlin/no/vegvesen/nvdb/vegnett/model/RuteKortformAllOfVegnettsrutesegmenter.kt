@@ -36,17 +36,17 @@ import kotlinx.serialization.encoding.*
 
 data class RuteKortformAllOfVegnettsrutesegmenter (
 
-    @SerialName(value = "type") @Required val type: kotlin.String,
+    @SerialName(value = "type") @Required val type: kotlin.Any?,
 
-    @SerialName(value = "veglenkesekvensid") @Required val veglenkesekvensid: kotlin.Long,
+    @SerialName(value = "veglenkesekvensid") @Required val veglenkesekvensid: kotlin.Any?,
 
     @SerialName(value = "startposisjon") @Required override val startposisjon: kotlin.Double,
 
     @SerialName(value = "sluttposisjon") @Required override val sluttposisjon: kotlin.Double,
 
-    @SerialName(value = "kortform") @Required val kortform: kotlin.String,
+    @SerialName(value = "kortform") @Required val kortform: kotlin.Any?,
 
-    @SerialName(value = "relativPosisjon") @Required val relativPosisjon: kotlin.Double
+    @SerialName(value = "relativPosisjon") @Required val relativPosisjon: kotlin.Any?
 
 )
 

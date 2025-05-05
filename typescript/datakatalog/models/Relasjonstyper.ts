@@ -34,10 +34,10 @@ export interface Relasjonstyper {
   foreldre: Array<Assosiasjonstype>
   /**
    *
-   * @type {Array<Assosiasjonstype>}
+   * @type {any}
    * @memberof Relasjonstyper
    */
-  barn: Array<Assosiasjonstype>
+  barn: any | null
 }
 
 /**
@@ -64,7 +64,7 @@ export function RelasjonstyperFromJSONTyped(
   }
   return {
     foreldre: (json['foreldre'] as Array<any>).map(AssosiasjonstypeFromJSON),
-    barn: (json['barn'] as Array<any>).map(AssosiasjonstypeFromJSON),
+    barn: json['barn'],
   }
 }
 
@@ -77,6 +77,6 @@ export function RelasjonstyperToJSON(value?: Relasjonstyper | null): any {
   }
   return {
     foreldre: (value.foreldre as Array<any>).map(AssosiasjonstypeToJSON),
-    barn: (value.barn as Array<any>).map(AssosiasjonstypeToJSON),
+    barn: value.barn,
   }
 }

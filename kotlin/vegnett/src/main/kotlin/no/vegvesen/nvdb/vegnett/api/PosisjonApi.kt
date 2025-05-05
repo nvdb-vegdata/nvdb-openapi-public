@@ -111,7 +111,7 @@ open class PosisjonApi : ApiClient {
      * @return kotlin.collections.List<PosisjonMedAvstand>
      */
     @Suppress("UNCHECKED_CAST")
-    open suspend fun findPosisjon(nord: kotlin.Double? = null, ost: kotlin.Double? = null, lat: kotlin.Double? = null, lon: kotlin.Double? = null, maksAvstand: kotlin.Int? = null, maksAntall: kotlin.Int? = null, konnekteringslenker: kotlin.Boolean? = null, detaljerteLenker: kotlin.Boolean? = null, tidspunkt: java.time.LocalDate? = null, vegsystemreferanse: kotlin.collections.Set<kotlin.String>? = null, srid: SridFindPosisjon? = null, trafikantgruppe: TrafikantgruppeFindPosisjon? = null): HttpResponse<kotlin.collections.List<PosisjonMedAvstand>> {
+    open suspend fun findPosisjon(nord: kotlin.Double? = null, ost: kotlin.Double? = null, lat: kotlin.Double? = null, lon: kotlin.Double? = null, maksAvstand: kotlin.Int? = null, maksAntall: kotlin.Int? = null, konnekteringslenker: kotlin.Boolean? = null, detaljerteLenker: kotlin.Boolean? = null, tidspunkt: java.time.LocalDate? = null, vegsystemreferanse: kotlin.collections.List<kotlin.String>? = null, srid: SridFindPosisjon? = null, trafikantgruppe: TrafikantgruppeFindPosisjon? = null): HttpResponse<kotlin.collections.List<PosisjonMedAvstand>> {
 
         val localVariableAuthNames = listOf<String>()
 
@@ -202,7 +202,7 @@ open class PosisjonApi : ApiClient {
      * @return Posisjon
      */
     @Suppress("UNCHECKED_CAST")
-    open suspend fun findPosisjonForVeg(vegsystemreferanse: kotlin.String? = null, veglenkesekvens: kotlin.String? = null, tidspunkt: java.time.LocalDate? = null, srid: SridFindPosisjonForVeg? = null, kommune: kotlin.collections.Set<kotlin.Int>? = null): HttpResponse<Posisjon> {
+    open suspend fun findPosisjonForVeg(vegsystemreferanse: kotlin.String? = null, veglenkesekvens: kotlin.String? = null, tidspunkt: java.time.LocalDate? = null, srid: SridFindPosisjonForVeg? = null, kommune: kotlin.collections.List<kotlin.Int>? = null): HttpResponse<Posisjon> {
 
         val localVariableAuthNames = listOf<String>()
 
@@ -276,7 +276,7 @@ open class PosisjonApi : ApiClient {
      * @return AlwaysIncludeMapStringPosisjon
      */
     @Suppress("UNCHECKED_CAST")
-    open suspend fun findPosisjonerForVeg(vegsystemreferanser: kotlin.collections.List<kotlin.String>? = null, veglenkesekvenser: kotlin.collections.List<kotlin.String>? = null, kommune: kotlin.collections.Set<kotlin.Int>? = null, srid: SridFindPosisjonerForVeg? = null): HttpResponse<AlwaysIncludeMapStringPosisjon> {
+    open suspend fun findPosisjonerForVeg(vegsystemreferanser: kotlin.collections.List<kotlin.String>? = null, veglenkesekvenser: kotlin.collections.List<kotlin.String>? = null, kommune: kotlin.collections.List<kotlin.Int>? = null, srid: SridFindPosisjonerForVeg? = null): HttpResponse<AlwaysIncludeMapStringPosisjon> {
 
         val localVariableAuthNames = listOf<String>()
 

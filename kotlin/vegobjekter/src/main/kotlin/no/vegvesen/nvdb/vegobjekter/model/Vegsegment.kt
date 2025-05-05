@@ -83,9 +83,9 @@ data class Vegsegment (
 
     @SerialName(value = "vegsystemreferanse") val vegsystemreferanse: Vegsystemreferanse? = null,
 
-    @SerialName(value = "kontraktsområder") val kontraktsområder: kotlin.collections.Set<kotlin.Long>? = null,
+    @SerialName(value = "kontraktsområder") val kontraktsområder: kotlin.collections.List<kotlin.Long>? = null,
 
-    @SerialName(value = "riksvegruter") val riksvegruter: kotlin.collections.Set<kotlin.Int>? = null
+    @SerialName(value = "riksvegruter") val riksvegruter: kotlin.collections.List<kotlin.Int>? = null
 
 ) {
 

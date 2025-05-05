@@ -894,6 +894,51 @@ open class VegobjekterApi : ApiClient {
         
     }
 
+
+    /**
+     * enum for parameter veglenketype
+     */
+    @Serializable
+    enum class VeglenketypeGetVegobjekterByType(val value: kotlin.String) {
+        
+        @SerialName(value = "ukjent")
+        ukjent("ukjent"),
+        
+        @SerialName(value = "detaljert")
+        detaljert("detaljert"),
+        
+        @SerialName(value = "konnektering")
+        konnektering("konnektering"),
+        
+        @SerialName(value = "detaljert_konnektering")
+        detaljertKonnektering("detaljert_konnektering"),
+        
+        @SerialName(value = "hoved")
+        hoved("hoved")
+        
+    }
+
+
+    /**
+     * enum for parameter detaljniva
+     */
+    @Serializable
+    enum class DetaljnivaGetVegobjekterByType(val value: kotlin.String) {
+        
+        @SerialName(value = "VT")
+        vT("VT"),
+        
+        @SerialName(value = "KB")
+        kB("KB"),
+        
+        @SerialName(value = "KF")
+        kF("KF"),
+        
+        @SerialName(value = "VTKB")
+        vTKB("VTKB")
+        
+    }
+
     /**
      * Hent vegobjekter av en type
      * 
@@ -927,11 +972,13 @@ open class VegobjekterApi : ApiClient {
      * @param veglenkesekvens Filtrer vegobjekter på om de er stedfestet på gjeldende veglenkesekvenser. Kommaseparert liste.  Eksempel: &#x60;0.37@319531,0.83-0.97@41640&#x60; (optional)
      * @param egenskap Filtrer vegobjekter på egenskaper, relasjoner og overlapp. Se [dokumentasjon](https://nvdb.atlas.vegvesen.no/docs/produkter/nvdbapil/v4/introduksjon/Avanserte_filter) (optional)
      * @param overlapp Filtrer vegobjekter på overlapp. Se [dokumentasjon](https://nvdb.atlas.vegvesen.no/docs/produkter/nvdbapil/v4/introduksjon/Avanserte_filter) (optional)
+     * @param veglenketype Filtrer vegobjekter på veglenketype på vegnettet objektet er stedfestet. Kommaseparert liste. (optional)
+     * @param detaljniva Filtrer vegobjekter på detaljnivå på vegnettet objektet er stedfestet på (kortnavn fra datakatalogen). (optional)
      * @param endretEtter Hente endringer siden sist. Eksempel: 2024-12-02T10:15:30.123456 (optional)
      * @return VegobjekterSide
      */
     @Suppress("UNCHECKED_CAST")
-    open suspend fun getVegobjekterByType(vegobjekttypeId: kotlin.Int, ider: kotlin.collections.Set<kotlin.Long>? = null, inkluder: kotlin.collections.List<InkluderGetVegobjekterByType>? = null, srid: SridGetVegobjekterByType? = null, inkludergeometri: InkludergeometriGetVegobjekterByType? = null, inkluderEgenskaper: InkluderEgenskaperGetVegobjekterByType? = null, segmentering: kotlin.Boolean? = null, fylke: kotlin.collections.Set<kotlin.Int>? = null, kommune: kotlin.collections.Set<kotlin.Int>? = null, kontraktsomrade: kotlin.collections.Set<kotlin.String>? = null, riksvegrute: kotlin.collections.Set<kotlin.String>? = null, vegsystemreferanse: kotlin.collections.Set<kotlin.String>? = null, kartutsnitt: kotlin.String? = null, polygon: kotlin.String? = null, typeveg: kotlin.collections.List<TypevegGetVegobjekterByType>? = null, overlappendeVegobjektIder: kotlin.collections.Set<kotlin.Long>? = null, adskiltelop: kotlin.collections.List<AdskiltelopGetVegobjekterByType>? = null, kryssystem: kotlin.Boolean? = null, sideanlegg: kotlin.Boolean? = null, trafikantgruppe: TrafikantgruppeGetVegobjekterByType? = null, antall: kotlin.Int? = null, start: kotlin.String? = null, geometritoleranse: kotlin.Int? = null, tidspunkt: java.time.LocalDate? = null, alleVersjoner: kotlin.Boolean? = null, inkluderAntall: kotlin.Boolean? = null, sortert: kotlin.Boolean? = null, veglenkesekvens: kotlin.collections.Set<kotlin.String>? = null, egenskap: kotlin.collections.List<kotlin.String>? = null, overlapp: kotlin.collections.List<kotlin.String>? = null, endretEtter: kotlinx.datetime.Instant? = null): HttpResponse<VegobjekterSide> {
+    open suspend fun getVegobjekterByType(vegobjekttypeId: kotlin.Int, ider: kotlin.collections.List<kotlin.Long>? = null, inkluder: kotlin.collections.List<InkluderGetVegobjekterByType>? = null, srid: SridGetVegobjekterByType? = null, inkludergeometri: InkludergeometriGetVegobjekterByType? = null, inkluderEgenskaper: InkluderEgenskaperGetVegobjekterByType? = null, segmentering: kotlin.Boolean? = null, fylke: kotlin.collections.List<kotlin.Int>? = null, kommune: kotlin.collections.List<kotlin.Int>? = null, kontraktsomrade: kotlin.collections.List<kotlin.String>? = null, riksvegrute: kotlin.collections.List<kotlin.String>? = null, vegsystemreferanse: kotlin.collections.List<kotlin.String>? = null, kartutsnitt: kotlin.String? = null, polygon: kotlin.String? = null, typeveg: kotlin.collections.List<TypevegGetVegobjekterByType>? = null, overlappendeVegobjektIder: kotlin.collections.List<kotlin.Long>? = null, adskiltelop: kotlin.collections.List<AdskiltelopGetVegobjekterByType>? = null, kryssystem: kotlin.Boolean? = null, sideanlegg: kotlin.Boolean? = null, trafikantgruppe: TrafikantgruppeGetVegobjekterByType? = null, antall: kotlin.Int? = null, start: kotlin.String? = null, geometritoleranse: kotlin.Int? = null, tidspunkt: java.time.LocalDate? = null, alleVersjoner: kotlin.Boolean? = null, inkluderAntall: kotlin.Boolean? = null, sortert: kotlin.Boolean? = null, veglenkesekvens: kotlin.collections.List<kotlin.String>? = null, egenskap: kotlin.collections.List<kotlin.String>? = null, overlapp: kotlin.collections.List<kotlin.String>? = null, veglenketype: kotlin.collections.List<VeglenketypeGetVegobjekterByType>? = null, detaljniva: kotlin.collections.List<DetaljnivaGetVegobjekterByType>? = null, endretEtter: kotlinx.datetime.Instant? = null): HttpResponse<VegobjekterSide> {
 
         val localVariableAuthNames = listOf<String>("bearerAuth")
 
@@ -968,6 +1015,8 @@ open class VegobjekterApi : ApiClient {
         veglenkesekvens?.apply { localVariableQuery["veglenkesekvens"] = toMultiValue(this, "multi") }
         egenskap?.apply { localVariableQuery["egenskap"] = toMultiValue(this, "multi") }
         overlapp?.apply { localVariableQuery["overlapp"] = toMultiValue(this, "multi") }
+        veglenketype?.apply { localVariableQuery["veglenketype"] = toMultiValue(this, "multi") }
+        detaljniva?.apply { localVariableQuery["detaljniva"] = toMultiValue(this, "multi") }
         endretEtter?.apply { localVariableQuery["endret_etter"] = listOf("$endretEtter") }
         val localVariableHeaders = mutableMapOf<String, String>()
 

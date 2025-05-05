@@ -40,7 +40,7 @@ public class Relasjonstyper {
   private List<Assosiasjonstype> foreldre = new ArrayList<>();
 
   public static final String JSON_PROPERTY_BARN = "barn";
-  private List<Assosiasjonstype> barn = new ArrayList<>();
+  private Object barn = null;
 
   public Relasjonstyper() {
   }
@@ -79,17 +79,9 @@ public class Relasjonstyper {
   }
 
 
-  public Relasjonstyper barn(List<Assosiasjonstype> barn) {
+  public Relasjonstyper barn(Object barn) {
     
     this.barn = barn;
-    return this;
-  }
-
-  public Relasjonstyper addBarnItem(Assosiasjonstype barnItem) {
-    if (this.barn == null) {
-      this.barn = new ArrayList<>();
-    }
-    this.barn.add(barnItem);
     return this;
   }
 
@@ -97,18 +89,18 @@ public class Relasjonstyper {
    * Get barn
    * @return barn
   **/
-  @javax.annotation.Nonnull
+  @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_BARN)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public List<Assosiasjonstype> getBarn() {
+  public Object getBarn() {
     return barn;
   }
 
 
   @JsonProperty(JSON_PROPERTY_BARN)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setBarn(List<Assosiasjonstype> barn) {
+  public void setBarn(Object barn) {
     this.barn = barn;
   }
 

@@ -33,7 +33,7 @@ data class Relasjonstyper (
 
     @SerialName(value = "foreldre") @Required val foreldre: kotlin.collections.List<Assosiasjonstype>,
 
-    @SerialName(value = "barn") @Required val barn: kotlin.collections.List<Assosiasjonstype>
+    @SerialName(value = "barn") @Required val barn: kotlin.Any?
 
 )
 
