@@ -12,7 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime'
+import { mapValues } from '../runtime'
 /**
  *
  * @export
@@ -72,14 +72,16 @@ export interface VegobjektKategori {
 /**
  * Check if a given object implements the VegobjektKategori interface.
  */
-export function instanceOfVegobjektKategori(value: object): boolean {
-  let isInstance = true
-  isInstance = isInstance && 'id' in value
-  isInstance = isInstance && 'primrkategori' in value
-  isInstance = isInstance && 'nummer' in value
-  isInstance = isInstance && 'sorteringsnummer' in value
-
-  return isInstance
+export function instanceOfVegobjektKategori(
+  value: object,
+): value is VegobjektKategori {
+  if (!('id' in value) || value['id'] === undefined) return false
+  if (!('primrkategori' in value) || value['primrkategori'] === undefined)
+    return false
+  if (!('nummer' in value) || value['nummer'] === undefined) return false
+  if (!('sorteringsnummer' in value) || value['sorteringsnummer'] === undefined)
+    return false
+  return true
 }
 
 export function VegobjektKategoriFromJSON(json: any): VegobjektKategori {
@@ -90,41 +92,45 @@ export function VegobjektKategoriFromJSONTyped(
   json: any,
   ignoreDiscriminator: boolean,
 ): VegobjektKategori {
-  if (json === undefined || json === null) {
+  if (json == null) {
     return json
   }
   return {
     id: json['id'],
     primrkategori: json['primærkategori'],
     nummer: json['nummer'],
-    navn: !exists(json, 'navn') ? undefined : json['navn'],
-    kortnavn: !exists(json, 'kortnavn') ? undefined : json['kortnavn'],
+    navn: json['navn'] == null ? undefined : json['navn'],
+    kortnavn: json['kortnavn'] == null ? undefined : json['kortnavn'],
     sorteringsnummer: json['sorteringsnummer'],
-    beskrivelse: !exists(json, 'beskrivelse') ? undefined : json['beskrivelse'],
-    startDato: !exists(json, 'startDato')
-      ? undefined
-      : new Date(json['startDato']),
+    beskrivelse: json['beskrivelse'] == null ? undefined : json['beskrivelse'],
+    startDato:
+      json['startDato'] == null ? undefined : new Date(json['startDato']),
   }
 }
 
-export function VegobjektKategoriToJSON(value?: VegobjektKategori | null): any {
-  if (value === undefined) {
-    return undefined
+export function VegobjektKategoriToJSON(json: any): VegobjektKategori {
+  return VegobjektKategoriToJSONTyped(json, false)
+}
+
+export function VegobjektKategoriToJSONTyped(
+  value?: VegobjektKategori | null,
+  ignoreDiscriminator: boolean = false,
+): any {
+  if (value == null) {
+    return value
   }
-  if (value === null) {
-    return null
-  }
+
   return {
-    id: value.id,
-    primærkategori: value.primrkategori,
-    nummer: value.nummer,
-    navn: value.navn,
-    kortnavn: value.kortnavn,
-    sorteringsnummer: value.sorteringsnummer,
-    beskrivelse: value.beskrivelse,
+    id: value['id'],
+    primærkategori: value['primrkategori'],
+    nummer: value['nummer'],
+    navn: value['navn'],
+    kortnavn: value['kortnavn'],
+    sorteringsnummer: value['sorteringsnummer'],
+    beskrivelse: value['beskrivelse'],
     startDato:
-      value.startDato === undefined
+      value['startDato'] == null
         ? undefined
-        : value.startDato.toISOString().substring(0, 10),
+        : value['startDato'].toISOString().substring(0, 10),
   }
 }

@@ -34,5 +34,8 @@ data class Vegforvalter (
 
     @SerialName(value = "vegforvalter") @Required val vegforvalter: kotlin.String
 
-)
+) {
+
+
+}
 

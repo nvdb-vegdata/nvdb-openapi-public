@@ -12,25 +12,28 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime'
+import { mapValues } from '../runtime'
+import type { Viktighet } from './Viktighet'
+import {
+  ViktighetFromJSON,
+  ViktighetFromJSONTyped,
+  ViktighetToJSON,
+  ViktighetToJSONTyped,
+} from './Viktighet'
 import type { Egenskapstype } from './Egenskapstype'
 import {
   EgenskapstypeFromJSON,
   EgenskapstypeFromJSONTyped,
   EgenskapstypeToJSON,
+  EgenskapstypeToJSONTyped,
 } from './Egenskapstype'
 import type { EgenskapstypeEnum } from './EgenskapstypeEnum'
 import {
   EgenskapstypeEnumFromJSON,
   EgenskapstypeEnumFromJSONTyped,
   EgenskapstypeEnumToJSON,
+  EgenskapstypeEnumToJSONTyped,
 } from './EgenskapstypeEnum'
-import type { Viktighet } from './Viktighet'
-import {
-  ViktighetFromJSON,
-  ViktighetFromJSONTyped,
-  ViktighetToJSON,
-} from './Viktighet'
 
 /**
  *
@@ -49,11 +52,12 @@ export interface EgenskapstypeStruktur extends Egenskapstype {
 /**
  * Check if a given object implements the EgenskapstypeStruktur interface.
  */
-export function instanceOfEgenskapstypeStruktur(value: object): boolean {
-  let isInstance = true
-  isInstance = isInstance && 'egenskapstyper' in value
-
-  return isInstance
+export function instanceOfEgenskapstypeStruktur(
+  value: object,
+): value is EgenskapstypeStruktur {
+  if (!('egenskapstyper' in value) || value['egenskapstyper'] === undefined)
+    return false
+  return true
 }
 
 export function EgenskapstypeStrukturFromJSON(
@@ -66,29 +70,32 @@ export function EgenskapstypeStrukturFromJSONTyped(
   json: any,
   ignoreDiscriminator: boolean,
 ): EgenskapstypeStruktur {
-  if (json === undefined || json === null) {
+  if (json == null) {
     return json
   }
   return {
-    ...EgenskapstypeFromJSONTyped(json, ignoreDiscriminator),
+    ...EgenskapstypeFromJSONTyped(json, true),
     egenskapstyper: (json['egenskapstyper'] as Array<any>).map(
       EgenskapstypeFromJSON,
     ),
   }
 }
 
-export function EgenskapstypeStrukturToJSON(
+export function EgenskapstypeStrukturToJSON(json: any): EgenskapstypeStruktur {
+  return EgenskapstypeStrukturToJSONTyped(json, false)
+}
+
+export function EgenskapstypeStrukturToJSONTyped(
   value?: EgenskapstypeStruktur | null,
+  ignoreDiscriminator: boolean = false,
 ): any {
-  if (value === undefined) {
-    return undefined
+  if (value == null) {
+    return value
   }
-  if (value === null) {
-    return null
-  }
+
   return {
-    ...EgenskapstypeToJSON(value),
-    egenskapstyper: (value.egenskapstyper as Array<any>).map(
+    ...EgenskapstypeToJSONTyped(value, true),
+    egenskapstyper: (value['egenskapstyper'] as Array<any>).map(
       EgenskapstypeToJSON,
     ),
   }

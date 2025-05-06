@@ -16,9 +16,7 @@
 package no.vegvesen.nvdb.datakatalog.model
 
 
-import kotlinx.serialization.*
-import kotlinx.serialization.descriptors.*
-import kotlinx.serialization.encoding.*
+import com.fasterxml.jackson.annotation.JsonProperty
 
 /**
  * 
@@ -32,25 +30,36 @@ import kotlinx.serialization.encoding.*
  * @param beskrivelse 
  * @param startDato 
  */
-@Serializable
+
 
 data class VegobjektKategori (
 
-    @SerialName(value = "id") @Required val id: kotlin.Int,
+    @get:JsonProperty("id")
+    val id: kotlin.Int,
 
-    @SerialName(value = "primærkategori") @Required val primærkategori: kotlin.Boolean,
+    @get:JsonProperty("primærkategori")
+    val primærkategori: kotlin.Boolean,
 
-    @SerialName(value = "nummer") @Required val nummer: kotlin.Int,
+    @get:JsonProperty("nummer")
+    val nummer: kotlin.Int,
 
-    @SerialName(value = "sorteringsnummer") @Required val sorteringsnummer: kotlin.Int,
+    @get:JsonProperty("sorteringsnummer")
+    val sorteringsnummer: kotlin.Int,
 
-    @SerialName(value = "navn") val navn: kotlin.String? = null,
+    @get:JsonProperty("navn")
+    val navn: kotlin.String? = null,
 
-    @SerialName(value = "kortnavn") val kortnavn: kotlin.String? = null,
+    @get:JsonProperty("kortnavn")
+    val kortnavn: kotlin.String? = null,
 
-    @SerialName(value = "beskrivelse") val beskrivelse: kotlin.String? = null,
+    @get:JsonProperty("beskrivelse")
+    val beskrivelse: kotlin.String? = null,
 
-    @SerialName(value = "startDato") val startDato: java.time.LocalDate? = null
+    @get:JsonProperty("startDato")
+    val startDato: java.time.LocalDate? = null
 
-)
+) {
+
+
+}
 

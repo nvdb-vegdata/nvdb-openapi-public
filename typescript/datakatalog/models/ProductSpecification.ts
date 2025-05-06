@@ -12,7 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime'
+import { mapValues } from '../runtime'
 /**
  *
  * @export
@@ -30,11 +30,11 @@ export interface ProductSpecification {
 /**
  * Check if a given object implements the ProductSpecification interface.
  */
-export function instanceOfProductSpecification(value: object): boolean {
-  let isInstance = true
-  isInstance = isInstance && 'url' in value
-
-  return isInstance
+export function instanceOfProductSpecification(
+  value: object,
+): value is ProductSpecification {
+  if (!('url' in value) || value['url'] === undefined) return false
+  return true
 }
 
 export function ProductSpecificationFromJSON(json: any): ProductSpecification {
@@ -45,7 +45,7 @@ export function ProductSpecificationFromJSONTyped(
   json: any,
   ignoreDiscriminator: boolean,
 ): ProductSpecification {
-  if (json === undefined || json === null) {
+  if (json == null) {
     return json
   }
   return {
@@ -53,16 +53,19 @@ export function ProductSpecificationFromJSONTyped(
   }
 }
 
-export function ProductSpecificationToJSON(
+export function ProductSpecificationToJSON(json: any): ProductSpecification {
+  return ProductSpecificationToJSONTyped(json, false)
+}
+
+export function ProductSpecificationToJSONTyped(
   value?: ProductSpecification | null,
+  ignoreDiscriminator: boolean = false,
 ): any {
-  if (value === undefined) {
-    return undefined
+  if (value == null) {
+    return value
   }
-  if (value === null) {
-    return null
-  }
+
   return {
-    url: value.url,
+    url: value['url'],
   }
 }

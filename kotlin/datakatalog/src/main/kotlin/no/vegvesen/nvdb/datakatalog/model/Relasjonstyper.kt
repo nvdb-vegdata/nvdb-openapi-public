@@ -17,9 +17,7 @@ package no.vegvesen.nvdb.datakatalog.model
 
 import no.vegvesen.nvdb.datakatalog.model.Assosiasjonstype
 
-import kotlinx.serialization.*
-import kotlinx.serialization.descriptors.*
-import kotlinx.serialization.encoding.*
+import com.fasterxml.jackson.annotation.JsonProperty
 
 /**
  * 
@@ -27,13 +25,18 @@ import kotlinx.serialization.encoding.*
  * @param foreldre 
  * @param barn 
  */
-@Serializable
+
 
 data class Relasjonstyper (
 
-    @SerialName(value = "foreldre") @Required val foreldre: kotlin.collections.List<Assosiasjonstype>,
+    @get:JsonProperty("foreldre")
+    val foreldre: kotlin.collections.List<Assosiasjonstype>,
 
-    @SerialName(value = "barn") @Required val barn: kotlin.Any?
+    @get:JsonProperty("barn")
+    val barn: kotlin.collections.List<Assosiasjonstype>
 
-)
+) {
+
+
+}
 

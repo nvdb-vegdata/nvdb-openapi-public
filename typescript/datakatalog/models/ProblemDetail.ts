@@ -12,7 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime'
+import { mapValues } from '../runtime'
 /**
  *
  * @export
@@ -60,10 +60,8 @@ export interface ProblemDetail {
 /**
  * Check if a given object implements the ProblemDetail interface.
  */
-export function instanceOfProblemDetail(value: object): boolean {
-  let isInstance = true
-
-  return isInstance
+export function instanceOfProblemDetail(value: object): value is ProblemDetail {
+  return true
 }
 
 export function ProblemDetailFromJSON(json: any): ProblemDetail {
@@ -74,32 +72,37 @@ export function ProblemDetailFromJSONTyped(
   json: any,
   ignoreDiscriminator: boolean,
 ): ProblemDetail {
-  if (json === undefined || json === null) {
+  if (json == null) {
     return json
   }
   return {
-    type: !exists(json, 'type') ? undefined : json['type'],
-    title: !exists(json, 'title') ? undefined : json['title'],
-    status: !exists(json, 'status') ? undefined : json['status'],
-    detail: !exists(json, 'detail') ? undefined : json['detail'],
-    instance: !exists(json, 'instance') ? undefined : json['instance'],
-    properties: !exists(json, 'properties') ? undefined : json['properties'],
+    type: json['type'] == null ? undefined : json['type'],
+    title: json['title'] == null ? undefined : json['title'],
+    status: json['status'] == null ? undefined : json['status'],
+    detail: json['detail'] == null ? undefined : json['detail'],
+    instance: json['instance'] == null ? undefined : json['instance'],
+    properties: json['properties'] == null ? undefined : json['properties'],
   }
 }
 
-export function ProblemDetailToJSON(value?: ProblemDetail | null): any {
-  if (value === undefined) {
-    return undefined
+export function ProblemDetailToJSON(json: any): ProblemDetail {
+  return ProblemDetailToJSONTyped(json, false)
+}
+
+export function ProblemDetailToJSONTyped(
+  value?: ProblemDetail | null,
+  ignoreDiscriminator: boolean = false,
+): any {
+  if (value == null) {
+    return value
   }
-  if (value === null) {
-    return null
-  }
+
   return {
-    type: value.type,
-    title: value.title,
-    status: value.status,
-    detail: value.detail,
-    instance: value.instance,
-    properties: value.properties,
+    type: value['type'],
+    title: value['title'],
+    status: value['status'],
+    detail: value['detail'],
+    instance: value['instance'],
+    properties: value['properties'],
   }
 }

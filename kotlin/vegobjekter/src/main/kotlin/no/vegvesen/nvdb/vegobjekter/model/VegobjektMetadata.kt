@@ -38,12 +38,15 @@ data class VegobjektMetadata (
 
     @SerialName(value = "versjon") @Required val versjon: kotlin.Int,
 
-    @SerialName(value = "startdato") @Required val startdato: java.time.LocalDate,
+    @SerialName(value = "startdato") @Required val startdato: kotlinx.datetime.LocalDate,
 
     /* Dato og tid i UTC-format: yyyy-MM-ddTHH:mm:ssZ */
     @SerialName(value = "sist_modifisert") @Required val sistModifisert: kotlin.String,
 
-    @SerialName(value = "sluttdato") val sluttdato: java.time.LocalDate? = null
+    @SerialName(value = "sluttdato") val sluttdato: kotlinx.datetime.LocalDate? = null
 
-)
+) {
+
+
+}
 

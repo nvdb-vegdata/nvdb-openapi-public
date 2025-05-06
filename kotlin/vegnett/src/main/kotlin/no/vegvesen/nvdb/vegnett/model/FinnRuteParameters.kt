@@ -60,13 +60,13 @@ data class FinnRuteParameters (
 
     @SerialName(value = "geometri") val geometri: kotlin.String? = null,
 
-    @SerialName(value = "vegsystemreferanse") val vegsystemreferanse: kotlin.collections.List<kotlin.String>? = null,
+    @SerialName(value = "vegsystemreferanse") val vegsystemreferanse: kotlin.collections.Set<kotlin.String>? = null,
 
     @SerialName(value = "trafikantgruppe") val trafikantgruppe: FinnRuteParameters.Trafikantgruppe? = null,
 
-    @SerialName(value = "typeveg") val typeveg: kotlin.collections.List<FinnRuteParameters.Typeveg>? = null,
+    @SerialName(value = "typeveg") val typeveg: kotlin.collections.Set<FinnRuteParameters.Typeveg>? = null,
 
-    @SerialName(value = "tidspunkt") val tidspunkt: java.time.LocalDate? = null,
+    @SerialName(value = "tidspunkt") val tidspunkt: kotlinx.datetime.LocalDate? = null,
 
     @SerialName(value = "srid") val srid: FinnRuteParameters.Srid? = null
 
@@ -75,42 +75,42 @@ data class FinnRuteParameters (
     /**
      * 
      *
-     * Values: k,g
+     * Values: K,G
      */
     @Serializable
     enum class Trafikantgruppe(val value: kotlin.String) {
-        @SerialName(value = "K") k("K"),
-        @SerialName(value = "G") g("G");
+        @SerialName(value = "K") K("K"),
+        @SerialName(value = "G") G("G");
     }
     /**
      * 
      *
-     * Values: enkelBilveg,kanalisertVeg,rampe,rundkjøring,bilferje,gangMinusOgSykkelveg,sykkelveg,gangveg,gågate,fortau,trapp,gangfelt,gatetun,passasjerferje,traktorveg,sti,annet
+     * Values: Enkel_bilveg,Kanalisert_veg,Rampe,Rundkjøring,Bilferje,GangMinus_og_sykkelveg,Sykkelveg,Gangveg,Gågate,Fortau,Trapp,Gangfelt,Gatetun,Passasjerferje,Traktorveg,Sti,Annet
      */
     @Serializable
     enum class Typeveg(val value: kotlin.String) {
-        @SerialName(value = "Enkel bilveg") enkelBilveg("Enkel bilveg"),
-        @SerialName(value = "Kanalisert veg") kanalisertVeg("Kanalisert veg"),
-        @SerialName(value = "Rampe") rampe("Rampe"),
-        @SerialName(value = "Rundkjøring") rundkjøring("Rundkjøring"),
-        @SerialName(value = "Bilferje") bilferje("Bilferje"),
-        @SerialName(value = "Gang- og sykkelveg") gangMinusOgSykkelveg("Gang- og sykkelveg"),
-        @SerialName(value = "Sykkelveg") sykkelveg("Sykkelveg"),
-        @SerialName(value = "Gangveg") gangveg("Gangveg"),
-        @SerialName(value = "Gågate") gågate("Gågate"),
-        @SerialName(value = "Fortau") fortau("Fortau"),
-        @SerialName(value = "Trapp") trapp("Trapp"),
-        @SerialName(value = "Gangfelt") gangfelt("Gangfelt"),
-        @SerialName(value = "Gatetun") gatetun("Gatetun"),
-        @SerialName(value = "Passasjerferje") passasjerferje("Passasjerferje"),
-        @SerialName(value = "Traktorveg") traktorveg("Traktorveg"),
-        @SerialName(value = "Sti") sti("Sti"),
-        @SerialName(value = "Annet") annet("Annet");
+        @SerialName(value = "Enkel bilveg") Enkel_bilveg("Enkel bilveg"),
+        @SerialName(value = "Kanalisert veg") Kanalisert_veg("Kanalisert veg"),
+        @SerialName(value = "Rampe") Rampe("Rampe"),
+        @SerialName(value = "Rundkjøring") Rundkjøring("Rundkjøring"),
+        @SerialName(value = "Bilferje") Bilferje("Bilferje"),
+        @SerialName(value = "Gang- og sykkelveg") GangMinus_og_sykkelveg("Gang- og sykkelveg"),
+        @SerialName(value = "Sykkelveg") Sykkelveg("Sykkelveg"),
+        @SerialName(value = "Gangveg") Gangveg("Gangveg"),
+        @SerialName(value = "Gågate") Gågate("Gågate"),
+        @SerialName(value = "Fortau") Fortau("Fortau"),
+        @SerialName(value = "Trapp") Trapp("Trapp"),
+        @SerialName(value = "Gangfelt") Gangfelt("Gangfelt"),
+        @SerialName(value = "Gatetun") Gatetun("Gatetun"),
+        @SerialName(value = "Passasjerferje") Passasjerferje("Passasjerferje"),
+        @SerialName(value = "Traktorveg") Traktorveg("Traktorveg"),
+        @SerialName(value = "Sti") Sti("Sti"),
+        @SerialName(value = "Annet") Annet("Annet");
     }
     /**
      * 
      *
-     * Values: _5972,_5973,_5975,_4326,uTM32,uTM33,uTM35,wGS84
+     * Values: _5972,_5973,_5975,_4326,UTM32,UTM33,UTM35,WGS84
      */
     @Serializable
     enum class Srid(val value: kotlin.String) {
@@ -118,10 +118,11 @@ data class FinnRuteParameters (
         @SerialName(value = "5973") _5973("5973"),
         @SerialName(value = "5975") _5975("5975"),
         @SerialName(value = "4326") _4326("4326"),
-        @SerialName(value = "UTM32") uTM32("UTM32"),
-        @SerialName(value = "UTM33") uTM33("UTM33"),
-        @SerialName(value = "UTM35") uTM35("UTM35"),
-        @SerialName(value = "WGS84") wGS84("WGS84");
+        @SerialName(value = "UTM32") UTM32("UTM32"),
+        @SerialName(value = "UTM33") UTM33("UTM33"),
+        @SerialName(value = "UTM35") UTM35("UTM35"),
+        @SerialName(value = "WGS84") WGS84("WGS84");
     }
+
 }
 

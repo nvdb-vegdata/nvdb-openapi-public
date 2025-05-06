@@ -12,25 +12,28 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime'
+import { mapValues } from '../runtime'
+import type { Viktighet } from './Viktighet'
+import {
+  ViktighetFromJSON,
+  ViktighetFromJSONTyped,
+  ViktighetToJSON,
+  ViktighetToJSONTyped,
+} from './Viktighet'
 import type { Egenskapstype } from './Egenskapstype'
 import {
   EgenskapstypeFromJSON,
   EgenskapstypeFromJSONTyped,
   EgenskapstypeToJSON,
+  EgenskapstypeToJSONTyped,
 } from './Egenskapstype'
 import type { EgenskapstypeEnum } from './EgenskapstypeEnum'
 import {
   EgenskapstypeEnumFromJSON,
   EgenskapstypeEnumFromJSONTyped,
   EgenskapstypeEnumToJSON,
+  EgenskapstypeEnumToJSONTyped,
 } from './EgenskapstypeEnum'
-import type { Viktighet } from './Viktighet'
-import {
-  ViktighetFromJSON,
-  ViktighetFromJSONTyped,
-  ViktighetToJSON,
-} from './Viktighet'
 
 /**
  *
@@ -77,12 +80,14 @@ export type EgenskapstypeGeometriGeometritypeEnum =
 /**
  * Check if a given object implements the EgenskapstypeGeometri interface.
  */
-export function instanceOfEgenskapstypeGeometri(value: object): boolean {
-  let isInstance = true
-  isInstance = isInstance && 'dimensjoner' in value
-  isInstance = isInstance && 'geometritype' in value
-
-  return isInstance
+export function instanceOfEgenskapstypeGeometri(
+  value: object,
+): value is EgenskapstypeGeometri {
+  if (!('dimensjoner' in value) || value['dimensjoner'] === undefined)
+    return false
+  if (!('geometritype' in value) || value['geometritype'] === undefined)
+    return false
+  return true
 }
 
 export function EgenskapstypeGeometriFromJSON(
@@ -95,32 +100,34 @@ export function EgenskapstypeGeometriFromJSONTyped(
   json: any,
   ignoreDiscriminator: boolean,
 ): EgenskapstypeGeometri {
-  if (json === undefined || json === null) {
+  if (json == null) {
     return json
   }
   return {
-    ...EgenskapstypeFromJSONTyped(json, ignoreDiscriminator),
+    ...EgenskapstypeFromJSONTyped(json, true),
     dimensjoner: json['dimensjoner'],
     geometritype: json['geometritype'],
-    innenforMor: !exists(json, 'innenfor_mor')
-      ? undefined
-      : json['innenfor_mor'],
+    innenforMor:
+      json['innenfor_mor'] == null ? undefined : json['innenfor_mor'],
   }
 }
 
-export function EgenskapstypeGeometriToJSON(
+export function EgenskapstypeGeometriToJSON(json: any): EgenskapstypeGeometri {
+  return EgenskapstypeGeometriToJSONTyped(json, false)
+}
+
+export function EgenskapstypeGeometriToJSONTyped(
   value?: EgenskapstypeGeometri | null,
+  ignoreDiscriminator: boolean = false,
 ): any {
-  if (value === undefined) {
-    return undefined
+  if (value == null) {
+    return value
   }
-  if (value === null) {
-    return null
-  }
+
   return {
-    ...EgenskapstypeToJSON(value),
-    dimensjoner: value.dimensjoner,
-    geometritype: value.geometritype,
-    innenfor_mor: value.innenforMor,
+    ...EgenskapstypeToJSONTyped(value, true),
+    dimensjoner: value['dimensjoner'],
+    geometritype: value['geometritype'],
+    innenfor_mor: value['innenforMor'],
   }
 }

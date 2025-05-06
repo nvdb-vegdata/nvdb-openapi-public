@@ -18,15 +18,17 @@ package no.vegvesen.nvdb.datakatalog.model
 import no.vegvesen.nvdb.datakatalog.model.EgenskapstypeEnum
 import no.vegvesen.nvdb.datakatalog.model.Viktighet
 
-import kotlinx.serialization.*
-import kotlinx.serialization.descriptors.*
-import kotlinx.serialization.encoding.*
+import com.fasterxml.jackson.annotation.JsonProperty
+import com.fasterxml.jackson.annotation.JsonSubTypes
+import com.fasterxml.jackson.annotation.JsonTypeInfo
 
 /**
  * 
  *
  * @param id 
  * @param egenskapstype 
+ * @param sorteringsnummer 
+ * @param avledet 
  * @param obligatoriskVerdi 
  * @param skrivebeskyttet 
  * @param sensitivitet 
@@ -36,47 +38,88 @@ import kotlinx.serialization.encoding.*
  * @param referansegeometriTilstrekkelig 
  * @param viktighet 
  * @param kategori 
- * @param sorteringsnummer 
- * @param avledet 
  * @param navn 
- * @param gruppesorteringsnummer 
- * @param veiledning 
- * @param grunnrissreferanse 
- * @param høydereferanse 
- * @param sosiReferanse 
  * @param komplementærEgenskapstype 
  * @param kortnavn 
  * @param beskrivelse 
  * @param sosinavn 
  * @param sosinvdbnavn 
+ * @param gruppesorteringsnummer 
+ * @param veiledning 
+ * @param grunnrissreferanse 
+ * @param høydereferanse 
+ * @param sosiReferanse 
  */
-
+@JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.PROPERTY, property = "egenskapstype", visible = true)
+@JsonSubTypes(
+    JsonSubTypes.Type(value = EgenskapstypeAssosiasjon::class, name = "Assosiasjon"),
+    JsonSubTypes.Type(value = EgenskapstypeBinaer::class, name = "Binær"),
+    JsonSubTypes.Type(value = EgenskapstypeBoolsk::class, name = "Boolsk"),
+    JsonSubTypes.Type(value = EgenskapstypeDato::class, name = "Dato"),
+    JsonSubTypes.Type(value = EgenskapstypeFlyttall::class, name = "Flyttall"),
+    JsonSubTypes.Type(value = EgenskapstypeFlyttallenum::class, name = "Flyttallenum"),
+    JsonSubTypes.Type(value = EgenskapstypeGeometri::class, name = "Geometri"),
+    JsonSubTypes.Type(value = EgenskapstypeHeltall::class, name = "Heltall"),
+    JsonSubTypes.Type(value = EgenskapstypeHeltallenum::class, name = "Heltallenum"),
+    JsonSubTypes.Type(value = EgenskapstypeKortdato::class, name = "Kortdato"),
+    JsonSubTypes.Type(value = EgenskapstypeListe::class, name = "Liste"),
+    JsonSubTypes.Type(value = EgenskapstypeStedfesting::class, name = "Stedfesting"),
+    JsonSubTypes.Type(value = EgenskapstypeStruktur::class, name = "Struktur"),
+    JsonSubTypes.Type(value = EgenskapstypeTekst::class, name = "Tekst"),
+    JsonSubTypes.Type(value = EgenskapstypeTekstenum::class, name = "Tekstenum"),
+    JsonSubTypes.Type(value = EgenskapstypeTid::class, name = "Tid")
+)
 
 interface Egenskapstype {
 
-    @SerialName(value = "id") @Required val id: kotlin.Int
-    @SerialName(value = "egenskapstype") @Required val egenskapstype: EgenskapstypeEnum
-    @SerialName(value = "obligatorisk_verdi") @Required val obligatoriskVerdi: kotlin.Boolean
-    @SerialName(value = "skrivebeskyttet") @Required val skrivebeskyttet: kotlin.Boolean
-    @SerialName(value = "sensitivitet") @Required val sensitivitet: kotlin.Int
-    @SerialName(value = "høydereferanse_tall") @Required val høydereferanseTall: kotlin.Int
-    @SerialName(value = "nøyaktighetskrav_grunnriss") @Required val nøyaktighetskravGrunnriss: kotlin.Double
-    @SerialName(value = "nøyaktighetskrav_høyde") @Required val nøyaktighetskravHøyde: kotlin.Double
-    @SerialName(value = "referansegeometri_tilstrekkelig") @Required val referansegeometriTilstrekkelig: kotlin.Boolean
-    @SerialName(value = "viktighet") @Required val viktighet: Viktighet
-    @SerialName(value = "kategori") @Required val kategori: kotlin.Int
-    @SerialName(value = "sorteringsnummer") @Required val sorteringsnummer: kotlin.Int
-    @SerialName(value = "avledet") @Required val avledet: kotlin.Boolean
-    @SerialName(value = "navn") val navn: kotlin.String?
-    @SerialName(value = "gruppesorteringsnummer") val gruppesorteringsnummer: kotlin.Int?
-    @SerialName(value = "veiledning") val veiledning: kotlin.String?
-    @SerialName(value = "grunnrissreferanse") val grunnrissreferanse: kotlin.String?
-    @SerialName(value = "høydereferanse") val høydereferanse: kotlin.String?
-    @SerialName(value = "sosi_referanse") val sosiReferanse: kotlin.String?
-    @SerialName(value = "komplementær_egenskapstype") val komplementærEgenskapstype: kotlin.Int?
-    @SerialName(value = "kortnavn") val kortnavn: kotlin.String?
-    @SerialName(value = "beskrivelse") val beskrivelse: kotlin.String?
-    @SerialName(value = "sosinavn") val sosinavn: kotlin.String?
-    @SerialName(value = "sosinvdbnavn") val sosinvdbnavn: kotlin.String?
+    @get:JsonProperty("id")
+    val id: kotlin.Int
+    @get:JsonProperty("egenskapstype")
+    val egenskapstype: EgenskapstypeEnum
+    @get:JsonProperty("sorteringsnummer")
+    val sorteringsnummer: kotlin.Int
+    @get:JsonProperty("avledet")
+    val avledet: kotlin.Boolean
+    @get:JsonProperty("obligatorisk_verdi")
+    val obligatoriskVerdi: kotlin.Boolean
+    @get:JsonProperty("skrivebeskyttet")
+    val skrivebeskyttet: kotlin.Boolean
+    @get:JsonProperty("sensitivitet")
+    val sensitivitet: kotlin.Int
+    @get:JsonProperty("høydereferanse_tall")
+    val høydereferanseTall: kotlin.Int
+    @get:JsonProperty("nøyaktighetskrav_grunnriss")
+    val nøyaktighetskravGrunnriss: kotlin.Double
+    @get:JsonProperty("nøyaktighetskrav_høyde")
+    val nøyaktighetskravHøyde: kotlin.Double
+    @get:JsonProperty("referansegeometri_tilstrekkelig")
+    val referansegeometriTilstrekkelig: kotlin.Boolean
+    @get:JsonProperty("viktighet")
+    val viktighet: Viktighet
+    @get:JsonProperty("kategori")
+    val kategori: kotlin.Int
+    @get:JsonProperty("navn")
+    val navn: kotlin.String?
+    @get:JsonProperty("komplementær_egenskapstype")
+    val komplementærEgenskapstype: kotlin.Int?
+    @get:JsonProperty("kortnavn")
+    val kortnavn: kotlin.String?
+    @get:JsonProperty("beskrivelse")
+    val beskrivelse: kotlin.String?
+    @get:JsonProperty("sosinavn")
+    val sosinavn: kotlin.String?
+    @get:JsonProperty("sosinvdbnavn")
+    val sosinvdbnavn: kotlin.String?
+    @get:JsonProperty("gruppesorteringsnummer")
+    val gruppesorteringsnummer: kotlin.Int?
+    @get:JsonProperty("veiledning")
+    val veiledning: kotlin.String?
+    @get:JsonProperty("grunnrissreferanse")
+    val grunnrissreferanse: kotlin.String?
+    @get:JsonProperty("høydereferanse")
+    val høydereferanse: kotlin.String?
+    @get:JsonProperty("sosi_referanse")
+    val sosiReferanse: kotlin.String?
+
 }
 

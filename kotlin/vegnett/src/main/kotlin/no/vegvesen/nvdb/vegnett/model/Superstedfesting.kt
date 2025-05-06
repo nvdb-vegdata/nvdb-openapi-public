@@ -51,33 +51,34 @@ data class Superstedfesting (
     /**
      * 
      *
-     * Values: mED,mOT
+     * Values: MED,MOT
      */
     @Serializable
     enum class Retning(val value: kotlin.String) {
-        @SerialName(value = "MED") mED("MED"),
-        @SerialName(value = "MOT") mOT("MOT");
+        @SerialName(value = "MED") MED("MED"),
+        @SerialName(value = "MOT") MOT("MOT");
     }
     /**
      * 
      *
-     * Values: mH,mV,vT,m,h,hT,vH,hV,k,v,l,r,r0
+     * Values: MH,MV,VT,M,H,HT,VH,HV,K,V,L,R,R0
      */
     @Serializable
     enum class Sideposisjon(val value: kotlin.String) {
-        @SerialName(value = "MH") mH("MH"),
-        @SerialName(value = "MV") mV("MV"),
-        @SerialName(value = "VT") vT("VT"),
-        @SerialName(value = "M") m("M"),
-        @SerialName(value = "H") h("H"),
-        @SerialName(value = "HT") hT("HT"),
-        @SerialName(value = "VH") vH("VH"),
-        @SerialName(value = "HV") hV("HV"),
-        @SerialName(value = "K") k("K"),
-        @SerialName(value = "V") v("V"),
-        @SerialName(value = "L") l("L"),
-        @SerialName(value = "R") r("R"),
-        @SerialName(value = "R0") r0("R0");
+        @SerialName(value = "MH") MH("MH"),
+        @SerialName(value = "MV") MV("MV"),
+        @SerialName(value = "VT") VT("VT"),
+        @SerialName(value = "M") M("M"),
+        @SerialName(value = "H") H("H"),
+        @SerialName(value = "HT") HT("HT"),
+        @SerialName(value = "VH") VH("VH"),
+        @SerialName(value = "HV") HV("HV"),
+        @SerialName(value = "K") K("K"),
+        @SerialName(value = "V") V("V"),
+        @SerialName(value = "L") L("L"),
+        @SerialName(value = "R") R("R"),
+        @SerialName(value = "R0") R0("R0");
     }
+
 }
 

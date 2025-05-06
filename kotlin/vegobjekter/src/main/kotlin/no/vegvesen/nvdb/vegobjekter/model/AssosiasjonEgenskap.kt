@@ -41,5 +41,8 @@ data class AssosiasjonEgenskap (
 
     @SerialName(value = "verdi") val verdi: kotlin.Long? = null
 
-) : Egenskap
+) : Egenskap {
+
+
+}
 

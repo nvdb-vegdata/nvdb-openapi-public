@@ -46,5 +46,8 @@ data class RelasjonMedVegobjekter (
 
     @SerialName(value = "listeid") override val listeid: kotlin.Int? = null
 
-) : Relasjon
+) : Relasjon {
+
+
+}
 

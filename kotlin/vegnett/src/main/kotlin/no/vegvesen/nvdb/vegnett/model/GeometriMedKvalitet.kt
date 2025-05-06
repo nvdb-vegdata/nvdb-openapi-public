@@ -44,7 +44,7 @@ data class GeometriMedKvalitet (
 
     @SerialName(value = "kvalitet") @Required val kvalitet: Kvalitet,
 
-    @SerialName(value = "datafangstdato") @Required val datafangstdato: java.time.LocalDate,
+    @SerialName(value = "datafangstdato") @Required val datafangstdato: kotlinx.datetime.LocalDate,
 
     @SerialName(value = "kommune") @Required val kommune: kotlin.Int,
 
@@ -61,23 +61,24 @@ data class GeometriMedKvalitet (
     /**
      * 
      *
-     * Values: t,b,l,u,s,o,v,d,i,w,j,x,iKKEREGISTRERT
+     * Values: T,B,L,U,S,O,V,D,I,W,J,X,IKKE_REGISTRERT
      */
     @Serializable
     enum class Medium(val value: kotlin.String) {
-        @SerialName(value = "T") t("T"),
-        @SerialName(value = "B") b("B"),
-        @SerialName(value = "L") l("L"),
-        @SerialName(value = "U") u("U"),
-        @SerialName(value = "S") s("S"),
-        @SerialName(value = "O") o("O"),
-        @SerialName(value = "V") v("V"),
-        @SerialName(value = "D") d("D"),
-        @SerialName(value = "I") i("I"),
-        @SerialName(value = "W") w("W"),
-        @SerialName(value = "J") j("J"),
-        @SerialName(value = "X") x("X"),
-        @SerialName(value = "IKKE_REGISTRERT") iKKEREGISTRERT("IKKE_REGISTRERT");
+        @SerialName(value = "T") T("T"),
+        @SerialName(value = "B") B("B"),
+        @SerialName(value = "L") L("L"),
+        @SerialName(value = "U") U("U"),
+        @SerialName(value = "S") S("S"),
+        @SerialName(value = "O") O("O"),
+        @SerialName(value = "V") V("V"),
+        @SerialName(value = "D") D("D"),
+        @SerialName(value = "I") I("I"),
+        @SerialName(value = "W") W("W"),
+        @SerialName(value = "J") J("J"),
+        @SerialName(value = "X") X("X"),
+        @SerialName(value = "IKKE_REGISTRERT") IKKE_REGISTRERT("IKKE_REGISTRERT");
     }
+
 }
 

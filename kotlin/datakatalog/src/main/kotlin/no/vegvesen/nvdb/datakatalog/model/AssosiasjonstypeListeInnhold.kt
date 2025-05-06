@@ -17,9 +17,7 @@ package no.vegvesen.nvdb.datakatalog.model
 
 import no.vegvesen.nvdb.datakatalog.model.AssosiasjonstypeVegobjekttype
 
-import kotlinx.serialization.*
-import kotlinx.serialization.descriptors.*
-import kotlinx.serialization.encoding.*
+import com.fasterxml.jackson.annotation.JsonProperty
 
 /**
  * 
@@ -31,46 +29,51 @@ import kotlinx.serialization.encoding.*
  * @param relasjonstype 
  * @param navn 
  */
-@Serializable
+
 
 data class AssosiasjonstypeListeInnhold (
 
-    @SerialName(value = "id") @Required val id: kotlin.Int,
+    @get:JsonProperty("id")
+    val id: kotlin.Int,
 
-    @SerialName(value = "egenskapstype") @Required val egenskapstype: kotlin.String,
+    @get:JsonProperty("egenskapstype")
+    val egenskapstype: kotlin.String,
 
-    @SerialName(value = "type") @Required val type: AssosiasjonstypeVegobjekttype,
+    @get:JsonProperty("type")
+    val type: AssosiasjonstypeVegobjekttype,
 
-    @SerialName(value = "innenfor_mor") val innenforMor: AssosiasjonstypeListeInnhold.InnenforMor? = null,
+    @get:JsonProperty("innenfor_mor")
+    val innenforMor: AssosiasjonstypeListeInnhold.InnenforMor? = null,
 
-    @SerialName(value = "relasjonstype") val relasjonstype: AssosiasjonstypeListeInnhold.Relasjonstype? = null,
+    @get:JsonProperty("relasjonstype")
+    val relasjonstype: AssosiasjonstypeListeInnhold.Relasjonstype? = null,
 
-    @SerialName(value = "navn") val navn: kotlin.String? = null
+    @get:JsonProperty("navn")
+    val navn: kotlin.String? = null
 
 ) {
 
     /**
      * 
      *
-     * Values: nEI,jA,mEDAVVIK
+     * Values: NEI,JA,MED_AVVIK
      */
-    @Serializable
     enum class InnenforMor(val value: kotlin.String) {
-        @SerialName(value = "NEI") nEI("NEI"),
-        @SerialName(value = "JA") jA("JA"),
-        @SerialName(value = "MED_AVVIK") mEDAVVIK("MED_AVVIK");
+        @JsonProperty(value = "NEI") NEI("NEI"),
+        @JsonProperty(value = "JA") JA("JA"),
+        @JsonProperty(value = "MED_AVVIK") MED_AVVIK("MED_AVVIK");
     }
     /**
      * 
      *
-     * Values: aSSOSIASJON,aGGREGERING,kOMPOSISJON,tOPOLOGI
+     * Values: ASSOSIASJON,AGGREGERING,KOMPOSISJON,TOPOLOGI
      */
-    @Serializable
     enum class Relasjonstype(val value: kotlin.String) {
-        @SerialName(value = "ASSOSIASJON") aSSOSIASJON("ASSOSIASJON"),
-        @SerialName(value = "AGGREGERING") aGGREGERING("AGGREGERING"),
-        @SerialName(value = "KOMPOSISJON") kOMPOSISJON("KOMPOSISJON"),
-        @SerialName(value = "TOPOLOGI") tOPOLOGI("TOPOLOGI");
+        @JsonProperty(value = "ASSOSIASJON") ASSOSIASJON("ASSOSIASJON"),
+        @JsonProperty(value = "AGGREGERING") AGGREGERING("AGGREGERING"),
+        @JsonProperty(value = "KOMPOSISJON") KOMPOSISJON("KOMPOSISJON"),
+        @JsonProperty(value = "TOPOLOGI") TOPOLOGI("TOPOLOGI");
     }
+
 }
 

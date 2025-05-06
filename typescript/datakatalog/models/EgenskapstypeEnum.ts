@@ -37,6 +37,17 @@ export const EgenskapstypeEnum = {
 export type EgenskapstypeEnum =
   (typeof EgenskapstypeEnum)[keyof typeof EgenskapstypeEnum]
 
+export function instanceOfEgenskapstypeEnum(value: any): boolean {
+  for (const key in EgenskapstypeEnum) {
+    if (Object.prototype.hasOwnProperty.call(EgenskapstypeEnum, key)) {
+      if (EgenskapstypeEnum[key as keyof typeof EgenskapstypeEnum] === value) {
+        return true
+      }
+    }
+  }
+  return false
+}
+
 export function EgenskapstypeEnumFromJSON(json: any): EgenskapstypeEnum {
   return EgenskapstypeEnumFromJSONTyped(json, false)
 }
@@ -50,4 +61,11 @@ export function EgenskapstypeEnumFromJSONTyped(
 
 export function EgenskapstypeEnumToJSON(value?: EgenskapstypeEnum | null): any {
   return value as any
+}
+
+export function EgenskapstypeEnumToJSONTyped(
+  value: any,
+  ignoreDiscriminator: boolean,
+): EgenskapstypeEnum {
+  return value as EgenskapstypeEnum
 }

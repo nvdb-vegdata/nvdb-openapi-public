@@ -34,5 +34,8 @@ data class NodeGeometri (
 
     @SerialName(value = "srid") @Required val srid: kotlin.Int
 
-)
+) {
+
+
+}
 

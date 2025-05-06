@@ -43,5 +43,8 @@ data class Posisjon (
 
     @SerialName(value = "kommune") @Required val kommune: kotlin.Int
 
-)
+) {
+
+
+}
 

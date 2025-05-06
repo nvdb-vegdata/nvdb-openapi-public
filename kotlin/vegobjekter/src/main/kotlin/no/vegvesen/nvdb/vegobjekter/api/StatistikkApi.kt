@@ -65,16 +65,16 @@ open class StatistikkApi : ApiClient {
         _4326("4326"),
         
         @SerialName(value = "UTM32")
-        uTM32("UTM32"),
+        UTM32("UTM32"),
         
         @SerialName(value = "UTM33")
-        uTM33("UTM33"),
+        UTM33("UTM33"),
         
         @SerialName(value = "UTM35")
-        uTM35("UTM35"),
+        UTM35("UTM35"),
         
         @SerialName(value = "WGS84")
-        wGS84("WGS84")
+        WGS84("WGS84")
         
     }
 
@@ -146,13 +146,13 @@ open class StatistikkApi : ApiClient {
     enum class AdskiltelopGetVegobjekterStatistikk(val value: kotlin.String) {
         
         @SerialName(value = "Med")
-        med("Med"),
+        Med("Med"),
         
         @SerialName(value = "Mot")
-        mot("Mot"),
+        Mot("Mot"),
         
         @SerialName(value = "Nei")
-        nei("Nei")
+        Nei("Nei")
         
     }
 
@@ -164,10 +164,10 @@ open class StatistikkApi : ApiClient {
     enum class TrafikantgruppeGetVegobjekterStatistikk(val value: kotlin.String) {
         
         @SerialName(value = "K")
-        k("K"),
+        K("K"),
         
         @SerialName(value = "G")
-        g("G")
+        G("G")
         
     }
 
@@ -206,7 +206,7 @@ open class StatistikkApi : ApiClient {
         konnektering("konnektering"),
         
         @SerialName(value = "detaljert_konnektering")
-        detaljertKonnektering("detaljert_konnektering"),
+        detaljert_konnektering("detaljert_konnektering"),
         
         @SerialName(value = "hoved")
         hoved("hoved")
@@ -221,16 +221,16 @@ open class StatistikkApi : ApiClient {
     enum class DetaljnivaGetVegobjekterStatistikk(val value: kotlin.String) {
         
         @SerialName(value = "VT")
-        vT("VT"),
+        VT("VT"),
         
         @SerialName(value = "KB")
-        kB("KB"),
+        KB("KB"),
         
         @SerialName(value = "KF")
-        kF("KF"),
+        KF("KF"),
         
         @SerialName(value = "VTKB")
-        vTKB("VTKB")
+        VTKB("VTKB")
         
     }
 
@@ -242,7 +242,7 @@ open class StatistikkApi : ApiClient {
      * @param segmentering Angir om strekningsobjekter skal segmenteres etter søkeområdet (fylke, kommune, vegsystemreferanse, kontraktsområde, riksvegrute, vegforvalter).  Default: &#x60;true&#x60; (optional)
      * @param fylke Filtrer på fylke. Kommaseparert liste. Se /omrader/fylker for mulige verdier.  Eksempel: &#x60;50&#x60; (optional)
      * @param kommune Filtrer på kommune. Kommaseparert liste. Se /omrader/kommuner for mulige verdier.  Eksempel: &#x60;5001&#x60; (optional)
-     * @param kontraktsomrade Filtrer på kontraktsomrade. Kommaseparert liste. Se /omrader/kontraktsomrader for mulige verdier.  Eksempel: &#x60;1539 Tunnel- og bergsikr 2018-2023 Nordm og Romsd&#x60; (optional)
+     * @param kontraktsomrade Filtrer på kontraktsomrade. Kommaseparert liste. Se /omrader/kontraktsomrader for mulige verdier.  Eksempel: &#x60;9503 Midtre Hålogaland 2021-2026&#x60; (optional)
      * @param riksvegrute Filtrer på riksvegrute. Kommaseparert liste. Se /omrader/riksvegruter for mulige verdier.  Eksempel: &#x60;RUTE4A&#x60; eller som enumid &#x60;20290&#x60; (optional)
      * @param vegforvalter Filtrer på vegforvalter. Kommaseparert liste. Se [/omrader/api/v4/vegforvaltere](https://nvdbapiles.atlas.vegvesen.no/webjars/swagger-ui/index.html?urls.primaryName&#x3D;Omr%C3%A5der) for mulige verdier.  Eksempel: &#x60;Møre og Romsdal fylkeskommune&#x60; eller som enumid &#x60;21774&#x60; (optional)
      * @param vegsystemreferanse Filtrer vegobjekter på [vegsystemreferanse](https://nvdbapiles-v3.atlas.vegvesen.no/dokumentasjon/#vegsystemreferanse). Kommaseparert liste. Legg til kommunenummer i starten av vegsystemreferansen for å filtrere på område.  Eksempel: &#x60;EV6S1D1 m12&#x60; (optional)
@@ -264,7 +264,7 @@ open class StatistikkApi : ApiClient {
      * @return VegobjekterStatistikk
      */
     @Suppress("UNCHECKED_CAST")
-    open suspend fun getVegobjekterStatistikk(vegobjekttypeid: kotlin.Int, srid: SridGetVegobjekterStatistikk? = null, segmentering: kotlin.Boolean? = null, fylke: kotlin.collections.List<kotlin.Int>? = null, kommune: kotlin.collections.List<kotlin.Int>? = null, kontraktsomrade: kotlin.collections.List<kotlin.String>? = null, riksvegrute: kotlin.collections.List<kotlin.String>? = null, vegforvalter: kotlin.collections.List<kotlin.String>? = null, vegsystemreferanse: kotlin.collections.List<kotlin.String>? = null, kartutsnitt: kotlin.String? = null, polygon: kotlin.String? = null, typeveg: kotlin.collections.List<TypevegGetVegobjekterStatistikk>? = null, adskiltelop: kotlin.collections.List<AdskiltelopGetVegobjekterStatistikk>? = null, kryssystem: kotlin.Boolean? = null, sideanlegg: kotlin.Boolean? = null, trafikantgruppe: TrafikantgruppeGetVegobjekterStatistikk? = null, inkluder: kotlin.collections.List<InkluderGetVegobjekterStatistikk>? = null, veglenkesekvens: kotlin.collections.List<kotlin.String>? = null, veglenketype: kotlin.collections.List<VeglenketypeGetVegobjekterStatistikk>? = null, detaljniva: kotlin.collections.List<DetaljnivaGetVegobjekterStatistikk>? = null, endretEtter: kotlinx.datetime.Instant? = null, tidspunkt: java.time.LocalDate? = null, egenskap: kotlin.collections.List<kotlin.String>? = null, overlapp: kotlin.collections.List<kotlin.String>? = null): HttpResponse<VegobjekterStatistikk> {
+    open suspend fun getVegobjekterStatistikk(vegobjekttypeid: kotlin.Int, srid: SridGetVegobjekterStatistikk? = null, segmentering: kotlin.Boolean? = null, fylke: kotlin.collections.Set<kotlin.Int>? = null, kommune: kotlin.collections.Set<kotlin.Int>? = null, kontraktsomrade: kotlin.collections.Set<kotlin.String>? = null, riksvegrute: kotlin.collections.Set<kotlin.String>? = null, vegforvalter: kotlin.collections.Set<kotlin.String>? = null, vegsystemreferanse: kotlin.collections.Set<kotlin.String>? = null, kartutsnitt: kotlin.String? = null, polygon: kotlin.String? = null, typeveg: kotlin.collections.List<TypevegGetVegobjekterStatistikk>? = null, adskiltelop: kotlin.collections.List<AdskiltelopGetVegobjekterStatistikk>? = null, kryssystem: kotlin.Boolean? = null, sideanlegg: kotlin.Boolean? = null, trafikantgruppe: TrafikantgruppeGetVegobjekterStatistikk? = null, inkluder: kotlin.collections.List<InkluderGetVegobjekterStatistikk>? = null, veglenkesekvens: kotlin.collections.Set<kotlin.String>? = null, veglenketype: kotlin.collections.List<VeglenketypeGetVegobjekterStatistikk>? = null, detaljniva: kotlin.collections.List<DetaljnivaGetVegobjekterStatistikk>? = null, endretEtter: kotlinx.datetime.Instant? = null, tidspunkt: kotlinx.datetime.LocalDate? = null, egenskap: kotlin.collections.List<kotlin.String>? = null, overlapp: kotlin.collections.List<kotlin.String>? = null): HttpResponse<VegobjekterStatistikk> {
 
         val localVariableAuthNames = listOf<String>("bearerAuth")
 
@@ -272,7 +272,7 @@ open class StatistikkApi : ApiClient {
             io.ktor.client.utils.EmptyContent
 
         val localVariableQuery = mutableMapOf<String, List<String>>()
-        srid?.apply { localVariableQuery["srid"] = listOf("$srid") }
+        srid?.apply { localVariableQuery["srid"] = listOf("${ srid.value }") }
         segmentering?.apply { localVariableQuery["segmentering"] = listOf("$segmentering") }
         fylke?.apply { localVariableQuery["fylke"] = toMultiValue(this, "multi") }
         kommune?.apply { localVariableQuery["kommune"] = toMultiValue(this, "multi") }
@@ -286,7 +286,7 @@ open class StatistikkApi : ApiClient {
         adskiltelop?.apply { localVariableQuery["adskiltelop"] = toMultiValue(this, "multi") }
         kryssystem?.apply { localVariableQuery["kryssystem"] = listOf("$kryssystem") }
         sideanlegg?.apply { localVariableQuery["sideanlegg"] = listOf("$sideanlegg") }
-        trafikantgruppe?.apply { localVariableQuery["trafikantgruppe"] = listOf("$trafikantgruppe") }
+        trafikantgruppe?.apply { localVariableQuery["trafikantgruppe"] = listOf("${ trafikantgruppe.value }") }
         inkluder?.apply { localVariableQuery["inkluder"] = toMultiValue(this, "multi") }
         veglenkesekvens?.apply { localVariableQuery["veglenkesekvens"] = toMultiValue(this, "multi") }
         veglenketype?.apply { localVariableQuery["veglenketype"] = toMultiValue(this, "multi") }
@@ -351,16 +351,16 @@ open class StatistikkApi : ApiClient {
         _4326("4326"),
         
         @SerialName(value = "UTM32")
-        uTM32("UTM32"),
+        UTM32("UTM32"),
         
         @SerialName(value = "UTM33")
-        uTM33("UTM33"),
+        UTM33("UTM33"),
         
         @SerialName(value = "UTM35")
-        uTM35("UTM35"),
+        UTM35("UTM35"),
         
         @SerialName(value = "WGS84")
-        wGS84("WGS84")
+        WGS84("WGS84")
         
     }
 
@@ -395,7 +395,7 @@ open class StatistikkApi : ApiClient {
      * @return kotlin.collections.List<VegobjekterStatistikkGruppert>
      */
     @Suppress("UNCHECKED_CAST")
-    open suspend fun getVegobjekterStatistikkGruppert(vegobjekttypeid: kotlin.Int, gruppering: kotlin.collections.List<GrupperingGetVegobjekterStatistikkGruppert>, srid: SridGetVegobjekterStatistikkGruppert? = null, kartutsnitt: kotlin.String? = null, inkluder: kotlin.collections.List<InkluderGetVegobjekterStatistikkGruppert>? = null, veglenkesekvens: kotlin.collections.List<kotlin.String>? = null, tidspunkt: java.time.LocalDate? = null): HttpResponse<kotlin.collections.List<VegobjekterStatistikkGruppert>> {
+    open suspend fun getVegobjekterStatistikkGruppert(vegobjekttypeid: kotlin.Int, gruppering: kotlin.collections.List<GrupperingGetVegobjekterStatistikkGruppert>, srid: SridGetVegobjekterStatistikkGruppert? = null, kartutsnitt: kotlin.String? = null, inkluder: kotlin.collections.List<InkluderGetVegobjekterStatistikkGruppert>? = null, veglenkesekvens: kotlin.collections.Set<kotlin.String>? = null, tidspunkt: kotlinx.datetime.LocalDate? = null): HttpResponse<kotlin.collections.List<VegobjekterStatistikkGruppert>> {
 
         val localVariableAuthNames = listOf<String>("bearerAuth")
 
@@ -403,7 +403,7 @@ open class StatistikkApi : ApiClient {
             io.ktor.client.utils.EmptyContent
 
         val localVariableQuery = mutableMapOf<String, List<String>>()
-        srid?.apply { localVariableQuery["srid"] = listOf("$srid") }
+        srid?.apply { localVariableQuery["srid"] = listOf("${ srid.value }") }
         kartutsnitt?.apply { localVariableQuery["kartutsnitt"] = listOf("$kartutsnitt") }
         gruppering?.apply { localVariableQuery["gruppering"] = toMultiValue(this, "multi") }
         inkluder?.apply { localVariableQuery["inkluder"] = toMultiValue(this, "multi") }
@@ -431,7 +431,7 @@ open class StatistikkApi : ApiClient {
         companion object : KSerializer<GetVegobjekterStatistikkGruppertResponse> {
             private val serializer: KSerializer<List<VegobjekterStatistikkGruppert>> = serializer<List<VegobjekterStatistikkGruppert>>()
             override val descriptor = serializer.descriptor
-            override fun serialize(encoder: Encoder, obj: GetVegobjekterStatistikkGruppertResponse) = serializer.serialize(encoder, obj.value)
+            override fun serialize(encoder: Encoder, value: GetVegobjekterStatistikkGruppertResponse) = serializer.serialize(encoder, value.value)
             override fun deserialize(decoder: Decoder) = GetVegobjekterStatistikkGruppertResponse(serializer.deserialize(decoder))
         }
     }
@@ -458,11 +458,12 @@ open class StatistikkApi : ApiClient {
      * Hent overordnet statistikk for alle vegobjekttyper
      * 
      * @param inkluder Kommaseparert liste av statistikkfelt som skal inkluderes i resultatet. (optional)
+     * @param kontraktsomrade Filtrer på kontraktsomrade. Kommaseparert liste. Se /omrader/kontraktsomrader for mulige verdier.  Eksempel: &#x60;9503 Midtre Hålogaland 2021-2026&#x60; (optional)
      * @param tidspunkt Finner versjonen som var gyldig denne datoen. (optional)
      * @return kotlin.collections.List<VegobjekterStatistikkMedType>
      */
     @Suppress("UNCHECKED_CAST")
-    open suspend fun getVegobjekterStatistikkMedTyper(inkluder: kotlin.collections.List<InkluderGetVegobjekterStatistikkMedTyper>? = null, tidspunkt: java.time.LocalDate? = null): HttpResponse<kotlin.collections.List<VegobjekterStatistikkMedType>> {
+    open suspend fun getVegobjekterStatistikkMedTyper(inkluder: kotlin.collections.List<InkluderGetVegobjekterStatistikkMedTyper>? = null, kontraktsomrade: kotlin.collections.Set<kotlin.String>? = null, tidspunkt: kotlinx.datetime.LocalDate? = null): HttpResponse<kotlin.collections.List<VegobjekterStatistikkMedType>> {
 
         val localVariableAuthNames = listOf<String>("bearerAuth")
 
@@ -471,6 +472,7 @@ open class StatistikkApi : ApiClient {
 
         val localVariableQuery = mutableMapOf<String, List<String>>()
         inkluder?.apply { localVariableQuery["inkluder"] = toMultiValue(this, "multi") }
+        kontraktsomrade?.apply { localVariableQuery["kontraktsomrade"] = toMultiValue(this, "multi") }
         tidspunkt?.apply { localVariableQuery["tidspunkt"] = listOf("$tidspunkt") }
         val localVariableHeaders = mutableMapOf<String, String>()
 
@@ -494,7 +496,7 @@ open class StatistikkApi : ApiClient {
         companion object : KSerializer<GetVegobjekterStatistikkMedTyperResponse> {
             private val serializer: KSerializer<List<VegobjekterStatistikkMedType>> = serializer<List<VegobjekterStatistikkMedType>>()
             override val descriptor = serializer.descriptor
-            override fun serialize(encoder: Encoder, obj: GetVegobjekterStatistikkMedTyperResponse) = serializer.serialize(encoder, obj.value)
+            override fun serialize(encoder: Encoder, value: GetVegobjekterStatistikkMedTyperResponse) = serializer.serialize(encoder, value.value)
             override fun deserialize(decoder: Decoder) = GetVegobjekterStatistikkMedTyperResponse(serializer.deserialize(decoder))
         }
     }

@@ -36,5 +36,8 @@ data class VegobjekterSide (
 
     @SerialName(value = "metadata") @Required val metadata: SideMetadata
 
-)
+) {
+
+
+}
 

@@ -19,15 +19,15 @@ import no.vegvesen.nvdb.datakatalog.model.Egenskapstype
 import no.vegvesen.nvdb.datakatalog.model.EgenskapstypeEnum
 import no.vegvesen.nvdb.datakatalog.model.Viktighet
 
-import kotlinx.serialization.*
-import kotlinx.serialization.descriptors.*
-import kotlinx.serialization.encoding.*
+import com.fasterxml.jackson.annotation.JsonProperty
 
 /**
  * 
  *
  * @param id 
  * @param egenskapstype 
+ * @param sorteringsnummer 
+ * @param avledet 
  * @param obligatoriskVerdi 
  * @param skrivebeskyttet 
  * @param sensitivitet 
@@ -37,102 +37,129 @@ import kotlinx.serialization.encoding.*
  * @param referansegeometriTilstrekkelig 
  * @param viktighet 
  * @param kategori 
- * @param sorteringsnummer 
- * @param avledet 
  * @param lengdeavhengigVerdi 
  * @param ajourholdSnu 
  * @param mediatype 
  * @param navn 
- * @param gruppesorteringsnummer 
- * @param veiledning 
- * @param grunnrissreferanse 
- * @param høydereferanse 
- * @param sosiReferanse 
  * @param komplementærEgenskapstype 
  * @param kortnavn 
  * @param beskrivelse 
  * @param sosinavn 
  * @param sosinvdbnavn 
+ * @param gruppesorteringsnummer 
+ * @param veiledning 
+ * @param grunnrissreferanse 
+ * @param høydereferanse 
+ * @param sosiReferanse 
  * @param objektlisteDato 
  * @param sluttDato 
  */
-@Serializable
+
 
 data class EgenskapstypeBinaer (
 
-    @SerialName(value = "id") @Required override val id: kotlin.Int,
+    @get:JsonProperty("id")
+    override val id: kotlin.Int,
 
-    @SerialName(value = "egenskapstype") @Required override val egenskapstype: EgenskapstypeEnum,
+    @get:JsonProperty("egenskapstype")
+    override val egenskapstype: EgenskapstypeEnum,
 
-    @SerialName(value = "obligatorisk_verdi") @Required override val obligatoriskVerdi: kotlin.Boolean,
+    @get:JsonProperty("sorteringsnummer")
+    override val sorteringsnummer: kotlin.Int,
 
-    @SerialName(value = "skrivebeskyttet") @Required override val skrivebeskyttet: kotlin.Boolean,
+    @get:JsonProperty("avledet")
+    override val avledet: kotlin.Boolean,
 
-    @SerialName(value = "sensitivitet") @Required override val sensitivitet: kotlin.Int,
+    @get:JsonProperty("obligatorisk_verdi")
+    override val obligatoriskVerdi: kotlin.Boolean,
 
-    @SerialName(value = "høydereferanse_tall") @Required override val høydereferanseTall: kotlin.Int,
+    @get:JsonProperty("skrivebeskyttet")
+    override val skrivebeskyttet: kotlin.Boolean,
 
-    @SerialName(value = "nøyaktighetskrav_grunnriss") @Required override val nøyaktighetskravGrunnriss: kotlin.Double,
+    @get:JsonProperty("sensitivitet")
+    override val sensitivitet: kotlin.Int,
 
-    @SerialName(value = "nøyaktighetskrav_høyde") @Required override val nøyaktighetskravHøyde: kotlin.Double,
+    @get:JsonProperty("høydereferanse_tall")
+    override val høydereferanseTall: kotlin.Int,
 
-    @SerialName(value = "referansegeometri_tilstrekkelig") @Required override val referansegeometriTilstrekkelig: kotlin.Boolean,
+    @get:JsonProperty("nøyaktighetskrav_grunnriss")
+    override val nøyaktighetskravGrunnriss: kotlin.Double,
 
-    @SerialName(value = "viktighet") @Required override val viktighet: Viktighet,
+    @get:JsonProperty("nøyaktighetskrav_høyde")
+    override val nøyaktighetskravHøyde: kotlin.Double,
 
-    @SerialName(value = "kategori") @Required override val kategori: kotlin.Int,
+    @get:JsonProperty("referansegeometri_tilstrekkelig")
+    override val referansegeometriTilstrekkelig: kotlin.Boolean,
 
-    @SerialName(value = "sorteringsnummer") @Required override val sorteringsnummer: kotlin.Int,
+    @get:JsonProperty("viktighet")
+    override val viktighet: Viktighet,
 
-    @SerialName(value = "avledet") @Required override val avledet: kotlin.Boolean,
+    @get:JsonProperty("kategori")
+    override val kategori: kotlin.Int,
 
-    @SerialName(value = "lengdeavhengig_verdi") @Required val lengdeavhengigVerdi: kotlin.Boolean,
+    @get:JsonProperty("lengdeavhengig_verdi")
+    val lengdeavhengigVerdi: kotlin.Boolean,
 
-    @SerialName(value = "ajourhold_snu") @Required val ajourholdSnu: kotlin.Boolean,
+    @get:JsonProperty("ajourhold_snu")
+    val ajourholdSnu: kotlin.Boolean,
 
-    @SerialName(value = "mediatype") @Required val mediatype: EgenskapstypeBinaer.Mediatype,
+    @get:JsonProperty("mediatype")
+    val mediatype: EgenskapstypeBinaer.Mediatype,
 
-    @SerialName(value = "navn") override val navn: kotlin.String? = null,
+    @get:JsonProperty("navn")
+    override val navn: kotlin.String? = null,
 
-    @SerialName(value = "gruppesorteringsnummer") override val gruppesorteringsnummer: kotlin.Int? = null,
+    @get:JsonProperty("komplementær_egenskapstype")
+    override val komplementærEgenskapstype: kotlin.Int? = null,
 
-    @SerialName(value = "veiledning") override val veiledning: kotlin.String? = null,
+    @get:JsonProperty("kortnavn")
+    override val kortnavn: kotlin.String? = null,
 
-    @SerialName(value = "grunnrissreferanse") override val grunnrissreferanse: kotlin.String? = null,
+    @get:JsonProperty("beskrivelse")
+    override val beskrivelse: kotlin.String? = null,
 
-    @SerialName(value = "høydereferanse") override val høydereferanse: kotlin.String? = null,
+    @get:JsonProperty("sosinavn")
+    override val sosinavn: kotlin.String? = null,
 
-    @SerialName(value = "sosi_referanse") override val sosiReferanse: kotlin.String? = null,
+    @get:JsonProperty("sosinvdbnavn")
+    override val sosinvdbnavn: kotlin.String? = null,
 
-    @SerialName(value = "komplementær_egenskapstype") override val komplementærEgenskapstype: kotlin.Int? = null,
+    @get:JsonProperty("gruppesorteringsnummer")
+    override val gruppesorteringsnummer: kotlin.Int? = null,
 
-    @SerialName(value = "kortnavn") override val kortnavn: kotlin.String? = null,
+    @get:JsonProperty("veiledning")
+    override val veiledning: kotlin.String? = null,
 
-    @SerialName(value = "beskrivelse") override val beskrivelse: kotlin.String? = null,
+    @get:JsonProperty("grunnrissreferanse")
+    override val grunnrissreferanse: kotlin.String? = null,
 
-    @SerialName(value = "sosinavn") override val sosinavn: kotlin.String? = null,
+    @get:JsonProperty("høydereferanse")
+    override val høydereferanse: kotlin.String? = null,
 
-    @SerialName(value = "sosinvdbnavn") override val sosinvdbnavn: kotlin.String? = null,
+    @get:JsonProperty("sosi_referanse")
+    override val sosiReferanse: kotlin.String? = null,
 
-    @SerialName(value = "objektliste_dato") val objektlisteDato: java.time.LocalDate? = null,
+    @get:JsonProperty("objektliste_dato")
+    val objektlisteDato: java.time.LocalDate? = null,
 
-    @SerialName(value = "slutt_dato") val sluttDato: java.time.LocalDate? = null
+    @get:JsonProperty("slutt_dato")
+    val sluttDato: java.time.LocalDate? = null
 
 ) : Egenskapstype {
 
     /**
      * 
      *
-     * Values: audio,bilde,tekst,tSF,video,udefinert
+     * Values: Audio,Bilde,Tekst,TSF,Video,Udefinert
      */
-    @Serializable
     enum class Mediatype(val value: kotlin.String) {
-        @SerialName(value = "Audio") audio("Audio"),
-        @SerialName(value = "Bilde") bilde("Bilde"),
-        @SerialName(value = "Tekst") tekst("Tekst"),
-        @SerialName(value = "TSF") tSF("TSF"),
-        @SerialName(value = "Video") video("Video"),
-        @SerialName(value = "Udefinert") udefinert("Udefinert");
+        @JsonProperty(value = "Audio") Audio("Audio"),
+        @JsonProperty(value = "Bilde") Bilde("Bilde"),
+        @JsonProperty(value = "Tekst") Tekst("Tekst"),
+        @JsonProperty(value = "TSF") TSF("TSF"),
+        @JsonProperty(value = "Video") Video("Video"),
+        @JsonProperty(value = "Udefinert") Udefinert("Udefinert");
     }
+
 }
 

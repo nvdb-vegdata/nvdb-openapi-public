@@ -47,5 +47,6 @@ interface Relasjon {
         @SerialName(value = "vegobjekter") vegobjekter("vegobjekter"),
         @SerialName(value = "vegobjektIder") vegobjektIder("vegobjektIder");
     }
+
 }
 

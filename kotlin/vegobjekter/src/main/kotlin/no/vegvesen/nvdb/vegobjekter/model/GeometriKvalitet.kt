@@ -52,5 +52,8 @@ data class GeometriKvalitet (
 
     @SerialName(value = "maksimaltAvvik") val maksimaltAvvik: kotlin.Int? = null
 
-)
+) {
+
+
+}
 

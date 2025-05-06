@@ -12,19 +12,21 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime'
-import type { AssosiasjonstypeListeInnhold } from './AssosiasjonstypeListeInnhold'
-import {
-  AssosiasjonstypeListeInnholdFromJSON,
-  AssosiasjonstypeListeInnholdFromJSONTyped,
-  AssosiasjonstypeListeInnholdToJSON,
-} from './AssosiasjonstypeListeInnhold'
+import { mapValues } from '../runtime'
 import type { AssosiasjonstypeVegobjekttype } from './AssosiasjonstypeVegobjekttype'
 import {
   AssosiasjonstypeVegobjekttypeFromJSON,
   AssosiasjonstypeVegobjekttypeFromJSONTyped,
   AssosiasjonstypeVegobjekttypeToJSON,
+  AssosiasjonstypeVegobjekttypeToJSONTyped,
 } from './AssosiasjonstypeVegobjekttype'
+import type { AssosiasjonstypeListeInnhold } from './AssosiasjonstypeListeInnhold'
+import {
+  AssosiasjonstypeListeInnholdFromJSON,
+  AssosiasjonstypeListeInnholdFromJSONTyped,
+  AssosiasjonstypeListeInnholdToJSON,
+  AssosiasjonstypeListeInnholdToJSONTyped,
+} from './AssosiasjonstypeListeInnhold'
 
 /**
  *
@@ -79,12 +81,13 @@ export interface Assosiasjonstype {
 /**
  * Check if a given object implements the Assosiasjonstype interface.
  */
-export function instanceOfAssosiasjonstype(value: object): boolean {
-  let isInstance = true
-  isInstance = isInstance && 'id' in value
-  isInstance = isInstance && 'egenskapstype' in value
-
-  return isInstance
+export function instanceOfAssosiasjonstype(
+  value: object,
+): value is Assosiasjonstype {
+  if (!('id' in value) || value['id'] === undefined) return false
+  if (!('egenskapstype' in value) || value['egenskapstype'] === undefined)
+    return false
+  return true
 }
 
 export function AssosiasjonstypeFromJSON(json: any): Assosiasjonstype {
@@ -95,42 +98,51 @@ export function AssosiasjonstypeFromJSONTyped(
   json: any,
   ignoreDiscriminator: boolean,
 ): Assosiasjonstype {
-  if (json === undefined || json === null) {
+  if (json == null) {
     return json
   }
   return {
     id: json['id'],
-    navn: !exists(json, 'navn') ? undefined : json['navn'],
+    navn: json['navn'] == null ? undefined : json['navn'],
     egenskapstype: json['egenskapstype'],
-    maksimaltAntallVerdier: !exists(json, 'maksimalt_antall_verdier')
-      ? undefined
-      : json['maksimalt_antall_verdier'],
-    minimaltAntallVerdier: !exists(json, 'minimalt_antall_verdier')
-      ? undefined
-      : json['minimalt_antall_verdier'],
-    innhold: !exists(json, 'innhold')
-      ? undefined
-      : AssosiasjonstypeListeInnholdFromJSON(json['innhold']),
-    type: !exists(json, 'type')
-      ? undefined
-      : AssosiasjonstypeVegobjekttypeFromJSON(json['type']),
+    maksimaltAntallVerdier:
+      json['maksimalt_antall_verdier'] == null
+        ? undefined
+        : json['maksimalt_antall_verdier'],
+    minimaltAntallVerdier:
+      json['minimalt_antall_verdier'] == null
+        ? undefined
+        : json['minimalt_antall_verdier'],
+    innhold:
+      json['innhold'] == null
+        ? undefined
+        : AssosiasjonstypeListeInnholdFromJSON(json['innhold']),
+    type:
+      json['type'] == null
+        ? undefined
+        : AssosiasjonstypeVegobjekttypeFromJSON(json['type']),
   }
 }
 
-export function AssosiasjonstypeToJSON(value?: Assosiasjonstype | null): any {
-  if (value === undefined) {
-    return undefined
+export function AssosiasjonstypeToJSON(json: any): Assosiasjonstype {
+  return AssosiasjonstypeToJSONTyped(json, false)
+}
+
+export function AssosiasjonstypeToJSONTyped(
+  value?: Assosiasjonstype | null,
+  ignoreDiscriminator: boolean = false,
+): any {
+  if (value == null) {
+    return value
   }
-  if (value === null) {
-    return null
-  }
+
   return {
-    id: value.id,
-    navn: value.navn,
-    egenskapstype: value.egenskapstype,
-    maksimalt_antall_verdier: value.maksimaltAntallVerdier,
-    minimalt_antall_verdier: value.minimaltAntallVerdier,
-    innhold: AssosiasjonstypeListeInnholdToJSON(value.innhold),
-    type: AssosiasjonstypeVegobjekttypeToJSON(value.type),
+    id: value['id'],
+    navn: value['navn'],
+    egenskapstype: value['egenskapstype'],
+    maksimalt_antall_verdier: value['maksimaltAntallVerdier'],
+    minimalt_antall_verdier: value['minimaltAntallVerdier'],
+    innhold: AssosiasjonstypeListeInnholdToJSON(value['innhold']),
+    type: AssosiasjonstypeVegobjekttypeToJSON(value['type']),
   }
 }

@@ -64,16 +64,16 @@ open class NoderApi : ApiClient {
         _4326("4326"),
         
         @SerialName(value = "UTM32")
-        uTM32("UTM32"),
+        UTM32("UTM32"),
         
         @SerialName(value = "UTM33")
-        uTM33("UTM33"),
+        UTM33("UTM33"),
         
         @SerialName(value = "UTM35")
-        uTM35("UTM35"),
+        UTM35("UTM35"),
         
         @SerialName(value = "WGS84")
-        wGS84("WGS84")
+        WGS84("WGS84")
         
     }
 
@@ -93,7 +93,7 @@ open class NoderApi : ApiClient {
             io.ktor.client.utils.EmptyContent
 
         val localVariableQuery = mutableMapOf<String, List<String>>()
-        srid?.apply { localVariableQuery["srid"] = listOf("$srid") }
+        srid?.apply { localVariableQuery["srid"] = listOf("${ srid.value }") }
         val localVariableHeaders = mutableMapOf<String, String>()
 
         val localVariableConfig = RequestConfig<kotlin.Any?>(
@@ -132,16 +132,16 @@ open class NoderApi : ApiClient {
         _4326("4326"),
         
         @SerialName(value = "UTM32")
-        uTM32("UTM32"),
+        UTM32("UTM32"),
         
         @SerialName(value = "UTM33")
-        uTM33("UTM33"),
+        UTM33("UTM33"),
         
         @SerialName(value = "UTM35")
-        uTM35("UTM35"),
+        UTM35("UTM35"),
         
         @SerialName(value = "WGS84")
-        wGS84("WGS84")
+        WGS84("WGS84")
         
     }
 
@@ -163,7 +163,7 @@ open class NoderApi : ApiClient {
      * @return NodeSide
      */
     @Suppress("UNCHECKED_CAST")
-    open suspend fun getNoder(srid: SridGetNoder? = null, ider: kotlin.collections.List<kotlin.Long>? = null, fylke: kotlin.collections.List<kotlin.Int>? = null, kommune: kotlin.collections.List<kotlin.Int>? = null, kontraktsomrade: kotlin.collections.List<kotlin.String>? = null, vegsystemreferanse: kotlin.collections.List<kotlin.String>? = null, kartutsnitt: kotlin.String? = null, polygon: kotlin.String? = null, superid: kotlin.Long? = null, antall: kotlin.Int? = null, start: kotlin.String? = null, inkluderAntall: kotlin.Boolean? = null): HttpResponse<NodeSide> {
+    open suspend fun getNoder(srid: SridGetNoder? = null, ider: kotlin.collections.Set<kotlin.Long>? = null, fylke: kotlin.collections.Set<kotlin.Int>? = null, kommune: kotlin.collections.Set<kotlin.Int>? = null, kontraktsomrade: kotlin.collections.Set<kotlin.String>? = null, vegsystemreferanse: kotlin.collections.Set<kotlin.String>? = null, kartutsnitt: kotlin.String? = null, polygon: kotlin.String? = null, superid: kotlin.Long? = null, antall: kotlin.Int? = null, start: kotlin.String? = null, inkluderAntall: kotlin.Boolean? = null): HttpResponse<NodeSide> {
 
         val localVariableAuthNames = listOf<String>()
 
@@ -171,7 +171,7 @@ open class NoderApi : ApiClient {
             io.ktor.client.utils.EmptyContent
 
         val localVariableQuery = mutableMapOf<String, List<String>>()
-        srid?.apply { localVariableQuery["srid"] = listOf("$srid") }
+        srid?.apply { localVariableQuery["srid"] = listOf("${ srid.value }") }
         ider?.apply { localVariableQuery["ider"] = toMultiValue(this, "multi") }
         fylke?.apply { localVariableQuery["fylke"] = toMultiValue(this, "multi") }
         kommune?.apply { localVariableQuery["kommune"] = toMultiValue(this, "multi") }

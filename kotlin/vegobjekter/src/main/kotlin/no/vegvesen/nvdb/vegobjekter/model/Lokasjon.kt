@@ -65,5 +65,8 @@ data class Lokasjon (
 
     @SerialName(value = "lengde") val lengde: kotlin.Double? = null
 
-)
+) {
+
+
+}
 

@@ -16,9 +16,7 @@
 package no.vegvesen.nvdb.datakatalog.model
 
 
-import kotlinx.serialization.*
-import kotlinx.serialization.descriptors.*
-import kotlinx.serialization.encoding.*
+import com.fasterxml.jackson.annotation.JsonProperty
 
 /**
  * 
@@ -27,15 +25,21 @@ import kotlinx.serialization.encoding.*
  * @param dato 
  * @param versjon 
  */
-@Serializable
+
 
 data class Versjon (
 
-    @SerialName(value = "id") @Required val id: kotlin.Int,
+    @get:JsonProperty("id")
+    val id: kotlin.Int,
 
-    @SerialName(value = "dato") @Required val dato: java.time.LocalDate,
+    @get:JsonProperty("dato")
+    val dato: java.time.LocalDate,
 
-    @SerialName(value = "versjon") @Required val versjon: kotlin.String
+    @get:JsonProperty("versjon")
+    val versjon: kotlin.String
 
-)
+) {
+
+
+}
 

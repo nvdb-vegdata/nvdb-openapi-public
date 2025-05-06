@@ -41,15 +41,18 @@ data class Node (
 
     @SerialName(value = "href") @Required val href: kotlin.String,
 
-    @SerialName(value = "startdato") @Required val startdato: java.time.LocalDate,
+    @SerialName(value = "startdato") @Required val startdato: kotlinx.datetime.LocalDate,
 
-    @SerialName(value = "kommuner") @Required val kommuner: kotlin.collections.List<kotlin.Int>,
+    @SerialName(value = "kommuner") @Required val kommuner: kotlin.collections.Set<kotlin.Int>,
 
     @SerialName(value = "geometri") @Required val geometri: NodeGeometri,
 
     @SerialName(value = "porter") @Required val porter: kotlin.collections.List<Nodeport>,
 
-    @SerialName(value = "sluttdato") val sluttdato: java.time.LocalDate? = null
+    @SerialName(value = "sluttdato") val sluttdato: kotlinx.datetime.LocalDate? = null
 
-)
+) {
+
+
+}
 

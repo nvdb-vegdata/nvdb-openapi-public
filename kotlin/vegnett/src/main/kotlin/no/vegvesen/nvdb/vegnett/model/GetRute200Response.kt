@@ -17,6 +17,7 @@ package no.vegvesen.nvdb.vegnett.model
 
 import no.vegvesen.nvdb.vegnett.model.Rute
 import no.vegvesen.nvdb.vegnett.model.RuteKortform
+import no.vegvesen.nvdb.vegnett.model.RuteKortformAllOfVegnettsrutesegmenter
 import no.vegvesen.nvdb.vegnett.model.RuteMetadata
 
 import kotlinx.serialization.*
@@ -33,9 +34,12 @@ import kotlinx.serialization.encoding.*
 
 data class GetRute200Response (
 
-    @SerialName(value = "vegnettsrutesegmenter") @Required val vegnettsrutesegmenter: kotlin.Any?,
+    @SerialName(value = "vegnettsrutesegmenter") @Required val vegnettsrutesegmenter: kotlin.collections.List<RuteKortformAllOfVegnettsrutesegmenter>,
 
     @SerialName(value = "metadata") @Required val metadata: RuteMetadata
 
-)
+) {
+
+
+}
 

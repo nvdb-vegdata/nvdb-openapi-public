@@ -56,84 +56,105 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
   Vegobjekttype.JSON_PROPERTY_RELASJONSTYPER,
   Vegobjekttype.JSON_PROPERTY_SENSITIV
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.13.0")
 public class Vegobjekttype {
   public static final String JSON_PROPERTY_ID = "id";
+  @javax.annotation.Nonnull
   private Integer id;
 
   public static final String JSON_PROPERTY_NAVN = "navn";
+  @javax.annotation.Nullable
   private String navn;
 
   public static final String JSON_PROPERTY_KORTNAVN = "kortnavn";
+  @javax.annotation.Nullable
   private String kortnavn;
 
   public static final String JSON_PROPERTY_BESKRIVELSE = "beskrivelse";
+  @javax.annotation.Nullable
   private String beskrivelse;
 
   public static final String JSON_PROPERTY_STEDFESTING = "stedfesting";
+  @javax.annotation.Nullable
   private Stedfesting stedfesting;
 
   public static final String JSON_PROPERTY_SOSINAVN = "sosinavn";
+  @javax.annotation.Nullable
   private String sosinavn;
 
   public static final String JSON_PROPERTY_SOSINVDBNAVN = "sosinvdbnavn";
+  @javax.annotation.Nullable
   private String sosinvdbnavn;
 
   public static final String JSON_PROPERTY_SORTERINGSNUMMER = "sorteringsnummer";
+  @javax.annotation.Nonnull
   private Integer sorteringsnummer;
 
   public static final String JSON_PROPERTY_STATUS = "status";
+  @javax.annotation.Nullable
   private String status;
 
   public static final String JSON_PROPERTY_HOVEDKATEGORI = "hovedkategori";
+  @javax.annotation.Nullable
   private String hovedkategori;
 
   public static final String JSON_PROPERTY_TIDSROM_RELEVANT = "tidsrom_relevant";
+  @javax.annotation.Nonnull
   private Boolean tidsromRelevant;
 
   public static final String JSON_PROPERTY_KONNEKTERINGSLENKE_OK = "konnekteringslenke_ok";
+  @javax.annotation.Nullable
   private Boolean konnekteringslenkeOk;
 
   public static final String JSON_PROPERTY_ABSTRAKT_TYPE = "abstrakt_type";
+  @javax.annotation.Nonnull
   private Boolean abstraktType;
 
   public static final String JSON_PROPERTY_AVLEDET = "avledet";
+  @javax.annotation.Nonnull
   private Boolean avledet;
 
   public static final String JSON_PROPERTY_Må_HA_MOR = "må_ha_mor";
+  @javax.annotation.Nonnull
   private Boolean måHaMor;
 
   public static final String JSON_PROPERTY_EN_VERSJON = "en_versjon";
+  @javax.annotation.Nonnull
   private Boolean enVersjon;
 
   public static final String JSON_PROPERTY_TILLEGGSINFORMASJON = "tilleggsinformasjon";
+  @javax.annotation.Nullable
   private String tilleggsinformasjon;
 
   public static final String JSON_PROPERTY_KATEGORIER = "kategorier";
+  @javax.annotation.Nonnull
   private List<VegobjektKategori> kategorier = new ArrayList<>();
 
   public static final String JSON_PROPERTY_EGENSKAPSTYPER = "egenskapstyper";
-  private List<Egenskapstype> egenskapstyper;
+  @javax.annotation.Nullable
+  private List<Egenskapstype> egenskapstyper = new ArrayList<>();
 
   public static final String JSON_PROPERTY_RELASJONSTYPER = "relasjonstyper";
+  @javax.annotation.Nullable
   private Relasjonstyper relasjonstyper;
 
   public static final String JSON_PROPERTY_SENSITIV = "sensitiv";
+  @javax.annotation.Nonnull
   private Boolean sensitiv;
 
   public Vegobjekttype() {
   }
 
-  public Vegobjekttype id(Integer id) {
+  public Vegobjekttype id(@javax.annotation.Nonnull Integer id) {
     
     this.id = id;
     return this;
   }
 
-   /**
+  /**
    * Get id
    * @return id
-  **/
+   */
   @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -145,21 +166,20 @@ public class Vegobjekttype {
 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setId(Integer id) {
+  public void setId(@javax.annotation.Nonnull Integer id) {
     this.id = id;
   }
 
-
-  public Vegobjekttype navn(String navn) {
+  public Vegobjekttype navn(@javax.annotation.Nullable String navn) {
     
     this.navn = navn;
     return this;
   }
 
-   /**
+  /**
    * Get navn
    * @return navn
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NAVN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -171,21 +191,20 @@ public class Vegobjekttype {
 
   @JsonProperty(JSON_PROPERTY_NAVN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setNavn(String navn) {
+  public void setNavn(@javax.annotation.Nullable String navn) {
     this.navn = navn;
   }
 
-
-  public Vegobjekttype kortnavn(String kortnavn) {
+  public Vegobjekttype kortnavn(@javax.annotation.Nullable String kortnavn) {
     
     this.kortnavn = kortnavn;
     return this;
   }
 
-   /**
+  /**
    * Get kortnavn
    * @return kortnavn
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_KORTNAVN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -197,21 +216,20 @@ public class Vegobjekttype {
 
   @JsonProperty(JSON_PROPERTY_KORTNAVN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setKortnavn(String kortnavn) {
+  public void setKortnavn(@javax.annotation.Nullable String kortnavn) {
     this.kortnavn = kortnavn;
   }
 
-
-  public Vegobjekttype beskrivelse(String beskrivelse) {
+  public Vegobjekttype beskrivelse(@javax.annotation.Nullable String beskrivelse) {
     
     this.beskrivelse = beskrivelse;
     return this;
   }
 
-   /**
+  /**
    * Get beskrivelse
    * @return beskrivelse
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_BESKRIVELSE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -223,21 +241,20 @@ public class Vegobjekttype {
 
   @JsonProperty(JSON_PROPERTY_BESKRIVELSE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setBeskrivelse(String beskrivelse) {
+  public void setBeskrivelse(@javax.annotation.Nullable String beskrivelse) {
     this.beskrivelse = beskrivelse;
   }
 
-
-  public Vegobjekttype stedfesting(Stedfesting stedfesting) {
+  public Vegobjekttype stedfesting(@javax.annotation.Nullable Stedfesting stedfesting) {
     
     this.stedfesting = stedfesting;
     return this;
   }
 
-   /**
+  /**
    * Get stedfesting
    * @return stedfesting
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_STEDFESTING)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -249,21 +266,20 @@ public class Vegobjekttype {
 
   @JsonProperty(JSON_PROPERTY_STEDFESTING)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setStedfesting(Stedfesting stedfesting) {
+  public void setStedfesting(@javax.annotation.Nullable Stedfesting stedfesting) {
     this.stedfesting = stedfesting;
   }
 
-
-  public Vegobjekttype sosinavn(String sosinavn) {
+  public Vegobjekttype sosinavn(@javax.annotation.Nullable String sosinavn) {
     
     this.sosinavn = sosinavn;
     return this;
   }
 
-   /**
+  /**
    * Get sosinavn
    * @return sosinavn
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SOSINAVN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -275,21 +291,20 @@ public class Vegobjekttype {
 
   @JsonProperty(JSON_PROPERTY_SOSINAVN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setSosinavn(String sosinavn) {
+  public void setSosinavn(@javax.annotation.Nullable String sosinavn) {
     this.sosinavn = sosinavn;
   }
 
-
-  public Vegobjekttype sosinvdbnavn(String sosinvdbnavn) {
+  public Vegobjekttype sosinvdbnavn(@javax.annotation.Nullable String sosinvdbnavn) {
     
     this.sosinvdbnavn = sosinvdbnavn;
     return this;
   }
 
-   /**
+  /**
    * Get sosinvdbnavn
    * @return sosinvdbnavn
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SOSINVDBNAVN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -301,21 +316,20 @@ public class Vegobjekttype {
 
   @JsonProperty(JSON_PROPERTY_SOSINVDBNAVN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setSosinvdbnavn(String sosinvdbnavn) {
+  public void setSosinvdbnavn(@javax.annotation.Nullable String sosinvdbnavn) {
     this.sosinvdbnavn = sosinvdbnavn;
   }
 
-
-  public Vegobjekttype sorteringsnummer(Integer sorteringsnummer) {
+  public Vegobjekttype sorteringsnummer(@javax.annotation.Nonnull Integer sorteringsnummer) {
     
     this.sorteringsnummer = sorteringsnummer;
     return this;
   }
 
-   /**
+  /**
    * Get sorteringsnummer
    * @return sorteringsnummer
-  **/
+   */
   @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_SORTERINGSNUMMER)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -327,21 +341,20 @@ public class Vegobjekttype {
 
   @JsonProperty(JSON_PROPERTY_SORTERINGSNUMMER)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setSorteringsnummer(Integer sorteringsnummer) {
+  public void setSorteringsnummer(@javax.annotation.Nonnull Integer sorteringsnummer) {
     this.sorteringsnummer = sorteringsnummer;
   }
 
-
-  public Vegobjekttype status(String status) {
+  public Vegobjekttype status(@javax.annotation.Nullable String status) {
     
     this.status = status;
     return this;
   }
 
-   /**
+  /**
    * Get status
    * @return status
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -353,21 +366,20 @@ public class Vegobjekttype {
 
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setStatus(String status) {
+  public void setStatus(@javax.annotation.Nullable String status) {
     this.status = status;
   }
 
-
-  public Vegobjekttype hovedkategori(String hovedkategori) {
+  public Vegobjekttype hovedkategori(@javax.annotation.Nullable String hovedkategori) {
     
     this.hovedkategori = hovedkategori;
     return this;
   }
 
-   /**
+  /**
    * Get hovedkategori
    * @return hovedkategori
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_HOVEDKATEGORI)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -379,21 +391,20 @@ public class Vegobjekttype {
 
   @JsonProperty(JSON_PROPERTY_HOVEDKATEGORI)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setHovedkategori(String hovedkategori) {
+  public void setHovedkategori(@javax.annotation.Nullable String hovedkategori) {
     this.hovedkategori = hovedkategori;
   }
 
-
-  public Vegobjekttype tidsromRelevant(Boolean tidsromRelevant) {
+  public Vegobjekttype tidsromRelevant(@javax.annotation.Nonnull Boolean tidsromRelevant) {
     
     this.tidsromRelevant = tidsromRelevant;
     return this;
   }
 
-   /**
+  /**
    * Get tidsromRelevant
    * @return tidsromRelevant
-  **/
+   */
   @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_TIDSROM_RELEVANT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -405,21 +416,20 @@ public class Vegobjekttype {
 
   @JsonProperty(JSON_PROPERTY_TIDSROM_RELEVANT)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setTidsromRelevant(Boolean tidsromRelevant) {
+  public void setTidsromRelevant(@javax.annotation.Nonnull Boolean tidsromRelevant) {
     this.tidsromRelevant = tidsromRelevant;
   }
 
-
-  public Vegobjekttype konnekteringslenkeOk(Boolean konnekteringslenkeOk) {
+  public Vegobjekttype konnekteringslenkeOk(@javax.annotation.Nullable Boolean konnekteringslenkeOk) {
     
     this.konnekteringslenkeOk = konnekteringslenkeOk;
     return this;
   }
 
-   /**
+  /**
    * Get konnekteringslenkeOk
    * @return konnekteringslenkeOk
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_KONNEKTERINGSLENKE_OK)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -431,21 +441,20 @@ public class Vegobjekttype {
 
   @JsonProperty(JSON_PROPERTY_KONNEKTERINGSLENKE_OK)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setKonnekteringslenkeOk(Boolean konnekteringslenkeOk) {
+  public void setKonnekteringslenkeOk(@javax.annotation.Nullable Boolean konnekteringslenkeOk) {
     this.konnekteringslenkeOk = konnekteringslenkeOk;
   }
 
-
-  public Vegobjekttype abstraktType(Boolean abstraktType) {
+  public Vegobjekttype abstraktType(@javax.annotation.Nonnull Boolean abstraktType) {
     
     this.abstraktType = abstraktType;
     return this;
   }
 
-   /**
+  /**
    * Get abstraktType
    * @return abstraktType
-  **/
+   */
   @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_ABSTRAKT_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -457,21 +466,20 @@ public class Vegobjekttype {
 
   @JsonProperty(JSON_PROPERTY_ABSTRAKT_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setAbstraktType(Boolean abstraktType) {
+  public void setAbstraktType(@javax.annotation.Nonnull Boolean abstraktType) {
     this.abstraktType = abstraktType;
   }
 
-
-  public Vegobjekttype avledet(Boolean avledet) {
+  public Vegobjekttype avledet(@javax.annotation.Nonnull Boolean avledet) {
     
     this.avledet = avledet;
     return this;
   }
 
-   /**
+  /**
    * Get avledet
    * @return avledet
-  **/
+   */
   @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_AVLEDET)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -483,21 +491,20 @@ public class Vegobjekttype {
 
   @JsonProperty(JSON_PROPERTY_AVLEDET)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setAvledet(Boolean avledet) {
+  public void setAvledet(@javax.annotation.Nonnull Boolean avledet) {
     this.avledet = avledet;
   }
 
-
-  public Vegobjekttype måHaMor(Boolean måHaMor) {
+  public Vegobjekttype måHaMor(@javax.annotation.Nonnull Boolean måHaMor) {
     
     this.måHaMor = måHaMor;
     return this;
   }
 
-   /**
+  /**
    * Get måHaMor
    * @return måHaMor
-  **/
+   */
   @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_Må_HA_MOR)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -509,21 +516,20 @@ public class Vegobjekttype {
 
   @JsonProperty(JSON_PROPERTY_Må_HA_MOR)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setMåHaMor(Boolean måHaMor) {
+  public void setMåHaMor(@javax.annotation.Nonnull Boolean måHaMor) {
     this.måHaMor = måHaMor;
   }
 
-
-  public Vegobjekttype enVersjon(Boolean enVersjon) {
+  public Vegobjekttype enVersjon(@javax.annotation.Nonnull Boolean enVersjon) {
     
     this.enVersjon = enVersjon;
     return this;
   }
 
-   /**
+  /**
    * Get enVersjon
    * @return enVersjon
-  **/
+   */
   @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_EN_VERSJON)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -535,21 +541,20 @@ public class Vegobjekttype {
 
   @JsonProperty(JSON_PROPERTY_EN_VERSJON)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setEnVersjon(Boolean enVersjon) {
+  public void setEnVersjon(@javax.annotation.Nonnull Boolean enVersjon) {
     this.enVersjon = enVersjon;
   }
 
-
-  public Vegobjekttype tilleggsinformasjon(String tilleggsinformasjon) {
+  public Vegobjekttype tilleggsinformasjon(@javax.annotation.Nullable String tilleggsinformasjon) {
     
     this.tilleggsinformasjon = tilleggsinformasjon;
     return this;
   }
 
-   /**
+  /**
    * Get tilleggsinformasjon
    * @return tilleggsinformasjon
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TILLEGGSINFORMASJON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -561,12 +566,11 @@ public class Vegobjekttype {
 
   @JsonProperty(JSON_PROPERTY_TILLEGGSINFORMASJON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setTilleggsinformasjon(String tilleggsinformasjon) {
+  public void setTilleggsinformasjon(@javax.annotation.Nullable String tilleggsinformasjon) {
     this.tilleggsinformasjon = tilleggsinformasjon;
   }
 
-
-  public Vegobjekttype kategorier(List<VegobjektKategori> kategorier) {
+  public Vegobjekttype kategorier(@javax.annotation.Nonnull List<VegobjektKategori> kategorier) {
     
     this.kategorier = kategorier;
     return this;
@@ -580,10 +584,10 @@ public class Vegobjekttype {
     return this;
   }
 
-   /**
+  /**
    * Get kategorier
    * @return kategorier
-  **/
+   */
   @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_KATEGORIER)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -595,12 +599,11 @@ public class Vegobjekttype {
 
   @JsonProperty(JSON_PROPERTY_KATEGORIER)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setKategorier(List<VegobjektKategori> kategorier) {
+  public void setKategorier(@javax.annotation.Nonnull List<VegobjektKategori> kategorier) {
     this.kategorier = kategorier;
   }
 
-
-  public Vegobjekttype egenskapstyper(List<Egenskapstype> egenskapstyper) {
+  public Vegobjekttype egenskapstyper(@javax.annotation.Nullable List<Egenskapstype> egenskapstyper) {
     
     this.egenskapstyper = egenskapstyper;
     return this;
@@ -614,10 +617,10 @@ public class Vegobjekttype {
     return this;
   }
 
-   /**
+  /**
    * Get egenskapstyper
    * @return egenskapstyper
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_EGENSKAPSTYPER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -629,21 +632,20 @@ public class Vegobjekttype {
 
   @JsonProperty(JSON_PROPERTY_EGENSKAPSTYPER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setEgenskapstyper(List<Egenskapstype> egenskapstyper) {
+  public void setEgenskapstyper(@javax.annotation.Nullable List<Egenskapstype> egenskapstyper) {
     this.egenskapstyper = egenskapstyper;
   }
 
-
-  public Vegobjekttype relasjonstyper(Relasjonstyper relasjonstyper) {
+  public Vegobjekttype relasjonstyper(@javax.annotation.Nullable Relasjonstyper relasjonstyper) {
     
     this.relasjonstyper = relasjonstyper;
     return this;
   }
 
-   /**
+  /**
    * Get relasjonstyper
    * @return relasjonstyper
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_RELASJONSTYPER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -655,21 +657,20 @@ public class Vegobjekttype {
 
   @JsonProperty(JSON_PROPERTY_RELASJONSTYPER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setRelasjonstyper(Relasjonstyper relasjonstyper) {
+  public void setRelasjonstyper(@javax.annotation.Nullable Relasjonstyper relasjonstyper) {
     this.relasjonstyper = relasjonstyper;
   }
 
-
-  public Vegobjekttype sensitiv(Boolean sensitiv) {
+  public Vegobjekttype sensitiv(@javax.annotation.Nonnull Boolean sensitiv) {
     
     this.sensitiv = sensitiv;
     return this;
   }
 
-   /**
+  /**
    * Get sensitiv
    * @return sensitiv
-  **/
+   */
   @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_SENSITIV)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -681,9 +682,10 @@ public class Vegobjekttype {
 
   @JsonProperty(JSON_PROPERTY_SENSITIV)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setSensitiv(Boolean sensitiv) {
+  public void setSensitiv(@javax.annotation.Nonnull Boolean sensitiv) {
     this.sensitiv = sensitiv;
   }
+
 
   @Override
   public boolean equals(Object o) {

@@ -32,30 +32,33 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
   AssosiasjonstypeVegobjekttype.JSON_PROPERTY_NAVN,
   AssosiasjonstypeVegobjekttype.JSON_PROPERTY_OBJEKTLISTE_DATO
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.13.0")
 public class AssosiasjonstypeVegobjekttype {
   public static final String JSON_PROPERTY_ID = "id";
+  @javax.annotation.Nonnull
   private Integer id;
 
   public static final String JSON_PROPERTY_NAVN = "navn";
+  @javax.annotation.Nullable
   private String navn;
 
   public static final String JSON_PROPERTY_OBJEKTLISTE_DATO = "objektliste_dato";
+  @javax.annotation.Nullable
   private LocalDate objektlisteDato;
 
   public AssosiasjonstypeVegobjekttype() {
   }
 
-  public AssosiasjonstypeVegobjekttype id(Integer id) {
+  public AssosiasjonstypeVegobjekttype id(@javax.annotation.Nonnull Integer id) {
     
     this.id = id;
     return this;
   }
 
-   /**
+  /**
    * Get id
    * @return id
-  **/
+   */
   @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -67,21 +70,20 @@ public class AssosiasjonstypeVegobjekttype {
 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setId(Integer id) {
+  public void setId(@javax.annotation.Nonnull Integer id) {
     this.id = id;
   }
 
-
-  public AssosiasjonstypeVegobjekttype navn(String navn) {
+  public AssosiasjonstypeVegobjekttype navn(@javax.annotation.Nullable String navn) {
     
     this.navn = navn;
     return this;
   }
 
-   /**
+  /**
    * Get navn
    * @return navn
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NAVN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -93,21 +95,20 @@ public class AssosiasjonstypeVegobjekttype {
 
   @JsonProperty(JSON_PROPERTY_NAVN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setNavn(String navn) {
+  public void setNavn(@javax.annotation.Nullable String navn) {
     this.navn = navn;
   }
 
-
-  public AssosiasjonstypeVegobjekttype objektlisteDato(LocalDate objektlisteDato) {
+  public AssosiasjonstypeVegobjekttype objektlisteDato(@javax.annotation.Nullable LocalDate objektlisteDato) {
     
     this.objektlisteDato = objektlisteDato;
     return this;
   }
 
-   /**
+  /**
    * Get objektlisteDato
    * @return objektlisteDato
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_OBJEKTLISTE_DATO)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -119,9 +120,10 @@ public class AssosiasjonstypeVegobjekttype {
 
   @JsonProperty(JSON_PROPERTY_OBJEKTLISTE_DATO)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setObjektlisteDato(LocalDate objektlisteDato) {
+  public void setObjektlisteDato(@javax.annotation.Nullable LocalDate objektlisteDato) {
     this.objektlisteDato = objektlisteDato;
   }
+
 
   @Override
   public boolean equals(Object o) {

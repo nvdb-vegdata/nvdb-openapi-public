@@ -37,26 +37,27 @@ interface Egenskap {
     /**
      * 
      *
-     * Values: assosiasjon,boolsk,binær,tekst,dato,flyttall,heltall,struktur,geometri,stedfesting,kortdato,tid,liste,tekstenum,heltallenum,flyttallenum
+     * Values: Assosiasjon,Boolsk,Binær,Tekst,Dato,Flyttall,Heltall,Struktur,Geometri,Stedfesting,Kortdato,Tid,Liste,Tekstenum,Heltallenum,Flyttallenum
      */
     @Serializable
     enum class Egenskapstype(val value: kotlin.String) {
-        @SerialName(value = "Assosiasjon") assosiasjon("Assosiasjon"),
-        @SerialName(value = "Boolsk") boolsk("Boolsk"),
-        @SerialName(value = "Binær") binær("Binær"),
-        @SerialName(value = "Tekst") tekst("Tekst"),
-        @SerialName(value = "Dato") dato("Dato"),
-        @SerialName(value = "Flyttall") flyttall("Flyttall"),
-        @SerialName(value = "Heltall") heltall("Heltall"),
-        @SerialName(value = "Struktur") struktur("Struktur"),
-        @SerialName(value = "Geometri") geometri("Geometri"),
-        @SerialName(value = "Stedfesting") stedfesting("Stedfesting"),
-        @SerialName(value = "Kortdato") kortdato("Kortdato"),
-        @SerialName(value = "Tid") tid("Tid"),
-        @SerialName(value = "Liste") liste("Liste"),
-        @SerialName(value = "Tekstenum") tekstenum("Tekstenum"),
-        @SerialName(value = "Heltallenum") heltallenum("Heltallenum"),
-        @SerialName(value = "Flyttallenum") flyttallenum("Flyttallenum");
+        @SerialName(value = "Assosiasjon") Assosiasjon("Assosiasjon"),
+        @SerialName(value = "Boolsk") Boolsk("Boolsk"),
+        @SerialName(value = "Binær") Binær("Binær"),
+        @SerialName(value = "Tekst") Tekst("Tekst"),
+        @SerialName(value = "Dato") Dato("Dato"),
+        @SerialName(value = "Flyttall") Flyttall("Flyttall"),
+        @SerialName(value = "Heltall") Heltall("Heltall"),
+        @SerialName(value = "Struktur") Struktur("Struktur"),
+        @SerialName(value = "Geometri") Geometri("Geometri"),
+        @SerialName(value = "Stedfesting") Stedfesting("Stedfesting"),
+        @SerialName(value = "Kortdato") Kortdato("Kortdato"),
+        @SerialName(value = "Tid") Tid("Tid"),
+        @SerialName(value = "Liste") Liste("Liste"),
+        @SerialName(value = "Tekstenum") Tekstenum("Tekstenum"),
+        @SerialName(value = "Heltallenum") Heltallenum("Heltallenum"),
+        @SerialName(value = "Flyttallenum") Flyttallenum("Flyttallenum");
     }
+
 }
 

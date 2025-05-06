@@ -66,16 +66,16 @@ open class VegnettApi : ApiClient {
         _4326("4326"),
         
         @SerialName(value = "UTM32")
-        uTM32("UTM32"),
+        UTM32("UTM32"),
         
         @SerialName(value = "UTM33")
-        uTM33("UTM33"),
+        UTM33("UTM33"),
         
         @SerialName(value = "UTM35")
-        uTM35("UTM35"),
+        UTM35("UTM35"),
         
         @SerialName(value = "WGS84")
-        wGS84("WGS84")
+        WGS84("WGS84")
         
     }
 
@@ -89,7 +89,7 @@ open class VegnettApi : ApiClient {
      * @return kotlin.collections.List<Veglenkesegment>
      */
     @Suppress("UNCHECKED_CAST")
-    open suspend fun getSegmentertVeglenkesekvens(veglenkesekvensId: kotlin.Long, srid: SridGetSegmentertVeglenkesekvens? = null, historisk: kotlin.Boolean? = null, tidspunkt: java.time.LocalDate? = null): HttpResponse<kotlin.collections.List<Veglenkesegment>> {
+    open suspend fun getSegmentertVeglenkesekvens(veglenkesekvensId: kotlin.Long, srid: SridGetSegmentertVeglenkesekvens? = null, historisk: kotlin.Boolean? = null, tidspunkt: kotlinx.datetime.LocalDate? = null): HttpResponse<kotlin.collections.List<Veglenkesegment>> {
 
         val localVariableAuthNames = listOf<String>()
 
@@ -97,7 +97,7 @@ open class VegnettApi : ApiClient {
             io.ktor.client.utils.EmptyContent
 
         val localVariableQuery = mutableMapOf<String, List<String>>()
-        srid?.apply { localVariableQuery["srid"] = listOf("$srid") }
+        srid?.apply { localVariableQuery["srid"] = listOf("${ srid.value }") }
         historisk?.apply { localVariableQuery["historisk"] = listOf("$historisk") }
         tidspunkt?.apply { localVariableQuery["tidspunkt"] = listOf("$tidspunkt") }
         val localVariableHeaders = mutableMapOf<String, String>()
@@ -122,7 +122,7 @@ open class VegnettApi : ApiClient {
         companion object : KSerializer<GetSegmentertVeglenkesekvensResponse> {
             private val serializer: KSerializer<List<Veglenkesegment>> = serializer<List<Veglenkesegment>>()
             override val descriptor = serializer.descriptor
-            override fun serialize(encoder: Encoder, obj: GetSegmentertVeglenkesekvensResponse) = serializer.serialize(encoder, obj.value)
+            override fun serialize(encoder: Encoder, value: GetSegmentertVeglenkesekvensResponse) = serializer.serialize(encoder, value.value)
             override fun deserialize(decoder: Decoder) = GetSegmentertVeglenkesekvensResponse(serializer.deserialize(decoder))
         }
     }
@@ -147,16 +147,16 @@ open class VegnettApi : ApiClient {
         _4326("4326"),
         
         @SerialName(value = "UTM32")
-        uTM32("UTM32"),
+        UTM32("UTM32"),
         
         @SerialName(value = "UTM33")
-        uTM33("UTM33"),
+        UTM33("UTM33"),
         
         @SerialName(value = "UTM35")
-        uTM35("UTM35"),
+        UTM35("UTM35"),
         
         @SerialName(value = "WGS84")
-        wGS84("WGS84")
+        WGS84("WGS84")
         
     }
 
@@ -168,16 +168,16 @@ open class VegnettApi : ApiClient {
     enum class DetaljnivaGetVeglenkesegmenter(val value: kotlin.String) {
         
         @SerialName(value = "VT")
-        vT("VT"),
+        VT("VT"),
         
         @SerialName(value = "KB")
-        kB("KB"),
+        KB("KB"),
         
         @SerialName(value = "KF")
-        kF("KF"),
+        KF("KF"),
         
         @SerialName(value = "VTKB")
-        vTKB("VTKB")
+        VTKB("VTKB")
         
     }
 
@@ -249,13 +249,13 @@ open class VegnettApi : ApiClient {
     enum class AdskiltelopGetVeglenkesegmenter(val value: kotlin.String) {
         
         @SerialName(value = "Med")
-        med("Med"),
+        Med("Med"),
         
         @SerialName(value = "Mot")
-        mot("Mot"),
+        Mot("Mot"),
         
         @SerialName(value = "Nei")
-        nei("Nei")
+        Nei("Nei")
         
     }
 
@@ -267,16 +267,16 @@ open class VegnettApi : ApiClient {
     enum class VeglenketypeGetVeglenkesegmenter(val value: kotlin.String) {
         
         @SerialName(value = "Hoved")
-        hoved("Hoved"),
+        Hoved("Hoved"),
         
         @SerialName(value = "Detaljert")
-        detaljert("Detaljert"),
+        Detaljert("Detaljert"),
         
         @SerialName(value = "Konnektering")
-        konnektering("Konnektering"),
+        Konnektering("Konnektering"),
         
         @SerialName(value = "detaljert_konnektering")
-        detaljertKonnektering("detaljert_konnektering")
+        detaljert_konnektering("detaljert_konnektering")
         
     }
 
@@ -288,10 +288,10 @@ open class VegnettApi : ApiClient {
     enum class TrafikantgruppeGetVeglenkesegmenter(val value: kotlin.String) {
         
         @SerialName(value = "K")
-        k("K"),
+        K("K"),
         
         @SerialName(value = "G")
-        g("G")
+        G("G")
         
     }
 
@@ -326,7 +326,7 @@ open class VegnettApi : ApiClient {
      * @return VeglenkesegmenterSide
      */
     @Suppress("UNCHECKED_CAST")
-    open suspend fun getVeglenkesegmenter(srid: SridGetVeglenkesegmenter? = null, ider: kotlin.collections.List<kotlin.Long>? = null, fylke: kotlin.collections.List<kotlin.Int>? = null, kommune: kotlin.collections.List<kotlin.Int>? = null, kontraktsomrade: kotlin.collections.List<kotlin.String>? = null, riksvegrute: kotlin.collections.List<kotlin.String>? = null, vegforvalter: kotlin.collections.List<kotlin.String>? = null, vegsystemreferanse: kotlin.collections.List<kotlin.String>? = null, kartutsnitt: kotlin.String? = null, polygon: kotlin.String? = null, detaljniva: kotlin.collections.List<DetaljnivaGetVeglenkesegmenter>? = null, typeveg: kotlin.collections.List<TypevegGetVeglenkesegmenter>? = null, superid: kotlin.Long? = null, adskiltelop: kotlin.collections.List<AdskiltelopGetVeglenkesegmenter>? = null, kryssystem: kotlin.Boolean? = null, sideanlegg: kotlin.Boolean? = null, veglenketype: kotlin.collections.List<VeglenketypeGetVeglenkesegmenter>? = null, arm: kotlin.Boolean? = null, trafikantgruppe: TrafikantgruppeGetVeglenkesegmenter? = null, geometritoleranse: kotlin.Int? = null, historisk: kotlin.Boolean? = null, tidspunkt: java.time.LocalDate? = null, antall: kotlin.Int? = null, start: kotlin.String? = null, inkluderAntall: kotlin.Boolean? = null): HttpResponse<VeglenkesegmenterSide> {
+    open suspend fun getVeglenkesegmenter(srid: SridGetVeglenkesegmenter? = null, ider: kotlin.collections.Set<kotlin.Long>? = null, fylke: kotlin.collections.Set<kotlin.Int>? = null, kommune: kotlin.collections.Set<kotlin.Int>? = null, kontraktsomrade: kotlin.collections.Set<kotlin.String>? = null, riksvegrute: kotlin.collections.Set<kotlin.String>? = null, vegforvalter: kotlin.collections.Set<kotlin.String>? = null, vegsystemreferanse: kotlin.collections.Set<kotlin.String>? = null, kartutsnitt: kotlin.String? = null, polygon: kotlin.String? = null, detaljniva: kotlin.collections.List<DetaljnivaGetVeglenkesegmenter>? = null, typeveg: kotlin.collections.List<TypevegGetVeglenkesegmenter>? = null, superid: kotlin.Long? = null, adskiltelop: kotlin.collections.List<AdskiltelopGetVeglenkesegmenter>? = null, kryssystem: kotlin.Boolean? = null, sideanlegg: kotlin.Boolean? = null, veglenketype: kotlin.collections.List<VeglenketypeGetVeglenkesegmenter>? = null, arm: kotlin.Boolean? = null, trafikantgruppe: TrafikantgruppeGetVeglenkesegmenter? = null, geometritoleranse: kotlin.Int? = null, historisk: kotlin.Boolean? = null, tidspunkt: kotlinx.datetime.LocalDate? = null, antall: kotlin.Int? = null, start: kotlin.String? = null, inkluderAntall: kotlin.Boolean? = null): HttpResponse<VeglenkesegmenterSide> {
 
         val localVariableAuthNames = listOf<String>()
 
@@ -334,7 +334,7 @@ open class VegnettApi : ApiClient {
             io.ktor.client.utils.EmptyContent
 
         val localVariableQuery = mutableMapOf<String, List<String>>()
-        srid?.apply { localVariableQuery["srid"] = listOf("$srid") }
+        srid?.apply { localVariableQuery["srid"] = listOf("${ srid.value }") }
         ider?.apply { localVariableQuery["ider"] = toMultiValue(this, "multi") }
         fylke?.apply { localVariableQuery["fylke"] = toMultiValue(this, "multi") }
         kommune?.apply { localVariableQuery["kommune"] = toMultiValue(this, "multi") }
@@ -352,7 +352,7 @@ open class VegnettApi : ApiClient {
         sideanlegg?.apply { localVariableQuery["sideanlegg"] = listOf("$sideanlegg") }
         veglenketype?.apply { localVariableQuery["veglenketype"] = toMultiValue(this, "multi") }
         arm?.apply { localVariableQuery["arm"] = listOf("$arm") }
-        trafikantgruppe?.apply { localVariableQuery["trafikantgruppe"] = listOf("$trafikantgruppe") }
+        trafikantgruppe?.apply { localVariableQuery["trafikantgruppe"] = listOf("${ trafikantgruppe.value }") }
         geometritoleranse?.apply { localVariableQuery["geometritoleranse"] = listOf("$geometritoleranse") }
         historisk?.apply { localVariableQuery["historisk"] = listOf("$historisk") }
         tidspunkt?.apply { localVariableQuery["tidspunkt"] = listOf("$tidspunkt") }
@@ -397,16 +397,16 @@ open class VegnettApi : ApiClient {
         _4326("4326"),
         
         @SerialName(value = "UTM32")
-        uTM32("UTM32"),
+        UTM32("UTM32"),
         
         @SerialName(value = "UTM33")
-        uTM33("UTM33"),
+        UTM33("UTM33"),
         
         @SerialName(value = "UTM35")
-        uTM35("UTM35"),
+        UTM35("UTM35"),
         
         @SerialName(value = "WGS84")
-        wGS84("WGS84")
+        WGS84("WGS84")
         
     }
 
@@ -426,7 +426,7 @@ open class VegnettApi : ApiClient {
             io.ktor.client.utils.EmptyContent
 
         val localVariableQuery = mutableMapOf<String, List<String>>()
-        srid?.apply { localVariableQuery["srid"] = listOf("$srid") }
+        srid?.apply { localVariableQuery["srid"] = listOf("${ srid.value }") }
         val localVariableHeaders = mutableMapOf<String, String>()
 
         val localVariableConfig = RequestConfig<kotlin.Any?>(
@@ -483,16 +483,16 @@ open class VegnettApi : ApiClient {
         _4326("4326"),
         
         @SerialName(value = "UTM32")
-        uTM32("UTM32"),
+        UTM32("UTM32"),
         
         @SerialName(value = "UTM33")
-        uTM33("UTM33"),
+        UTM33("UTM33"),
         
         @SerialName(value = "UTM35")
-        uTM35("UTM35"),
+        UTM35("UTM35"),
         
         @SerialName(value = "WGS84")
-        wGS84("WGS84")
+        WGS84("WGS84")
         
     }
 
@@ -514,7 +514,7 @@ open class VegnettApi : ApiClient {
      * @return VeglenkesekvenserSide
      */
     @Suppress("UNCHECKED_CAST")
-    open suspend fun getVeglenkesekvenser(ider: kotlin.collections.List<kotlin.Long>? = null, fylke: kotlin.collections.List<kotlin.Int>? = null, kommune: kotlin.collections.List<kotlin.Int>? = null, kontraktsomrade: kotlin.collections.List<kotlin.String>? = null, riksvegrute: kotlin.collections.List<kotlin.String>? = null, vegsystemreferanse: kotlin.collections.List<kotlin.String>? = null, topologiniva: TopologinivaGetVeglenkesekvenser? = null, superid: kotlin.Long? = null, srid: SridGetVeglenkesekvenser? = null, antall: kotlin.Int? = null, start: kotlin.String? = null, inkluderAntall: kotlin.Boolean? = null): HttpResponse<VeglenkesekvenserSide> {
+    open suspend fun getVeglenkesekvenser(ider: kotlin.collections.Set<kotlin.Long>? = null, fylke: kotlin.collections.Set<kotlin.Int>? = null, kommune: kotlin.collections.Set<kotlin.Int>? = null, kontraktsomrade: kotlin.collections.Set<kotlin.String>? = null, riksvegrute: kotlin.collections.Set<kotlin.String>? = null, vegsystemreferanse: kotlin.collections.Set<kotlin.String>? = null, topologiniva: TopologinivaGetVeglenkesekvenser? = null, superid: kotlin.Long? = null, srid: SridGetVeglenkesekvenser? = null, antall: kotlin.Int? = null, start: kotlin.String? = null, inkluderAntall: kotlin.Boolean? = null): HttpResponse<VeglenkesekvenserSide> {
 
         val localVariableAuthNames = listOf<String>()
 
@@ -528,9 +528,9 @@ open class VegnettApi : ApiClient {
         kontraktsomrade?.apply { localVariableQuery["kontraktsomrade"] = toMultiValue(this, "multi") }
         riksvegrute?.apply { localVariableQuery["riksvegrute"] = toMultiValue(this, "multi") }
         vegsystemreferanse?.apply { localVariableQuery["vegsystemreferanse"] = toMultiValue(this, "multi") }
-        topologiniva?.apply { localVariableQuery["topologiniva"] = listOf("$topologiniva") }
+        topologiniva?.apply { localVariableQuery["topologiniva"] = listOf("${ topologiniva.value }") }
         superid?.apply { localVariableQuery["superid"] = listOf("$superid") }
-        srid?.apply { localVariableQuery["srid"] = listOf("$srid") }
+        srid?.apply { localVariableQuery["srid"] = listOf("${ srid.value }") }
         antall?.apply { localVariableQuery["antall"] = listOf("$antall") }
         start?.apply { localVariableQuery["start"] = listOf("$start") }
         inkluderAntall?.apply { localVariableQuery["inkluderAntall"] = listOf("$inkluderAntall") }

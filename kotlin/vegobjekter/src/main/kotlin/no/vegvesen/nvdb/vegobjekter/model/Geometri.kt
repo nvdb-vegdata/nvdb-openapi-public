@@ -54,5 +54,6 @@ data class Geometri (
         @SerialName(value = "5975") _5975("5975"),
         @SerialName(value = "4326") _4326("4326");
     }
+
 }
 

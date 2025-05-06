@@ -33,7 +33,10 @@ data class AlwaysIncludeMapStringPosisjon (
 
     @SerialName(value = "map") val map: kotlin.collections.Map<kotlin.String, Posisjon>? = null,
 
-    @SerialName(value = "empty") val empty: kotlin.Any? = null
+    @SerialName(value = "empty") val empty: kotlin.Boolean? = null
 
-) : kotlin.collections.HashMap<String, Posisjon>()
+) : kotlin.collections.HashMap<String, Posisjon>() {
+
+
+}
 

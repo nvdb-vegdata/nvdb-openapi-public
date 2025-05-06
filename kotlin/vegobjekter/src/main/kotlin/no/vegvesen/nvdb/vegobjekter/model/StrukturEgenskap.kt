@@ -30,7 +30,7 @@ import kotlinx.serialization.encoding.*
  */
 @Serializable
 
-data class StrukturEgenskap (
+class StrukturEgenskap (
 
     @SerialName(value = "id") @Required override val id: kotlin.Int,
 
@@ -38,5 +38,8 @@ data class StrukturEgenskap (
 
     @SerialName(value = "egenskapstype") @Required override val egenskapstype: StrukturEgenskap.Egenskapstype
 
-) : Egenskap
+) : Egenskap {
+
+
+}
 

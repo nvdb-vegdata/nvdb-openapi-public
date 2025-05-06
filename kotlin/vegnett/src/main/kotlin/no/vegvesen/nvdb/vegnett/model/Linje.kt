@@ -44,5 +44,8 @@ data class Linje (
 
     @SerialName(value = "kortform") @Required val kortform: kotlin.String
 
-) : Segment
+) : Segment {
+
+
+}
 

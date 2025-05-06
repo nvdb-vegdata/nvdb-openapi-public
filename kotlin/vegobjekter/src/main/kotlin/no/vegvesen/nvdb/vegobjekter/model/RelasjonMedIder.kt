@@ -45,5 +45,8 @@ data class RelasjonMedIder (
 
     @SerialName(value = "listeid") override val listeid: kotlin.Int? = null
 
-) : Relasjon
+) : Relasjon {
+
+
+}
 

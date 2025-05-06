@@ -26,6 +26,7 @@ import kotlinx.serialization.encoding.*
  * 
  *
  * @param veglenkesekvensid 
+ * @param retning 
  * @param veglenkeType 
  * @param detaljnivå 
  * @param typeVeg 
@@ -38,7 +39,6 @@ import kotlinx.serialization.encoding.*
  * @param sluttposisjon 
  * @param relativPosisjon 
  * @param lengde 
- * @param retning 
  * @param kjørefelt 
  * @param sideposisjon 
  * @param feltoversikt 
@@ -55,6 +55,8 @@ data class Vegsegment (
 
     @SerialName(value = "veglenkesekvensid") @Required val veglenkesekvensid: kotlin.Long,
 
+    @SerialName(value = "retning") @Required val retning: Vegsegment.Retning,
+
     @SerialName(value = "veglenkeType") @Required val veglenkeType: Vegsegment.VeglenkeType,
 
     @SerialName(value = "detaljnivå") @Required val detaljnivå: Vegsegment.Detaljnivå,
@@ -63,7 +65,7 @@ data class Vegsegment (
 
     @SerialName(value = "typeVeg_sosi") @Required val typeVegSosi: Vegsegment.TypeVegSosi,
 
-    @SerialName(value = "startdato") @Required val startdato: java.time.LocalDate,
+    @SerialName(value = "startdato") @Required val startdato: kotlinx.datetime.LocalDate,
 
     @SerialName(value = "geometri") @Required val geometri: Geometri,
 
@@ -79,77 +81,85 @@ data class Vegsegment (
 
     @SerialName(value = "lengde") val lengde: kotlin.Double? = null,
 
-    @SerialName(value = "retning") val retning: Vegsegment.Retning? = null,
-
     @SerialName(value = "kjørefelt") val kjørefelt: kotlin.collections.List<kotlin.String>? = null,
 
     @SerialName(value = "sideposisjon") val sideposisjon: Vegsegment.Sideposisjon? = null,
 
     @SerialName(value = "feltoversikt") val feltoversikt: kotlin.collections.List<kotlin.String>? = null,
 
-    @SerialName(value = "sluttdato") val sluttdato: java.time.LocalDate? = null,
+    @SerialName(value = "sluttdato") val sluttdato: kotlinx.datetime.LocalDate? = null,
 
     @SerialName(value = "vegsystemreferanse") val vegsystemreferanse: Vegsystemreferanse? = null,
 
-    @SerialName(value = "kontraktsområder") val kontraktsområder: kotlin.collections.List<kotlin.Long>? = null,
+    @SerialName(value = "kontraktsområder") val kontraktsområder: kotlin.collections.Set<kotlin.Long>? = null,
 
-    @SerialName(value = "riksvegruter") val riksvegruter: kotlin.collections.List<kotlin.Int>? = null,
+    @SerialName(value = "riksvegruter") val riksvegruter: kotlin.collections.Set<kotlin.Int>? = null,
 
-    @SerialName(value = "vegforvaltere") val vegforvaltere: kotlin.collections.List<kotlin.Int>? = null,
+    @SerialName(value = "vegforvaltere") val vegforvaltere: kotlin.collections.Set<kotlin.Int>? = null,
 
-    @SerialName(value = "adresser") val adresser: kotlin.collections.List<kotlin.Long>? = null
+    @SerialName(value = "adresser") val adresser: kotlin.collections.Set<kotlin.Long>? = null
 
 ) {
 
     /**
      * 
      *
-     * Values: ukjent,dETALJERT,kONNEKTERING,dETALJERTKONNEKTERING,hOVED
+     * Values: MED,MOT
+     */
+    @Serializable
+    enum class Retning(val value: kotlin.String) {
+        @SerialName(value = "MED") MED("MED"),
+        @SerialName(value = "MOT") MOT("MOT");
+    }
+    /**
+     * 
+     *
+     * Values: Ukjent,DETALJERT,KONNEKTERING,DETALJERT_KONNEKTERING,HOVED
      */
     @Serializable
     enum class VeglenkeType(val value: kotlin.String) {
-        @SerialName(value = "Ukjent") ukjent("Ukjent"),
-        @SerialName(value = "DETALJERT") dETALJERT("DETALJERT"),
-        @SerialName(value = "KONNEKTERING") kONNEKTERING("KONNEKTERING"),
-        @SerialName(value = "DETALJERT_KONNEKTERING") dETALJERTKONNEKTERING("DETALJERT_KONNEKTERING"),
-        @SerialName(value = "HOVED") hOVED("HOVED");
+        @SerialName(value = "Ukjent") Ukjent("Ukjent"),
+        @SerialName(value = "DETALJERT") DETALJERT("DETALJERT"),
+        @SerialName(value = "KONNEKTERING") KONNEKTERING("KONNEKTERING"),
+        @SerialName(value = "DETALJERT_KONNEKTERING") DETALJERT_KONNEKTERING("DETALJERT_KONNEKTERING"),
+        @SerialName(value = "HOVED") HOVED("HOVED");
     }
     /**
      * 
      *
-     * Values: vegtrase,kjørebane,kjørefelt,vegtraseOgKjørebane
+     * Values: Vegtrase,Kjørebane,Kjørefelt,Vegtrase_og_kjørebane
      */
     @Serializable
     enum class Detaljnivå(val value: kotlin.String) {
-        @SerialName(value = "Vegtrase") vegtrase("Vegtrase"),
-        @SerialName(value = "Kjørebane") kjørebane("Kjørebane"),
-        @SerialName(value = "Kjørefelt") kjørefelt("Kjørefelt"),
-        @SerialName(value = "Vegtrase og kjørebane") vegtraseOgKjørebane("Vegtrase og kjørebane");
+        @SerialName(value = "Vegtrase") Vegtrase("Vegtrase"),
+        @SerialName(value = "Kjørebane") Kjørebane("Kjørebane"),
+        @SerialName(value = "Kjørefelt") Kjørefelt("Kjørefelt"),
+        @SerialName(value = "Vegtrase og kjørebane") Vegtrase_og_kjørebane("Vegtrase og kjørebane");
     }
     /**
      * 
      *
-     * Values: kanalisertVeg,enkelBilveg,rampe,rundkjøring,bilferje,passasjerferje,gangMinusOgSykkelveg,sykkelveg,gangveg,gågate,fortau,trapp,gangfelt,gatetun,traktorveg,sti,annet
+     * Values: Kanalisert_veg,Enkel_bilveg,Rampe,Rundkjøring,Bilferje,Passasjerferje,GangMinus_og_sykkelveg,Sykkelveg,Gangveg,Gågate,Fortau,Trapp,Gangfelt,Gatetun,Traktorveg,Sti,Annet
      */
     @Serializable
     enum class TypeVeg(val value: kotlin.String) {
-        @SerialName(value = "Kanalisert veg") kanalisertVeg("Kanalisert veg"),
-        @SerialName(value = "Enkel bilveg") enkelBilveg("Enkel bilveg"),
-        @SerialName(value = "Rampe") rampe("Rampe"),
-        @SerialName(value = "Rundkjøring") rundkjøring("Rundkjøring"),
-        @SerialName(value = "Bilferje") bilferje("Bilferje"),
-        @SerialName(value = "Passasjerferje") passasjerferje("Passasjerferje"),
-        @SerialName(value = "Gang- og sykkelveg") gangMinusOgSykkelveg("Gang- og sykkelveg"),
-        @SerialName(value = "Sykkelveg") sykkelveg("Sykkelveg"),
-        @SerialName(value = "Gangveg") gangveg("Gangveg"),
-        @SerialName(value = "Gågate") gågate("Gågate"),
-        @SerialName(value = "Fortau") fortau("Fortau"),
-        @SerialName(value = "Trapp") trapp("Trapp"),
-        @SerialName(value = "Gangfelt") gangfelt("Gangfelt"),
-        @SerialName(value = "Gatetun") gatetun("Gatetun"),
-        @SerialName(value = "Traktorveg") traktorveg("Traktorveg"),
-        @SerialName(value = "Sti") sti("Sti"),
-        @SerialName(value = "Annet") annet("Annet");
+        @SerialName(value = "Kanalisert veg") Kanalisert_veg("Kanalisert veg"),
+        @SerialName(value = "Enkel bilveg") Enkel_bilveg("Enkel bilveg"),
+        @SerialName(value = "Rampe") Rampe("Rampe"),
+        @SerialName(value = "Rundkjøring") Rundkjøring("Rundkjøring"),
+        @SerialName(value = "Bilferje") Bilferje("Bilferje"),
+        @SerialName(value = "Passasjerferje") Passasjerferje("Passasjerferje"),
+        @SerialName(value = "Gang- og sykkelveg") GangMinus_og_sykkelveg("Gang- og sykkelveg"),
+        @SerialName(value = "Sykkelveg") Sykkelveg("Sykkelveg"),
+        @SerialName(value = "Gangveg") Gangveg("Gangveg"),
+        @SerialName(value = "Gågate") Gågate("Gågate"),
+        @SerialName(value = "Fortau") Fortau("Fortau"),
+        @SerialName(value = "Trapp") Trapp("Trapp"),
+        @SerialName(value = "Gangfelt") Gangfelt("Gangfelt"),
+        @SerialName(value = "Gatetun") Gatetun("Gatetun"),
+        @SerialName(value = "Traktorveg") Traktorveg("Traktorveg"),
+        @SerialName(value = "Sti") Sti("Sti"),
+        @SerialName(value = "Annet") Annet("Annet");
     }
     /**
      * 
@@ -179,33 +189,24 @@ data class Vegsegment (
     /**
      * 
      *
-     * Values: mED,mOT
-     */
-    @Serializable
-    enum class Retning(val value: kotlin.String) {
-        @SerialName(value = "MED") mED("MED"),
-        @SerialName(value = "MOT") mOT("MOT");
-    }
-    /**
-     * 
-     *
-     * Values: mH,mV,vT,m,h,hT,vH,hV,k,v,l,r,r0
+     * Values: MH,MV,VT,M,H,HT,VH,HV,K,V,L,R,R0
      */
     @Serializable
     enum class Sideposisjon(val value: kotlin.String) {
-        @SerialName(value = "MH") mH("MH"),
-        @SerialName(value = "MV") mV("MV"),
-        @SerialName(value = "VT") vT("VT"),
-        @SerialName(value = "M") m("M"),
-        @SerialName(value = "H") h("H"),
-        @SerialName(value = "HT") hT("HT"),
-        @SerialName(value = "VH") vH("VH"),
-        @SerialName(value = "HV") hV("HV"),
-        @SerialName(value = "K") k("K"),
-        @SerialName(value = "V") v("V"),
-        @SerialName(value = "L") l("L"),
-        @SerialName(value = "R") r("R"),
-        @SerialName(value = "R0") r0("R0");
+        @SerialName(value = "MH") MH("MH"),
+        @SerialName(value = "MV") MV("MV"),
+        @SerialName(value = "VT") VT("VT"),
+        @SerialName(value = "M") M("M"),
+        @SerialName(value = "H") H("H"),
+        @SerialName(value = "HT") HT("HT"),
+        @SerialName(value = "VH") VH("VH"),
+        @SerialName(value = "HV") HV("HV"),
+        @SerialName(value = "K") K("K"),
+        @SerialName(value = "V") V("V"),
+        @SerialName(value = "L") L("L"),
+        @SerialName(value = "R") R("R"),
+        @SerialName(value = "R0") R0("R0");
     }
+
 }
 

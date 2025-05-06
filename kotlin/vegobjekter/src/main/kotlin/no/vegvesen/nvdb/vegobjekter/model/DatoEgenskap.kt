@@ -39,7 +39,10 @@ data class DatoEgenskap (
 
     @SerialName(value = "egenskapstype") @Required override val egenskapstype: DatoEgenskap.Egenskapstype,
 
-    @SerialName(value = "verdi") val verdi: java.time.LocalDate? = null
+    @SerialName(value = "verdi") val verdi: kotlinx.datetime.LocalDate? = null
 
-) : Egenskap
+) : Egenskap {
+
+
+}
 

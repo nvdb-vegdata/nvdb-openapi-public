@@ -48,5 +48,8 @@ data class Veglenkesekvens (
 
     @SerialName(value = "låst_lengde") @Required val låstLengde: kotlin.Boolean
 
-)
+) {
+
+
+}
 

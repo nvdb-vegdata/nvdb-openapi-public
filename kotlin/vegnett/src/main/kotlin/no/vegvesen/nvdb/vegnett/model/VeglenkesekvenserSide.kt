@@ -36,5 +36,8 @@ data class VeglenkesekvenserSide (
 
     @SerialName(value = "metadata") @Required val metadata: SideMetadata
 
-)
+) {
+
+
+}
 

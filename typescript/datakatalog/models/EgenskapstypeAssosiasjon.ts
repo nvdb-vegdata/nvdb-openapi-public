@@ -12,25 +12,28 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime'
+import { mapValues } from '../runtime'
+import type { Viktighet } from './Viktighet'
+import {
+  ViktighetFromJSON,
+  ViktighetFromJSONTyped,
+  ViktighetToJSON,
+  ViktighetToJSONTyped,
+} from './Viktighet'
 import type { Egenskapstype } from './Egenskapstype'
 import {
   EgenskapstypeFromJSON,
   EgenskapstypeFromJSONTyped,
   EgenskapstypeToJSON,
+  EgenskapstypeToJSONTyped,
 } from './Egenskapstype'
 import type { EgenskapstypeEnum } from './EgenskapstypeEnum'
 import {
   EgenskapstypeEnumFromJSON,
   EgenskapstypeEnumFromJSONTyped,
   EgenskapstypeEnumToJSON,
+  EgenskapstypeEnumToJSONTyped,
 } from './EgenskapstypeEnum'
-import type { Viktighet } from './Viktighet'
-import {
-  ViktighetFromJSON,
-  ViktighetFromJSONTyped,
-  ViktighetToJSON,
-} from './Viktighet'
 
 /**
  *
@@ -85,10 +88,10 @@ export interface EgenskapstypeAssosiasjon extends Egenskapstype {
 /**
  * Check if a given object implements the EgenskapstypeAssosiasjon interface.
  */
-export function instanceOfEgenskapstypeAssosiasjon(value: object): boolean {
-  let isInstance = true
-
-  return isInstance
+export function instanceOfEgenskapstypeAssosiasjon(
+  value: object,
+): value is EgenskapstypeAssosiasjon {
+  return true
 }
 
 export function EgenskapstypeAssosiasjonFromJSON(
@@ -101,56 +104,57 @@ export function EgenskapstypeAssosiasjonFromJSONTyped(
   json: any,
   ignoreDiscriminator: boolean,
 ): EgenskapstypeAssosiasjon {
-  if (json === undefined || json === null) {
+  if (json == null) {
     return json
   }
   return {
-    ...EgenskapstypeFromJSONTyped(json, ignoreDiscriminator),
-    tilknytning: !exists(json, 'tilknytning') ? undefined : json['tilknytning'],
-    vegobjekttypeid: !exists(json, 'vegobjekttypeid')
-      ? undefined
-      : json['vegobjekttypeid'],
-    innenforMor: !exists(json, 'innenfor_mor')
-      ? undefined
-      : json['innenfor_mor'],
-    startdato: !exists(json, 'startdato')
-      ? undefined
-      : new Date(json['startdato']),
-    sluttdato: !exists(json, 'sluttdato')
-      ? undefined
-      : new Date(json['sluttdato']),
-    assosiasjonskrav: !exists(json, 'assosiasjonskrav')
-      ? undefined
-      : json['assosiasjonskrav'],
-    assosiasjonskravkommentar: !exists(json, 'assosiasjonskravkommentar')
-      ? undefined
-      : json['assosiasjonskravkommentar'],
+    ...EgenskapstypeFromJSONTyped(json, true),
+    tilknytning: json['tilknytning'] == null ? undefined : json['tilknytning'],
+    vegobjekttypeid:
+      json['vegobjekttypeid'] == null ? undefined : json['vegobjekttypeid'],
+    innenforMor:
+      json['innenfor_mor'] == null ? undefined : json['innenfor_mor'],
+    startdato:
+      json['startdato'] == null ? undefined : new Date(json['startdato']),
+    sluttdato:
+      json['sluttdato'] == null ? undefined : new Date(json['sluttdato']),
+    assosiasjonskrav:
+      json['assosiasjonskrav'] == null ? undefined : json['assosiasjonskrav'],
+    assosiasjonskravkommentar:
+      json['assosiasjonskravkommentar'] == null
+        ? undefined
+        : json['assosiasjonskravkommentar'],
   }
 }
 
 export function EgenskapstypeAssosiasjonToJSON(
+  json: any,
+): EgenskapstypeAssosiasjon {
+  return EgenskapstypeAssosiasjonToJSONTyped(json, false)
+}
+
+export function EgenskapstypeAssosiasjonToJSONTyped(
   value?: EgenskapstypeAssosiasjon | null,
+  ignoreDiscriminator: boolean = false,
 ): any {
-  if (value === undefined) {
-    return undefined
+  if (value == null) {
+    return value
   }
-  if (value === null) {
-    return null
-  }
+
   return {
-    ...EgenskapstypeToJSON(value),
-    tilknytning: value.tilknytning,
-    vegobjekttypeid: value.vegobjekttypeid,
-    innenfor_mor: value.innenforMor,
+    ...EgenskapstypeToJSONTyped(value, true),
+    tilknytning: value['tilknytning'],
+    vegobjekttypeid: value['vegobjekttypeid'],
+    innenfor_mor: value['innenforMor'],
     startdato:
-      value.startdato === undefined
+      value['startdato'] == null
         ? undefined
-        : value.startdato.toISOString().substring(0, 10),
+        : value['startdato'].toISOString().substring(0, 10),
     sluttdato:
-      value.sluttdato === undefined
+      value['sluttdato'] == null
         ? undefined
-        : value.sluttdato.toISOString().substring(0, 10),
-    assosiasjonskrav: value.assosiasjonskrav,
-    assosiasjonskravkommentar: value.assosiasjonskravkommentar,
+        : value['sluttdato'].toISOString().substring(0, 10),
+    assosiasjonskrav: value['assosiasjonskrav'],
+    assosiasjonskravkommentar: value['assosiasjonskravkommentar'],
   }
 }

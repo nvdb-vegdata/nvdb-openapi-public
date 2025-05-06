@@ -12,39 +12,118 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime'
-import type { EgenskapstypeEnum } from './EgenskapstypeEnum'
-import {
-  EgenskapstypeEnumFromJSON,
-  EgenskapstypeEnumFromJSONTyped,
-  EgenskapstypeEnumToJSON,
-} from './EgenskapstypeEnum'
+import { mapValues } from '../runtime'
 import type { Viktighet } from './Viktighet'
 import {
   ViktighetFromJSON,
   ViktighetFromJSONTyped,
   ViktighetToJSON,
+  ViktighetToJSONTyped,
 } from './Viktighet'
+import type { EgenskapstypeEnum } from './EgenskapstypeEnum'
+import {
+  EgenskapstypeEnumFromJSON,
+  EgenskapstypeEnumFromJSONTyped,
+  EgenskapstypeEnumToJSON,
+  EgenskapstypeEnumToJSONTyped,
+} from './EgenskapstypeEnum'
 
 import {
+  EgenskapstypeAssosiasjon,
   EgenskapstypeAssosiasjonFromJSONTyped,
+  EgenskapstypeAssosiasjonToJSON,
+  EgenskapstypeAssosiasjonToJSONTyped,
+} from './EgenskapstypeAssosiasjon'
+import {
+  EgenskapstypeBinaer,
   EgenskapstypeBinaerFromJSONTyped,
+  EgenskapstypeBinaerToJSON,
+  EgenskapstypeBinaerToJSONTyped,
+} from './EgenskapstypeBinaer'
+import {
+  EgenskapstypeBoolsk,
   EgenskapstypeBoolskFromJSONTyped,
+  EgenskapstypeBoolskToJSON,
+  EgenskapstypeBoolskToJSONTyped,
+} from './EgenskapstypeBoolsk'
+import {
+  EgenskapstypeDato,
   EgenskapstypeDatoFromJSONTyped,
+  EgenskapstypeDatoToJSON,
+  EgenskapstypeDatoToJSONTyped,
+} from './EgenskapstypeDato'
+import {
+  EgenskapstypeFlyttall,
   EgenskapstypeFlyttallFromJSONTyped,
+  EgenskapstypeFlyttallToJSON,
+  EgenskapstypeFlyttallToJSONTyped,
+} from './EgenskapstypeFlyttall'
+import {
+  EgenskapstypeFlyttallenum,
   EgenskapstypeFlyttallenumFromJSONTyped,
+  EgenskapstypeFlyttallenumToJSON,
+  EgenskapstypeFlyttallenumToJSONTyped,
+} from './EgenskapstypeFlyttallenum'
+import {
+  EgenskapstypeGeometri,
   EgenskapstypeGeometriFromJSONTyped,
+  EgenskapstypeGeometriToJSON,
+  EgenskapstypeGeometriToJSONTyped,
+} from './EgenskapstypeGeometri'
+import {
+  EgenskapstypeHeltall,
   EgenskapstypeHeltallFromJSONTyped,
+  EgenskapstypeHeltallToJSON,
+  EgenskapstypeHeltallToJSONTyped,
+} from './EgenskapstypeHeltall'
+import {
+  EgenskapstypeHeltallenum,
   EgenskapstypeHeltallenumFromJSONTyped,
+  EgenskapstypeHeltallenumToJSON,
+  EgenskapstypeHeltallenumToJSONTyped,
+} from './EgenskapstypeHeltallenum'
+import {
+  EgenskapstypeKortdato,
   EgenskapstypeKortdatoFromJSONTyped,
+  EgenskapstypeKortdatoToJSON,
+  EgenskapstypeKortdatoToJSONTyped,
+} from './EgenskapstypeKortdato'
+import {
+  EgenskapstypeListe,
   EgenskapstypeListeFromJSONTyped,
+  EgenskapstypeListeToJSON,
+  EgenskapstypeListeToJSONTyped,
+} from './EgenskapstypeListe'
+import {
+  EgenskapstypeStedfesting,
   EgenskapstypeStedfestingFromJSONTyped,
+  EgenskapstypeStedfestingToJSON,
+  EgenskapstypeStedfestingToJSONTyped,
+} from './EgenskapstypeStedfesting'
+import {
+  EgenskapstypeStruktur,
   EgenskapstypeStrukturFromJSONTyped,
+  EgenskapstypeStrukturToJSON,
+  EgenskapstypeStrukturToJSONTyped,
+} from './EgenskapstypeStruktur'
+import {
+  EgenskapstypeTekst,
   EgenskapstypeTekstFromJSONTyped,
+  EgenskapstypeTekstToJSON,
+  EgenskapstypeTekstToJSONTyped,
+} from './EgenskapstypeTekst'
+import {
+  EgenskapstypeTekstenum,
   EgenskapstypeTekstenumFromJSONTyped,
+  EgenskapstypeTekstenumToJSON,
+  EgenskapstypeTekstenumToJSONTyped,
+} from './EgenskapstypeTekstenum'
+import {
+  EgenskapstypeTid,
   EgenskapstypeTidFromJSONTyped,
-} from './index'
-
+  EgenskapstypeTidToJSON,
+  EgenskapstypeTidToJSONTyped,
+} from './EgenskapstypeTid'
 /**
  *
  * @export
@@ -200,23 +279,45 @@ export interface Egenskapstype {
 /**
  * Check if a given object implements the Egenskapstype interface.
  */
-export function instanceOfEgenskapstype(value: object): boolean {
-  let isInstance = true
-  isInstance = isInstance && 'id' in value
-  isInstance = isInstance && 'egenskapstype' in value
-  isInstance = isInstance && 'obligatoriskVerdi' in value
-  isInstance = isInstance && 'skrivebeskyttet' in value
-  isInstance = isInstance && 'sensitivitet' in value
-  isInstance = isInstance && 'hydereferanseTall' in value
-  isInstance = isInstance && 'nyaktighetskravGrunnriss' in value
-  isInstance = isInstance && 'nyaktighetskravHyde' in value
-  isInstance = isInstance && 'referansegeometriTilstrekkelig' in value
-  isInstance = isInstance && 'viktighet' in value
-  isInstance = isInstance && 'kategori' in value
-  isInstance = isInstance && 'sorteringsnummer' in value
-  isInstance = isInstance && 'avledet' in value
-
-  return isInstance
+export function instanceOfEgenskapstype(value: object): value is Egenskapstype {
+  if (!('id' in value) || value['id'] === undefined) return false
+  if (!('egenskapstype' in value) || value['egenskapstype'] === undefined)
+    return false
+  if (
+    !('obligatoriskVerdi' in value) ||
+    value['obligatoriskVerdi'] === undefined
+  )
+    return false
+  if (!('skrivebeskyttet' in value) || value['skrivebeskyttet'] === undefined)
+    return false
+  if (!('sensitivitet' in value) || value['sensitivitet'] === undefined)
+    return false
+  if (
+    !('hydereferanseTall' in value) ||
+    value['hydereferanseTall'] === undefined
+  )
+    return false
+  if (
+    !('nyaktighetskravGrunnriss' in value) ||
+    value['nyaktighetskravGrunnriss'] === undefined
+  )
+    return false
+  if (
+    !('nyaktighetskravHyde' in value) ||
+    value['nyaktighetskravHyde'] === undefined
+  )
+    return false
+  if (
+    !('referansegeometriTilstrekkelig' in value) ||
+    value['referansegeometriTilstrekkelig'] === undefined
+  )
+    return false
+  if (!('viktighet' in value) || value['viktighet'] === undefined) return false
+  if (!('kategori' in value) || value['kategori'] === undefined) return false
+  if (!('sorteringsnummer' in value) || value['sorteringsnummer'] === undefined)
+    return false
+  if (!('avledet' in value) || value['avledet'] === undefined) return false
+  return true
 }
 
 export function EgenskapstypeFromJSON(json: any): Egenskapstype {
@@ -227,130 +328,222 @@ export function EgenskapstypeFromJSONTyped(
   json: any,
   ignoreDiscriminator: boolean,
 ): Egenskapstype {
-  if (json === undefined || json === null) {
+  if (json == null) {
     return json
   }
   if (!ignoreDiscriminator) {
     if (json['egenskapstype'] === 'Assosiasjon') {
-      return EgenskapstypeAssosiasjonFromJSONTyped(json, true)
+      return EgenskapstypeAssosiasjonFromJSONTyped(json, ignoreDiscriminator)
     }
     if (json['egenskapstype'] === 'Binær') {
-      return EgenskapstypeBinaerFromJSONTyped(json, true)
+      return EgenskapstypeBinaerFromJSONTyped(json, ignoreDiscriminator)
     }
     if (json['egenskapstype'] === 'Boolsk') {
-      return EgenskapstypeBoolskFromJSONTyped(json, true)
+      return EgenskapstypeBoolskFromJSONTyped(json, ignoreDiscriminator)
     }
     if (json['egenskapstype'] === 'Dato') {
-      return EgenskapstypeDatoFromJSONTyped(json, true)
+      return EgenskapstypeDatoFromJSONTyped(json, ignoreDiscriminator)
     }
     if (json['egenskapstype'] === 'Flyttall') {
-      return EgenskapstypeFlyttallFromJSONTyped(json, true)
+      return EgenskapstypeFlyttallFromJSONTyped(json, ignoreDiscriminator)
     }
     if (json['egenskapstype'] === 'Flyttallenum') {
-      return EgenskapstypeFlyttallenumFromJSONTyped(json, true)
+      return EgenskapstypeFlyttallenumFromJSONTyped(json, ignoreDiscriminator)
     }
     if (json['egenskapstype'] === 'Geometri') {
-      return EgenskapstypeGeometriFromJSONTyped(json, true)
+      return EgenskapstypeGeometriFromJSONTyped(json, ignoreDiscriminator)
     }
     if (json['egenskapstype'] === 'Heltall') {
-      return EgenskapstypeHeltallFromJSONTyped(json, true)
+      return EgenskapstypeHeltallFromJSONTyped(json, ignoreDiscriminator)
     }
     if (json['egenskapstype'] === 'Heltallenum') {
-      return EgenskapstypeHeltallenumFromJSONTyped(json, true)
+      return EgenskapstypeHeltallenumFromJSONTyped(json, ignoreDiscriminator)
     }
     if (json['egenskapstype'] === 'Kortdato') {
-      return EgenskapstypeKortdatoFromJSONTyped(json, true)
+      return EgenskapstypeKortdatoFromJSONTyped(json, ignoreDiscriminator)
     }
     if (json['egenskapstype'] === 'Liste') {
-      return EgenskapstypeListeFromJSONTyped(json, true)
+      return EgenskapstypeListeFromJSONTyped(json, ignoreDiscriminator)
     }
     if (json['egenskapstype'] === 'Stedfesting') {
-      return EgenskapstypeStedfestingFromJSONTyped(json, true)
+      return EgenskapstypeStedfestingFromJSONTyped(json, ignoreDiscriminator)
     }
     if (json['egenskapstype'] === 'Struktur') {
-      return EgenskapstypeStrukturFromJSONTyped(json, true)
+      return EgenskapstypeStrukturFromJSONTyped(json, ignoreDiscriminator)
     }
     if (json['egenskapstype'] === 'Tekst') {
-      return EgenskapstypeTekstFromJSONTyped(json, true)
+      return EgenskapstypeTekstFromJSONTyped(json, ignoreDiscriminator)
     }
     if (json['egenskapstype'] === 'Tekstenum') {
-      return EgenskapstypeTekstenumFromJSONTyped(json, true)
+      return EgenskapstypeTekstenumFromJSONTyped(json, ignoreDiscriminator)
     }
     if (json['egenskapstype'] === 'Tid') {
-      return EgenskapstypeTidFromJSONTyped(json, true)
+      return EgenskapstypeTidFromJSONTyped(json, ignoreDiscriminator)
     }
   }
   return {
     id: json['id'],
-    navn: !exists(json, 'navn') ? undefined : json['navn'],
+    navn: json['navn'] == null ? undefined : json['navn'],
     egenskapstype: EgenskapstypeEnumFromJSON(json['egenskapstype']),
     obligatoriskVerdi: json['obligatorisk_verdi'],
     skrivebeskyttet: json['skrivebeskyttet'],
     sensitivitet: json['sensitivitet'],
-    gruppesorteringsnummer: !exists(json, 'gruppesorteringsnummer')
-      ? undefined
-      : json['gruppesorteringsnummer'],
-    veiledning: !exists(json, 'veiledning') ? undefined : json['veiledning'],
-    grunnrissreferanse: !exists(json, 'grunnrissreferanse')
-      ? undefined
-      : json['grunnrissreferanse'],
-    hydereferanse: !exists(json, 'høydereferanse')
-      ? undefined
-      : json['høydereferanse'],
+    gruppesorteringsnummer:
+      json['gruppesorteringsnummer'] == null
+        ? undefined
+        : json['gruppesorteringsnummer'],
+    veiledning: json['veiledning'] == null ? undefined : json['veiledning'],
+    grunnrissreferanse:
+      json['grunnrissreferanse'] == null
+        ? undefined
+        : json['grunnrissreferanse'],
+    hydereferanse:
+      json['høydereferanse'] == null ? undefined : json['høydereferanse'],
     hydereferanseTall: json['høydereferanse_tall'],
     nyaktighetskravGrunnriss: json['nøyaktighetskrav_grunnriss'],
     nyaktighetskravHyde: json['nøyaktighetskrav_høyde'],
-    sosiReferanse: !exists(json, 'sosi_referanse')
-      ? undefined
-      : json['sosi_referanse'],
+    sosiReferanse:
+      json['sosi_referanse'] == null ? undefined : json['sosi_referanse'],
     referansegeometriTilstrekkelig: json['referansegeometri_tilstrekkelig'],
     viktighet: ViktighetFromJSON(json['viktighet']),
     kategori: json['kategori'],
-    komplementrEgenskapstype: !exists(json, 'komplementær_egenskapstype')
-      ? undefined
-      : json['komplementær_egenskapstype'],
-    kortnavn: !exists(json, 'kortnavn') ? undefined : json['kortnavn'],
-    beskrivelse: !exists(json, 'beskrivelse') ? undefined : json['beskrivelse'],
-    sosinavn: !exists(json, 'sosinavn') ? undefined : json['sosinavn'],
-    sosinvdbnavn: !exists(json, 'sosinvdbnavn')
-      ? undefined
-      : json['sosinvdbnavn'],
+    komplementrEgenskapstype:
+      json['komplementær_egenskapstype'] == null
+        ? undefined
+        : json['komplementær_egenskapstype'],
+    kortnavn: json['kortnavn'] == null ? undefined : json['kortnavn'],
+    beskrivelse: json['beskrivelse'] == null ? undefined : json['beskrivelse'],
+    sosinavn: json['sosinavn'] == null ? undefined : json['sosinavn'],
+    sosinvdbnavn:
+      json['sosinvdbnavn'] == null ? undefined : json['sosinvdbnavn'],
     sorteringsnummer: json['sorteringsnummer'],
     avledet: json['avledet'],
   }
 }
 
-export function EgenskapstypeToJSON(value?: Egenskapstype | null): any {
-  if (value === undefined) {
-    return undefined
+export function EgenskapstypeToJSON(json: any): Egenskapstype {
+  return EgenskapstypeToJSONTyped(json, false)
+}
+
+export function EgenskapstypeToJSONTyped(
+  value?: Egenskapstype | null,
+  ignoreDiscriminator: boolean = false,
+): any {
+  if (value == null) {
+    return value
   }
-  if (value === null) {
-    return null
+
+  if (!ignoreDiscriminator) {
+    switch (value['egenskapstype']) {
+      case 'Assosiasjon':
+        return EgenskapstypeAssosiasjonToJSONTyped(
+          value as EgenskapstypeAssosiasjon,
+          ignoreDiscriminator,
+        )
+      case 'Binær':
+        return EgenskapstypeBinaerToJSONTyped(
+          value as EgenskapstypeBinaer,
+          ignoreDiscriminator,
+        )
+      case 'Boolsk':
+        return EgenskapstypeBoolskToJSONTyped(
+          value as EgenskapstypeBoolsk,
+          ignoreDiscriminator,
+        )
+      case 'Dato':
+        return EgenskapstypeDatoToJSONTyped(
+          value as EgenskapstypeDato,
+          ignoreDiscriminator,
+        )
+      case 'Flyttall':
+        return EgenskapstypeFlyttallToJSONTyped(
+          value as EgenskapstypeFlyttall,
+          ignoreDiscriminator,
+        )
+      case 'Flyttallenum':
+        return EgenskapstypeFlyttallenumToJSONTyped(
+          value as EgenskapstypeFlyttallenum,
+          ignoreDiscriminator,
+        )
+      case 'Geometri':
+        return EgenskapstypeGeometriToJSONTyped(
+          value as EgenskapstypeGeometri,
+          ignoreDiscriminator,
+        )
+      case 'Heltall':
+        return EgenskapstypeHeltallToJSONTyped(
+          value as EgenskapstypeHeltall,
+          ignoreDiscriminator,
+        )
+      case 'Heltallenum':
+        return EgenskapstypeHeltallenumToJSONTyped(
+          value as EgenskapstypeHeltallenum,
+          ignoreDiscriminator,
+        )
+      case 'Kortdato':
+        return EgenskapstypeKortdatoToJSONTyped(
+          value as EgenskapstypeKortdato,
+          ignoreDiscriminator,
+        )
+      case 'Liste':
+        return EgenskapstypeListeToJSONTyped(
+          value as EgenskapstypeListe,
+          ignoreDiscriminator,
+        )
+      case 'Stedfesting':
+        return EgenskapstypeStedfestingToJSONTyped(
+          value as EgenskapstypeStedfesting,
+          ignoreDiscriminator,
+        )
+      case 'Struktur':
+        return EgenskapstypeStrukturToJSONTyped(
+          value as EgenskapstypeStruktur,
+          ignoreDiscriminator,
+        )
+      case 'Tekst':
+        return EgenskapstypeTekstToJSONTyped(
+          value as EgenskapstypeTekst,
+          ignoreDiscriminator,
+        )
+      case 'Tekstenum':
+        return EgenskapstypeTekstenumToJSONTyped(
+          value as EgenskapstypeTekstenum,
+          ignoreDiscriminator,
+        )
+      case 'Tid':
+        return EgenskapstypeTidToJSONTyped(
+          value as EgenskapstypeTid,
+          ignoreDiscriminator,
+        )
+      default:
+        return value
+    }
   }
+
   return {
-    id: value.id,
-    navn: value.navn,
-    egenskapstype: EgenskapstypeEnumToJSON(value.egenskapstype),
-    obligatorisk_verdi: value.obligatoriskVerdi,
-    skrivebeskyttet: value.skrivebeskyttet,
-    sensitivitet: value.sensitivitet,
-    gruppesorteringsnummer: value.gruppesorteringsnummer,
-    veiledning: value.veiledning,
-    grunnrissreferanse: value.grunnrissreferanse,
-    høydereferanse: value.hydereferanse,
-    høydereferanse_tall: value.hydereferanseTall,
-    nøyaktighetskrav_grunnriss: value.nyaktighetskravGrunnriss,
-    nøyaktighetskrav_høyde: value.nyaktighetskravHyde,
-    sosi_referanse: value.sosiReferanse,
-    referansegeometri_tilstrekkelig: value.referansegeometriTilstrekkelig,
-    viktighet: ViktighetToJSON(value.viktighet),
-    kategori: value.kategori,
-    komplementær_egenskapstype: value.komplementrEgenskapstype,
-    kortnavn: value.kortnavn,
-    beskrivelse: value.beskrivelse,
-    sosinavn: value.sosinavn,
-    sosinvdbnavn: value.sosinvdbnavn,
-    sorteringsnummer: value.sorteringsnummer,
-    avledet: value.avledet,
+    id: value['id'],
+    navn: value['navn'],
+    egenskapstype: EgenskapstypeEnumToJSON(value['egenskapstype']),
+    obligatorisk_verdi: value['obligatoriskVerdi'],
+    skrivebeskyttet: value['skrivebeskyttet'],
+    sensitivitet: value['sensitivitet'],
+    gruppesorteringsnummer: value['gruppesorteringsnummer'],
+    veiledning: value['veiledning'],
+    grunnrissreferanse: value['grunnrissreferanse'],
+    høydereferanse: value['hydereferanse'],
+    høydereferanse_tall: value['hydereferanseTall'],
+    nøyaktighetskrav_grunnriss: value['nyaktighetskravGrunnriss'],
+    nøyaktighetskrav_høyde: value['nyaktighetskravHyde'],
+    sosi_referanse: value['sosiReferanse'],
+    referansegeometri_tilstrekkelig: value['referansegeometriTilstrekkelig'],
+    viktighet: ViktighetToJSON(value['viktighet']),
+    kategori: value['kategori'],
+    komplementær_egenskapstype: value['komplementrEgenskapstype'],
+    kortnavn: value['kortnavn'],
+    beskrivelse: value['beskrivelse'],
+    sosinavn: value['sosinavn'],
+    sosinvdbnavn: value['sosinvdbnavn'],
+    sorteringsnummer: value['sorteringsnummer'],
+    avledet: value['avledet'],
   }
 }

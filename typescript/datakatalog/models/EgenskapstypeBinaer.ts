@@ -12,25 +12,28 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime'
+import { mapValues } from '../runtime'
+import type { Viktighet } from './Viktighet'
+import {
+  ViktighetFromJSON,
+  ViktighetFromJSONTyped,
+  ViktighetToJSON,
+  ViktighetToJSONTyped,
+} from './Viktighet'
 import type { Egenskapstype } from './Egenskapstype'
 import {
   EgenskapstypeFromJSON,
   EgenskapstypeFromJSONTyped,
   EgenskapstypeToJSON,
+  EgenskapstypeToJSONTyped,
 } from './Egenskapstype'
 import type { EgenskapstypeEnum } from './EgenskapstypeEnum'
 import {
   EgenskapstypeEnumFromJSON,
   EgenskapstypeEnumFromJSONTyped,
   EgenskapstypeEnumToJSON,
+  EgenskapstypeEnumToJSONTyped,
 } from './EgenskapstypeEnum'
-import type { Viktighet } from './Viktighet'
-import {
-  ViktighetFromJSON,
-  ViktighetFromJSONTyped,
-  ViktighetToJSON,
-} from './Viktighet'
 
 /**
  *
@@ -87,13 +90,18 @@ export type EgenskapstypeBinaerMediatypeEnum =
 /**
  * Check if a given object implements the EgenskapstypeBinaer interface.
  */
-export function instanceOfEgenskapstypeBinaer(value: object): boolean {
-  let isInstance = true
-  isInstance = isInstance && 'lengdeavhengigVerdi' in value
-  isInstance = isInstance && 'ajourholdSnu' in value
-  isInstance = isInstance && 'mediatype' in value
-
-  return isInstance
+export function instanceOfEgenskapstypeBinaer(
+  value: object,
+): value is EgenskapstypeBinaer {
+  if (
+    !('lengdeavhengigVerdi' in value) ||
+    value['lengdeavhengigVerdi'] === undefined
+  )
+    return false
+  if (!('ajourholdSnu' in value) || value['ajourholdSnu'] === undefined)
+    return false
+  if (!('mediatype' in value) || value['mediatype'] === undefined) return false
+  return true
 }
 
 export function EgenskapstypeBinaerFromJSON(json: any): EgenskapstypeBinaer {
@@ -104,44 +112,47 @@ export function EgenskapstypeBinaerFromJSONTyped(
   json: any,
   ignoreDiscriminator: boolean,
 ): EgenskapstypeBinaer {
-  if (json === undefined || json === null) {
+  if (json == null) {
     return json
   }
   return {
-    ...EgenskapstypeFromJSONTyped(json, ignoreDiscriminator),
-    objektlisteDato: !exists(json, 'objektliste_dato')
-      ? undefined
-      : new Date(json['objektliste_dato']),
-    sluttDato: !exists(json, 'slutt_dato')
-      ? undefined
-      : new Date(json['slutt_dato']),
+    ...EgenskapstypeFromJSONTyped(json, true),
+    objektlisteDato:
+      json['objektliste_dato'] == null
+        ? undefined
+        : new Date(json['objektliste_dato']),
+    sluttDato:
+      json['slutt_dato'] == null ? undefined : new Date(json['slutt_dato']),
     lengdeavhengigVerdi: json['lengdeavhengig_verdi'],
     ajourholdSnu: json['ajourhold_snu'],
     mediatype: json['mediatype'],
   }
 }
 
-export function EgenskapstypeBinaerToJSON(
+export function EgenskapstypeBinaerToJSON(json: any): EgenskapstypeBinaer {
+  return EgenskapstypeBinaerToJSONTyped(json, false)
+}
+
+export function EgenskapstypeBinaerToJSONTyped(
   value?: EgenskapstypeBinaer | null,
+  ignoreDiscriminator: boolean = false,
 ): any {
-  if (value === undefined) {
-    return undefined
+  if (value == null) {
+    return value
   }
-  if (value === null) {
-    return null
-  }
+
   return {
-    ...EgenskapstypeToJSON(value),
+    ...EgenskapstypeToJSONTyped(value, true),
     objektliste_dato:
-      value.objektlisteDato === undefined
+      value['objektlisteDato'] == null
         ? undefined
-        : value.objektlisteDato.toISOString().substring(0, 10),
+        : value['objektlisteDato'].toISOString().substring(0, 10),
     slutt_dato:
-      value.sluttDato === undefined
+      value['sluttDato'] == null
         ? undefined
-        : value.sluttDato.toISOString().substring(0, 10),
-    lengdeavhengig_verdi: value.lengdeavhengigVerdi,
-    ajourhold_snu: value.ajourholdSnu,
-    mediatype: value.mediatype,
+        : value['sluttDato'].toISOString().substring(0, 10),
+    lengdeavhengig_verdi: value['lengdeavhengigVerdi'],
+    ajourhold_snu: value['ajourholdSnu'],
+    mediatype: value['mediatype'],
   }
 }

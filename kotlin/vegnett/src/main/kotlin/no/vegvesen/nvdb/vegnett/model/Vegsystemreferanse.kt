@@ -47,5 +47,8 @@ data class Vegsystemreferanse (
 
     @SerialName(value = "kortform") val kortform: kotlin.String? = null
 
-)
+) {
+
+
+}
 

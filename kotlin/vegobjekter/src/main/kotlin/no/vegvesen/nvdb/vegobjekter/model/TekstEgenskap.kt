@@ -41,5 +41,8 @@ data class TekstEgenskap (
 
     @SerialName(value = "verdi") val verdi: kotlin.String? = null
 
-) : Egenskap
+) : Egenskap {
+
+
+}
 

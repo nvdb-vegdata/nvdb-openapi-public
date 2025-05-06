@@ -38,5 +38,8 @@ data class Veglenkeport (
 
     @SerialName(value = "tilkobling") @Required val tilkobling: VeglenkeportTilkobling
 
-)
+) {
+
+
+}
 

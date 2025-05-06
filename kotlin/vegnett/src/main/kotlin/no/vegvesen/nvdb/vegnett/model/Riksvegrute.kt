@@ -34,5 +34,8 @@ data class Riksvegrute (
 
     @SerialName(value = "riksvegrute") @Required val riksvegrute: kotlin.String
 
-)
+) {
+
+
+}
 

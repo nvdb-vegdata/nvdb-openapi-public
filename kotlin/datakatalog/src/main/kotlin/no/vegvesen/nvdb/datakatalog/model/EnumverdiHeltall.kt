@@ -16,9 +16,7 @@
 package no.vegvesen.nvdb.datakatalog.model
 
 
-import kotlinx.serialization.*
-import kotlinx.serialization.descriptors.*
-import kotlinx.serialization.encoding.*
+import com.fasterxml.jackson.annotation.JsonProperty
 
 /**
  * 
@@ -36,33 +34,48 @@ import kotlinx.serialization.encoding.*
  * @param komplementærEnumverdi 
  * @param verdi 
  */
-@Serializable
+
 
 data class EnumverdiHeltall (
 
-    @SerialName(value = "id") @Required val id: kotlin.Int,
+    @get:JsonProperty("id")
+    val id: kotlin.Int,
 
-    @SerialName(value = "kortnavn_brukbar") @Required val kortnavnBrukbar: kotlin.Boolean,
+    @get:JsonProperty("kortnavn_brukbar")
+    val kortnavnBrukbar: kotlin.Boolean,
 
-    @SerialName(value = "sorteringsnummer") @Required val sorteringsnummer: kotlin.Int,
+    @get:JsonProperty("sorteringsnummer")
+    val sorteringsnummer: kotlin.Int,
 
-    @SerialName(value = "standardverdi") @Required val standardverdi: kotlin.Boolean,
+    @get:JsonProperty("standardverdi")
+    val standardverdi: kotlin.Boolean,
 
-    @SerialName(value = "type") @Required val type: kotlin.String,
+    @get:JsonProperty("type")
+    val type: kotlin.String,
 
-    @SerialName(value = "kortnavn") val kortnavn: kotlin.String? = null,
+    @get:JsonProperty("kortnavn")
+    val kortnavn: kotlin.String? = null,
 
-    @SerialName(value = "kortnavnlengde") val kortnavnlengde: kotlin.Int? = null,
+    @get:JsonProperty("kortnavnlengde")
+    val kortnavnlengde: kotlin.Int? = null,
 
-    @SerialName(value = "beskrivelse") val beskrivelse: kotlin.String? = null,
+    @get:JsonProperty("beskrivelse")
+    val beskrivelse: kotlin.String? = null,
 
-    @SerialName(value = "objektliste_dato") val objektlisteDato: java.time.LocalDate? = null,
+    @get:JsonProperty("objektliste_dato")
+    val objektlisteDato: java.time.LocalDate? = null,
 
-    @SerialName(value = "sluttdato") val sluttdato: java.time.LocalDate? = null,
+    @get:JsonProperty("sluttdato")
+    val sluttdato: java.time.LocalDate? = null,
 
-    @SerialName(value = "komplementær_enumverdi") val komplementærEnumverdi: kotlin.Int? = null,
+    @get:JsonProperty("komplementær_enumverdi")
+    val komplementærEnumverdi: kotlin.Int? = null,
 
-    @SerialName(value = "verdi") val verdi: kotlin.Int? = null
+    @get:JsonProperty("verdi")
+    val verdi: kotlin.Int? = null
 
-)
+) {
+
+
+}
 

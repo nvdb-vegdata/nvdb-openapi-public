@@ -41,57 +41,69 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
   EnumverdiHeltall.JSON_PROPERTY_VERDI,
   EnumverdiHeltall.JSON_PROPERTY_TYPE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.13.0")
 public class EnumverdiHeltall {
   public static final String JSON_PROPERTY_ID = "id";
+  @javax.annotation.Nonnull
   private Integer id;
 
   public static final String JSON_PROPERTY_KORTNAVN = "kortnavn";
+  @javax.annotation.Nullable
   private String kortnavn;
 
   public static final String JSON_PROPERTY_KORTNAVNLENGDE = "kortnavnlengde";
+  @javax.annotation.Nullable
   private Integer kortnavnlengde;
 
   public static final String JSON_PROPERTY_KORTNAVN_BRUKBAR = "kortnavn_brukbar";
+  @javax.annotation.Nonnull
   private Boolean kortnavnBrukbar;
 
   public static final String JSON_PROPERTY_BESKRIVELSE = "beskrivelse";
+  @javax.annotation.Nullable
   private String beskrivelse;
 
   public static final String JSON_PROPERTY_SORTERINGSNUMMER = "sorteringsnummer";
+  @javax.annotation.Nonnull
   private Integer sorteringsnummer;
 
   public static final String JSON_PROPERTY_OBJEKTLISTE_DATO = "objektliste_dato";
+  @javax.annotation.Nullable
   private LocalDate objektlisteDato;
 
   public static final String JSON_PROPERTY_SLUTTDATO = "sluttdato";
+  @javax.annotation.Nullable
   private LocalDate sluttdato;
 
   public static final String JSON_PROPERTY_STANDARDVERDI = "standardverdi";
+  @javax.annotation.Nonnull
   private Boolean standardverdi;
 
   public static final String JSON_PROPERTY_KOMPLEMENTæR_ENUMVERDI = "komplementær_enumverdi";
+  @javax.annotation.Nullable
   private Integer komplementærEnumverdi;
 
   public static final String JSON_PROPERTY_VERDI = "verdi";
+  @javax.annotation.Nullable
   private Integer verdi;
 
   public static final String JSON_PROPERTY_TYPE = "type";
+  @javax.annotation.Nonnull
   private String type;
 
   public EnumverdiHeltall() {
   }
 
-  public EnumverdiHeltall id(Integer id) {
+  public EnumverdiHeltall id(@javax.annotation.Nonnull Integer id) {
     
     this.id = id;
     return this;
   }
 
-   /**
+  /**
    * Get id
    * @return id
-  **/
+   */
   @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -103,21 +115,20 @@ public class EnumverdiHeltall {
 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setId(Integer id) {
+  public void setId(@javax.annotation.Nonnull Integer id) {
     this.id = id;
   }
 
-
-  public EnumverdiHeltall kortnavn(String kortnavn) {
+  public EnumverdiHeltall kortnavn(@javax.annotation.Nullable String kortnavn) {
     
     this.kortnavn = kortnavn;
     return this;
   }
 
-   /**
+  /**
    * Get kortnavn
    * @return kortnavn
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_KORTNAVN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -129,21 +140,20 @@ public class EnumverdiHeltall {
 
   @JsonProperty(JSON_PROPERTY_KORTNAVN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setKortnavn(String kortnavn) {
+  public void setKortnavn(@javax.annotation.Nullable String kortnavn) {
     this.kortnavn = kortnavn;
   }
 
-
-  public EnumverdiHeltall kortnavnlengde(Integer kortnavnlengde) {
+  public EnumverdiHeltall kortnavnlengde(@javax.annotation.Nullable Integer kortnavnlengde) {
     
     this.kortnavnlengde = kortnavnlengde;
     return this;
   }
 
-   /**
+  /**
    * Get kortnavnlengde
    * @return kortnavnlengde
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_KORTNAVNLENGDE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -155,21 +165,20 @@ public class EnumverdiHeltall {
 
   @JsonProperty(JSON_PROPERTY_KORTNAVNLENGDE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setKortnavnlengde(Integer kortnavnlengde) {
+  public void setKortnavnlengde(@javax.annotation.Nullable Integer kortnavnlengde) {
     this.kortnavnlengde = kortnavnlengde;
   }
 
-
-  public EnumverdiHeltall kortnavnBrukbar(Boolean kortnavnBrukbar) {
+  public EnumverdiHeltall kortnavnBrukbar(@javax.annotation.Nonnull Boolean kortnavnBrukbar) {
     
     this.kortnavnBrukbar = kortnavnBrukbar;
     return this;
   }
 
-   /**
+  /**
    * Get kortnavnBrukbar
    * @return kortnavnBrukbar
-  **/
+   */
   @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_KORTNAVN_BRUKBAR)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -181,21 +190,20 @@ public class EnumverdiHeltall {
 
   @JsonProperty(JSON_PROPERTY_KORTNAVN_BRUKBAR)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setKortnavnBrukbar(Boolean kortnavnBrukbar) {
+  public void setKortnavnBrukbar(@javax.annotation.Nonnull Boolean kortnavnBrukbar) {
     this.kortnavnBrukbar = kortnavnBrukbar;
   }
 
-
-  public EnumverdiHeltall beskrivelse(String beskrivelse) {
+  public EnumverdiHeltall beskrivelse(@javax.annotation.Nullable String beskrivelse) {
     
     this.beskrivelse = beskrivelse;
     return this;
   }
 
-   /**
+  /**
    * Get beskrivelse
    * @return beskrivelse
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_BESKRIVELSE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -207,21 +215,20 @@ public class EnumverdiHeltall {
 
   @JsonProperty(JSON_PROPERTY_BESKRIVELSE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setBeskrivelse(String beskrivelse) {
+  public void setBeskrivelse(@javax.annotation.Nullable String beskrivelse) {
     this.beskrivelse = beskrivelse;
   }
 
-
-  public EnumverdiHeltall sorteringsnummer(Integer sorteringsnummer) {
+  public EnumverdiHeltall sorteringsnummer(@javax.annotation.Nonnull Integer sorteringsnummer) {
     
     this.sorteringsnummer = sorteringsnummer;
     return this;
   }
 
-   /**
+  /**
    * Get sorteringsnummer
    * @return sorteringsnummer
-  **/
+   */
   @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_SORTERINGSNUMMER)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -233,21 +240,20 @@ public class EnumverdiHeltall {
 
   @JsonProperty(JSON_PROPERTY_SORTERINGSNUMMER)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setSorteringsnummer(Integer sorteringsnummer) {
+  public void setSorteringsnummer(@javax.annotation.Nonnull Integer sorteringsnummer) {
     this.sorteringsnummer = sorteringsnummer;
   }
 
-
-  public EnumverdiHeltall objektlisteDato(LocalDate objektlisteDato) {
+  public EnumverdiHeltall objektlisteDato(@javax.annotation.Nullable LocalDate objektlisteDato) {
     
     this.objektlisteDato = objektlisteDato;
     return this;
   }
 
-   /**
+  /**
    * Get objektlisteDato
    * @return objektlisteDato
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_OBJEKTLISTE_DATO)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -259,21 +265,20 @@ public class EnumverdiHeltall {
 
   @JsonProperty(JSON_PROPERTY_OBJEKTLISTE_DATO)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setObjektlisteDato(LocalDate objektlisteDato) {
+  public void setObjektlisteDato(@javax.annotation.Nullable LocalDate objektlisteDato) {
     this.objektlisteDato = objektlisteDato;
   }
 
-
-  public EnumverdiHeltall sluttdato(LocalDate sluttdato) {
+  public EnumverdiHeltall sluttdato(@javax.annotation.Nullable LocalDate sluttdato) {
     
     this.sluttdato = sluttdato;
     return this;
   }
 
-   /**
+  /**
    * Get sluttdato
    * @return sluttdato
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_SLUTTDATO)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -285,21 +290,20 @@ public class EnumverdiHeltall {
 
   @JsonProperty(JSON_PROPERTY_SLUTTDATO)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setSluttdato(LocalDate sluttdato) {
+  public void setSluttdato(@javax.annotation.Nullable LocalDate sluttdato) {
     this.sluttdato = sluttdato;
   }
 
-
-  public EnumverdiHeltall standardverdi(Boolean standardverdi) {
+  public EnumverdiHeltall standardverdi(@javax.annotation.Nonnull Boolean standardverdi) {
     
     this.standardverdi = standardverdi;
     return this;
   }
 
-   /**
+  /**
    * Get standardverdi
    * @return standardverdi
-  **/
+   */
   @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_STANDARDVERDI)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -311,21 +315,20 @@ public class EnumverdiHeltall {
 
   @JsonProperty(JSON_PROPERTY_STANDARDVERDI)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setStandardverdi(Boolean standardverdi) {
+  public void setStandardverdi(@javax.annotation.Nonnull Boolean standardverdi) {
     this.standardverdi = standardverdi;
   }
 
-
-  public EnumverdiHeltall komplementærEnumverdi(Integer komplementærEnumverdi) {
+  public EnumverdiHeltall komplementærEnumverdi(@javax.annotation.Nullable Integer komplementærEnumverdi) {
     
     this.komplementærEnumverdi = komplementærEnumverdi;
     return this;
   }
 
-   /**
+  /**
    * Get komplementærEnumverdi
    * @return komplementærEnumverdi
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_KOMPLEMENTæR_ENUMVERDI)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -337,21 +340,20 @@ public class EnumverdiHeltall {
 
   @JsonProperty(JSON_PROPERTY_KOMPLEMENTæR_ENUMVERDI)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setKomplementærEnumverdi(Integer komplementærEnumverdi) {
+  public void setKomplementærEnumverdi(@javax.annotation.Nullable Integer komplementærEnumverdi) {
     this.komplementærEnumverdi = komplementærEnumverdi;
   }
 
-
-  public EnumverdiHeltall verdi(Integer verdi) {
+  public EnumverdiHeltall verdi(@javax.annotation.Nullable Integer verdi) {
     
     this.verdi = verdi;
     return this;
   }
 
-   /**
+  /**
    * Get verdi
    * @return verdi
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_VERDI)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -363,21 +365,20 @@ public class EnumverdiHeltall {
 
   @JsonProperty(JSON_PROPERTY_VERDI)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setVerdi(Integer verdi) {
+  public void setVerdi(@javax.annotation.Nullable Integer verdi) {
     this.verdi = verdi;
   }
 
-
-  public EnumverdiHeltall type(String type) {
+  public EnumverdiHeltall type(@javax.annotation.Nonnull String type) {
     
     this.type = type;
     return this;
   }
 
-   /**
+  /**
    * Get type
    * @return type
-  **/
+   */
   @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -389,9 +390,10 @@ public class EnumverdiHeltall {
 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setType(String type) {
+  public void setType(@javax.annotation.Nonnull String type) {
     this.type = type;
   }
+
 
   @Override
   public boolean equals(Object o) {

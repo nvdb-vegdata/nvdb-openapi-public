@@ -37,5 +37,8 @@ data class NodeportTilkobling (
 
     @SerialName(value = "href") @Required val href: kotlin.String
 
-)
+) {
+
+
+}
 

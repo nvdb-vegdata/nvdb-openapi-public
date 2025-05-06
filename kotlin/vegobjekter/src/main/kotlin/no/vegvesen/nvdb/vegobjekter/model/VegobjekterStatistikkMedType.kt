@@ -41,5 +41,8 @@ data class VegobjekterStatistikkMedType (
 
     @SerialName(value = "statistikk") @Required val statistikk: VegobjekterStatistikk
 
-)
+) {
+
+
+}
 

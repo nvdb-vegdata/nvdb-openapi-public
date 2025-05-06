@@ -12,25 +12,28 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime'
+import { mapValues } from '../runtime'
+import type { Viktighet } from './Viktighet'
+import {
+  ViktighetFromJSON,
+  ViktighetFromJSONTyped,
+  ViktighetToJSON,
+  ViktighetToJSONTyped,
+} from './Viktighet'
 import type { Egenskapstype } from './Egenskapstype'
 import {
   EgenskapstypeFromJSON,
   EgenskapstypeFromJSONTyped,
   EgenskapstypeToJSON,
+  EgenskapstypeToJSONTyped,
 } from './Egenskapstype'
 import type { EgenskapstypeEnum } from './EgenskapstypeEnum'
 import {
   EgenskapstypeEnumFromJSON,
   EgenskapstypeEnumFromJSONTyped,
   EgenskapstypeEnumToJSON,
+  EgenskapstypeEnumToJSONTyped,
 } from './EgenskapstypeEnum'
-import type { Viktighet } from './Viktighet'
-import {
-  ViktighetFromJSON,
-  ViktighetFromJSONTyped,
-  ViktighetToJSON,
-} from './Viktighet'
 
 /**
  *
@@ -73,12 +76,17 @@ export interface EgenskapstypeBoolsk extends Egenskapstype {
 /**
  * Check if a given object implements the EgenskapstypeBoolsk interface.
  */
-export function instanceOfEgenskapstypeBoolsk(value: object): boolean {
-  let isInstance = true
-  isInstance = isInstance && 'lengdeavhengigVerdi' in value
-  isInstance = isInstance && 'ajourholdSnu' in value
-
-  return isInstance
+export function instanceOfEgenskapstypeBoolsk(
+  value: object,
+): value is EgenskapstypeBoolsk {
+  if (
+    !('lengdeavhengigVerdi' in value) ||
+    value['lengdeavhengigVerdi'] === undefined
+  )
+    return false
+  if (!('ajourholdSnu' in value) || value['ajourholdSnu'] === undefined)
+    return false
+  return true
 }
 
 export function EgenskapstypeBoolskFromJSON(json: any): EgenskapstypeBoolsk {
@@ -89,46 +97,48 @@ export function EgenskapstypeBoolskFromJSONTyped(
   json: any,
   ignoreDiscriminator: boolean,
 ): EgenskapstypeBoolsk {
-  if (json === undefined || json === null) {
+  if (json == null) {
     return json
   }
   return {
-    ...EgenskapstypeFromJSONTyped(json, ignoreDiscriminator),
-    objektlisteDato: !exists(json, 'objektliste_dato')
-      ? undefined
-      : new Date(json['objektliste_dato']),
-    sluttDato: !exists(json, 'slutt_dato')
-      ? undefined
-      : new Date(json['slutt_dato']),
+    ...EgenskapstypeFromJSONTyped(json, true),
+    objektlisteDato:
+      json['objektliste_dato'] == null
+        ? undefined
+        : new Date(json['objektliste_dato']),
+    sluttDato:
+      json['slutt_dato'] == null ? undefined : new Date(json['slutt_dato']),
     lengdeavhengigVerdi: json['lengdeavhengig_verdi'],
     ajourholdSnu: json['ajourhold_snu'],
-    standardverdi: !exists(json, 'standardverdi')
-      ? undefined
-      : json['standardverdi'],
+    standardverdi:
+      json['standardverdi'] == null ? undefined : json['standardverdi'],
   }
 }
 
-export function EgenskapstypeBoolskToJSON(
+export function EgenskapstypeBoolskToJSON(json: any): EgenskapstypeBoolsk {
+  return EgenskapstypeBoolskToJSONTyped(json, false)
+}
+
+export function EgenskapstypeBoolskToJSONTyped(
   value?: EgenskapstypeBoolsk | null,
+  ignoreDiscriminator: boolean = false,
 ): any {
-  if (value === undefined) {
-    return undefined
+  if (value == null) {
+    return value
   }
-  if (value === null) {
-    return null
-  }
+
   return {
-    ...EgenskapstypeToJSON(value),
+    ...EgenskapstypeToJSONTyped(value, true),
     objektliste_dato:
-      value.objektlisteDato === undefined
+      value['objektlisteDato'] == null
         ? undefined
-        : value.objektlisteDato.toISOString().substring(0, 10),
+        : value['objektlisteDato'].toISOString().substring(0, 10),
     slutt_dato:
-      value.sluttDato === undefined
+      value['sluttDato'] == null
         ? undefined
-        : value.sluttDato.toISOString().substring(0, 10),
-    lengdeavhengig_verdi: value.lengdeavhengigVerdi,
-    ajourhold_snu: value.ajourholdSnu,
-    standardverdi: value.standardverdi,
+        : value['sluttDato'].toISOString().substring(0, 10),
+    lengdeavhengig_verdi: value['lengdeavhengigVerdi'],
+    ajourhold_snu: value['ajourholdSnu'],
+    standardverdi: value['standardverdi'],
   }
 }

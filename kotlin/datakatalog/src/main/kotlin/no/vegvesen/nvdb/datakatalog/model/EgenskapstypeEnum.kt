@@ -16,63 +16,63 @@
 package no.vegvesen.nvdb.datakatalog.model
 
 
-import kotlinx.serialization.*
+import com.fasterxml.jackson.annotation.JsonProperty
 
 /**
  * 
  *
- * Values: assosiasjon,boolsk,binær,tekst,dato,flyttall,heltall,struktur,geometri,stedfesting,kortdato,tid,liste,tekstenum,heltallenum,flyttallenum
+ * Values: Assosiasjon,Boolsk,Binær,Tekst,Dato,Flyttall,Heltall,Struktur,Geometri,Stedfesting,Kortdato,Tid,Liste,Tekstenum,Heltallenum,Flyttallenum
  */
-@Serializable
+
 enum class EgenskapstypeEnum(val value: kotlin.String) {
 
-    @SerialName(value = "Assosiasjon")
-    assosiasjon("Assosiasjon"),
+    @JsonProperty(value = "Assosiasjon")
+    Assosiasjon("Assosiasjon"),
 
-    @SerialName(value = "Boolsk")
-    boolsk("Boolsk"),
+    @JsonProperty(value = "Boolsk")
+    Boolsk("Boolsk"),
 
-    @SerialName(value = "Binær")
-    binær("Binær"),
+    @JsonProperty(value = "Binær")
+    Binær("Binær"),
 
-    @SerialName(value = "Tekst")
-    tekst("Tekst"),
+    @JsonProperty(value = "Tekst")
+    Tekst("Tekst"),
 
-    @SerialName(value = "Dato")
-    dato("Dato"),
+    @JsonProperty(value = "Dato")
+    Dato("Dato"),
 
-    @SerialName(value = "Flyttall")
-    flyttall("Flyttall"),
+    @JsonProperty(value = "Flyttall")
+    Flyttall("Flyttall"),
 
-    @SerialName(value = "Heltall")
-    heltall("Heltall"),
+    @JsonProperty(value = "Heltall")
+    Heltall("Heltall"),
 
-    @SerialName(value = "Struktur")
-    struktur("Struktur"),
+    @JsonProperty(value = "Struktur")
+    Struktur("Struktur"),
 
-    @SerialName(value = "Geometri")
-    geometri("Geometri"),
+    @JsonProperty(value = "Geometri")
+    Geometri("Geometri"),
 
-    @SerialName(value = "Stedfesting")
-    stedfesting("Stedfesting"),
+    @JsonProperty(value = "Stedfesting")
+    Stedfesting("Stedfesting"),
 
-    @SerialName(value = "Kortdato")
-    kortdato("Kortdato"),
+    @JsonProperty(value = "Kortdato")
+    Kortdato("Kortdato"),
 
-    @SerialName(value = "Tid")
-    tid("Tid"),
+    @JsonProperty(value = "Tid")
+    Tid("Tid"),
 
-    @SerialName(value = "Liste")
-    liste("Liste"),
+    @JsonProperty(value = "Liste")
+    Liste("Liste"),
 
-    @SerialName(value = "Tekstenum")
-    tekstenum("Tekstenum"),
+    @JsonProperty(value = "Tekstenum")
+    Tekstenum("Tekstenum"),
 
-    @SerialName(value = "Heltallenum")
-    heltallenum("Heltallenum"),
+    @JsonProperty(value = "Heltallenum")
+    Heltallenum("Heltallenum"),
 
-    @SerialName(value = "Flyttallenum")
-    flyttallenum("Flyttallenum");
+    @JsonProperty(value = "Flyttallenum")
+    Flyttallenum("Flyttallenum");
 
     /**
      * Override [toString()] to avoid using the enum variable name as the value, and instead use

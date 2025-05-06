@@ -42,5 +42,8 @@ data class KortDatoEgenskap (
     /* Måned og dato på formatet MM-DD */
     @SerialName(value = "verdi") val verdi: kotlin.String? = null
 
-) : Egenskap
+) : Egenskap {
+
+
+}
 

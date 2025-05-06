@@ -36,5 +36,8 @@ data class Rute (
 
     @SerialName(value = "metadata") @Required val metadata: RuteMetadata
 
-)
+) {
+
+
+}
 

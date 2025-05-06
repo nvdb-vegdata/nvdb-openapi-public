@@ -12,25 +12,28 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime'
-import type { EgenskapstypeEnum } from './EgenskapstypeEnum'
-import {
-  EgenskapstypeEnumFromJSON,
-  EgenskapstypeEnumFromJSONTyped,
-  EgenskapstypeEnumToJSON,
-} from './EgenskapstypeEnum'
+import { mapValues } from '../runtime'
 import type { Stedfesting } from './Stedfesting'
 import {
   StedfestingFromJSON,
   StedfestingFromJSONTyped,
   StedfestingToJSON,
+  StedfestingToJSONTyped,
 } from './Stedfesting'
 import type { Viktighet } from './Viktighet'
 import {
   ViktighetFromJSON,
   ViktighetFromJSONTyped,
   ViktighetToJSON,
+  ViktighetToJSONTyped,
 } from './Viktighet'
+import type { EgenskapstypeEnum } from './EgenskapstypeEnum'
+import {
+  EgenskapstypeEnumFromJSON,
+  EgenskapstypeEnumFromJSONTyped,
+  EgenskapstypeEnumToJSON,
+  EgenskapstypeEnumToJSONTyped,
+} from './EgenskapstypeEnum'
 
 /**
  *
@@ -152,10 +155,10 @@ export type StedfestingEnkelVegnettsajourholdSplittEnum =
 /**
  * Check if a given object implements the StedfestingEnkel interface.
  */
-export function instanceOfStedfestingEnkel(value: object): boolean {
-  let isInstance = true
-
-  return isInstance
+export function instanceOfStedfestingEnkel(
+  value: object,
+): value is StedfestingEnkel {
+  return true
 }
 
 export function StedfestingEnkelFromJSON(json: any): StedfestingEnkel {
@@ -166,56 +169,61 @@ export function StedfestingEnkelFromJSONTyped(
   json: any,
   ignoreDiscriminator: boolean,
 ): StedfestingEnkel {
-  if (json === undefined || json === null) {
+  if (json == null) {
     return json
   }
   return {
-    ...StedfestingFromJSONTyped(json, ignoreDiscriminator),
-    stedfestingstype: !exists(json, 'stedfestingstype')
-      ? undefined
-      : json['stedfestingstype'],
-    geometritype: !exists(json, 'geometritype')
-      ? undefined
-      : json['geometritype'],
-    overlappOk: !exists(json, 'overlapp_ok') ? undefined : json['overlapp_ok'],
-    kjrefeltRelevant: !exists(json, 'kjørefelt_relevant')
-      ? undefined
-      : json['kjørefelt_relevant'],
-    sideposisjonRelevant: !exists(json, 'sideposisjon_relevant')
-      ? undefined
-      : json['sideposisjon_relevant'],
-    innenforMor: !exists(json, 'innenfor_mor')
-      ? undefined
-      : json['innenfor_mor'],
-    vegnettsajourholdSplitt: !exists(json, 'vegnettsajourhold_splitt')
-      ? undefined
-      : json['vegnettsajourhold_splitt'],
-    overlappsautomatikk: !exists(json, 'overlappsautomatikk')
-      ? undefined
-      : json['overlappsautomatikk'],
-    retningRelevant: !exists(json, 'retning_relevant')
-      ? undefined
-      : json['retning_relevant'],
+    ...StedfestingFromJSONTyped(json, true),
+    stedfestingstype:
+      json['stedfestingstype'] == null ? undefined : json['stedfestingstype'],
+    geometritype:
+      json['geometritype'] == null ? undefined : json['geometritype'],
+    overlappOk: json['overlapp_ok'] == null ? undefined : json['overlapp_ok'],
+    kjrefeltRelevant:
+      json['kjørefelt_relevant'] == null
+        ? undefined
+        : json['kjørefelt_relevant'],
+    sideposisjonRelevant:
+      json['sideposisjon_relevant'] == null
+        ? undefined
+        : json['sideposisjon_relevant'],
+    innenforMor:
+      json['innenfor_mor'] == null ? undefined : json['innenfor_mor'],
+    vegnettsajourholdSplitt:
+      json['vegnettsajourhold_splitt'] == null
+        ? undefined
+        : json['vegnettsajourhold_splitt'],
+    overlappsautomatikk:
+      json['overlappsautomatikk'] == null
+        ? undefined
+        : json['overlappsautomatikk'],
+    retningRelevant:
+      json['retning_relevant'] == null ? undefined : json['retning_relevant'],
   }
 }
 
-export function StedfestingEnkelToJSON(value?: StedfestingEnkel | null): any {
-  if (value === undefined) {
-    return undefined
+export function StedfestingEnkelToJSON(json: any): StedfestingEnkel {
+  return StedfestingEnkelToJSONTyped(json, false)
+}
+
+export function StedfestingEnkelToJSONTyped(
+  value?: StedfestingEnkel | null,
+  ignoreDiscriminator: boolean = false,
+): any {
+  if (value == null) {
+    return value
   }
-  if (value === null) {
-    return null
-  }
+
   return {
-    ...StedfestingToJSON(value),
-    stedfestingstype: value.stedfestingstype,
-    geometritype: value.geometritype,
-    overlapp_ok: value.overlappOk,
-    kjørefelt_relevant: value.kjrefeltRelevant,
-    sideposisjon_relevant: value.sideposisjonRelevant,
-    innenfor_mor: value.innenforMor,
-    vegnettsajourhold_splitt: value.vegnettsajourholdSplitt,
-    overlappsautomatikk: value.overlappsautomatikk,
-    retning_relevant: value.retningRelevant,
+    ...StedfestingToJSONTyped(value, true),
+    stedfestingstype: value['stedfestingstype'],
+    geometritype: value['geometritype'],
+    overlapp_ok: value['overlappOk'],
+    kjørefelt_relevant: value['kjrefeltRelevant'],
+    sideposisjon_relevant: value['sideposisjonRelevant'],
+    innenfor_mor: value['innenforMor'],
+    vegnettsajourhold_splitt: value['vegnettsajourholdSplitt'],
+    overlappsautomatikk: value['overlappsautomatikk'],
+    retning_relevant: value['retningRelevant'],
   }
 }

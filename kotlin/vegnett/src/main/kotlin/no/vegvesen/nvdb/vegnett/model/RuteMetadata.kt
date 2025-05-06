@@ -40,5 +40,8 @@ data class RuteMetadata (
 
     @SerialName(value = "status_tekst") @Required val statusTekst: kotlin.String
 
-)
+) {
+
+
+}
 

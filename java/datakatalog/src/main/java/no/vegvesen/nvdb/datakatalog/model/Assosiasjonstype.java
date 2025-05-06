@@ -37,42 +37,49 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
   Assosiasjonstype.JSON_PROPERTY_INNHOLD,
   Assosiasjonstype.JSON_PROPERTY_TYPE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.13.0")
 public class Assosiasjonstype {
   public static final String JSON_PROPERTY_ID = "id";
+  @javax.annotation.Nonnull
   private Integer id;
 
   public static final String JSON_PROPERTY_NAVN = "navn";
+  @javax.annotation.Nullable
   private String navn;
 
   public static final String JSON_PROPERTY_EGENSKAPSTYPE = "egenskapstype";
+  @javax.annotation.Nonnull
   private String egenskapstype;
 
   public static final String JSON_PROPERTY_MAKSIMALT_ANTALL_VERDIER = "maksimalt_antall_verdier";
+  @javax.annotation.Nullable
   private Integer maksimaltAntallVerdier;
 
   public static final String JSON_PROPERTY_MINIMALT_ANTALL_VERDIER = "minimalt_antall_verdier";
+  @javax.annotation.Nullable
   private Integer minimaltAntallVerdier;
 
   public static final String JSON_PROPERTY_INNHOLD = "innhold";
+  @javax.annotation.Nullable
   private AssosiasjonstypeListeInnhold innhold;
 
   public static final String JSON_PROPERTY_TYPE = "type";
+  @javax.annotation.Nullable
   private AssosiasjonstypeVegobjekttype type;
 
   public Assosiasjonstype() {
   }
 
-  public Assosiasjonstype id(Integer id) {
+  public Assosiasjonstype id(@javax.annotation.Nonnull Integer id) {
     
     this.id = id;
     return this;
   }
 
-   /**
+  /**
    * Get id
    * @return id
-  **/
+   */
   @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -84,21 +91,20 @@ public class Assosiasjonstype {
 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setId(Integer id) {
+  public void setId(@javax.annotation.Nonnull Integer id) {
     this.id = id;
   }
 
-
-  public Assosiasjonstype navn(String navn) {
+  public Assosiasjonstype navn(@javax.annotation.Nullable String navn) {
     
     this.navn = navn;
     return this;
   }
 
-   /**
+  /**
    * Get navn
    * @return navn
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NAVN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -110,21 +116,20 @@ public class Assosiasjonstype {
 
   @JsonProperty(JSON_PROPERTY_NAVN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setNavn(String navn) {
+  public void setNavn(@javax.annotation.Nullable String navn) {
     this.navn = navn;
   }
 
-
-  public Assosiasjonstype egenskapstype(String egenskapstype) {
+  public Assosiasjonstype egenskapstype(@javax.annotation.Nonnull String egenskapstype) {
     
     this.egenskapstype = egenskapstype;
     return this;
   }
 
-   /**
+  /**
    * Get egenskapstype
    * @return egenskapstype
-  **/
+   */
   @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_EGENSKAPSTYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -136,21 +141,20 @@ public class Assosiasjonstype {
 
   @JsonProperty(JSON_PROPERTY_EGENSKAPSTYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setEgenskapstype(String egenskapstype) {
+  public void setEgenskapstype(@javax.annotation.Nonnull String egenskapstype) {
     this.egenskapstype = egenskapstype;
   }
 
-
-  public Assosiasjonstype maksimaltAntallVerdier(Integer maksimaltAntallVerdier) {
+  public Assosiasjonstype maksimaltAntallVerdier(@javax.annotation.Nullable Integer maksimaltAntallVerdier) {
     
     this.maksimaltAntallVerdier = maksimaltAntallVerdier;
     return this;
   }
 
-   /**
+  /**
    * Get maksimaltAntallVerdier
    * @return maksimaltAntallVerdier
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_MAKSIMALT_ANTALL_VERDIER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -162,21 +166,20 @@ public class Assosiasjonstype {
 
   @JsonProperty(JSON_PROPERTY_MAKSIMALT_ANTALL_VERDIER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setMaksimaltAntallVerdier(Integer maksimaltAntallVerdier) {
+  public void setMaksimaltAntallVerdier(@javax.annotation.Nullable Integer maksimaltAntallVerdier) {
     this.maksimaltAntallVerdier = maksimaltAntallVerdier;
   }
 
-
-  public Assosiasjonstype minimaltAntallVerdier(Integer minimaltAntallVerdier) {
+  public Assosiasjonstype minimaltAntallVerdier(@javax.annotation.Nullable Integer minimaltAntallVerdier) {
     
     this.minimaltAntallVerdier = minimaltAntallVerdier;
     return this;
   }
 
-   /**
+  /**
    * Get minimaltAntallVerdier
    * @return minimaltAntallVerdier
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_MINIMALT_ANTALL_VERDIER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -188,21 +191,20 @@ public class Assosiasjonstype {
 
   @JsonProperty(JSON_PROPERTY_MINIMALT_ANTALL_VERDIER)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setMinimaltAntallVerdier(Integer minimaltAntallVerdier) {
+  public void setMinimaltAntallVerdier(@javax.annotation.Nullable Integer minimaltAntallVerdier) {
     this.minimaltAntallVerdier = minimaltAntallVerdier;
   }
 
-
-  public Assosiasjonstype innhold(AssosiasjonstypeListeInnhold innhold) {
+  public Assosiasjonstype innhold(@javax.annotation.Nullable AssosiasjonstypeListeInnhold innhold) {
     
     this.innhold = innhold;
     return this;
   }
 
-   /**
+  /**
    * Get innhold
    * @return innhold
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_INNHOLD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -214,21 +216,20 @@ public class Assosiasjonstype {
 
   @JsonProperty(JSON_PROPERTY_INNHOLD)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setInnhold(AssosiasjonstypeListeInnhold innhold) {
+  public void setInnhold(@javax.annotation.Nullable AssosiasjonstypeListeInnhold innhold) {
     this.innhold = innhold;
   }
 
-
-  public Assosiasjonstype type(AssosiasjonstypeVegobjekttype type) {
+  public Assosiasjonstype type(@javax.annotation.Nullable AssosiasjonstypeVegobjekttype type) {
     
     this.type = type;
     return this;
   }
 
-   /**
+  /**
    * Get type
    * @return type
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -240,9 +241,10 @@ public class Assosiasjonstype {
 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setType(AssosiasjonstypeVegobjekttype type) {
+  public void setType(@javax.annotation.Nullable AssosiasjonstypeVegobjekttype type) {
     this.type = type;
   }
+
 
   @Override
   public boolean equals(Object o) {

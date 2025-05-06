@@ -41,5 +41,8 @@ data class Punkt (
 
     @SerialName(value = "kortform") @Required val kortform: kotlin.String
 
-) : Segment
+) : Segment {
+
+
+}
 

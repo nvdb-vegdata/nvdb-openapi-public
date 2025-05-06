@@ -82,13 +82,10 @@ export class DatakatalogenApi extends runtime.BaseAPI {
     requestParameters: GetEgenskapstypeRequest,
     initOverrides?: RequestInit | runtime.InitOverrideFunction,
   ): Promise<runtime.ApiResponse<Egenskapstype>> {
-    if (
-      requestParameters.egenskapstypeid === null ||
-      requestParameters.egenskapstypeid === undefined
-    ) {
+    if (requestParameters['egenskapstypeid'] == null) {
       throw new runtime.RequiredError(
         'egenskapstypeid',
-        'Required parameter requestParameters.egenskapstypeid was null or undefined when calling getEgenskapstype.',
+        'Required parameter "egenskapstypeid" was null or undefined when calling getEgenskapstype().',
       )
     }
 
@@ -100,7 +97,7 @@ export class DatakatalogenApi extends runtime.BaseAPI {
       {
         path: `/api/v1/egenskapstyper/{egenskapstypeid}`.replace(
           `{${'egenskapstypeid'}}`,
-          encodeURIComponent(String(requestParameters.egenskapstypeid)),
+          encodeURIComponent(String(requestParameters['egenskapstypeid'])),
         ),
         method: 'GET',
         headers: headerParameters,
@@ -135,23 +132,17 @@ export class DatakatalogenApi extends runtime.BaseAPI {
     requestParameters: GetEgenskapstypeForVegobjekttypeRequest,
     initOverrides?: RequestInit | runtime.InitOverrideFunction,
   ): Promise<runtime.ApiResponse<Egenskapstype>> {
-    if (
-      requestParameters.vegobjekttypeid === null ||
-      requestParameters.vegobjekttypeid === undefined
-    ) {
+    if (requestParameters['vegobjekttypeid'] == null) {
       throw new runtime.RequiredError(
         'vegobjekttypeid',
-        'Required parameter requestParameters.vegobjekttypeid was null or undefined when calling getEgenskapstypeForVegobjekttype.',
+        'Required parameter "vegobjekttypeid" was null or undefined when calling getEgenskapstypeForVegobjekttype().',
       )
     }
 
-    if (
-      requestParameters.egenskapstypeid === null ||
-      requestParameters.egenskapstypeid === undefined
-    ) {
+    if (requestParameters['egenskapstypeid'] == null) {
       throw new runtime.RequiredError(
         'egenskapstypeid',
-        'Required parameter requestParameters.egenskapstypeid was null or undefined when calling getEgenskapstypeForVegobjekttype.',
+        'Required parameter "egenskapstypeid" was null or undefined when calling getEgenskapstypeForVegobjekttype().',
       )
     }
 
@@ -164,11 +155,11 @@ export class DatakatalogenApi extends runtime.BaseAPI {
         path: `/api/v1/vegobjekttyper/{vegobjekttypeid}/{egenskapstypeid}`
           .replace(
             `{${'vegobjekttypeid'}}`,
-            encodeURIComponent(String(requestParameters.vegobjekttypeid)),
+            encodeURIComponent(String(requestParameters['vegobjekttypeid'])),
           )
           .replace(
             `{${'egenskapstypeid'}}`,
-            encodeURIComponent(String(requestParameters.egenskapstypeid)),
+            encodeURIComponent(String(requestParameters['egenskapstypeid'])),
           ),
         method: 'GET',
         headers: headerParameters,
@@ -308,13 +299,10 @@ export class DatakatalogenApi extends runtime.BaseAPI {
     requestParameters: GetProduktspesifikasjonRequest,
     initOverrides?: RequestInit | runtime.InitOverrideFunction,
   ): Promise<runtime.ApiResponse<ProductSpecification>> {
-    if (
-      requestParameters.vegobjekttypeid === null ||
-      requestParameters.vegobjekttypeid === undefined
-    ) {
+    if (requestParameters['vegobjekttypeid'] == null) {
       throw new runtime.RequiredError(
         'vegobjekttypeid',
-        'Required parameter requestParameters.vegobjekttypeid was null or undefined when calling getProduktspesifikasjon.',
+        'Required parameter "vegobjekttypeid" was null or undefined when calling getProduktspesifikasjon().',
       )
     }
 
@@ -326,7 +314,7 @@ export class DatakatalogenApi extends runtime.BaseAPI {
       {
         path: `/api/v1/vegobjekttyper/{vegobjekttypeid}/produktspesifikasjon`.replace(
           `{${'vegobjekttypeid'}}`,
-          encodeURIComponent(String(requestParameters.vegobjekttypeid)),
+          encodeURIComponent(String(requestParameters['vegobjekttypeid'])),
         ),
         method: 'GET',
         headers: headerParameters,
@@ -361,20 +349,17 @@ export class DatakatalogenApi extends runtime.BaseAPI {
     requestParameters: GetVegobjekttypeRequest,
     initOverrides?: RequestInit | runtime.InitOverrideFunction,
   ): Promise<runtime.ApiResponse<Vegobjekttype>> {
-    if (
-      requestParameters.vegobjekttypeid === null ||
-      requestParameters.vegobjekttypeid === undefined
-    ) {
+    if (requestParameters['vegobjekttypeid'] == null) {
       throw new runtime.RequiredError(
         'vegobjekttypeid',
-        'Required parameter requestParameters.vegobjekttypeid was null or undefined when calling getVegobjekttype.',
+        'Required parameter "vegobjekttypeid" was null or undefined when calling getVegobjekttype().',
       )
     }
 
     const queryParameters: any = {}
 
-    if (requestParameters.inkluder) {
-      queryParameters['inkluder'] = requestParameters.inkluder
+    if (requestParameters['inkluder'] != null) {
+      queryParameters['inkluder'] = requestParameters['inkluder']
     }
 
     const headerParameters: runtime.HTTPHeaders = {}
@@ -383,7 +368,7 @@ export class DatakatalogenApi extends runtime.BaseAPI {
       {
         path: `/api/v1/vegobjekttyper/{vegobjekttypeid}`.replace(
           `{${'vegobjekttypeid'}}`,
-          encodeURIComponent(String(requestParameters.vegobjekttypeid)),
+          encodeURIComponent(String(requestParameters['vegobjekttypeid'])),
         ),
         method: 'GET',
         headers: headerParameters,
@@ -420,12 +405,12 @@ export class DatakatalogenApi extends runtime.BaseAPI {
   ): Promise<runtime.ApiResponse<Array<Vegobjekttype>>> {
     const queryParameters: any = {}
 
-    if (requestParameters.inkluder) {
-      queryParameters['inkluder'] = requestParameters.inkluder
+    if (requestParameters['inkluder'] != null) {
+      queryParameters['inkluder'] = requestParameters['inkluder']
     }
 
-    if (requestParameters.kategori !== undefined) {
-      queryParameters['kategori'] = requestParameters.kategori
+    if (requestParameters['kategori'] != null) {
+      queryParameters['kategori'] = requestParameters['kategori']
     }
 
     const headerParameters: runtime.HTTPHeaders = {}
@@ -466,24 +451,21 @@ export class DatakatalogenApi extends runtime.BaseAPI {
     requestParameters: GetVegobjekttyperHistoriskRequest,
     initOverrides?: RequestInit | runtime.InitOverrideFunction,
   ): Promise<runtime.ApiResponse<Array<Vegobjekttype>>> {
-    if (
-      requestParameters.versjon === null ||
-      requestParameters.versjon === undefined
-    ) {
+    if (requestParameters['versjon'] == null) {
       throw new runtime.RequiredError(
         'versjon',
-        'Required parameter requestParameters.versjon was null or undefined when calling getVegobjekttyperHistorisk.',
+        'Required parameter "versjon" was null or undefined when calling getVegobjekttyperHistorisk().',
       )
     }
 
     const queryParameters: any = {}
 
-    if (requestParameters.inkluder) {
-      queryParameters['inkluder'] = requestParameters.inkluder
+    if (requestParameters['inkluder'] != null) {
+      queryParameters['inkluder'] = requestParameters['inkluder']
     }
 
-    if (requestParameters.kategori !== undefined) {
-      queryParameters['kategori'] = requestParameters.kategori
+    if (requestParameters['kategori'] != null) {
+      queryParameters['kategori'] = requestParameters['kategori']
     }
 
     const headerParameters: runtime.HTTPHeaders = {}
@@ -492,7 +474,7 @@ export class DatakatalogenApi extends runtime.BaseAPI {
       {
         path: `/api/v1/vegobjekttyper/historisk/{versjon}`.replace(
           `{${'versjon'}}`,
-          encodeURIComponent(String(requestParameters.versjon)),
+          encodeURIComponent(String(requestParameters['versjon'])),
         ),
         method: 'GET',
         headers: headerParameters,

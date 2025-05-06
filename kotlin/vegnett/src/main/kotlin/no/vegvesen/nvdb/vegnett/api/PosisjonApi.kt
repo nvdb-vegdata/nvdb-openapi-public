@@ -65,16 +65,16 @@ open class PosisjonApi : ApiClient {
         _4326("4326"),
         
         @SerialName(value = "UTM32")
-        uTM32("UTM32"),
+        UTM32("UTM32"),
         
         @SerialName(value = "UTM33")
-        uTM33("UTM33"),
+        UTM33("UTM33"),
         
         @SerialName(value = "UTM35")
-        uTM35("UTM35"),
+        UTM35("UTM35"),
         
         @SerialName(value = "WGS84")
-        wGS84("WGS84")
+        WGS84("WGS84")
         
     }
 
@@ -86,10 +86,10 @@ open class PosisjonApi : ApiClient {
     enum class TrafikantgruppeFindPosisjon(val value: kotlin.String) {
         
         @SerialName(value = "K")
-        k("K"),
+        K("K"),
         
         @SerialName(value = "G")
-        g("G")
+        G("G")
         
     }
 
@@ -111,7 +111,7 @@ open class PosisjonApi : ApiClient {
      * @return kotlin.collections.List<PosisjonMedAvstand>
      */
     @Suppress("UNCHECKED_CAST")
-    open suspend fun findPosisjon(nord: kotlin.Double? = null, ost: kotlin.Double? = null, lat: kotlin.Double? = null, lon: kotlin.Double? = null, maksAvstand: kotlin.Int? = null, maksAntall: kotlin.Int? = null, konnekteringslenker: kotlin.Boolean? = null, detaljerteLenker: kotlin.Boolean? = null, tidspunkt: java.time.LocalDate? = null, vegsystemreferanse: kotlin.collections.List<kotlin.String>? = null, srid: SridFindPosisjon? = null, trafikantgruppe: TrafikantgruppeFindPosisjon? = null): HttpResponse<kotlin.collections.List<PosisjonMedAvstand>> {
+    open suspend fun findPosisjon(nord: kotlin.Double? = null, ost: kotlin.Double? = null, lat: kotlin.Double? = null, lon: kotlin.Double? = null, maksAvstand: kotlin.Int? = null, maksAntall: kotlin.Int? = null, konnekteringslenker: kotlin.Boolean? = null, detaljerteLenker: kotlin.Boolean? = null, tidspunkt: kotlinx.datetime.LocalDate? = null, vegsystemreferanse: kotlin.collections.Set<kotlin.String>? = null, srid: SridFindPosisjon? = null, trafikantgruppe: TrafikantgruppeFindPosisjon? = null): HttpResponse<kotlin.collections.List<PosisjonMedAvstand>> {
 
         val localVariableAuthNames = listOf<String>()
 
@@ -129,8 +129,8 @@ open class PosisjonApi : ApiClient {
         detaljerteLenker?.apply { localVariableQuery["detaljerte_lenker"] = listOf("$detaljerteLenker") }
         tidspunkt?.apply { localVariableQuery["tidspunkt"] = listOf("$tidspunkt") }
         vegsystemreferanse?.apply { localVariableQuery["vegsystemreferanse"] = toMultiValue(this, "multi") }
-        srid?.apply { localVariableQuery["srid"] = listOf("$srid") }
-        trafikantgruppe?.apply { localVariableQuery["trafikantgruppe"] = listOf("$trafikantgruppe") }
+        srid?.apply { localVariableQuery["srid"] = listOf("${ srid.value }") }
+        trafikantgruppe?.apply { localVariableQuery["trafikantgruppe"] = listOf("${ trafikantgruppe.value }") }
         val localVariableHeaders = mutableMapOf<String, String>()
 
         val localVariableConfig = RequestConfig<kotlin.Any?>(
@@ -153,7 +153,7 @@ open class PosisjonApi : ApiClient {
         companion object : KSerializer<FindPosisjonResponse> {
             private val serializer: KSerializer<List<PosisjonMedAvstand>> = serializer<List<PosisjonMedAvstand>>()
             override val descriptor = serializer.descriptor
-            override fun serialize(encoder: Encoder, obj: FindPosisjonResponse) = serializer.serialize(encoder, obj.value)
+            override fun serialize(encoder: Encoder, value: FindPosisjonResponse) = serializer.serialize(encoder, value.value)
             override fun deserialize(decoder: Decoder) = FindPosisjonResponse(serializer.deserialize(decoder))
         }
     }
@@ -178,16 +178,16 @@ open class PosisjonApi : ApiClient {
         _4326("4326"),
         
         @SerialName(value = "UTM32")
-        uTM32("UTM32"),
+        UTM32("UTM32"),
         
         @SerialName(value = "UTM33")
-        uTM33("UTM33"),
+        UTM33("UTM33"),
         
         @SerialName(value = "UTM35")
-        uTM35("UTM35"),
+        UTM35("UTM35"),
         
         @SerialName(value = "WGS84")
-        wGS84("WGS84")
+        WGS84("WGS84")
         
     }
 
@@ -202,7 +202,7 @@ open class PosisjonApi : ApiClient {
      * @return Posisjon
      */
     @Suppress("UNCHECKED_CAST")
-    open suspend fun findPosisjonForVeg(vegsystemreferanse: kotlin.String? = null, veglenkesekvens: kotlin.String? = null, tidspunkt: java.time.LocalDate? = null, srid: SridFindPosisjonForVeg? = null, kommune: kotlin.collections.List<kotlin.Int>? = null): HttpResponse<Posisjon> {
+    open suspend fun findPosisjonForVeg(vegsystemreferanse: kotlin.String? = null, veglenkesekvens: kotlin.String? = null, tidspunkt: kotlinx.datetime.LocalDate? = null, srid: SridFindPosisjonForVeg? = null, kommune: kotlin.collections.Set<kotlin.Int>? = null): HttpResponse<Posisjon> {
 
         val localVariableAuthNames = listOf<String>()
 
@@ -213,7 +213,7 @@ open class PosisjonApi : ApiClient {
         vegsystemreferanse?.apply { localVariableQuery["vegsystemreferanse"] = listOf("$vegsystemreferanse") }
         veglenkesekvens?.apply { localVariableQuery["veglenkesekvens"] = listOf("$veglenkesekvens") }
         tidspunkt?.apply { localVariableQuery["tidspunkt"] = listOf("$tidspunkt") }
-        srid?.apply { localVariableQuery["srid"] = listOf("$srid") }
+        srid?.apply { localVariableQuery["srid"] = listOf("${ srid.value }") }
         kommune?.apply { localVariableQuery["kommune"] = toMultiValue(this, "multi") }
         val localVariableHeaders = mutableMapOf<String, String>()
 
@@ -253,16 +253,16 @@ open class PosisjonApi : ApiClient {
         _4326("4326"),
         
         @SerialName(value = "UTM32")
-        uTM32("UTM32"),
+        UTM32("UTM32"),
         
         @SerialName(value = "UTM33")
-        uTM33("UTM33"),
+        UTM33("UTM33"),
         
         @SerialName(value = "UTM35")
-        uTM35("UTM35"),
+        UTM35("UTM35"),
         
         @SerialName(value = "WGS84")
-        wGS84("WGS84")
+        WGS84("WGS84")
         
     }
 
@@ -276,7 +276,7 @@ open class PosisjonApi : ApiClient {
      * @return AlwaysIncludeMapStringPosisjon
      */
     @Suppress("UNCHECKED_CAST")
-    open suspend fun findPosisjonerForVeg(vegsystemreferanser: kotlin.collections.List<kotlin.String>? = null, veglenkesekvenser: kotlin.collections.List<kotlin.String>? = null, kommune: kotlin.collections.List<kotlin.Int>? = null, srid: SridFindPosisjonerForVeg? = null): HttpResponse<AlwaysIncludeMapStringPosisjon> {
+    open suspend fun findPosisjonerForVeg(vegsystemreferanser: kotlin.collections.List<kotlin.String>? = null, veglenkesekvenser: kotlin.collections.List<kotlin.String>? = null, kommune: kotlin.collections.Set<kotlin.Int>? = null, srid: SridFindPosisjonerForVeg? = null): HttpResponse<AlwaysIncludeMapStringPosisjon> {
 
         val localVariableAuthNames = listOf<String>()
 
@@ -287,7 +287,7 @@ open class PosisjonApi : ApiClient {
         vegsystemreferanser?.apply { localVariableQuery["vegsystemreferanser"] = toMultiValue(this, "multi") }
         veglenkesekvenser?.apply { localVariableQuery["veglenkesekvenser"] = toMultiValue(this, "multi") }
         kommune?.apply { localVariableQuery["kommune"] = toMultiValue(this, "multi") }
-        srid?.apply { localVariableQuery["srid"] = listOf("$srid") }
+        srid?.apply { localVariableQuery["srid"] = listOf("${ srid.value }") }
         val localVariableHeaders = mutableMapOf<String, String>()
 
         val localVariableConfig = RequestConfig<kotlin.Any?>(

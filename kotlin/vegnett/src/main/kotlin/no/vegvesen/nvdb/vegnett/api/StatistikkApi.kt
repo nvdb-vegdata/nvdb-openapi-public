@@ -78,16 +78,16 @@ open class StatistikkApi : ApiClient {
         _4326("4326"),
         
         @SerialName(value = "UTM32")
-        uTM32("UTM32"),
+        UTM32("UTM32"),
         
         @SerialName(value = "UTM33")
-        uTM33("UTM33"),
+        UTM33("UTM33"),
         
         @SerialName(value = "UTM35")
-        uTM35("UTM35"),
+        UTM35("UTM35"),
         
         @SerialName(value = "WGS84")
-        wGS84("WGS84")
+        WGS84("WGS84")
         
     }
 
@@ -108,7 +108,7 @@ open class StatistikkApi : ApiClient {
             io.ktor.client.utils.EmptyContent
 
         val localVariableQuery = mutableMapOf<String, List<String>>()
-        srid?.apply { localVariableQuery["srid"] = listOf("$srid") }
+        srid?.apply { localVariableQuery["srid"] = listOf("${ srid.value }") }
         kartutsnitt?.apply { localVariableQuery["kartutsnitt"] = listOf("$kartutsnitt") }
         gruppering?.apply { localVariableQuery["gruppering"] = toMultiValue(this, "multi") }
         val localVariableHeaders = mutableMapOf<String, String>()
@@ -133,7 +133,7 @@ open class StatistikkApi : ApiClient {
         companion object : KSerializer<GetVeglenkesegmenterStatistikkGruppertResponse> {
             private val serializer: KSerializer<List<VeglenkesegmenterStatistikkGruppert>> = serializer<List<VeglenkesegmenterStatistikkGruppert>>()
             override val descriptor = serializer.descriptor
-            override fun serialize(encoder: Encoder, obj: GetVeglenkesegmenterStatistikkGruppertResponse) = serializer.serialize(encoder, obj.value)
+            override fun serialize(encoder: Encoder, value: GetVeglenkesegmenterStatistikkGruppertResponse) = serializer.serialize(encoder, value.value)
             override fun deserialize(decoder: Decoder) = GetVeglenkesegmenterStatistikkGruppertResponse(serializer.deserialize(decoder))
         }
     }

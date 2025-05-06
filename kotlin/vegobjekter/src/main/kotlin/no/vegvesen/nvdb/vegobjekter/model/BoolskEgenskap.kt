@@ -41,5 +41,8 @@ data class BoolskEgenskap (
 
     @SerialName(value = "verdi") val verdi: kotlin.Boolean? = null
 
-) : Egenskap
+) : Egenskap {
+
+
+}
 

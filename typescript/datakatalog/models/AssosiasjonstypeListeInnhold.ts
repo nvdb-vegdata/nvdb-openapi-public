@@ -12,12 +12,13 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime'
+import { mapValues } from '../runtime'
 import type { AssosiasjonstypeVegobjekttype } from './AssosiasjonstypeVegobjekttype'
 import {
   AssosiasjonstypeVegobjekttypeFromJSON,
   AssosiasjonstypeVegobjekttypeFromJSONTyped,
   AssosiasjonstypeVegobjekttypeToJSON,
+  AssosiasjonstypeVegobjekttypeToJSONTyped,
 } from './AssosiasjonstypeVegobjekttype'
 
 /**
@@ -90,13 +91,14 @@ export type AssosiasjonstypeListeInnholdRelasjonstypeEnum =
 /**
  * Check if a given object implements the AssosiasjonstypeListeInnhold interface.
  */
-export function instanceOfAssosiasjonstypeListeInnhold(value: object): boolean {
-  let isInstance = true
-  isInstance = isInstance && 'id' in value
-  isInstance = isInstance && 'egenskapstype' in value
-  isInstance = isInstance && 'type' in value
-
-  return isInstance
+export function instanceOfAssosiasjonstypeListeInnhold(
+  value: object,
+): value is AssosiasjonstypeListeInnhold {
+  if (!('id' in value) || value['id'] === undefined) return false
+  if (!('egenskapstype' in value) || value['egenskapstype'] === undefined)
+    return false
+  if (!('type' in value) || value['type'] === undefined) return false
+  return true
 }
 
 export function AssosiasjonstypeListeInnholdFromJSON(
@@ -109,38 +111,41 @@ export function AssosiasjonstypeListeInnholdFromJSONTyped(
   json: any,
   ignoreDiscriminator: boolean,
 ): AssosiasjonstypeListeInnhold {
-  if (json === undefined || json === null) {
+  if (json == null) {
     return json
   }
   return {
-    innenforMor: !exists(json, 'innenfor_mor')
-      ? undefined
-      : json['innenfor_mor'],
-    relasjonstype: !exists(json, 'relasjonstype')
-      ? undefined
-      : json['relasjonstype'],
+    innenforMor:
+      json['innenfor_mor'] == null ? undefined : json['innenfor_mor'],
+    relasjonstype:
+      json['relasjonstype'] == null ? undefined : json['relasjonstype'],
     id: json['id'],
-    navn: !exists(json, 'navn') ? undefined : json['navn'],
+    navn: json['navn'] == null ? undefined : json['navn'],
     egenskapstype: json['egenskapstype'],
     type: AssosiasjonstypeVegobjekttypeFromJSON(json['type']),
   }
 }
 
 export function AssosiasjonstypeListeInnholdToJSON(
+  json: any,
+): AssosiasjonstypeListeInnhold {
+  return AssosiasjonstypeListeInnholdToJSONTyped(json, false)
+}
+
+export function AssosiasjonstypeListeInnholdToJSONTyped(
   value?: AssosiasjonstypeListeInnhold | null,
+  ignoreDiscriminator: boolean = false,
 ): any {
-  if (value === undefined) {
-    return undefined
+  if (value == null) {
+    return value
   }
-  if (value === null) {
-    return null
-  }
+
   return {
-    innenfor_mor: value.innenforMor,
-    relasjonstype: value.relasjonstype,
-    id: value.id,
-    navn: value.navn,
-    egenskapstype: value.egenskapstype,
-    type: AssosiasjonstypeVegobjekttypeToJSON(value.type),
+    innenfor_mor: value['innenforMor'],
+    relasjonstype: value['relasjonstype'],
+    id: value['id'],
+    navn: value['navn'],
+    egenskapstype: value['egenskapstype'],
+    type: AssosiasjonstypeVegobjekttypeToJSON(value['type']),
   }
 }

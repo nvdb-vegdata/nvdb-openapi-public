@@ -34,5 +34,8 @@ data class PosisjonGeometri (
 
     @SerialName(value = "srid") @Required val srid: kotlin.Int
 
-)
+) {
+
+
+}
 

@@ -16,36 +16,36 @@
 package no.vegvesen.nvdb.datakatalog.model
 
 
-import kotlinx.serialization.*
+import com.fasterxml.jackson.annotation.JsonProperty
 
 /**
  * 
  *
- * Values: iKKESATT,pÅKREVDABSOLUTT,pÅKREVDIKKEABSOLUTT,bETINGET,oPSJONELL,mINDREVIKTIG,hISTORISK
+ * Values: IKKE_SATT,PÅKREVD_ABSOLUTT,PÅKREVD_IKKE_ABSOLUTT,BETINGET,OPSJONELL,MINDRE_VIKTIG,HISTORISK
  */
-@Serializable
+
 enum class Viktighet(val value: kotlin.String) {
 
-    @SerialName(value = "IKKE_SATT")
-    iKKESATT("IKKE_SATT"),
+    @JsonProperty(value = "IKKE_SATT")
+    IKKE_SATT("IKKE_SATT"),
 
-    @SerialName(value = "PÅKREVD_ABSOLUTT")
-    pÅKREVDABSOLUTT("PÅKREVD_ABSOLUTT"),
+    @JsonProperty(value = "PÅKREVD_ABSOLUTT")
+    PÅKREVD_ABSOLUTT("PÅKREVD_ABSOLUTT"),
 
-    @SerialName(value = "PÅKREVD_IKKE_ABSOLUTT")
-    pÅKREVDIKKEABSOLUTT("PÅKREVD_IKKE_ABSOLUTT"),
+    @JsonProperty(value = "PÅKREVD_IKKE_ABSOLUTT")
+    PÅKREVD_IKKE_ABSOLUTT("PÅKREVD_IKKE_ABSOLUTT"),
 
-    @SerialName(value = "BETINGET")
-    bETINGET("BETINGET"),
+    @JsonProperty(value = "BETINGET")
+    BETINGET("BETINGET"),
 
-    @SerialName(value = "OPSJONELL")
-    oPSJONELL("OPSJONELL"),
+    @JsonProperty(value = "OPSJONELL")
+    OPSJONELL("OPSJONELL"),
 
-    @SerialName(value = "MINDRE_VIKTIG")
-    mINDREVIKTIG("MINDRE_VIKTIG"),
+    @JsonProperty(value = "MINDRE_VIKTIG")
+    MINDRE_VIKTIG("MINDRE_VIKTIG"),
 
-    @SerialName(value = "HISTORISK")
-    hISTORISK("HISTORISK");
+    @JsonProperty(value = "HISTORISK")
+    HISTORISK("HISTORISK");
 
     /**
      * Override [toString()] to avoid using the enum variable name as the value, and instead use

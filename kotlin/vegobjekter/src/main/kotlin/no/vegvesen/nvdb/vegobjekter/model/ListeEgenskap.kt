@@ -30,7 +30,7 @@ import kotlinx.serialization.encoding.*
  */
 @Serializable
 
-data class ListeEgenskap (
+class ListeEgenskap (
 
     @SerialName(value = "id") @Required override val id: kotlin.Int,
 
@@ -38,5 +38,8 @@ data class ListeEgenskap (
 
     @SerialName(value = "egenskapstype") @Required override val egenskapstype: ListeEgenskap.Egenskapstype
 
-) : Egenskap
+) : Egenskap {
+
+
+}
 
