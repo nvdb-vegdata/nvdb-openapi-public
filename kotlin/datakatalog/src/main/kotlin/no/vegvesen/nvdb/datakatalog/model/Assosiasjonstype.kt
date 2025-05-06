@@ -18,9 +18,7 @@ package no.vegvesen.nvdb.datakatalog.model
 import no.vegvesen.nvdb.datakatalog.model.AssosiasjonstypeListeInnhold
 import no.vegvesen.nvdb.datakatalog.model.AssosiasjonstypeVegobjekttype
 
-import kotlinx.serialization.*
-import kotlinx.serialization.descriptors.*
-import kotlinx.serialization.encoding.*
+import com.fasterxml.jackson.annotation.JsonProperty
 
 /**
  * 
@@ -33,23 +31,33 @@ import kotlinx.serialization.encoding.*
  * @param innhold 
  * @param type 
  */
-@Serializable
+
 
 data class Assosiasjonstype (
 
-    @SerialName(value = "id") @Required val id: kotlin.Int,
+    @get:JsonProperty("id")
+    val id: kotlin.Int,
 
-    @SerialName(value = "egenskapstype") @Required val egenskapstype: kotlin.String,
+    @get:JsonProperty("egenskapstype")
+    val egenskapstype: kotlin.String,
 
-    @SerialName(value = "navn") val navn: kotlin.String? = null,
+    @get:JsonProperty("navn")
+    val navn: kotlin.String? = null,
 
-    @SerialName(value = "maksimalt_antall_verdier") val maksimaltAntallVerdier: kotlin.Int? = null,
+    @get:JsonProperty("maksimalt_antall_verdier")
+    val maksimaltAntallVerdier: kotlin.Int? = null,
 
-    @SerialName(value = "minimalt_antall_verdier") val minimaltAntallVerdier: kotlin.Int? = null,
+    @get:JsonProperty("minimalt_antall_verdier")
+    val minimaltAntallVerdier: kotlin.Int? = null,
 
-    @SerialName(value = "innhold") val innhold: AssosiasjonstypeListeInnhold? = null,
+    @get:JsonProperty("innhold")
+    val innhold: AssosiasjonstypeListeInnhold? = null,
 
-    @SerialName(value = "type") val type: AssosiasjonstypeVegobjekttype? = null
+    @get:JsonProperty("type")
+    val type: AssosiasjonstypeVegobjekttype? = null
 
-)
+) {
+
+
+}
 

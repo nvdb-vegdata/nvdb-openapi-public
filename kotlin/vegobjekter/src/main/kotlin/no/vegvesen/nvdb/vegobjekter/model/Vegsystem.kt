@@ -42,28 +42,29 @@ data class Vegsystem (
     /**
      * 
      *
-     * Values: e,f,k,p,r,s
+     * Values: E,F,K,P,R,S
      */
     @Serializable
     enum class Vegkategori(val value: kotlin.String) {
-        @SerialName(value = "E") e("E"),
-        @SerialName(value = "F") f("F"),
-        @SerialName(value = "K") k("K"),
-        @SerialName(value = "P") p("P"),
-        @SerialName(value = "R") r("R"),
-        @SerialName(value = "S") s("S");
+        @SerialName(value = "E") E("E"),
+        @SerialName(value = "F") F("F"),
+        @SerialName(value = "K") K("K"),
+        @SerialName(value = "P") P("P"),
+        @SerialName(value = "R") R("R"),
+        @SerialName(value = "S") S("S");
     }
     /**
      * 
      *
-     * Values: p,a,v,f
+     * Values: P,A,V,F
      */
     @Serializable
     enum class Fase(val value: kotlin.String) {
-        @SerialName(value = "P") p("P"),
-        @SerialName(value = "A") a("A"),
-        @SerialName(value = "V") v("V"),
-        @SerialName(value = "F") f("F");
+        @SerialName(value = "P") P("P"),
+        @SerialName(value = "A") A("A"),
+        @SerialName(value = "V") V("V"),
+        @SerialName(value = "F") F("F");
     }
+
 }
 

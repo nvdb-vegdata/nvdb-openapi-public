@@ -24,482 +24,369 @@ import no.vegvesen.nvdb.datakatalog.model.ProductSpecification
 import no.vegvesen.nvdb.datakatalog.model.Vegobjekttype
 import no.vegvesen.nvdb.datakatalog.model.Versjon
 
-import org.openapitools.client.infrastructure.*
-import io.ktor.client.HttpClient
+import no.vegvesen.nvdb.datakatalog.infrastructure.*
 import io.ktor.client.HttpClientConfig
 import io.ktor.client.request.forms.formData
 import io.ktor.client.engine.HttpClientEngine
-import kotlinx.serialization.json.Json
 import io.ktor.http.ParametersBuilder
-import kotlinx.serialization.*
-import kotlinx.serialization.descriptors.*
-import kotlinx.serialization.encoding.*
+import com.fasterxml.jackson.databind.ObjectMapper
 
-open class DatakatalogenApi : ApiClient {
+    open class DatakatalogenApi(
+    baseUrl: String = ApiClient.BASE_URL,
+    httpClientEngine: HttpClientEngine? = null,
+    httpClientConfig: ((HttpClientConfig<*>) -> Unit)? = null,
+    jsonBlock: ObjectMapper.() -> Unit = ApiClient.JSON_DEFAULT,
+    ) : ApiClient(
+        baseUrl,
+        httpClientEngine,
+        httpClientConfig,
+        jsonBlock,
+    ) {
 
-    constructor(
-        baseUrl: String = ApiClient.BASE_URL,
-        httpClientEngine: HttpClientEngine? = null,
-        httpClientConfig: ((HttpClientConfig<*>) -> Unit)? = null,
-        jsonSerializer: Json = ApiClient.JSON_DEFAULT
-    ) : super(baseUrl = baseUrl, httpClientEngine = httpClientEngine, httpClientConfig = httpClientConfig, jsonBlock = jsonSerializer)
+        /**
+        * GET /api/v1/egenskapstyper/{egenskapstypeid}
+        * Returnerer angitt egenskapstype
+        * 
+         * @param egenskapstypeid  
+         * @return Egenskapstype
+        */
+            @Suppress("UNCHECKED_CAST")
+        open suspend fun getEgenskapstype(egenskapstypeid: kotlin.Int): HttpResponse<Egenskapstype> {
 
-    constructor(
-        baseUrl: String,
-        httpClient: HttpClient
-    ): super(baseUrl = baseUrl, httpClient = httpClient)
+            val localVariableAuthNames = listOf<String>()
 
-    /**
-     * Returnerer angitt egenskapstype
-     * 
-     * @param egenskapstypeid 
-     * @return Egenskapstype
-     */
-    @Suppress("UNCHECKED_CAST")
-    open suspend fun getEgenskapstype(egenskapstypeid: kotlin.Int): HttpResponse<Egenskapstype> {
+            val localVariableBody = 
+                    io.ktor.client.utils.EmptyContent
 
-        val localVariableAuthNames = listOf<String>()
+            val localVariableQuery = mutableMapOf<String, List<String>>()
 
-        val localVariableBody = 
-            io.ktor.client.utils.EmptyContent
+            val localVariableHeaders = mutableMapOf<String, String>()
 
-        val localVariableQuery = mutableMapOf<String, List<String>>()
-        val localVariableHeaders = mutableMapOf<String, String>()
-
-        val localVariableConfig = RequestConfig<kotlin.Any?>(
+            val localVariableConfig = RequestConfig<kotlin.Any?>(
             RequestMethod.GET,
             "/api/v1/egenskapstyper/{egenskapstypeid}".replace("{" + "egenskapstypeid" + "}", "$egenskapstypeid"),
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
-        )
+            )
 
-        return request(
+            return request(
             localVariableConfig,
             localVariableBody,
             localVariableAuthNames
-        ).wrap()
-    }
+            ).wrap()
+            }
 
+        /**
+        * GET /api/v1/vegobjekttyper/{vegobjekttypeid}/{egenskapstypeid}
+        * Returnerer angitt egenskapstype for angitt vegobjekttype
+        * 
+         * @param vegobjekttypeid  
+         * @param egenskapstypeid  
+         * @return Egenskapstype
+        */
+            @Suppress("UNCHECKED_CAST")
+        open suspend fun getEgenskapstypeForVegobjekttype(vegobjekttypeid: kotlin.Int, egenskapstypeid: kotlin.Int): HttpResponse<Egenskapstype> {
 
-    /**
-     * Returnerer angitt egenskapstype for angitt vegobjekttype
-     * 
-     * @param vegobjekttypeid 
-     * @param egenskapstypeid 
-     * @return Egenskapstype
-     */
-    @Suppress("UNCHECKED_CAST")
-    open suspend fun getEgenskapstypeForVegobjekttype(vegobjekttypeid: kotlin.Int, egenskapstypeid: kotlin.Int): HttpResponse<Egenskapstype> {
+            val localVariableAuthNames = listOf<String>()
 
-        val localVariableAuthNames = listOf<String>()
+            val localVariableBody = 
+                    io.ktor.client.utils.EmptyContent
 
-        val localVariableBody = 
-            io.ktor.client.utils.EmptyContent
+            val localVariableQuery = mutableMapOf<String, List<String>>()
 
-        val localVariableQuery = mutableMapOf<String, List<String>>()
-        val localVariableHeaders = mutableMapOf<String, String>()
+            val localVariableHeaders = mutableMapOf<String, String>()
 
-        val localVariableConfig = RequestConfig<kotlin.Any?>(
+            val localVariableConfig = RequestConfig<kotlin.Any?>(
             RequestMethod.GET,
             "/api/v1/vegobjekttyper/{vegobjekttypeid}/{egenskapstypeid}".replace("{" + "vegobjekttypeid" + "}", "$vegobjekttypeid").replace("{" + "egenskapstypeid" + "}", "$egenskapstypeid"),
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
-        )
+            )
 
-        return request(
+            return request(
             localVariableConfig,
             localVariableBody,
             localVariableAuthNames
-        ).wrap()
-    }
+            ).wrap()
+            }
 
+        /**
+        * GET /api/v1/egenskapstypekategorier
+        * Returnerer alle kategorier for egenskapstypene
+        * 
+         * @return kotlin.collections.List<EgenskapstypeKategori>
+        */
+            @Suppress("UNCHECKED_CAST")
+        open suspend fun getEgenskapstypeKategorier(): HttpResponse<kotlin.collections.List<EgenskapstypeKategori>> {
 
-    /**
-     * Returnerer alle kategorier for egenskapstypene
-     * 
-     * @return kotlin.collections.List<EgenskapstypeKategori>
-     */
-    @Suppress("UNCHECKED_CAST")
-    open suspend fun getEgenskapstypeKategorier(): HttpResponse<kotlin.collections.List<EgenskapstypeKategori>> {
+            val localVariableAuthNames = listOf<String>()
 
-        val localVariableAuthNames = listOf<String>()
+            val localVariableBody = 
+                    io.ktor.client.utils.EmptyContent
 
-        val localVariableBody = 
-            io.ktor.client.utils.EmptyContent
+            val localVariableQuery = mutableMapOf<String, List<String>>()
 
-        val localVariableQuery = mutableMapOf<String, List<String>>()
-        val localVariableHeaders = mutableMapOf<String, String>()
+            val localVariableHeaders = mutableMapOf<String, String>()
 
-        val localVariableConfig = RequestConfig<kotlin.Any?>(
+            val localVariableConfig = RequestConfig<kotlin.Any?>(
             RequestMethod.GET,
             "/api/v1/egenskapstypekategorier",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
-        )
+            )
 
-        return request(
+            return request(
             localVariableConfig,
             localVariableBody,
             localVariableAuthNames
-        ).wrap<GetEgenskapstypeKategorierResponse>().map { value }
-    }
+            ).wrap()
+            }
 
-    @Serializable(GetEgenskapstypeKategorierResponse.Companion::class)
-    private class GetEgenskapstypeKategorierResponse(val value: List<EgenskapstypeKategori>) {
-        companion object : KSerializer<GetEgenskapstypeKategorierResponse> {
-            private val serializer: KSerializer<List<EgenskapstypeKategori>> = serializer<List<EgenskapstypeKategori>>()
-            override val descriptor = serializer.descriptor
-            override fun serialize(encoder: Encoder, obj: GetEgenskapstypeKategorierResponse) = serializer.serialize(encoder, obj.value)
-            override fun deserialize(decoder: Decoder) = GetEgenskapstypeKategorierResponse(serializer.deserialize(decoder))
-        }
-    }
+        /**
+        * GET /api/v1/enheter
+        * Returnerer alle enheter
+        * 
+         * @return kotlin.collections.List<Enhet>
+        */
+            @Suppress("UNCHECKED_CAST")
+        open suspend fun getEnheter(): HttpResponse<kotlin.collections.List<Enhet>> {
 
-    /**
-     * Returnerer alle enheter
-     * 
-     * @return kotlin.collections.List<Enhet>
-     */
-    @Suppress("UNCHECKED_CAST")
-    open suspend fun getEnheter(): HttpResponse<kotlin.collections.List<Enhet>> {
+            val localVariableAuthNames = listOf<String>()
 
-        val localVariableAuthNames = listOf<String>()
+            val localVariableBody = 
+                    io.ktor.client.utils.EmptyContent
 
-        val localVariableBody = 
-            io.ktor.client.utils.EmptyContent
+            val localVariableQuery = mutableMapOf<String, List<String>>()
 
-        val localVariableQuery = mutableMapOf<String, List<String>>()
-        val localVariableHeaders = mutableMapOf<String, String>()
+            val localVariableHeaders = mutableMapOf<String, String>()
 
-        val localVariableConfig = RequestConfig<kotlin.Any?>(
+            val localVariableConfig = RequestConfig<kotlin.Any?>(
             RequestMethod.GET,
             "/api/v1/enheter",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
-        )
+            )
 
-        return request(
+            return request(
             localVariableConfig,
             localVariableBody,
             localVariableAuthNames
-        ).wrap<GetEnheterResponse>().map { value }
-    }
+            ).wrap()
+            }
 
-    @Serializable(GetEnheterResponse.Companion::class)
-    private class GetEnheterResponse(val value: List<Enhet>) {
-        companion object : KSerializer<GetEnheterResponse> {
-            private val serializer: KSerializer<List<Enhet>> = serializer<List<Enhet>>()
-            override val descriptor = serializer.descriptor
-            override fun serialize(encoder: Encoder, obj: GetEnheterResponse) = serializer.serialize(encoder, obj.value)
-            override fun deserialize(decoder: Decoder) = GetEnheterResponse(serializer.deserialize(decoder))
-        }
-    }
+        /**
+        * GET /api/v1/kategorier
+        * Returnerer alle kategorier for vegobjekter
+        * 
+         * @return kotlin.collections.List<Kategori>
+        */
+            @Suppress("UNCHECKED_CAST")
+        open suspend fun getKategorier(): HttpResponse<kotlin.collections.List<Kategori>> {
 
-    /**
-     * Returnerer alle kategorier for vegobjekter
-     * 
-     * @return kotlin.collections.List<Kategori>
-     */
-    @Suppress("UNCHECKED_CAST")
-    open suspend fun getKategorier(): HttpResponse<kotlin.collections.List<Kategori>> {
+            val localVariableAuthNames = listOf<String>()
 
-        val localVariableAuthNames = listOf<String>()
+            val localVariableBody = 
+                    io.ktor.client.utils.EmptyContent
 
-        val localVariableBody = 
-            io.ktor.client.utils.EmptyContent
+            val localVariableQuery = mutableMapOf<String, List<String>>()
 
-        val localVariableQuery = mutableMapOf<String, List<String>>()
-        val localVariableHeaders = mutableMapOf<String, String>()
+            val localVariableHeaders = mutableMapOf<String, String>()
 
-        val localVariableConfig = RequestConfig<kotlin.Any?>(
+            val localVariableConfig = RequestConfig<kotlin.Any?>(
             RequestMethod.GET,
             "/api/v1/kategorier",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
-        )
+            )
 
-        return request(
+            return request(
             localVariableConfig,
             localVariableBody,
             localVariableAuthNames
-        ).wrap<GetKategorierResponse>().map { value }
-    }
+            ).wrap()
+            }
 
-    @Serializable(GetKategorierResponse.Companion::class)
-    private class GetKategorierResponse(val value: List<Kategori>) {
-        companion object : KSerializer<GetKategorierResponse> {
-            private val serializer: KSerializer<List<Kategori>> = serializer<List<Kategori>>()
-            override val descriptor = serializer.descriptor
-            override fun serialize(encoder: Encoder, obj: GetKategorierResponse) = serializer.serialize(encoder, obj.value)
-            override fun deserialize(decoder: Decoder) = GetKategorierResponse(serializer.deserialize(decoder))
-        }
-    }
+        /**
+        * GET /api/v1/vegobjekttyper/{vegobjekttypeid}/produktspesifikasjon
+        * Returnerer produktspesifikasjonen til den angitte vegobjekttypen
+        * 
+         * @param vegobjekttypeid  
+         * @return ProductSpecification
+        */
+            @Suppress("UNCHECKED_CAST")
+        open suspend fun getProduktspesifikasjon(vegobjekttypeid: kotlin.Int): HttpResponse<ProductSpecification> {
 
-    /**
-     * Returnerer produktspesifikasjonen til den angitte vegobjekttypen
-     * 
-     * @param vegobjekttypeid 
-     * @return ProductSpecification
-     */
-    @Suppress("UNCHECKED_CAST")
-    open suspend fun getProduktspesifikasjon(vegobjekttypeid: kotlin.Int): HttpResponse<ProductSpecification> {
+            val localVariableAuthNames = listOf<String>()
 
-        val localVariableAuthNames = listOf<String>()
+            val localVariableBody = 
+                    io.ktor.client.utils.EmptyContent
 
-        val localVariableBody = 
-            io.ktor.client.utils.EmptyContent
+            val localVariableQuery = mutableMapOf<String, List<String>>()
 
-        val localVariableQuery = mutableMapOf<String, List<String>>()
-        val localVariableHeaders = mutableMapOf<String, String>()
+            val localVariableHeaders = mutableMapOf<String, String>()
 
-        val localVariableConfig = RequestConfig<kotlin.Any?>(
+            val localVariableConfig = RequestConfig<kotlin.Any?>(
             RequestMethod.GET,
             "/api/v1/vegobjekttyper/{vegobjekttypeid}/produktspesifikasjon".replace("{" + "vegobjekttypeid" + "}", "$vegobjekttypeid"),
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
-        )
+            )
 
-        return request(
+            return request(
             localVariableConfig,
             localVariableBody,
             localVariableAuthNames
-        ).wrap()
-    }
+            ).wrap()
+            }
 
+        /**
+        * GET /api/v1/vegobjekttyper/{vegobjekttypeid}
+        * Returnerer angitt vegobjekttype
+        * 
+         * @param vegobjekttypeid  
+         * @param inkluder Kommaseparert liste med hvilke informasjonsfelter som skal inkluderes i tillegg til vegobjekttypenes metadata. (optional)
+         * @return Vegobjekttype
+        */
+            @Suppress("UNCHECKED_CAST")
+        open suspend fun getVegobjekttype(vegobjekttypeid: kotlin.Int, inkluder: kotlin.collections.List<kotlin.String>?): HttpResponse<Vegobjekttype> {
 
+            val localVariableAuthNames = listOf<String>()
 
-    /**
-     * enum for parameter inkluder
-     */
-    @Serializable
-    enum class InkluderGetVegobjekttype(val value: kotlin.String) {
-        
-        @SerialName(value = "egenskapstyper")
-        egenskapstyper("egenskapstyper"),
-        
-        @SerialName(value = "relasjonstyper")
-        relasjonstyper("relasjonstyper"),
-        
-        @SerialName(value = "stedfesting")
-        stedfesting("stedfesting"),
-        
-        @SerialName(value = "alle")
-        alle("alle"),
-        
-        @SerialName(value = "minimum")
-        minimum("minimum")
-        
-    }
+            val localVariableBody = 
+                    io.ktor.client.utils.EmptyContent
 
-    /**
-     * Returnerer angitt vegobjekttype
-     * 
-     * @param vegobjekttypeid 
-     * @param inkluder Kommaseparert liste med hvilke informasjonsfelter som skal inkluderes i tillegg til vegobjekttypenes metadata. (optional)
-     * @return Vegobjekttype
-     */
-    @Suppress("UNCHECKED_CAST")
-    open suspend fun getVegobjekttype(vegobjekttypeid: kotlin.Int, inkluder: kotlin.collections.List<InkluderGetVegobjekttype>? = null): HttpResponse<Vegobjekttype> {
+            val localVariableQuery = mutableMapOf<String, List<String>>()
+            inkluder?.apply { localVariableQuery["inkluder"] = toMultiValue(this, "multi") }
 
-        val localVariableAuthNames = listOf<String>()
+            val localVariableHeaders = mutableMapOf<String, String>()
 
-        val localVariableBody = 
-            io.ktor.client.utils.EmptyContent
-
-        val localVariableQuery = mutableMapOf<String, List<String>>()
-        inkluder?.apply { localVariableQuery["inkluder"] = toMultiValue(this, "multi") }
-        val localVariableHeaders = mutableMapOf<String, String>()
-
-        val localVariableConfig = RequestConfig<kotlin.Any?>(
+            val localVariableConfig = RequestConfig<kotlin.Any?>(
             RequestMethod.GET,
             "/api/v1/vegobjekttyper/{vegobjekttypeid}".replace("{" + "vegobjekttypeid" + "}", "$vegobjekttypeid"),
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
-        )
+            )
 
-        return request(
+            return request(
             localVariableConfig,
             localVariableBody,
             localVariableAuthNames
-        ).wrap()
-    }
+            ).wrap()
+            }
 
+        /**
+        * GET /api/v1/vegobjekttyper
+        * Returnerer alle vegobjekttypene
+        * 
+         * @param inkluder Kommaseparert liste med hvilke informasjonsfelter som skal inkluderes i tillegg til vegobjekttypenes metadata. (optional)
+         * @param kategori Begrens vegobjekttyper etter kategori. (/vegobjekttyper/kategorier) (optional)
+         * @return kotlin.collections.List<Vegobjekttype>
+        */
+            @Suppress("UNCHECKED_CAST")
+        open suspend fun getVegobjekttyper(inkluder: kotlin.collections.List<kotlin.String>?, kategori: kotlin.Int?): HttpResponse<kotlin.collections.List<Vegobjekttype>> {
 
+            val localVariableAuthNames = listOf<String>()
 
-    /**
-     * enum for parameter inkluder
-     */
-    @Serializable
-    enum class InkluderGetVegobjekttyper(val value: kotlin.String) {
-        
-        @SerialName(value = "egenskapstyper")
-        egenskapstyper("egenskapstyper"),
-        
-        @SerialName(value = "relasjonstyper")
-        relasjonstyper("relasjonstyper"),
-        
-        @SerialName(value = "stedfesting")
-        stedfesting("stedfesting"),
-        
-        @SerialName(value = "alle")
-        alle("alle"),
-        
-        @SerialName(value = "minimum")
-        minimum("minimum")
-        
-    }
+            val localVariableBody = 
+                    io.ktor.client.utils.EmptyContent
 
-    /**
-     * Returnerer alle vegobjekttypene
-     * 
-     * @param inkluder Kommaseparert liste med hvilke informasjonsfelter som skal inkluderes i tillegg til vegobjekttypenes metadata. (optional)
-     * @param kategori Begrens vegobjekttyper etter kategori. (/vegobjekttyper/kategorier) (optional)
-     * @return kotlin.collections.List<Vegobjekttype>
-     */
-    @Suppress("UNCHECKED_CAST")
-    open suspend fun getVegobjekttyper(inkluder: kotlin.collections.List<InkluderGetVegobjekttyper>? = null, kategori: kotlin.Int? = null): HttpResponse<kotlin.collections.List<Vegobjekttype>> {
+            val localVariableQuery = mutableMapOf<String, List<String>>()
+            inkluder?.apply { localVariableQuery["inkluder"] = toMultiValue(this, "multi") }
+            kategori?.apply { localVariableQuery["kategori"] = listOf("$kategori") }
 
-        val localVariableAuthNames = listOf<String>()
+            val localVariableHeaders = mutableMapOf<String, String>()
 
-        val localVariableBody = 
-            io.ktor.client.utils.EmptyContent
-
-        val localVariableQuery = mutableMapOf<String, List<String>>()
-        inkluder?.apply { localVariableQuery["inkluder"] = toMultiValue(this, "multi") }
-        kategori?.apply { localVariableQuery["kategori"] = listOf("$kategori") }
-        val localVariableHeaders = mutableMapOf<String, String>()
-
-        val localVariableConfig = RequestConfig<kotlin.Any?>(
+            val localVariableConfig = RequestConfig<kotlin.Any?>(
             RequestMethod.GET,
             "/api/v1/vegobjekttyper",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
-        )
+            )
 
-        return request(
+            return request(
             localVariableConfig,
             localVariableBody,
             localVariableAuthNames
-        ).wrap<GetVegobjekttyperResponse>().map { value }
-    }
+            ).wrap()
+            }
 
-    @Serializable(GetVegobjekttyperResponse.Companion::class)
-    private class GetVegobjekttyperResponse(val value: List<Vegobjekttype>) {
-        companion object : KSerializer<GetVegobjekttyperResponse> {
-            private val serializer: KSerializer<List<Vegobjekttype>> = serializer<List<Vegobjekttype>>()
-            override val descriptor = serializer.descriptor
-            override fun serialize(encoder: Encoder, obj: GetVegobjekttyperResponse) = serializer.serialize(encoder, obj.value)
-            override fun deserialize(decoder: Decoder) = GetVegobjekttyperResponse(serializer.deserialize(decoder))
-        }
-    }
+        /**
+        * GET /api/v1/vegobjekttyper/historisk/{versjon}
+        * Returnerer alle vegobjekttypene for en gitt versjon av datakatalogen, f.eks. 2.31
+        * 
+         * @param versjon  
+         * @param inkluder Kommaseparert liste med hvilke informasjonsfelter som skal inkluderes i tillegg til vegobjekttypenes metadata. (optional)
+         * @param kategori Begrens vegobjekttyper etter kategori. (/vegobjekttyper/kategorier) (optional)
+         * @return kotlin.collections.List<Vegobjekttype>
+        */
+            @Suppress("UNCHECKED_CAST")
+        open suspend fun getVegobjekttyperHistorisk(versjon: kotlin.String, inkluder: kotlin.collections.List<kotlin.String>?, kategori: kotlin.Int?): HttpResponse<kotlin.collections.List<Vegobjekttype>> {
 
+            val localVariableAuthNames = listOf<String>()
 
-    /**
-     * enum for parameter inkluder
-     */
-    @Serializable
-    enum class InkluderGetVegobjekttyperHistorisk(val value: kotlin.String) {
-        
-        @SerialName(value = "egenskapstyper")
-        egenskapstyper("egenskapstyper"),
-        
-        @SerialName(value = "relasjonstyper")
-        relasjonstyper("relasjonstyper"),
-        
-        @SerialName(value = "stedfesting")
-        stedfesting("stedfesting"),
-        
-        @SerialName(value = "alle")
-        alle("alle"),
-        
-        @SerialName(value = "minimum")
-        minimum("minimum")
-        
-    }
+            val localVariableBody = 
+                    io.ktor.client.utils.EmptyContent
 
-    /**
-     * Returnerer alle vegobjekttypene for en gitt versjon av datakatalogen, f.eks. 2.31
-     * 
-     * @param versjon 
-     * @param inkluder Kommaseparert liste med hvilke informasjonsfelter som skal inkluderes i tillegg til vegobjekttypenes metadata. (optional)
-     * @param kategori Begrens vegobjekttyper etter kategori. (/vegobjekttyper/kategorier) (optional)
-     * @return kotlin.collections.List<Vegobjekttype>
-     */
-    @Suppress("UNCHECKED_CAST")
-    open suspend fun getVegobjekttyperHistorisk(versjon: kotlin.String, inkluder: kotlin.collections.List<InkluderGetVegobjekttyperHistorisk>? = null, kategori: kotlin.Int? = null): HttpResponse<kotlin.collections.List<Vegobjekttype>> {
+            val localVariableQuery = mutableMapOf<String, List<String>>()
+            inkluder?.apply { localVariableQuery["inkluder"] = toMultiValue(this, "multi") }
+            kategori?.apply { localVariableQuery["kategori"] = listOf("$kategori") }
 
-        val localVariableAuthNames = listOf<String>()
+            val localVariableHeaders = mutableMapOf<String, String>()
 
-        val localVariableBody = 
-            io.ktor.client.utils.EmptyContent
-
-        val localVariableQuery = mutableMapOf<String, List<String>>()
-        inkluder?.apply { localVariableQuery["inkluder"] = toMultiValue(this, "multi") }
-        kategori?.apply { localVariableQuery["kategori"] = listOf("$kategori") }
-        val localVariableHeaders = mutableMapOf<String, String>()
-
-        val localVariableConfig = RequestConfig<kotlin.Any?>(
+            val localVariableConfig = RequestConfig<kotlin.Any?>(
             RequestMethod.GET,
             "/api/v1/vegobjekttyper/historisk/{versjon}".replace("{" + "versjon" + "}", "$versjon"),
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
-        )
+            )
 
-        return request(
+            return request(
             localVariableConfig,
             localVariableBody,
             localVariableAuthNames
-        ).wrap<GetVegobjekttyperHistoriskResponse>().map { value }
-    }
+            ).wrap()
+            }
 
-    @Serializable(GetVegobjekttyperHistoriskResponse.Companion::class)
-    private class GetVegobjekttyperHistoriskResponse(val value: List<Vegobjekttype>) {
-        companion object : KSerializer<GetVegobjekttyperHistoriskResponse> {
-            private val serializer: KSerializer<List<Vegobjekttype>> = serializer<List<Vegobjekttype>>()
-            override val descriptor = serializer.descriptor
-            override fun serialize(encoder: Encoder, obj: GetVegobjekttyperHistoriskResponse) = serializer.serialize(encoder, obj.value)
-            override fun deserialize(decoder: Decoder) = GetVegobjekttyperHistoriskResponse(serializer.deserialize(decoder))
-        }
-    }
+        /**
+        * GET /api/v1/versjon
+        * Returnerer aktiv versjon på datakatalog
+        * 
+         * @return Versjon
+        */
+            @Suppress("UNCHECKED_CAST")
+        open suspend fun getVersjon(): HttpResponse<Versjon> {
 
-    /**
-     * Returnerer aktiv versjon på datakatalog
-     * 
-     * @return Versjon
-     */
-    @Suppress("UNCHECKED_CAST")
-    open suspend fun getVersjon(): HttpResponse<Versjon> {
+            val localVariableAuthNames = listOf<String>()
 
-        val localVariableAuthNames = listOf<String>()
+            val localVariableBody = 
+                    io.ktor.client.utils.EmptyContent
 
-        val localVariableBody = 
-            io.ktor.client.utils.EmptyContent
+            val localVariableQuery = mutableMapOf<String, List<String>>()
 
-        val localVariableQuery = mutableMapOf<String, List<String>>()
-        val localVariableHeaders = mutableMapOf<String, String>()
+            val localVariableHeaders = mutableMapOf<String, String>()
 
-        val localVariableConfig = RequestConfig<kotlin.Any?>(
+            val localVariableConfig = RequestConfig<kotlin.Any?>(
             RequestMethod.GET,
             "/api/v1/versjon",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
-        )
+            )
 
-        return request(
+            return request(
             localVariableConfig,
             localVariableBody,
             localVariableAuthNames
-        ).wrap()
-    }
+            ).wrap()
+            }
 
-
-}
+        }

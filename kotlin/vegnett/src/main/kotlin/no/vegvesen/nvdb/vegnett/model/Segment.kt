@@ -30,5 +30,6 @@ import kotlinx.serialization.encoding.*
 interface Segment {
 
     @SerialName(value = "type") @Required val type: kotlin.String
+
 }
 

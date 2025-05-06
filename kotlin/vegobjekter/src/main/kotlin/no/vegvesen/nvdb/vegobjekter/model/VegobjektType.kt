@@ -34,5 +34,8 @@ data class VegobjektType (
 
     @SerialName(value = "navn") @Required val navn: kotlin.String
 
-)
+) {
+
+
+}
 

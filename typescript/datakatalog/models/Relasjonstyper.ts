@@ -12,12 +12,13 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime'
+import { mapValues } from '../runtime'
 import type { Assosiasjonstype } from './Assosiasjonstype'
 import {
   AssosiasjonstypeFromJSON,
   AssosiasjonstypeFromJSONTyped,
   AssosiasjonstypeToJSON,
+  AssosiasjonstypeToJSONTyped,
 } from './Assosiasjonstype'
 
 /**
@@ -34,21 +35,21 @@ export interface Relasjonstyper {
   foreldre: Array<Assosiasjonstype>
   /**
    *
-   * @type {any}
+   * @type {Array<Assosiasjonstype>}
    * @memberof Relasjonstyper
    */
-  barn: any | null
+  barn: Array<Assosiasjonstype>
 }
 
 /**
  * Check if a given object implements the Relasjonstyper interface.
  */
-export function instanceOfRelasjonstyper(value: object): boolean {
-  let isInstance = true
-  isInstance = isInstance && 'foreldre' in value
-  isInstance = isInstance && 'barn' in value
-
-  return isInstance
+export function instanceOfRelasjonstyper(
+  value: object,
+): value is Relasjonstyper {
+  if (!('foreldre' in value) || value['foreldre'] === undefined) return false
+  if (!('barn' in value) || value['barn'] === undefined) return false
+  return true
 }
 
 export function RelasjonstyperFromJSON(json: any): Relasjonstyper {
@@ -59,24 +60,29 @@ export function RelasjonstyperFromJSONTyped(
   json: any,
   ignoreDiscriminator: boolean,
 ): Relasjonstyper {
-  if (json === undefined || json === null) {
+  if (json == null) {
     return json
   }
   return {
     foreldre: (json['foreldre'] as Array<any>).map(AssosiasjonstypeFromJSON),
-    barn: json['barn'],
+    barn: (json['barn'] as Array<any>).map(AssosiasjonstypeFromJSON),
   }
 }
 
-export function RelasjonstyperToJSON(value?: Relasjonstyper | null): any {
-  if (value === undefined) {
-    return undefined
+export function RelasjonstyperToJSON(json: any): Relasjonstyper {
+  return RelasjonstyperToJSONTyped(json, false)
+}
+
+export function RelasjonstyperToJSONTyped(
+  value?: Relasjonstyper | null,
+  ignoreDiscriminator: boolean = false,
+): any {
+  if (value == null) {
+    return value
   }
-  if (value === null) {
-    return null
-  }
+
   return {
-    foreldre: (value.foreldre as Array<any>).map(AssosiasjonstypeToJSON),
-    barn: value.barn,
+    foreldre: (value['foreldre'] as Array<any>).map(AssosiasjonstypeToJSON),
+    barn: (value['barn'] as Array<any>).map(AssosiasjonstypeToJSON),
   }
 }

@@ -34,5 +34,8 @@ data class Adresse (
 
     @SerialName(value = "adressekode") @Required val adressekode: kotlin.Int
 
-)
+) {
+
+
+}
 

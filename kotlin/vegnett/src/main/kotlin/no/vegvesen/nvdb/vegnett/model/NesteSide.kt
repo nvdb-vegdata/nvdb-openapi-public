@@ -34,5 +34,8 @@ data class NesteSide (
 
     @SerialName(value = "href") @Required val href: kotlin.String
 
-)
+) {
+
+
+}
 

@@ -12,7 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime'
+import { mapValues } from '../runtime'
 /**
  *
  * @export
@@ -54,12 +54,13 @@ export interface EgenskapstypeKategori {
 /**
  * Check if a given object implements the EgenskapstypeKategori interface.
  */
-export function instanceOfEgenskapstypeKategori(value: object): boolean {
-  let isInstance = true
-  isInstance = isInstance && 'id' in value
-  isInstance = isInstance && 'sorteringsnummer' in value
-
-  return isInstance
+export function instanceOfEgenskapstypeKategori(
+  value: object,
+): value is EgenskapstypeKategori {
+  if (!('id' in value) || value['id'] === undefined) return false
+  if (!('sorteringsnummer' in value) || value['sorteringsnummer'] === undefined)
+    return false
+  return true
 }
 
 export function EgenskapstypeKategoriFromJSON(
@@ -72,32 +73,35 @@ export function EgenskapstypeKategoriFromJSONTyped(
   json: any,
   ignoreDiscriminator: boolean,
 ): EgenskapstypeKategori {
-  if (json === undefined || json === null) {
+  if (json == null) {
     return json
   }
   return {
     id: json['id'],
-    navn: !exists(json, 'navn') ? undefined : json['navn'],
-    kortnavn: !exists(json, 'kortnavn') ? undefined : json['kortnavn'],
+    navn: json['navn'] == null ? undefined : json['navn'],
+    kortnavn: json['kortnavn'] == null ? undefined : json['kortnavn'],
     sorteringsnummer: json['sorteringsnummer'],
-    beskrivelse: !exists(json, 'beskrivelse') ? undefined : json['beskrivelse'],
+    beskrivelse: json['beskrivelse'] == null ? undefined : json['beskrivelse'],
   }
 }
 
-export function EgenskapstypeKategoriToJSON(
+export function EgenskapstypeKategoriToJSON(json: any): EgenskapstypeKategori {
+  return EgenskapstypeKategoriToJSONTyped(json, false)
+}
+
+export function EgenskapstypeKategoriToJSONTyped(
   value?: EgenskapstypeKategori | null,
+  ignoreDiscriminator: boolean = false,
 ): any {
-  if (value === undefined) {
-    return undefined
+  if (value == null) {
+    return value
   }
-  if (value === null) {
-    return null
-  }
+
   return {
-    id: value.id,
-    navn: value.navn,
-    kortnavn: value.kortnavn,
-    sorteringsnummer: value.sorteringsnummer,
-    beskrivelse: value.beskrivelse,
+    id: value['id'],
+    navn: value['navn'],
+    kortnavn: value['kortnavn'],
+    sorteringsnummer: value['sorteringsnummer'],
+    beskrivelse: value['beskrivelse'],
   }
 }

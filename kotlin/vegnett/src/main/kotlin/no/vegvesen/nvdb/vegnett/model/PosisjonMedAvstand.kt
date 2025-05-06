@@ -46,5 +46,8 @@ data class PosisjonMedAvstand (
 
     @SerialName(value = "avstand") @Required val avstand: kotlin.Double
 
-)
+) {
+
+
+}
 

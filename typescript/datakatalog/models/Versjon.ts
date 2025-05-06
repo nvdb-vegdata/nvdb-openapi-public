@@ -12,7 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime'
+import { mapValues } from '../runtime'
 /**
  *
  * @export
@@ -42,13 +42,11 @@ export interface Versjon {
 /**
  * Check if a given object implements the Versjon interface.
  */
-export function instanceOfVersjon(value: object): boolean {
-  let isInstance = true
-  isInstance = isInstance && 'id' in value
-  isInstance = isInstance && 'dato' in value
-  isInstance = isInstance && 'versjon' in value
-
-  return isInstance
+export function instanceOfVersjon(value: object): value is Versjon {
+  if (!('id' in value) || value['id'] === undefined) return false
+  if (!('dato' in value) || value['dato'] === undefined) return false
+  if (!('versjon' in value) || value['versjon'] === undefined) return false
+  return true
 }
 
 export function VersjonFromJSON(json: any): Versjon {
@@ -59,7 +57,7 @@ export function VersjonFromJSONTyped(
   json: any,
   ignoreDiscriminator: boolean,
 ): Versjon {
-  if (json === undefined || json === null) {
+  if (json == null) {
     return json
   }
   return {
@@ -69,16 +67,21 @@ export function VersjonFromJSONTyped(
   }
 }
 
-export function VersjonToJSON(value?: Versjon | null): any {
-  if (value === undefined) {
-    return undefined
+export function VersjonToJSON(json: any): Versjon {
+  return VersjonToJSONTyped(json, false)
+}
+
+export function VersjonToJSONTyped(
+  value?: Versjon | null,
+  ignoreDiscriminator: boolean = false,
+): any {
+  if (value == null) {
+    return value
   }
-  if (value === null) {
-    return null
-  }
+
   return {
-    id: value.id,
-    dato: value.dato.toISOString().substring(0, 10),
-    versjon: value.versjon,
+    id: value['id'],
+    dato: value['dato'].toISOString().substring(0, 10),
+    versjon: value['versjon'],
   }
 }

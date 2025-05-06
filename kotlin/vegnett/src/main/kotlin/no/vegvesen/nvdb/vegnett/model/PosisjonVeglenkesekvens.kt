@@ -37,5 +37,8 @@ data class PosisjonVeglenkesekvens (
 
     @SerialName(value = "kortform") @Required val kortform: kotlin.String
 
-)
+) {
+
+
+}
 

@@ -12,7 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime'
+import { mapValues } from '../runtime'
 /**
  *
  * @export
@@ -42,11 +42,9 @@ export interface Enhet {
 /**
  * Check if a given object implements the Enhet interface.
  */
-export function instanceOfEnhet(value: object): boolean {
-  let isInstance = true
-  isInstance = isInstance && 'id' in value
-
-  return isInstance
+export function instanceOfEnhet(value: object): value is Enhet {
+  if (!('id' in value) || value['id'] === undefined) return false
+  return true
 }
 
 export function EnhetFromJSON(json: any): Enhet {
@@ -57,26 +55,31 @@ export function EnhetFromJSONTyped(
   json: any,
   ignoreDiscriminator: boolean,
 ): Enhet {
-  if (json === undefined || json === null) {
+  if (json == null) {
     return json
   }
   return {
     id: json['id'],
-    navn: !exists(json, 'navn') ? undefined : json['navn'],
-    kortnavn: !exists(json, 'kortnavn') ? undefined : json['kortnavn'],
+    navn: json['navn'] == null ? undefined : json['navn'],
+    kortnavn: json['kortnavn'] == null ? undefined : json['kortnavn'],
   }
 }
 
-export function EnhetToJSON(value?: Enhet | null): any {
-  if (value === undefined) {
-    return undefined
+export function EnhetToJSON(json: any): Enhet {
+  return EnhetToJSONTyped(json, false)
+}
+
+export function EnhetToJSONTyped(
+  value?: Enhet | null,
+  ignoreDiscriminator: boolean = false,
+): any {
+  if (value == null) {
+    return value
   }
-  if (value === null) {
-    return null
-  }
+
   return {
-    id: value.id,
-    navn: value.navn,
-    kortnavn: value.kortnavn,
+    id: value['id'],
+    navn: value['navn'],
+    kortnavn: value['kortnavn'],
   }
 }

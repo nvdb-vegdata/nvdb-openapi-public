@@ -37,5 +37,8 @@ data class Kontraktsomrade (
 
     @SerialName(value = "nummer") val nummer: kotlin.Int? = null
 
-)
+) {
+
+
+}
 

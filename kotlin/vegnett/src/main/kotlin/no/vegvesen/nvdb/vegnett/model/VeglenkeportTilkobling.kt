@@ -37,5 +37,8 @@ data class VeglenkeportTilkobling (
 
     @SerialName(value = "href") @Required val href: kotlin.String
 
-)
+) {
+
+
+}
 

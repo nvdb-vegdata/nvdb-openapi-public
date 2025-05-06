@@ -36,5 +36,8 @@ data class Relasjoner (
 
     @SerialName(value = "barn") val barn: kotlin.collections.List<Relasjon>? = null
 
-)
+) {
+
+
+}
 

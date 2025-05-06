@@ -27,6 +27,17 @@ export const Viktighet = {
 } as const
 export type Viktighet = (typeof Viktighet)[keyof typeof Viktighet]
 
+export function instanceOfViktighet(value: any): boolean {
+  for (const key in Viktighet) {
+    if (Object.prototype.hasOwnProperty.call(Viktighet, key)) {
+      if (Viktighet[key as keyof typeof Viktighet] === value) {
+        return true
+      }
+    }
+  }
+  return false
+}
+
 export function ViktighetFromJSON(json: any): Viktighet {
   return ViktighetFromJSONTyped(json, false)
 }
@@ -40,4 +51,11 @@ export function ViktighetFromJSONTyped(
 
 export function ViktighetToJSON(value?: Viktighet | null): any {
   return value as any
+}
+
+export function ViktighetToJSONTyped(
+  value: any,
+  ignoreDiscriminator: boolean,
+): Viktighet {
+  return value as Viktighet
 }

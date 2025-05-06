@@ -35,17 +35,17 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
   AssosiasjonstypeListeInnhold.JSON_PROPERTY_EGENSKAPSTYPE,
   AssosiasjonstypeListeInnhold.JSON_PROPERTY_TYPE
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.13.0")
 public class AssosiasjonstypeListeInnhold {
   /**
    * Gets or Sets innenforMor
    */
   public enum InnenforMorEnum {
-    NEI("NEI"),
+    NEI(String.valueOf("NEI")),
     
-    JA("JA"),
+    JA(String.valueOf("JA")),
     
-    MED_AVVIK("MED_AVVIK");
+    MED_AVVIK(String.valueOf("MED_AVVIK"));
 
     private String value;
 
@@ -75,19 +75,20 @@ public class AssosiasjonstypeListeInnhold {
   }
 
   public static final String JSON_PROPERTY_INNENFOR_MOR = "innenfor_mor";
+  @javax.annotation.Nullable
   private InnenforMorEnum innenforMor;
 
   /**
    * Gets or Sets relasjonstype
    */
   public enum RelasjonstypeEnum {
-    ASSOSIASJON("ASSOSIASJON"),
+    ASSOSIASJON(String.valueOf("ASSOSIASJON")),
     
-    AGGREGERING("AGGREGERING"),
+    AGGREGERING(String.valueOf("AGGREGERING")),
     
-    KOMPOSISJON("KOMPOSISJON"),
+    KOMPOSISJON(String.valueOf("KOMPOSISJON")),
     
-    TOPOLOGI("TOPOLOGI");
+    TOPOLOGI(String.valueOf("TOPOLOGI"));
 
     private String value;
 
@@ -117,33 +118,38 @@ public class AssosiasjonstypeListeInnhold {
   }
 
   public static final String JSON_PROPERTY_RELASJONSTYPE = "relasjonstype";
+  @javax.annotation.Nullable
   private RelasjonstypeEnum relasjonstype;
 
   public static final String JSON_PROPERTY_ID = "id";
+  @javax.annotation.Nonnull
   private Integer id;
 
   public static final String JSON_PROPERTY_NAVN = "navn";
+  @javax.annotation.Nullable
   private String navn;
 
   public static final String JSON_PROPERTY_EGENSKAPSTYPE = "egenskapstype";
+  @javax.annotation.Nonnull
   private String egenskapstype;
 
   public static final String JSON_PROPERTY_TYPE = "type";
+  @javax.annotation.Nonnull
   private AssosiasjonstypeVegobjekttype type;
 
   public AssosiasjonstypeListeInnhold() {
   }
 
-  public AssosiasjonstypeListeInnhold innenforMor(InnenforMorEnum innenforMor) {
+  public AssosiasjonstypeListeInnhold innenforMor(@javax.annotation.Nullable InnenforMorEnum innenforMor) {
     
     this.innenforMor = innenforMor;
     return this;
   }
 
-   /**
+  /**
    * Get innenforMor
    * @return innenforMor
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_INNENFOR_MOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -155,21 +161,20 @@ public class AssosiasjonstypeListeInnhold {
 
   @JsonProperty(JSON_PROPERTY_INNENFOR_MOR)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setInnenforMor(InnenforMorEnum innenforMor) {
+  public void setInnenforMor(@javax.annotation.Nullable InnenforMorEnum innenforMor) {
     this.innenforMor = innenforMor;
   }
 
-
-  public AssosiasjonstypeListeInnhold relasjonstype(RelasjonstypeEnum relasjonstype) {
+  public AssosiasjonstypeListeInnhold relasjonstype(@javax.annotation.Nullable RelasjonstypeEnum relasjonstype) {
     
     this.relasjonstype = relasjonstype;
     return this;
   }
 
-   /**
+  /**
    * Get relasjonstype
    * @return relasjonstype
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_RELASJONSTYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -181,21 +186,20 @@ public class AssosiasjonstypeListeInnhold {
 
   @JsonProperty(JSON_PROPERTY_RELASJONSTYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setRelasjonstype(RelasjonstypeEnum relasjonstype) {
+  public void setRelasjonstype(@javax.annotation.Nullable RelasjonstypeEnum relasjonstype) {
     this.relasjonstype = relasjonstype;
   }
 
-
-  public AssosiasjonstypeListeInnhold id(Integer id) {
+  public AssosiasjonstypeListeInnhold id(@javax.annotation.Nonnull Integer id) {
     
     this.id = id;
     return this;
   }
 
-   /**
+  /**
    * Get id
    * @return id
-  **/
+   */
   @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -207,21 +211,20 @@ public class AssosiasjonstypeListeInnhold {
 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setId(Integer id) {
+  public void setId(@javax.annotation.Nonnull Integer id) {
     this.id = id;
   }
 
-
-  public AssosiasjonstypeListeInnhold navn(String navn) {
+  public AssosiasjonstypeListeInnhold navn(@javax.annotation.Nullable String navn) {
     
     this.navn = navn;
     return this;
   }
 
-   /**
+  /**
    * Get navn
    * @return navn
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NAVN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -233,21 +236,20 @@ public class AssosiasjonstypeListeInnhold {
 
   @JsonProperty(JSON_PROPERTY_NAVN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setNavn(String navn) {
+  public void setNavn(@javax.annotation.Nullable String navn) {
     this.navn = navn;
   }
 
-
-  public AssosiasjonstypeListeInnhold egenskapstype(String egenskapstype) {
+  public AssosiasjonstypeListeInnhold egenskapstype(@javax.annotation.Nonnull String egenskapstype) {
     
     this.egenskapstype = egenskapstype;
     return this;
   }
 
-   /**
+  /**
    * Get egenskapstype
    * @return egenskapstype
-  **/
+   */
   @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_EGENSKAPSTYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -259,21 +261,20 @@ public class AssosiasjonstypeListeInnhold {
 
   @JsonProperty(JSON_PROPERTY_EGENSKAPSTYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setEgenskapstype(String egenskapstype) {
+  public void setEgenskapstype(@javax.annotation.Nonnull String egenskapstype) {
     this.egenskapstype = egenskapstype;
   }
 
-
-  public AssosiasjonstypeListeInnhold type(AssosiasjonstypeVegobjekttype type) {
+  public AssosiasjonstypeListeInnhold type(@javax.annotation.Nonnull AssosiasjonstypeVegobjekttype type) {
     
     this.type = type;
     return this;
   }
 
-   /**
+  /**
    * Get type
    * @return type
-  **/
+   */
   @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -285,9 +286,10 @@ public class AssosiasjonstypeListeInnhold {
 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setType(AssosiasjonstypeVegobjekttype type) {
+  public void setType(@javax.annotation.Nonnull AssosiasjonstypeVegobjekttype type) {
     this.type = type;
   }
+
 
   @Override
   public boolean equals(Object o) {

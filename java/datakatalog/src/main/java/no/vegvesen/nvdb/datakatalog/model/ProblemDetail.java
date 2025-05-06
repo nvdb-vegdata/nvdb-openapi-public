@@ -37,39 +37,45 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
   ProblemDetail.JSON_PROPERTY_INSTANCE,
   ProblemDetail.JSON_PROPERTY_PROPERTIES
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.13.0")
 public class ProblemDetail {
   public static final String JSON_PROPERTY_TYPE = "type";
+  @javax.annotation.Nullable
   private URI type;
 
   public static final String JSON_PROPERTY_TITLE = "title";
+  @javax.annotation.Nullable
   private String title;
 
   public static final String JSON_PROPERTY_STATUS = "status";
+  @javax.annotation.Nullable
   private Integer status;
 
   public static final String JSON_PROPERTY_DETAIL = "detail";
+  @javax.annotation.Nullable
   private String detail;
 
   public static final String JSON_PROPERTY_INSTANCE = "instance";
+  @javax.annotation.Nullable
   private URI instance;
 
   public static final String JSON_PROPERTY_PROPERTIES = "properties";
+  @javax.annotation.Nullable
   private Map<String, Object> properties = new HashMap<>();
 
   public ProblemDetail() {
   }
 
-  public ProblemDetail type(URI type) {
+  public ProblemDetail type(@javax.annotation.Nullable URI type) {
     
     this.type = type;
     return this;
   }
 
-   /**
+  /**
    * Get type
    * @return type
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -81,21 +87,20 @@ public class ProblemDetail {
 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setType(URI type) {
+  public void setType(@javax.annotation.Nullable URI type) {
     this.type = type;
   }
 
-
-  public ProblemDetail title(String title) {
+  public ProblemDetail title(@javax.annotation.Nullable String title) {
     
     this.title = title;
     return this;
   }
 
-   /**
+  /**
    * Get title
    * @return title
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_TITLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -107,21 +112,20 @@ public class ProblemDetail {
 
   @JsonProperty(JSON_PROPERTY_TITLE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setTitle(String title) {
+  public void setTitle(@javax.annotation.Nullable String title) {
     this.title = title;
   }
 
-
-  public ProblemDetail status(Integer status) {
+  public ProblemDetail status(@javax.annotation.Nullable Integer status) {
     
     this.status = status;
     return this;
   }
 
-   /**
+  /**
    * Get status
    * @return status
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -133,21 +137,20 @@ public class ProblemDetail {
 
   @JsonProperty(JSON_PROPERTY_STATUS)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setStatus(Integer status) {
+  public void setStatus(@javax.annotation.Nullable Integer status) {
     this.status = status;
   }
 
-
-  public ProblemDetail detail(String detail) {
+  public ProblemDetail detail(@javax.annotation.Nullable String detail) {
     
     this.detail = detail;
     return this;
   }
 
-   /**
+  /**
    * Get detail
    * @return detail
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_DETAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -159,21 +162,20 @@ public class ProblemDetail {
 
   @JsonProperty(JSON_PROPERTY_DETAIL)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setDetail(String detail) {
+  public void setDetail(@javax.annotation.Nullable String detail) {
     this.detail = detail;
   }
 
-
-  public ProblemDetail instance(URI instance) {
+  public ProblemDetail instance(@javax.annotation.Nullable URI instance) {
     
     this.instance = instance;
     return this;
   }
 
-   /**
+  /**
    * Get instance
    * @return instance
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_INSTANCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -185,21 +187,28 @@ public class ProblemDetail {
 
   @JsonProperty(JSON_PROPERTY_INSTANCE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setInstance(URI instance) {
+  public void setInstance(@javax.annotation.Nullable URI instance) {
     this.instance = instance;
   }
 
-
-  public ProblemDetail properties(Map<String, Object> properties) {
+  public ProblemDetail properties(@javax.annotation.Nullable Map<String, Object> properties) {
     
     this.properties = properties;
     return this;
   }
 
-   /**
+  public ProblemDetail putPropertiesItem(String key, Object propertiesItem) {
+    if (this.properties == null) {
+      this.properties = new HashMap<>();
+    }
+    this.properties.put(key, propertiesItem);
+    return this;
+  }
+
+  /**
    * Get properties
    * @return properties
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PROPERTIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -211,9 +220,10 @@ public class ProblemDetail {
 
   @JsonProperty(JSON_PROPERTY_PROPERTIES)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setProperties(Map<String, Object> properties) {
+  public void setProperties(@javax.annotation.Nullable Map<String, Object> properties) {
     this.properties = properties;
   }
+
 
   @Override
   public boolean equals(Object o) {

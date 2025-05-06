@@ -12,7 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime'
+import { mapValues } from '../runtime'
 /**
  *
  * @export
@@ -60,12 +60,11 @@ export interface Kategori {
 /**
  * Check if a given object implements the Kategori interface.
  */
-export function instanceOfKategori(value: object): boolean {
-  let isInstance = true
-  isInstance = isInstance && 'id' in value
-  isInstance = isInstance && 'sorteringsnummer' in value
-
-  return isInstance
+export function instanceOfKategori(value: object): value is Kategori {
+  if (!('id' in value) || value['id'] === undefined) return false
+  if (!('sorteringsnummer' in value) || value['sorteringsnummer'] === undefined)
+    return false
+  return true
 }
 
 export function KategoriFromJSON(json: any): Kategori {
@@ -76,37 +75,41 @@ export function KategoriFromJSONTyped(
   json: any,
   ignoreDiscriminator: boolean,
 ): Kategori {
-  if (json === undefined || json === null) {
+  if (json == null) {
     return json
   }
   return {
     id: json['id'],
-    navn: !exists(json, 'navn') ? undefined : json['navn'],
-    kortnavn: !exists(json, 'kortnavn') ? undefined : json['kortnavn'],
+    navn: json['navn'] == null ? undefined : json['navn'],
+    kortnavn: json['kortnavn'] == null ? undefined : json['kortnavn'],
     sorteringsnummer: json['sorteringsnummer'],
-    beskrivelse: !exists(json, 'beskrivelse') ? undefined : json['beskrivelse'],
-    startDato: !exists(json, 'startDato')
-      ? undefined
-      : new Date(json['startDato']),
+    beskrivelse: json['beskrivelse'] == null ? undefined : json['beskrivelse'],
+    startDato:
+      json['startDato'] == null ? undefined : new Date(json['startDato']),
   }
 }
 
-export function KategoriToJSON(value?: Kategori | null): any {
-  if (value === undefined) {
-    return undefined
+export function KategoriToJSON(json: any): Kategori {
+  return KategoriToJSONTyped(json, false)
+}
+
+export function KategoriToJSONTyped(
+  value?: Kategori | null,
+  ignoreDiscriminator: boolean = false,
+): any {
+  if (value == null) {
+    return value
   }
-  if (value === null) {
-    return null
-  }
+
   return {
-    id: value.id,
-    navn: value.navn,
-    kortnavn: value.kortnavn,
-    sorteringsnummer: value.sorteringsnummer,
-    beskrivelse: value.beskrivelse,
+    id: value['id'],
+    navn: value['navn'],
+    kortnavn: value['kortnavn'],
+    sorteringsnummer: value['sorteringsnummer'],
+    beskrivelse: value['beskrivelse'],
     startDato:
-      value.startDato === undefined
+      value['startDato'] == null
         ? undefined
-        : value.startDato.toISOString().substring(0, 10),
+        : value['startDato'].toISOString().substring(0, 10),
   }
 }

@@ -52,5 +52,8 @@ data class Kvalitet (
 
     @SerialName(value = "synbarhet") val synbarhet: kotlin.Int? = null
 
-)
+) {
+
+
+}
 

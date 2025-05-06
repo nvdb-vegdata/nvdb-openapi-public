@@ -19,15 +19,15 @@ import no.vegvesen.nvdb.datakatalog.model.EgenskapstypeEnum
 import no.vegvesen.nvdb.datakatalog.model.Stedfesting
 import no.vegvesen.nvdb.datakatalog.model.Viktighet
 
-import kotlinx.serialization.*
-import kotlinx.serialization.descriptors.*
-import kotlinx.serialization.encoding.*
+import com.fasterxml.jackson.annotation.JsonProperty
 
 /**
  * 
  *
  * @param id 
  * @param egenskapstype 
+ * @param sorteringsnummer 
+ * @param avledet 
  * @param obligatoriskVerdi 
  * @param skrivebeskyttet 
  * @param sensitivitet 
@@ -37,19 +37,17 @@ import kotlinx.serialization.encoding.*
  * @param referansegeometriTilstrekkelig 
  * @param viktighet 
  * @param kategori 
- * @param sorteringsnummer 
- * @param avledet 
  * @param navn 
- * @param gruppesorteringsnummer 
- * @param veiledning 
- * @param grunnrissreferanse 
- * @param høydereferanse 
- * @param sosiReferanse 
  * @param komplementærEgenskapstype 
  * @param kortnavn 
  * @param beskrivelse 
  * @param sosinavn 
  * @param sosinvdbnavn 
+ * @param gruppesorteringsnummer 
+ * @param veiledning 
+ * @param grunnrissreferanse 
+ * @param høydereferanse 
+ * @param sosiReferanse 
  * @param stedfestingstype 
  * @param geometritype 
  * @param overlappOk 
@@ -60,132 +58,161 @@ import kotlinx.serialization.encoding.*
  * @param overlappsautomatikk 
  * @param retningRelevant 
  */
-@Serializable
+
 
 data class StedfestingEnkel (
 
-    @SerialName(value = "id") @Required override val id: kotlin.Int,
+    @get:JsonProperty("id")
+    override val id: kotlin.Int,
 
-    @SerialName(value = "egenskapstype") @Required override val egenskapstype: EgenskapstypeEnum,
+    @get:JsonProperty("egenskapstype")
+    override val egenskapstype: EgenskapstypeEnum,
 
-    @SerialName(value = "obligatorisk_verdi") @Required override val obligatoriskVerdi: kotlin.Boolean,
+    @get:JsonProperty("sorteringsnummer")
+    override val sorteringsnummer: kotlin.Int,
 
-    @SerialName(value = "skrivebeskyttet") @Required override val skrivebeskyttet: kotlin.Boolean,
+    @get:JsonProperty("avledet")
+    override val avledet: kotlin.Boolean,
 
-    @SerialName(value = "sensitivitet") @Required override val sensitivitet: kotlin.Int,
+    @get:JsonProperty("obligatorisk_verdi")
+    override val obligatoriskVerdi: kotlin.Boolean,
 
-    @SerialName(value = "høydereferanse_tall") @Required override val høydereferanseTall: kotlin.Int,
+    @get:JsonProperty("skrivebeskyttet")
+    override val skrivebeskyttet: kotlin.Boolean,
 
-    @SerialName(value = "nøyaktighetskrav_grunnriss") @Required override val nøyaktighetskravGrunnriss: kotlin.Double,
+    @get:JsonProperty("sensitivitet")
+    override val sensitivitet: kotlin.Int,
 
-    @SerialName(value = "nøyaktighetskrav_høyde") @Required override val nøyaktighetskravHøyde: kotlin.Double,
+    @get:JsonProperty("høydereferanse_tall")
+    override val høydereferanseTall: kotlin.Int,
 
-    @SerialName(value = "referansegeometri_tilstrekkelig") @Required override val referansegeometriTilstrekkelig: kotlin.Boolean,
+    @get:JsonProperty("nøyaktighetskrav_grunnriss")
+    override val nøyaktighetskravGrunnriss: kotlin.Double,
 
-    @SerialName(value = "viktighet") @Required override val viktighet: Viktighet,
+    @get:JsonProperty("nøyaktighetskrav_høyde")
+    override val nøyaktighetskravHøyde: kotlin.Double,
 
-    @SerialName(value = "kategori") @Required override val kategori: kotlin.Int,
+    @get:JsonProperty("referansegeometri_tilstrekkelig")
+    override val referansegeometriTilstrekkelig: kotlin.Boolean,
 
-    @SerialName(value = "sorteringsnummer") @Required override val sorteringsnummer: kotlin.Int,
+    @get:JsonProperty("viktighet")
+    override val viktighet: Viktighet,
 
-    @SerialName(value = "avledet") @Required override val avledet: kotlin.Boolean,
+    @get:JsonProperty("kategori")
+    override val kategori: kotlin.Int,
 
-    @SerialName(value = "navn") override val navn: kotlin.String? = null,
+    @get:JsonProperty("navn")
+    override val navn: kotlin.String? = null,
 
-    @SerialName(value = "gruppesorteringsnummer") override val gruppesorteringsnummer: kotlin.Int? = null,
+    @get:JsonProperty("komplementær_egenskapstype")
+    override val komplementærEgenskapstype: kotlin.Int? = null,
 
-    @SerialName(value = "veiledning") override val veiledning: kotlin.String? = null,
+    @get:JsonProperty("kortnavn")
+    override val kortnavn: kotlin.String? = null,
 
-    @SerialName(value = "grunnrissreferanse") override val grunnrissreferanse: kotlin.String? = null,
+    @get:JsonProperty("beskrivelse")
+    override val beskrivelse: kotlin.String? = null,
 
-    @SerialName(value = "høydereferanse") override val høydereferanse: kotlin.String? = null,
+    @get:JsonProperty("sosinavn")
+    override val sosinavn: kotlin.String? = null,
 
-    @SerialName(value = "sosi_referanse") override val sosiReferanse: kotlin.String? = null,
+    @get:JsonProperty("sosinvdbnavn")
+    override val sosinvdbnavn: kotlin.String? = null,
 
-    @SerialName(value = "komplementær_egenskapstype") override val komplementærEgenskapstype: kotlin.Int? = null,
+    @get:JsonProperty("gruppesorteringsnummer")
+    override val gruppesorteringsnummer: kotlin.Int? = null,
 
-    @SerialName(value = "kortnavn") override val kortnavn: kotlin.String? = null,
+    @get:JsonProperty("veiledning")
+    override val veiledning: kotlin.String? = null,
 
-    @SerialName(value = "beskrivelse") override val beskrivelse: kotlin.String? = null,
+    @get:JsonProperty("grunnrissreferanse")
+    override val grunnrissreferanse: kotlin.String? = null,
 
-    @SerialName(value = "sosinavn") override val sosinavn: kotlin.String? = null,
+    @get:JsonProperty("høydereferanse")
+    override val høydereferanse: kotlin.String? = null,
 
-    @SerialName(value = "sosinvdbnavn") override val sosinvdbnavn: kotlin.String? = null,
+    @get:JsonProperty("sosi_referanse")
+    override val sosiReferanse: kotlin.String? = null,
 
-    @SerialName(value = "stedfestingstype") val stedfestingstype: StedfestingEnkel.Stedfestingstype? = null,
+    @get:JsonProperty("stedfestingstype")
+    val stedfestingstype: StedfestingEnkel.Stedfestingstype? = null,
 
-    @SerialName(value = "geometritype") val geometritype: StedfestingEnkel.Geometritype? = null,
+    @get:JsonProperty("geometritype")
+    val geometritype: StedfestingEnkel.Geometritype? = null,
 
-    @SerialName(value = "overlapp_ok") val overlappOk: kotlin.Boolean? = null,
+    @get:JsonProperty("overlapp_ok")
+    val overlappOk: kotlin.Boolean? = null,
 
-    @SerialName(value = "kjørefelt_relevant") val kjørefeltRelevant: StedfestingEnkel.KjørefeltRelevant? = null,
+    @get:JsonProperty("kjørefelt_relevant")
+    val kjørefeltRelevant: StedfestingEnkel.KjørefeltRelevant? = null,
 
-    @SerialName(value = "sideposisjon_relevant") val sideposisjonRelevant: StedfestingEnkel.SideposisjonRelevant? = null,
+    @get:JsonProperty("sideposisjon_relevant")
+    val sideposisjonRelevant: StedfestingEnkel.SideposisjonRelevant? = null,
 
-    @SerialName(value = "innenfor_mor") val innenforMor: kotlin.Boolean? = null,
+    @get:JsonProperty("innenfor_mor")
+    val innenforMor: kotlin.Boolean? = null,
 
-    @SerialName(value = "vegnettsajourhold_splitt") val vegnettsajourholdSplitt: StedfestingEnkel.VegnettsajourholdSplitt? = null,
+    @get:JsonProperty("vegnettsajourhold_splitt")
+    val vegnettsajourholdSplitt: StedfestingEnkel.VegnettsajourholdSplitt? = null,
 
-    @SerialName(value = "overlappsautomatikk") val overlappsautomatikk: kotlin.String? = null,
+    @get:JsonProperty("overlappsautomatikk")
+    val overlappsautomatikk: kotlin.String? = null,
 
-    @SerialName(value = "retning_relevant") val retningRelevant: kotlin.Boolean? = null
+    @get:JsonProperty("retning_relevant")
+    val retningRelevant: kotlin.Boolean? = null
 
 ) : Stedfesting {
 
     /**
      * 
      *
-     * Values: punkt,linje,sving
+     * Values: Punkt,Linje,Sving
      */
-    @Serializable
     enum class Stedfestingstype(val value: kotlin.String) {
-        @SerialName(value = "Punkt") punkt("Punkt"),
-        @SerialName(value = "Linje") linje("Linje"),
-        @SerialName(value = "Sving") sving("Sving");
+        @JsonProperty(value = "Punkt") Punkt("Punkt"),
+        @JsonProperty(value = "Linje") Linje("Linje"),
+        @JsonProperty(value = "Sving") Sving("Sving");
     }
     /**
      * 
      *
-     * Values: pUNKT,lINJE,sVING
+     * Values: PUNKT,LINJE,SVING
      */
-    @Serializable
     enum class Geometritype(val value: kotlin.String) {
-        @SerialName(value = "PUNKT") pUNKT("PUNKT"),
-        @SerialName(value = "LINJE") lINJE("LINJE"),
-        @SerialName(value = "SVING") sVING("SVING");
+        @JsonProperty(value = "PUNKT") PUNKT("PUNKT"),
+        @JsonProperty(value = "LINJE") LINJE("LINJE"),
+        @JsonProperty(value = "SVING") SVING("SVING");
     }
     /**
      * 
      *
-     * Values: kAN,nEI,mÅ
+     * Values: KAN,NEI,MÅ
      */
-    @Serializable
     enum class KjørefeltRelevant(val value: kotlin.String) {
-        @SerialName(value = "KAN") kAN("KAN"),
-        @SerialName(value = "NEI") nEI("NEI"),
-        @SerialName(value = "MÅ") mÅ("MÅ");
+        @JsonProperty(value = "KAN") KAN("KAN"),
+        @JsonProperty(value = "NEI") NEI("NEI"),
+        @JsonProperty(value = "MÅ") MÅ("MÅ");
     }
     /**
      * 
      *
-     * Values: kAN,nEI,mÅ
+     * Values: KAN,NEI,MÅ
      */
-    @Serializable
     enum class SideposisjonRelevant(val value: kotlin.String) {
-        @SerialName(value = "KAN") kAN("KAN"),
-        @SerialName(value = "NEI") nEI("NEI"),
-        @SerialName(value = "MÅ") mÅ("MÅ");
+        @JsonProperty(value = "KAN") KAN("KAN"),
+        @JsonProperty(value = "NEI") NEI("NEI"),
+        @JsonProperty(value = "MÅ") MÅ("MÅ");
     }
     /**
      * 
      *
-     * Values: iKKETATTSTILLING,kANIKKESPLITTES,kANSPLITTES
+     * Values: IKKE_TATT_STILLING,KAN_IKKE_SPLITTES,KAN_SPLITTES
      */
-    @Serializable
     enum class VegnettsajourholdSplitt(val value: kotlin.String) {
-        @SerialName(value = "IKKE_TATT_STILLING") iKKETATTSTILLING("IKKE_TATT_STILLING"),
-        @SerialName(value = "KAN_IKKE_SPLITTES") kANIKKESPLITTES("KAN_IKKE_SPLITTES"),
-        @SerialName(value = "KAN_SPLITTES") kANSPLITTES("KAN_SPLITTES");
+        @JsonProperty(value = "IKKE_TATT_STILLING") IKKE_TATT_STILLING("IKKE_TATT_STILLING"),
+        @JsonProperty(value = "KAN_IKKE_SPLITTES") KAN_IKKE_SPLITTES("KAN_IKKE_SPLITTES"),
+        @JsonProperty(value = "KAN_SPLITTES") KAN_SPLITTES("KAN_SPLITTES");
     }
+
 }
 

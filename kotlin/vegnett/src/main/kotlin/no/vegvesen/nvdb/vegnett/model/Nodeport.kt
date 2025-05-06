@@ -35,5 +35,8 @@ data class Nodeport (
 
     @SerialName(value = "tilkobling") @Required val tilkobling: NodeportTilkobling
 
-)
+) {
+
+
+}
 

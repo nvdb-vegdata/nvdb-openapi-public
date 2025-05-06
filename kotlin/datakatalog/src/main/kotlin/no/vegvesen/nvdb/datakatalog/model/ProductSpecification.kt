@@ -16,20 +16,22 @@
 package no.vegvesen.nvdb.datakatalog.model
 
 
-import kotlinx.serialization.*
-import kotlinx.serialization.descriptors.*
-import kotlinx.serialization.encoding.*
+import com.fasterxml.jackson.annotation.JsonProperty
 
 /**
  * 
  *
  * @param url 
  */
-@Serializable
+
 
 data class ProductSpecification (
 
-    @SerialName(value = "url") @Required val url: kotlin.String
+    @get:JsonProperty("url")
+    val url: kotlin.String
 
-)
+) {
+
+
+}
 

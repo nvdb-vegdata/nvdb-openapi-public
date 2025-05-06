@@ -27,7 +27,7 @@ Returnerer angitt egenskapstype
 
 ```kotlin
 // Import classes:
-//import org.openapitools.client.infrastructure.*
+//import no.vegvesen.nvdb.datakatalog.infrastructure.*
 //import no.vegvesen.nvdb.datakatalog.model.*
 
 val apiInstance = DatakatalogenApi()
@@ -48,7 +48,7 @@ try {
 
 | Name                | Type           | Description | Notes |
 | ------------------- | -------------- | ----------- | ----- |
-| **egenskapstypeid** | **kotlin.Int** |             |
+| **egenskapstypeid** | **kotlin.Int** |             |       |
 
 ### Return type
 
@@ -75,7 +75,7 @@ Returnerer angitt egenskapstype for angitt vegobjekttype
 
 ```kotlin
 // Import classes:
-//import org.openapitools.client.infrastructure.*
+//import no.vegvesen.nvdb.datakatalog.infrastructure.*
 //import no.vegvesen.nvdb.datakatalog.model.*
 
 val apiInstance = DatakatalogenApi()
@@ -95,10 +95,10 @@ try {
 
 ### Parameters
 
-| Name                | Type           | Description | Notes |
-| ------------------- | -------------- | ----------- | ----- |
-| **vegobjekttypeid** | **kotlin.Int** |             |
-| **egenskapstypeid** | **kotlin.Int** |             |
+| **vegobjekttypeid** | **kotlin.Int**| | |
+| Name | Type | Description | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **egenskapstypeid** | **kotlin.Int**| | |
 
 ### Return type
 
@@ -125,7 +125,7 @@ Returnerer alle kategorier for egenskapstypene
 
 ```kotlin
 // Import classes:
-//import org.openapitools.client.infrastructure.*
+//import no.vegvesen.nvdb.datakatalog.infrastructure.*
 //import no.vegvesen.nvdb.datakatalog.model.*
 
 val apiInstance = DatakatalogenApi()
@@ -170,7 +170,7 @@ Returnerer alle enheter
 
 ```kotlin
 // Import classes:
-//import org.openapitools.client.infrastructure.*
+//import no.vegvesen.nvdb.datakatalog.infrastructure.*
 //import no.vegvesen.nvdb.datakatalog.model.*
 
 val apiInstance = DatakatalogenApi()
@@ -215,7 +215,7 @@ Returnerer alle kategorier for vegobjekter
 
 ```kotlin
 // Import classes:
-//import org.openapitools.client.infrastructure.*
+//import no.vegvesen.nvdb.datakatalog.infrastructure.*
 //import no.vegvesen.nvdb.datakatalog.model.*
 
 val apiInstance = DatakatalogenApi()
@@ -260,7 +260,7 @@ Returnerer produktspesifikasjonen til den angitte vegobjekttypen
 
 ```kotlin
 // Import classes:
-//import org.openapitools.client.infrastructure.*
+//import no.vegvesen.nvdb.datakatalog.infrastructure.*
 //import no.vegvesen.nvdb.datakatalog.model.*
 
 val apiInstance = DatakatalogenApi()
@@ -281,7 +281,7 @@ try {
 
 | Name                | Type           | Description | Notes |
 | ------------------- | -------------- | ----------- | ----- |
-| **vegobjekttypeid** | **kotlin.Int** |             |
+| **vegobjekttypeid** | **kotlin.Int** |             |       |
 
 ### Return type
 
@@ -308,7 +308,7 @@ Returnerer angitt vegobjekttype
 
 ```kotlin
 // Import classes:
-//import org.openapitools.client.infrastructure.*
+//import no.vegvesen.nvdb.datakatalog.infrastructure.*
 //import no.vegvesen.nvdb.datakatalog.model.*
 
 val apiInstance = DatakatalogenApi()
@@ -328,10 +328,10 @@ try {
 
 ### Parameters
 
-| Name                | Type                                             | Description                                                                                                    | Notes                                                                         |
-| ------------------- | ------------------------------------------------ | -------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
-| **vegobjekttypeid** | **kotlin.Int**                                   |                                                                                                                |
-| **inkluder**        | **kotlin.collections.List&lt;kotlin.String&gt;** | Kommaseparert liste med hvilke informasjonsfelter som skal inkluderes i tillegg til vegobjekttypenes metadata. | [optional] [enum: egenskapstyper, relasjonstyper, stedfesting, alle, minimum] |
+| **vegobjekttypeid** | **kotlin.Int**| | |
+| Name | Type | Description | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **inkluder** | **kotlin.collections.List&lt;kotlin.String&gt;**| Kommaseparert liste med hvilke informasjonsfelter som skal inkluderes i tillegg til vegobjekttypenes metadata. | [optional] [enum: egenskapstyper, relasjonstyper, stedfesting, alle, minimum] |
 
 ### Return type
 
@@ -358,7 +358,7 @@ Returnerer alle vegobjekttypene
 
 ```kotlin
 // Import classes:
-//import org.openapitools.client.infrastructure.*
+//import no.vegvesen.nvdb.datakatalog.infrastructure.*
 //import no.vegvesen.nvdb.datakatalog.model.*
 
 val apiInstance = DatakatalogenApi()
@@ -378,10 +378,10 @@ try {
 
 ### Parameters
 
-| Name         | Type                                             | Description                                                                                                    | Notes                                                                         |
-| ------------ | ------------------------------------------------ | -------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
-| **inkluder** | **kotlin.collections.List&lt;kotlin.String&gt;** | Kommaseparert liste med hvilke informasjonsfelter som skal inkluderes i tillegg til vegobjekttypenes metadata. | [optional] [enum: egenskapstyper, relasjonstyper, stedfesting, alle, minimum] |
-| **kategori** | **kotlin.Int**                                   | Begrens vegobjekttyper etter kategori. (/vegobjekttyper/kategorier)                                            | [optional]                                                                    |
+| **inkluder** | **kotlin.collections.List&lt;kotlin.String&gt;**| Kommaseparert liste med hvilke informasjonsfelter som skal inkluderes i tillegg til vegobjekttypenes metadata. | [optional] [enum: egenskapstyper, relasjonstyper, stedfesting, alle, minimum] |
+| Name | Type | Description | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **kategori** | **kotlin.Int**| Begrens vegobjekttyper etter kategori. (/vegobjekttyper/kategorier) | [optional] |
 
 ### Return type
 
@@ -408,7 +408,7 @@ Returnerer alle vegobjekttypene for en gitt versjon av datakatalogen, f.eks. 2.3
 
 ```kotlin
 // Import classes:
-//import org.openapitools.client.infrastructure.*
+//import no.vegvesen.nvdb.datakatalog.infrastructure.*
 //import no.vegvesen.nvdb.datakatalog.model.*
 
 val apiInstance = DatakatalogenApi()
@@ -429,11 +429,11 @@ try {
 
 ### Parameters
 
-| Name         | Type                                             | Description                                                                                                    | Notes                                                                         |
-| ------------ | ------------------------------------------------ | -------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
-| **versjon**  | **kotlin.String**                                |                                                                                                                |
-| **inkluder** | **kotlin.collections.List&lt;kotlin.String&gt;** | Kommaseparert liste med hvilke informasjonsfelter som skal inkluderes i tillegg til vegobjekttypenes metadata. | [optional] [enum: egenskapstyper, relasjonstyper, stedfesting, alle, minimum] |
-| **kategori** | **kotlin.Int**                                   | Begrens vegobjekttyper etter kategori. (/vegobjekttyper/kategorier)                                            | [optional]                                                                    |
+| **versjon** | **kotlin.String**| | |
+| **inkluder** | **kotlin.collections.List&lt;kotlin.String&gt;**| Kommaseparert liste med hvilke informasjonsfelter som skal inkluderes i tillegg til vegobjekttypenes metadata. | [optional] [enum: egenskapstyper, relasjonstyper, stedfesting, alle, minimum] |
+| Name | Type | Description | Notes |
+| ------------- | ------------- | ------------- | ------------- |
+| **kategori** | **kotlin.Int**| Begrens vegobjekttyper etter kategori. (/vegobjekttyper/kategorier) | [optional] |
 
 ### Return type
 
@@ -460,7 +460,7 @@ Returnerer aktiv versjon på datakatalog
 
 ```kotlin
 // Import classes:
-//import org.openapitools.client.infrastructure.*
+//import no.vegvesen.nvdb.datakatalog.infrastructure.*
 //import no.vegvesen.nvdb.datakatalog.model.*
 
 val apiInstance = DatakatalogenApi()

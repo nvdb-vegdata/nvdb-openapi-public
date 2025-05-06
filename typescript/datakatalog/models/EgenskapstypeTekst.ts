@@ -12,25 +12,28 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime'
+import { mapValues } from '../runtime'
+import type { Viktighet } from './Viktighet'
+import {
+  ViktighetFromJSON,
+  ViktighetFromJSONTyped,
+  ViktighetToJSON,
+  ViktighetToJSONTyped,
+} from './Viktighet'
 import type { Egenskapstype } from './Egenskapstype'
 import {
   EgenskapstypeFromJSON,
   EgenskapstypeFromJSONTyped,
   EgenskapstypeToJSON,
+  EgenskapstypeToJSONTyped,
 } from './Egenskapstype'
 import type { EgenskapstypeEnum } from './EgenskapstypeEnum'
 import {
   EgenskapstypeEnumFromJSON,
   EgenskapstypeEnumFromJSONTyped,
   EgenskapstypeEnumToJSON,
+  EgenskapstypeEnumToJSONTyped,
 } from './EgenskapstypeEnum'
-import type { Viktighet } from './Viktighet'
-import {
-  ViktighetFromJSON,
-  ViktighetFromJSONTyped,
-  ViktighetToJSON,
-} from './Viktighet'
 
 /**
  *
@@ -85,12 +88,17 @@ export interface EgenskapstypeTekst extends Egenskapstype {
 /**
  * Check if a given object implements the EgenskapstypeTekst interface.
  */
-export function instanceOfEgenskapstypeTekst(value: object): boolean {
-  let isInstance = true
-  isInstance = isInstance && 'lengdeavhengigVerdi' in value
-  isInstance = isInstance && 'ajourholdSnu' in value
-
-  return isInstance
+export function instanceOfEgenskapstypeTekst(
+  value: object,
+): value is EgenskapstypeTekst {
+  if (
+    !('lengdeavhengigVerdi' in value) ||
+    value['lengdeavhengigVerdi'] === undefined
+  )
+    return false
+  if (!('ajourholdSnu' in value) || value['ajourholdSnu'] === undefined)
+    return false
+  return true
 }
 
 export function EgenskapstypeTekstFromJSON(json: any): EgenskapstypeTekst {
@@ -101,50 +109,52 @@ export function EgenskapstypeTekstFromJSONTyped(
   json: any,
   ignoreDiscriminator: boolean,
 ): EgenskapstypeTekst {
-  if (json === undefined || json === null) {
+  if (json == null) {
     return json
   }
   return {
-    ...EgenskapstypeFromJSONTyped(json, ignoreDiscriminator),
-    objektlisteDato: !exists(json, 'objektliste_dato')
-      ? undefined
-      : new Date(json['objektliste_dato']),
-    sluttDato: !exists(json, 'slutt_dato')
-      ? undefined
-      : new Date(json['slutt_dato']),
+    ...EgenskapstypeFromJSONTyped(json, true),
+    objektlisteDato:
+      json['objektliste_dato'] == null
+        ? undefined
+        : new Date(json['objektliste_dato']),
+    sluttDato:
+      json['slutt_dato'] == null ? undefined : new Date(json['slutt_dato']),
     lengdeavhengigVerdi: json['lengdeavhengig_verdi'],
     ajourholdSnu: json['ajourhold_snu'],
-    standardverdi: !exists(json, 'standardverdi')
-      ? undefined
-      : json['standardverdi'],
-    feltlengde: !exists(json, 'feltlengde') ? undefined : json['feltlengde'],
-    feltmnster: !exists(json, 'feltmønster') ? undefined : json['feltmønster'],
+    standardverdi:
+      json['standardverdi'] == null ? undefined : json['standardverdi'],
+    feltlengde: json['feltlengde'] == null ? undefined : json['feltlengde'],
+    feltmnster: json['feltmønster'] == null ? undefined : json['feltmønster'],
   }
 }
 
-export function EgenskapstypeTekstToJSON(
+export function EgenskapstypeTekstToJSON(json: any): EgenskapstypeTekst {
+  return EgenskapstypeTekstToJSONTyped(json, false)
+}
+
+export function EgenskapstypeTekstToJSONTyped(
   value?: EgenskapstypeTekst | null,
+  ignoreDiscriminator: boolean = false,
 ): any {
-  if (value === undefined) {
-    return undefined
+  if (value == null) {
+    return value
   }
-  if (value === null) {
-    return null
-  }
+
   return {
-    ...EgenskapstypeToJSON(value),
+    ...EgenskapstypeToJSONTyped(value, true),
     objektliste_dato:
-      value.objektlisteDato === undefined
+      value['objektlisteDato'] == null
         ? undefined
-        : value.objektlisteDato.toISOString().substring(0, 10),
+        : value['objektlisteDato'].toISOString().substring(0, 10),
     slutt_dato:
-      value.sluttDato === undefined
+      value['sluttDato'] == null
         ? undefined
-        : value.sluttDato.toISOString().substring(0, 10),
-    lengdeavhengig_verdi: value.lengdeavhengigVerdi,
-    ajourhold_snu: value.ajourholdSnu,
-    standardverdi: value.standardverdi,
-    feltlengde: value.feltlengde,
-    feltmønster: value.feltmnster,
+        : value['sluttDato'].toISOString().substring(0, 10),
+    lengdeavhengig_verdi: value['lengdeavhengigVerdi'],
+    ajourhold_snu: value['ajourholdSnu'],
+    standardverdi: value['standardverdi'],
+    feltlengde: value['feltlengde'],
+    feltmønster: value['feltmnster'],
   }
 }

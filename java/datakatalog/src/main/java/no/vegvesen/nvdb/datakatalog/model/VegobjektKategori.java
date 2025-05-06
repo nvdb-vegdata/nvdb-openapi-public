@@ -37,45 +37,53 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
   VegobjektKategori.JSON_PROPERTY_BESKRIVELSE,
   VegobjektKategori.JSON_PROPERTY_START_DATO
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.13.0")
 public class VegobjektKategori {
   public static final String JSON_PROPERTY_ID = "id";
+  @javax.annotation.Nonnull
   private Integer id;
 
   public static final String JSON_PROPERTY_PRIMæRKATEGORI = "primærkategori";
+  @javax.annotation.Nonnull
   private Boolean primærkategori;
 
   public static final String JSON_PROPERTY_NUMMER = "nummer";
+  @javax.annotation.Nonnull
   private Integer nummer;
 
   public static final String JSON_PROPERTY_NAVN = "navn";
+  @javax.annotation.Nullable
   private String navn;
 
   public static final String JSON_PROPERTY_KORTNAVN = "kortnavn";
+  @javax.annotation.Nullable
   private String kortnavn;
 
   public static final String JSON_PROPERTY_SORTERINGSNUMMER = "sorteringsnummer";
+  @javax.annotation.Nonnull
   private Integer sorteringsnummer;
 
   public static final String JSON_PROPERTY_BESKRIVELSE = "beskrivelse";
+  @javax.annotation.Nullable
   private String beskrivelse;
 
   public static final String JSON_PROPERTY_START_DATO = "startDato";
+  @javax.annotation.Nullable
   private LocalDate startDato;
 
   public VegobjektKategori() {
   }
 
-  public VegobjektKategori id(Integer id) {
+  public VegobjektKategori id(@javax.annotation.Nonnull Integer id) {
     
     this.id = id;
     return this;
   }
 
-   /**
+  /**
    * Get id
    * @return id
-  **/
+   */
   @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -87,21 +95,20 @@ public class VegobjektKategori {
 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setId(Integer id) {
+  public void setId(@javax.annotation.Nonnull Integer id) {
     this.id = id;
   }
 
-
-  public VegobjektKategori primærkategori(Boolean primærkategori) {
+  public VegobjektKategori primærkategori(@javax.annotation.Nonnull Boolean primærkategori) {
     
     this.primærkategori = primærkategori;
     return this;
   }
 
-   /**
+  /**
    * Get primærkategori
    * @return primærkategori
-  **/
+   */
   @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_PRIMæRKATEGORI)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -113,21 +120,20 @@ public class VegobjektKategori {
 
   @JsonProperty(JSON_PROPERTY_PRIMæRKATEGORI)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setPrimærkategori(Boolean primærkategori) {
+  public void setPrimærkategori(@javax.annotation.Nonnull Boolean primærkategori) {
     this.primærkategori = primærkategori;
   }
 
-
-  public VegobjektKategori nummer(Integer nummer) {
+  public VegobjektKategori nummer(@javax.annotation.Nonnull Integer nummer) {
     
     this.nummer = nummer;
     return this;
   }
 
-   /**
+  /**
    * Get nummer
    * @return nummer
-  **/
+   */
   @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_NUMMER)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -139,21 +145,20 @@ public class VegobjektKategori {
 
   @JsonProperty(JSON_PROPERTY_NUMMER)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setNummer(Integer nummer) {
+  public void setNummer(@javax.annotation.Nonnull Integer nummer) {
     this.nummer = nummer;
   }
 
-
-  public VegobjektKategori navn(String navn) {
+  public VegobjektKategori navn(@javax.annotation.Nullable String navn) {
     
     this.navn = navn;
     return this;
   }
 
-   /**
+  /**
    * Get navn
    * @return navn
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NAVN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -165,21 +170,20 @@ public class VegobjektKategori {
 
   @JsonProperty(JSON_PROPERTY_NAVN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setNavn(String navn) {
+  public void setNavn(@javax.annotation.Nullable String navn) {
     this.navn = navn;
   }
 
-
-  public VegobjektKategori kortnavn(String kortnavn) {
+  public VegobjektKategori kortnavn(@javax.annotation.Nullable String kortnavn) {
     
     this.kortnavn = kortnavn;
     return this;
   }
 
-   /**
+  /**
    * Get kortnavn
    * @return kortnavn
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_KORTNAVN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -191,21 +195,20 @@ public class VegobjektKategori {
 
   @JsonProperty(JSON_PROPERTY_KORTNAVN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setKortnavn(String kortnavn) {
+  public void setKortnavn(@javax.annotation.Nullable String kortnavn) {
     this.kortnavn = kortnavn;
   }
 
-
-  public VegobjektKategori sorteringsnummer(Integer sorteringsnummer) {
+  public VegobjektKategori sorteringsnummer(@javax.annotation.Nonnull Integer sorteringsnummer) {
     
     this.sorteringsnummer = sorteringsnummer;
     return this;
   }
 
-   /**
+  /**
    * Get sorteringsnummer
    * @return sorteringsnummer
-  **/
+   */
   @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_SORTERINGSNUMMER)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -217,21 +220,20 @@ public class VegobjektKategori {
 
   @JsonProperty(JSON_PROPERTY_SORTERINGSNUMMER)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setSorteringsnummer(Integer sorteringsnummer) {
+  public void setSorteringsnummer(@javax.annotation.Nonnull Integer sorteringsnummer) {
     this.sorteringsnummer = sorteringsnummer;
   }
 
-
-  public VegobjektKategori beskrivelse(String beskrivelse) {
+  public VegobjektKategori beskrivelse(@javax.annotation.Nullable String beskrivelse) {
     
     this.beskrivelse = beskrivelse;
     return this;
   }
 
-   /**
+  /**
    * Get beskrivelse
    * @return beskrivelse
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_BESKRIVELSE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -243,21 +245,20 @@ public class VegobjektKategori {
 
   @JsonProperty(JSON_PROPERTY_BESKRIVELSE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setBeskrivelse(String beskrivelse) {
+  public void setBeskrivelse(@javax.annotation.Nullable String beskrivelse) {
     this.beskrivelse = beskrivelse;
   }
 
-
-  public VegobjektKategori startDato(LocalDate startDato) {
+  public VegobjektKategori startDato(@javax.annotation.Nullable LocalDate startDato) {
     
     this.startDato = startDato;
     return this;
   }
 
-   /**
+  /**
    * Get startDato
    * @return startDato
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_START_DATO)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -269,9 +270,10 @@ public class VegobjektKategori {
 
   @JsonProperty(JSON_PROPERTY_START_DATO)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setStartDato(LocalDate startDato) {
+  public void setStartDato(@javax.annotation.Nullable LocalDate startDato) {
     this.startDato = startDato;
   }
+
 
   @Override
   public boolean equals(Object o) {

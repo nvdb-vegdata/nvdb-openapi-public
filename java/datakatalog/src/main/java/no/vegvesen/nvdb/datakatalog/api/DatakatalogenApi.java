@@ -15,24 +15,26 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
+import java.util.Objects;
+import java.util.Arrays;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.util.LinkedMultiValueMap;
-import org.springframework.util.MultiValueMap;
-import org.springframework.core.ParameterizedTypeReference;
-import org.springframework.web.reactive.function.client.WebClient.ResponseSpec;
-import org.springframework.web.reactive.function.client.WebClientResponseException;
 import org.springframework.core.io.FileSystemResource;
+import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.util.LinkedMultiValueMap;
+import org.springframework.util.MultiValueMap;
+import org.springframework.web.reactive.function.client.WebClient.ResponseSpec;
+import org.springframework.web.reactive.function.client.WebClientResponseException;
 import reactor.core.publisher.Mono;
 import reactor.core.publisher.Flux;
 
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.13.0")
 public class DatakatalogenApi {
     private ApiClient apiClient;
 
@@ -53,6 +55,7 @@ public class DatakatalogenApi {
         this.apiClient = apiClient;
     }
 
+    
     /**
      * Returnerer angitt egenskapstype
      * 
@@ -64,7 +67,7 @@ public class DatakatalogenApi {
      * @return Egenskapstype
      * @throws WebClientResponseException if an error occurs while attempting to invoke the API
      */
-    private ResponseSpec getEgenskapstypeRequestCreation(Integer egenskapstypeid) throws WebClientResponseException {
+    private ResponseSpec getEgenskapstypeRequestCreation(@javax.annotation.Nonnull Integer egenskapstypeid) throws WebClientResponseException {
         Object postBody = null;
         // verify the required parameter 'egenskapstypeid' is set
         if (egenskapstypeid == null) {
@@ -104,7 +107,7 @@ public class DatakatalogenApi {
      * @return Egenskapstype
      * @throws WebClientResponseException if an error occurs while attempting to invoke the API
      */
-    public Mono<Egenskapstype> getEgenskapstype(Integer egenskapstypeid) throws WebClientResponseException {
+    public Mono<Egenskapstype> getEgenskapstype(@javax.annotation.Nonnull Integer egenskapstypeid) throws WebClientResponseException {
         ParameterizedTypeReference<Egenskapstype> localVarReturnType = new ParameterizedTypeReference<Egenskapstype>() {};
         return getEgenskapstypeRequestCreation(egenskapstypeid).bodyToMono(localVarReturnType);
     }
@@ -120,7 +123,7 @@ public class DatakatalogenApi {
      * @return ResponseEntity&lt;Egenskapstype&gt;
      * @throws WebClientResponseException if an error occurs while attempting to invoke the API
      */
-    public Mono<ResponseEntity<Egenskapstype>> getEgenskapstypeWithHttpInfo(Integer egenskapstypeid) throws WebClientResponseException {
+    public Mono<ResponseEntity<Egenskapstype>> getEgenskapstypeWithHttpInfo(@javax.annotation.Nonnull Integer egenskapstypeid) throws WebClientResponseException {
         ParameterizedTypeReference<Egenskapstype> localVarReturnType = new ParameterizedTypeReference<Egenskapstype>() {};
         return getEgenskapstypeRequestCreation(egenskapstypeid).toEntity(localVarReturnType);
     }
@@ -136,9 +139,10 @@ public class DatakatalogenApi {
      * @return ResponseSpec
      * @throws WebClientResponseException if an error occurs while attempting to invoke the API
      */
-    public ResponseSpec getEgenskapstypeWithResponseSpec(Integer egenskapstypeid) throws WebClientResponseException {
+    public ResponseSpec getEgenskapstypeWithResponseSpec(@javax.annotation.Nonnull Integer egenskapstypeid) throws WebClientResponseException {
         return getEgenskapstypeRequestCreation(egenskapstypeid);
     }
+
     /**
      * Returnerer angitt egenskapstype for angitt vegobjekttype
      * 
@@ -151,7 +155,7 @@ public class DatakatalogenApi {
      * @return Egenskapstype
      * @throws WebClientResponseException if an error occurs while attempting to invoke the API
      */
-    private ResponseSpec getEgenskapstypeForVegobjekttypeRequestCreation(Integer vegobjekttypeid, Integer egenskapstypeid) throws WebClientResponseException {
+    private ResponseSpec getEgenskapstypeForVegobjekttypeRequestCreation(@javax.annotation.Nonnull Integer vegobjekttypeid, @javax.annotation.Nonnull Integer egenskapstypeid) throws WebClientResponseException {
         Object postBody = null;
         // verify the required parameter 'vegobjekttypeid' is set
         if (vegobjekttypeid == null) {
@@ -197,7 +201,7 @@ public class DatakatalogenApi {
      * @return Egenskapstype
      * @throws WebClientResponseException if an error occurs while attempting to invoke the API
      */
-    public Mono<Egenskapstype> getEgenskapstypeForVegobjekttype(Integer vegobjekttypeid, Integer egenskapstypeid) throws WebClientResponseException {
+    public Mono<Egenskapstype> getEgenskapstypeForVegobjekttype(@javax.annotation.Nonnull Integer vegobjekttypeid, @javax.annotation.Nonnull Integer egenskapstypeid) throws WebClientResponseException {
         ParameterizedTypeReference<Egenskapstype> localVarReturnType = new ParameterizedTypeReference<Egenskapstype>() {};
         return getEgenskapstypeForVegobjekttypeRequestCreation(vegobjekttypeid, egenskapstypeid).bodyToMono(localVarReturnType);
     }
@@ -214,7 +218,7 @@ public class DatakatalogenApi {
      * @return ResponseEntity&lt;Egenskapstype&gt;
      * @throws WebClientResponseException if an error occurs while attempting to invoke the API
      */
-    public Mono<ResponseEntity<Egenskapstype>> getEgenskapstypeForVegobjekttypeWithHttpInfo(Integer vegobjekttypeid, Integer egenskapstypeid) throws WebClientResponseException {
+    public Mono<ResponseEntity<Egenskapstype>> getEgenskapstypeForVegobjekttypeWithHttpInfo(@javax.annotation.Nonnull Integer vegobjekttypeid, @javax.annotation.Nonnull Integer egenskapstypeid) throws WebClientResponseException {
         ParameterizedTypeReference<Egenskapstype> localVarReturnType = new ParameterizedTypeReference<Egenskapstype>() {};
         return getEgenskapstypeForVegobjekttypeRequestCreation(vegobjekttypeid, egenskapstypeid).toEntity(localVarReturnType);
     }
@@ -231,9 +235,10 @@ public class DatakatalogenApi {
      * @return ResponseSpec
      * @throws WebClientResponseException if an error occurs while attempting to invoke the API
      */
-    public ResponseSpec getEgenskapstypeForVegobjekttypeWithResponseSpec(Integer vegobjekttypeid, Integer egenskapstypeid) throws WebClientResponseException {
+    public ResponseSpec getEgenskapstypeForVegobjekttypeWithResponseSpec(@javax.annotation.Nonnull Integer vegobjekttypeid, @javax.annotation.Nonnull Integer egenskapstypeid) throws WebClientResponseException {
         return getEgenskapstypeForVegobjekttypeRequestCreation(vegobjekttypeid, egenskapstypeid);
     }
+
     /**
      * Returnerer alle kategorier for egenskapstypene
      * 
@@ -310,6 +315,7 @@ public class DatakatalogenApi {
     public ResponseSpec getEgenskapstypeKategorierWithResponseSpec() throws WebClientResponseException {
         return getEgenskapstypeKategorierRequestCreation();
     }
+
     /**
      * Returnerer alle enheter
      * 
@@ -386,6 +392,7 @@ public class DatakatalogenApi {
     public ResponseSpec getEnheterWithResponseSpec() throws WebClientResponseException {
         return getEnheterRequestCreation();
     }
+
     /**
      * Returnerer alle kategorier for vegobjekter
      * 
@@ -462,6 +469,7 @@ public class DatakatalogenApi {
     public ResponseSpec getKategorierWithResponseSpec() throws WebClientResponseException {
         return getKategorierRequestCreation();
     }
+
     /**
      * Returnerer produktspesifikasjonen til den angitte vegobjekttypen
      * 
@@ -473,7 +481,7 @@ public class DatakatalogenApi {
      * @return ProductSpecification
      * @throws WebClientResponseException if an error occurs while attempting to invoke the API
      */
-    private ResponseSpec getProduktspesifikasjonRequestCreation(Integer vegobjekttypeid) throws WebClientResponseException {
+    private ResponseSpec getProduktspesifikasjonRequestCreation(@javax.annotation.Nonnull Integer vegobjekttypeid) throws WebClientResponseException {
         Object postBody = null;
         // verify the required parameter 'vegobjekttypeid' is set
         if (vegobjekttypeid == null) {
@@ -513,7 +521,7 @@ public class DatakatalogenApi {
      * @return ProductSpecification
      * @throws WebClientResponseException if an error occurs while attempting to invoke the API
      */
-    public Mono<ProductSpecification> getProduktspesifikasjon(Integer vegobjekttypeid) throws WebClientResponseException {
+    public Mono<ProductSpecification> getProduktspesifikasjon(@javax.annotation.Nonnull Integer vegobjekttypeid) throws WebClientResponseException {
         ParameterizedTypeReference<ProductSpecification> localVarReturnType = new ParameterizedTypeReference<ProductSpecification>() {};
         return getProduktspesifikasjonRequestCreation(vegobjekttypeid).bodyToMono(localVarReturnType);
     }
@@ -529,7 +537,7 @@ public class DatakatalogenApi {
      * @return ResponseEntity&lt;ProductSpecification&gt;
      * @throws WebClientResponseException if an error occurs while attempting to invoke the API
      */
-    public Mono<ResponseEntity<ProductSpecification>> getProduktspesifikasjonWithHttpInfo(Integer vegobjekttypeid) throws WebClientResponseException {
+    public Mono<ResponseEntity<ProductSpecification>> getProduktspesifikasjonWithHttpInfo(@javax.annotation.Nonnull Integer vegobjekttypeid) throws WebClientResponseException {
         ParameterizedTypeReference<ProductSpecification> localVarReturnType = new ParameterizedTypeReference<ProductSpecification>() {};
         return getProduktspesifikasjonRequestCreation(vegobjekttypeid).toEntity(localVarReturnType);
     }
@@ -545,9 +553,10 @@ public class DatakatalogenApi {
      * @return ResponseSpec
      * @throws WebClientResponseException if an error occurs while attempting to invoke the API
      */
-    public ResponseSpec getProduktspesifikasjonWithResponseSpec(Integer vegobjekttypeid) throws WebClientResponseException {
+    public ResponseSpec getProduktspesifikasjonWithResponseSpec(@javax.annotation.Nonnull Integer vegobjekttypeid) throws WebClientResponseException {
         return getProduktspesifikasjonRequestCreation(vegobjekttypeid);
     }
+
     /**
      * Returnerer angitt vegobjekttype
      * 
@@ -560,7 +569,7 @@ public class DatakatalogenApi {
      * @return Vegobjekttype
      * @throws WebClientResponseException if an error occurs while attempting to invoke the API
      */
-    private ResponseSpec getVegobjekttypeRequestCreation(Integer vegobjekttypeid, List<String> inkluder) throws WebClientResponseException {
+    private ResponseSpec getVegobjekttypeRequestCreation(@javax.annotation.Nonnull Integer vegobjekttypeid, @javax.annotation.Nullable List<String> inkluder) throws WebClientResponseException {
         Object postBody = null;
         // verify the required parameter 'vegobjekttypeid' is set
         if (vegobjekttypeid == null) {
@@ -603,7 +612,7 @@ public class DatakatalogenApi {
      * @return Vegobjekttype
      * @throws WebClientResponseException if an error occurs while attempting to invoke the API
      */
-    public Mono<Vegobjekttype> getVegobjekttype(Integer vegobjekttypeid, List<String> inkluder) throws WebClientResponseException {
+    public Mono<Vegobjekttype> getVegobjekttype(@javax.annotation.Nonnull Integer vegobjekttypeid, @javax.annotation.Nullable List<String> inkluder) throws WebClientResponseException {
         ParameterizedTypeReference<Vegobjekttype> localVarReturnType = new ParameterizedTypeReference<Vegobjekttype>() {};
         return getVegobjekttypeRequestCreation(vegobjekttypeid, inkluder).bodyToMono(localVarReturnType);
     }
@@ -620,7 +629,7 @@ public class DatakatalogenApi {
      * @return ResponseEntity&lt;Vegobjekttype&gt;
      * @throws WebClientResponseException if an error occurs while attempting to invoke the API
      */
-    public Mono<ResponseEntity<Vegobjekttype>> getVegobjekttypeWithHttpInfo(Integer vegobjekttypeid, List<String> inkluder) throws WebClientResponseException {
+    public Mono<ResponseEntity<Vegobjekttype>> getVegobjekttypeWithHttpInfo(@javax.annotation.Nonnull Integer vegobjekttypeid, @javax.annotation.Nullable List<String> inkluder) throws WebClientResponseException {
         ParameterizedTypeReference<Vegobjekttype> localVarReturnType = new ParameterizedTypeReference<Vegobjekttype>() {};
         return getVegobjekttypeRequestCreation(vegobjekttypeid, inkluder).toEntity(localVarReturnType);
     }
@@ -637,9 +646,10 @@ public class DatakatalogenApi {
      * @return ResponseSpec
      * @throws WebClientResponseException if an error occurs while attempting to invoke the API
      */
-    public ResponseSpec getVegobjekttypeWithResponseSpec(Integer vegobjekttypeid, List<String> inkluder) throws WebClientResponseException {
+    public ResponseSpec getVegobjekttypeWithResponseSpec(@javax.annotation.Nonnull Integer vegobjekttypeid, @javax.annotation.Nullable List<String> inkluder) throws WebClientResponseException {
         return getVegobjekttypeRequestCreation(vegobjekttypeid, inkluder);
     }
+
     /**
      * Returnerer alle vegobjekttypene
      * 
@@ -652,7 +662,7 @@ public class DatakatalogenApi {
      * @return List&lt;Vegobjekttype&gt;
      * @throws WebClientResponseException if an error occurs while attempting to invoke the API
      */
-    private ResponseSpec getVegobjekttyperRequestCreation(List<String> inkluder, Integer kategori) throws WebClientResponseException {
+    private ResponseSpec getVegobjekttyperRequestCreation(@javax.annotation.Nullable List<String> inkluder, @javax.annotation.Nullable Integer kategori) throws WebClientResponseException {
         Object postBody = null;
         // create path and map variables
         final Map<String, Object> pathParams = new HashMap<String, Object>();
@@ -690,7 +700,7 @@ public class DatakatalogenApi {
      * @return List&lt;Vegobjekttype&gt;
      * @throws WebClientResponseException if an error occurs while attempting to invoke the API
      */
-    public Flux<Vegobjekttype> getVegobjekttyper(List<String> inkluder, Integer kategori) throws WebClientResponseException {
+    public Flux<Vegobjekttype> getVegobjekttyper(@javax.annotation.Nullable List<String> inkluder, @javax.annotation.Nullable Integer kategori) throws WebClientResponseException {
         ParameterizedTypeReference<Vegobjekttype> localVarReturnType = new ParameterizedTypeReference<Vegobjekttype>() {};
         return getVegobjekttyperRequestCreation(inkluder, kategori).bodyToFlux(localVarReturnType);
     }
@@ -707,7 +717,7 @@ public class DatakatalogenApi {
      * @return ResponseEntity&lt;List&lt;Vegobjekttype&gt;&gt;
      * @throws WebClientResponseException if an error occurs while attempting to invoke the API
      */
-    public Mono<ResponseEntity<List<Vegobjekttype>>> getVegobjekttyperWithHttpInfo(List<String> inkluder, Integer kategori) throws WebClientResponseException {
+    public Mono<ResponseEntity<List<Vegobjekttype>>> getVegobjekttyperWithHttpInfo(@javax.annotation.Nullable List<String> inkluder, @javax.annotation.Nullable Integer kategori) throws WebClientResponseException {
         ParameterizedTypeReference<Vegobjekttype> localVarReturnType = new ParameterizedTypeReference<Vegobjekttype>() {};
         return getVegobjekttyperRequestCreation(inkluder, kategori).toEntityList(localVarReturnType);
     }
@@ -724,9 +734,10 @@ public class DatakatalogenApi {
      * @return ResponseSpec
      * @throws WebClientResponseException if an error occurs while attempting to invoke the API
      */
-    public ResponseSpec getVegobjekttyperWithResponseSpec(List<String> inkluder, Integer kategori) throws WebClientResponseException {
+    public ResponseSpec getVegobjekttyperWithResponseSpec(@javax.annotation.Nullable List<String> inkluder, @javax.annotation.Nullable Integer kategori) throws WebClientResponseException {
         return getVegobjekttyperRequestCreation(inkluder, kategori);
     }
+
     /**
      * Returnerer alle vegobjekttypene for en gitt versjon av datakatalogen, f.eks. 2.31
      * 
@@ -740,7 +751,7 @@ public class DatakatalogenApi {
      * @return List&lt;Vegobjekttype&gt;
      * @throws WebClientResponseException if an error occurs while attempting to invoke the API
      */
-    private ResponseSpec getVegobjekttyperHistoriskRequestCreation(String versjon, List<String> inkluder, Integer kategori) throws WebClientResponseException {
+    private ResponseSpec getVegobjekttyperHistoriskRequestCreation(@javax.annotation.Nonnull String versjon, @javax.annotation.Nullable List<String> inkluder, @javax.annotation.Nullable Integer kategori) throws WebClientResponseException {
         Object postBody = null;
         // verify the required parameter 'versjon' is set
         if (versjon == null) {
@@ -785,7 +796,7 @@ public class DatakatalogenApi {
      * @return List&lt;Vegobjekttype&gt;
      * @throws WebClientResponseException if an error occurs while attempting to invoke the API
      */
-    public Flux<Vegobjekttype> getVegobjekttyperHistorisk(String versjon, List<String> inkluder, Integer kategori) throws WebClientResponseException {
+    public Flux<Vegobjekttype> getVegobjekttyperHistorisk(@javax.annotation.Nonnull String versjon, @javax.annotation.Nullable List<String> inkluder, @javax.annotation.Nullable Integer kategori) throws WebClientResponseException {
         ParameterizedTypeReference<Vegobjekttype> localVarReturnType = new ParameterizedTypeReference<Vegobjekttype>() {};
         return getVegobjekttyperHistoriskRequestCreation(versjon, inkluder, kategori).bodyToFlux(localVarReturnType);
     }
@@ -803,7 +814,7 @@ public class DatakatalogenApi {
      * @return ResponseEntity&lt;List&lt;Vegobjekttype&gt;&gt;
      * @throws WebClientResponseException if an error occurs while attempting to invoke the API
      */
-    public Mono<ResponseEntity<List<Vegobjekttype>>> getVegobjekttyperHistoriskWithHttpInfo(String versjon, List<String> inkluder, Integer kategori) throws WebClientResponseException {
+    public Mono<ResponseEntity<List<Vegobjekttype>>> getVegobjekttyperHistoriskWithHttpInfo(@javax.annotation.Nonnull String versjon, @javax.annotation.Nullable List<String> inkluder, @javax.annotation.Nullable Integer kategori) throws WebClientResponseException {
         ParameterizedTypeReference<Vegobjekttype> localVarReturnType = new ParameterizedTypeReference<Vegobjekttype>() {};
         return getVegobjekttyperHistoriskRequestCreation(versjon, inkluder, kategori).toEntityList(localVarReturnType);
     }
@@ -821,9 +832,10 @@ public class DatakatalogenApi {
      * @return ResponseSpec
      * @throws WebClientResponseException if an error occurs while attempting to invoke the API
      */
-    public ResponseSpec getVegobjekttyperHistoriskWithResponseSpec(String versjon, List<String> inkluder, Integer kategori) throws WebClientResponseException {
+    public ResponseSpec getVegobjekttyperHistoriskWithResponseSpec(@javax.annotation.Nonnull String versjon, @javax.annotation.Nullable List<String> inkluder, @javax.annotation.Nullable Integer kategori) throws WebClientResponseException {
         return getVegobjekttyperHistoriskRequestCreation(versjon, inkluder, kategori);
     }
+
     /**
      * Returnerer aktiv versjon på datakatalog
      * 

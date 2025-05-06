@@ -12,31 +12,35 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime'
-import type { EgenskapstypeEnum } from './EgenskapstypeEnum'
-import {
-  EgenskapstypeEnumFromJSON,
-  EgenskapstypeEnumFromJSONTyped,
-  EgenskapstypeEnumToJSON,
-} from './EgenskapstypeEnum'
-import type { EgenskapstypeStedfesting } from './EgenskapstypeStedfesting'
-import {
-  EgenskapstypeStedfestingFromJSON,
-  EgenskapstypeStedfestingFromJSONTyped,
-  EgenskapstypeStedfestingToJSON,
-} from './EgenskapstypeStedfesting'
+import { mapValues } from '../runtime'
 import type { Stedfesting } from './Stedfesting'
 import {
   StedfestingFromJSON,
   StedfestingFromJSONTyped,
   StedfestingToJSON,
+  StedfestingToJSONTyped,
 } from './Stedfesting'
 import type { Viktighet } from './Viktighet'
 import {
   ViktighetFromJSON,
   ViktighetFromJSONTyped,
   ViktighetToJSON,
+  ViktighetToJSONTyped,
 } from './Viktighet'
+import type { EgenskapstypeStedfesting } from './EgenskapstypeStedfesting'
+import {
+  EgenskapstypeStedfestingFromJSON,
+  EgenskapstypeStedfestingFromJSONTyped,
+  EgenskapstypeStedfestingToJSON,
+  EgenskapstypeStedfestingToJSONTyped,
+} from './EgenskapstypeStedfesting'
+import type { EgenskapstypeEnum } from './EgenskapstypeEnum'
+import {
+  EgenskapstypeEnumFromJSON,
+  EgenskapstypeEnumFromJSONTyped,
+  EgenskapstypeEnumToJSON,
+  EgenskapstypeEnumToJSONTyped,
+} from './EgenskapstypeEnum'
 
 /**
  *
@@ -67,11 +71,11 @@ export interface StedfestingListe extends Stedfesting {
 /**
  * Check if a given object implements the StedfestingListe interface.
  */
-export function instanceOfStedfestingListe(value: object): boolean {
-  let isInstance = true
-  isInstance = isInstance && 'innhold' in value
-
-  return isInstance
+export function instanceOfStedfestingListe(
+  value: object,
+): value is StedfestingListe {
+  if (!('innhold' in value) || value['innhold'] === undefined) return false
+  return true
 }
 
 export function StedfestingListeFromJSON(json: any): StedfestingListe {
@@ -82,32 +86,39 @@ export function StedfestingListeFromJSONTyped(
   json: any,
   ignoreDiscriminator: boolean,
 ): StedfestingListe {
-  if (json === undefined || json === null) {
+  if (json == null) {
     return json
   }
   return {
-    ...StedfestingFromJSONTyped(json, ignoreDiscriminator),
-    maksimaltAntallVerdier: !exists(json, 'maksimalt_antall_verdier')
-      ? undefined
-      : json['maksimalt_antall_verdier'],
-    minimaltAntallVerdier: !exists(json, 'minimalt_antall_verdier')
-      ? undefined
-      : json['minimalt_antall_verdier'],
+    ...StedfestingFromJSONTyped(json, true),
+    maksimaltAntallVerdier:
+      json['maksimalt_antall_verdier'] == null
+        ? undefined
+        : json['maksimalt_antall_verdier'],
+    minimaltAntallVerdier:
+      json['minimalt_antall_verdier'] == null
+        ? undefined
+        : json['minimalt_antall_verdier'],
     innhold: EgenskapstypeStedfestingFromJSON(json['innhold']),
   }
 }
 
-export function StedfestingListeToJSON(value?: StedfestingListe | null): any {
-  if (value === undefined) {
-    return undefined
+export function StedfestingListeToJSON(json: any): StedfestingListe {
+  return StedfestingListeToJSONTyped(json, false)
+}
+
+export function StedfestingListeToJSONTyped(
+  value?: StedfestingListe | null,
+  ignoreDiscriminator: boolean = false,
+): any {
+  if (value == null) {
+    return value
   }
-  if (value === null) {
-    return null
-  }
+
   return {
-    ...StedfestingToJSON(value),
-    maksimalt_antall_verdier: value.maksimaltAntallVerdier,
-    minimalt_antall_verdier: value.minimaltAntallVerdier,
-    innhold: EgenskapstypeStedfestingToJSON(value.innhold),
+    ...StedfestingToJSONTyped(value, true),
+    maksimalt_antall_verdier: value['maksimaltAntallVerdier'],
+    minimalt_antall_verdier: value['minimaltAntallVerdier'],
+    innhold: EgenskapstypeStedfestingToJSON(value['innhold']),
   }
 }

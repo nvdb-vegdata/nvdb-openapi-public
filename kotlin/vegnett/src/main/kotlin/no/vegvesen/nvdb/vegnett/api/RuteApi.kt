@@ -52,10 +52,10 @@ open class RuteApi : ApiClient {
     enum class TrafikantgruppeGetRute(val value: kotlin.String) {
         
         @SerialName(value = "K")
-        k("K"),
+        K("K"),
         
         @SerialName(value = "G")
-        g("G")
+        G("G")
         
     }
 
@@ -67,55 +67,55 @@ open class RuteApi : ApiClient {
     enum class TypevegGetRute(val value: kotlin.String) {
         
         @SerialName(value = "Enkel bilveg")
-        enkelBilveg("Enkel bilveg"),
+        Enkel_bilveg("Enkel bilveg"),
         
         @SerialName(value = "Kanalisert veg")
-        kanalisertVeg("Kanalisert veg"),
+        Kanalisert_veg("Kanalisert veg"),
         
         @SerialName(value = "Rampe")
-        rampe("Rampe"),
+        Rampe("Rampe"),
         
         @SerialName(value = "Rundkjøring")
-        rundkjøring("Rundkjøring"),
+        Rundkjøring("Rundkjøring"),
         
         @SerialName(value = "Bilferje")
-        bilferje("Bilferje"),
+        Bilferje("Bilferje"),
         
         @SerialName(value = "Gang- og sykkelveg")
-        gangMinusOgSykkelveg("Gang- og sykkelveg"),
+        GangMinus_og_sykkelveg("Gang- og sykkelveg"),
         
         @SerialName(value = "Sykkelveg")
-        sykkelveg("Sykkelveg"),
+        Sykkelveg("Sykkelveg"),
         
         @SerialName(value = "Gangveg")
-        gangveg("Gangveg"),
+        Gangveg("Gangveg"),
         
         @SerialName(value = "Gågate")
-        gågate("Gågate"),
+        Gågate("Gågate"),
         
         @SerialName(value = "Fortau")
-        fortau("Fortau"),
+        Fortau("Fortau"),
         
         @SerialName(value = "Trapp")
-        trapp("Trapp"),
+        Trapp("Trapp"),
         
         @SerialName(value = "Gangfelt")
-        gangfelt("Gangfelt"),
+        Gangfelt("Gangfelt"),
         
         @SerialName(value = "Gatetun")
-        gatetun("Gatetun"),
+        Gatetun("Gatetun"),
         
         @SerialName(value = "Passasjerferje")
-        passasjerferje("Passasjerferje"),
+        Passasjerferje("Passasjerferje"),
         
         @SerialName(value = "Traktorveg")
-        traktorveg("Traktorveg"),
+        Traktorveg("Traktorveg"),
         
         @SerialName(value = "Sti")
-        sti("Sti"),
+        Sti("Sti"),
         
         @SerialName(value = "Annet")
-        annet("Annet")
+        Annet("Annet")
         
     }
 
@@ -139,16 +139,16 @@ open class RuteApi : ApiClient {
         _4326("4326"),
         
         @SerialName(value = "UTM32")
-        uTM32("UTM32"),
+        UTM32("UTM32"),
         
         @SerialName(value = "UTM33")
-        uTM33("UTM33"),
+        UTM33("UTM33"),
         
         @SerialName(value = "UTM35")
-        uTM35("UTM35"),
+        UTM35("UTM35"),
         
         @SerialName(value = "WGS84")
-        wGS84("WGS84")
+        WGS84("WGS84")
         
     }
 
@@ -172,7 +172,7 @@ open class RuteApi : ApiClient {
      * @return GetRute200Response
      */
     @Suppress("UNCHECKED_CAST")
-    open suspend fun getRute(start: kotlin.String? = null, slutt: kotlin.String? = null, geometri: kotlin.String? = null, maksAvstand: kotlin.Int? = null, omkrets: kotlin.Int? = null, konnekteringslenker: kotlin.Boolean? = null, detaljerteLenker: kotlin.Boolean? = null, kortform: kotlin.Boolean? = null, vegsystemreferanse: kotlin.collections.List<kotlin.String>? = null, trafikantgruppe: TrafikantgruppeGetRute? = null, beholdTrafikantgruppe: kotlin.Boolean? = null, typeveg: kotlin.collections.List<TypevegGetRute>? = null, tidspunkt: java.time.LocalDate? = null, srid: SridGetRute? = null): HttpResponse<GetRute200Response> {
+    open suspend fun getRute(start: kotlin.String? = null, slutt: kotlin.String? = null, geometri: kotlin.String? = null, maksAvstand: kotlin.Int? = null, omkrets: kotlin.Int? = null, konnekteringslenker: kotlin.Boolean? = null, detaljerteLenker: kotlin.Boolean? = null, kortform: kotlin.Boolean? = null, vegsystemreferanse: kotlin.collections.Set<kotlin.String>? = null, trafikantgruppe: TrafikantgruppeGetRute? = null, beholdTrafikantgruppe: kotlin.Boolean? = null, typeveg: kotlin.collections.List<TypevegGetRute>? = null, tidspunkt: kotlinx.datetime.LocalDate? = null, srid: SridGetRute? = null): HttpResponse<GetRute200Response> {
 
         val localVariableAuthNames = listOf<String>()
 
@@ -189,11 +189,11 @@ open class RuteApi : ApiClient {
         detaljerteLenker?.apply { localVariableQuery["detaljerte_lenker"] = listOf("$detaljerteLenker") }
         kortform?.apply { localVariableQuery["kortform"] = listOf("$kortform") }
         vegsystemreferanse?.apply { localVariableQuery["vegsystemreferanse"] = toMultiValue(this, "multi") }
-        trafikantgruppe?.apply { localVariableQuery["trafikantgruppe"] = listOf("$trafikantgruppe") }
+        trafikantgruppe?.apply { localVariableQuery["trafikantgruppe"] = listOf("${ trafikantgruppe.value }") }
         beholdTrafikantgruppe?.apply { localVariableQuery["behold_trafikantgruppe"] = listOf("$beholdTrafikantgruppe") }
         typeveg?.apply { localVariableQuery["typeveg"] = toMultiValue(this, "multi") }
         tidspunkt?.apply { localVariableQuery["tidspunkt"] = listOf("$tidspunkt") }
-        srid?.apply { localVariableQuery["srid"] = listOf("$srid") }
+        srid?.apply { localVariableQuery["srid"] = listOf("${ srid.value }") }
         val localVariableHeaders = mutableMapOf<String, String>()
 
         val localVariableConfig = RequestConfig<kotlin.Any?>(

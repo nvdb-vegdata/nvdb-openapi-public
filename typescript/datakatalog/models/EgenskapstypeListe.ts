@@ -12,25 +12,28 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime'
+import { mapValues } from '../runtime'
+import type { Viktighet } from './Viktighet'
+import {
+  ViktighetFromJSON,
+  ViktighetFromJSONTyped,
+  ViktighetToJSON,
+  ViktighetToJSONTyped,
+} from './Viktighet'
 import type { Egenskapstype } from './Egenskapstype'
 import {
   EgenskapstypeFromJSON,
   EgenskapstypeFromJSONTyped,
   EgenskapstypeToJSON,
+  EgenskapstypeToJSONTyped,
 } from './Egenskapstype'
 import type { EgenskapstypeEnum } from './EgenskapstypeEnum'
 import {
   EgenskapstypeEnumFromJSON,
   EgenskapstypeEnumFromJSONTyped,
   EgenskapstypeEnumToJSON,
+  EgenskapstypeEnumToJSONTyped,
 } from './EgenskapstypeEnum'
-import type { Viktighet } from './Viktighet'
-import {
-  ViktighetFromJSON,
-  ViktighetFromJSONTyped,
-  ViktighetToJSON,
-} from './Viktighet'
 
 /**
  *
@@ -61,11 +64,11 @@ export interface EgenskapstypeListe extends Egenskapstype {
 /**
  * Check if a given object implements the EgenskapstypeListe interface.
  */
-export function instanceOfEgenskapstypeListe(value: object): boolean {
-  let isInstance = true
-  isInstance = isInstance && 'innhold' in value
-
-  return isInstance
+export function instanceOfEgenskapstypeListe(
+  value: object,
+): value is EgenskapstypeListe {
+  if (!('innhold' in value) || value['innhold'] === undefined) return false
+  return true
 }
 
 export function EgenskapstypeListeFromJSON(json: any): EgenskapstypeListe {
@@ -76,34 +79,39 @@ export function EgenskapstypeListeFromJSONTyped(
   json: any,
   ignoreDiscriminator: boolean,
 ): EgenskapstypeListe {
-  if (json === undefined || json === null) {
+  if (json == null) {
     return json
   }
   return {
-    ...EgenskapstypeFromJSONTyped(json, ignoreDiscriminator),
-    maksimaltAntallVerdier: !exists(json, 'maksimalt_antall_verdier')
-      ? undefined
-      : json['maksimalt_antall_verdier'],
-    minimaltAntallVerdier: !exists(json, 'minimalt_antall_verdier')
-      ? undefined
-      : json['minimalt_antall_verdier'],
+    ...EgenskapstypeFromJSONTyped(json, true),
+    maksimaltAntallVerdier:
+      json['maksimalt_antall_verdier'] == null
+        ? undefined
+        : json['maksimalt_antall_verdier'],
+    minimaltAntallVerdier:
+      json['minimalt_antall_verdier'] == null
+        ? undefined
+        : json['minimalt_antall_verdier'],
     innhold: EgenskapstypeFromJSON(json['innhold']),
   }
 }
 
-export function EgenskapstypeListeToJSON(
+export function EgenskapstypeListeToJSON(json: any): EgenskapstypeListe {
+  return EgenskapstypeListeToJSONTyped(json, false)
+}
+
+export function EgenskapstypeListeToJSONTyped(
   value?: EgenskapstypeListe | null,
+  ignoreDiscriminator: boolean = false,
 ): any {
-  if (value === undefined) {
-    return undefined
+  if (value == null) {
+    return value
   }
-  if (value === null) {
-    return null
-  }
+
   return {
-    ...EgenskapstypeToJSON(value),
-    maksimalt_antall_verdier: value.maksimaltAntallVerdier,
-    minimalt_antall_verdier: value.minimaltAntallVerdier,
-    innhold: EgenskapstypeToJSON(value.innhold),
+    ...EgenskapstypeToJSONTyped(value, true),
+    maksimalt_antall_verdier: value['maksimaltAntallVerdier'],
+    minimalt_antall_verdier: value['minimaltAntallVerdier'],
+    innhold: EgenskapstypeToJSON(value['innhold']),
   }
 }

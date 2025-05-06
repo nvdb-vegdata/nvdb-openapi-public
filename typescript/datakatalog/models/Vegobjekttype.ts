@@ -12,30 +12,34 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime'
-import type { Egenskapstype } from './Egenskapstype'
-import {
-  EgenskapstypeFromJSON,
-  EgenskapstypeFromJSONTyped,
-  EgenskapstypeToJSON,
-} from './Egenskapstype'
-import type { Relasjonstyper } from './Relasjonstyper'
-import {
-  RelasjonstyperFromJSON,
-  RelasjonstyperFromJSONTyped,
-  RelasjonstyperToJSON,
-} from './Relasjonstyper'
+import { mapValues } from '../runtime'
 import type { Stedfesting } from './Stedfesting'
 import {
   StedfestingFromJSON,
   StedfestingFromJSONTyped,
   StedfestingToJSON,
+  StedfestingToJSONTyped,
 } from './Stedfesting'
+import type { Relasjonstyper } from './Relasjonstyper'
+import {
+  RelasjonstyperFromJSON,
+  RelasjonstyperFromJSONTyped,
+  RelasjonstyperToJSON,
+  RelasjonstyperToJSONTyped,
+} from './Relasjonstyper'
+import type { Egenskapstype } from './Egenskapstype'
+import {
+  EgenskapstypeFromJSON,
+  EgenskapstypeFromJSONTyped,
+  EgenskapstypeToJSON,
+  EgenskapstypeToJSONTyped,
+} from './Egenskapstype'
 import type { VegobjektKategori } from './VegobjektKategori'
 import {
   VegobjektKategoriFromJSON,
   VegobjektKategoriFromJSONTyped,
   VegobjektKategoriToJSON,
+  VegobjektKategoriToJSONTyped,
 } from './VegobjektKategori'
 
 /**
@@ -175,19 +179,21 @@ export interface Vegobjekttype {
 /**
  * Check if a given object implements the Vegobjekttype interface.
  */
-export function instanceOfVegobjekttype(value: object): boolean {
-  let isInstance = true
-  isInstance = isInstance && 'id' in value
-  isInstance = isInstance && 'sorteringsnummer' in value
-  isInstance = isInstance && 'tidsromRelevant' in value
-  isInstance = isInstance && 'abstraktType' in value
-  isInstance = isInstance && 'avledet' in value
-  isInstance = isInstance && 'mHaMor' in value
-  isInstance = isInstance && 'enVersjon' in value
-  isInstance = isInstance && 'kategorier' in value
-  isInstance = isInstance && 'sensitiv' in value
-
-  return isInstance
+export function instanceOfVegobjekttype(value: object): value is Vegobjekttype {
+  if (!('id' in value) || value['id'] === undefined) return false
+  if (!('sorteringsnummer' in value) || value['sorteringsnummer'] === undefined)
+    return false
+  if (!('tidsromRelevant' in value) || value['tidsromRelevant'] === undefined)
+    return false
+  if (!('abstraktType' in value) || value['abstraktType'] === undefined)
+    return false
+  if (!('avledet' in value) || value['avledet'] === undefined) return false
+  if (!('mHaMor' in value) || value['mHaMor'] === undefined) return false
+  if (!('enVersjon' in value) || value['enVersjon'] === undefined) return false
+  if (!('kategorier' in value) || value['kategorier'] === undefined)
+    return false
+  if (!('sensitiv' in value) || value['sensitiv'] === undefined) return false
+  return true
 }
 
 export function VegobjekttypeFromJSON(json: any): Vegobjekttype {
@@ -198,81 +204,91 @@ export function VegobjekttypeFromJSONTyped(
   json: any,
   ignoreDiscriminator: boolean,
 ): Vegobjekttype {
-  if (json === undefined || json === null) {
+  if (json == null) {
     return json
   }
   return {
     id: json['id'],
-    navn: !exists(json, 'navn') ? undefined : json['navn'],
-    kortnavn: !exists(json, 'kortnavn') ? undefined : json['kortnavn'],
-    beskrivelse: !exists(json, 'beskrivelse') ? undefined : json['beskrivelse'],
-    stedfesting: !exists(json, 'stedfesting')
-      ? undefined
-      : StedfestingFromJSON(json['stedfesting']),
-    sosinavn: !exists(json, 'sosinavn') ? undefined : json['sosinavn'],
-    sosinvdbnavn: !exists(json, 'sosinvdbnavn')
-      ? undefined
-      : json['sosinvdbnavn'],
+    navn: json['navn'] == null ? undefined : json['navn'],
+    kortnavn: json['kortnavn'] == null ? undefined : json['kortnavn'],
+    beskrivelse: json['beskrivelse'] == null ? undefined : json['beskrivelse'],
+    stedfesting:
+      json['stedfesting'] == null
+        ? undefined
+        : StedfestingFromJSON(json['stedfesting']),
+    sosinavn: json['sosinavn'] == null ? undefined : json['sosinavn'],
+    sosinvdbnavn:
+      json['sosinvdbnavn'] == null ? undefined : json['sosinvdbnavn'],
     sorteringsnummer: json['sorteringsnummer'],
-    status: !exists(json, 'status') ? undefined : json['status'],
-    hovedkategori: !exists(json, 'hovedkategori')
-      ? undefined
-      : json['hovedkategori'],
+    status: json['status'] == null ? undefined : json['status'],
+    hovedkategori:
+      json['hovedkategori'] == null ? undefined : json['hovedkategori'],
     tidsromRelevant: json['tidsrom_relevant'],
-    konnekteringslenkeOk: !exists(json, 'konnekteringslenke_ok')
-      ? undefined
-      : json['konnekteringslenke_ok'],
+    konnekteringslenkeOk:
+      json['konnekteringslenke_ok'] == null
+        ? undefined
+        : json['konnekteringslenke_ok'],
     abstraktType: json['abstrakt_type'],
     avledet: json['avledet'],
     mHaMor: json['må_ha_mor'],
     enVersjon: json['en_versjon'],
-    tilleggsinformasjon: !exists(json, 'tilleggsinformasjon')
-      ? undefined
-      : json['tilleggsinformasjon'],
+    tilleggsinformasjon:
+      json['tilleggsinformasjon'] == null
+        ? undefined
+        : json['tilleggsinformasjon'],
     kategorier: (json['kategorier'] as Array<any>).map(
       VegobjektKategoriFromJSON,
     ),
-    egenskapstyper: !exists(json, 'egenskapstyper')
-      ? undefined
-      : (json['egenskapstyper'] as Array<any>).map(EgenskapstypeFromJSON),
-    relasjonstyper: !exists(json, 'relasjonstyper')
-      ? undefined
-      : RelasjonstyperFromJSON(json['relasjonstyper']),
+    egenskapstyper:
+      json['egenskapstyper'] == null
+        ? undefined
+        : (json['egenskapstyper'] as Array<any>).map(EgenskapstypeFromJSON),
+    relasjonstyper:
+      json['relasjonstyper'] == null
+        ? undefined
+        : RelasjonstyperFromJSON(json['relasjonstyper']),
     sensitiv: json['sensitiv'],
   }
 }
 
-export function VegobjekttypeToJSON(value?: Vegobjekttype | null): any {
-  if (value === undefined) {
-    return undefined
+export function VegobjekttypeToJSON(json: any): Vegobjekttype {
+  return VegobjekttypeToJSONTyped(json, false)
+}
+
+export function VegobjekttypeToJSONTyped(
+  value?: Vegobjekttype | null,
+  ignoreDiscriminator: boolean = false,
+): any {
+  if (value == null) {
+    return value
   }
-  if (value === null) {
-    return null
-  }
+
   return {
-    id: value.id,
-    navn: value.navn,
-    kortnavn: value.kortnavn,
-    beskrivelse: value.beskrivelse,
-    stedfesting: StedfestingToJSON(value.stedfesting),
-    sosinavn: value.sosinavn,
-    sosinvdbnavn: value.sosinvdbnavn,
-    sorteringsnummer: value.sorteringsnummer,
-    status: value.status,
-    hovedkategori: value.hovedkategori,
-    tidsrom_relevant: value.tidsromRelevant,
-    konnekteringslenke_ok: value.konnekteringslenkeOk,
-    abstrakt_type: value.abstraktType,
-    avledet: value.avledet,
-    må_ha_mor: value.mHaMor,
-    en_versjon: value.enVersjon,
-    tilleggsinformasjon: value.tilleggsinformasjon,
-    kategorier: (value.kategorier as Array<any>).map(VegobjektKategoriToJSON),
+    id: value['id'],
+    navn: value['navn'],
+    kortnavn: value['kortnavn'],
+    beskrivelse: value['beskrivelse'],
+    stedfesting: StedfestingToJSON(value['stedfesting']),
+    sosinavn: value['sosinavn'],
+    sosinvdbnavn: value['sosinvdbnavn'],
+    sorteringsnummer: value['sorteringsnummer'],
+    status: value['status'],
+    hovedkategori: value['hovedkategori'],
+    tidsrom_relevant: value['tidsromRelevant'],
+    konnekteringslenke_ok: value['konnekteringslenkeOk'],
+    abstrakt_type: value['abstraktType'],
+    avledet: value['avledet'],
+    må_ha_mor: value['mHaMor'],
+    en_versjon: value['enVersjon'],
+    tilleggsinformasjon: value['tilleggsinformasjon'],
+    kategorier: (value['kategorier'] as Array<any>).map(
+      VegobjektKategoriToJSON,
+    ),
     egenskapstyper:
-      value.egenskapstyper === undefined
+      value['egenskapstyper'] == null
         ? undefined
-        : (value.egenskapstyper as Array<any>).map(EgenskapstypeToJSON),
-    relasjonstyper: RelasjonstyperToJSON(value.relasjonstyper),
-    sensitiv: value.sensitiv,
+        : (value['egenskapstyper'] as Array<any>).map(EgenskapstypeToJSON),
+    relasjonstyper: RelasjonstyperToJSON(value['relasjonstyper']),
+    sensitiv: value['sensitiv'],
   }
 }

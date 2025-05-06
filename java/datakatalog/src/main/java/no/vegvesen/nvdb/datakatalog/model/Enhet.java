@@ -31,30 +31,33 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
   Enhet.JSON_PROPERTY_NAVN,
   Enhet.JSON_PROPERTY_KORTNAVN
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.13.0")
 public class Enhet {
   public static final String JSON_PROPERTY_ID = "id";
+  @javax.annotation.Nonnull
   private Integer id;
 
   public static final String JSON_PROPERTY_NAVN = "navn";
+  @javax.annotation.Nullable
   private String navn;
 
   public static final String JSON_PROPERTY_KORTNAVN = "kortnavn";
+  @javax.annotation.Nullable
   private String kortnavn;
 
   public Enhet() {
   }
 
-  public Enhet id(Integer id) {
+  public Enhet id(@javax.annotation.Nonnull Integer id) {
     
     this.id = id;
     return this;
   }
 
-   /**
+  /**
    * Get id
    * @return id
-  **/
+   */
   @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -66,21 +69,20 @@ public class Enhet {
 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setId(Integer id) {
+  public void setId(@javax.annotation.Nonnull Integer id) {
     this.id = id;
   }
 
-
-  public Enhet navn(String navn) {
+  public Enhet navn(@javax.annotation.Nullable String navn) {
     
     this.navn = navn;
     return this;
   }
 
-   /**
+  /**
    * Get navn
    * @return navn
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NAVN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -92,21 +94,20 @@ public class Enhet {
 
   @JsonProperty(JSON_PROPERTY_NAVN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setNavn(String navn) {
+  public void setNavn(@javax.annotation.Nullable String navn) {
     this.navn = navn;
   }
 
-
-  public Enhet kortnavn(String kortnavn) {
+  public Enhet kortnavn(@javax.annotation.Nullable String kortnavn) {
     
     this.kortnavn = kortnavn;
     return this;
   }
 
-   /**
+  /**
    * Get kortnavn
    * @return kortnavn
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_KORTNAVN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -118,9 +119,10 @@ public class Enhet {
 
   @JsonProperty(JSON_PROPERTY_KORTNAVN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setKortnavn(String kortnavn) {
+  public void setKortnavn(@javax.annotation.Nullable String kortnavn) {
     this.kortnavn = kortnavn;
   }
+
 
   @Override
   public boolean equals(Object o) {

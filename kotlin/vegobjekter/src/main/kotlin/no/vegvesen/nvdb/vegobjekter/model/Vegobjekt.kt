@@ -58,5 +58,8 @@ data class Vegobjekt (
 
     @SerialName(value = "vegsegmenter") val vegsegmenter: kotlin.collections.List<Vegsegment>? = null
 
-)
+) {
+
+
+}
 

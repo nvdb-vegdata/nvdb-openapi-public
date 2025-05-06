@@ -44,5 +44,8 @@ data class TekstEnumEgenskap (
 
     @SerialName(value = "enum_id") val enumId: kotlin.Int? = null
 
-) : Egenskap
+) : Egenskap {
+
+
+}
 

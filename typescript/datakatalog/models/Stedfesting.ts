@@ -12,25 +12,34 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime'
-import type { EgenskapstypeEnum } from './EgenskapstypeEnum'
-import {
-  EgenskapstypeEnumFromJSON,
-  EgenskapstypeEnumFromJSONTyped,
-  EgenskapstypeEnumToJSON,
-} from './EgenskapstypeEnum'
+import { mapValues } from '../runtime'
 import type { Viktighet } from './Viktighet'
 import {
   ViktighetFromJSON,
   ViktighetFromJSONTyped,
   ViktighetToJSON,
+  ViktighetToJSONTyped,
 } from './Viktighet'
+import type { EgenskapstypeEnum } from './EgenskapstypeEnum'
+import {
+  EgenskapstypeEnumFromJSON,
+  EgenskapstypeEnumFromJSONTyped,
+  EgenskapstypeEnumToJSON,
+  EgenskapstypeEnumToJSONTyped,
+} from './EgenskapstypeEnum'
 
 import {
+  StedfestingListe,
   StedfestingListeFromJSONTyped,
+  StedfestingListeToJSON,
+  StedfestingListeToJSONTyped,
+} from './StedfestingListe'
+import {
+  StedfestingEnkel,
   StedfestingEnkelFromJSONTyped,
-} from './index'
-
+  StedfestingEnkelToJSON,
+  StedfestingEnkelToJSONTyped,
+} from './StedfestingEnkel'
 /**
  *
  * @export
@@ -186,23 +195,45 @@ export interface Stedfesting {
 /**
  * Check if a given object implements the Stedfesting interface.
  */
-export function instanceOfStedfesting(value: object): boolean {
-  let isInstance = true
-  isInstance = isInstance && 'id' in value
-  isInstance = isInstance && 'egenskapstype' in value
-  isInstance = isInstance && 'obligatoriskVerdi' in value
-  isInstance = isInstance && 'skrivebeskyttet' in value
-  isInstance = isInstance && 'sensitivitet' in value
-  isInstance = isInstance && 'hydereferanseTall' in value
-  isInstance = isInstance && 'nyaktighetskravGrunnriss' in value
-  isInstance = isInstance && 'nyaktighetskravHyde' in value
-  isInstance = isInstance && 'referansegeometriTilstrekkelig' in value
-  isInstance = isInstance && 'viktighet' in value
-  isInstance = isInstance && 'kategori' in value
-  isInstance = isInstance && 'sorteringsnummer' in value
-  isInstance = isInstance && 'avledet' in value
-
-  return isInstance
+export function instanceOfStedfesting(value: object): value is Stedfesting {
+  if (!('id' in value) || value['id'] === undefined) return false
+  if (!('egenskapstype' in value) || value['egenskapstype'] === undefined)
+    return false
+  if (
+    !('obligatoriskVerdi' in value) ||
+    value['obligatoriskVerdi'] === undefined
+  )
+    return false
+  if (!('skrivebeskyttet' in value) || value['skrivebeskyttet'] === undefined)
+    return false
+  if (!('sensitivitet' in value) || value['sensitivitet'] === undefined)
+    return false
+  if (
+    !('hydereferanseTall' in value) ||
+    value['hydereferanseTall'] === undefined
+  )
+    return false
+  if (
+    !('nyaktighetskravGrunnriss' in value) ||
+    value['nyaktighetskravGrunnriss'] === undefined
+  )
+    return false
+  if (
+    !('nyaktighetskravHyde' in value) ||
+    value['nyaktighetskravHyde'] === undefined
+  )
+    return false
+  if (
+    !('referansegeometriTilstrekkelig' in value) ||
+    value['referansegeometriTilstrekkelig'] === undefined
+  )
+    return false
+  if (!('viktighet' in value) || value['viktighet'] === undefined) return false
+  if (!('kategori' in value) || value['kategori'] === undefined) return false
+  if (!('sorteringsnummer' in value) || value['sorteringsnummer'] === undefined)
+    return false
+  if (!('avledet' in value) || value['avledet'] === undefined) return false
+  return true
 }
 
 export function StedfestingFromJSON(json: any): Stedfesting {
@@ -213,88 +244,110 @@ export function StedfestingFromJSONTyped(
   json: any,
   ignoreDiscriminator: boolean,
 ): Stedfesting {
-  if (json === undefined || json === null) {
+  if (json == null) {
     return json
   }
   if (!ignoreDiscriminator) {
     if (json['egenskapstype'] === 'Liste') {
-      return StedfestingListeFromJSONTyped(json, true)
+      return StedfestingListeFromJSONTyped(json, ignoreDiscriminator)
     }
     if (json['egenskapstype'] === 'Stedfesting') {
-      return StedfestingEnkelFromJSONTyped(json, true)
+      return StedfestingEnkelFromJSONTyped(json, ignoreDiscriminator)
     }
   }
   return {
     id: json['id'],
-    navn: !exists(json, 'navn') ? undefined : json['navn'],
+    navn: json['navn'] == null ? undefined : json['navn'],
     egenskapstype: EgenskapstypeEnumFromJSON(json['egenskapstype']),
     obligatoriskVerdi: json['obligatorisk_verdi'],
     skrivebeskyttet: json['skrivebeskyttet'],
     sensitivitet: json['sensitivitet'],
-    gruppesorteringsnummer: !exists(json, 'gruppesorteringsnummer')
-      ? undefined
-      : json['gruppesorteringsnummer'],
-    veiledning: !exists(json, 'veiledning') ? undefined : json['veiledning'],
-    grunnrissreferanse: !exists(json, 'grunnrissreferanse')
-      ? undefined
-      : json['grunnrissreferanse'],
-    hydereferanse: !exists(json, 'høydereferanse')
-      ? undefined
-      : json['høydereferanse'],
+    gruppesorteringsnummer:
+      json['gruppesorteringsnummer'] == null
+        ? undefined
+        : json['gruppesorteringsnummer'],
+    veiledning: json['veiledning'] == null ? undefined : json['veiledning'],
+    grunnrissreferanse:
+      json['grunnrissreferanse'] == null
+        ? undefined
+        : json['grunnrissreferanse'],
+    hydereferanse:
+      json['høydereferanse'] == null ? undefined : json['høydereferanse'],
     hydereferanseTall: json['høydereferanse_tall'],
     nyaktighetskravGrunnriss: json['nøyaktighetskrav_grunnriss'],
     nyaktighetskravHyde: json['nøyaktighetskrav_høyde'],
-    sosiReferanse: !exists(json, 'sosi_referanse')
-      ? undefined
-      : json['sosi_referanse'],
+    sosiReferanse:
+      json['sosi_referanse'] == null ? undefined : json['sosi_referanse'],
     referansegeometriTilstrekkelig: json['referansegeometri_tilstrekkelig'],
     viktighet: ViktighetFromJSON(json['viktighet']),
     kategori: json['kategori'],
-    komplementrEgenskapstype: !exists(json, 'komplementær_egenskapstype')
-      ? undefined
-      : json['komplementær_egenskapstype'],
-    kortnavn: !exists(json, 'kortnavn') ? undefined : json['kortnavn'],
-    beskrivelse: !exists(json, 'beskrivelse') ? undefined : json['beskrivelse'],
-    sosinavn: !exists(json, 'sosinavn') ? undefined : json['sosinavn'],
-    sosinvdbnavn: !exists(json, 'sosinvdbnavn')
-      ? undefined
-      : json['sosinvdbnavn'],
+    komplementrEgenskapstype:
+      json['komplementær_egenskapstype'] == null
+        ? undefined
+        : json['komplementær_egenskapstype'],
+    kortnavn: json['kortnavn'] == null ? undefined : json['kortnavn'],
+    beskrivelse: json['beskrivelse'] == null ? undefined : json['beskrivelse'],
+    sosinavn: json['sosinavn'] == null ? undefined : json['sosinavn'],
+    sosinvdbnavn:
+      json['sosinvdbnavn'] == null ? undefined : json['sosinvdbnavn'],
     sorteringsnummer: json['sorteringsnummer'],
     avledet: json['avledet'],
   }
 }
 
-export function StedfestingToJSON(value?: Stedfesting | null): any {
-  if (value === undefined) {
-    return undefined
+export function StedfestingToJSON(json: any): Stedfesting {
+  return StedfestingToJSONTyped(json, false)
+}
+
+export function StedfestingToJSONTyped(
+  value?: Stedfesting | null,
+  ignoreDiscriminator: boolean = false,
+): any {
+  if (value == null) {
+    return value
   }
-  if (value === null) {
-    return null
+
+  if (!ignoreDiscriminator) {
+    switch (value['egenskapstype']) {
+      case 'Liste':
+        return StedfestingListeToJSONTyped(
+          value as StedfestingListe,
+          ignoreDiscriminator,
+        )
+      case 'Stedfesting':
+        return StedfestingEnkelToJSONTyped(
+          value as StedfestingEnkel,
+          ignoreDiscriminator,
+        )
+      default:
+        return value
+    }
   }
+
   return {
-    id: value.id,
-    navn: value.navn,
-    egenskapstype: EgenskapstypeEnumToJSON(value.egenskapstype),
-    obligatorisk_verdi: value.obligatoriskVerdi,
-    skrivebeskyttet: value.skrivebeskyttet,
-    sensitivitet: value.sensitivitet,
-    gruppesorteringsnummer: value.gruppesorteringsnummer,
-    veiledning: value.veiledning,
-    grunnrissreferanse: value.grunnrissreferanse,
-    høydereferanse: value.hydereferanse,
-    høydereferanse_tall: value.hydereferanseTall,
-    nøyaktighetskrav_grunnriss: value.nyaktighetskravGrunnriss,
-    nøyaktighetskrav_høyde: value.nyaktighetskravHyde,
-    sosi_referanse: value.sosiReferanse,
-    referansegeometri_tilstrekkelig: value.referansegeometriTilstrekkelig,
-    viktighet: ViktighetToJSON(value.viktighet),
-    kategori: value.kategori,
-    komplementær_egenskapstype: value.komplementrEgenskapstype,
-    kortnavn: value.kortnavn,
-    beskrivelse: value.beskrivelse,
-    sosinavn: value.sosinavn,
-    sosinvdbnavn: value.sosinvdbnavn,
-    sorteringsnummer: value.sorteringsnummer,
-    avledet: value.avledet,
+    id: value['id'],
+    navn: value['navn'],
+    egenskapstype: EgenskapstypeEnumToJSON(value['egenskapstype']),
+    obligatorisk_verdi: value['obligatoriskVerdi'],
+    skrivebeskyttet: value['skrivebeskyttet'],
+    sensitivitet: value['sensitivitet'],
+    gruppesorteringsnummer: value['gruppesorteringsnummer'],
+    veiledning: value['veiledning'],
+    grunnrissreferanse: value['grunnrissreferanse'],
+    høydereferanse: value['hydereferanse'],
+    høydereferanse_tall: value['hydereferanseTall'],
+    nøyaktighetskrav_grunnriss: value['nyaktighetskravGrunnriss'],
+    nøyaktighetskrav_høyde: value['nyaktighetskravHyde'],
+    sosi_referanse: value['sosiReferanse'],
+    referansegeometri_tilstrekkelig: value['referansegeometriTilstrekkelig'],
+    viktighet: ViktighetToJSON(value['viktighet']),
+    kategori: value['kategori'],
+    komplementær_egenskapstype: value['komplementrEgenskapstype'],
+    kortnavn: value['kortnavn'],
+    beskrivelse: value['beskrivelse'],
+    sosinavn: value['sosinavn'],
+    sosinvdbnavn: value['sosinvdbnavn'],
+    sorteringsnummer: value['sorteringsnummer'],
+    avledet: value['avledet'],
   }
 }

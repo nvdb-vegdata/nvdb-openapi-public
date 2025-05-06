@@ -12,27 +12,35 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime'
+import { mapValues } from '../runtime'
+import type { Viktighet } from './Viktighet'
+import {
+  ViktighetFromJSON,
+  ViktighetFromJSONTyped,
+  ViktighetToJSON,
+  ViktighetToJSONTyped,
+} from './Viktighet'
+import type { Enhet } from './Enhet'
+import {
+  EnhetFromJSON,
+  EnhetFromJSONTyped,
+  EnhetToJSON,
+  EnhetToJSONTyped,
+} from './Enhet'
 import type { Egenskapstype } from './Egenskapstype'
 import {
   EgenskapstypeFromJSON,
   EgenskapstypeFromJSONTyped,
   EgenskapstypeToJSON,
+  EgenskapstypeToJSONTyped,
 } from './Egenskapstype'
 import type { EgenskapstypeEnum } from './EgenskapstypeEnum'
 import {
   EgenskapstypeEnumFromJSON,
   EgenskapstypeEnumFromJSONTyped,
   EgenskapstypeEnumToJSON,
+  EgenskapstypeEnumToJSONTyped,
 } from './EgenskapstypeEnum'
-import type { Enhet } from './Enhet'
-import { EnhetFromJSON, EnhetFromJSONTyped, EnhetToJSON } from './Enhet'
-import type { Viktighet } from './Viktighet'
-import {
-  ViktighetFromJSON,
-  ViktighetFromJSONTyped,
-  ViktighetToJSON,
-} from './Viktighet'
 
 /**
  *
@@ -117,13 +125,22 @@ export interface EgenskapstypeHeltall extends Egenskapstype {
 /**
  * Check if a given object implements the EgenskapstypeHeltall interface.
  */
-export function instanceOfEgenskapstypeHeltall(value: object): boolean {
-  let isInstance = true
-  isInstance = isInstance && 'lengdeavhengigVerdi' in value
-  isInstance = isInstance && 'ajourholdSnu' in value
-  isInstance = isInstance && 'fortegnsendringSnu' in value
-
-  return isInstance
+export function instanceOfEgenskapstypeHeltall(
+  value: object,
+): value is EgenskapstypeHeltall {
+  if (
+    !('lengdeavhengigVerdi' in value) ||
+    value['lengdeavhengigVerdi'] === undefined
+  )
+    return false
+  if (!('ajourholdSnu' in value) || value['ajourholdSnu'] === undefined)
+    return false
+  if (
+    !('fortegnsendringSnu' in value) ||
+    value['fortegnsendringSnu'] === undefined
+  )
+    return false
+  return true
 }
 
 export function EgenskapstypeHeltallFromJSON(json: any): EgenskapstypeHeltall {
@@ -134,64 +151,64 @@ export function EgenskapstypeHeltallFromJSONTyped(
   json: any,
   ignoreDiscriminator: boolean,
 ): EgenskapstypeHeltall {
-  if (json === undefined || json === null) {
+  if (json == null) {
     return json
   }
   return {
-    ...EgenskapstypeFromJSONTyped(json, ignoreDiscriminator),
-    objektlisteDato: !exists(json, 'objektliste_dato')
-      ? undefined
-      : new Date(json['objektliste_dato']),
-    sluttDato: !exists(json, 'slutt_dato')
-      ? undefined
-      : new Date(json['slutt_dato']),
+    ...EgenskapstypeFromJSONTyped(json, true),
+    objektlisteDato:
+      json['objektliste_dato'] == null
+        ? undefined
+        : new Date(json['objektliste_dato']),
+    sluttDato:
+      json['slutt_dato'] == null ? undefined : new Date(json['slutt_dato']),
     lengdeavhengigVerdi: json['lengdeavhengig_verdi'],
     ajourholdSnu: json['ajourhold_snu'],
-    standardverdi: !exists(json, 'standardverdi')
-      ? undefined
-      : json['standardverdi'],
-    minAnbefalt: !exists(json, 'min_anbefalt')
-      ? undefined
-      : json['min_anbefalt'],
-    maksAnbefalt: !exists(json, 'maks_anbefalt')
-      ? undefined
-      : json['maks_anbefalt'],
-    min: !exists(json, 'min') ? undefined : json['min'],
-    maks: !exists(json, 'maks') ? undefined : json['maks'],
-    feltlengde: !exists(json, 'feltlengde') ? undefined : json['feltlengde'],
+    standardverdi:
+      json['standardverdi'] == null ? undefined : json['standardverdi'],
+    minAnbefalt:
+      json['min_anbefalt'] == null ? undefined : json['min_anbefalt'],
+    maksAnbefalt:
+      json['maks_anbefalt'] == null ? undefined : json['maks_anbefalt'],
+    min: json['min'] == null ? undefined : json['min'],
+    maks: json['maks'] == null ? undefined : json['maks'],
+    feltlengde: json['feltlengde'] == null ? undefined : json['feltlengde'],
     fortegnsendringSnu: json['fortegnsendring_snu'],
-    enhet: !exists(json, 'enhet') ? undefined : EnhetFromJSON(json['enhet']),
+    enhet: json['enhet'] == null ? undefined : EnhetFromJSON(json['enhet']),
   }
 }
 
-export function EgenskapstypeHeltallToJSON(
+export function EgenskapstypeHeltallToJSON(json: any): EgenskapstypeHeltall {
+  return EgenskapstypeHeltallToJSONTyped(json, false)
+}
+
+export function EgenskapstypeHeltallToJSONTyped(
   value?: EgenskapstypeHeltall | null,
+  ignoreDiscriminator: boolean = false,
 ): any {
-  if (value === undefined) {
-    return undefined
+  if (value == null) {
+    return value
   }
-  if (value === null) {
-    return null
-  }
+
   return {
-    ...EgenskapstypeToJSON(value),
+    ...EgenskapstypeToJSONTyped(value, true),
     objektliste_dato:
-      value.objektlisteDato === undefined
+      value['objektlisteDato'] == null
         ? undefined
-        : value.objektlisteDato.toISOString().substring(0, 10),
+        : value['objektlisteDato'].toISOString().substring(0, 10),
     slutt_dato:
-      value.sluttDato === undefined
+      value['sluttDato'] == null
         ? undefined
-        : value.sluttDato.toISOString().substring(0, 10),
-    lengdeavhengig_verdi: value.lengdeavhengigVerdi,
-    ajourhold_snu: value.ajourholdSnu,
-    standardverdi: value.standardverdi,
-    min_anbefalt: value.minAnbefalt,
-    maks_anbefalt: value.maksAnbefalt,
-    min: value.min,
-    maks: value.maks,
-    feltlengde: value.feltlengde,
-    fortegnsendring_snu: value.fortegnsendringSnu,
-    enhet: EnhetToJSON(value.enhet),
+        : value['sluttDato'].toISOString().substring(0, 10),
+    lengdeavhengig_verdi: value['lengdeavhengigVerdi'],
+    ajourhold_snu: value['ajourholdSnu'],
+    standardverdi: value['standardverdi'],
+    min_anbefalt: value['minAnbefalt'],
+    maks_anbefalt: value['maksAnbefalt'],
+    min: value['min'],
+    maks: value['maks'],
+    feltlengde: value['feltlengde'],
+    fortegnsendring_snu: value['fortegnsendringSnu'],
+    enhet: EnhetToJSON(value['enhet']),
   }
 }

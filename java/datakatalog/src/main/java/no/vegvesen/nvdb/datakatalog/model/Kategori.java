@@ -35,39 +35,45 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
   Kategori.JSON_PROPERTY_BESKRIVELSE,
   Kategori.JSON_PROPERTY_START_DATO
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.13.0")
 public class Kategori {
   public static final String JSON_PROPERTY_ID = "id";
+  @javax.annotation.Nonnull
   private Integer id;
 
   public static final String JSON_PROPERTY_NAVN = "navn";
+  @javax.annotation.Nullable
   private String navn;
 
   public static final String JSON_PROPERTY_KORTNAVN = "kortnavn";
+  @javax.annotation.Nullable
   private String kortnavn;
 
   public static final String JSON_PROPERTY_SORTERINGSNUMMER = "sorteringsnummer";
+  @javax.annotation.Nonnull
   private Integer sorteringsnummer;
 
   public static final String JSON_PROPERTY_BESKRIVELSE = "beskrivelse";
+  @javax.annotation.Nullable
   private String beskrivelse;
 
   public static final String JSON_PROPERTY_START_DATO = "startDato";
+  @javax.annotation.Nullable
   private LocalDate startDato;
 
   public Kategori() {
   }
 
-  public Kategori id(Integer id) {
+  public Kategori id(@javax.annotation.Nonnull Integer id) {
     
     this.id = id;
     return this;
   }
 
-   /**
+  /**
    * Get id
    * @return id
-  **/
+   */
   @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -79,21 +85,20 @@ public class Kategori {
 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setId(Integer id) {
+  public void setId(@javax.annotation.Nonnull Integer id) {
     this.id = id;
   }
 
-
-  public Kategori navn(String navn) {
+  public Kategori navn(@javax.annotation.Nullable String navn) {
     
     this.navn = navn;
     return this;
   }
 
-   /**
+  /**
    * Get navn
    * @return navn
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_NAVN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -105,21 +110,20 @@ public class Kategori {
 
   @JsonProperty(JSON_PROPERTY_NAVN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setNavn(String navn) {
+  public void setNavn(@javax.annotation.Nullable String navn) {
     this.navn = navn;
   }
 
-
-  public Kategori kortnavn(String kortnavn) {
+  public Kategori kortnavn(@javax.annotation.Nullable String kortnavn) {
     
     this.kortnavn = kortnavn;
     return this;
   }
 
-   /**
+  /**
    * Get kortnavn
    * @return kortnavn
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_KORTNAVN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -131,21 +135,20 @@ public class Kategori {
 
   @JsonProperty(JSON_PROPERTY_KORTNAVN)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setKortnavn(String kortnavn) {
+  public void setKortnavn(@javax.annotation.Nullable String kortnavn) {
     this.kortnavn = kortnavn;
   }
 
-
-  public Kategori sorteringsnummer(Integer sorteringsnummer) {
+  public Kategori sorteringsnummer(@javax.annotation.Nonnull Integer sorteringsnummer) {
     
     this.sorteringsnummer = sorteringsnummer;
     return this;
   }
 
-   /**
+  /**
    * Get sorteringsnummer
    * @return sorteringsnummer
-  **/
+   */
   @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_SORTERINGSNUMMER)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -157,21 +160,20 @@ public class Kategori {
 
   @JsonProperty(JSON_PROPERTY_SORTERINGSNUMMER)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setSorteringsnummer(Integer sorteringsnummer) {
+  public void setSorteringsnummer(@javax.annotation.Nonnull Integer sorteringsnummer) {
     this.sorteringsnummer = sorteringsnummer;
   }
 
-
-  public Kategori beskrivelse(String beskrivelse) {
+  public Kategori beskrivelse(@javax.annotation.Nullable String beskrivelse) {
     
     this.beskrivelse = beskrivelse;
     return this;
   }
 
-   /**
+  /**
    * Get beskrivelse
    * @return beskrivelse
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_BESKRIVELSE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -183,21 +185,20 @@ public class Kategori {
 
   @JsonProperty(JSON_PROPERTY_BESKRIVELSE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setBeskrivelse(String beskrivelse) {
+  public void setBeskrivelse(@javax.annotation.Nullable String beskrivelse) {
     this.beskrivelse = beskrivelse;
   }
 
-
-  public Kategori startDato(LocalDate startDato) {
+  public Kategori startDato(@javax.annotation.Nullable LocalDate startDato) {
     
     this.startDato = startDato;
     return this;
   }
 
-   /**
+  /**
    * Get startDato
    * @return startDato
-  **/
+   */
   @javax.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_START_DATO)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
@@ -209,9 +210,10 @@ public class Kategori {
 
   @JsonProperty(JSON_PROPERTY_START_DATO)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setStartDato(LocalDate startDato) {
+  public void setStartDato(@javax.annotation.Nullable LocalDate startDato) {
     this.startDato = startDato;
   }
+
 
   @Override
   public boolean equals(Object o) {

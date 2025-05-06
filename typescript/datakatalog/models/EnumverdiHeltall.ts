@@ -12,7 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime'
+import { mapValues } from '../runtime'
 /**
  *
  * @export
@@ -96,15 +96,18 @@ export interface EnumverdiHeltall {
 /**
  * Check if a given object implements the EnumverdiHeltall interface.
  */
-export function instanceOfEnumverdiHeltall(value: object): boolean {
-  let isInstance = true
-  isInstance = isInstance && 'id' in value
-  isInstance = isInstance && 'kortnavnBrukbar' in value
-  isInstance = isInstance && 'sorteringsnummer' in value
-  isInstance = isInstance && 'standardverdi' in value
-  isInstance = isInstance && 'type' in value
-
-  return isInstance
+export function instanceOfEnumverdiHeltall(
+  value: object,
+): value is EnumverdiHeltall {
+  if (!('id' in value) || value['id'] === undefined) return false
+  if (!('kortnavnBrukbar' in value) || value['kortnavnBrukbar'] === undefined)
+    return false
+  if (!('sorteringsnummer' in value) || value['sorteringsnummer'] === undefined)
+    return false
+  if (!('standardverdi' in value) || value['standardverdi'] === undefined)
+    return false
+  if (!('type' in value) || value['type'] === undefined) return false
+  return true
 }
 
 export function EnumverdiHeltallFromJSON(json: any): EnumverdiHeltall {
@@ -115,58 +118,63 @@ export function EnumverdiHeltallFromJSONTyped(
   json: any,
   ignoreDiscriminator: boolean,
 ): EnumverdiHeltall {
-  if (json === undefined || json === null) {
+  if (json == null) {
     return json
   }
   return {
     id: json['id'],
-    kortnavn: !exists(json, 'kortnavn') ? undefined : json['kortnavn'],
-    kortnavnlengde: !exists(json, 'kortnavnlengde')
-      ? undefined
-      : json['kortnavnlengde'],
+    kortnavn: json['kortnavn'] == null ? undefined : json['kortnavn'],
+    kortnavnlengde:
+      json['kortnavnlengde'] == null ? undefined : json['kortnavnlengde'],
     kortnavnBrukbar: json['kortnavn_brukbar'],
-    beskrivelse: !exists(json, 'beskrivelse') ? undefined : json['beskrivelse'],
+    beskrivelse: json['beskrivelse'] == null ? undefined : json['beskrivelse'],
     sorteringsnummer: json['sorteringsnummer'],
-    objektlisteDato: !exists(json, 'objektliste_dato')
-      ? undefined
-      : new Date(json['objektliste_dato']),
-    sluttdato: !exists(json, 'sluttdato')
-      ? undefined
-      : new Date(json['sluttdato']),
+    objektlisteDato:
+      json['objektliste_dato'] == null
+        ? undefined
+        : new Date(json['objektliste_dato']),
+    sluttdato:
+      json['sluttdato'] == null ? undefined : new Date(json['sluttdato']),
     standardverdi: json['standardverdi'],
-    komplementrEnumverdi: !exists(json, 'komplementær_enumverdi')
-      ? undefined
-      : json['komplementær_enumverdi'],
-    verdi: !exists(json, 'verdi') ? undefined : json['verdi'],
+    komplementrEnumverdi:
+      json['komplementær_enumverdi'] == null
+        ? undefined
+        : json['komplementær_enumverdi'],
+    verdi: json['verdi'] == null ? undefined : json['verdi'],
     type: json['type'],
   }
 }
 
-export function EnumverdiHeltallToJSON(value?: EnumverdiHeltall | null): any {
-  if (value === undefined) {
-    return undefined
+export function EnumverdiHeltallToJSON(json: any): EnumverdiHeltall {
+  return EnumverdiHeltallToJSONTyped(json, false)
+}
+
+export function EnumverdiHeltallToJSONTyped(
+  value?: EnumverdiHeltall | null,
+  ignoreDiscriminator: boolean = false,
+): any {
+  if (value == null) {
+    return value
   }
-  if (value === null) {
-    return null
-  }
+
   return {
-    id: value.id,
-    kortnavn: value.kortnavn,
-    kortnavnlengde: value.kortnavnlengde,
-    kortnavn_brukbar: value.kortnavnBrukbar,
-    beskrivelse: value.beskrivelse,
-    sorteringsnummer: value.sorteringsnummer,
+    id: value['id'],
+    kortnavn: value['kortnavn'],
+    kortnavnlengde: value['kortnavnlengde'],
+    kortnavn_brukbar: value['kortnavnBrukbar'],
+    beskrivelse: value['beskrivelse'],
+    sorteringsnummer: value['sorteringsnummer'],
     objektliste_dato:
-      value.objektlisteDato === undefined
+      value['objektlisteDato'] == null
         ? undefined
-        : value.objektlisteDato.toISOString().substring(0, 10),
+        : value['objektlisteDato'].toISOString().substring(0, 10),
     sluttdato:
-      value.sluttdato === undefined
+      value['sluttdato'] == null
         ? undefined
-        : value.sluttdato.toISOString().substring(0, 10),
-    standardverdi: value.standardverdi,
-    komplementær_enumverdi: value.komplementrEnumverdi,
-    verdi: value.verdi,
-    type: value.type,
+        : value['sluttdato'].toISOString().substring(0, 10),
+    standardverdi: value['standardverdi'],
+    komplementær_enumverdi: value['komplementrEnumverdi'],
+    verdi: value['verdi'],
+    type: value['type'],
   }
 }

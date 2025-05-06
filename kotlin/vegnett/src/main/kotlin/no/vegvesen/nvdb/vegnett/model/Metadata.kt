@@ -30,9 +30,12 @@ import kotlinx.serialization.encoding.*
 
 data class Metadata (
 
-    @SerialName(value = "startdato") @Required val startdato: java.time.LocalDate,
+    @SerialName(value = "startdato") @Required val startdato: kotlinx.datetime.LocalDate,
 
-    @SerialName(value = "sluttdato") val sluttdato: java.time.LocalDate? = null
+    @SerialName(value = "sluttdato") val sluttdato: kotlinx.datetime.LocalDate? = null
 
-)
+) {
+
+
+}
 

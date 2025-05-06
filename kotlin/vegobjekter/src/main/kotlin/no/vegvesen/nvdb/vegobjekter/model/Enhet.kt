@@ -37,5 +37,8 @@ data class Enhet (
 
     @SerialName(value = "kortnavn") val kortnavn: kotlin.String? = null
 
-)
+) {
+
+
+}
 

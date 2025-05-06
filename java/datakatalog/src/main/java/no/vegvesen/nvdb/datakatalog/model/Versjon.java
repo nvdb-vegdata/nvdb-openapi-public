@@ -32,30 +32,33 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
   Versjon.JSON_PROPERTY_DATO,
   Versjon.JSON_PROPERTY_VERSJON
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.13.0")
 public class Versjon {
   public static final String JSON_PROPERTY_ID = "id";
+  @javax.annotation.Nonnull
   private Integer id;
 
   public static final String JSON_PROPERTY_DATO = "dato";
+  @javax.annotation.Nonnull
   private LocalDate dato;
 
   public static final String JSON_PROPERTY_VERSJON = "versjon";
+  @javax.annotation.Nonnull
   private String versjon;
 
   public Versjon() {
   }
 
-  public Versjon id(Integer id) {
+  public Versjon id(@javax.annotation.Nonnull Integer id) {
     
     this.id = id;
     return this;
   }
 
-   /**
+  /**
    * Get id
    * @return id
-  **/
+   */
   @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -67,21 +70,20 @@ public class Versjon {
 
   @JsonProperty(JSON_PROPERTY_ID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setId(Integer id) {
+  public void setId(@javax.annotation.Nonnull Integer id) {
     this.id = id;
   }
 
-
-  public Versjon dato(LocalDate dato) {
+  public Versjon dato(@javax.annotation.Nonnull LocalDate dato) {
     
     this.dato = dato;
     return this;
   }
 
-   /**
+  /**
    * Get dato
    * @return dato
-  **/
+   */
   @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_DATO)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -93,21 +95,20 @@ public class Versjon {
 
   @JsonProperty(JSON_PROPERTY_DATO)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setDato(LocalDate dato) {
+  public void setDato(@javax.annotation.Nonnull LocalDate dato) {
     this.dato = dato;
   }
 
-
-  public Versjon versjon(String versjon) {
+  public Versjon versjon(@javax.annotation.Nonnull String versjon) {
     
     this.versjon = versjon;
     return this;
   }
 
-   /**
+  /**
    * Get versjon
    * @return versjon
-  **/
+   */
   @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_VERSJON)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -119,9 +120,10 @@ public class Versjon {
 
   @JsonProperty(JSON_PROPERTY_VERSJON)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setVersjon(String versjon) {
+  public void setVersjon(@javax.annotation.Nonnull String versjon) {
     this.versjon = versjon;
   }
+
 
   @Override
   public boolean equals(Object o) {

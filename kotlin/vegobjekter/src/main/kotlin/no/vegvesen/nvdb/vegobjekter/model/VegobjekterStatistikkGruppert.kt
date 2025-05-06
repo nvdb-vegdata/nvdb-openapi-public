@@ -48,16 +48,17 @@ data class VegobjekterStatistikkGruppert (
     /**
      * 
      *
-     * Values: e,f,k,p,r,s
+     * Values: E,F,K,P,R,S
      */
     @Serializable
     enum class Vegkategori(val value: kotlin.String) {
-        @SerialName(value = "E") e("E"),
-        @SerialName(value = "F") f("F"),
-        @SerialName(value = "K") k("K"),
-        @SerialName(value = "P") p("P"),
-        @SerialName(value = "R") r("R"),
-        @SerialName(value = "S") s("S");
+        @SerialName(value = "E") E("E"),
+        @SerialName(value = "F") F("F"),
+        @SerialName(value = "K") K("K"),
+        @SerialName(value = "P") P("P"),
+        @SerialName(value = "R") R("R"),
+        @SerialName(value = "S") S("S");
     }
+
 }
 

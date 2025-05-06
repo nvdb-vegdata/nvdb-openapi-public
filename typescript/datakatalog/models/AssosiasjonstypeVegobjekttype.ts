@@ -12,7 +12,7 @@
  * Do not edit the class manually.
  */
 
-import { exists, mapValues } from '../runtime'
+import { mapValues } from '../runtime'
 /**
  *
  * @export
@@ -44,11 +44,9 @@ export interface AssosiasjonstypeVegobjekttype {
  */
 export function instanceOfAssosiasjonstypeVegobjekttype(
   value: object,
-): boolean {
-  let isInstance = true
-  isInstance = isInstance && 'id' in value
-
-  return isInstance
+): value is AssosiasjonstypeVegobjekttype {
+  if (!('id' in value) || value['id'] === undefined) return false
+  return true
 }
 
 export function AssosiasjonstypeVegobjekttypeFromJSON(
@@ -61,33 +59,39 @@ export function AssosiasjonstypeVegobjekttypeFromJSONTyped(
   json: any,
   ignoreDiscriminator: boolean,
 ): AssosiasjonstypeVegobjekttype {
-  if (json === undefined || json === null) {
+  if (json == null) {
     return json
   }
   return {
     id: json['id'],
-    navn: !exists(json, 'navn') ? undefined : json['navn'],
-    objektlisteDato: !exists(json, 'objektliste_dato')
-      ? undefined
-      : new Date(json['objektliste_dato']),
+    navn: json['navn'] == null ? undefined : json['navn'],
+    objektlisteDato:
+      json['objektliste_dato'] == null
+        ? undefined
+        : new Date(json['objektliste_dato']),
   }
 }
 
 export function AssosiasjonstypeVegobjekttypeToJSON(
+  json: any,
+): AssosiasjonstypeVegobjekttype {
+  return AssosiasjonstypeVegobjekttypeToJSONTyped(json, false)
+}
+
+export function AssosiasjonstypeVegobjekttypeToJSONTyped(
   value?: AssosiasjonstypeVegobjekttype | null,
+  ignoreDiscriminator: boolean = false,
 ): any {
-  if (value === undefined) {
-    return undefined
+  if (value == null) {
+    return value
   }
-  if (value === null) {
-    return null
-  }
+
   return {
-    id: value.id,
-    navn: value.navn,
+    id: value['id'],
+    navn: value['navn'],
     objektliste_dato:
-      value.objektlisteDato === undefined
+      value['objektlisteDato'] == null
         ? undefined
-        : value.objektlisteDato.toISOString().substring(0, 10),
+        : value['objektlisteDato'].toISOString().substring(0, 10),
   }
 }

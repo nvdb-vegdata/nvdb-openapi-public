@@ -34,5 +34,8 @@ data class VegobjekterStatistikk (
 
     @SerialName(value = "lengde") val lengde: kotlin.Double? = null
 
-)
+) {
+
+
+}
 

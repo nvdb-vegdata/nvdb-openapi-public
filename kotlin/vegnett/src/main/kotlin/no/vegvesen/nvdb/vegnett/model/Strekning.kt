@@ -63,33 +63,34 @@ data class Strekning (
     /**
      * 
      *
-     * Values: med,mot,nei
+     * Values: Med,Mot,Nei
      */
     @Serializable
     enum class AdskilteLøp(val value: kotlin.String) {
-        @SerialName(value = "Med") med("Med"),
-        @SerialName(value = "Mot") mot("Mot"),
-        @SerialName(value = "Nei") nei("Nei");
+        @SerialName(value = "Med") Med("Med"),
+        @SerialName(value = "Mot") Mot("Mot"),
+        @SerialName(value = "Nei") Nei("Nei");
     }
     /**
      * 
      *
-     * Values: k,g
+     * Values: K,G
      */
     @Serializable
     enum class Trafikantgruppe(val value: kotlin.String) {
-        @SerialName(value = "K") k("K"),
-        @SerialName(value = "G") g("G");
+        @SerialName(value = "K") K("K"),
+        @SerialName(value = "G") G("G");
     }
     /**
      * 
      *
-     * Values: mED,mOT
+     * Values: MED,MOT
      */
     @Serializable
     enum class Retning(val value: kotlin.String) {
-        @SerialName(value = "MED") mED("MED"),
-        @SerialName(value = "MOT") mOT("MOT");
+        @SerialName(value = "MED") MED("MED"),
+        @SerialName(value = "MOT") MOT("MOT");
     }
+
 }
 

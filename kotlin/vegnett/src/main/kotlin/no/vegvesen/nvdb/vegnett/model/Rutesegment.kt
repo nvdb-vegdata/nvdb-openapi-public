@@ -108,7 +108,7 @@ data class Rutesegment (
 
     @SerialName(value = "sluttnode") val sluttnode: kotlin.String? = null,
 
-    @SerialName(value = "måledato") val måledato: java.time.LocalDate? = null,
+    @SerialName(value = "måledato") val måledato: kotlinx.datetime.LocalDate? = null,
 
     @SerialName(value = "superstedfesting") val superstedfesting: Superstedfesting? = null,
 
@@ -121,52 +121,52 @@ data class Rutesegment (
     /**
      * 
      *
-     * Values: ukjent,dETALJERT,kONNEKTERING,dETALJERTKONNEKTERING,hOVED
+     * Values: Ukjent,DETALJERT,KONNEKTERING,DETALJERT_KONNEKTERING,HOVED
      */
     @Serializable
     enum class Type(val value: kotlin.String) {
-        @SerialName(value = "Ukjent") ukjent("Ukjent"),
-        @SerialName(value = "DETALJERT") dETALJERT("DETALJERT"),
-        @SerialName(value = "KONNEKTERING") kONNEKTERING("KONNEKTERING"),
-        @SerialName(value = "DETALJERT_KONNEKTERING") dETALJERTKONNEKTERING("DETALJERT_KONNEKTERING"),
-        @SerialName(value = "HOVED") hOVED("HOVED");
+        @SerialName(value = "Ukjent") Ukjent("Ukjent"),
+        @SerialName(value = "DETALJERT") DETALJERT("DETALJERT"),
+        @SerialName(value = "KONNEKTERING") KONNEKTERING("KONNEKTERING"),
+        @SerialName(value = "DETALJERT_KONNEKTERING") DETALJERT_KONNEKTERING("DETALJERT_KONNEKTERING"),
+        @SerialName(value = "HOVED") HOVED("HOVED");
     }
     /**
      * 
      *
-     * Values: vegtrase,kjørebane,kjørefelt,vegtraseOgKjørebane
+     * Values: Vegtrase,Kjørebane,Kjørefelt,Vegtrase_og_kjørebane
      */
     @Serializable
     enum class Detaljnivå(val value: kotlin.String) {
-        @SerialName(value = "Vegtrase") vegtrase("Vegtrase"),
-        @SerialName(value = "Kjørebane") kjørebane("Kjørebane"),
-        @SerialName(value = "Kjørefelt") kjørefelt("Kjørefelt"),
-        @SerialName(value = "Vegtrase og kjørebane") vegtraseOgKjørebane("Vegtrase og kjørebane");
+        @SerialName(value = "Vegtrase") Vegtrase("Vegtrase"),
+        @SerialName(value = "Kjørebane") Kjørebane("Kjørebane"),
+        @SerialName(value = "Kjørefelt") Kjørefelt("Kjørefelt"),
+        @SerialName(value = "Vegtrase og kjørebane") Vegtrase_og_kjørebane("Vegtrase og kjørebane");
     }
     /**
      * 
      *
-     * Values: enkelBilveg,kanalisertVeg,rampe,rundkjøring,bilferje,gangMinusOgSykkelveg,sykkelveg,gangveg,gågate,fortau,trapp,gangfelt,gatetun,passasjerferje,traktorveg,sti,annet
+     * Values: Enkel_bilveg,Kanalisert_veg,Rampe,Rundkjøring,Bilferje,GangMinus_og_sykkelveg,Sykkelveg,Gangveg,Gågate,Fortau,Trapp,Gangfelt,Gatetun,Passasjerferje,Traktorveg,Sti,Annet
      */
     @Serializable
     enum class TypeVeg(val value: kotlin.String) {
-        @SerialName(value = "Enkel bilveg") enkelBilveg("Enkel bilveg"),
-        @SerialName(value = "Kanalisert veg") kanalisertVeg("Kanalisert veg"),
-        @SerialName(value = "Rampe") rampe("Rampe"),
-        @SerialName(value = "Rundkjøring") rundkjøring("Rundkjøring"),
-        @SerialName(value = "Bilferje") bilferje("Bilferje"),
-        @SerialName(value = "Gang- og sykkelveg") gangMinusOgSykkelveg("Gang- og sykkelveg"),
-        @SerialName(value = "Sykkelveg") sykkelveg("Sykkelveg"),
-        @SerialName(value = "Gangveg") gangveg("Gangveg"),
-        @SerialName(value = "Gågate") gågate("Gågate"),
-        @SerialName(value = "Fortau") fortau("Fortau"),
-        @SerialName(value = "Trapp") trapp("Trapp"),
-        @SerialName(value = "Gangfelt") gangfelt("Gangfelt"),
-        @SerialName(value = "Gatetun") gatetun("Gatetun"),
-        @SerialName(value = "Passasjerferje") passasjerferje("Passasjerferje"),
-        @SerialName(value = "Traktorveg") traktorveg("Traktorveg"),
-        @SerialName(value = "Sti") sti("Sti"),
-        @SerialName(value = "Annet") annet("Annet");
+        @SerialName(value = "Enkel bilveg") Enkel_bilveg("Enkel bilveg"),
+        @SerialName(value = "Kanalisert veg") Kanalisert_veg("Kanalisert veg"),
+        @SerialName(value = "Rampe") Rampe("Rampe"),
+        @SerialName(value = "Rundkjøring") Rundkjøring("Rundkjøring"),
+        @SerialName(value = "Bilferje") Bilferje("Bilferje"),
+        @SerialName(value = "Gang- og sykkelveg") GangMinus_og_sykkelveg("Gang- og sykkelveg"),
+        @SerialName(value = "Sykkelveg") Sykkelveg("Sykkelveg"),
+        @SerialName(value = "Gangveg") Gangveg("Gangveg"),
+        @SerialName(value = "Gågate") Gågate("Gågate"),
+        @SerialName(value = "Fortau") Fortau("Fortau"),
+        @SerialName(value = "Trapp") Trapp("Trapp"),
+        @SerialName(value = "Gangfelt") Gangfelt("Gangfelt"),
+        @SerialName(value = "Gatetun") Gatetun("Gatetun"),
+        @SerialName(value = "Passasjerferje") Passasjerferje("Passasjerferje"),
+        @SerialName(value = "Traktorveg") Traktorveg("Traktorveg"),
+        @SerialName(value = "Sti") Sti("Sti"),
+        @SerialName(value = "Annet") Annet("Annet");
     }
     /**
      * 
@@ -196,12 +196,13 @@ data class Rutesegment (
     /**
      * 
      *
-     * Values: metrert,geometrisk
+     * Values: Metrert,Geometrisk
      */
     @Serializable
     enum class Målemetode(val value: kotlin.String) {
-        @SerialName(value = "Metrert") metrert("Metrert"),
-        @SerialName(value = "Geometrisk") geometrisk("Geometrisk");
+        @SerialName(value = "Metrert") Metrert("Metrert"),
+        @SerialName(value = "Geometrisk") Geometrisk("Geometrisk");
     }
+
 }
 

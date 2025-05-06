@@ -42,5 +42,8 @@ data class TidEgenskap (
     /* Klokkeslett på formatet HH:mm */
     @SerialName(value = "verdi") val verdi: kotlin.String? = null
 
-) : Egenskap
+) : Egenskap {
+
+
+}
 

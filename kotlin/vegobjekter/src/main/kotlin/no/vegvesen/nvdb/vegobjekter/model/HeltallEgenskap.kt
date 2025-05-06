@@ -45,5 +45,8 @@ data class HeltallEgenskap (
 
     @SerialName(value = "enhet") val enhet: Enhet? = null
 
-) : Egenskap
+) : Egenskap {
+
+
+}
 

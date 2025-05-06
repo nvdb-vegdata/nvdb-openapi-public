@@ -36,5 +36,8 @@ data class RuteKortform (
 
     @SerialName(value = "metadata") @Required val metadata: RuteMetadata
 
-)
+) {
+
+
+}
 

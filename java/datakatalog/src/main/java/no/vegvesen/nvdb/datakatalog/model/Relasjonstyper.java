@@ -34,18 +34,20 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
   Relasjonstyper.JSON_PROPERTY_FORELDRE,
   Relasjonstyper.JSON_PROPERTY_BARN
 })
-@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen")
+@javax.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.13.0")
 public class Relasjonstyper {
   public static final String JSON_PROPERTY_FORELDRE = "foreldre";
+  @javax.annotation.Nonnull
   private List<Assosiasjonstype> foreldre = new ArrayList<>();
 
   public static final String JSON_PROPERTY_BARN = "barn";
-  private Object barn = null;
+  @javax.annotation.Nonnull
+  private List<Assosiasjonstype> barn = new ArrayList<>();
 
   public Relasjonstyper() {
   }
 
-  public Relasjonstyper foreldre(List<Assosiasjonstype> foreldre) {
+  public Relasjonstyper foreldre(@javax.annotation.Nonnull List<Assosiasjonstype> foreldre) {
     
     this.foreldre = foreldre;
     return this;
@@ -59,10 +61,10 @@ public class Relasjonstyper {
     return this;
   }
 
-   /**
+  /**
    * Get foreldre
    * @return foreldre
-  **/
+   */
   @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_FORELDRE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
@@ -74,35 +76,43 @@ public class Relasjonstyper {
 
   @JsonProperty(JSON_PROPERTY_FORELDRE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setForeldre(List<Assosiasjonstype> foreldre) {
+  public void setForeldre(@javax.annotation.Nonnull List<Assosiasjonstype> foreldre) {
     this.foreldre = foreldre;
   }
 
-
-  public Relasjonstyper barn(Object barn) {
+  public Relasjonstyper barn(@javax.annotation.Nonnull List<Assosiasjonstype> barn) {
     
     this.barn = barn;
     return this;
   }
 
-   /**
+  public Relasjonstyper addBarnItem(Assosiasjonstype barnItem) {
+    if (this.barn == null) {
+      this.barn = new ArrayList<>();
+    }
+    this.barn.add(barnItem);
+    return this;
+  }
+
+  /**
    * Get barn
    * @return barn
-  **/
-  @javax.annotation.Nullable
+   */
+  @javax.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_BARN)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public Object getBarn() {
+  public List<Assosiasjonstype> getBarn() {
     return barn;
   }
 
 
   @JsonProperty(JSON_PROPERTY_BARN)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setBarn(Object barn) {
+  public void setBarn(@javax.annotation.Nonnull List<Assosiasjonstype> barn) {
     this.barn = barn;
   }
+
 
   @Override
   public boolean equals(Object o) {

@@ -47,5 +47,8 @@ data class BinaerEgenskap (
 
     @SerialName(value = "href") val href: kotlin.String? = null
 
-) : Egenskap
+) : Egenskap {
+
+
+}
 

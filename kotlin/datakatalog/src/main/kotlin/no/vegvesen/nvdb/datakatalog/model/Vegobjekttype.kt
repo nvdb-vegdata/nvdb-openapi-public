@@ -20,9 +20,7 @@ import no.vegvesen.nvdb.datakatalog.model.Relasjonstyper
 import no.vegvesen.nvdb.datakatalog.model.Stedfesting
 import no.vegvesen.nvdb.datakatalog.model.VegobjektKategori
 
-import kotlinx.serialization.*
-import kotlinx.serialization.descriptors.*
-import kotlinx.serialization.encoding.*
+import com.fasterxml.jackson.annotation.JsonProperty
 
 /**
  * 
@@ -49,51 +47,75 @@ import kotlinx.serialization.encoding.*
  * @param egenskapstyper 
  * @param relasjonstyper 
  */
-@Serializable
+
 
 data class Vegobjekttype (
 
-    @SerialName(value = "id") @Required val id: kotlin.Int,
+    @get:JsonProperty("id")
+    val id: kotlin.Int,
 
-    @SerialName(value = "sorteringsnummer") @Required val sorteringsnummer: kotlin.Int,
+    @get:JsonProperty("sorteringsnummer")
+    val sorteringsnummer: kotlin.Int,
 
-    @SerialName(value = "tidsrom_relevant") @Required val tidsromRelevant: kotlin.Boolean,
+    @get:JsonProperty("tidsrom_relevant")
+    val tidsromRelevant: kotlin.Boolean,
 
-    @SerialName(value = "abstrakt_type") @Required val abstraktType: kotlin.Boolean,
+    @get:JsonProperty("abstrakt_type")
+    val abstraktType: kotlin.Boolean,
 
-    @SerialName(value = "avledet") @Required val avledet: kotlin.Boolean,
+    @get:JsonProperty("avledet")
+    val avledet: kotlin.Boolean,
 
-    @SerialName(value = "må_ha_mor") @Required val måHaMor: kotlin.Boolean,
+    @get:JsonProperty("må_ha_mor")
+    val måHaMor: kotlin.Boolean,
 
-    @SerialName(value = "en_versjon") @Required val enVersjon: kotlin.Boolean,
+    @get:JsonProperty("en_versjon")
+    val enVersjon: kotlin.Boolean,
 
-    @SerialName(value = "kategorier") @Required val kategorier: kotlin.collections.List<VegobjektKategori>,
+    @get:JsonProperty("kategorier")
+    val kategorier: kotlin.collections.List<VegobjektKategori>,
 
-    @SerialName(value = "sensitiv") @Required val sensitiv: kotlin.Boolean,
+    @get:JsonProperty("sensitiv")
+    val sensitiv: kotlin.Boolean,
 
-    @SerialName(value = "navn") val navn: kotlin.String? = null,
+    @get:JsonProperty("navn")
+    val navn: kotlin.String? = null,
 
-    @SerialName(value = "kortnavn") val kortnavn: kotlin.String? = null,
+    @get:JsonProperty("kortnavn")
+    val kortnavn: kotlin.String? = null,
 
-    @SerialName(value = "beskrivelse") val beskrivelse: kotlin.String? = null,
+    @get:JsonProperty("beskrivelse")
+    val beskrivelse: kotlin.String? = null,
 
-    @SerialName(value = "stedfesting") val stedfesting: Stedfesting? = null,
+    @get:JsonProperty("stedfesting")
+    val stedfesting: Stedfesting? = null,
 
-    @SerialName(value = "sosinavn") val sosinavn: kotlin.String? = null,
+    @get:JsonProperty("sosinavn")
+    val sosinavn: kotlin.String? = null,
 
-    @SerialName(value = "sosinvdbnavn") val sosinvdbnavn: kotlin.String? = null,
+    @get:JsonProperty("sosinvdbnavn")
+    val sosinvdbnavn: kotlin.String? = null,
 
-    @SerialName(value = "status") val status: kotlin.String? = null,
+    @get:JsonProperty("status")
+    val status: kotlin.String? = null,
 
-    @SerialName(value = "hovedkategori") val hovedkategori: kotlin.String? = null,
+    @get:JsonProperty("hovedkategori")
+    val hovedkategori: kotlin.String? = null,
 
-    @SerialName(value = "konnekteringslenke_ok") val konnekteringslenkeOk: kotlin.Boolean? = null,
+    @get:JsonProperty("konnekteringslenke_ok")
+    val konnekteringslenkeOk: kotlin.Boolean? = null,
 
-    @SerialName(value = "tilleggsinformasjon") val tilleggsinformasjon: kotlin.String? = null,
+    @get:JsonProperty("tilleggsinformasjon")
+    val tilleggsinformasjon: kotlin.String? = null,
 
-    @SerialName(value = "egenskapstyper") val egenskapstyper: kotlin.collections.List<Egenskapstype>? = null,
+    @get:JsonProperty("egenskapstyper")
+    val egenskapstyper: kotlin.collections.List<Egenskapstype>? = null,
 
-    @SerialName(value = "relasjonstyper") val relasjonstyper: Relasjonstyper? = null
+    @get:JsonProperty("relasjonstyper")
+    val relasjonstyper: Relasjonstyper? = null
 
-)
+) {
+
+
+}
 
