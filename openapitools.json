@@ -2,7 +2,7 @@
   "$schema": "./node_modules/@openapitools/openapi-generator-cli/config.schema.json",
   "spaces": 2,
   "generator-cli": {
-    "version": "7.3.0",
+    "version": "7.13.0",
     "generators": {
       "datakatalog-java": {
         "inputSpec": "https://nvdbapiles.atlas.vegvesen.no/api-docs/datakatalog",
@@ -11,8 +11,11 @@
         "library": "webclient",
         "apiPackage": "no.vegvesen.nvdb.datakatalog.api",
         "modelPackage": "no.vegvesen.nvdb.datakatalog.model",
-        "globalProperty": "models,apis,modelDocs=false,modelTests=false,apiTests=false",
+        "globalProperty": "modelDocs=false,modelTests=false,apiTests=false",
         "additionalProperties": {
+          "packageName": "no.vegvesen.nvdb.datakatalog",
+          "groupId": "no.vegvesen.vt.nvdb.apiles",
+          "artifactId": "nvdbapiles-datakatalogen-java-klient",
           "hideGenerationTimestamp": true
         }
       },
@@ -20,13 +23,16 @@
         "inputSpec": "https://nvdbapiles.atlas.vegvesen.no/api-docs/datakatalog",
         "output": "kotlin/datakatalog",
         "generatorName": "kotlin",
-        "library": "multiplatform",
+        "library": "jvm-ktor",
         "apiPackage": "no.vegvesen.nvdb.datakatalog.api",
         "modelPackage": "no.vegvesen.nvdb.datakatalog.model",
-        "globalProperty": "models,apis,modelDocs=false,modelTests=false,apiTests=false",
+        "globalProperty": "modelDocs=false,modelTests=false,apiTests=false",
         "additionalProperties": {
-          "dateLibrary": "kotlinx-datetime",
-          "sourceFolder": "src/main/kotlin"
+          "serializationLibrary": "jackson",
+          "sourceFolder": "src/main/kotlin",
+          "omitGradleWrapper": true,
+          "packageName": "no.vegvesen.nvdb.datakatalog",
+          "groupId": "no.vegvesen.vt.nvdb.apiles"
         }
       },
       "vegnett-kotlin": {
