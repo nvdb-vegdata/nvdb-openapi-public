@@ -107,48 +107,6 @@ public class EgenskapstypeStruktur extends Egenskapstype {
   }
 
   @Override
-  public EgenskapstypeStruktur komplementærEgenskapstype(@javax.annotation.Nullable Integer komplementærEgenskapstype) {
-    this.setKomplementærEgenskapstype(komplementærEgenskapstype);
-    return this;
-  }
-
-  @Override
-  public EgenskapstypeStruktur kortnavn(@javax.annotation.Nullable String kortnavn) {
-    this.setKortnavn(kortnavn);
-    return this;
-  }
-
-  @Override
-  public EgenskapstypeStruktur beskrivelse(@javax.annotation.Nullable String beskrivelse) {
-    this.setBeskrivelse(beskrivelse);
-    return this;
-  }
-
-  @Override
-  public EgenskapstypeStruktur sosinavn(@javax.annotation.Nullable String sosinavn) {
-    this.setSosinavn(sosinavn);
-    return this;
-  }
-
-  @Override
-  public EgenskapstypeStruktur sosinvdbnavn(@javax.annotation.Nullable String sosinvdbnavn) {
-    this.setSosinvdbnavn(sosinvdbnavn);
-    return this;
-  }
-
-  @Override
-  public EgenskapstypeStruktur sorteringsnummer(@javax.annotation.Nonnull Integer sorteringsnummer) {
-    this.setSorteringsnummer(sorteringsnummer);
-    return this;
-  }
-
-  @Override
-  public EgenskapstypeStruktur avledet(@javax.annotation.Nonnull Boolean avledet) {
-    this.setAvledet(avledet);
-    return this;
-  }
-
-  @Override
   public EgenskapstypeStruktur obligatoriskVerdi(@javax.annotation.Nonnull Boolean obligatoriskVerdi) {
     this.setObligatoriskVerdi(obligatoriskVerdi);
     return this;
@@ -229,6 +187,48 @@ public class EgenskapstypeStruktur extends Egenskapstype {
   @Override
   public EgenskapstypeStruktur kategori(@javax.annotation.Nonnull Integer kategori) {
     this.setKategori(kategori);
+    return this;
+  }
+
+  @Override
+  public EgenskapstypeStruktur komplementærEgenskapstype(@javax.annotation.Nullable Integer komplementærEgenskapstype) {
+    this.setKomplementærEgenskapstype(komplementærEgenskapstype);
+    return this;
+  }
+
+  @Override
+  public EgenskapstypeStruktur kortnavn(@javax.annotation.Nullable String kortnavn) {
+    this.setKortnavn(kortnavn);
+    return this;
+  }
+
+  @Override
+  public EgenskapstypeStruktur beskrivelse(@javax.annotation.Nullable String beskrivelse) {
+    this.setBeskrivelse(beskrivelse);
+    return this;
+  }
+
+  @Override
+  public EgenskapstypeStruktur sosinavn(@javax.annotation.Nullable String sosinavn) {
+    this.setSosinavn(sosinavn);
+    return this;
+  }
+
+  @Override
+  public EgenskapstypeStruktur sosinvdbnavn(@javax.annotation.Nullable String sosinvdbnavn) {
+    this.setSosinvdbnavn(sosinvdbnavn);
+    return this;
+  }
+
+  @Override
+  public EgenskapstypeStruktur sorteringsnummer(@javax.annotation.Nonnull Integer sorteringsnummer) {
+    this.setSorteringsnummer(sorteringsnummer);
+    return this;
+  }
+
+  @Override
+  public EgenskapstypeStruktur avledet(@javax.annotation.Nonnull Boolean avledet) {
+    this.setAvledet(avledet);
     return this;
   }
 

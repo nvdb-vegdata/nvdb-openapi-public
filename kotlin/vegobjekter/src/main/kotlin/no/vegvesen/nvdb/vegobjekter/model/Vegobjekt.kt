@@ -22,9 +22,7 @@ import no.vegvesen.nvdb.vegobjekter.model.UtledetGeometri
 import no.vegvesen.nvdb.vegobjekter.model.VegobjektMetadata
 import no.vegvesen.nvdb.vegobjekter.model.Vegsegment
 
-import kotlinx.serialization.*
-import kotlinx.serialization.descriptors.*
-import kotlinx.serialization.encoding.*
+import com.fasterxml.jackson.annotation.JsonProperty
 
 /**
  * 
@@ -38,25 +36,33 @@ import kotlinx.serialization.encoding.*
  * @param relasjoner 
  * @param vegsegmenter 
  */
-@Serializable
+
 
 data class Vegobjekt (
 
-    @SerialName(value = "id") @Required val id: kotlin.Long,
+    @get:JsonProperty("id")
+    val id: kotlin.Long,
 
-    @SerialName(value = "href") @Required val href: kotlin.String,
+    @get:JsonProperty("href")
+    val href: kotlin.String,
 
-    @SerialName(value = "metadata") val metadata: VegobjektMetadata? = null,
+    @get:JsonProperty("metadata")
+    val metadata: VegobjektMetadata? = null,
 
-    @SerialName(value = "egenskaper") val egenskaper: kotlin.collections.List<Egenskap>? = null,
+    @get:JsonProperty("egenskaper")
+    val egenskaper: kotlin.collections.List<Egenskap>? = null,
 
-    @SerialName(value = "geometri") val geometri: UtledetGeometri? = null,
+    @get:JsonProperty("geometri")
+    val geometri: UtledetGeometri? = null,
 
-    @SerialName(value = "lokasjon") val lokasjon: Lokasjon? = null,
+    @get:JsonProperty("lokasjon")
+    val lokasjon: Lokasjon? = null,
 
-    @SerialName(value = "relasjoner") val relasjoner: Relasjoner? = null,
+    @get:JsonProperty("relasjoner")
+    val relasjoner: Relasjoner? = null,
 
-    @SerialName(value = "vegsegmenter") val vegsegmenter: kotlin.collections.List<Vegsegment>? = null
+    @get:JsonProperty("vegsegmenter")
+    val vegsegmenter: kotlin.collections.List<Vegsegment>? = null
 
 ) {
 

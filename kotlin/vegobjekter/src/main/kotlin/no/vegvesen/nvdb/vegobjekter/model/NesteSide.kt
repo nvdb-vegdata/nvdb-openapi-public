@@ -16,9 +16,7 @@
 package no.vegvesen.nvdb.vegobjekter.model
 
 
-import kotlinx.serialization.*
-import kotlinx.serialization.descriptors.*
-import kotlinx.serialization.encoding.*
+import com.fasterxml.jackson.annotation.JsonProperty
 
 /**
  * 
@@ -26,13 +24,15 @@ import kotlinx.serialization.encoding.*
  * @param start 
  * @param href 
  */
-@Serializable
+
 
 data class NesteSide (
 
-    @SerialName(value = "start") @Required val start: kotlin.String,
+    @get:JsonProperty("start")
+    val start: kotlin.String,
 
-    @SerialName(value = "href") @Required val href: kotlin.String
+    @get:JsonProperty("href")
+    val href: kotlin.String
 
 ) {
 

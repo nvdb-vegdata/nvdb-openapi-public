@@ -16,9 +16,7 @@
 package no.vegvesen.nvdb.vegobjekter.model
 
 
-import kotlinx.serialization.*
-import kotlinx.serialization.descriptors.*
-import kotlinx.serialization.encoding.*
+import com.fasterxml.jackson.annotation.JsonProperty
 
 /**
  * 
@@ -32,25 +30,33 @@ import kotlinx.serialization.encoding.*
  * @param nøyaktighetHøyde 
  * @param maksimaltAvvik 
  */
-@Serializable
+
 
 data class GeometriKvalitet (
 
-    @SerialName(value = "målemetode") val målemetode: kotlin.Int? = null,
+    @get:JsonProperty("målemetode")
+    val målemetode: kotlin.Int? = null,
 
-    @SerialName(value = "datafangstmetode") val datafangstmetode: kotlin.String? = null,
+    @get:JsonProperty("datafangstmetode")
+    val datafangstmetode: kotlin.String? = null,
 
-    @SerialName(value = "nøyaktighet") val nøyaktighet: kotlin.Int? = null,
+    @get:JsonProperty("nøyaktighet")
+    val nøyaktighet: kotlin.Int? = null,
 
-    @SerialName(value = "synbarhet") val synbarhet: kotlin.Int? = null,
+    @get:JsonProperty("synbarhet")
+    val synbarhet: kotlin.Int? = null,
 
-    @SerialName(value = "målemetodeHøyde") val målemetodeHøyde: kotlin.Int? = null,
+    @get:JsonProperty("målemetodeHøyde")
+    val målemetodeHøyde: kotlin.Int? = null,
 
-    @SerialName(value = "datafangstmetodeHøyde") val datafangstmetodeHøyde: kotlin.String? = null,
+    @get:JsonProperty("datafangstmetodeHøyde")
+    val datafangstmetodeHøyde: kotlin.String? = null,
 
-    @SerialName(value = "nøyaktighetHøyde") val nøyaktighetHøyde: kotlin.Int? = null,
+    @get:JsonProperty("nøyaktighetHøyde")
+    val nøyaktighetHøyde: kotlin.Int? = null,
 
-    @SerialName(value = "maksimaltAvvik") val maksimaltAvvik: kotlin.Int? = null
+    @get:JsonProperty("maksimaltAvvik")
+    val maksimaltAvvik: kotlin.Int? = null
 
 ) {
 

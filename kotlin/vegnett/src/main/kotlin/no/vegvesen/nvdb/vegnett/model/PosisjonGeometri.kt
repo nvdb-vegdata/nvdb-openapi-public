@@ -16,9 +16,7 @@
 package no.vegvesen.nvdb.vegnett.model
 
 
-import kotlinx.serialization.*
-import kotlinx.serialization.descriptors.*
-import kotlinx.serialization.encoding.*
+import com.fasterxml.jackson.annotation.JsonProperty
 
 /**
  * 
@@ -26,13 +24,15 @@ import kotlinx.serialization.encoding.*
  * @param wkt 
  * @param srid 
  */
-@Serializable
+
 
 data class PosisjonGeometri (
 
-    @SerialName(value = "wkt") @Required val wkt: kotlin.String,
+    @get:JsonProperty("wkt")
+    val wkt: kotlin.String,
 
-    @SerialName(value = "srid") @Required val srid: kotlin.Int
+    @get:JsonProperty("srid")
+    val srid: kotlin.Int
 
 ) {
 

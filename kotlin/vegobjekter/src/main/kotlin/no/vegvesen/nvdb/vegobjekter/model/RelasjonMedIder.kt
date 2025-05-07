@@ -18,9 +18,7 @@ package no.vegvesen.nvdb.vegobjekter.model
 import no.vegvesen.nvdb.vegobjekter.model.Relasjon
 import no.vegvesen.nvdb.vegobjekter.model.VegobjektType
 
-import kotlinx.serialization.*
-import kotlinx.serialization.descriptors.*
-import kotlinx.serialization.encoding.*
+import com.fasterxml.jackson.annotation.JsonProperty
 
 /**
  * 
@@ -31,19 +29,24 @@ import kotlinx.serialization.encoding.*
  * @param vegobjekter 
  * @param listeid 
  */
-@Serializable
+
 
 data class RelasjonMedIder (
 
-    @SerialName(value = "id") @Required override val id: kotlin.Int,
+    @get:JsonProperty("id")
+    override val id: kotlin.Int,
 
-    @SerialName(value = "type") @Required override val type: VegobjektType,
+    @get:JsonProperty("type")
+    override val type: VegobjektType,
 
-    @SerialName(value = "relasjonstype") @Required override val relasjonstype: RelasjonMedIder.Relasjonstype,
+    @get:JsonProperty("relasjonstype")
+    override val relasjonstype: RelasjonMedIder.Relasjonstype,
 
-    @SerialName(value = "vegobjekter") @Required val vegobjekter: kotlin.collections.List<kotlin.Long>,
+    @get:JsonProperty("vegobjekter")
+    val vegobjekter: kotlin.collections.List<kotlin.Long>,
 
-    @SerialName(value = "listeid") override val listeid: kotlin.Int? = null
+    @get:JsonProperty("listeid")
+    override val listeid: kotlin.Int? = null
 
 ) : Relasjon {
 

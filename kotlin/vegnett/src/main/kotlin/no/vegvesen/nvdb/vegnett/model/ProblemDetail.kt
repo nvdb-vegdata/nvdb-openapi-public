@@ -16,9 +16,7 @@
 package no.vegvesen.nvdb.vegnett.model
 
 
-import kotlinx.serialization.*
-import kotlinx.serialization.descriptors.*
-import kotlinx.serialization.encoding.*
+import com.fasterxml.jackson.annotation.JsonProperty
 
 /**
  * 
@@ -30,21 +28,27 @@ import kotlinx.serialization.encoding.*
  * @param instance 
  * @param properties 
  */
-@Serializable
+
 
 data class ProblemDetail (
 
-    @SerialName(value = "type") val type: kotlin.String? = null,
+    @get:JsonProperty("type")
+    val type: java.net.URI? = null,
 
-    @SerialName(value = "title") val title: kotlin.String? = null,
+    @get:JsonProperty("title")
+    val title: kotlin.String? = null,
 
-    @SerialName(value = "status") val status: kotlin.Int? = null,
+    @get:JsonProperty("status")
+    val status: kotlin.Int? = null,
 
-    @SerialName(value = "detail") val detail: kotlin.String? = null,
+    @get:JsonProperty("detail")
+    val detail: kotlin.String? = null,
 
-    @SerialName(value = "instance") val instance: kotlin.String? = null,
+    @get:JsonProperty("instance")
+    val instance: java.net.URI? = null,
 
-    @SerialName(value = "properties") val properties: kotlin.collections.Map<kotlin.String, kotlin.Any>? = null
+    @get:JsonProperty("properties")
+    val properties: kotlin.collections.Map<kotlin.String, kotlin.Any>? = null
 
 ) {
 

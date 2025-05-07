@@ -16,9 +16,7 @@
 package no.vegvesen.nvdb.vegnett.model
 
 
-import kotlinx.serialization.*
-import kotlinx.serialization.descriptors.*
-import kotlinx.serialization.encoding.*
+import com.fasterxml.jackson.annotation.JsonProperty
 
 /**
  * 
@@ -31,23 +29,30 @@ import kotlinx.serialization.encoding.*
  * @param fraMeter 
  * @param tilMeter 
  */
-@Serializable
+
 
 data class Sideanlegg (
 
-    @SerialName(value = "sideanlegg") @Required val sideanlegg: kotlin.Int,
+    @get:JsonProperty("sideanlegg")
+    val sideanlegg: kotlin.Int,
 
-    @SerialName(value = "sideanleggsdel") @Required val sideanleggsdel: kotlin.Int,
+    @get:JsonProperty("sideanleggsdel")
+    val sideanleggsdel: kotlin.Int,
 
-    @SerialName(value = "retning") @Required val retning: Sideanlegg.Retning,
+    @get:JsonProperty("retning")
+    val retning: Sideanlegg.Retning,
 
-    @SerialName(value = "trafikantgruppe") @Required val trafikantgruppe: Sideanlegg.Trafikantgruppe,
+    @get:JsonProperty("trafikantgruppe")
+    val trafikantgruppe: Sideanlegg.Trafikantgruppe,
 
-    @SerialName(value = "meter") val meter: kotlin.Double? = null,
+    @get:JsonProperty("meter")
+    val meter: kotlin.Double? = null,
 
-    @SerialName(value = "fra_meter") val fraMeter: kotlin.Double? = null,
+    @get:JsonProperty("fra_meter")
+    val fraMeter: kotlin.Double? = null,
 
-    @SerialName(value = "til_meter") val tilMeter: kotlin.Double? = null
+    @get:JsonProperty("til_meter")
+    val tilMeter: kotlin.Double? = null
 
 ) {
 
@@ -56,20 +61,18 @@ data class Sideanlegg (
      *
      * Values: MED,MOT
      */
-    @Serializable
     enum class Retning(val value: kotlin.String) {
-        @SerialName(value = "MED") MED("MED"),
-        @SerialName(value = "MOT") MOT("MOT");
+        @JsonProperty(value = "MED") MED("MED"),
+        @JsonProperty(value = "MOT") MOT("MOT");
     }
     /**
      * 
      *
      * Values: K,G
      */
-    @Serializable
     enum class Trafikantgruppe(val value: kotlin.String) {
-        @SerialName(value = "K") K("K"),
-        @SerialName(value = "G") G("G");
+        @JsonProperty(value = "K") K("K"),
+        @JsonProperty(value = "G") G("G");
     }
 
 }

@@ -17,9 +17,7 @@ package no.vegvesen.nvdb.vegobjekter.model
 
 import no.vegvesen.nvdb.vegobjekter.model.VegobjekterStatistikk
 
-import kotlinx.serialization.*
-import kotlinx.serialization.descriptors.*
-import kotlinx.serialization.encoding.*
+import com.fasterxml.jackson.annotation.JsonProperty
 
 /**
  * 
@@ -29,17 +27,21 @@ import kotlinx.serialization.encoding.*
  * @param href 
  * @param statistikk 
  */
-@Serializable
+
 
 data class VegobjekterStatistikkMedType (
 
-    @SerialName(value = "id") @Required val id: kotlin.Int,
+    @get:JsonProperty("id")
+    val id: kotlin.Int,
 
-    @SerialName(value = "navn") @Required val navn: kotlin.String,
+    @get:JsonProperty("navn")
+    val navn: kotlin.String,
 
-    @SerialName(value = "href") @Required val href: kotlin.String,
+    @get:JsonProperty("href")
+    val href: kotlin.String,
 
-    @SerialName(value = "statistikk") @Required val statistikk: VegobjekterStatistikk
+    @get:JsonProperty("statistikk")
+    val statistikk: VegobjekterStatistikk
 
 ) {
 

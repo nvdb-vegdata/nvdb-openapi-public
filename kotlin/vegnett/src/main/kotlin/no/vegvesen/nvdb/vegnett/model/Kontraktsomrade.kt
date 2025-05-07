@@ -16,9 +16,7 @@
 package no.vegvesen.nvdb.vegnett.model
 
 
-import kotlinx.serialization.*
-import kotlinx.serialization.descriptors.*
-import kotlinx.serialization.encoding.*
+import com.fasterxml.jackson.annotation.JsonProperty
 
 /**
  * 
@@ -27,15 +25,18 @@ import kotlinx.serialization.encoding.*
  * @param navn 
  * @param nummer 
  */
-@Serializable
+
 
 data class Kontraktsomrade (
 
-    @SerialName(value = "id") @Required val id: kotlin.Long,
+    @get:JsonProperty("id")
+    val id: kotlin.Long,
 
-    @SerialName(value = "navn") @Required val navn: kotlin.String,
+    @get:JsonProperty("navn")
+    val navn: kotlin.String,
 
-    @SerialName(value = "nummer") val nummer: kotlin.Int? = null
+    @get:JsonProperty("nummer")
+    val nummer: kotlin.Int? = null
 
 ) {
 

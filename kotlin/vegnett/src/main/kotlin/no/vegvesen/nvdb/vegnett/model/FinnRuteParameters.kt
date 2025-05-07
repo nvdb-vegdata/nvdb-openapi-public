@@ -16,9 +16,7 @@
 package no.vegvesen.nvdb.vegnett.model
 
 
-import kotlinx.serialization.*
-import kotlinx.serialization.descriptors.*
-import kotlinx.serialization.encoding.*
+import com.fasterxml.jackson.annotation.JsonProperty
 
 /**
  * 
@@ -38,37 +36,51 @@ import kotlinx.serialization.encoding.*
  * @param tidspunkt 
  * @param srid 
  */
-@Serializable
+
 
 data class FinnRuteParameters (
 
-    @SerialName(value = "maks_avstand") @Required val maksAvstand: kotlin.Int,
+    @get:JsonProperty("maks_avstand")
+    val maksAvstand: kotlin.Int,
 
-    @SerialName(value = "omkrets") @Required val omkrets: kotlin.Int,
+    @get:JsonProperty("omkrets")
+    val omkrets: kotlin.Int,
 
-    @SerialName(value = "konnekteringslenker") @Required val konnekteringslenker: kotlin.Boolean,
+    @get:JsonProperty("konnekteringslenker")
+    val konnekteringslenker: kotlin.Boolean,
 
-    @SerialName(value = "detaljerte_lenker") @Required val detaljerteLenker: kotlin.Boolean,
+    @get:JsonProperty("detaljerte_lenker")
+    val detaljerteLenker: kotlin.Boolean,
 
-    @SerialName(value = "kortform") @Required val kortform: kotlin.Boolean,
+    @get:JsonProperty("kortform")
+    val kortform: kotlin.Boolean,
 
-    @SerialName(value = "behold_trafikantgruppe") @Required val beholdTrafikantgruppe: kotlin.Boolean,
+    @get:JsonProperty("behold_trafikantgruppe")
+    val beholdTrafikantgruppe: kotlin.Boolean,
 
-    @SerialName(value = "start") val start: kotlin.String? = null,
+    @get:JsonProperty("start")
+    val start: kotlin.String? = null,
 
-    @SerialName(value = "slutt") val slutt: kotlin.String? = null,
+    @get:JsonProperty("slutt")
+    val slutt: kotlin.String? = null,
 
-    @SerialName(value = "geometri") val geometri: kotlin.String? = null,
+    @get:JsonProperty("geometri")
+    val geometri: kotlin.String? = null,
 
-    @SerialName(value = "vegsystemreferanse") val vegsystemreferanse: kotlin.collections.Set<kotlin.String>? = null,
+    @get:JsonProperty("vegsystemreferanse")
+    val vegsystemreferanse: kotlin.collections.Set<kotlin.String>? = null,
 
-    @SerialName(value = "trafikantgruppe") val trafikantgruppe: FinnRuteParameters.Trafikantgruppe? = null,
+    @get:JsonProperty("trafikantgruppe")
+    val trafikantgruppe: FinnRuteParameters.Trafikantgruppe? = null,
 
-    @SerialName(value = "typeveg") val typeveg: kotlin.collections.Set<FinnRuteParameters.Typeveg>? = null,
+    @get:JsonProperty("typeveg")
+    val typeveg: kotlin.collections.Set<FinnRuteParameters.Typeveg>? = null,
 
-    @SerialName(value = "tidspunkt") val tidspunkt: kotlinx.datetime.LocalDate? = null,
+    @get:JsonProperty("tidspunkt")
+    val tidspunkt: java.time.LocalDate? = null,
 
-    @SerialName(value = "srid") val srid: FinnRuteParameters.Srid? = null
+    @get:JsonProperty("srid")
+    val srid: FinnRuteParameters.Srid? = null
 
 ) {
 
@@ -77,51 +89,48 @@ data class FinnRuteParameters (
      *
      * Values: K,G
      */
-    @Serializable
     enum class Trafikantgruppe(val value: kotlin.String) {
-        @SerialName(value = "K") K("K"),
-        @SerialName(value = "G") G("G");
+        @JsonProperty(value = "K") K("K"),
+        @JsonProperty(value = "G") G("G");
     }
     /**
      * 
      *
      * Values: Enkel_bilveg,Kanalisert_veg,Rampe,Rundkjøring,Bilferje,GangMinus_og_sykkelveg,Sykkelveg,Gangveg,Gågate,Fortau,Trapp,Gangfelt,Gatetun,Passasjerferje,Traktorveg,Sti,Annet
      */
-    @Serializable
     enum class Typeveg(val value: kotlin.String) {
-        @SerialName(value = "Enkel bilveg") Enkel_bilveg("Enkel bilveg"),
-        @SerialName(value = "Kanalisert veg") Kanalisert_veg("Kanalisert veg"),
-        @SerialName(value = "Rampe") Rampe("Rampe"),
-        @SerialName(value = "Rundkjøring") Rundkjøring("Rundkjøring"),
-        @SerialName(value = "Bilferje") Bilferje("Bilferje"),
-        @SerialName(value = "Gang- og sykkelveg") GangMinus_og_sykkelveg("Gang- og sykkelveg"),
-        @SerialName(value = "Sykkelveg") Sykkelveg("Sykkelveg"),
-        @SerialName(value = "Gangveg") Gangveg("Gangveg"),
-        @SerialName(value = "Gågate") Gågate("Gågate"),
-        @SerialName(value = "Fortau") Fortau("Fortau"),
-        @SerialName(value = "Trapp") Trapp("Trapp"),
-        @SerialName(value = "Gangfelt") Gangfelt("Gangfelt"),
-        @SerialName(value = "Gatetun") Gatetun("Gatetun"),
-        @SerialName(value = "Passasjerferje") Passasjerferje("Passasjerferje"),
-        @SerialName(value = "Traktorveg") Traktorveg("Traktorveg"),
-        @SerialName(value = "Sti") Sti("Sti"),
-        @SerialName(value = "Annet") Annet("Annet");
+        @JsonProperty(value = "Enkel bilveg") Enkel_bilveg("Enkel bilveg"),
+        @JsonProperty(value = "Kanalisert veg") Kanalisert_veg("Kanalisert veg"),
+        @JsonProperty(value = "Rampe") Rampe("Rampe"),
+        @JsonProperty(value = "Rundkjøring") Rundkjøring("Rundkjøring"),
+        @JsonProperty(value = "Bilferje") Bilferje("Bilferje"),
+        @JsonProperty(value = "Gang- og sykkelveg") GangMinus_og_sykkelveg("Gang- og sykkelveg"),
+        @JsonProperty(value = "Sykkelveg") Sykkelveg("Sykkelveg"),
+        @JsonProperty(value = "Gangveg") Gangveg("Gangveg"),
+        @JsonProperty(value = "Gågate") Gågate("Gågate"),
+        @JsonProperty(value = "Fortau") Fortau("Fortau"),
+        @JsonProperty(value = "Trapp") Trapp("Trapp"),
+        @JsonProperty(value = "Gangfelt") Gangfelt("Gangfelt"),
+        @JsonProperty(value = "Gatetun") Gatetun("Gatetun"),
+        @JsonProperty(value = "Passasjerferje") Passasjerferje("Passasjerferje"),
+        @JsonProperty(value = "Traktorveg") Traktorveg("Traktorveg"),
+        @JsonProperty(value = "Sti") Sti("Sti"),
+        @JsonProperty(value = "Annet") Annet("Annet");
     }
     /**
      * 
      *
      * Values: _5972,_5973,_5975,_4326,UTM32,UTM33,UTM35,WGS84
      */
-    @Serializable
     enum class Srid(val value: kotlin.String) {
-        @SerialName(value = "5972") _5972("5972"),
-        @SerialName(value = "5973") _5973("5973"),
-        @SerialName(value = "5975") _5975("5975"),
-        @SerialName(value = "4326") _4326("4326"),
-        @SerialName(value = "UTM32") UTM32("UTM32"),
-        @SerialName(value = "UTM33") UTM33("UTM33"),
-        @SerialName(value = "UTM35") UTM35("UTM35"),
-        @SerialName(value = "WGS84") WGS84("WGS84");
+        @JsonProperty(value = "5972") _5972("5972"),
+        @JsonProperty(value = "5973") _5973("5973"),
+        @JsonProperty(value = "5975") _5975("5975"),
+        @JsonProperty(value = "4326") _4326("4326"),
+        @JsonProperty(value = "UTM32") UTM32("UTM32"),
+        @JsonProperty(value = "UTM33") UTM33("UTM33"),
+        @JsonProperty(value = "UTM35") UTM35("UTM35"),
+        @JsonProperty(value = "WGS84") WGS84("WGS84");
     }
 
 }

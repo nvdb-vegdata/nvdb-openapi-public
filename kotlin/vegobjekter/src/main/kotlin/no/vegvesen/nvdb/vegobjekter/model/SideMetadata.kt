@@ -17,9 +17,7 @@ package no.vegvesen.nvdb.vegobjekter.model
 
 import no.vegvesen.nvdb.vegobjekter.model.NesteSide
 
-import kotlinx.serialization.*
-import kotlinx.serialization.descriptors.*
-import kotlinx.serialization.encoding.*
+import com.fasterxml.jackson.annotation.JsonProperty
 
 /**
  * 
@@ -29,17 +27,21 @@ import kotlinx.serialization.encoding.*
  * @param antall 
  * @param neste 
  */
-@Serializable
+
 
 data class SideMetadata (
 
-    @SerialName(value = "returnert") @Required val returnert: kotlin.Int,
+    @get:JsonProperty("returnert")
+    val returnert: kotlin.Int,
 
-    @SerialName(value = "sidestørrelse") @Required val sidestørrelse: kotlin.Int,
+    @get:JsonProperty("sidestørrelse")
+    val sidestørrelse: kotlin.Int,
 
-    @SerialName(value = "antall") val antall: kotlin.Int? = null,
+    @get:JsonProperty("antall")
+    val antall: kotlin.Int? = null,
 
-    @SerialName(value = "neste") val neste: NesteSide? = null
+    @get:JsonProperty("neste")
+    val neste: NesteSide? = null
 
 ) {
 

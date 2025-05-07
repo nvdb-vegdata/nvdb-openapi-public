@@ -17,9 +17,7 @@ package no.vegvesen.nvdb.vegnett.model
 
 import no.vegvesen.nvdb.vegnett.model.VeglenkeportTilkobling
 
-import kotlinx.serialization.*
-import kotlinx.serialization.descriptors.*
-import kotlinx.serialization.encoding.*
+import com.fasterxml.jackson.annotation.JsonProperty
 
 /**
  * 
@@ -28,15 +26,18 @@ import kotlinx.serialization.encoding.*
  * @param relativPosisjon 
  * @param tilkobling 
  */
-@Serializable
+
 
 data class Veglenkeport (
 
-    @SerialName(value = "id") @Required val id: kotlin.Int,
+    @get:JsonProperty("id")
+    val id: kotlin.Int,
 
-    @SerialName(value = "relativPosisjon") @Required val relativPosisjon: kotlin.Double,
+    @get:JsonProperty("relativPosisjon")
+    val relativPosisjon: kotlin.Double,
 
-    @SerialName(value = "tilkobling") @Required val tilkobling: VeglenkeportTilkobling
+    @get:JsonProperty("tilkobling")
+    val tilkobling: VeglenkeportTilkobling
 
 ) {
 

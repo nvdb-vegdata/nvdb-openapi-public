@@ -18,9 +18,7 @@ package no.vegvesen.nvdb.vegnett.model
 import no.vegvesen.nvdb.vegnett.model.NodeGeometri
 import no.vegvesen.nvdb.vegnett.model.Nodeport
 
-import kotlinx.serialization.*
-import kotlinx.serialization.descriptors.*
-import kotlinx.serialization.encoding.*
+import com.fasterxml.jackson.annotation.JsonProperty
 
 /**
  * 
@@ -33,23 +31,30 @@ import kotlinx.serialization.encoding.*
  * @param porter 
  * @param sluttdato 
  */
-@Serializable
+
 
 data class Node (
 
-    @SerialName(value = "id") @Required val id: kotlin.Long,
+    @get:JsonProperty("id")
+    val id: kotlin.Long,
 
-    @SerialName(value = "href") @Required val href: kotlin.String,
+    @get:JsonProperty("href")
+    val href: kotlin.String,
 
-    @SerialName(value = "startdato") @Required val startdato: kotlinx.datetime.LocalDate,
+    @get:JsonProperty("startdato")
+    val startdato: java.time.LocalDate,
 
-    @SerialName(value = "kommuner") @Required val kommuner: kotlin.collections.Set<kotlin.Int>,
+    @get:JsonProperty("kommuner")
+    val kommuner: kotlin.collections.Set<kotlin.Int>,
 
-    @SerialName(value = "geometri") @Required val geometri: NodeGeometri,
+    @get:JsonProperty("geometri")
+    val geometri: NodeGeometri,
 
-    @SerialName(value = "porter") @Required val porter: kotlin.collections.List<Nodeport>,
+    @get:JsonProperty("porter")
+    val porter: kotlin.collections.List<Nodeport>,
 
-    @SerialName(value = "sluttdato") val sluttdato: kotlinx.datetime.LocalDate? = null
+    @get:JsonProperty("sluttdato")
+    val sluttdato: java.time.LocalDate? = null
 
 ) {
 

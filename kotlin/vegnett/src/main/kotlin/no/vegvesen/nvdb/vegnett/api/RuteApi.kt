@@ -19,230 +19,117 @@ import no.vegvesen.nvdb.vegnett.model.FinnRuteParameters
 import no.vegvesen.nvdb.vegnett.model.GetRute200Response
 import no.vegvesen.nvdb.vegnett.model.ProblemDetail
 
-import org.openapitools.client.infrastructure.*
-import io.ktor.client.HttpClient
+import no.vegvesen.nvdb.vegnett.infrastructure.*
 import io.ktor.client.HttpClientConfig
 import io.ktor.client.request.forms.formData
 import io.ktor.client.engine.HttpClientEngine
-import kotlinx.serialization.json.Json
 import io.ktor.http.ParametersBuilder
-import kotlinx.serialization.*
-import kotlinx.serialization.descriptors.*
-import kotlinx.serialization.encoding.*
+import com.fasterxml.jackson.databind.ObjectMapper
 
-open class RuteApi : ApiClient {
+    open class RuteApi(
+    baseUrl: String = ApiClient.BASE_URL,
+    httpClientEngine: HttpClientEngine? = null,
+    httpClientConfig: ((HttpClientConfig<*>) -> Unit)? = null,
+    jsonBlock: ObjectMapper.() -> Unit = ApiClient.JSON_DEFAULT,
+    ) : ApiClient(
+        baseUrl,
+        httpClientEngine,
+        httpClientConfig,
+        jsonBlock,
+    ) {
 
-    constructor(
-        baseUrl: String = ApiClient.BASE_URL,
-        httpClientEngine: HttpClientEngine? = null,
-        httpClientConfig: ((HttpClientConfig<*>) -> Unit)? = null,
-        jsonSerializer: Json = ApiClient.JSON_DEFAULT
-    ) : super(baseUrl = baseUrl, httpClientEngine = httpClientEngine, httpClientConfig = httpClientConfig, jsonBlock = jsonSerializer)
+        /**
+        * GET /api/v4/beta/vegnett/rute
+        * 
+        * 
+         * @param start Startposisjon som et punkt eller posisjon@veglenkesekvens.  Eksempler: &#x60;226761.786, 6564469.3787&#x60; &#x60;0.1@1234&#x60; (optional)
+         * @param slutt Sluttposisjon som et punkt eller posisjon@veglenkesekvens.  Eksempler: &#x60;226855.034, 6564472.225&#x60; &#x60;0.9@4321&#x60; (optional)
+         * @param geometri Finn sammenhengende vegnett som passer med denne geometrien.  Eksempel: &#x60;LINESTRING Z (226778.2 6564468.6 5, 226747.1 6564470.1 5, 226717.5 6564466.4 5, 226705.9 6564462.7 6.2, 226687.2 6564462.9 6, 226657.7 6564460.7 6, 226628.5 6564459.5 6, 226611.3 6564459.6 6.2)&#x60; (optional)
+         * @param maksAvstand Maks avstand i meter til veglenker.  Standardverdi: &#x60;10&#x60; (optional)
+         * @param omkrets Konvolutt lagt rundt start- og slutt-punkt for å beregne rute.  Standardverdi: &#x60;200&#x60;. Må være større enn 0. (optional)
+         * @param konnekteringslenker Inkluder konnekteringslenker.  Standardverdi: &#x60;true&#x60; (optional)
+         * @param detaljerteLenker Inkluder detaljerte lenker.  Standardverdi: &#x60;false&#x60; (optional)
+         * @param kortform Returner minimal respons.  Standardverdi: &#x60;false&#x60; (optional)
+         * @param vegsystemreferanse Filtrer på vegsystemreferanse. Kommaseparert liste.  Eksempler: &#x60;EV6&#x60; &#x60;R&#x60; &#x60;F&#x60; (optional)
+         * @param trafikantgruppe Filtrer på trafikantgruppe. (optional)
+         * @param beholdTrafikantgruppe Behold trafikantgruppe gjennom ruten. Trafikantgruppe velges fra første og siste punkt i ruten, om de er ulike velges K (kjørende). Overstyres av parameteren trafikantgruppe.  Standardverdi: &#x60;false&#x60; (optional)
+         * @param typeveg Filtrer på type veg. Kommaseparert liste. (optional)
+         * @param tidspunkt Begrens spørring til dette tidspunktet. (optional)
+         * @param srid Angir hvilket geografisk referansesystem geometrien skal returneres i. Utdata i UTM-formater begrenses til 3 desimaler, 4326/WGS84 begrenses til 8 desimaler. Mer informasjon: &lt;a href&#x3D;&#39;https://epsg.io/5972&#39;&gt;EPSG:5972&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5973&#39;&gt;EPSG:5973&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5975&#39;&gt;EPSG:5975&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/4326&#39;&gt;EPSG:4326&lt;/a&gt;. (optional)
+         * @return GetRute200Response
+        */
+            @Suppress("UNCHECKED_CAST")
+        open suspend fun getRute(start: kotlin.String?, slutt: kotlin.String?, geometri: kotlin.String?, maksAvstand: kotlin.Int?, omkrets: kotlin.Int?, konnekteringslenker: kotlin.Boolean?, detaljerteLenker: kotlin.Boolean?, kortform: kotlin.Boolean?, vegsystemreferanse: kotlin.collections.Set<kotlin.String>?, trafikantgruppe: kotlin.String?, beholdTrafikantgruppe: kotlin.Boolean?, typeveg: kotlin.collections.Set<kotlin.String>?, tidspunkt: java.time.LocalDate?, srid: kotlin.String?): HttpResponse<GetRute200Response> {
 
-    constructor(
-        baseUrl: String,
-        httpClient: HttpClient
-    ): super(baseUrl = baseUrl, httpClient = httpClient)
+            val localVariableAuthNames = listOf<String>()
 
+            val localVariableBody = 
+                    io.ktor.client.utils.EmptyContent
 
-    /**
-     * enum for parameter trafikantgruppe
-     */
-    @Serializable
-    enum class TrafikantgruppeGetRute(val value: kotlin.String) {
-        
-        @SerialName(value = "K")
-        K("K"),
-        
-        @SerialName(value = "G")
-        G("G")
-        
-    }
+            val localVariableQuery = mutableMapOf<String, List<String>>()
+            start?.apply { localVariableQuery["start"] = listOf("$start") }
+            slutt?.apply { localVariableQuery["slutt"] = listOf("$slutt") }
+            geometri?.apply { localVariableQuery["geometri"] = listOf("$geometri") }
+            maksAvstand?.apply { localVariableQuery["maks_avstand"] = listOf("$maksAvstand") }
+            omkrets?.apply { localVariableQuery["omkrets"] = listOf("$omkrets") }
+            konnekteringslenker?.apply { localVariableQuery["konnekteringslenker"] = listOf("$konnekteringslenker") }
+            detaljerteLenker?.apply { localVariableQuery["detaljerte_lenker"] = listOf("$detaljerteLenker") }
+            kortform?.apply { localVariableQuery["kortform"] = listOf("$kortform") }
+            vegsystemreferanse?.apply { localVariableQuery["vegsystemreferanse"] = toMultiValue(this, "multi") }
+            trafikantgruppe?.apply { localVariableQuery["trafikantgruppe"] = listOf("$trafikantgruppe") }
+            beholdTrafikantgruppe?.apply { localVariableQuery["behold_trafikantgruppe"] = listOf("$beholdTrafikantgruppe") }
+            typeveg?.apply { localVariableQuery["typeveg"] = toMultiValue(this, "multi") }
+            tidspunkt?.apply { localVariableQuery["tidspunkt"] = listOf("$tidspunkt") }
+            srid?.apply { localVariableQuery["srid"] = listOf("$srid") }
 
+            val localVariableHeaders = mutableMapOf<String, String>()
 
-    /**
-     * enum for parameter typeveg
-     */
-    @Serializable
-    enum class TypevegGetRute(val value: kotlin.String) {
-        
-        @SerialName(value = "Enkel bilveg")
-        Enkel_bilveg("Enkel bilveg"),
-        
-        @SerialName(value = "Kanalisert veg")
-        Kanalisert_veg("Kanalisert veg"),
-        
-        @SerialName(value = "Rampe")
-        Rampe("Rampe"),
-        
-        @SerialName(value = "Rundkjøring")
-        Rundkjøring("Rundkjøring"),
-        
-        @SerialName(value = "Bilferje")
-        Bilferje("Bilferje"),
-        
-        @SerialName(value = "Gang- og sykkelveg")
-        GangMinus_og_sykkelveg("Gang- og sykkelveg"),
-        
-        @SerialName(value = "Sykkelveg")
-        Sykkelveg("Sykkelveg"),
-        
-        @SerialName(value = "Gangveg")
-        Gangveg("Gangveg"),
-        
-        @SerialName(value = "Gågate")
-        Gågate("Gågate"),
-        
-        @SerialName(value = "Fortau")
-        Fortau("Fortau"),
-        
-        @SerialName(value = "Trapp")
-        Trapp("Trapp"),
-        
-        @SerialName(value = "Gangfelt")
-        Gangfelt("Gangfelt"),
-        
-        @SerialName(value = "Gatetun")
-        Gatetun("Gatetun"),
-        
-        @SerialName(value = "Passasjerferje")
-        Passasjerferje("Passasjerferje"),
-        
-        @SerialName(value = "Traktorveg")
-        Traktorveg("Traktorveg"),
-        
-        @SerialName(value = "Sti")
-        Sti("Sti"),
-        
-        @SerialName(value = "Annet")
-        Annet("Annet")
-        
-    }
-
-
-    /**
-     * enum for parameter srid
-     */
-    @Serializable
-    enum class SridGetRute(val value: kotlin.String) {
-        
-        @SerialName(value = "5972")
-        _5972("5972"),
-        
-        @SerialName(value = "5973")
-        _5973("5973"),
-        
-        @SerialName(value = "5975")
-        _5975("5975"),
-        
-        @SerialName(value = "4326")
-        _4326("4326"),
-        
-        @SerialName(value = "UTM32")
-        UTM32("UTM32"),
-        
-        @SerialName(value = "UTM33")
-        UTM33("UTM33"),
-        
-        @SerialName(value = "UTM35")
-        UTM35("UTM35"),
-        
-        @SerialName(value = "WGS84")
-        WGS84("WGS84")
-        
-    }
-
-    /**
-     * 
-     * 
-     * @param start Startposisjon som et punkt eller posisjon@veglenkesekvens.  Eksempler: &#x60;226761.786, 6564469.3787&#x60; &#x60;0.1@1234&#x60; (optional)
-     * @param slutt Sluttposisjon som et punkt eller posisjon@veglenkesekvens.  Eksempler: &#x60;226855.034, 6564472.225&#x60; &#x60;0.9@4321&#x60; (optional)
-     * @param geometri Finn sammenhengende vegnett som passer med denne geometrien.  Eksempel: &#x60;LINESTRING Z (226778.2 6564468.6 5, 226747.1 6564470.1 5, 226717.5 6564466.4 5, 226705.9 6564462.7 6.2, 226687.2 6564462.9 6, 226657.7 6564460.7 6, 226628.5 6564459.5 6, 226611.3 6564459.6 6.2)&#x60; (optional)
-     * @param maksAvstand Maks avstand i meter til veglenker.  Standardverdi: &#x60;10&#x60; (optional)
-     * @param omkrets Konvolutt lagt rundt start- og slutt-punkt for å beregne rute.  Standardverdi: &#x60;200&#x60;. Må være større enn 0. (optional)
-     * @param konnekteringslenker Inkluder konnekteringslenker.  Standardverdi: &#x60;true&#x60; (optional)
-     * @param detaljerteLenker Inkluder detaljerte lenker.  Standardverdi: &#x60;false&#x60; (optional)
-     * @param kortform Returner minimal respons.  Standardverdi: &#x60;false&#x60; (optional)
-     * @param vegsystemreferanse Filtrer på vegsystemreferanse. Kommaseparert liste.  Eksempler: &#x60;EV6&#x60; &#x60;R&#x60; &#x60;F&#x60; (optional)
-     * @param trafikantgruppe Filtrer på trafikantgruppe. (optional)
-     * @param beholdTrafikantgruppe Behold trafikantgruppe gjennom ruten. Trafikantgruppe velges fra første og siste punkt i ruten, om de er ulike velges K (kjørende). Overstyres av parameteren trafikantgruppe.  Standardverdi: &#x60;false&#x60; (optional)
-     * @param typeveg Filtrer på type veg. Kommaseparert liste. (optional)
-     * @param tidspunkt Begrens spørring til dette tidspunktet. (optional)
-     * @param srid Angir hvilket geografisk referansesystem geometrien skal returneres i. Utdata i UTM-formater begrenses til 3 desimaler, 4326/WGS84 begrenses til 8 desimaler. Mer informasjon: &lt;a href&#x3D;&#39;https://epsg.io/5972&#39;&gt;EPSG:5972&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5973&#39;&gt;EPSG:5973&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5975&#39;&gt;EPSG:5975&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/4326&#39;&gt;EPSG:4326&lt;/a&gt;. (optional)
-     * @return GetRute200Response
-     */
-    @Suppress("UNCHECKED_CAST")
-    open suspend fun getRute(start: kotlin.String? = null, slutt: kotlin.String? = null, geometri: kotlin.String? = null, maksAvstand: kotlin.Int? = null, omkrets: kotlin.Int? = null, konnekteringslenker: kotlin.Boolean? = null, detaljerteLenker: kotlin.Boolean? = null, kortform: kotlin.Boolean? = null, vegsystemreferanse: kotlin.collections.Set<kotlin.String>? = null, trafikantgruppe: TrafikantgruppeGetRute? = null, beholdTrafikantgruppe: kotlin.Boolean? = null, typeveg: kotlin.collections.List<TypevegGetRute>? = null, tidspunkt: kotlinx.datetime.LocalDate? = null, srid: SridGetRute? = null): HttpResponse<GetRute200Response> {
-
-        val localVariableAuthNames = listOf<String>()
-
-        val localVariableBody = 
-            io.ktor.client.utils.EmptyContent
-
-        val localVariableQuery = mutableMapOf<String, List<String>>()
-        start?.apply { localVariableQuery["start"] = listOf("$start") }
-        slutt?.apply { localVariableQuery["slutt"] = listOf("$slutt") }
-        geometri?.apply { localVariableQuery["geometri"] = listOf("$geometri") }
-        maksAvstand?.apply { localVariableQuery["maks_avstand"] = listOf("$maksAvstand") }
-        omkrets?.apply { localVariableQuery["omkrets"] = listOf("$omkrets") }
-        konnekteringslenker?.apply { localVariableQuery["konnekteringslenker"] = listOf("$konnekteringslenker") }
-        detaljerteLenker?.apply { localVariableQuery["detaljerte_lenker"] = listOf("$detaljerteLenker") }
-        kortform?.apply { localVariableQuery["kortform"] = listOf("$kortform") }
-        vegsystemreferanse?.apply { localVariableQuery["vegsystemreferanse"] = toMultiValue(this, "multi") }
-        trafikantgruppe?.apply { localVariableQuery["trafikantgruppe"] = listOf("${ trafikantgruppe.value }") }
-        beholdTrafikantgruppe?.apply { localVariableQuery["behold_trafikantgruppe"] = listOf("$beholdTrafikantgruppe") }
-        typeveg?.apply { localVariableQuery["typeveg"] = toMultiValue(this, "multi") }
-        tidspunkt?.apply { localVariableQuery["tidspunkt"] = listOf("$tidspunkt") }
-        srid?.apply { localVariableQuery["srid"] = listOf("${ srid.value }") }
-        val localVariableHeaders = mutableMapOf<String, String>()
-
-        val localVariableConfig = RequestConfig<kotlin.Any?>(
+            val localVariableConfig = RequestConfig<kotlin.Any?>(
             RequestMethod.GET,
             "/api/v4/beta/vegnett/rute",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
-        )
+            )
 
-        return request(
+            return request(
             localVariableConfig,
             localVariableBody,
             localVariableAuthNames
-        ).wrap()
-    }
+            ).wrap()
+            }
 
+        /**
+        * POST /api/v4/beta/vegnett/rute
+        * 
+        * 
+         * @param finnRuteParameters  
+         * @return GetRute200Response
+        */
+            @Suppress("UNCHECKED_CAST")
+        open suspend fun postRute(finnRuteParameters: FinnRuteParameters): HttpResponse<GetRute200Response> {
 
-    /**
-     * 
-     * 
-     * @param finnRuteParameters 
-     * @return GetRute200Response
-     */
-    @Suppress("UNCHECKED_CAST")
-    open suspend fun postRute(finnRuteParameters: FinnRuteParameters): HttpResponse<GetRute200Response> {
+            val localVariableAuthNames = listOf<String>()
 
-        val localVariableAuthNames = listOf<String>()
+            val localVariableBody = finnRuteParameters
 
-        val localVariableBody = finnRuteParameters
+            val localVariableQuery = mutableMapOf<String, List<String>>()
 
-        val localVariableQuery = mutableMapOf<String, List<String>>()
-        val localVariableHeaders = mutableMapOf<String, String>()
+            val localVariableHeaders = mutableMapOf<String, String>()
 
-        val localVariableConfig = RequestConfig<kotlin.Any?>(
+            val localVariableConfig = RequestConfig<kotlin.Any?>(
             RequestMethod.POST,
             "/api/v4/beta/vegnett/rute",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
-        )
+            )
 
-        return jsonRequest(
+            return jsonRequest(
             localVariableConfig,
             localVariableBody,
             localVariableAuthNames
-        ).wrap()
-    }
+            ).wrap()
+            }
 
-
-
-}
+        }

@@ -17,9 +17,7 @@ package no.vegvesen.nvdb.vegnett.model
 
 import no.vegvesen.nvdb.vegnett.model.Kvalitet
 
-import kotlinx.serialization.*
-import kotlinx.serialization.descriptors.*
-import kotlinx.serialization.encoding.*
+import com.fasterxml.jackson.annotation.JsonProperty
 
 /**
  * 
@@ -34,27 +32,36 @@ import kotlinx.serialization.encoding.*
  * @param medium 
  * @param mediumNvdb 
  */
-@Serializable
+
 
 data class GeometriMedKvalitet (
 
-    @SerialName(value = "wkt") @Required val wkt: kotlin.String,
+    @get:JsonProperty("wkt")
+    val wkt: kotlin.String,
 
-    @SerialName(value = "srid") @Required val srid: kotlin.Int,
+    @get:JsonProperty("srid")
+    val srid: kotlin.Int,
 
-    @SerialName(value = "kvalitet") @Required val kvalitet: Kvalitet,
+    @get:JsonProperty("kvalitet")
+    val kvalitet: Kvalitet,
 
-    @SerialName(value = "datafangstdato") @Required val datafangstdato: kotlinx.datetime.LocalDate,
+    @get:JsonProperty("datafangstdato")
+    val datafangstdato: java.time.LocalDate,
 
-    @SerialName(value = "kommune") @Required val kommune: kotlin.Int,
+    @get:JsonProperty("kommune")
+    val kommune: kotlin.Int,
 
-    @SerialName(value = "temakode") @Required val temakode: kotlin.Int,
+    @get:JsonProperty("temakode")
+    val temakode: kotlin.Int,
 
-    @SerialName(value = "lengde") @Required val lengde: kotlin.Double,
+    @get:JsonProperty("lengde")
+    val lengde: kotlin.Double,
 
-    @SerialName(value = "medium") val medium: GeometriMedKvalitet.Medium? = null,
+    @get:JsonProperty("medium")
+    val medium: GeometriMedKvalitet.Medium? = null,
 
-    @SerialName(value = "medium_nvdb") val mediumNvdb: kotlin.Int? = null
+    @get:JsonProperty("medium_nvdb")
+    val mediumNvdb: kotlin.Int? = null
 
 ) {
 
@@ -63,21 +70,20 @@ data class GeometriMedKvalitet (
      *
      * Values: T,B,L,U,S,O,V,D,I,W,J,X,IKKE_REGISTRERT
      */
-    @Serializable
     enum class Medium(val value: kotlin.String) {
-        @SerialName(value = "T") T("T"),
-        @SerialName(value = "B") B("B"),
-        @SerialName(value = "L") L("L"),
-        @SerialName(value = "U") U("U"),
-        @SerialName(value = "S") S("S"),
-        @SerialName(value = "O") O("O"),
-        @SerialName(value = "V") V("V"),
-        @SerialName(value = "D") D("D"),
-        @SerialName(value = "I") I("I"),
-        @SerialName(value = "W") W("W"),
-        @SerialName(value = "J") J("J"),
-        @SerialName(value = "X") X("X"),
-        @SerialName(value = "IKKE_REGISTRERT") IKKE_REGISTRERT("IKKE_REGISTRERT");
+        @JsonProperty(value = "T") T("T"),
+        @JsonProperty(value = "B") B("B"),
+        @JsonProperty(value = "L") L("L"),
+        @JsonProperty(value = "U") U("U"),
+        @JsonProperty(value = "S") S("S"),
+        @JsonProperty(value = "O") O("O"),
+        @JsonProperty(value = "V") V("V"),
+        @JsonProperty(value = "D") D("D"),
+        @JsonProperty(value = "I") I("I"),
+        @JsonProperty(value = "W") W("W"),
+        @JsonProperty(value = "J") J("J"),
+        @JsonProperty(value = "X") X("X"),
+        @JsonProperty(value = "IKKE_REGISTRERT") IKKE_REGISTRERT("IKKE_REGISTRERT");
     }
 
 }

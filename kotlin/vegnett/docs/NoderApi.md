@@ -19,7 +19,7 @@ Hent en node
 
 ```kotlin
 // Import classes:
-//import org.openapitools.client.infrastructure.*
+//import no.vegvesen.nvdb.vegnett.infrastructure.*
 //import no.vegvesen.nvdb.vegnett.model.*
 
 val apiInstance = NoderApi()
@@ -69,7 +69,7 @@ Hent noder
 
 ```kotlin
 // Import classes:
-//import org.openapitools.client.infrastructure.*
+//import no.vegvesen.nvdb.vegnett.infrastructure.*
 //import no.vegvesen.nvdb.vegnett.model.*
 
 val apiInstance = NoderApi()

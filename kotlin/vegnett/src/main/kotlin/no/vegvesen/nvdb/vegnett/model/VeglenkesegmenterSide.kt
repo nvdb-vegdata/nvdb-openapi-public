@@ -18,9 +18,7 @@ package no.vegvesen.nvdb.vegnett.model
 import no.vegvesen.nvdb.vegnett.model.SideMetadata
 import no.vegvesen.nvdb.vegnett.model.Veglenkesegment
 
-import kotlinx.serialization.*
-import kotlinx.serialization.descriptors.*
-import kotlinx.serialization.encoding.*
+import com.fasterxml.jackson.annotation.JsonProperty
 
 /**
  * 
@@ -28,13 +26,15 @@ import kotlinx.serialization.encoding.*
  * @param objekter 
  * @param metadata 
  */
-@Serializable
+
 
 data class VeglenkesegmenterSide (
 
-    @SerialName(value = "objekter") @Required val objekter: kotlin.collections.List<Veglenkesegment>,
+    @get:JsonProperty("objekter")
+    val objekter: kotlin.collections.List<Veglenkesegment>,
 
-    @SerialName(value = "metadata") @Required val metadata: SideMetadata
+    @get:JsonProperty("metadata")
+    val metadata: SideMetadata
 
 ) {
 

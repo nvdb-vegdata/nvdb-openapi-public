@@ -17,9 +17,7 @@ package no.vegvesen.nvdb.vegobjekter.model
 
 import no.vegvesen.nvdb.vegobjekter.model.Egenskap
 
-import kotlinx.serialization.*
-import kotlinx.serialization.descriptors.*
-import kotlinx.serialization.encoding.*
+import com.fasterxml.jackson.annotation.JsonProperty
 
 /**
  * 
@@ -28,15 +26,18 @@ import kotlinx.serialization.encoding.*
  * @param navn 
  * @param egenskapstype 
  */
-@Serializable
+
 
 class StrukturEgenskap (
 
-    @SerialName(value = "id") @Required override val id: kotlin.Int,
+    @get:JsonProperty("id")
+    override val id: kotlin.Int,
 
-    @SerialName(value = "navn") @Required override val navn: kotlin.String,
+    @get:JsonProperty("navn")
+    override val navn: kotlin.String,
 
-    @SerialName(value = "egenskapstype") @Required override val egenskapstype: StrukturEgenskap.Egenskapstype
+    @get:JsonProperty("egenskapstype")
+    override val egenskapstype: StrukturEgenskap.Egenskapstype
 
 ) : Egenskap {
 

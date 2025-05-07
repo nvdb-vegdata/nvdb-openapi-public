@@ -16,9 +16,7 @@
 package no.vegvesen.nvdb.vegobjekter.model
 
 
-import kotlinx.serialization.*
-import kotlinx.serialization.descriptors.*
-import kotlinx.serialization.encoding.*
+import com.fasterxml.jackson.annotation.JsonProperty
 
 /**
  * 
@@ -34,29 +32,39 @@ import kotlinx.serialization.encoding.*
  * @param tilMeter 
  * @param adskilteLøpNummer 
  */
-@Serializable
+
 
 data class Strekning (
 
-    @SerialName(value = "strekning") @Required val strekning: kotlin.Int,
+    @get:JsonProperty("strekning")
+    val strekning: kotlin.Int,
 
-    @SerialName(value = "delstrekning") @Required val delstrekning: kotlin.Int,
+    @get:JsonProperty("delstrekning")
+    val delstrekning: kotlin.Int,
 
-    @SerialName(value = "arm") @Required val arm: kotlin.Boolean,
+    @get:JsonProperty("arm")
+    val arm: kotlin.Boolean,
 
-    @SerialName(value = "adskilte_løp") @Required val adskilteLøp: Strekning.AdskilteLøp,
+    @get:JsonProperty("adskilte_løp")
+    val adskilteLøp: Strekning.AdskilteLøp,
 
-    @SerialName(value = "trafikantgruppe") @Required val trafikantgruppe: Strekning.Trafikantgruppe,
+    @get:JsonProperty("trafikantgruppe")
+    val trafikantgruppe: Strekning.Trafikantgruppe,
 
-    @SerialName(value = "retning") @Required val retning: Strekning.Retning,
+    @get:JsonProperty("retning")
+    val retning: Strekning.Retning,
 
-    @SerialName(value = "meter") val meter: kotlin.Double? = null,
+    @get:JsonProperty("meter")
+    val meter: kotlin.Double? = null,
 
-    @SerialName(value = "fra_meter") val fraMeter: kotlin.Double? = null,
+    @get:JsonProperty("fra_meter")
+    val fraMeter: kotlin.Double? = null,
 
-    @SerialName(value = "til_meter") val tilMeter: kotlin.Double? = null,
+    @get:JsonProperty("til_meter")
+    val tilMeter: kotlin.Double? = null,
 
-    @SerialName(value = "adskilte_løp_nummer") val adskilteLøpNummer: kotlin.String? = null
+    @get:JsonProperty("adskilte_løp_nummer")
+    val adskilteLøpNummer: kotlin.String? = null
 
 ) {
 
@@ -65,31 +73,28 @@ data class Strekning (
      *
      * Values: Med,Mot,Nei
      */
-    @Serializable
     enum class AdskilteLøp(val value: kotlin.String) {
-        @SerialName(value = "Med") Med("Med"),
-        @SerialName(value = "Mot") Mot("Mot"),
-        @SerialName(value = "Nei") Nei("Nei");
+        @JsonProperty(value = "Med") Med("Med"),
+        @JsonProperty(value = "Mot") Mot("Mot"),
+        @JsonProperty(value = "Nei") Nei("Nei");
     }
     /**
      * 
      *
      * Values: K,G
      */
-    @Serializable
     enum class Trafikantgruppe(val value: kotlin.String) {
-        @SerialName(value = "K") K("K"),
-        @SerialName(value = "G") G("G");
+        @JsonProperty(value = "K") K("K"),
+        @JsonProperty(value = "G") G("G");
     }
     /**
      * 
      *
      * Values: MED,MOT
      */
-    @Serializable
     enum class Retning(val value: kotlin.String) {
-        @SerialName(value = "MED") MED("MED"),
-        @SerialName(value = "MOT") MOT("MOT");
+        @JsonProperty(value = "MED") MED("MED"),
+        @JsonProperty(value = "MOT") MOT("MOT");
     }
 
 }

@@ -21,9 +21,7 @@ import no.vegvesen.nvdb.vegobjekter.model.Sideanlegg
 import no.vegvesen.nvdb.vegobjekter.model.Strekning
 import no.vegvesen.nvdb.vegobjekter.model.Vegsystem
 
-import kotlinx.serialization.*
-import kotlinx.serialization.descriptors.*
-import kotlinx.serialization.encoding.*
+import com.fasterxml.jackson.annotation.JsonProperty
 
 /**
  * 
@@ -35,21 +33,27 @@ import kotlinx.serialization.encoding.*
  * @param metrertLokasjon 
  * @param kortform 
  */
-@Serializable
+
 
 data class Vegsystemreferanse (
 
-    @SerialName(value = "vegsystem") val vegsystem: Vegsystem? = null,
+    @get:JsonProperty("vegsystem")
+    val vegsystem: Vegsystem? = null,
 
-    @SerialName(value = "strekning") val strekning: Strekning? = null,
+    @get:JsonProperty("strekning")
+    val strekning: Strekning? = null,
 
-    @SerialName(value = "kryssystem") val kryssystem: Kryssystem? = null,
+    @get:JsonProperty("kryssystem")
+    val kryssystem: Kryssystem? = null,
 
-    @SerialName(value = "sideanlegg") val sideanlegg: Sideanlegg? = null,
+    @get:JsonProperty("sideanlegg")
+    val sideanlegg: Sideanlegg? = null,
 
-    @SerialName(value = "metrertLokasjon") val metrertLokasjon: MetrertLokasjon? = null,
+    @get:JsonProperty("metrertLokasjon")
+    val metrertLokasjon: MetrertLokasjon? = null,
 
-    @SerialName(value = "kortform") val kortform: kotlin.String? = null
+    @get:JsonProperty("kortform")
+    val kortform: kotlin.String? = null
 
 ) {
 

@@ -19,9 +19,7 @@ import no.vegvesen.nvdb.vegnett.model.PosisjonGeometri
 import no.vegvesen.nvdb.vegnett.model.PosisjonVeglenkesekvens
 import no.vegvesen.nvdb.vegnett.model.Vegsystemreferanse
 
-import kotlinx.serialization.*
-import kotlinx.serialization.descriptors.*
-import kotlinx.serialization.encoding.*
+import com.fasterxml.jackson.annotation.JsonProperty
 
 /**
  * 
@@ -32,19 +30,24 @@ import kotlinx.serialization.encoding.*
  * @param kommune 
  * @param avstand 
  */
-@Serializable
+
 
 data class PosisjonMedAvstand (
 
-    @SerialName(value = "vegsystemreferanse") @Required val vegsystemreferanse: Vegsystemreferanse,
+    @get:JsonProperty("vegsystemreferanse")
+    val vegsystemreferanse: Vegsystemreferanse,
 
-    @SerialName(value = "veglenkesekvens") @Required val veglenkesekvens: PosisjonVeglenkesekvens,
+    @get:JsonProperty("veglenkesekvens")
+    val veglenkesekvens: PosisjonVeglenkesekvens,
 
-    @SerialName(value = "geometri") @Required val geometri: PosisjonGeometri,
+    @get:JsonProperty("geometri")
+    val geometri: PosisjonGeometri,
 
-    @SerialName(value = "kommune") @Required val kommune: kotlin.Int,
+    @get:JsonProperty("kommune")
+    val kommune: kotlin.Int,
 
-    @SerialName(value = "avstand") @Required val avstand: kotlin.Double
+    @get:JsonProperty("avstand")
+    val avstand: kotlin.Double
 
 ) {
 

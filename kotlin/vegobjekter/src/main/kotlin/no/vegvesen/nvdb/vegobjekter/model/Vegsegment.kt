@@ -18,9 +18,7 @@ package no.vegvesen.nvdb.vegobjekter.model
 import no.vegvesen.nvdb.vegobjekter.model.Geometri
 import no.vegvesen.nvdb.vegobjekter.model.Vegsystemreferanse
 
-import kotlinx.serialization.*
-import kotlinx.serialization.descriptors.*
-import kotlinx.serialization.encoding.*
+import com.fasterxml.jackson.annotation.JsonProperty
 
 /**
  * 
@@ -49,55 +47,78 @@ import kotlinx.serialization.encoding.*
  * @param vegforvaltere 
  * @param adresser 
  */
-@Serializable
+
 
 data class Vegsegment (
 
-    @SerialName(value = "veglenkesekvensid") @Required val veglenkesekvensid: kotlin.Long,
+    @get:JsonProperty("veglenkesekvensid")
+    val veglenkesekvensid: kotlin.Long,
 
-    @SerialName(value = "retning") @Required val retning: Vegsegment.Retning,
+    @get:JsonProperty("retning")
+    val retning: Vegsegment.Retning,
 
-    @SerialName(value = "veglenkeType") @Required val veglenkeType: Vegsegment.VeglenkeType,
+    @get:JsonProperty("veglenkeType")
+    val veglenkeType: Vegsegment.VeglenkeType,
 
-    @SerialName(value = "detaljnivå") @Required val detaljnivå: Vegsegment.Detaljnivå,
+    @get:JsonProperty("detaljnivå")
+    val detaljnivå: Vegsegment.Detaljnivå,
 
-    @SerialName(value = "typeVeg") @Required val typeVeg: Vegsegment.TypeVeg,
+    @get:JsonProperty("typeVeg")
+    val typeVeg: Vegsegment.TypeVeg,
 
-    @SerialName(value = "typeVeg_sosi") @Required val typeVegSosi: Vegsegment.TypeVegSosi,
+    @get:JsonProperty("typeVeg_sosi")
+    val typeVegSosi: Vegsegment.TypeVegSosi,
 
-    @SerialName(value = "startdato") @Required val startdato: kotlinx.datetime.LocalDate,
+    @get:JsonProperty("startdato")
+    val startdato: java.time.LocalDate,
 
-    @SerialName(value = "geometri") @Required val geometri: Geometri,
+    @get:JsonProperty("geometri")
+    val geometri: Geometri,
 
-    @SerialName(value = "kommune") @Required val kommune: kotlin.Int,
+    @get:JsonProperty("kommune")
+    val kommune: kotlin.Int,
 
-    @SerialName(value = "fylke") @Required val fylke: kotlin.Int,
+    @get:JsonProperty("fylke")
+    val fylke: kotlin.Int,
 
-    @SerialName(value = "startposisjon") val startposisjon: kotlin.Double? = null,
+    @get:JsonProperty("startposisjon")
+    val startposisjon: kotlin.Double? = null,
 
-    @SerialName(value = "sluttposisjon") val sluttposisjon: kotlin.Double? = null,
+    @get:JsonProperty("sluttposisjon")
+    val sluttposisjon: kotlin.Double? = null,
 
-    @SerialName(value = "relativPosisjon") val relativPosisjon: kotlin.Double? = null,
+    @get:JsonProperty("relativPosisjon")
+    val relativPosisjon: kotlin.Double? = null,
 
-    @SerialName(value = "lengde") val lengde: kotlin.Double? = null,
+    @get:JsonProperty("lengde")
+    val lengde: kotlin.Double? = null,
 
-    @SerialName(value = "kjørefelt") val kjørefelt: kotlin.collections.List<kotlin.String>? = null,
+    @get:JsonProperty("kjørefelt")
+    val kjørefelt: kotlin.collections.List<kotlin.String>? = null,
 
-    @SerialName(value = "sideposisjon") val sideposisjon: Vegsegment.Sideposisjon? = null,
+    @get:JsonProperty("sideposisjon")
+    val sideposisjon: Vegsegment.Sideposisjon? = null,
 
-    @SerialName(value = "feltoversikt") val feltoversikt: kotlin.collections.List<kotlin.String>? = null,
+    @get:JsonProperty("feltoversikt")
+    val feltoversikt: kotlin.collections.List<kotlin.String>? = null,
 
-    @SerialName(value = "sluttdato") val sluttdato: kotlinx.datetime.LocalDate? = null,
+    @get:JsonProperty("sluttdato")
+    val sluttdato: java.time.LocalDate? = null,
 
-    @SerialName(value = "vegsystemreferanse") val vegsystemreferanse: Vegsystemreferanse? = null,
+    @get:JsonProperty("vegsystemreferanse")
+    val vegsystemreferanse: Vegsystemreferanse? = null,
 
-    @SerialName(value = "kontraktsområder") val kontraktsområder: kotlin.collections.Set<kotlin.Long>? = null,
+    @get:JsonProperty("kontraktsområder")
+    val kontraktsområder: kotlin.collections.Set<kotlin.Long>? = null,
 
-    @SerialName(value = "riksvegruter") val riksvegruter: kotlin.collections.Set<kotlin.Int>? = null,
+    @get:JsonProperty("riksvegruter")
+    val riksvegruter: kotlin.collections.Set<kotlin.Int>? = null,
 
-    @SerialName(value = "vegforvaltere") val vegforvaltere: kotlin.collections.Set<kotlin.Int>? = null,
+    @get:JsonProperty("vegforvaltere")
+    val vegforvaltere: kotlin.collections.Set<kotlin.Int>? = null,
 
-    @SerialName(value = "adresser") val adresser: kotlin.collections.Set<kotlin.Long>? = null
+    @get:JsonProperty("adresser")
+    val adresser: kotlin.collections.Set<kotlin.Long>? = null
 
 ) {
 
@@ -106,106 +127,100 @@ data class Vegsegment (
      *
      * Values: MED,MOT
      */
-    @Serializable
     enum class Retning(val value: kotlin.String) {
-        @SerialName(value = "MED") MED("MED"),
-        @SerialName(value = "MOT") MOT("MOT");
+        @JsonProperty(value = "MED") MED("MED"),
+        @JsonProperty(value = "MOT") MOT("MOT");
     }
     /**
      * 
      *
      * Values: Ukjent,DETALJERT,KONNEKTERING,DETALJERT_KONNEKTERING,HOVED
      */
-    @Serializable
     enum class VeglenkeType(val value: kotlin.String) {
-        @SerialName(value = "Ukjent") Ukjent("Ukjent"),
-        @SerialName(value = "DETALJERT") DETALJERT("DETALJERT"),
-        @SerialName(value = "KONNEKTERING") KONNEKTERING("KONNEKTERING"),
-        @SerialName(value = "DETALJERT_KONNEKTERING") DETALJERT_KONNEKTERING("DETALJERT_KONNEKTERING"),
-        @SerialName(value = "HOVED") HOVED("HOVED");
+        @JsonProperty(value = "Ukjent") Ukjent("Ukjent"),
+        @JsonProperty(value = "DETALJERT") DETALJERT("DETALJERT"),
+        @JsonProperty(value = "KONNEKTERING") KONNEKTERING("KONNEKTERING"),
+        @JsonProperty(value = "DETALJERT_KONNEKTERING") DETALJERT_KONNEKTERING("DETALJERT_KONNEKTERING"),
+        @JsonProperty(value = "HOVED") HOVED("HOVED");
     }
     /**
      * 
      *
      * Values: Vegtrase,Kjørebane,Kjørefelt,Vegtrase_og_kjørebane
      */
-    @Serializable
     enum class Detaljnivå(val value: kotlin.String) {
-        @SerialName(value = "Vegtrase") Vegtrase("Vegtrase"),
-        @SerialName(value = "Kjørebane") Kjørebane("Kjørebane"),
-        @SerialName(value = "Kjørefelt") Kjørefelt("Kjørefelt"),
-        @SerialName(value = "Vegtrase og kjørebane") Vegtrase_og_kjørebane("Vegtrase og kjørebane");
+        @JsonProperty(value = "Vegtrase") Vegtrase("Vegtrase"),
+        @JsonProperty(value = "Kjørebane") Kjørebane("Kjørebane"),
+        @JsonProperty(value = "Kjørefelt") Kjørefelt("Kjørefelt"),
+        @JsonProperty(value = "Vegtrase og kjørebane") Vegtrase_og_kjørebane("Vegtrase og kjørebane");
     }
     /**
      * 
      *
      * Values: Kanalisert_veg,Enkel_bilveg,Rampe,Rundkjøring,Bilferje,Passasjerferje,GangMinus_og_sykkelveg,Sykkelveg,Gangveg,Gågate,Fortau,Trapp,Gangfelt,Gatetun,Traktorveg,Sti,Annet
      */
-    @Serializable
     enum class TypeVeg(val value: kotlin.String) {
-        @SerialName(value = "Kanalisert veg") Kanalisert_veg("Kanalisert veg"),
-        @SerialName(value = "Enkel bilveg") Enkel_bilveg("Enkel bilveg"),
-        @SerialName(value = "Rampe") Rampe("Rampe"),
-        @SerialName(value = "Rundkjøring") Rundkjøring("Rundkjøring"),
-        @SerialName(value = "Bilferje") Bilferje("Bilferje"),
-        @SerialName(value = "Passasjerferje") Passasjerferje("Passasjerferje"),
-        @SerialName(value = "Gang- og sykkelveg") GangMinus_og_sykkelveg("Gang- og sykkelveg"),
-        @SerialName(value = "Sykkelveg") Sykkelveg("Sykkelveg"),
-        @SerialName(value = "Gangveg") Gangveg("Gangveg"),
-        @SerialName(value = "Gågate") Gågate("Gågate"),
-        @SerialName(value = "Fortau") Fortau("Fortau"),
-        @SerialName(value = "Trapp") Trapp("Trapp"),
-        @SerialName(value = "Gangfelt") Gangfelt("Gangfelt"),
-        @SerialName(value = "Gatetun") Gatetun("Gatetun"),
-        @SerialName(value = "Traktorveg") Traktorveg("Traktorveg"),
-        @SerialName(value = "Sti") Sti("Sti"),
-        @SerialName(value = "Annet") Annet("Annet");
+        @JsonProperty(value = "Kanalisert veg") Kanalisert_veg("Kanalisert veg"),
+        @JsonProperty(value = "Enkel bilveg") Enkel_bilveg("Enkel bilveg"),
+        @JsonProperty(value = "Rampe") Rampe("Rampe"),
+        @JsonProperty(value = "Rundkjøring") Rundkjøring("Rundkjøring"),
+        @JsonProperty(value = "Bilferje") Bilferje("Bilferje"),
+        @JsonProperty(value = "Passasjerferje") Passasjerferje("Passasjerferje"),
+        @JsonProperty(value = "Gang- og sykkelveg") GangMinus_og_sykkelveg("Gang- og sykkelveg"),
+        @JsonProperty(value = "Sykkelveg") Sykkelveg("Sykkelveg"),
+        @JsonProperty(value = "Gangveg") Gangveg("Gangveg"),
+        @JsonProperty(value = "Gågate") Gågate("Gågate"),
+        @JsonProperty(value = "Fortau") Fortau("Fortau"),
+        @JsonProperty(value = "Trapp") Trapp("Trapp"),
+        @JsonProperty(value = "Gangfelt") Gangfelt("Gangfelt"),
+        @JsonProperty(value = "Gatetun") Gatetun("Gatetun"),
+        @JsonProperty(value = "Traktorveg") Traktorveg("Traktorveg"),
+        @JsonProperty(value = "Sti") Sti("Sti"),
+        @JsonProperty(value = "Annet") Annet("Annet");
     }
     /**
      * 
      *
      * Values: kanalisertVeg,enkelBilveg,rampe,rundkjøring,bilferje,passasjerferje,gangOgSykkelveg,sykkelveg,gangveg,gågate,fortau,trapp,gangfelt,gatetun,traktorveg,sti,annet
      */
-    @Serializable
     enum class TypeVegSosi(val value: kotlin.String) {
-        @SerialName(value = "kanalisertVeg") kanalisertVeg("kanalisertVeg"),
-        @SerialName(value = "enkelBilveg") enkelBilveg("enkelBilveg"),
-        @SerialName(value = "rampe") rampe("rampe"),
-        @SerialName(value = "rundkjøring") rundkjøring("rundkjøring"),
-        @SerialName(value = "bilferje") bilferje("bilferje"),
-        @SerialName(value = "passasjerferje") passasjerferje("passasjerferje"),
-        @SerialName(value = "gangOgSykkelveg") gangOgSykkelveg("gangOgSykkelveg"),
-        @SerialName(value = "sykkelveg") sykkelveg("sykkelveg"),
-        @SerialName(value = "gangveg") gangveg("gangveg"),
-        @SerialName(value = "gågate") gågate("gågate"),
-        @SerialName(value = "fortau") fortau("fortau"),
-        @SerialName(value = "trapp") trapp("trapp"),
-        @SerialName(value = "gangfelt") gangfelt("gangfelt"),
-        @SerialName(value = "gatetun") gatetun("gatetun"),
-        @SerialName(value = "traktorveg") traktorveg("traktorveg"),
-        @SerialName(value = "sti") sti("sti"),
-        @SerialName(value = "annet") annet("annet");
+        @JsonProperty(value = "kanalisertVeg") kanalisertVeg("kanalisertVeg"),
+        @JsonProperty(value = "enkelBilveg") enkelBilveg("enkelBilveg"),
+        @JsonProperty(value = "rampe") rampe("rampe"),
+        @JsonProperty(value = "rundkjøring") rundkjøring("rundkjøring"),
+        @JsonProperty(value = "bilferje") bilferje("bilferje"),
+        @JsonProperty(value = "passasjerferje") passasjerferje("passasjerferje"),
+        @JsonProperty(value = "gangOgSykkelveg") gangOgSykkelveg("gangOgSykkelveg"),
+        @JsonProperty(value = "sykkelveg") sykkelveg("sykkelveg"),
+        @JsonProperty(value = "gangveg") gangveg("gangveg"),
+        @JsonProperty(value = "gågate") gågate("gågate"),
+        @JsonProperty(value = "fortau") fortau("fortau"),
+        @JsonProperty(value = "trapp") trapp("trapp"),
+        @JsonProperty(value = "gangfelt") gangfelt("gangfelt"),
+        @JsonProperty(value = "gatetun") gatetun("gatetun"),
+        @JsonProperty(value = "traktorveg") traktorveg("traktorveg"),
+        @JsonProperty(value = "sti") sti("sti"),
+        @JsonProperty(value = "annet") annet("annet");
     }
     /**
      * 
      *
      * Values: MH,MV,VT,M,H,HT,VH,HV,K,V,L,R,R0
      */
-    @Serializable
     enum class Sideposisjon(val value: kotlin.String) {
-        @SerialName(value = "MH") MH("MH"),
-        @SerialName(value = "MV") MV("MV"),
-        @SerialName(value = "VT") VT("VT"),
-        @SerialName(value = "M") M("M"),
-        @SerialName(value = "H") H("H"),
-        @SerialName(value = "HT") HT("HT"),
-        @SerialName(value = "VH") VH("VH"),
-        @SerialName(value = "HV") HV("HV"),
-        @SerialName(value = "K") K("K"),
-        @SerialName(value = "V") V("V"),
-        @SerialName(value = "L") L("L"),
-        @SerialName(value = "R") R("R"),
-        @SerialName(value = "R0") R0("R0");
+        @JsonProperty(value = "MH") MH("MH"),
+        @JsonProperty(value = "MV") MV("MV"),
+        @JsonProperty(value = "VT") VT("VT"),
+        @JsonProperty(value = "M") M("M"),
+        @JsonProperty(value = "H") H("H"),
+        @JsonProperty(value = "HT") HT("HT"),
+        @JsonProperty(value = "VH") VH("VH"),
+        @JsonProperty(value = "HV") HV("HV"),
+        @JsonProperty(value = "K") K("K"),
+        @JsonProperty(value = "V") V("V"),
+        @JsonProperty(value = "L") L("L"),
+        @JsonProperty(value = "R") R("R"),
+        @JsonProperty(value = "R0") R0("R0");
     }
 
 }

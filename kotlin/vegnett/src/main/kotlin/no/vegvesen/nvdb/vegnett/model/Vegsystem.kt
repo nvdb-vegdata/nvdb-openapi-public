@@ -16,9 +16,7 @@
 package no.vegvesen.nvdb.vegnett.model
 
 
-import kotlinx.serialization.*
-import kotlinx.serialization.descriptors.*
-import kotlinx.serialization.encoding.*
+import com.fasterxml.jackson.annotation.JsonProperty
 
 /**
  * 
@@ -27,15 +25,18 @@ import kotlinx.serialization.encoding.*
  * @param fase 
  * @param nummer 
  */
-@Serializable
+
 
 data class Vegsystem (
 
-    @SerialName(value = "vegkategori") @Required val vegkategori: Vegsystem.Vegkategori,
+    @get:JsonProperty("vegkategori")
+    val vegkategori: Vegsystem.Vegkategori,
 
-    @SerialName(value = "fase") @Required val fase: Vegsystem.Fase,
+    @get:JsonProperty("fase")
+    val fase: Vegsystem.Fase,
 
-    @SerialName(value = "nummer") val nummer: kotlin.Int? = null
+    @get:JsonProperty("nummer")
+    val nummer: kotlin.Int? = null
 
 ) {
 
@@ -44,26 +45,24 @@ data class Vegsystem (
      *
      * Values: E,F,K,P,R,S
      */
-    @Serializable
     enum class Vegkategori(val value: kotlin.String) {
-        @SerialName(value = "E") E("E"),
-        @SerialName(value = "F") F("F"),
-        @SerialName(value = "K") K("K"),
-        @SerialName(value = "P") P("P"),
-        @SerialName(value = "R") R("R"),
-        @SerialName(value = "S") S("S");
+        @JsonProperty(value = "E") E("E"),
+        @JsonProperty(value = "F") F("F"),
+        @JsonProperty(value = "K") K("K"),
+        @JsonProperty(value = "P") P("P"),
+        @JsonProperty(value = "R") R("R"),
+        @JsonProperty(value = "S") S("S");
     }
     /**
      * 
      *
      * Values: P,A,V,F
      */
-    @Serializable
     enum class Fase(val value: kotlin.String) {
-        @SerialName(value = "P") P("P"),
-        @SerialName(value = "A") A("A"),
-        @SerialName(value = "V") V("V"),
-        @SerialName(value = "F") F("F");
+        @JsonProperty(value = "P") P("P"),
+        @JsonProperty(value = "A") A("A"),
+        @JsonProperty(value = "V") V("V"),
+        @JsonProperty(value = "F") F("F");
     }
 
 }

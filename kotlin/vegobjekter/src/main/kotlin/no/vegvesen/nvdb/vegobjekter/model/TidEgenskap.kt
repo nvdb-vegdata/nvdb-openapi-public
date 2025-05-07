@@ -17,9 +17,7 @@ package no.vegvesen.nvdb.vegobjekter.model
 
 import no.vegvesen.nvdb.vegobjekter.model.Egenskap
 
-import kotlinx.serialization.*
-import kotlinx.serialization.descriptors.*
-import kotlinx.serialization.encoding.*
+import com.fasterxml.jackson.annotation.JsonProperty
 
 /**
  * 
@@ -29,18 +27,22 @@ import kotlinx.serialization.encoding.*
  * @param egenskapstype 
  * @param verdi Klokkeslett på formatet HH:mm
  */
-@Serializable
+
 
 data class TidEgenskap (
 
-    @SerialName(value = "id") @Required override val id: kotlin.Int,
+    @get:JsonProperty("id")
+    override val id: kotlin.Int,
 
-    @SerialName(value = "navn") @Required override val navn: kotlin.String,
+    @get:JsonProperty("navn")
+    override val navn: kotlin.String,
 
-    @SerialName(value = "egenskapstype") @Required override val egenskapstype: TidEgenskap.Egenskapstype,
+    @get:JsonProperty("egenskapstype")
+    override val egenskapstype: TidEgenskap.Egenskapstype,
 
     /* Klokkeslett på formatet HH:mm */
-    @SerialName(value = "verdi") val verdi: kotlin.String? = null
+    @get:JsonProperty("verdi")
+    val verdi: kotlin.String? = null
 
 ) : Egenskap {
 

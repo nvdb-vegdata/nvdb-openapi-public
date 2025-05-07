@@ -16,9 +16,7 @@
 package no.vegvesen.nvdb.vegnett.model
 
 
-import kotlinx.serialization.*
-import kotlinx.serialization.descriptors.*
-import kotlinx.serialization.encoding.*
+import com.fasterxml.jackson.annotation.JsonProperty
 
 /**
  * 
@@ -26,13 +24,15 @@ import kotlinx.serialization.encoding.*
  * @param enumid 
  * @param riksvegrute 
  */
-@Serializable
+
 
 data class Riksvegrute (
 
-    @SerialName(value = "enumid") @Required val enumid: kotlin.Int,
+    @get:JsonProperty("enumid")
+    val enumid: kotlin.Int,
 
-    @SerialName(value = "riksvegrute") @Required val riksvegrute: kotlin.String
+    @get:JsonProperty("riksvegrute")
+    val riksvegrute: kotlin.String
 
 ) {
 

@@ -16,9 +16,7 @@
 package no.vegvesen.nvdb.vegobjekter.model
 
 
-import kotlinx.serialization.*
-import kotlinx.serialization.descriptors.*
-import kotlinx.serialization.encoding.*
+import com.fasterxml.jackson.annotation.JsonProperty
 
 /**
  * 
@@ -28,17 +26,21 @@ import kotlinx.serialization.encoding.*
  * @param forenklet 
  * @param egengeometri 
  */
-@Serializable
+
 
 data class Geometri (
 
-    @SerialName(value = "wkt") @Required val wkt: kotlin.String,
+    @get:JsonProperty("wkt")
+    val wkt: kotlin.String,
 
-    @SerialName(value = "srid") @Required val srid: Geometri.Srid,
+    @get:JsonProperty("srid")
+    val srid: Geometri.Srid,
 
-    @SerialName(value = "forenklet") val forenklet: kotlin.Boolean? = null,
+    @get:JsonProperty("forenklet")
+    val forenklet: kotlin.Boolean? = null,
 
-    @SerialName(value = "egengeometri") val egengeometri: kotlin.Boolean? = null
+    @get:JsonProperty("egengeometri")
+    val egengeometri: kotlin.Boolean? = null
 
 ) {
 
@@ -47,12 +49,11 @@ data class Geometri (
      *
      * Values: _5972,_5973,_5975,_4326
      */
-    @Serializable
     enum class Srid(val value: kotlin.String) {
-        @SerialName(value = "5972") _5972("5972"),
-        @SerialName(value = "5973") _5973("5973"),
-        @SerialName(value = "5975") _5975("5975"),
-        @SerialName(value = "4326") _4326("4326");
+        @JsonProperty(value = "5972") _5972("5972"),
+        @JsonProperty(value = "5973") _5973("5973"),
+        @JsonProperty(value = "5975") _5975("5975"),
+        @JsonProperty(value = "4326") _4326("4326");
     }
 
 }

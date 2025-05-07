@@ -16,9 +16,7 @@
 package no.vegvesen.nvdb.vegnett.model
 
 
-import kotlinx.serialization.*
-import kotlinx.serialization.descriptors.*
-import kotlinx.serialization.encoding.*
+import com.fasterxml.jackson.annotation.JsonProperty
 
 /**
  * 
@@ -26,13 +24,15 @@ import kotlinx.serialization.encoding.*
  * @param startdato 
  * @param sluttdato 
  */
-@Serializable
+
 
 data class Metadata (
 
-    @SerialName(value = "startdato") @Required val startdato: kotlinx.datetime.LocalDate,
+    @get:JsonProperty("startdato")
+    val startdato: java.time.LocalDate,
 
-    @SerialName(value = "sluttdato") val sluttdato: kotlinx.datetime.LocalDate? = null
+    @get:JsonProperty("sluttdato")
+    val sluttdato: java.time.LocalDate? = null
 
 ) {
 
