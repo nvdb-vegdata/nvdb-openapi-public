@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>nvdbapiles-datakatalogen-kotlin-client</artifactId>
+    <artifactId>nvdbapiles-vegobjekter-kotlin-client</artifactId>
     <groupId>no.vegvesen.vt.nvdb.apiles</groupId>
     <version>1.0.0</version>
-    <name>nvdbapiles-datakatalogen-kotlin-client</name>
+    <name>nvdbapiles-vegobjekter-kotlin-client</name>
     <properties>
         <kotest.version>5.9.1</kotest.version>
         <kotlin.version>2.1.0</kotlin.version>

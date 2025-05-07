@@ -39,13 +39,16 @@
         "inputSpec": "https://nvdbapiles.atlas.vegvesen.no/api-docs/vegnett_blue",
         "output": "kotlin/vegnett",
         "generatorName": "kotlin",
-        "library": "multiplatform",
+        "library": "jvm-ktor",
         "apiPackage": "no.vegvesen.nvdb.vegnett.api",
         "modelPackage": "no.vegvesen.nvdb.vegnett.model",
-        "globalProperty": "models,apis,modelDocs=false,modelTests=false,apiTests=false",
+        "globalProperty": "modelDocs=false,modelTests=false,apiTests=false",
         "additionalProperties": {
-          "dateLibrary": "kotlinx-datetime",
-          "sourceFolder": "src/main/kotlin"
+          "serializationLibrary": "jackson",
+          "sourceFolder": "src/main/kotlin",
+          "omitGradleWrapper": true,
+          "packageName": "no.vegvesen.nvdb.vegnett",
+          "groupId": "no.vegvesen.vt.nvdb.apiles"
         }
       },
       "datakatalog-ts": {
@@ -57,13 +60,16 @@
         "inputSpec": "https://nvdbapiles.atlas.vegvesen.no/api-docs/vegobjekter_blue",
         "output": "kotlin/vegobjekter",
         "generatorName": "kotlin",
-        "library": "multiplatform",
+        "library": "jvm-ktor",
         "apiPackage": "no.vegvesen.nvdb.vegobjekter.api",
         "modelPackage": "no.vegvesen.nvdb.vegobjekter.model",
-        "globalProperty": "models,apis,modelDocs=false,modelTests=false,apiTests=false",
+        "globalProperty": "modelDocs=false,modelTests=false,apiTests=false",
         "additionalProperties": {
-          "dateLibrary": "kotlinx-datetime",
-          "sourceFolder": "src/main/kotlin"
+          "serializationLibrary": "jackson",
+          "sourceFolder": "src/main/kotlin",
+          "omitGradleWrapper": true,
+          "packageName": "no.vegvesen.nvdb.vegobjekter",
+          "groupId": "no.vegvesen.vt.nvdb.apiles"
         }
       }
     }
