@@ -18,7 +18,7 @@ Hent statistikk for segmentert vegnett, gruppert på en eller flere felter
 
 ```kotlin
 // Import classes:
-//import org.openapitools.client.infrastructure.*
+//import no.vegvesen.nvdb.vegnett.infrastructure.*
 //import no.vegvesen.nvdb.vegnett.model.*
 
 val apiInstance = StatistikkApi()

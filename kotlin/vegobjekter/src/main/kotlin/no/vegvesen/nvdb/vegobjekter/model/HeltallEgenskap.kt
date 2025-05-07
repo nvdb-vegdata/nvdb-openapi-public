@@ -18,9 +18,7 @@ package no.vegvesen.nvdb.vegobjekter.model
 import no.vegvesen.nvdb.vegobjekter.model.Egenskap
 import no.vegvesen.nvdb.vegobjekter.model.Enhet
 
-import kotlinx.serialization.*
-import kotlinx.serialization.descriptors.*
-import kotlinx.serialization.encoding.*
+import com.fasterxml.jackson.annotation.JsonProperty
 
 /**
  * 
@@ -31,19 +29,24 @@ import kotlinx.serialization.encoding.*
  * @param verdi 
  * @param enhet 
  */
-@Serializable
+
 
 data class HeltallEgenskap (
 
-    @SerialName(value = "id") @Required override val id: kotlin.Int,
+    @get:JsonProperty("id")
+    override val id: kotlin.Int,
 
-    @SerialName(value = "navn") @Required override val navn: kotlin.String,
+    @get:JsonProperty("navn")
+    override val navn: kotlin.String,
 
-    @SerialName(value = "egenskapstype") @Required override val egenskapstype: HeltallEgenskap.Egenskapstype,
+    @get:JsonProperty("egenskapstype")
+    override val egenskapstype: HeltallEgenskap.Egenskapstype,
 
-    @SerialName(value = "verdi") val verdi: kotlin.Int? = null,
+    @get:JsonProperty("verdi")
+    val verdi: kotlin.Int? = null,
 
-    @SerialName(value = "enhet") val enhet: Enhet? = null
+    @get:JsonProperty("enhet")
+    val enhet: Enhet? = null
 
 ) : Egenskap {
 

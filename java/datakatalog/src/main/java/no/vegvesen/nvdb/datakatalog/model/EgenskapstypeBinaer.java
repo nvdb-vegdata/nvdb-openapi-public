@@ -260,48 +260,6 @@ public class EgenskapstypeBinaer extends Egenskapstype {
   }
 
   @Override
-  public EgenskapstypeBinaer komplementærEgenskapstype(@javax.annotation.Nullable Integer komplementærEgenskapstype) {
-    this.setKomplementærEgenskapstype(komplementærEgenskapstype);
-    return this;
-  }
-
-  @Override
-  public EgenskapstypeBinaer kortnavn(@javax.annotation.Nullable String kortnavn) {
-    this.setKortnavn(kortnavn);
-    return this;
-  }
-
-  @Override
-  public EgenskapstypeBinaer beskrivelse(@javax.annotation.Nullable String beskrivelse) {
-    this.setBeskrivelse(beskrivelse);
-    return this;
-  }
-
-  @Override
-  public EgenskapstypeBinaer sosinavn(@javax.annotation.Nullable String sosinavn) {
-    this.setSosinavn(sosinavn);
-    return this;
-  }
-
-  @Override
-  public EgenskapstypeBinaer sosinvdbnavn(@javax.annotation.Nullable String sosinvdbnavn) {
-    this.setSosinvdbnavn(sosinvdbnavn);
-    return this;
-  }
-
-  @Override
-  public EgenskapstypeBinaer sorteringsnummer(@javax.annotation.Nonnull Integer sorteringsnummer) {
-    this.setSorteringsnummer(sorteringsnummer);
-    return this;
-  }
-
-  @Override
-  public EgenskapstypeBinaer avledet(@javax.annotation.Nonnull Boolean avledet) {
-    this.setAvledet(avledet);
-    return this;
-  }
-
-  @Override
   public EgenskapstypeBinaer obligatoriskVerdi(@javax.annotation.Nonnull Boolean obligatoriskVerdi) {
     this.setObligatoriskVerdi(obligatoriskVerdi);
     return this;
@@ -382,6 +340,48 @@ public class EgenskapstypeBinaer extends Egenskapstype {
   @Override
   public EgenskapstypeBinaer kategori(@javax.annotation.Nonnull Integer kategori) {
     this.setKategori(kategori);
+    return this;
+  }
+
+  @Override
+  public EgenskapstypeBinaer komplementærEgenskapstype(@javax.annotation.Nullable Integer komplementærEgenskapstype) {
+    this.setKomplementærEgenskapstype(komplementærEgenskapstype);
+    return this;
+  }
+
+  @Override
+  public EgenskapstypeBinaer kortnavn(@javax.annotation.Nullable String kortnavn) {
+    this.setKortnavn(kortnavn);
+    return this;
+  }
+
+  @Override
+  public EgenskapstypeBinaer beskrivelse(@javax.annotation.Nullable String beskrivelse) {
+    this.setBeskrivelse(beskrivelse);
+    return this;
+  }
+
+  @Override
+  public EgenskapstypeBinaer sosinavn(@javax.annotation.Nullable String sosinavn) {
+    this.setSosinavn(sosinavn);
+    return this;
+  }
+
+  @Override
+  public EgenskapstypeBinaer sosinvdbnavn(@javax.annotation.Nullable String sosinvdbnavn) {
+    this.setSosinvdbnavn(sosinvdbnavn);
+    return this;
+  }
+
+  @Override
+  public EgenskapstypeBinaer sorteringsnummer(@javax.annotation.Nonnull Integer sorteringsnummer) {
+    this.setSorteringsnummer(sorteringsnummer);
+    return this;
+  }
+
+  @Override
+  public EgenskapstypeBinaer avledet(@javax.annotation.Nonnull Boolean avledet) {
+    this.setAvledet(avledet);
     return this;
   }
 

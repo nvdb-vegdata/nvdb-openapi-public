@@ -18,9 +18,7 @@ package no.vegvesen.nvdb.vegobjekter.model
 import no.vegvesen.nvdb.vegobjekter.model.Egenskap
 import no.vegvesen.nvdb.vegobjekter.model.GeometriKvalitet
 
-import kotlinx.serialization.*
-import kotlinx.serialization.descriptors.*
-import kotlinx.serialization.encoding.*
+import com.fasterxml.jackson.annotation.JsonProperty
 
 /**
  * 
@@ -44,45 +42,63 @@ import kotlinx.serialization.encoding.*
  * @param lengde 
  * @param høydereferanse 
  */
-@Serializable
+
 
 data class GeometriEgenskap (
 
-    @SerialName(value = "id") @Required override val id: kotlin.Int,
+    @get:JsonProperty("id")
+    override val id: kotlin.Int,
 
-    @SerialName(value = "navn") @Required override val navn: kotlin.String,
+    @get:JsonProperty("navn")
+    override val navn: kotlin.String,
 
-    @SerialName(value = "egenskapstype") @Required override val egenskapstype: GeometriEgenskap.Egenskapstype,
+    @get:JsonProperty("egenskapstype")
+    override val egenskapstype: GeometriEgenskap.Egenskapstype,
 
-    @SerialName(value = "verdi") val verdi: kotlin.String? = null,
+    @get:JsonProperty("verdi")
+    val verdi: kotlin.String? = null,
 
-    @SerialName(value = "srid") val srid: kotlin.Int? = null,
+    @get:JsonProperty("srid")
+    val srid: kotlin.Int? = null,
 
-    @SerialName(value = "kvalitet") val kvalitet: GeometriKvalitet? = null,
+    @get:JsonProperty("kvalitet")
+    val kvalitet: GeometriKvalitet? = null,
 
-    @SerialName(value = "datafangstdato") val datafangstdato: kotlinx.datetime.LocalDate? = null,
+    @get:JsonProperty("datafangstdato")
+    val datafangstdato: java.time.LocalDate? = null,
 
-    @SerialName(value = "verifiseringsdato") val verifiseringsdato: kotlinx.datetime.LocalDate? = null,
+    @get:JsonProperty("verifiseringsdato")
+    val verifiseringsdato: java.time.LocalDate? = null,
 
-    @SerialName(value = "oppdateringsdato") val oppdateringsdato: kotlinx.datetime.LocalDate? = null,
+    @get:JsonProperty("oppdateringsdato")
+    val oppdateringsdato: java.time.LocalDate? = null,
 
-    @SerialName(value = "prosesshistorikk") val prosesshistorikk: kotlin.String? = null,
+    @get:JsonProperty("prosesshistorikk")
+    val prosesshistorikk: kotlin.String? = null,
 
-    @SerialName(value = "kommune") val kommune: kotlin.Int? = null,
+    @get:JsonProperty("kommune")
+    val kommune: kotlin.Int? = null,
 
-    @SerialName(value = "medium") val medium: GeometriEgenskap.Medium? = null,
+    @get:JsonProperty("medium")
+    val medium: GeometriEgenskap.Medium? = null,
 
-    @SerialName(value = "medium_nvdb") val mediumNvdb: kotlin.Int? = null,
+    @get:JsonProperty("medium_nvdb")
+    val mediumNvdb: kotlin.Int? = null,
 
-    @SerialName(value = "sosinavn") val sosinavn: kotlin.String? = null,
+    @get:JsonProperty("sosinavn")
+    val sosinavn: kotlin.String? = null,
 
-    @SerialName(value = "temakode") val temakode: kotlin.Int? = null,
+    @get:JsonProperty("temakode")
+    val temakode: kotlin.Int? = null,
 
-    @SerialName(value = "referansegeometri") val referansegeometri: kotlin.Boolean? = null,
+    @get:JsonProperty("referansegeometri")
+    val referansegeometri: kotlin.Boolean? = null,
 
-    @SerialName(value = "lengde") val lengde: kotlin.Double? = null,
+    @get:JsonProperty("lengde")
+    val lengde: kotlin.Double? = null,
 
-    @SerialName(value = "høydereferanse") val høydereferanse: kotlin.Int? = null
+    @get:JsonProperty("høydereferanse")
+    val høydereferanse: kotlin.Int? = null
 
 ) : Egenskap {
 
@@ -91,21 +107,20 @@ data class GeometriEgenskap (
      *
      * Values: T,B,L,U,S,O,V,D,I,W,J,X,IKKE_REGISTRERT
      */
-    @Serializable
     enum class Medium(val value: kotlin.String) {
-        @SerialName(value = "T") T("T"),
-        @SerialName(value = "B") B("B"),
-        @SerialName(value = "L") L("L"),
-        @SerialName(value = "U") U("U"),
-        @SerialName(value = "S") S("S"),
-        @SerialName(value = "O") O("O"),
-        @SerialName(value = "V") V("V"),
-        @SerialName(value = "D") D("D"),
-        @SerialName(value = "I") I("I"),
-        @SerialName(value = "W") W("W"),
-        @SerialName(value = "J") J("J"),
-        @SerialName(value = "X") X("X"),
-        @SerialName(value = "IKKE_REGISTRERT") IKKE_REGISTRERT("IKKE_REGISTRERT");
+        @JsonProperty(value = "T") T("T"),
+        @JsonProperty(value = "B") B("B"),
+        @JsonProperty(value = "L") L("L"),
+        @JsonProperty(value = "U") U("U"),
+        @JsonProperty(value = "S") S("S"),
+        @JsonProperty(value = "O") O("O"),
+        @JsonProperty(value = "V") V("V"),
+        @JsonProperty(value = "D") D("D"),
+        @JsonProperty(value = "I") I("I"),
+        @JsonProperty(value = "W") W("W"),
+        @JsonProperty(value = "J") J("J"),
+        @JsonProperty(value = "X") X("X"),
+        @JsonProperty(value = "IKKE_REGISTRERT") IKKE_REGISTRERT("IKKE_REGISTRERT");
     }
 
 }

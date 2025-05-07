@@ -22,7 +22,7 @@ Hent enkelt vegobjekt
 
 ```kotlin
 // Import classes:
-//import org.openapitools.client.infrastructure.*
+//import no.vegvesen.nvdb.vegobjekter.infrastructure.*
 //import no.vegvesen.nvdb.vegobjekter.model.*
 
 val apiInstance = VegobjekterApi()
@@ -33,7 +33,7 @@ val inkludergeometri : kotlin.String = inkludergeometri_example // kotlin.String
 val inkluderEgenskaper : kotlin.String = inkluderEgenskaper_example // kotlin.String | Gir mulighet til å filtrere hvilke egenskaper som skal returneres med inkluder=egenskaper. `basis` er alle egenskaper som ikke er assosiasjoner, stedfesting, geometri, eller lister av disse.
 val dybde : kotlin.String = dybde_example // kotlin.String | Hvor mange nivå barn skal inkluderes. 1 betyr bare IDer, 2-n betyr ett eller flere mellomnivåer, 'full' betyr alle nivåer.
 val geometritoleranse : kotlin.Int = 56 // kotlin.Int | Angir om det skal returneres en forenklet geometri. Dersom parameteren utelates, returneres full geometri for vegobjektene. Nummeret angir distansetoleranse i meter for generering av forenklet geometri.
-val tidspunkt : kotlinx.datetime.LocalDate = 2013-10-20 // kotlinx.datetime.LocalDate | Finner versjonen som var gyldig denne datoen.
+val tidspunkt : java.time.LocalDate = 2013-10-20 // java.time.LocalDate | Finner versjonen som var gyldig denne datoen.
 try {
     val result : Vegobjekt = apiInstance.getVegobjektById(id, inkluder, srid, inkludergeometri, inkluderEgenskaper, dybde, geometritoleranse, tidspunkt)
     println(result)
@@ -57,7 +57,7 @@ try {
 | **geometritoleranse** | **kotlin.Int**| Angir om det skal returneres en forenklet geometri. Dersom parameteren utelates, returneres full geometri for vegobjektene. Nummeret angir distansetoleranse i meter for generering av forenklet geometri. | [optional] |
 | Name | Type | Description | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **tidspunkt** | **kotlinx.datetime.LocalDate**| Finner versjonen som var gyldig denne datoen. | [optional] |
+| **tidspunkt** | **java.time.LocalDate**| Finner versjonen som var gyldig denne datoen. | [optional] |
 
 ### Return type
 
@@ -85,7 +85,7 @@ Hent gjeldende versjon av et vegobjekt
 
 ```kotlin
 // Import classes:
-//import org.openapitools.client.infrastructure.*
+//import no.vegvesen.nvdb.vegobjekter.infrastructure.*
 //import no.vegvesen.nvdb.vegobjekter.model.*
 
 val apiInstance = VegobjekterApi()
@@ -97,7 +97,7 @@ val inkludergeometri : kotlin.String = inkludergeometri_example // kotlin.String
 val inkluderEgenskaper : kotlin.String = inkluderEgenskaper_example // kotlin.String | Gir mulighet til å filtrere hvilke egenskaper som skal returneres med inkluder=egenskaper. `basis` er alle egenskaper som ikke er assosiasjoner, stedfesting, geometri, eller lister av disse.
 val dybde : kotlin.String = dybde_example // kotlin.String | Hvor mange nivå barn skal inkluderes. 1 betyr bare IDer, 2-n betyr ett eller flere mellomnivåer, 'full' betyr alle nivåer.
 val geometritoleranse : kotlin.Int = 56 // kotlin.Int | Angir om det skal returneres en forenklet geometri. Dersom parameteren utelates, returneres full geometri for vegobjektene. Nummeret angir distansetoleranse i meter for generering av forenklet geometri.
-val tidspunkt : kotlinx.datetime.LocalDate = 2013-10-20 // kotlinx.datetime.LocalDate | Finner versjonen som var gyldig denne datoen.
+val tidspunkt : java.time.LocalDate = 2013-10-20 // java.time.LocalDate | Finner versjonen som var gyldig denne datoen.
 try {
     val result : Vegobjekt = apiInstance.getVegobjektById1(vegobjekttypeId, vegobjektId, inkluder, srid, inkludergeometri, inkluderEgenskaper, dybde, geometritoleranse, tidspunkt)
     println(result)
@@ -122,7 +122,7 @@ try {
 | **geometritoleranse** | **kotlin.Int**| Angir om det skal returneres en forenklet geometri. Dersom parameteren utelates, returneres full geometri for vegobjektene. Nummeret angir distansetoleranse i meter for generering av forenklet geometri. | [optional] |
 | Name | Type | Description | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **tidspunkt** | **kotlinx.datetime.LocalDate**| Finner versjonen som var gyldig denne datoen. | [optional] |
+| **tidspunkt** | **java.time.LocalDate**| Finner versjonen som var gyldig denne datoen. | [optional] |
 
 ### Return type
 
@@ -150,7 +150,7 @@ Hent spesifikk versjon av et vegobjekt
 
 ```kotlin
 // Import classes:
-//import org.openapitools.client.infrastructure.*
+//import no.vegvesen.nvdb.vegobjekter.infrastructure.*
 //import no.vegvesen.nvdb.vegobjekter.model.*
 
 val apiInstance = VegobjekterApi()
@@ -163,7 +163,7 @@ val inkludergeometri : kotlin.String = inkludergeometri_example // kotlin.String
 val inkluderEgenskaper : kotlin.String = inkluderEgenskaper_example // kotlin.String | Gir mulighet til å filtrere hvilke egenskaper som skal returneres med inkluder=egenskaper. `basis` er alle egenskaper som ikke er assosiasjoner, stedfesting, geometri, eller lister av disse.
 val dybde : kotlin.String = dybde_example // kotlin.String | Hvor mange nivå barn skal inkluderes. 1 betyr bare IDer, 2-n betyr ett eller flere mellomnivåer, 'full' betyr alle nivåer.
 val geometritoleranse : kotlin.Int = 56 // kotlin.Int | Angir om det skal returneres en forenklet geometri. Dersom parameteren utelates, returneres full geometri for vegobjektene. Nummeret angir distansetoleranse i meter for generering av forenklet geometri.
-val tidspunkt : kotlinx.datetime.LocalDate = 2013-10-20 // kotlinx.datetime.LocalDate | Finner versjonen som var gyldig denne datoen.
+val tidspunkt : java.time.LocalDate = 2013-10-20 // java.time.LocalDate | Finner versjonen som var gyldig denne datoen.
 try {
     val result : Vegobjekt = apiInstance.getVegobjektByIdAndVersjon(vegobjekttypeId, vegobjektId, versjon, inkluder, srid, inkludergeometri, inkluderEgenskaper, dybde, geometritoleranse, tidspunkt)
     println(result)
@@ -189,7 +189,7 @@ try {
 | **geometritoleranse** | **kotlin.Int**| Angir om det skal returneres en forenklet geometri. Dersom parameteren utelates, returneres full geometri for vegobjektene. Nummeret angir distansetoleranse i meter for generering av forenklet geometri. | [optional] |
 | Name | Type | Description | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **tidspunkt** | **kotlinx.datetime.LocalDate**| Finner versjonen som var gyldig denne datoen. | [optional] |
+| **tidspunkt** | **java.time.LocalDate**| Finner versjonen som var gyldig denne datoen. | [optional] |
 
 ### Return type
 
@@ -217,7 +217,7 @@ Hent alle versjoner av et vegobjekt
 
 ```kotlin
 // Import classes:
-//import org.openapitools.client.infrastructure.*
+//import no.vegvesen.nvdb.vegobjekter.infrastructure.*
 //import no.vegvesen.nvdb.vegobjekter.model.*
 
 val apiInstance = VegobjekterApi()
@@ -229,7 +229,7 @@ val inkludergeometri : kotlin.String = inkludergeometri_example // kotlin.String
 val inkluderEgenskaper : kotlin.String = inkluderEgenskaper_example // kotlin.String | Gir mulighet til å filtrere hvilke egenskaper som skal returneres med inkluder=egenskaper. `basis` er alle egenskaper som ikke er assosiasjoner, stedfesting, geometri, eller lister av disse.
 val dybde : kotlin.String = dybde_example // kotlin.String | Hvor mange nivå barn skal inkluderes. 1 betyr bare IDer, 2-n betyr ett eller flere mellomnivåer, 'full' betyr alle nivåer.
 val geometritoleranse : kotlin.Int = 56 // kotlin.Int | Angir om det skal returneres en forenklet geometri. Dersom parameteren utelates, returneres full geometri for vegobjektene. Nummeret angir distansetoleranse i meter for generering av forenklet geometri.
-val tidspunkt : kotlinx.datetime.LocalDate = 2013-10-20 // kotlinx.datetime.LocalDate | Finner versjonen som var gyldig denne datoen.
+val tidspunkt : java.time.LocalDate = 2013-10-20 // java.time.LocalDate | Finner versjonen som var gyldig denne datoen.
 try {
     val result : kotlin.collections.List<Vegobjekt> = apiInstance.getVegobjektVersjoner(vegobjekttypeId, vegobjektId, inkluder, srid, inkludergeometri, inkluderEgenskaper, dybde, geometritoleranse, tidspunkt)
     println(result)
@@ -254,7 +254,7 @@ try {
 | **geometritoleranse** | **kotlin.Int**| Angir om det skal returneres en forenklet geometri. Dersom parameteren utelates, returneres full geometri for vegobjektene. Nummeret angir distansetoleranse i meter for generering av forenklet geometri. | [optional] |
 | Name | Type | Description | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **tidspunkt** | **kotlinx.datetime.LocalDate**| Finner versjonen som var gyldig denne datoen. | [optional] |
+| **tidspunkt** | **java.time.LocalDate**| Finner versjonen som var gyldig denne datoen. | [optional] |
 
 ### Return type
 
@@ -282,7 +282,7 @@ Hent vegobjekter av en type
 
 ```kotlin
 // Import classes:
-//import org.openapitools.client.infrastructure.*
+//import no.vegvesen.nvdb.vegobjekter.infrastructure.*
 //import no.vegvesen.nvdb.vegobjekter.model.*
 
 val apiInstance = VegobjekterApi()
@@ -309,7 +309,7 @@ val trafikantgruppe : kotlin.String = trafikantgruppe_example // kotlin.String |
 val antall : kotlin.Int = 56 // kotlin.Int | Angir hvor mange objekter som skal returneres. Øvre grense er avhengig av størrelse på respons, og vil kunne variere fra endepunkt til endepunkt. Dersom det angis en verdi for antall som overskrider maksimum, vil maksimumsverdi benyttes. Se også `sidestørrelse` i responsens `metadata`-objekt.
 val start : kotlin.String = start_example // kotlin.String | Angir offset for hvilke objekter som skal returneres. Denne får man i metadata-feltet i responsen.
 val geometritoleranse : kotlin.Int = 56 // kotlin.Int | Angir om det skal returneres en forenklet geometri. Dersom parameteren utelates, returneres full geometri for vegobjektene. Nummeret angir distansetoleranse i meter for generering av forenklet geometri.
-val tidspunkt : kotlinx.datetime.LocalDate = 2013-10-20 // kotlinx.datetime.LocalDate | Finner versjonen som var gyldig denne datoen.
+val tidspunkt : java.time.LocalDate = 2013-10-20 // java.time.LocalDate | Finner versjonen som var gyldig denne datoen.
 val alleVersjoner : kotlin.Boolean = true // kotlin.Boolean | Returner alle versjoner som matcher de oppgitte parametrene. Dersom ikke satt eller `false` vil kun objekter uten sluttdato returneres.
 val inkluderAntall : kotlin.Boolean = true // kotlin.Boolean | Hvorvidt totalt antall objekter skal returneres i responsen. Default er `false`.
 val veglenkesekvens : kotlin.collections.Set<kotlin.String> =  // kotlin.collections.Set<kotlin.String> | Filtrer vegobjekter på om de er stedfestet på gjeldende veglenkesekvenser. Kommaseparert liste.  Eksempel: `0.37@319531,0.83-0.97@41640`
@@ -317,7 +317,7 @@ val egenskap : kotlin.collections.List<kotlin.String> =  // kotlin.collections.L
 val overlapp : kotlin.collections.List<kotlin.String> =  // kotlin.collections.List<kotlin.String> | Filtrer vegobjekter på overlapp. Se [dokumentasjon](https://nvdb.atlas.vegvesen.no/docs/produkter/nvdbapil/v4/introduksjon/Avanserte_filter)
 val veglenketype : kotlin.collections.Set<kotlin.String> =  // kotlin.collections.Set<kotlin.String> | Filtrer vegobjekter på veglenketype på vegnettet objektet er stedfestet. Kommaseparert liste.
 val detaljniva : kotlin.collections.Set<kotlin.String> =  // kotlin.collections.Set<kotlin.String> | Filtrer vegobjekter på detaljnivå på vegnettet objektet er stedfestet på (kortnavn fra datakatalogen).
-val endretEtter : kotlinx.datetime.Instant = 2013-10-20T19:20:30+01:00 // kotlinx.datetime.Instant | Hente endringer siden sist. Eksempel: 2024-12-02T10:15:30.123456
+val endretEtter : java.time.OffsetDateTime = 2013-10-20T19:20:30+01:00 // java.time.OffsetDateTime | Hente endringer siden sist. Eksempel: 2024-12-02T10:15:30.123456
 try {
     val result : VegobjekterSide = apiInstance.getVegobjekterByType(vegobjekttypeId, ider, inkluder, srid, inkludergeometri, inkluderEgenskaper, segmentering, fylke, kommune, kontraktsomrade, riksvegrute, vegforvalter, vegsystemreferanse, kartutsnitt, polygon, typeveg, adskiltelop, kryssystem, sideanlegg, trafikantgruppe, antall, start, geometritoleranse, tidspunkt, alleVersjoner, inkluderAntall, veglenkesekvens, egenskap, overlapp, veglenketype, detaljniva, endretEtter)
     println(result)
@@ -355,7 +355,7 @@ try {
 | **antall** | **kotlin.Int**| Angir hvor mange objekter som skal returneres. Øvre grense er avhengig av størrelse på respons, og vil kunne variere fra endepunkt til endepunkt. Dersom det angis en verdi for antall som overskrider maksimum, vil maksimumsverdi benyttes. Se også &#x60;sidestørrelse&#x60; i responsens &#x60;metadata&#x60;-objekt. | [optional] |
 | **start** | **kotlin.String**| Angir offset for hvilke objekter som skal returneres. Denne får man i metadata-feltet i responsen. | [optional] |
 | **geometritoleranse** | **kotlin.Int**| Angir om det skal returneres en forenklet geometri. Dersom parameteren utelates, returneres full geometri for vegobjektene. Nummeret angir distansetoleranse i meter for generering av forenklet geometri. | [optional] |
-| **tidspunkt** | **kotlinx.datetime.LocalDate**| Finner versjonen som var gyldig denne datoen. | [optional] |
+| **tidspunkt** | **java.time.LocalDate**| Finner versjonen som var gyldig denne datoen. | [optional] |
 | **alleVersjoner** | **kotlin.Boolean**| Returner alle versjoner som matcher de oppgitte parametrene. Dersom ikke satt eller &#x60;false&#x60; vil kun objekter uten sluttdato returneres. | [optional] |
 | **inkluderAntall** | **kotlin.Boolean**| Hvorvidt totalt antall objekter skal returneres i responsen. Default er &#x60;false&#x60;. | [optional] |
 | **veglenkesekvens** | **kotlin.collections.Set&lt;kotlin.String&gt;**| Filtrer vegobjekter på om de er stedfestet på gjeldende veglenkesekvenser. Kommaseparert liste. Eksempel: &#x60;0.37@319531,0.83-0.97@41640&#x60; | [optional] |
@@ -365,7 +365,7 @@ try {
 | **detaljniva** | **kotlin.collections.Set&lt;kotlin.String&gt;**| Filtrer vegobjekter på detaljnivå på vegnettet objektet er stedfestet på (kortnavn fra datakatalogen). | [optional] [enum: VT, KB, KF, VTKB] |
 | Name | Type | Description | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **endretEtter** | **kotlinx.datetime.Instant**| Hente endringer siden sist. Eksempel: 2024-12-02T10:15:30.123456 | [optional] |
+| **endretEtter** | **java.time.OffsetDateTime**| Hente endringer siden sist. Eksempel: 2024-12-02T10:15:30.123456 | [optional] |
 
 ### Return type
 

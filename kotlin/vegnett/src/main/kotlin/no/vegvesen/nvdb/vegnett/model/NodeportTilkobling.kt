@@ -16,9 +16,7 @@
 package no.vegvesen.nvdb.vegnett.model
 
 
-import kotlinx.serialization.*
-import kotlinx.serialization.descriptors.*
-import kotlinx.serialization.encoding.*
+import com.fasterxml.jackson.annotation.JsonProperty
 
 /**
  * 
@@ -27,15 +25,18 @@ import kotlinx.serialization.encoding.*
  * @param veglenkesekvensid 
  * @param href 
  */
-@Serializable
+
 
 data class NodeportTilkobling (
 
-    @SerialName(value = "portnummer") @Required val portnummer: kotlin.Int,
+    @get:JsonProperty("portnummer")
+    val portnummer: kotlin.Int,
 
-    @SerialName(value = "veglenkesekvensid") @Required val veglenkesekvensid: kotlin.Long,
+    @get:JsonProperty("veglenkesekvensid")
+    val veglenkesekvensid: kotlin.Long,
 
-    @SerialName(value = "href") @Required val href: kotlin.String
+    @get:JsonProperty("href")
+    val href: kotlin.String
 
 ) {
 

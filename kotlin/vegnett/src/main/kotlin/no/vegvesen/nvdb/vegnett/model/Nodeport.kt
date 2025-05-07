@@ -17,9 +17,7 @@ package no.vegvesen.nvdb.vegnett.model
 
 import no.vegvesen.nvdb.vegnett.model.NodeportTilkobling
 
-import kotlinx.serialization.*
-import kotlinx.serialization.descriptors.*
-import kotlinx.serialization.encoding.*
+import com.fasterxml.jackson.annotation.JsonProperty
 
 /**
  * 
@@ -27,13 +25,15 @@ import kotlinx.serialization.encoding.*
  * @param id 
  * @param tilkobling 
  */
-@Serializable
+
 
 data class Nodeport (
 
-    @SerialName(value = "id") @Required val id: kotlin.Int,
+    @get:JsonProperty("id")
+    val id: kotlin.Int,
 
-    @SerialName(value = "tilkobling") @Required val tilkobling: NodeportTilkobling
+    @get:JsonProperty("tilkobling")
+    val tilkobling: NodeportTilkobling
 
 ) {
 

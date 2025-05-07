@@ -17,7 +17,7 @@ All URIs are relative to *https://nvdbapiles.atlas.vegvesen.no/vegnett-blue*
 
 ```kotlin
 // Import classes:
-//import org.openapitools.client.infrastructure.*
+//import no.vegvesen.nvdb.vegnett.infrastructure.*
 //import no.vegvesen.nvdb.vegnett.model.*
 
 val apiInstance = RuteApi()
@@ -33,7 +33,7 @@ val vegsystemreferanse : kotlin.collections.Set<kotlin.String> =  // kotlin.coll
 val trafikantgruppe : kotlin.String = trafikantgruppe_example // kotlin.String | Filtrer på trafikantgruppe.
 val beholdTrafikantgruppe : kotlin.Boolean = true // kotlin.Boolean | Behold trafikantgruppe gjennom ruten. Trafikantgruppe velges fra første og siste punkt i ruten, om de er ulike velges K (kjørende). Overstyres av parameteren trafikantgruppe.  Standardverdi: `false`
 val typeveg : kotlin.collections.Set<kotlin.String> =  // kotlin.collections.Set<kotlin.String> | Filtrer på type veg. Kommaseparert liste.
-val tidspunkt : kotlinx.datetime.LocalDate = 2013-10-20 // kotlinx.datetime.LocalDate | Begrens spørring til dette tidspunktet.
+val tidspunkt : java.time.LocalDate = 2013-10-20 // java.time.LocalDate | Begrens spørring til dette tidspunktet.
 val srid : kotlin.String = srid_example // kotlin.String | Angir hvilket geografisk referansesystem geometrien skal returneres i. Utdata i UTM-formater begrenses til 3 desimaler, 4326/WGS84 begrenses til 8 desimaler. Mer informasjon: <a href='https://epsg.io/5972'>EPSG:5972</a> <a href='https://epsg.io/5973'>EPSG:5973</a> <a href='https://epsg.io/5975'>EPSG:5975</a> <a href='https://epsg.io/4326'>EPSG:4326</a>.
 try {
     val result : GetRute200Response = apiInstance.getRute(start, slutt, geometri, maksAvstand, omkrets, konnekteringslenker, detaljerteLenker, kortform, vegsystemreferanse, trafikantgruppe, beholdTrafikantgruppe, typeveg, tidspunkt, srid)
@@ -61,7 +61,7 @@ try {
 | **trafikantgruppe** | **kotlin.String**| Filtrer på trafikantgruppe. | [optional] [enum: K, G] |
 | **beholdTrafikantgruppe** | **kotlin.Boolean**| Behold trafikantgruppe gjennom ruten. Trafikantgruppe velges fra første og siste punkt i ruten, om de er ulike velges K (kjørende). Overstyres av parameteren trafikantgruppe. Standardverdi: &#x60;false&#x60; | [optional] |
 | **typeveg** | **kotlin.collections.Set&lt;kotlin.String&gt;**| Filtrer på type veg. Kommaseparert liste. | [optional] [enum: Enkel bilveg, Kanalisert veg, Rampe, Rundkjøring, Bilferje, Gang- og sykkelveg, Sykkelveg, Gangveg, Gågate, Fortau, Trapp, Gangfelt, Gatetun, Passasjerferje, Traktorveg, Sti, Annet] |
-| **tidspunkt** | **kotlinx.datetime.LocalDate**| Begrens spørring til dette tidspunktet. | [optional] |
+| **tidspunkt** | **java.time.LocalDate**| Begrens spørring til dette tidspunktet. | [optional] |
 | Name | Type | Description | Notes |
 | ------------- | ------------- | ------------- | ------------- |
 | **srid** | **kotlin.String**| Angir hvilket geografisk referansesystem geometrien skal returneres i. Utdata i UTM-formater begrenses til 3 desimaler, 4326/WGS84 begrenses til 8 desimaler. Mer informasjon: &lt;a href&#x3D;&#39;https://epsg.io/5972&#39;&gt;EPSG:5972&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5973&#39;&gt;EPSG:5973&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5975&#39;&gt;EPSG:5975&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/4326&#39;&gt;EPSG:4326&lt;/a&gt;. | [optional] [enum: 5972, 5973, 5975, 4326, UTM32, UTM33, UTM35, WGS84] |
@@ -89,7 +89,7 @@ No authorization required
 
 ```kotlin
 // Import classes:
-//import org.openapitools.client.infrastructure.*
+//import no.vegvesen.nvdb.vegnett.infrastructure.*
 //import no.vegvesen.nvdb.vegnett.model.*
 
 val apiInstance = RuteApi()

@@ -17,9 +17,7 @@ package no.vegvesen.nvdb.vegnett.model
 
 import no.vegvesen.nvdb.vegnett.model.Posisjon
 
-import kotlinx.serialization.*
-import kotlinx.serialization.descriptors.*
-import kotlinx.serialization.encoding.*
+import com.fasterxml.jackson.annotation.JsonProperty
 
 /**
  * 
@@ -27,13 +25,15 @@ import kotlinx.serialization.encoding.*
  * @param map 
  * @param empty 
  */
-@Serializable
+
 
 data class AlwaysIncludeMapStringPosisjon (
 
-    @SerialName(value = "map") val map: kotlin.collections.Map<kotlin.String, Posisjon>? = null,
+    @get:JsonProperty("map")
+    val map: kotlin.collections.Map<kotlin.String, Posisjon>? = null,
 
-    @SerialName(value = "empty") val empty: kotlin.Boolean? = null
+    @get:JsonProperty("empty")
+    val empty: kotlin.Boolean? = null
 
 ) : kotlin.collections.HashMap<String, Posisjon>() {
 

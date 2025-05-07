@@ -17,9 +17,9 @@ package no.vegvesen.nvdb.vegobjekter.model
 
 import no.vegvesen.nvdb.vegobjekter.model.VegobjektType
 
-import kotlinx.serialization.*
-import kotlinx.serialization.descriptors.*
-import kotlinx.serialization.encoding.*
+import com.fasterxml.jackson.annotation.JsonProperty
+import com.fasterxml.jackson.annotation.JsonSubTypes
+import com.fasterxml.jackson.annotation.JsonTypeInfo
 
 /**
  * 
@@ -29,23 +29,30 @@ import kotlinx.serialization.encoding.*
  * @param relasjonstype 
  * @param listeid 
  */
-
+@JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.PROPERTY, property = "relasjonstype", visible = true)
+@JsonSubTypes(
+    JsonSubTypes.Type(value = RelasjonMedIder::class, name = "vegobjektIder"),
+    JsonSubTypes.Type(value = RelasjonMedVegobjekter::class, name = "vegobjekter")
+)
 
 interface Relasjon {
 
-    @SerialName(value = "id") @Required val id: kotlin.Int
-    @SerialName(value = "type") @Required val type: VegobjektType
-    @SerialName(value = "relasjonstype") @Required val relasjonstype: Relasjon.Relasjonstype
-    @SerialName(value = "listeid") val listeid: kotlin.Int?
+    @get:JsonProperty("id")
+    val id: kotlin.Int
+    @get:JsonProperty("type")
+    val type: VegobjektType
+    @get:JsonProperty("relasjonstype")
+    val relasjonstype: Relasjon.Relasjonstype
+    @get:JsonProperty("listeid")
+    val listeid: kotlin.Int?
     /**
      * 
      *
      * Values: vegobjekter,vegobjektIder
      */
-    @Serializable
     enum class Relasjonstype(val value: kotlin.String) {
-        @SerialName(value = "vegobjekter") vegobjekter("vegobjekter"),
-        @SerialName(value = "vegobjektIder") vegobjektIder("vegobjektIder");
+        @JsonProperty(value = "vegobjekter") vegobjekter("vegobjekter"),
+        @JsonProperty(value = "vegobjektIder") vegobjektIder("vegobjektIder");
     }
 
 }

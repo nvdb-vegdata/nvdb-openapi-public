@@ -17,9 +17,7 @@ package no.vegvesen.nvdb.vegobjekter.model
 
 import no.vegvesen.nvdb.vegobjekter.model.Egenskap
 
-import kotlinx.serialization.*
-import kotlinx.serialization.descriptors.*
-import kotlinx.serialization.encoding.*
+import com.fasterxml.jackson.annotation.JsonProperty
 
 /**
  * 
@@ -31,21 +29,27 @@ import kotlinx.serialization.encoding.*
  * @param blobFormat 
  * @param href 
  */
-@Serializable
+
 
 data class BinaerEgenskap (
 
-    @SerialName(value = "id") @Required override val id: kotlin.Int,
+    @get:JsonProperty("id")
+    override val id: kotlin.Int,
 
-    @SerialName(value = "navn") @Required override val navn: kotlin.String,
+    @get:JsonProperty("navn")
+    override val navn: kotlin.String,
 
-    @SerialName(value = "egenskapstype") @Required override val egenskapstype: BinaerEgenskap.Egenskapstype,
+    @get:JsonProperty("egenskapstype")
+    override val egenskapstype: BinaerEgenskap.Egenskapstype,
 
-    @SerialName(value = "blob_id") val blobId: kotlin.Int? = null,
+    @get:JsonProperty("blob_id")
+    val blobId: kotlin.Int? = null,
 
-    @SerialName(value = "blob_format") val blobFormat: kotlin.String? = null,
+    @get:JsonProperty("blob_format")
+    val blobFormat: kotlin.String? = null,
 
-    @SerialName(value = "href") val href: kotlin.String? = null
+    @get:JsonProperty("href")
+    val href: kotlin.String? = null
 
 ) : Egenskap {
 

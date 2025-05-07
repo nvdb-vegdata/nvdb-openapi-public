@@ -20,290 +20,164 @@ import no.vegvesen.nvdb.vegnett.model.Posisjon
 import no.vegvesen.nvdb.vegnett.model.PosisjonMedAvstand
 import no.vegvesen.nvdb.vegnett.model.ProblemDetail
 
-import org.openapitools.client.infrastructure.*
-import io.ktor.client.HttpClient
+import no.vegvesen.nvdb.vegnett.infrastructure.*
 import io.ktor.client.HttpClientConfig
 import io.ktor.client.request.forms.formData
 import io.ktor.client.engine.HttpClientEngine
-import kotlinx.serialization.json.Json
 import io.ktor.http.ParametersBuilder
-import kotlinx.serialization.*
-import kotlinx.serialization.descriptors.*
-import kotlinx.serialization.encoding.*
+import com.fasterxml.jackson.databind.ObjectMapper
 
-open class PosisjonApi : ApiClient {
+    open class PosisjonApi(
+    baseUrl: String = ApiClient.BASE_URL,
+    httpClientEngine: HttpClientEngine? = null,
+    httpClientConfig: ((HttpClientConfig<*>) -> Unit)? = null,
+    jsonBlock: ObjectMapper.() -> Unit = ApiClient.JSON_DEFAULT,
+    ) : ApiClient(
+        baseUrl,
+        httpClientEngine,
+        httpClientConfig,
+        jsonBlock,
+    ) {
 
-    constructor(
-        baseUrl: String = ApiClient.BASE_URL,
-        httpClientEngine: HttpClientEngine? = null,
-        httpClientConfig: ((HttpClientConfig<*>) -> Unit)? = null,
-        jsonSerializer: Json = ApiClient.JSON_DEFAULT
-    ) : super(baseUrl = baseUrl, httpClientEngine = httpClientEngine, httpClientConfig = httpClientConfig, jsonBlock = jsonSerializer)
+        /**
+        * GET /api/v4/posisjon
+        * Finn nærmeste posisjon på vegnettet for gitte koordinater. Koordinater kan angis som &#x60;nord&#x60; og &#x60;ost&#x60; eller &#x60;lat&#x60; og &#x60;lon&#x60;.
+        * 
+         * @param nord Nordlig koordinat (optional)
+         * @param ost Østlig koordinat (optional)
+         * @param lat Breddegrad (optional)
+         * @param lon Lengdegrad (optional)
+         * @param maksAvstand Angir søkeavstand i meter (optional)
+         * @param maksAntall Angir maks antall treff (optional)
+         * @param konnekteringslenker Angir om det skal returneres treff på konnekteringslenker (optional)
+         * @param detaljerteLenker Angir om det skal returneres treff på detaljerte lenker (optional)
+         * @param tidspunkt Begrens spørring til det gitte tidspunktet. (optional)
+         * @param vegsystemreferanse Filtrer på [vegsystemreferanse](https://nvdbapiles-v3.atlas.vegvesen.no/dokumentasjon/#vegsystemreferanse). Kommaseparert liste. Legg til kommunenummer i starten av vegsystemreferansen for å filtrere på område.  Eksempel: &#x60;EV6S1D1 m12&#x60; (optional)
+         * @param srid Angir hvilket geografisk referansesystem geometrien skal returneres i. Utdata i UTM-formater begrenses til 3 desimaler, 4326/WGS84 begrenses til 8 desimaler. Mer informasjon: &lt;a href&#x3D;&#39;https://epsg.io/5972&#39;&gt;EPSG:5972&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5973&#39;&gt;EPSG:5973&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5975&#39;&gt;EPSG:5975&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/4326&#39;&gt;EPSG:4326&lt;/a&gt;. (optional)
+         * @param trafikantgruppe Filtrer på trafikantgruppe. (optional)
+         * @return kotlin.collections.List<PosisjonMedAvstand>
+        */
+            @Suppress("UNCHECKED_CAST")
+        open suspend fun findPosisjon(nord: kotlin.Double?, ost: kotlin.Double?, lat: kotlin.Double?, lon: kotlin.Double?, maksAvstand: kotlin.Int?, maksAntall: kotlin.Int?, konnekteringslenker: kotlin.Boolean?, detaljerteLenker: kotlin.Boolean?, tidspunkt: java.time.LocalDate?, vegsystemreferanse: kotlin.collections.Set<kotlin.String>?, srid: kotlin.String?, trafikantgruppe: kotlin.String?): HttpResponse<kotlin.collections.List<PosisjonMedAvstand>> {
 
-    constructor(
-        baseUrl: String,
-        httpClient: HttpClient
-    ): super(baseUrl = baseUrl, httpClient = httpClient)
+            val localVariableAuthNames = listOf<String>()
 
+            val localVariableBody = 
+                    io.ktor.client.utils.EmptyContent
 
-    /**
-     * enum for parameter srid
-     */
-    @Serializable
-    enum class SridFindPosisjon(val value: kotlin.String) {
-        
-        @SerialName(value = "5972")
-        _5972("5972"),
-        
-        @SerialName(value = "5973")
-        _5973("5973"),
-        
-        @SerialName(value = "5975")
-        _5975("5975"),
-        
-        @SerialName(value = "4326")
-        _4326("4326"),
-        
-        @SerialName(value = "UTM32")
-        UTM32("UTM32"),
-        
-        @SerialName(value = "UTM33")
-        UTM33("UTM33"),
-        
-        @SerialName(value = "UTM35")
-        UTM35("UTM35"),
-        
-        @SerialName(value = "WGS84")
-        WGS84("WGS84")
-        
-    }
+            val localVariableQuery = mutableMapOf<String, List<String>>()
+            nord?.apply { localVariableQuery["nord"] = listOf("$nord") }
+            ost?.apply { localVariableQuery["ost"] = listOf("$ost") }
+            lat?.apply { localVariableQuery["lat"] = listOf("$lat") }
+            lon?.apply { localVariableQuery["lon"] = listOf("$lon") }
+            maksAvstand?.apply { localVariableQuery["maks_avstand"] = listOf("$maksAvstand") }
+            maksAntall?.apply { localVariableQuery["maks_antall"] = listOf("$maksAntall") }
+            konnekteringslenker?.apply { localVariableQuery["konnekteringslenker"] = listOf("$konnekteringslenker") }
+            detaljerteLenker?.apply { localVariableQuery["detaljerte_lenker"] = listOf("$detaljerteLenker") }
+            tidspunkt?.apply { localVariableQuery["tidspunkt"] = listOf("$tidspunkt") }
+            vegsystemreferanse?.apply { localVariableQuery["vegsystemreferanse"] = toMultiValue(this, "multi") }
+            srid?.apply { localVariableQuery["srid"] = listOf("$srid") }
+            trafikantgruppe?.apply { localVariableQuery["trafikantgruppe"] = listOf("$trafikantgruppe") }
 
+            val localVariableHeaders = mutableMapOf<String, String>()
 
-    /**
-     * enum for parameter trafikantgruppe
-     */
-    @Serializable
-    enum class TrafikantgruppeFindPosisjon(val value: kotlin.String) {
-        
-        @SerialName(value = "K")
-        K("K"),
-        
-        @SerialName(value = "G")
-        G("G")
-        
-    }
-
-    /**
-     * Finn nærmeste posisjon på vegnettet for gitte koordinater. Koordinater kan angis som &#x60;nord&#x60; og &#x60;ost&#x60; eller &#x60;lat&#x60; og &#x60;lon&#x60;.
-     * 
-     * @param nord Nordlig koordinat (optional)
-     * @param ost Østlig koordinat (optional)
-     * @param lat Breddegrad (optional)
-     * @param lon Lengdegrad (optional)
-     * @param maksAvstand Angir søkeavstand i meter (optional)
-     * @param maksAntall Angir maks antall treff (optional)
-     * @param konnekteringslenker Angir om det skal returneres treff på konnekteringslenker (optional)
-     * @param detaljerteLenker Angir om det skal returneres treff på detaljerte lenker (optional)
-     * @param tidspunkt Begrens spørring til det gitte tidspunktet. (optional)
-     * @param vegsystemreferanse Filtrer på [vegsystemreferanse](https://nvdbapiles-v3.atlas.vegvesen.no/dokumentasjon/#vegsystemreferanse). Kommaseparert liste. Legg til kommunenummer i starten av vegsystemreferansen for å filtrere på område.  Eksempel: &#x60;EV6S1D1 m12&#x60; (optional)
-     * @param srid Angir hvilket geografisk referansesystem geometrien skal returneres i. Utdata i UTM-formater begrenses til 3 desimaler, 4326/WGS84 begrenses til 8 desimaler. Mer informasjon: &lt;a href&#x3D;&#39;https://epsg.io/5972&#39;&gt;EPSG:5972&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5973&#39;&gt;EPSG:5973&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5975&#39;&gt;EPSG:5975&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/4326&#39;&gt;EPSG:4326&lt;/a&gt;. (optional)
-     * @param trafikantgruppe Filtrer på trafikantgruppe. (optional)
-     * @return kotlin.collections.List<PosisjonMedAvstand>
-     */
-    @Suppress("UNCHECKED_CAST")
-    open suspend fun findPosisjon(nord: kotlin.Double? = null, ost: kotlin.Double? = null, lat: kotlin.Double? = null, lon: kotlin.Double? = null, maksAvstand: kotlin.Int? = null, maksAntall: kotlin.Int? = null, konnekteringslenker: kotlin.Boolean? = null, detaljerteLenker: kotlin.Boolean? = null, tidspunkt: kotlinx.datetime.LocalDate? = null, vegsystemreferanse: kotlin.collections.Set<kotlin.String>? = null, srid: SridFindPosisjon? = null, trafikantgruppe: TrafikantgruppeFindPosisjon? = null): HttpResponse<kotlin.collections.List<PosisjonMedAvstand>> {
-
-        val localVariableAuthNames = listOf<String>()
-
-        val localVariableBody = 
-            io.ktor.client.utils.EmptyContent
-
-        val localVariableQuery = mutableMapOf<String, List<String>>()
-        nord?.apply { localVariableQuery["nord"] = listOf("$nord") }
-        ost?.apply { localVariableQuery["ost"] = listOf("$ost") }
-        lat?.apply { localVariableQuery["lat"] = listOf("$lat") }
-        lon?.apply { localVariableQuery["lon"] = listOf("$lon") }
-        maksAvstand?.apply { localVariableQuery["maks_avstand"] = listOf("$maksAvstand") }
-        maksAntall?.apply { localVariableQuery["maks_antall"] = listOf("$maksAntall") }
-        konnekteringslenker?.apply { localVariableQuery["konnekteringslenker"] = listOf("$konnekteringslenker") }
-        detaljerteLenker?.apply { localVariableQuery["detaljerte_lenker"] = listOf("$detaljerteLenker") }
-        tidspunkt?.apply { localVariableQuery["tidspunkt"] = listOf("$tidspunkt") }
-        vegsystemreferanse?.apply { localVariableQuery["vegsystemreferanse"] = toMultiValue(this, "multi") }
-        srid?.apply { localVariableQuery["srid"] = listOf("${ srid.value }") }
-        trafikantgruppe?.apply { localVariableQuery["trafikantgruppe"] = listOf("${ trafikantgruppe.value }") }
-        val localVariableHeaders = mutableMapOf<String, String>()
-
-        val localVariableConfig = RequestConfig<kotlin.Any?>(
+            val localVariableConfig = RequestConfig<kotlin.Any?>(
             RequestMethod.GET,
             "/api/v4/posisjon",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
-        )
+            )
 
-        return request(
+            return request(
             localVariableConfig,
             localVariableBody,
             localVariableAuthNames
-        ).wrap<FindPosisjonResponse>().map { value }
-    }
+            ).wrap()
+            }
 
-    @Serializable(FindPosisjonResponse.Companion::class)
-    private class FindPosisjonResponse(val value: List<PosisjonMedAvstand>) {
-        companion object : KSerializer<FindPosisjonResponse> {
-            private val serializer: KSerializer<List<PosisjonMedAvstand>> = serializer<List<PosisjonMedAvstand>>()
-            override val descriptor = serializer.descriptor
-            override fun serialize(encoder: Encoder, value: FindPosisjonResponse) = serializer.serialize(encoder, value.value)
-            override fun deserialize(decoder: Decoder) = FindPosisjonResponse(serializer.deserialize(decoder))
-        }
-    }
+        /**
+        * GET /api/v4/veg
+        * Slå opp posisjon på veglenkesekvens eller vegsystemreferanse
+        * 
+         * @param vegsystemreferanse Finn posisjon for [vegsystemreferanse](https://nvdbapiles-v3.atlas.vegvesen.no/dokumentasjon/#vegsystemreferanse). Må inneholde én enkelt meterverdi. Legg til kommunenummer i starten av vegsystemreferansen for å filtrere på område.  Eksempel: &#x60;EV6S1D1m341&#x60; (optional)
+         * @param veglenkesekvens Finn posisjon på veglenkesekvens. Format: &#x60;posisjon@veglenkesekvensid&#x60;.  Eksempel: &#x60;0.456@1226&#x60; (optional)
+         * @param tidspunkt Begrens spørring til det gitte tidspunktet. (optional)
+         * @param srid Angir hvilket geografisk referansesystem geometrien skal returneres i. Utdata i UTM-formater begrenses til 3 desimaler, 4326/WGS84 begrenses til 8 desimaler. Mer informasjon: &lt;a href&#x3D;&#39;https://epsg.io/5972&#39;&gt;EPSG:5972&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5973&#39;&gt;EPSG:5973&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5975&#39;&gt;EPSG:5975&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/4326&#39;&gt;EPSG:4326&lt;/a&gt;. (optional)
+         * @param kommune Filtrer på kommune. Kommaseparert liste. Se [/omrader/api/v4/kommuner](https://nvdbapiles.atlas.vegvesen.no/webjars/swagger-ui/index.html?urls.primaryName&#x3D;Omr%C3%A5der) for mulige verdier.  Eksempel: &#x60;5001&#x60; (optional)
+         * @return Posisjon
+        */
+            @Suppress("UNCHECKED_CAST")
+        open suspend fun findPosisjonForVeg(vegsystemreferanse: kotlin.String?, veglenkesekvens: kotlin.String?, tidspunkt: java.time.LocalDate?, srid: kotlin.String?, kommune: kotlin.collections.Set<kotlin.Int>?): HttpResponse<Posisjon> {
 
+            val localVariableAuthNames = listOf<String>()
 
-    /**
-     * enum for parameter srid
-     */
-    @Serializable
-    enum class SridFindPosisjonForVeg(val value: kotlin.String) {
-        
-        @SerialName(value = "5972")
-        _5972("5972"),
-        
-        @SerialName(value = "5973")
-        _5973("5973"),
-        
-        @SerialName(value = "5975")
-        _5975("5975"),
-        
-        @SerialName(value = "4326")
-        _4326("4326"),
-        
-        @SerialName(value = "UTM32")
-        UTM32("UTM32"),
-        
-        @SerialName(value = "UTM33")
-        UTM33("UTM33"),
-        
-        @SerialName(value = "UTM35")
-        UTM35("UTM35"),
-        
-        @SerialName(value = "WGS84")
-        WGS84("WGS84")
-        
-    }
+            val localVariableBody = 
+                    io.ktor.client.utils.EmptyContent
 
-    /**
-     * Slå opp posisjon på veglenkesekvens eller vegsystemreferanse
-     * 
-     * @param vegsystemreferanse Finn posisjon for [vegsystemreferanse](https://nvdbapiles-v3.atlas.vegvesen.no/dokumentasjon/#vegsystemreferanse). Må inneholde én enkelt meterverdi. Legg til kommunenummer i starten av vegsystemreferansen for å filtrere på område.  Eksempel: &#x60;EV6S1D1m341&#x60; (optional)
-     * @param veglenkesekvens Finn posisjon på veglenkesekvens. Format: &#x60;posisjon@veglenkesekvensid&#x60;.  Eksempel: &#x60;0.456@1226&#x60; (optional)
-     * @param tidspunkt Begrens spørring til det gitte tidspunktet. (optional)
-     * @param srid Angir hvilket geografisk referansesystem geometrien skal returneres i. Utdata i UTM-formater begrenses til 3 desimaler, 4326/WGS84 begrenses til 8 desimaler. Mer informasjon: &lt;a href&#x3D;&#39;https://epsg.io/5972&#39;&gt;EPSG:5972&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5973&#39;&gt;EPSG:5973&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5975&#39;&gt;EPSG:5975&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/4326&#39;&gt;EPSG:4326&lt;/a&gt;. (optional)
-     * @param kommune Filtrer på kommune. Kommaseparert liste. Se [/omrader/api/v4/kommuner](https://nvdbapiles.atlas.vegvesen.no/webjars/swagger-ui/index.html?urls.primaryName&#x3D;Omr%C3%A5der) for mulige verdier.  Eksempel: &#x60;5001&#x60; (optional)
-     * @return Posisjon
-     */
-    @Suppress("UNCHECKED_CAST")
-    open suspend fun findPosisjonForVeg(vegsystemreferanse: kotlin.String? = null, veglenkesekvens: kotlin.String? = null, tidspunkt: kotlinx.datetime.LocalDate? = null, srid: SridFindPosisjonForVeg? = null, kommune: kotlin.collections.Set<kotlin.Int>? = null): HttpResponse<Posisjon> {
+            val localVariableQuery = mutableMapOf<String, List<String>>()
+            vegsystemreferanse?.apply { localVariableQuery["vegsystemreferanse"] = listOf("$vegsystemreferanse") }
+            veglenkesekvens?.apply { localVariableQuery["veglenkesekvens"] = listOf("$veglenkesekvens") }
+            tidspunkt?.apply { localVariableQuery["tidspunkt"] = listOf("$tidspunkt") }
+            srid?.apply { localVariableQuery["srid"] = listOf("$srid") }
+            kommune?.apply { localVariableQuery["kommune"] = toMultiValue(this, "multi") }
 
-        val localVariableAuthNames = listOf<String>()
+            val localVariableHeaders = mutableMapOf<String, String>()
 
-        val localVariableBody = 
-            io.ktor.client.utils.EmptyContent
-
-        val localVariableQuery = mutableMapOf<String, List<String>>()
-        vegsystemreferanse?.apply { localVariableQuery["vegsystemreferanse"] = listOf("$vegsystemreferanse") }
-        veglenkesekvens?.apply { localVariableQuery["veglenkesekvens"] = listOf("$veglenkesekvens") }
-        tidspunkt?.apply { localVariableQuery["tidspunkt"] = listOf("$tidspunkt") }
-        srid?.apply { localVariableQuery["srid"] = listOf("${ srid.value }") }
-        kommune?.apply { localVariableQuery["kommune"] = toMultiValue(this, "multi") }
-        val localVariableHeaders = mutableMapOf<String, String>()
-
-        val localVariableConfig = RequestConfig<kotlin.Any?>(
+            val localVariableConfig = RequestConfig<kotlin.Any?>(
             RequestMethod.GET,
             "/api/v4/veg",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
-        )
+            )
 
-        return request(
+            return request(
             localVariableConfig,
             localVariableBody,
             localVariableAuthNames
-        ).wrap()
-    }
+            ).wrap()
+            }
 
+        /**
+        * GET /api/v4/veg/batch
+        * Slå opp flere posisjoner på veglenkesekvens eller vegsystemreferanse
+        * 
+         * @param vegsystemreferanser Finn posisjoner for [vegsystemreferanser](https://nvdbapiles-v3.atlas.vegvesen.no/dokumentasjon/#vegsystemreferanse). Må inneholde én enkelt meterverdi. Legg til kommunenummer i starten av vegsystemreferansen for å filtrere på område.  Eksempel: &#x60;EV6S1D1m341&#x60; (optional)
+         * @param veglenkesekvenser Finn posisjoner på veglenkesekvenser. Format: &#x60;posisjon@veglenkesekvensid&#x60;.  Eksempel: &#x60;0.456@1226&#x60; (optional)
+         * @param kommune Filtrer på kommune. Kommaseparert liste. Se [/omrader/api/v4/kommuner](https://nvdbapiles.atlas.vegvesen.no/webjars/swagger-ui/index.html?urls.primaryName&#x3D;Omr%C3%A5der) for mulige verdier.  Eksempel: &#x60;5001&#x60; (optional)
+         * @param srid Angir hvilket geografisk referansesystem geometrien skal returneres i. Utdata i UTM-formater begrenses til 3 desimaler, 4326/WGS84 begrenses til 8 desimaler. Mer informasjon: &lt;a href&#x3D;&#39;https://epsg.io/5972&#39;&gt;EPSG:5972&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5973&#39;&gt;EPSG:5973&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5975&#39;&gt;EPSG:5975&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/4326&#39;&gt;EPSG:4326&lt;/a&gt;. (optional)
+         * @return AlwaysIncludeMapStringPosisjon
+        */
+            @Suppress("UNCHECKED_CAST")
+        open suspend fun findPosisjonerForVeg(vegsystemreferanser: kotlin.collections.List<kotlin.String>?, veglenkesekvenser: kotlin.collections.List<kotlin.String>?, kommune: kotlin.collections.Set<kotlin.Int>?, srid: kotlin.String?): HttpResponse<AlwaysIncludeMapStringPosisjon> {
 
+            val localVariableAuthNames = listOf<String>()
 
-    /**
-     * enum for parameter srid
-     */
-    @Serializable
-    enum class SridFindPosisjonerForVeg(val value: kotlin.String) {
-        
-        @SerialName(value = "5972")
-        _5972("5972"),
-        
-        @SerialName(value = "5973")
-        _5973("5973"),
-        
-        @SerialName(value = "5975")
-        _5975("5975"),
-        
-        @SerialName(value = "4326")
-        _4326("4326"),
-        
-        @SerialName(value = "UTM32")
-        UTM32("UTM32"),
-        
-        @SerialName(value = "UTM33")
-        UTM33("UTM33"),
-        
-        @SerialName(value = "UTM35")
-        UTM35("UTM35"),
-        
-        @SerialName(value = "WGS84")
-        WGS84("WGS84")
-        
-    }
+            val localVariableBody = 
+                    io.ktor.client.utils.EmptyContent
 
-    /**
-     * Slå opp flere posisjoner på veglenkesekvens eller vegsystemreferanse
-     * 
-     * @param vegsystemreferanser Finn posisjoner for [vegsystemreferanser](https://nvdbapiles-v3.atlas.vegvesen.no/dokumentasjon/#vegsystemreferanse). Må inneholde én enkelt meterverdi. Legg til kommunenummer i starten av vegsystemreferansen for å filtrere på område.  Eksempel: &#x60;EV6S1D1m341&#x60; (optional)
-     * @param veglenkesekvenser Finn posisjoner på veglenkesekvenser. Format: &#x60;posisjon@veglenkesekvensid&#x60;.  Eksempel: &#x60;0.456@1226&#x60; (optional)
-     * @param kommune Filtrer på kommune. Kommaseparert liste. Se [/omrader/api/v4/kommuner](https://nvdbapiles.atlas.vegvesen.no/webjars/swagger-ui/index.html?urls.primaryName&#x3D;Omr%C3%A5der) for mulige verdier.  Eksempel: &#x60;5001&#x60; (optional)
-     * @param srid Angir hvilket geografisk referansesystem geometrien skal returneres i. Utdata i UTM-formater begrenses til 3 desimaler, 4326/WGS84 begrenses til 8 desimaler. Mer informasjon: &lt;a href&#x3D;&#39;https://epsg.io/5972&#39;&gt;EPSG:5972&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5973&#39;&gt;EPSG:5973&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5975&#39;&gt;EPSG:5975&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/4326&#39;&gt;EPSG:4326&lt;/a&gt;. (optional)
-     * @return AlwaysIncludeMapStringPosisjon
-     */
-    @Suppress("UNCHECKED_CAST")
-    open suspend fun findPosisjonerForVeg(vegsystemreferanser: kotlin.collections.List<kotlin.String>? = null, veglenkesekvenser: kotlin.collections.List<kotlin.String>? = null, kommune: kotlin.collections.Set<kotlin.Int>? = null, srid: SridFindPosisjonerForVeg? = null): HttpResponse<AlwaysIncludeMapStringPosisjon> {
+            val localVariableQuery = mutableMapOf<String, List<String>>()
+            vegsystemreferanser?.apply { localVariableQuery["vegsystemreferanser"] = toMultiValue(this, "multi") }
+            veglenkesekvenser?.apply { localVariableQuery["veglenkesekvenser"] = toMultiValue(this, "multi") }
+            kommune?.apply { localVariableQuery["kommune"] = toMultiValue(this, "multi") }
+            srid?.apply { localVariableQuery["srid"] = listOf("$srid") }
 
-        val localVariableAuthNames = listOf<String>()
+            val localVariableHeaders = mutableMapOf<String, String>()
 
-        val localVariableBody = 
-            io.ktor.client.utils.EmptyContent
-
-        val localVariableQuery = mutableMapOf<String, List<String>>()
-        vegsystemreferanser?.apply { localVariableQuery["vegsystemreferanser"] = toMultiValue(this, "multi") }
-        veglenkesekvenser?.apply { localVariableQuery["veglenkesekvenser"] = toMultiValue(this, "multi") }
-        kommune?.apply { localVariableQuery["kommune"] = toMultiValue(this, "multi") }
-        srid?.apply { localVariableQuery["srid"] = listOf("${ srid.value }") }
-        val localVariableHeaders = mutableMapOf<String, String>()
-
-        val localVariableConfig = RequestConfig<kotlin.Any?>(
+            val localVariableConfig = RequestConfig<kotlin.Any?>(
             RequestMethod.GET,
             "/api/v4/veg/batch",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
-        )
+            )
 
-        return request(
+            return request(
             localVariableConfig,
             localVariableBody,
             localVariableAuthNames
-        ).wrap()
-    }
+            ).wrap()
+            }
 
-
-}
+        }

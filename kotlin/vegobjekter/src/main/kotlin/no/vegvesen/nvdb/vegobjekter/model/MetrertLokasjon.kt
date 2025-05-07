@@ -16,9 +16,7 @@
 package no.vegvesen.nvdb.vegobjekter.model
 
 
-import kotlinx.serialization.*
-import kotlinx.serialization.descriptors.*
-import kotlinx.serialization.encoding.*
+import com.fasterxml.jackson.annotation.JsonProperty
 
 /**
  * 
@@ -27,15 +25,18 @@ import kotlinx.serialization.encoding.*
  * @param sideposisjon 
  * @param kjørefelt 
  */
-@Serializable
+
 
 data class MetrertLokasjon (
 
-    @SerialName(value = "retning") val retning: MetrertLokasjon.Retning? = null,
+    @get:JsonProperty("retning")
+    val retning: MetrertLokasjon.Retning? = null,
 
-    @SerialName(value = "sideposisjon") val sideposisjon: MetrertLokasjon.Sideposisjon? = null,
+    @get:JsonProperty("sideposisjon")
+    val sideposisjon: MetrertLokasjon.Sideposisjon? = null,
 
-    @SerialName(value = "kjørefelt") val kjørefelt: kotlin.collections.List<kotlin.String>? = null
+    @get:JsonProperty("kjørefelt")
+    val kjørefelt: kotlin.collections.List<kotlin.String>? = null
 
 ) {
 
@@ -44,31 +45,29 @@ data class MetrertLokasjon (
      *
      * Values: MED,MOT
      */
-    @Serializable
     enum class Retning(val value: kotlin.String) {
-        @SerialName(value = "MED") MED("MED"),
-        @SerialName(value = "MOT") MOT("MOT");
+        @JsonProperty(value = "MED") MED("MED"),
+        @JsonProperty(value = "MOT") MOT("MOT");
     }
     /**
      * 
      *
      * Values: MH,MV,VT,M,H,HT,VH,HV,K,V,L,R,R0
      */
-    @Serializable
     enum class Sideposisjon(val value: kotlin.String) {
-        @SerialName(value = "MH") MH("MH"),
-        @SerialName(value = "MV") MV("MV"),
-        @SerialName(value = "VT") VT("VT"),
-        @SerialName(value = "M") M("M"),
-        @SerialName(value = "H") H("H"),
-        @SerialName(value = "HT") HT("HT"),
-        @SerialName(value = "VH") VH("VH"),
-        @SerialName(value = "HV") HV("HV"),
-        @SerialName(value = "K") K("K"),
-        @SerialName(value = "V") V("V"),
-        @SerialName(value = "L") L("L"),
-        @SerialName(value = "R") R("R"),
-        @SerialName(value = "R0") R0("R0");
+        @JsonProperty(value = "MH") MH("MH"),
+        @JsonProperty(value = "MV") MV("MV"),
+        @JsonProperty(value = "VT") VT("VT"),
+        @JsonProperty(value = "M") M("M"),
+        @JsonProperty(value = "H") H("H"),
+        @JsonProperty(value = "HT") HT("HT"),
+        @JsonProperty(value = "VH") VH("VH"),
+        @JsonProperty(value = "HV") HV("HV"),
+        @JsonProperty(value = "K") K("K"),
+        @JsonProperty(value = "V") V("V"),
+        @JsonProperty(value = "L") L("L"),
+        @JsonProperty(value = "R") R("R"),
+        @JsonProperty(value = "R0") R0("R0");
     }
 
 }

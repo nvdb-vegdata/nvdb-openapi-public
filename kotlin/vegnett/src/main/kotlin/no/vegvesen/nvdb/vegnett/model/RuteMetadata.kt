@@ -16,9 +16,7 @@
 package no.vegvesen.nvdb.vegnett.model
 
 
-import kotlinx.serialization.*
-import kotlinx.serialization.descriptors.*
-import kotlinx.serialization.encoding.*
+import com.fasterxml.jackson.annotation.JsonProperty
 
 /**
  * 
@@ -28,17 +26,21 @@ import kotlinx.serialization.encoding.*
  * @param status 
  * @param statusTekst 
  */
-@Serializable
+
 
 data class RuteMetadata (
 
-    @SerialName(value = "antall") @Required val antall: kotlin.Int,
+    @get:JsonProperty("antall")
+    val antall: kotlin.Int,
 
-    @SerialName(value = "lengde") @Required val lengde: kotlin.Double,
+    @get:JsonProperty("lengde")
+    val lengde: kotlin.Double,
 
-    @SerialName(value = "status") @Required val status: kotlin.Int,
+    @get:JsonProperty("status")
+    val status: kotlin.Int,
 
-    @SerialName(value = "status_tekst") @Required val statusTekst: kotlin.String
+    @get:JsonProperty("status_tekst")
+    val statusTekst: kotlin.String
 
 ) {
 

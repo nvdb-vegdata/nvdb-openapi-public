@@ -16,9 +16,7 @@
 package no.vegvesen.nvdb.vegobjekter.model
 
 
-import kotlinx.serialization.*
-import kotlinx.serialization.descriptors.*
-import kotlinx.serialization.encoding.*
+import com.fasterxml.jackson.annotation.JsonProperty
 
 /**
  * 
@@ -27,15 +25,18 @@ import kotlinx.serialization.encoding.*
  * @param navn 
  * @param kortnavn 
  */
-@Serializable
+
 
 data class Enhet (
 
-    @SerialName(value = "id") @Required val id: kotlin.Int,
+    @get:JsonProperty("id")
+    val id: kotlin.Int,
 
-    @SerialName(value = "navn") val navn: kotlin.String? = null,
+    @get:JsonProperty("navn")
+    val navn: kotlin.String? = null,
 
-    @SerialName(value = "kortnavn") val kortnavn: kotlin.String? = null
+    @get:JsonProperty("kortnavn")
+    val kortnavn: kotlin.String? = null
 
 ) {
 

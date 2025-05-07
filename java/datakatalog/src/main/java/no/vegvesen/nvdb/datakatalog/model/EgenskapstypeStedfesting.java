@@ -521,48 +521,6 @@ public class EgenskapstypeStedfesting extends Egenskapstype {
   }
 
   @Override
-  public EgenskapstypeStedfesting komplementærEgenskapstype(@javax.annotation.Nullable Integer komplementærEgenskapstype) {
-    this.setKomplementærEgenskapstype(komplementærEgenskapstype);
-    return this;
-  }
-
-  @Override
-  public EgenskapstypeStedfesting kortnavn(@javax.annotation.Nullable String kortnavn) {
-    this.setKortnavn(kortnavn);
-    return this;
-  }
-
-  @Override
-  public EgenskapstypeStedfesting beskrivelse(@javax.annotation.Nullable String beskrivelse) {
-    this.setBeskrivelse(beskrivelse);
-    return this;
-  }
-
-  @Override
-  public EgenskapstypeStedfesting sosinavn(@javax.annotation.Nullable String sosinavn) {
-    this.setSosinavn(sosinavn);
-    return this;
-  }
-
-  @Override
-  public EgenskapstypeStedfesting sosinvdbnavn(@javax.annotation.Nullable String sosinvdbnavn) {
-    this.setSosinvdbnavn(sosinvdbnavn);
-    return this;
-  }
-
-  @Override
-  public EgenskapstypeStedfesting sorteringsnummer(@javax.annotation.Nonnull Integer sorteringsnummer) {
-    this.setSorteringsnummer(sorteringsnummer);
-    return this;
-  }
-
-  @Override
-  public EgenskapstypeStedfesting avledet(@javax.annotation.Nonnull Boolean avledet) {
-    this.setAvledet(avledet);
-    return this;
-  }
-
-  @Override
   public EgenskapstypeStedfesting obligatoriskVerdi(@javax.annotation.Nonnull Boolean obligatoriskVerdi) {
     this.setObligatoriskVerdi(obligatoriskVerdi);
     return this;
@@ -643,6 +601,48 @@ public class EgenskapstypeStedfesting extends Egenskapstype {
   @Override
   public EgenskapstypeStedfesting kategori(@javax.annotation.Nonnull Integer kategori) {
     this.setKategori(kategori);
+    return this;
+  }
+
+  @Override
+  public EgenskapstypeStedfesting komplementærEgenskapstype(@javax.annotation.Nullable Integer komplementærEgenskapstype) {
+    this.setKomplementærEgenskapstype(komplementærEgenskapstype);
+    return this;
+  }
+
+  @Override
+  public EgenskapstypeStedfesting kortnavn(@javax.annotation.Nullable String kortnavn) {
+    this.setKortnavn(kortnavn);
+    return this;
+  }
+
+  @Override
+  public EgenskapstypeStedfesting beskrivelse(@javax.annotation.Nullable String beskrivelse) {
+    this.setBeskrivelse(beskrivelse);
+    return this;
+  }
+
+  @Override
+  public EgenskapstypeStedfesting sosinavn(@javax.annotation.Nullable String sosinavn) {
+    this.setSosinavn(sosinavn);
+    return this;
+  }
+
+  @Override
+  public EgenskapstypeStedfesting sosinvdbnavn(@javax.annotation.Nullable String sosinvdbnavn) {
+    this.setSosinvdbnavn(sosinvdbnavn);
+    return this;
+  }
+
+  @Override
+  public EgenskapstypeStedfesting sorteringsnummer(@javax.annotation.Nonnull Integer sorteringsnummer) {
+    this.setSorteringsnummer(sorteringsnummer);
+    return this;
+  }
+
+  @Override
+  public EgenskapstypeStedfesting avledet(@javax.annotation.Nonnull Boolean avledet) {
+    this.setAvledet(avledet);
     return this;
   }
 

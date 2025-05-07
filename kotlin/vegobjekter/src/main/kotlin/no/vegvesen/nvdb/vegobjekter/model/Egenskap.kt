@@ -16,9 +16,9 @@
 package no.vegvesen.nvdb.vegobjekter.model
 
 
-import kotlinx.serialization.*
-import kotlinx.serialization.descriptors.*
-import kotlinx.serialization.encoding.*
+import com.fasterxml.jackson.annotation.JsonProperty
+import com.fasterxml.jackson.annotation.JsonSubTypes
+import com.fasterxml.jackson.annotation.JsonTypeInfo
 
 /**
  * 
@@ -27,36 +27,56 @@ import kotlinx.serialization.encoding.*
  * @param navn 
  * @param egenskapstype 
  */
-
+@JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.PROPERTY, property = "egenskapstype", visible = true)
+@JsonSubTypes(
+    JsonSubTypes.Type(value = AssosiasjonEgenskap::class, name = "Assosiasjon"),
+    JsonSubTypes.Type(value = BinaerEgenskap::class, name = "Binær"),
+    JsonSubTypes.Type(value = BoolskEgenskap::class, name = "Boolsk"),
+    JsonSubTypes.Type(value = DatoEgenskap::class, name = "Dato"),
+    JsonSubTypes.Type(value = FlyttallEgenskap::class, name = "Flyttall"),
+    JsonSubTypes.Type(value = FlyttallEnumEgenskap::class, name = "Flyttallenum"),
+    JsonSubTypes.Type(value = GeometriEgenskap::class, name = "Geometri"),
+    JsonSubTypes.Type(value = HeltallEgenskap::class, name = "Heltall"),
+    JsonSubTypes.Type(value = HeltallEnumEgenskap::class, name = "Heltallenum"),
+    JsonSubTypes.Type(value = KortDatoEgenskap::class, name = "Kortdato"),
+    JsonSubTypes.Type(value = ListeEgenskap::class, name = "Liste"),
+    JsonSubTypes.Type(value = StedfestingEgenskap::class, name = "Stedfesting"),
+    JsonSubTypes.Type(value = StrukturEgenskap::class, name = "Struktur"),
+    JsonSubTypes.Type(value = TekstEgenskap::class, name = "Tekst"),
+    JsonSubTypes.Type(value = TekstEnumEgenskap::class, name = "Tekstenum"),
+    JsonSubTypes.Type(value = TidEgenskap::class, name = "Tid")
+)
 
 interface Egenskap {
 
-    @SerialName(value = "id") @Required val id: kotlin.Int
-    @SerialName(value = "navn") @Required val navn: kotlin.String
-    @SerialName(value = "egenskapstype") @Required val egenskapstype: Egenskap.Egenskapstype
+    @get:JsonProperty("id")
+    val id: kotlin.Int
+    @get:JsonProperty("navn")
+    val navn: kotlin.String
+    @get:JsonProperty("egenskapstype")
+    val egenskapstype: Egenskap.Egenskapstype
     /**
      * 
      *
      * Values: Assosiasjon,Boolsk,Binær,Tekst,Dato,Flyttall,Heltall,Struktur,Geometri,Stedfesting,Kortdato,Tid,Liste,Tekstenum,Heltallenum,Flyttallenum
      */
-    @Serializable
     enum class Egenskapstype(val value: kotlin.String) {
-        @SerialName(value = "Assosiasjon") Assosiasjon("Assosiasjon"),
-        @SerialName(value = "Boolsk") Boolsk("Boolsk"),
-        @SerialName(value = "Binær") Binær("Binær"),
-        @SerialName(value = "Tekst") Tekst("Tekst"),
-        @SerialName(value = "Dato") Dato("Dato"),
-        @SerialName(value = "Flyttall") Flyttall("Flyttall"),
-        @SerialName(value = "Heltall") Heltall("Heltall"),
-        @SerialName(value = "Struktur") Struktur("Struktur"),
-        @SerialName(value = "Geometri") Geometri("Geometri"),
-        @SerialName(value = "Stedfesting") Stedfesting("Stedfesting"),
-        @SerialName(value = "Kortdato") Kortdato("Kortdato"),
-        @SerialName(value = "Tid") Tid("Tid"),
-        @SerialName(value = "Liste") Liste("Liste"),
-        @SerialName(value = "Tekstenum") Tekstenum("Tekstenum"),
-        @SerialName(value = "Heltallenum") Heltallenum("Heltallenum"),
-        @SerialName(value = "Flyttallenum") Flyttallenum("Flyttallenum");
+        @JsonProperty(value = "Assosiasjon") Assosiasjon("Assosiasjon"),
+        @JsonProperty(value = "Boolsk") Boolsk("Boolsk"),
+        @JsonProperty(value = "Binær") Binær("Binær"),
+        @JsonProperty(value = "Tekst") Tekst("Tekst"),
+        @JsonProperty(value = "Dato") Dato("Dato"),
+        @JsonProperty(value = "Flyttall") Flyttall("Flyttall"),
+        @JsonProperty(value = "Heltall") Heltall("Heltall"),
+        @JsonProperty(value = "Struktur") Struktur("Struktur"),
+        @JsonProperty(value = "Geometri") Geometri("Geometri"),
+        @JsonProperty(value = "Stedfesting") Stedfesting("Stedfesting"),
+        @JsonProperty(value = "Kortdato") Kortdato("Kortdato"),
+        @JsonProperty(value = "Tid") Tid("Tid"),
+        @JsonProperty(value = "Liste") Liste("Liste"),
+        @JsonProperty(value = "Tekstenum") Tekstenum("Tekstenum"),
+        @JsonProperty(value = "Heltallenum") Heltallenum("Heltallenum"),
+        @JsonProperty(value = "Flyttallenum") Flyttallenum("Flyttallenum");
     }
 
 }

@@ -20,7 +20,7 @@ Hent statistikk for en vegobjekttype
 
 ```kotlin
 // Import classes:
-//import org.openapitools.client.infrastructure.*
+//import no.vegvesen.nvdb.vegobjekter.infrastructure.*
 //import no.vegvesen.nvdb.vegobjekter.model.*
 
 val apiInstance = StatistikkApi()
@@ -44,8 +44,8 @@ val inkluder : kotlin.collections.List<kotlin.String> =  // kotlin.collections.L
 val veglenkesekvens : kotlin.collections.Set<kotlin.String> =  // kotlin.collections.Set<kotlin.String> | Filtrer vegobjekter på om de er stedfestet på gjeldende veglenkesekvenser. Kommaseparert liste.  Eksempel: `0.37@319531,0.83-0.97@41640`
 val veglenketype : kotlin.collections.Set<kotlin.String> =  // kotlin.collections.Set<kotlin.String> | Filtrer vegobjekter på veglenketype på vegnettet objektet er stedfestet. Kommaseparert liste.
 val detaljniva : kotlin.collections.Set<kotlin.String> =  // kotlin.collections.Set<kotlin.String> | Filtrer vegobjekter på detaljnivå på vegnettet objektet er stedfestet på (kortnavn fra datakatalogen).
-val endretEtter : kotlinx.datetime.Instant = 2013-10-20T19:20:30+01:00 // kotlinx.datetime.Instant | Finner statistikk for vegobjekter som har blitt endret etter dette tidspunktet. Eksmepel: 2024-12-02T10:15:30
-val tidspunkt : kotlinx.datetime.LocalDate = 2013-10-20 // kotlinx.datetime.LocalDate | Finner statistikk for vegobjekter som var gyldige denne datoen.
+val endretEtter : java.time.OffsetDateTime = 2013-10-20T19:20:30+01:00 // java.time.OffsetDateTime | Finner statistikk for vegobjekter som har blitt endret etter dette tidspunktet. Eksmepel: 2024-12-02T10:15:30
+val tidspunkt : java.time.LocalDate = 2013-10-20 // java.time.LocalDate | Finner statistikk for vegobjekter som var gyldige denne datoen.
 val egenskap : kotlin.collections.List<kotlin.String> =  // kotlin.collections.List<kotlin.String> | Filtrer vegobjekter på egenskaper, relasjoner og overlapp. Se [dokumentasjon](https://nvdb.atlas.vegvesen.no/docs/produkter/nvdbapil/v4/introduksjon/Avanserte_filter)
 val overlapp : kotlin.collections.List<kotlin.String> =  // kotlin.collections.List<kotlin.String> | Filtrer vegobjekter på overlapp. Se [dokumentasjon](https://nvdb.atlas.vegvesen.no/docs/produkter/nvdbapil/v4/introduksjon/Avanserte_filter)
 try {
@@ -82,8 +82,8 @@ try {
 | **veglenkesekvens** | **kotlin.collections.Set&lt;kotlin.String&gt;**| Filtrer vegobjekter på om de er stedfestet på gjeldende veglenkesekvenser. Kommaseparert liste. Eksempel: &#x60;0.37@319531,0.83-0.97@41640&#x60; | [optional] |
 | **veglenketype** | **kotlin.collections.Set&lt;kotlin.String&gt;**| Filtrer vegobjekter på veglenketype på vegnettet objektet er stedfestet. Kommaseparert liste. | [optional] [enum: ukjent, detaljert, konnektering, detaljert_konnektering, hoved] |
 | **detaljniva** | **kotlin.collections.Set&lt;kotlin.String&gt;**| Filtrer vegobjekter på detaljnivå på vegnettet objektet er stedfestet på (kortnavn fra datakatalogen). | [optional] [enum: VT, KB, KF, VTKB] |
-| **endretEtter** | **kotlinx.datetime.Instant**| Finner statistikk for vegobjekter som har blitt endret etter dette tidspunktet. Eksmepel: 2024-12-02T10:15:30 | [optional] |
-| **tidspunkt** | **kotlinx.datetime.LocalDate**| Finner statistikk for vegobjekter som var gyldige denne datoen. | [optional] |
+| **endretEtter** | **java.time.OffsetDateTime**| Finner statistikk for vegobjekter som har blitt endret etter dette tidspunktet. Eksmepel: 2024-12-02T10:15:30 | [optional] |
+| **tidspunkt** | **java.time.LocalDate**| Finner statistikk for vegobjekter som var gyldige denne datoen. | [optional] |
 | **egenskap** | **kotlin.collections.List&lt;kotlin.String&gt;**| Filtrer vegobjekter på egenskaper, relasjoner og overlapp. Se [dokumentasjon](https://nvdb.atlas.vegvesen.no/docs/produkter/nvdbapil/v4/introduksjon/Avanserte_filter) | [optional] |
 | Name | Type | Description | Notes |
 | ------------- | ------------- | ------------- | ------------- |
@@ -115,7 +115,7 @@ Hent statistikk for en vegobjekttype, gruppert på ett eller flere felter
 
 ```kotlin
 // Import classes:
-//import org.openapitools.client.infrastructure.*
+//import no.vegvesen.nvdb.vegobjekter.infrastructure.*
 //import no.vegvesen.nvdb.vegobjekter.model.*
 
 val apiInstance = StatistikkApi()
@@ -125,7 +125,7 @@ val srid : kotlin.String = srid_example // kotlin.String | Angir hvilket geograf
 val kartutsnitt : kotlin.String = kartutsnitt_example // kotlin.String | Filtrer vegobjekter med kartutsnitt i det gjeldende geografiske referansesystemet (`srid`-paramteret). Formatet er `minX, minY, maxX, maxY`. Merk at vegobjektets bounding box benyttes for sammenligning, som kan medføre at vegobjekter som er utenfor kartutsnittet også returneres. For å unngå dette, kan du bruke `polygon` i stedet.  Eksempel: `265273, 7019372, 346553, 7061071`
 val inkluder : kotlin.collections.Set<kotlin.String> =  // kotlin.collections.Set<kotlin.String> | Kommaseparert liste av statistikkfelt som skal inkluderes i resultatet.
 val veglenkesekvens : kotlin.collections.Set<kotlin.String> =  // kotlin.collections.Set<kotlin.String> | Filtrer vegobjekter på om de er stedfestet på gjeldende veglenkesekvenser. Kommaseparert liste.  Eksempel: `0.37@319531,0.83-0.97@41640`
-val tidspunkt : kotlinx.datetime.LocalDate = 2013-10-20 // kotlinx.datetime.LocalDate | Finner versjonen som var gyldig denne datoen.
+val tidspunkt : java.time.LocalDate = 2013-10-20 // java.time.LocalDate | Finner versjonen som var gyldig denne datoen.
 try {
     val result : kotlin.collections.List<VegobjekterStatistikkGruppert> = apiInstance.getVegobjekterStatistikkGruppert(vegobjekttypeid, gruppering, srid, kartutsnitt, inkluder, veglenkesekvens, tidspunkt)
     println(result)
@@ -148,7 +148,7 @@ try {
 | **veglenkesekvens** | **kotlin.collections.Set&lt;kotlin.String&gt;**| Filtrer vegobjekter på om de er stedfestet på gjeldende veglenkesekvenser. Kommaseparert liste. Eksempel: &#x60;0.37@319531,0.83-0.97@41640&#x60; | [optional] |
 | Name | Type | Description | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **tidspunkt** | **kotlinx.datetime.LocalDate**| Finner versjonen som var gyldig denne datoen. | [optional] |
+| **tidspunkt** | **java.time.LocalDate**| Finner versjonen som var gyldig denne datoen. | [optional] |
 
 ### Return type
 
@@ -176,13 +176,13 @@ Hent overordnet statistikk for alle vegobjekttyper
 
 ```kotlin
 // Import classes:
-//import org.openapitools.client.infrastructure.*
+//import no.vegvesen.nvdb.vegobjekter.infrastructure.*
 //import no.vegvesen.nvdb.vegobjekter.model.*
 
 val apiInstance = StatistikkApi()
 val inkluder : kotlin.collections.List<kotlin.String> =  // kotlin.collections.List<kotlin.String> | Kommaseparert liste av statistikkfelt som skal inkluderes i resultatet.
 val kontraktsomrade : kotlin.collections.Set<kotlin.String> =  // kotlin.collections.Set<kotlin.String> | Filtrer på kontraktsomrade. Kommaseparert liste. Se /omrader/kontraktsomrader for mulige verdier.  Eksempel: `9503 Midtre Hålogaland 2021-2026`
-val tidspunkt : kotlinx.datetime.LocalDate = 2013-10-20 // kotlinx.datetime.LocalDate | Finner versjonen som var gyldig denne datoen.
+val tidspunkt : java.time.LocalDate = 2013-10-20 // java.time.LocalDate | Finner versjonen som var gyldig denne datoen.
 try {
     val result : kotlin.collections.List<VegobjekterStatistikkMedType> = apiInstance.getVegobjekterStatistikkMedTyper(inkluder, kontraktsomrade, tidspunkt)
     println(result)
@@ -201,7 +201,7 @@ try {
 | **kontraktsomrade** | **kotlin.collections.Set&lt;kotlin.String&gt;**| Filtrer på kontraktsomrade. Kommaseparert liste. Se /omrader/kontraktsomrader for mulige verdier. Eksempel: &#x60;9503 Midtre Hålogaland 2021-2026&#x60; | [optional] |
 | Name | Type | Description | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **tidspunkt** | **kotlinx.datetime.LocalDate**| Finner versjonen som var gyldig denne datoen. | [optional] |
+| **tidspunkt** | **java.time.LocalDate**| Finner versjonen som var gyldig denne datoen. | [optional] |
 
 ### Return type
 

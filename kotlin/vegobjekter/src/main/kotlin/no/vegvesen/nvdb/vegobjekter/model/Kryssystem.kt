@@ -16,9 +16,7 @@
 package no.vegvesen.nvdb.vegobjekter.model
 
 
-import kotlinx.serialization.*
-import kotlinx.serialization.descriptors.*
-import kotlinx.serialization.encoding.*
+import com.fasterxml.jackson.annotation.JsonProperty
 
 /**
  * 
@@ -31,23 +29,30 @@ import kotlinx.serialization.encoding.*
  * @param fraMeter 
  * @param tilMeter 
  */
-@Serializable
+
 
 data class Kryssystem (
 
-    @SerialName(value = "kryssystem") @Required val kryssystem: kotlin.Int,
+    @get:JsonProperty("kryssystem")
+    val kryssystem: kotlin.Int,
 
-    @SerialName(value = "kryssdel") @Required val kryssdel: kotlin.Int,
+    @get:JsonProperty("kryssdel")
+    val kryssdel: kotlin.Int,
 
-    @SerialName(value = "retning") @Required val retning: Kryssystem.Retning,
+    @get:JsonProperty("retning")
+    val retning: Kryssystem.Retning,
 
-    @SerialName(value = "trafikantgruppe") @Required val trafikantgruppe: Kryssystem.Trafikantgruppe,
+    @get:JsonProperty("trafikantgruppe")
+    val trafikantgruppe: Kryssystem.Trafikantgruppe,
 
-    @SerialName(value = "meter") val meter: kotlin.Double? = null,
+    @get:JsonProperty("meter")
+    val meter: kotlin.Double? = null,
 
-    @SerialName(value = "fra_meter") val fraMeter: kotlin.Double? = null,
+    @get:JsonProperty("fra_meter")
+    val fraMeter: kotlin.Double? = null,
 
-    @SerialName(value = "til_meter") val tilMeter: kotlin.Double? = null
+    @get:JsonProperty("til_meter")
+    val tilMeter: kotlin.Double? = null
 
 ) {
 
@@ -56,20 +61,18 @@ data class Kryssystem (
      *
      * Values: MED,MOT
      */
-    @Serializable
     enum class Retning(val value: kotlin.String) {
-        @SerialName(value = "MED") MED("MED"),
-        @SerialName(value = "MOT") MOT("MOT");
+        @JsonProperty(value = "MED") MED("MED"),
+        @JsonProperty(value = "MOT") MOT("MOT");
     }
     /**
      * 
      *
      * Values: K,G
      */
-    @Serializable
     enum class Trafikantgruppe(val value: kotlin.String) {
-        @SerialName(value = "K") K("K"),
-        @SerialName(value = "G") G("G");
+        @JsonProperty(value = "K") K("K"),
+        @JsonProperty(value = "G") G("G");
     }
 
 }

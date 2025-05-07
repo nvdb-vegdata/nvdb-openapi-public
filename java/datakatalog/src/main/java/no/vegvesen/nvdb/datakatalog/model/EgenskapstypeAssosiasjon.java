@@ -277,48 +277,6 @@ public class EgenskapstypeAssosiasjon extends Egenskapstype {
   }
 
   @Override
-  public EgenskapstypeAssosiasjon komplementærEgenskapstype(@javax.annotation.Nullable Integer komplementærEgenskapstype) {
-    this.setKomplementærEgenskapstype(komplementærEgenskapstype);
-    return this;
-  }
-
-  @Override
-  public EgenskapstypeAssosiasjon kortnavn(@javax.annotation.Nullable String kortnavn) {
-    this.setKortnavn(kortnavn);
-    return this;
-  }
-
-  @Override
-  public EgenskapstypeAssosiasjon beskrivelse(@javax.annotation.Nullable String beskrivelse) {
-    this.setBeskrivelse(beskrivelse);
-    return this;
-  }
-
-  @Override
-  public EgenskapstypeAssosiasjon sosinavn(@javax.annotation.Nullable String sosinavn) {
-    this.setSosinavn(sosinavn);
-    return this;
-  }
-
-  @Override
-  public EgenskapstypeAssosiasjon sosinvdbnavn(@javax.annotation.Nullable String sosinvdbnavn) {
-    this.setSosinvdbnavn(sosinvdbnavn);
-    return this;
-  }
-
-  @Override
-  public EgenskapstypeAssosiasjon sorteringsnummer(@javax.annotation.Nonnull Integer sorteringsnummer) {
-    this.setSorteringsnummer(sorteringsnummer);
-    return this;
-  }
-
-  @Override
-  public EgenskapstypeAssosiasjon avledet(@javax.annotation.Nonnull Boolean avledet) {
-    this.setAvledet(avledet);
-    return this;
-  }
-
-  @Override
   public EgenskapstypeAssosiasjon obligatoriskVerdi(@javax.annotation.Nonnull Boolean obligatoriskVerdi) {
     this.setObligatoriskVerdi(obligatoriskVerdi);
     return this;
@@ -399,6 +357,48 @@ public class EgenskapstypeAssosiasjon extends Egenskapstype {
   @Override
   public EgenskapstypeAssosiasjon kategori(@javax.annotation.Nonnull Integer kategori) {
     this.setKategori(kategori);
+    return this;
+  }
+
+  @Override
+  public EgenskapstypeAssosiasjon komplementærEgenskapstype(@javax.annotation.Nullable Integer komplementærEgenskapstype) {
+    this.setKomplementærEgenskapstype(komplementærEgenskapstype);
+    return this;
+  }
+
+  @Override
+  public EgenskapstypeAssosiasjon kortnavn(@javax.annotation.Nullable String kortnavn) {
+    this.setKortnavn(kortnavn);
+    return this;
+  }
+
+  @Override
+  public EgenskapstypeAssosiasjon beskrivelse(@javax.annotation.Nullable String beskrivelse) {
+    this.setBeskrivelse(beskrivelse);
+    return this;
+  }
+
+  @Override
+  public EgenskapstypeAssosiasjon sosinavn(@javax.annotation.Nullable String sosinavn) {
+    this.setSosinavn(sosinavn);
+    return this;
+  }
+
+  @Override
+  public EgenskapstypeAssosiasjon sosinvdbnavn(@javax.annotation.Nullable String sosinvdbnavn) {
+    this.setSosinvdbnavn(sosinvdbnavn);
+    return this;
+  }
+
+  @Override
+  public EgenskapstypeAssosiasjon sorteringsnummer(@javax.annotation.Nonnull Integer sorteringsnummer) {
+    this.setSorteringsnummer(sorteringsnummer);
+    return this;
+  }
+
+  @Override
+  public EgenskapstypeAssosiasjon avledet(@javax.annotation.Nonnull Boolean avledet) {
+    this.setAvledet(avledet);
     return this;
   }
 

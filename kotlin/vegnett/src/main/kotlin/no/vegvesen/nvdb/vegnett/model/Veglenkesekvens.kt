@@ -18,9 +18,7 @@ package no.vegvesen.nvdb.vegnett.model
 import no.vegvesen.nvdb.vegnett.model.Veglenke
 import no.vegvesen.nvdb.vegnett.model.Veglenkeport
 
-import kotlinx.serialization.*
-import kotlinx.serialization.descriptors.*
-import kotlinx.serialization.encoding.*
+import com.fasterxml.jackson.annotation.JsonProperty
 
 /**
  * 
@@ -32,21 +30,27 @@ import kotlinx.serialization.encoding.*
  * @param veglenker 
  * @param låstLengde 
  */
-@Serializable
+
 
 data class Veglenkesekvens (
 
-    @SerialName(value = "veglenkesekvensid") @Required val veglenkesekvensid: kotlin.Long,
+    @get:JsonProperty("veglenkesekvensid")
+    val veglenkesekvensid: kotlin.Long,
 
-    @SerialName(value = "href") @Required val href: kotlin.String,
+    @get:JsonProperty("href")
+    val href: kotlin.String,
 
-    @SerialName(value = "lengde") @Required val lengde: kotlin.Double,
+    @get:JsonProperty("lengde")
+    val lengde: kotlin.Double,
 
-    @SerialName(value = "porter") @Required val porter: kotlin.collections.List<Veglenkeport>,
+    @get:JsonProperty("porter")
+    val porter: kotlin.collections.List<Veglenkeport>,
 
-    @SerialName(value = "veglenker") @Required val veglenker: kotlin.collections.List<Veglenke>,
+    @get:JsonProperty("veglenker")
+    val veglenker: kotlin.collections.List<Veglenke>,
 
-    @SerialName(value = "låst_lengde") @Required val låstLengde: kotlin.Boolean
+    @get:JsonProperty("låst_lengde")
+    val låstLengde: kotlin.Boolean
 
 ) {
 

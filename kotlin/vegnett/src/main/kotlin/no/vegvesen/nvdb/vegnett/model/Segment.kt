@@ -16,20 +16,25 @@
 package no.vegvesen.nvdb.vegnett.model
 
 
-import kotlinx.serialization.*
-import kotlinx.serialization.descriptors.*
-import kotlinx.serialization.encoding.*
+import com.fasterxml.jackson.annotation.JsonProperty
+import com.fasterxml.jackson.annotation.JsonSubTypes
+import com.fasterxml.jackson.annotation.JsonTypeInfo
 
 /**
  * 
  *
  * @param type 
  */
-
+@JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.PROPERTY, property = "type", visible = true)
+@JsonSubTypes(
+    JsonSubTypes.Type(value = Linje::class, name = "Linje"),
+    JsonSubTypes.Type(value = Punkt::class, name = "Punkt")
+)
 
 interface Segment {
 
-    @SerialName(value = "type") @Required val type: kotlin.String
+    @get:JsonProperty("type")
+    val type: kotlin.String
 
 }
 

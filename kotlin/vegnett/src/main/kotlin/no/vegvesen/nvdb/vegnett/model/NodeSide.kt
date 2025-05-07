@@ -18,9 +18,7 @@ package no.vegvesen.nvdb.vegnett.model
 import no.vegvesen.nvdb.vegnett.model.Node
 import no.vegvesen.nvdb.vegnett.model.SideMetadata
 
-import kotlinx.serialization.*
-import kotlinx.serialization.descriptors.*
-import kotlinx.serialization.encoding.*
+import com.fasterxml.jackson.annotation.JsonProperty
 
 /**
  * 
@@ -28,13 +26,15 @@ import kotlinx.serialization.encoding.*
  * @param objekter 
  * @param metadata 
  */
-@Serializable
+
 
 data class NodeSide (
 
-    @SerialName(value = "objekter") @Required val objekter: kotlin.collections.List<Node>,
+    @get:JsonProperty("objekter")
+    val objekter: kotlin.collections.List<Node>,
 
-    @SerialName(value = "metadata") @Required val metadata: SideMetadata
+    @get:JsonProperty("metadata")
+    val metadata: SideMetadata
 
 ) {
 

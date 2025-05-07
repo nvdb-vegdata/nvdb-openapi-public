@@ -23,9 +23,7 @@ import no.vegvesen.nvdb.vegobjekter.model.Stedfesting
 import no.vegvesen.nvdb.vegobjekter.model.Vegforvalter
 import no.vegvesen.nvdb.vegobjekter.model.Vegsystemreferanse
 
-import kotlinx.serialization.*
-import kotlinx.serialization.descriptors.*
-import kotlinx.serialization.encoding.*
+import com.fasterxml.jackson.annotation.JsonProperty
 
 /**
  * 
@@ -41,29 +39,39 @@ import kotlinx.serialization.encoding.*
  * @param geometri 
  * @param lengde 
  */
-@Serializable
+
 
 data class Lokasjon (
 
-    @SerialName(value = "kommuner") @Required val kommuner: kotlin.collections.List<kotlin.Int>,
+    @get:JsonProperty("kommuner")
+    val kommuner: kotlin.collections.List<kotlin.Int>,
 
-    @SerialName(value = "fylker") @Required val fylker: kotlin.collections.List<kotlin.Int>,
+    @get:JsonProperty("fylker")
+    val fylker: kotlin.collections.List<kotlin.Int>,
 
-    @SerialName(value = "kontraktsområder") val kontraktsområder: kotlin.collections.List<Kontraktsomrade>? = null,
+    @get:JsonProperty("kontraktsområder")
+    val kontraktsområder: kotlin.collections.List<Kontraktsomrade>? = null,
 
-    @SerialName(value = "riksvegruter") val riksvegruter: kotlin.collections.List<Riksvegrute>? = null,
+    @get:JsonProperty("riksvegruter")
+    val riksvegruter: kotlin.collections.List<Riksvegrute>? = null,
 
-    @SerialName(value = "vegforvaltere") val vegforvaltere: kotlin.collections.List<Vegforvalter>? = null,
+    @get:JsonProperty("vegforvaltere")
+    val vegforvaltere: kotlin.collections.List<Vegforvalter>? = null,
 
-    @SerialName(value = "adresser") val adresser: kotlin.collections.List<Adresse>? = null,
+    @get:JsonProperty("adresser")
+    val adresser: kotlin.collections.List<Adresse>? = null,
 
-    @SerialName(value = "vegsystemreferanser") val vegsystemreferanser: kotlin.collections.List<Vegsystemreferanse>? = null,
+    @get:JsonProperty("vegsystemreferanser")
+    val vegsystemreferanser: kotlin.collections.List<Vegsystemreferanse>? = null,
 
-    @SerialName(value = "stedfestinger") val stedfestinger: kotlin.collections.List<Stedfesting>? = null,
+    @get:JsonProperty("stedfestinger")
+    val stedfestinger: kotlin.collections.List<Stedfesting>? = null,
 
-    @SerialName(value = "geometri") val geometri: Geometri? = null,
+    @get:JsonProperty("geometri")
+    val geometri: Geometri? = null,
 
-    @SerialName(value = "lengde") val lengde: kotlin.Double? = null
+    @get:JsonProperty("lengde")
+    val lengde: kotlin.Double? = null
 
 ) {
 

@@ -20,485 +20,188 @@ import no.vegvesen.nvdb.vegobjekter.model.VegobjekterStatistikk
 import no.vegvesen.nvdb.vegobjekter.model.VegobjekterStatistikkGruppert
 import no.vegvesen.nvdb.vegobjekter.model.VegobjekterStatistikkMedType
 
-import org.openapitools.client.infrastructure.*
-import io.ktor.client.HttpClient
+import no.vegvesen.nvdb.vegobjekter.infrastructure.*
 import io.ktor.client.HttpClientConfig
 import io.ktor.client.request.forms.formData
 import io.ktor.client.engine.HttpClientEngine
-import kotlinx.serialization.json.Json
 import io.ktor.http.ParametersBuilder
-import kotlinx.serialization.*
-import kotlinx.serialization.descriptors.*
-import kotlinx.serialization.encoding.*
+import com.fasterxml.jackson.databind.ObjectMapper
 
-open class StatistikkApi : ApiClient {
+    open class StatistikkApi(
+    baseUrl: String = ApiClient.BASE_URL,
+    httpClientEngine: HttpClientEngine? = null,
+    httpClientConfig: ((HttpClientConfig<*>) -> Unit)? = null,
+    jsonBlock: ObjectMapper.() -> Unit = ApiClient.JSON_DEFAULT,
+    ) : ApiClient(
+        baseUrl,
+        httpClientEngine,
+        httpClientConfig,
+        jsonBlock,
+    ) {
 
-    constructor(
-        baseUrl: String = ApiClient.BASE_URL,
-        httpClientEngine: HttpClientEngine? = null,
-        httpClientConfig: ((HttpClientConfig<*>) -> Unit)? = null,
-        jsonSerializer: Json = ApiClient.JSON_DEFAULT
-    ) : super(baseUrl = baseUrl, httpClientEngine = httpClientEngine, httpClientConfig = httpClientConfig, jsonBlock = jsonSerializer)
+        /**
+        * GET /api/v4/vegobjekter/{vegobjekttypeid}/statistikk
+        * Hent statistikk for en vegobjekttype
+        * 
+         * @param vegobjekttypeid Finn vegobjekter med denne vegobjekttypen. Se [Datakatalogen](https://datakatalogen.atlas.vegvesen.no) for mulige verdier.  Eksempel: 581          
+         * @param srid Angir hvilket geografisk referansesystem som benyttes for geografisk søk, og som geometrien skal returneres i (hvis relevant). Utdata i UTM-formater begrenses til 3 desimaler, 4326/WGS84 begrenses til 8 desimaler. Mer informasjon: &lt;a href&#x3D;&#39;https://epsg.io/5972&#39;&gt;EPSG:5972&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5973&#39;&gt;EPSG:5973&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5975&#39;&gt;EPSG:5975&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/4326&#39;&gt;EPSG:4326&lt;/a&gt;. (optional)
+         * @param segmentering Angir om strekningsobjekter skal segmenteres etter søkeområdet (fylke, kommune, vegsystemreferanse, kontraktsområde, riksvegrute, vegforvalter).  Default: &#x60;true&#x60; (optional)
+         * @param fylke Filtrer på fylke. Kommaseparert liste. Se /omrader/fylker for mulige verdier.  Eksempel: &#x60;50&#x60; (optional)
+         * @param kommune Filtrer på kommune. Kommaseparert liste. Se /omrader/kommuner for mulige verdier.  Eksempel: &#x60;5001&#x60; (optional)
+         * @param kontraktsomrade Filtrer på kontraktsomrade. Kommaseparert liste. Se /omrader/kontraktsomrader for mulige verdier.  Eksempel: &#x60;9503 Midtre Hålogaland 2021-2026&#x60; (optional)
+         * @param riksvegrute Filtrer på riksvegrute. Kommaseparert liste. Se /omrader/riksvegruter for mulige verdier.  Eksempel: &#x60;RUTE4A&#x60; eller som enumid &#x60;20290&#x60; (optional)
+         * @param vegforvalter Filtrer på vegforvalter. Kommaseparert liste. Se [/omrader/api/v4/vegforvaltere](https://nvdbapiles.atlas.vegvesen.no/webjars/swagger-ui/index.html?urls.primaryName&#x3D;Omr%C3%A5der) for mulige verdier.  Eksempel: &#x60;Møre og Romsdal fylkeskommune&#x60; eller som enumid &#x60;21774&#x60; (optional)
+         * @param vegsystemreferanse Filtrer vegobjekter på [vegsystemreferanse](https://nvdbapiles-v3.atlas.vegvesen.no/dokumentasjon/#vegsystemreferanse). Kommaseparert liste. Legg til kommunenummer i starten av vegsystemreferansen for å filtrere på område.  Eksempel: &#x60;EV6S1D1 m12&#x60; (optional)
+         * @param kartutsnitt Filtrer vegobjekter med kartutsnitt i det gjeldende geografiske referansesystemet (&#x60;srid&#x60;-paramteret). Formatet er &#x60;minX, minY, maxX, maxY&#x60;. Merk at vegobjektets bounding box benyttes for sammenligning, som kan medføre at vegobjekter som er utenfor kartutsnittet også returneres. For å unngå dette, kan du bruke &#x60;polygon&#x60; i stedet.  Eksempel: &#x60;265273, 7019372, 346553, 7061071&#x60; (optional)
+         * @param polygon Filtrer vegobjekter med polygon i det gjeldende geografiske referansesystemet (&#x60;srid&#x60;-paramteret). Merk: For statistikk-spørringer vil polygonets bounding box benyttes, ikke polygonet selv.  Eksempel: &#x60;20000 6520000, 20500 6520000, 21000 6500000, 20000 6520000&#x60; (optional)
+         * @param typeveg Filtrer Relasjonstype.vegobjekter på type veg på vegnettet objektet er stedfestet på. Kommaseparert liste.  Eksempel: &#x60;kanalisertVeg, enkelBilveg, rampe, rundkjøring, bilferje, passasjerferje, gangOgSykkelveg, sykkelveg, gangveg, gågate, fortau, trapp, gangfelt, gatetun, traktorveg, sti, annet&#x60; (optional)
+         * @param adskiltelop Filtrer vegobjekter på om de er stedfestet hvor det er en Strekning med verdi satt for «adskilte løp». (optional)
+         * @param kryssystem Filtrer vegobjekter på om de er stedfestet på samme sted hvor det er et Kryssystem. (optional)
+         * @param sideanlegg Filtrer vegobjekter på om de er stedfestet på samme sted hvor det er et Sideanlegg. (optional)
+         * @param trafikantgruppe Filtrer vegobjekter på trafikantgruppe. (optional)
+         * @param inkluder Kommaseparert liste av statistikkfelt som skal inkluderes i resultatet. (optional)
+         * @param veglenkesekvens Filtrer vegobjekter på om de er stedfestet på gjeldende veglenkesekvenser. Kommaseparert liste.  Eksempel: &#x60;0.37@319531,0.83-0.97@41640&#x60; (optional)
+         * @param veglenketype Filtrer vegobjekter på veglenketype på vegnettet objektet er stedfestet. Kommaseparert liste. (optional)
+         * @param detaljniva Filtrer vegobjekter på detaljnivå på vegnettet objektet er stedfestet på (kortnavn fra datakatalogen). (optional)
+         * @param endretEtter Finner statistikk for vegobjekter som har blitt endret etter dette tidspunktet. Eksmepel: 2024-12-02T10:15:30 (optional)
+         * @param tidspunkt Finner statistikk for vegobjekter som var gyldige denne datoen. (optional)
+         * @param egenskap Filtrer vegobjekter på egenskaper, relasjoner og overlapp. Se [dokumentasjon](https://nvdb.atlas.vegvesen.no/docs/produkter/nvdbapil/v4/introduksjon/Avanserte_filter) (optional)
+         * @param overlapp Filtrer vegobjekter på overlapp. Se [dokumentasjon](https://nvdb.atlas.vegvesen.no/docs/produkter/nvdbapil/v4/introduksjon/Avanserte_filter) (optional)
+         * @return VegobjekterStatistikk
+        */
+            @Suppress("UNCHECKED_CAST")
+        open suspend fun getVegobjekterStatistikk(vegobjekttypeid: kotlin.Int, srid: kotlin.String?, segmentering: kotlin.Boolean?, fylke: kotlin.collections.Set<kotlin.Int>?, kommune: kotlin.collections.Set<kotlin.Int>?, kontraktsomrade: kotlin.collections.Set<kotlin.String>?, riksvegrute: kotlin.collections.Set<kotlin.String>?, vegforvalter: kotlin.collections.Set<kotlin.String>?, vegsystemreferanse: kotlin.collections.Set<kotlin.String>?, kartutsnitt: kotlin.String?, polygon: kotlin.String?, typeveg: kotlin.collections.Set<kotlin.String>?, adskiltelop: kotlin.collections.Set<kotlin.String>?, kryssystem: kotlin.Boolean?, sideanlegg: kotlin.Boolean?, trafikantgruppe: kotlin.String?, inkluder: kotlin.collections.List<kotlin.String>?, veglenkesekvens: kotlin.collections.Set<kotlin.String>?, veglenketype: kotlin.collections.Set<kotlin.String>?, detaljniva: kotlin.collections.Set<kotlin.String>?, endretEtter: java.time.OffsetDateTime?, tidspunkt: java.time.LocalDate?, egenskap: kotlin.collections.List<kotlin.String>?, overlapp: kotlin.collections.List<kotlin.String>?): HttpResponse<VegobjekterStatistikk> {
 
-    constructor(
-        baseUrl: String,
-        httpClient: HttpClient
-    ): super(baseUrl = baseUrl, httpClient = httpClient)
+            val localVariableAuthNames = listOf<String>("bearerAuth")
 
+            val localVariableBody = 
+                    io.ktor.client.utils.EmptyContent
 
-    /**
-     * enum for parameter srid
-     */
-    @Serializable
-    enum class SridGetVegobjekterStatistikk(val value: kotlin.String) {
-        
-        @SerialName(value = "5972")
-        _5972("5972"),
-        
-        @SerialName(value = "5973")
-        _5973("5973"),
-        
-        @SerialName(value = "5975")
-        _5975("5975"),
-        
-        @SerialName(value = "4326")
-        _4326("4326"),
-        
-        @SerialName(value = "UTM32")
-        UTM32("UTM32"),
-        
-        @SerialName(value = "UTM33")
-        UTM33("UTM33"),
-        
-        @SerialName(value = "UTM35")
-        UTM35("UTM35"),
-        
-        @SerialName(value = "WGS84")
-        WGS84("WGS84")
-        
-    }
+            val localVariableQuery = mutableMapOf<String, List<String>>()
+            srid?.apply { localVariableQuery["srid"] = listOf("$srid") }
+            segmentering?.apply { localVariableQuery["segmentering"] = listOf("$segmentering") }
+            fylke?.apply { localVariableQuery["fylke"] = toMultiValue(this, "multi") }
+            kommune?.apply { localVariableQuery["kommune"] = toMultiValue(this, "multi") }
+            kontraktsomrade?.apply { localVariableQuery["kontraktsomrade"] = toMultiValue(this, "multi") }
+            riksvegrute?.apply { localVariableQuery["riksvegrute"] = toMultiValue(this, "multi") }
+            vegforvalter?.apply { localVariableQuery["vegforvalter"] = toMultiValue(this, "multi") }
+            vegsystemreferanse?.apply { localVariableQuery["vegsystemreferanse"] = toMultiValue(this, "multi") }
+            kartutsnitt?.apply { localVariableQuery["kartutsnitt"] = listOf("$kartutsnitt") }
+            polygon?.apply { localVariableQuery["polygon"] = listOf("$polygon") }
+            typeveg?.apply { localVariableQuery["typeveg"] = toMultiValue(this, "multi") }
+            adskiltelop?.apply { localVariableQuery["adskiltelop"] = toMultiValue(this, "multi") }
+            kryssystem?.apply { localVariableQuery["kryssystem"] = listOf("$kryssystem") }
+            sideanlegg?.apply { localVariableQuery["sideanlegg"] = listOf("$sideanlegg") }
+            trafikantgruppe?.apply { localVariableQuery["trafikantgruppe"] = listOf("$trafikantgruppe") }
+            inkluder?.apply { localVariableQuery["inkluder"] = toMultiValue(this, "multi") }
+            veglenkesekvens?.apply { localVariableQuery["veglenkesekvens"] = toMultiValue(this, "multi") }
+            veglenketype?.apply { localVariableQuery["veglenketype"] = toMultiValue(this, "multi") }
+            detaljniva?.apply { localVariableQuery["detaljniva"] = toMultiValue(this, "multi") }
+            endretEtter?.apply { localVariableQuery["endret_etter"] = listOf("$endretEtter") }
+            tidspunkt?.apply { localVariableQuery["tidspunkt"] = listOf("$tidspunkt") }
+            egenskap?.apply { localVariableQuery["egenskap"] = toMultiValue(this, "multi") }
+            overlapp?.apply { localVariableQuery["overlapp"] = toMultiValue(this, "multi") }
 
+            val localVariableHeaders = mutableMapOf<String, String>()
 
-    /**
-     * enum for parameter typeveg
-     */
-    @Serializable
-    enum class TypevegGetVegobjekterStatistikk(val value: kotlin.String) {
-        
-        @SerialName(value = "kanalisertVeg")
-        kanalisertVeg("kanalisertVeg"),
-        
-        @SerialName(value = "enkelBilveg")
-        enkelBilveg("enkelBilveg"),
-        
-        @SerialName(value = "rampe")
-        rampe("rampe"),
-        
-        @SerialName(value = "rundkjøring")
-        rundkjøring("rundkjøring"),
-        
-        @SerialName(value = "bilferje")
-        bilferje("bilferje"),
-        
-        @SerialName(value = "passasjerferje")
-        passasjerferje("passasjerferje"),
-        
-        @SerialName(value = "gangOgSykkelveg")
-        gangOgSykkelveg("gangOgSykkelveg"),
-        
-        @SerialName(value = "sykkelveg")
-        sykkelveg("sykkelveg"),
-        
-        @SerialName(value = "gangveg")
-        gangveg("gangveg"),
-        
-        @SerialName(value = "gågate")
-        gågate("gågate"),
-        
-        @SerialName(value = "fortau")
-        fortau("fortau"),
-        
-        @SerialName(value = "trapp")
-        trapp("trapp"),
-        
-        @SerialName(value = "gangfelt")
-        gangfelt("gangfelt"),
-        
-        @SerialName(value = "gatetun")
-        gatetun("gatetun"),
-        
-        @SerialName(value = "traktorveg")
-        traktorveg("traktorveg"),
-        
-        @SerialName(value = "sti")
-        sti("sti"),
-        
-        @SerialName(value = "annet")
-        annet("annet")
-        
-    }
-
-
-    /**
-     * enum for parameter adskiltelop
-     */
-    @Serializable
-    enum class AdskiltelopGetVegobjekterStatistikk(val value: kotlin.String) {
-        
-        @SerialName(value = "Med")
-        Med("Med"),
-        
-        @SerialName(value = "Mot")
-        Mot("Mot"),
-        
-        @SerialName(value = "Nei")
-        Nei("Nei")
-        
-    }
-
-
-    /**
-     * enum for parameter trafikantgruppe
-     */
-    @Serializable
-    enum class TrafikantgruppeGetVegobjekterStatistikk(val value: kotlin.String) {
-        
-        @SerialName(value = "K")
-        K("K"),
-        
-        @SerialName(value = "G")
-        G("G")
-        
-    }
-
-
-    /**
-     * enum for parameter inkluder
-     */
-    @Serializable
-    enum class InkluderGetVegobjekterStatistikk(val value: kotlin.String) {
-        
-        @SerialName(value = "lengde")
-        lengde("lengde"),
-        
-        @SerialName(value = "antall")
-        antall("antall"),
-        
-        @SerialName(value = "alle")
-        alle("alle")
-        
-    }
-
-
-    /**
-     * enum for parameter veglenketype
-     */
-    @Serializable
-    enum class VeglenketypeGetVegobjekterStatistikk(val value: kotlin.String) {
-        
-        @SerialName(value = "ukjent")
-        ukjent("ukjent"),
-        
-        @SerialName(value = "detaljert")
-        detaljert("detaljert"),
-        
-        @SerialName(value = "konnektering")
-        konnektering("konnektering"),
-        
-        @SerialName(value = "detaljert_konnektering")
-        detaljert_konnektering("detaljert_konnektering"),
-        
-        @SerialName(value = "hoved")
-        hoved("hoved")
-        
-    }
-
-
-    /**
-     * enum for parameter detaljniva
-     */
-    @Serializable
-    enum class DetaljnivaGetVegobjekterStatistikk(val value: kotlin.String) {
-        
-        @SerialName(value = "VT")
-        VT("VT"),
-        
-        @SerialName(value = "KB")
-        KB("KB"),
-        
-        @SerialName(value = "KF")
-        KF("KF"),
-        
-        @SerialName(value = "VTKB")
-        VTKB("VTKB")
-        
-    }
-
-    /**
-     * Hent statistikk for en vegobjekttype
-     * 
-     * @param vegobjekttypeid Finn vegobjekter med denne vegobjekttypen. Se [Datakatalogen](https://datakatalogen.atlas.vegvesen.no) for mulige verdier.  Eksempel: 581         
-     * @param srid Angir hvilket geografisk referansesystem som benyttes for geografisk søk, og som geometrien skal returneres i (hvis relevant). Utdata i UTM-formater begrenses til 3 desimaler, 4326/WGS84 begrenses til 8 desimaler. Mer informasjon: &lt;a href&#x3D;&#39;https://epsg.io/5972&#39;&gt;EPSG:5972&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5973&#39;&gt;EPSG:5973&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5975&#39;&gt;EPSG:5975&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/4326&#39;&gt;EPSG:4326&lt;/a&gt;. (optional)
-     * @param segmentering Angir om strekningsobjekter skal segmenteres etter søkeområdet (fylke, kommune, vegsystemreferanse, kontraktsområde, riksvegrute, vegforvalter).  Default: &#x60;true&#x60; (optional)
-     * @param fylke Filtrer på fylke. Kommaseparert liste. Se /omrader/fylker for mulige verdier.  Eksempel: &#x60;50&#x60; (optional)
-     * @param kommune Filtrer på kommune. Kommaseparert liste. Se /omrader/kommuner for mulige verdier.  Eksempel: &#x60;5001&#x60; (optional)
-     * @param kontraktsomrade Filtrer på kontraktsomrade. Kommaseparert liste. Se /omrader/kontraktsomrader for mulige verdier.  Eksempel: &#x60;9503 Midtre Hålogaland 2021-2026&#x60; (optional)
-     * @param riksvegrute Filtrer på riksvegrute. Kommaseparert liste. Se /omrader/riksvegruter for mulige verdier.  Eksempel: &#x60;RUTE4A&#x60; eller som enumid &#x60;20290&#x60; (optional)
-     * @param vegforvalter Filtrer på vegforvalter. Kommaseparert liste. Se [/omrader/api/v4/vegforvaltere](https://nvdbapiles.atlas.vegvesen.no/webjars/swagger-ui/index.html?urls.primaryName&#x3D;Omr%C3%A5der) for mulige verdier.  Eksempel: &#x60;Møre og Romsdal fylkeskommune&#x60; eller som enumid &#x60;21774&#x60; (optional)
-     * @param vegsystemreferanse Filtrer vegobjekter på [vegsystemreferanse](https://nvdbapiles-v3.atlas.vegvesen.no/dokumentasjon/#vegsystemreferanse). Kommaseparert liste. Legg til kommunenummer i starten av vegsystemreferansen for å filtrere på område.  Eksempel: &#x60;EV6S1D1 m12&#x60; (optional)
-     * @param kartutsnitt Filtrer vegobjekter med kartutsnitt i det gjeldende geografiske referansesystemet (&#x60;srid&#x60;-paramteret). Formatet er &#x60;minX, minY, maxX, maxY&#x60;. Merk at vegobjektets bounding box benyttes for sammenligning, som kan medføre at vegobjekter som er utenfor kartutsnittet også returneres. For å unngå dette, kan du bruke &#x60;polygon&#x60; i stedet.  Eksempel: &#x60;265273, 7019372, 346553, 7061071&#x60; (optional)
-     * @param polygon Filtrer vegobjekter med polygon i det gjeldende geografiske referansesystemet (&#x60;srid&#x60;-paramteret). Merk: For statistikk-spørringer vil polygonets bounding box benyttes, ikke polygonet selv.  Eksempel: &#x60;20000 6520000, 20500 6520000, 21000 6500000, 20000 6520000&#x60; (optional)
-     * @param typeveg Filtrer Relasjonstype.vegobjekter på type veg på vegnettet objektet er stedfestet på. Kommaseparert liste.  Eksempel: &#x60;kanalisertVeg, enkelBilveg, rampe, rundkjøring, bilferje, passasjerferje, gangOgSykkelveg, sykkelveg, gangveg, gågate, fortau, trapp, gangfelt, gatetun, traktorveg, sti, annet&#x60; (optional)
-     * @param adskiltelop Filtrer vegobjekter på om de er stedfestet hvor det er en Strekning med verdi satt for «adskilte løp». (optional)
-     * @param kryssystem Filtrer vegobjekter på om de er stedfestet på samme sted hvor det er et Kryssystem. (optional)
-     * @param sideanlegg Filtrer vegobjekter på om de er stedfestet på samme sted hvor det er et Sideanlegg. (optional)
-     * @param trafikantgruppe Filtrer vegobjekter på trafikantgruppe. (optional)
-     * @param inkluder Kommaseparert liste av statistikkfelt som skal inkluderes i resultatet. (optional)
-     * @param veglenkesekvens Filtrer vegobjekter på om de er stedfestet på gjeldende veglenkesekvenser. Kommaseparert liste.  Eksempel: &#x60;0.37@319531,0.83-0.97@41640&#x60; (optional)
-     * @param veglenketype Filtrer vegobjekter på veglenketype på vegnettet objektet er stedfestet. Kommaseparert liste. (optional)
-     * @param detaljniva Filtrer vegobjekter på detaljnivå på vegnettet objektet er stedfestet på (kortnavn fra datakatalogen). (optional)
-     * @param endretEtter Finner statistikk for vegobjekter som har blitt endret etter dette tidspunktet. Eksmepel: 2024-12-02T10:15:30 (optional)
-     * @param tidspunkt Finner statistikk for vegobjekter som var gyldige denne datoen. (optional)
-     * @param egenskap Filtrer vegobjekter på egenskaper, relasjoner og overlapp. Se [dokumentasjon](https://nvdb.atlas.vegvesen.no/docs/produkter/nvdbapil/v4/introduksjon/Avanserte_filter) (optional)
-     * @param overlapp Filtrer vegobjekter på overlapp. Se [dokumentasjon](https://nvdb.atlas.vegvesen.no/docs/produkter/nvdbapil/v4/introduksjon/Avanserte_filter) (optional)
-     * @return VegobjekterStatistikk
-     */
-    @Suppress("UNCHECKED_CAST")
-    open suspend fun getVegobjekterStatistikk(vegobjekttypeid: kotlin.Int, srid: SridGetVegobjekterStatistikk? = null, segmentering: kotlin.Boolean? = null, fylke: kotlin.collections.Set<kotlin.Int>? = null, kommune: kotlin.collections.Set<kotlin.Int>? = null, kontraktsomrade: kotlin.collections.Set<kotlin.String>? = null, riksvegrute: kotlin.collections.Set<kotlin.String>? = null, vegforvalter: kotlin.collections.Set<kotlin.String>? = null, vegsystemreferanse: kotlin.collections.Set<kotlin.String>? = null, kartutsnitt: kotlin.String? = null, polygon: kotlin.String? = null, typeveg: kotlin.collections.List<TypevegGetVegobjekterStatistikk>? = null, adskiltelop: kotlin.collections.List<AdskiltelopGetVegobjekterStatistikk>? = null, kryssystem: kotlin.Boolean? = null, sideanlegg: kotlin.Boolean? = null, trafikantgruppe: TrafikantgruppeGetVegobjekterStatistikk? = null, inkluder: kotlin.collections.List<InkluderGetVegobjekterStatistikk>? = null, veglenkesekvens: kotlin.collections.Set<kotlin.String>? = null, veglenketype: kotlin.collections.List<VeglenketypeGetVegobjekterStatistikk>? = null, detaljniva: kotlin.collections.List<DetaljnivaGetVegobjekterStatistikk>? = null, endretEtter: kotlinx.datetime.Instant? = null, tidspunkt: kotlinx.datetime.LocalDate? = null, egenskap: kotlin.collections.List<kotlin.String>? = null, overlapp: kotlin.collections.List<kotlin.String>? = null): HttpResponse<VegobjekterStatistikk> {
-
-        val localVariableAuthNames = listOf<String>("bearerAuth")
-
-        val localVariableBody = 
-            io.ktor.client.utils.EmptyContent
-
-        val localVariableQuery = mutableMapOf<String, List<String>>()
-        srid?.apply { localVariableQuery["srid"] = listOf("${ srid.value }") }
-        segmentering?.apply { localVariableQuery["segmentering"] = listOf("$segmentering") }
-        fylke?.apply { localVariableQuery["fylke"] = toMultiValue(this, "multi") }
-        kommune?.apply { localVariableQuery["kommune"] = toMultiValue(this, "multi") }
-        kontraktsomrade?.apply { localVariableQuery["kontraktsomrade"] = toMultiValue(this, "multi") }
-        riksvegrute?.apply { localVariableQuery["riksvegrute"] = toMultiValue(this, "multi") }
-        vegforvalter?.apply { localVariableQuery["vegforvalter"] = toMultiValue(this, "multi") }
-        vegsystemreferanse?.apply { localVariableQuery["vegsystemreferanse"] = toMultiValue(this, "multi") }
-        kartutsnitt?.apply { localVariableQuery["kartutsnitt"] = listOf("$kartutsnitt") }
-        polygon?.apply { localVariableQuery["polygon"] = listOf("$polygon") }
-        typeveg?.apply { localVariableQuery["typeveg"] = toMultiValue(this, "multi") }
-        adskiltelop?.apply { localVariableQuery["adskiltelop"] = toMultiValue(this, "multi") }
-        kryssystem?.apply { localVariableQuery["kryssystem"] = listOf("$kryssystem") }
-        sideanlegg?.apply { localVariableQuery["sideanlegg"] = listOf("$sideanlegg") }
-        trafikantgruppe?.apply { localVariableQuery["trafikantgruppe"] = listOf("${ trafikantgruppe.value }") }
-        inkluder?.apply { localVariableQuery["inkluder"] = toMultiValue(this, "multi") }
-        veglenkesekvens?.apply { localVariableQuery["veglenkesekvens"] = toMultiValue(this, "multi") }
-        veglenketype?.apply { localVariableQuery["veglenketype"] = toMultiValue(this, "multi") }
-        detaljniva?.apply { localVariableQuery["detaljniva"] = toMultiValue(this, "multi") }
-        endretEtter?.apply { localVariableQuery["endret_etter"] = listOf("$endretEtter") }
-        tidspunkt?.apply { localVariableQuery["tidspunkt"] = listOf("$tidspunkt") }
-        egenskap?.apply { localVariableQuery["egenskap"] = toMultiValue(this, "multi") }
-        overlapp?.apply { localVariableQuery["overlapp"] = toMultiValue(this, "multi") }
-        val localVariableHeaders = mutableMapOf<String, String>()
-
-        val localVariableConfig = RequestConfig<kotlin.Any?>(
+            val localVariableConfig = RequestConfig<kotlin.Any?>(
             RequestMethod.GET,
             "/api/v4/vegobjekter/{vegobjekttypeid}/statistikk".replace("{" + "vegobjekttypeid" + "}", "$vegobjekttypeid"),
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = true,
-        )
+            )
 
-        return request(
+            return request(
             localVariableConfig,
             localVariableBody,
             localVariableAuthNames
-        ).wrap()
-    }
+            ).wrap()
+            }
 
+        /**
+        * GET /api/v4/vegobjekter/{vegobjekttypeid}/statistikk/gruppert
+        * Hent statistikk for en vegobjekttype, gruppert på ett eller flere felter
+        * 
+         * @param vegobjekttypeid  
+         * @param gruppering Velg en eller flere felter som statistikken skal grupperes på. 
+         * @param srid Angir hvilket geografisk referansesystem som benyttes for geografisk søk, og som geometrien skal returneres i (hvis relevant). Utdata i UTM-formater begrenses til 3 desimaler, 4326/WGS84 begrenses til 8 desimaler. Mer informasjon: &lt;a href&#x3D;&#39;https://epsg.io/5972&#39;&gt;EPSG:5972&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5973&#39;&gt;EPSG:5973&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5975&#39;&gt;EPSG:5975&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/4326&#39;&gt;EPSG:4326&lt;/a&gt;. (optional)
+         * @param kartutsnitt Filtrer vegobjekter med kartutsnitt i det gjeldende geografiske referansesystemet (&#x60;srid&#x60;-paramteret). Formatet er &#x60;minX, minY, maxX, maxY&#x60;. Merk at vegobjektets bounding box benyttes for sammenligning, som kan medføre at vegobjekter som er utenfor kartutsnittet også returneres. For å unngå dette, kan du bruke &#x60;polygon&#x60; i stedet.  Eksempel: &#x60;265273, 7019372, 346553, 7061071&#x60; (optional)
+         * @param inkluder Kommaseparert liste av statistikkfelt som skal inkluderes i resultatet. (optional)
+         * @param veglenkesekvens Filtrer vegobjekter på om de er stedfestet på gjeldende veglenkesekvenser. Kommaseparert liste.  Eksempel: &#x60;0.37@319531,0.83-0.97@41640&#x60; (optional)
+         * @param tidspunkt Finner versjonen som var gyldig denne datoen. (optional)
+         * @return kotlin.collections.List<VegobjekterStatistikkGruppert>
+        */
+            @Suppress("UNCHECKED_CAST")
+        open suspend fun getVegobjekterStatistikkGruppert(vegobjekttypeid: kotlin.Int, gruppering: kotlin.collections.Set<kotlin.String>, srid: kotlin.String?, kartutsnitt: kotlin.String?, inkluder: kotlin.collections.Set<kotlin.String>?, veglenkesekvens: kotlin.collections.Set<kotlin.String>?, tidspunkt: java.time.LocalDate?): HttpResponse<kotlin.collections.List<VegobjekterStatistikkGruppert>> {
 
+            val localVariableAuthNames = listOf<String>("bearerAuth")
 
-    /**
-     * enum for parameter gruppering
-     */
-    @Serializable
-    enum class GrupperingGetVegobjekterStatistikkGruppert(val value: kotlin.String) {
-        
-        @SerialName(value = "fylke")
-        fylke("fylke"),
-        
-        @SerialName(value = "kommune")
-        kommune("kommune"),
-        
-        @SerialName(value = "vegkategori")
-        vegkategori("vegkategori")
-        
-    }
+            val localVariableBody = 
+                    io.ktor.client.utils.EmptyContent
 
+            val localVariableQuery = mutableMapOf<String, List<String>>()
+            srid?.apply { localVariableQuery["srid"] = listOf("$srid") }
+            kartutsnitt?.apply { localVariableQuery["kartutsnitt"] = listOf("$kartutsnitt") }
+            gruppering?.apply { localVariableQuery["gruppering"] = toMultiValue(this, "multi") }
+            inkluder?.apply { localVariableQuery["inkluder"] = toMultiValue(this, "multi") }
+            veglenkesekvens?.apply { localVariableQuery["veglenkesekvens"] = toMultiValue(this, "multi") }
+            tidspunkt?.apply { localVariableQuery["tidspunkt"] = listOf("$tidspunkt") }
 
-    /**
-     * enum for parameter srid
-     */
-    @Serializable
-    enum class SridGetVegobjekterStatistikkGruppert(val value: kotlin.String) {
-        
-        @SerialName(value = "5972")
-        _5972("5972"),
-        
-        @SerialName(value = "5973")
-        _5973("5973"),
-        
-        @SerialName(value = "5975")
-        _5975("5975"),
-        
-        @SerialName(value = "4326")
-        _4326("4326"),
-        
-        @SerialName(value = "UTM32")
-        UTM32("UTM32"),
-        
-        @SerialName(value = "UTM33")
-        UTM33("UTM33"),
-        
-        @SerialName(value = "UTM35")
-        UTM35("UTM35"),
-        
-        @SerialName(value = "WGS84")
-        WGS84("WGS84")
-        
-    }
+            val localVariableHeaders = mutableMapOf<String, String>()
 
-
-    /**
-     * enum for parameter inkluder
-     */
-    @Serializable
-    enum class InkluderGetVegobjekterStatistikkGruppert(val value: kotlin.String) {
-        
-        @SerialName(value = "lengde")
-        lengde("lengde"),
-        
-        @SerialName(value = "antall")
-        antall("antall"),
-        
-        @SerialName(value = "alle")
-        alle("alle")
-        
-    }
-
-    /**
-     * Hent statistikk for en vegobjekttype, gruppert på ett eller flere felter
-     * 
-     * @param vegobjekttypeid 
-     * @param gruppering Velg en eller flere felter som statistikken skal grupperes på.
-     * @param srid Angir hvilket geografisk referansesystem som benyttes for geografisk søk, og som geometrien skal returneres i (hvis relevant). Utdata i UTM-formater begrenses til 3 desimaler, 4326/WGS84 begrenses til 8 desimaler. Mer informasjon: &lt;a href&#x3D;&#39;https://epsg.io/5972&#39;&gt;EPSG:5972&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5973&#39;&gt;EPSG:5973&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5975&#39;&gt;EPSG:5975&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/4326&#39;&gt;EPSG:4326&lt;/a&gt;. (optional)
-     * @param kartutsnitt Filtrer vegobjekter med kartutsnitt i det gjeldende geografiske referansesystemet (&#x60;srid&#x60;-paramteret). Formatet er &#x60;minX, minY, maxX, maxY&#x60;. Merk at vegobjektets bounding box benyttes for sammenligning, som kan medføre at vegobjekter som er utenfor kartutsnittet også returneres. For å unngå dette, kan du bruke &#x60;polygon&#x60; i stedet.  Eksempel: &#x60;265273, 7019372, 346553, 7061071&#x60; (optional)
-     * @param inkluder Kommaseparert liste av statistikkfelt som skal inkluderes i resultatet. (optional)
-     * @param veglenkesekvens Filtrer vegobjekter på om de er stedfestet på gjeldende veglenkesekvenser. Kommaseparert liste.  Eksempel: &#x60;0.37@319531,0.83-0.97@41640&#x60; (optional)
-     * @param tidspunkt Finner versjonen som var gyldig denne datoen. (optional)
-     * @return kotlin.collections.List<VegobjekterStatistikkGruppert>
-     */
-    @Suppress("UNCHECKED_CAST")
-    open suspend fun getVegobjekterStatistikkGruppert(vegobjekttypeid: kotlin.Int, gruppering: kotlin.collections.List<GrupperingGetVegobjekterStatistikkGruppert>, srid: SridGetVegobjekterStatistikkGruppert? = null, kartutsnitt: kotlin.String? = null, inkluder: kotlin.collections.List<InkluderGetVegobjekterStatistikkGruppert>? = null, veglenkesekvens: kotlin.collections.Set<kotlin.String>? = null, tidspunkt: kotlinx.datetime.LocalDate? = null): HttpResponse<kotlin.collections.List<VegobjekterStatistikkGruppert>> {
-
-        val localVariableAuthNames = listOf<String>("bearerAuth")
-
-        val localVariableBody = 
-            io.ktor.client.utils.EmptyContent
-
-        val localVariableQuery = mutableMapOf<String, List<String>>()
-        srid?.apply { localVariableQuery["srid"] = listOf("${ srid.value }") }
-        kartutsnitt?.apply { localVariableQuery["kartutsnitt"] = listOf("$kartutsnitt") }
-        gruppering?.apply { localVariableQuery["gruppering"] = toMultiValue(this, "multi") }
-        inkluder?.apply { localVariableQuery["inkluder"] = toMultiValue(this, "multi") }
-        veglenkesekvens?.apply { localVariableQuery["veglenkesekvens"] = toMultiValue(this, "multi") }
-        tidspunkt?.apply { localVariableQuery["tidspunkt"] = listOf("$tidspunkt") }
-        val localVariableHeaders = mutableMapOf<String, String>()
-
-        val localVariableConfig = RequestConfig<kotlin.Any?>(
+            val localVariableConfig = RequestConfig<kotlin.Any?>(
             RequestMethod.GET,
             "/api/v4/vegobjekter/{vegobjekttypeid}/statistikk/gruppert".replace("{" + "vegobjekttypeid" + "}", "$vegobjekttypeid"),
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = true,
-        )
+            )
 
-        return request(
+            return request(
             localVariableConfig,
             localVariableBody,
             localVariableAuthNames
-        ).wrap<GetVegobjekterStatistikkGruppertResponse>().map { value }
-    }
+            ).wrap()
+            }
 
-    @Serializable(GetVegobjekterStatistikkGruppertResponse.Companion::class)
-    private class GetVegobjekterStatistikkGruppertResponse(val value: List<VegobjekterStatistikkGruppert>) {
-        companion object : KSerializer<GetVegobjekterStatistikkGruppertResponse> {
-            private val serializer: KSerializer<List<VegobjekterStatistikkGruppert>> = serializer<List<VegobjekterStatistikkGruppert>>()
-            override val descriptor = serializer.descriptor
-            override fun serialize(encoder: Encoder, value: GetVegobjekterStatistikkGruppertResponse) = serializer.serialize(encoder, value.value)
-            override fun deserialize(decoder: Decoder) = GetVegobjekterStatistikkGruppertResponse(serializer.deserialize(decoder))
-        }
-    }
+        /**
+        * GET /api/v4/vegobjekter/statistikk
+        * Hent overordnet statistikk for alle vegobjekttyper
+        * 
+         * @param inkluder Kommaseparert liste av statistikkfelt som skal inkluderes i resultatet. (optional)
+         * @param kontraktsomrade Filtrer på kontraktsomrade. Kommaseparert liste. Se /omrader/kontraktsomrader for mulige verdier.  Eksempel: &#x60;9503 Midtre Hålogaland 2021-2026&#x60; (optional)
+         * @param tidspunkt Finner versjonen som var gyldig denne datoen. (optional)
+         * @return kotlin.collections.List<VegobjekterStatistikkMedType>
+        */
+            @Suppress("UNCHECKED_CAST")
+        open suspend fun getVegobjekterStatistikkMedTyper(inkluder: kotlin.collections.List<kotlin.String>?, kontraktsomrade: kotlin.collections.Set<kotlin.String>?, tidspunkt: java.time.LocalDate?): HttpResponse<kotlin.collections.List<VegobjekterStatistikkMedType>> {
 
+            val localVariableAuthNames = listOf<String>("bearerAuth")
 
-    /**
-     * enum for parameter inkluder
-     */
-    @Serializable
-    enum class InkluderGetVegobjekterStatistikkMedTyper(val value: kotlin.String) {
-        
-        @SerialName(value = "lengde")
-        lengde("lengde"),
-        
-        @SerialName(value = "antall")
-        antall("antall"),
-        
-        @SerialName(value = "alle")
-        alle("alle")
-        
-    }
+            val localVariableBody = 
+                    io.ktor.client.utils.EmptyContent
 
-    /**
-     * Hent overordnet statistikk for alle vegobjekttyper
-     * 
-     * @param inkluder Kommaseparert liste av statistikkfelt som skal inkluderes i resultatet. (optional)
-     * @param kontraktsomrade Filtrer på kontraktsomrade. Kommaseparert liste. Se /omrader/kontraktsomrader for mulige verdier.  Eksempel: &#x60;9503 Midtre Hålogaland 2021-2026&#x60; (optional)
-     * @param tidspunkt Finner versjonen som var gyldig denne datoen. (optional)
-     * @return kotlin.collections.List<VegobjekterStatistikkMedType>
-     */
-    @Suppress("UNCHECKED_CAST")
-    open suspend fun getVegobjekterStatistikkMedTyper(inkluder: kotlin.collections.List<InkluderGetVegobjekterStatistikkMedTyper>? = null, kontraktsomrade: kotlin.collections.Set<kotlin.String>? = null, tidspunkt: kotlinx.datetime.LocalDate? = null): HttpResponse<kotlin.collections.List<VegobjekterStatistikkMedType>> {
+            val localVariableQuery = mutableMapOf<String, List<String>>()
+            inkluder?.apply { localVariableQuery["inkluder"] = toMultiValue(this, "multi") }
+            kontraktsomrade?.apply { localVariableQuery["kontraktsomrade"] = toMultiValue(this, "multi") }
+            tidspunkt?.apply { localVariableQuery["tidspunkt"] = listOf("$tidspunkt") }
 
-        val localVariableAuthNames = listOf<String>("bearerAuth")
+            val localVariableHeaders = mutableMapOf<String, String>()
 
-        val localVariableBody = 
-            io.ktor.client.utils.EmptyContent
-
-        val localVariableQuery = mutableMapOf<String, List<String>>()
-        inkluder?.apply { localVariableQuery["inkluder"] = toMultiValue(this, "multi") }
-        kontraktsomrade?.apply { localVariableQuery["kontraktsomrade"] = toMultiValue(this, "multi") }
-        tidspunkt?.apply { localVariableQuery["tidspunkt"] = listOf("$tidspunkt") }
-        val localVariableHeaders = mutableMapOf<String, String>()
-
-        val localVariableConfig = RequestConfig<kotlin.Any?>(
+            val localVariableConfig = RequestConfig<kotlin.Any?>(
             RequestMethod.GET,
             "/api/v4/vegobjekter/statistikk",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = true,
-        )
+            )
 
-        return request(
+            return request(
             localVariableConfig,
             localVariableBody,
             localVariableAuthNames
-        ).wrap<GetVegobjekterStatistikkMedTyperResponse>().map { value }
-    }
+            ).wrap()
+            }
 
-    @Serializable(GetVegobjekterStatistikkMedTyperResponse.Companion::class)
-    private class GetVegobjekterStatistikkMedTyperResponse(val value: List<VegobjekterStatistikkMedType>) {
-        companion object : KSerializer<GetVegobjekterStatistikkMedTyperResponse> {
-            private val serializer: KSerializer<List<VegobjekterStatistikkMedType>> = serializer<List<VegobjekterStatistikkMedType>>()
-            override val descriptor = serializer.descriptor
-            override fun serialize(encoder: Encoder, value: GetVegobjekterStatistikkMedTyperResponse) = serializer.serialize(encoder, value.value)
-            override fun deserialize(decoder: Decoder) = GetVegobjekterStatistikkMedTyperResponse(serializer.deserialize(decoder))
         }
-    }
-
-}

@@ -17,9 +17,7 @@ package no.vegvesen.nvdb.vegobjekter.model
 
 import no.vegvesen.nvdb.vegobjekter.model.VegobjektType
 
-import kotlinx.serialization.*
-import kotlinx.serialization.descriptors.*
-import kotlinx.serialization.encoding.*
+import com.fasterxml.jackson.annotation.JsonProperty
 
 /**
  * 
@@ -30,20 +28,25 @@ import kotlinx.serialization.encoding.*
  * @param sistModifisert Dato og tid i UTC-format: yyyy-MM-ddTHH:mm:ssZ
  * @param sluttdato 
  */
-@Serializable
+
 
 data class VegobjektMetadata (
 
-    @SerialName(value = "type") @Required val type: VegobjektType,
+    @get:JsonProperty("type")
+    val type: VegobjektType,
 
-    @SerialName(value = "versjon") @Required val versjon: kotlin.Int,
+    @get:JsonProperty("versjon")
+    val versjon: kotlin.Int,
 
-    @SerialName(value = "startdato") @Required val startdato: kotlinx.datetime.LocalDate,
+    @get:JsonProperty("startdato")
+    val startdato: java.time.LocalDate,
 
     /* Dato og tid i UTC-format: yyyy-MM-ddTHH:mm:ssZ */
-    @SerialName(value = "sist_modifisert") @Required val sistModifisert: kotlin.String,
+    @get:JsonProperty("sist_modifisert")
+    val sistModifisert: kotlin.String,
 
-    @SerialName(value = "sluttdato") val sluttdato: kotlinx.datetime.LocalDate? = null
+    @get:JsonProperty("sluttdato")
+    val sluttdato: java.time.LocalDate? = null
 
 ) {
 

@@ -16,9 +16,7 @@
 package no.vegvesen.nvdb.vegobjekter.model
 
 
-import kotlinx.serialization.*
-import kotlinx.serialization.descriptors.*
-import kotlinx.serialization.encoding.*
+import com.fasterxml.jackson.annotation.JsonProperty
 
 /**
  * 
@@ -36,33 +34,45 @@ import kotlinx.serialization.encoding.*
  * @param sideposisjon 
  * @param kortform 
  */
-@Serializable
+
 
 data class Stedfesting (
 
-    @SerialName(value = "type") @Required val type: Stedfesting.Type,
+    @get:JsonProperty("type")
+    val type: Stedfesting.Type,
 
-    @SerialName(value = "veglenkesekvensid") val veglenkesekvensid: kotlin.Long? = null,
+    @get:JsonProperty("veglenkesekvensid")
+    val veglenkesekvensid: kotlin.Long? = null,
 
-    @SerialName(value = "nodeid") val nodeid: kotlin.Long? = null,
+    @get:JsonProperty("nodeid")
+    val nodeid: kotlin.Long? = null,
 
-    @SerialName(value = "relativPosisjon") val relativPosisjon: kotlin.Double? = null,
+    @get:JsonProperty("relativPosisjon")
+    val relativPosisjon: kotlin.Double? = null,
 
-    @SerialName(value = "startposisjon") val startposisjon: kotlin.Double? = null,
+    @get:JsonProperty("startposisjon")
+    val startposisjon: kotlin.Double? = null,
 
-    @SerialName(value = "sluttposisjon") val sluttposisjon: kotlin.Double? = null,
+    @get:JsonProperty("sluttposisjon")
+    val sluttposisjon: kotlin.Double? = null,
 
-    @SerialName(value = "startpunkt") val startpunkt: Stedfesting? = null,
+    @get:JsonProperty("startpunkt")
+    val startpunkt: Stedfesting? = null,
 
-    @SerialName(value = "sluttpunkt") val sluttpunkt: Stedfesting? = null,
+    @get:JsonProperty("sluttpunkt")
+    val sluttpunkt: Stedfesting? = null,
 
-    @SerialName(value = "retning") val retning: Stedfesting.Retning? = null,
+    @get:JsonProperty("retning")
+    val retning: Stedfesting.Retning? = null,
 
-    @SerialName(value = "kjørefelt") val kjørefelt: kotlin.collections.List<kotlin.String>? = null,
+    @get:JsonProperty("kjørefelt")
+    val kjørefelt: kotlin.collections.List<kotlin.String>? = null,
 
-    @SerialName(value = "sideposisjon") val sideposisjon: Stedfesting.Sideposisjon? = null,
+    @get:JsonProperty("sideposisjon")
+    val sideposisjon: Stedfesting.Sideposisjon? = null,
 
-    @SerialName(value = "kortform") val kortform: kotlin.String? = null
+    @get:JsonProperty("kortform")
+    val kortform: kotlin.String? = null
 
 ) {
 
@@ -71,42 +81,39 @@ data class Stedfesting (
      *
      * Values: Punkt,Linje,Sving
      */
-    @Serializable
     enum class Type(val value: kotlin.String) {
-        @SerialName(value = "Punkt") Punkt("Punkt"),
-        @SerialName(value = "Linje") Linje("Linje"),
-        @SerialName(value = "Sving") Sving("Sving");
+        @JsonProperty(value = "Punkt") Punkt("Punkt"),
+        @JsonProperty(value = "Linje") Linje("Linje"),
+        @JsonProperty(value = "Sving") Sving("Sving");
     }
     /**
      * 
      *
      * Values: MED,MOT
      */
-    @Serializable
     enum class Retning(val value: kotlin.String) {
-        @SerialName(value = "MED") MED("MED"),
-        @SerialName(value = "MOT") MOT("MOT");
+        @JsonProperty(value = "MED") MED("MED"),
+        @JsonProperty(value = "MOT") MOT("MOT");
     }
     /**
      * 
      *
      * Values: MH,MV,VT,M,H,HT,VH,HV,K,V,L,R,R0
      */
-    @Serializable
     enum class Sideposisjon(val value: kotlin.String) {
-        @SerialName(value = "MH") MH("MH"),
-        @SerialName(value = "MV") MV("MV"),
-        @SerialName(value = "VT") VT("VT"),
-        @SerialName(value = "M") M("M"),
-        @SerialName(value = "H") H("H"),
-        @SerialName(value = "HT") HT("HT"),
-        @SerialName(value = "VH") VH("VH"),
-        @SerialName(value = "HV") HV("HV"),
-        @SerialName(value = "K") K("K"),
-        @SerialName(value = "V") V("V"),
-        @SerialName(value = "L") L("L"),
-        @SerialName(value = "R") R("R"),
-        @SerialName(value = "R0") R0("R0");
+        @JsonProperty(value = "MH") MH("MH"),
+        @JsonProperty(value = "MV") MV("MV"),
+        @JsonProperty(value = "VT") VT("VT"),
+        @JsonProperty(value = "M") M("M"),
+        @JsonProperty(value = "H") H("H"),
+        @JsonProperty(value = "HT") HT("HT"),
+        @JsonProperty(value = "VH") VH("VH"),
+        @JsonProperty(value = "HV") HV("HV"),
+        @JsonProperty(value = "K") K("K"),
+        @JsonProperty(value = "V") V("V"),
+        @JsonProperty(value = "L") L("L"),
+        @JsonProperty(value = "R") R("R"),
+        @JsonProperty(value = "R0") R0("R0");
     }
 
 }

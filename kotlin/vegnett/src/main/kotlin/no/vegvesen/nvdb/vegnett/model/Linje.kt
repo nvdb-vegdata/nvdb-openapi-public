@@ -17,9 +17,7 @@ package no.vegvesen.nvdb.vegnett.model
 
 import no.vegvesen.nvdb.vegnett.model.Segment
 
-import kotlinx.serialization.*
-import kotlinx.serialization.descriptors.*
-import kotlinx.serialization.encoding.*
+import com.fasterxml.jackson.annotation.JsonProperty
 
 /**
  * 
@@ -30,19 +28,24 @@ import kotlinx.serialization.encoding.*
  * @param sluttposisjon 
  * @param kortform 
  */
-@Serializable
+
 
 data class Linje (
 
-    @SerialName(value = "type") @Required override val type: kotlin.String,
+    @get:JsonProperty("type")
+    override val type: kotlin.String,
 
-    @SerialName(value = "veglenkesekvensid") @Required val veglenkesekvensid: kotlin.Long,
+    @get:JsonProperty("veglenkesekvensid")
+    val veglenkesekvensid: kotlin.Long,
 
-    @SerialName(value = "startposisjon") @Required val startposisjon: kotlin.Double,
+    @get:JsonProperty("startposisjon")
+    val startposisjon: kotlin.Double,
 
-    @SerialName(value = "sluttposisjon") @Required val sluttposisjon: kotlin.Double,
+    @get:JsonProperty("sluttposisjon")
+    val sluttposisjon: kotlin.Double,
 
-    @SerialName(value = "kortform") @Required val kortform: kotlin.String
+    @get:JsonProperty("kortform")
+    val kortform: kotlin.String
 
 ) : Segment {
 

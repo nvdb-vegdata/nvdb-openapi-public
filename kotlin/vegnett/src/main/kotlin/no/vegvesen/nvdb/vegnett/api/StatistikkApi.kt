@@ -18,124 +18,62 @@ package no.vegvesen.nvdb.vegnett.api
 import no.vegvesen.nvdb.vegnett.model.ProblemDetail
 import no.vegvesen.nvdb.vegnett.model.VeglenkesegmenterStatistikkGruppert
 
-import org.openapitools.client.infrastructure.*
-import io.ktor.client.HttpClient
+import no.vegvesen.nvdb.vegnett.infrastructure.*
 import io.ktor.client.HttpClientConfig
 import io.ktor.client.request.forms.formData
 import io.ktor.client.engine.HttpClientEngine
-import kotlinx.serialization.json.Json
 import io.ktor.http.ParametersBuilder
-import kotlinx.serialization.*
-import kotlinx.serialization.descriptors.*
-import kotlinx.serialization.encoding.*
+import com.fasterxml.jackson.databind.ObjectMapper
 
-open class StatistikkApi : ApiClient {
+    open class StatistikkApi(
+    baseUrl: String = ApiClient.BASE_URL,
+    httpClientEngine: HttpClientEngine? = null,
+    httpClientConfig: ((HttpClientConfig<*>) -> Unit)? = null,
+    jsonBlock: ObjectMapper.() -> Unit = ApiClient.JSON_DEFAULT,
+    ) : ApiClient(
+        baseUrl,
+        httpClientEngine,
+        httpClientConfig,
+        jsonBlock,
+    ) {
 
-    constructor(
-        baseUrl: String = ApiClient.BASE_URL,
-        httpClientEngine: HttpClientEngine? = null,
-        httpClientConfig: ((HttpClientConfig<*>) -> Unit)? = null,
-        jsonSerializer: Json = ApiClient.JSON_DEFAULT
-    ) : super(baseUrl = baseUrl, httpClientEngine = httpClientEngine, httpClientConfig = httpClientConfig, jsonBlock = jsonSerializer)
+        /**
+        * GET /api/v4/veglenkesekvenser/segmentert/statistikk/gruppert
+        * Hent statistikk for segmentert vegnett, gruppert på en eller flere felter
+        * 
+         * @param gruppering Velg en eller flere felter som statistikken skal grupperes på. 
+         * @param srid Angir hvilket geografisk referansesystem geometrien skal returneres i. Utdata i UTM-formater begrenses til 3 desimaler, 4326/WGS84 begrenses til 8 desimaler. Mer informasjon: &lt;a href&#x3D;&#39;https://epsg.io/5972&#39;&gt;EPSG:5972&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5973&#39;&gt;EPSG:5973&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5975&#39;&gt;EPSG:5975&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/4326&#39;&gt;EPSG:4326&lt;/a&gt;. (optional)
+         * @param kartutsnitt Filtrer med kartutsnitt i det gjeldende geografiske referansesystemet (&#x60;srid&#x60;-paramteret). Formatet er &#x60;minX, minY, maxX, maxY&#x60;.  Eksempel: &#x60;265273, 7019372, 346553, 7061071&#x60; (optional)
+         * @return kotlin.collections.List<VeglenkesegmenterStatistikkGruppert>
+        */
+            @Suppress("UNCHECKED_CAST")
+        open suspend fun getVeglenkesegmenterStatistikkGruppert(gruppering: kotlin.collections.List<kotlin.String>, srid: kotlin.String?, kartutsnitt: kotlin.String?): HttpResponse<kotlin.collections.List<VeglenkesegmenterStatistikkGruppert>> {
 
-    constructor(
-        baseUrl: String,
-        httpClient: HttpClient
-    ): super(baseUrl = baseUrl, httpClient = httpClient)
+            val localVariableAuthNames = listOf<String>()
 
+            val localVariableBody = 
+                    io.ktor.client.utils.EmptyContent
 
-    /**
-     * enum for parameter gruppering
-     */
-    @Serializable
-    enum class GrupperingGetVeglenkesegmenterStatistikkGruppert(val value: kotlin.String) {
-        
-        @SerialName(value = "fylke")
-        fylke("fylke"),
-        
-        @SerialName(value = "vegkategori")
-        vegkategori("vegkategori")
-        
-    }
+            val localVariableQuery = mutableMapOf<String, List<String>>()
+            srid?.apply { localVariableQuery["srid"] = listOf("$srid") }
+            kartutsnitt?.apply { localVariableQuery["kartutsnitt"] = listOf("$kartutsnitt") }
+            gruppering?.apply { localVariableQuery["gruppering"] = toMultiValue(this, "multi") }
 
+            val localVariableHeaders = mutableMapOf<String, String>()
 
-    /**
-     * enum for parameter srid
-     */
-    @Serializable
-    enum class SridGetVeglenkesegmenterStatistikkGruppert(val value: kotlin.String) {
-        
-        @SerialName(value = "5972")
-        _5972("5972"),
-        
-        @SerialName(value = "5973")
-        _5973("5973"),
-        
-        @SerialName(value = "5975")
-        _5975("5975"),
-        
-        @SerialName(value = "4326")
-        _4326("4326"),
-        
-        @SerialName(value = "UTM32")
-        UTM32("UTM32"),
-        
-        @SerialName(value = "UTM33")
-        UTM33("UTM33"),
-        
-        @SerialName(value = "UTM35")
-        UTM35("UTM35"),
-        
-        @SerialName(value = "WGS84")
-        WGS84("WGS84")
-        
-    }
-
-    /**
-     * Hent statistikk for segmentert vegnett, gruppert på en eller flere felter
-     * 
-     * @param gruppering Velg en eller flere felter som statistikken skal grupperes på.
-     * @param srid Angir hvilket geografisk referansesystem geometrien skal returneres i. Utdata i UTM-formater begrenses til 3 desimaler, 4326/WGS84 begrenses til 8 desimaler. Mer informasjon: &lt;a href&#x3D;&#39;https://epsg.io/5972&#39;&gt;EPSG:5972&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5973&#39;&gt;EPSG:5973&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5975&#39;&gt;EPSG:5975&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/4326&#39;&gt;EPSG:4326&lt;/a&gt;. (optional)
-     * @param kartutsnitt Filtrer med kartutsnitt i det gjeldende geografiske referansesystemet (&#x60;srid&#x60;-paramteret). Formatet er &#x60;minX, minY, maxX, maxY&#x60;.  Eksempel: &#x60;265273, 7019372, 346553, 7061071&#x60; (optional)
-     * @return kotlin.collections.List<VeglenkesegmenterStatistikkGruppert>
-     */
-    @Suppress("UNCHECKED_CAST")
-    open suspend fun getVeglenkesegmenterStatistikkGruppert(gruppering: kotlin.collections.List<GrupperingGetVeglenkesegmenterStatistikkGruppert>, srid: SridGetVeglenkesegmenterStatistikkGruppert? = null, kartutsnitt: kotlin.String? = null): HttpResponse<kotlin.collections.List<VeglenkesegmenterStatistikkGruppert>> {
-
-        val localVariableAuthNames = listOf<String>()
-
-        val localVariableBody = 
-            io.ktor.client.utils.EmptyContent
-
-        val localVariableQuery = mutableMapOf<String, List<String>>()
-        srid?.apply { localVariableQuery["srid"] = listOf("${ srid.value }") }
-        kartutsnitt?.apply { localVariableQuery["kartutsnitt"] = listOf("$kartutsnitt") }
-        gruppering?.apply { localVariableQuery["gruppering"] = toMultiValue(this, "multi") }
-        val localVariableHeaders = mutableMapOf<String, String>()
-
-        val localVariableConfig = RequestConfig<kotlin.Any?>(
+            val localVariableConfig = RequestConfig<kotlin.Any?>(
             RequestMethod.GET,
             "/api/v4/veglenkesekvenser/segmentert/statistikk/gruppert",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
-        )
+            )
 
-        return request(
+            return request(
             localVariableConfig,
             localVariableBody,
             localVariableAuthNames
-        ).wrap<GetVeglenkesegmenterStatistikkGruppertResponse>().map { value }
-    }
+            ).wrap()
+            }
 
-    @Serializable(GetVeglenkesegmenterStatistikkGruppertResponse.Companion::class)
-    private class GetVeglenkesegmenterStatistikkGruppertResponse(val value: List<VeglenkesegmenterStatistikkGruppert>) {
-        companion object : KSerializer<GetVeglenkesegmenterStatistikkGruppertResponse> {
-            private val serializer: KSerializer<List<VeglenkesegmenterStatistikkGruppert>> = serializer<List<VeglenkesegmenterStatistikkGruppert>>()
-            override val descriptor = serializer.descriptor
-            override fun serialize(encoder: Encoder, value: GetVeglenkesegmenterStatistikkGruppertResponse) = serializer.serialize(encoder, value.value)
-            override fun deserialize(decoder: Decoder) = GetVeglenkesegmenterStatistikkGruppertResponse(serializer.deserialize(decoder))
         }
-    }
-
-}

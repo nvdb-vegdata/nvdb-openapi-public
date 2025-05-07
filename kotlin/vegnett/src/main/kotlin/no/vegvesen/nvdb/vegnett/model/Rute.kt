@@ -18,9 +18,7 @@ package no.vegvesen.nvdb.vegnett.model
 import no.vegvesen.nvdb.vegnett.model.RuteMetadata
 import no.vegvesen.nvdb.vegnett.model.Rutesegment
 
-import kotlinx.serialization.*
-import kotlinx.serialization.descriptors.*
-import kotlinx.serialization.encoding.*
+import com.fasterxml.jackson.annotation.JsonProperty
 
 /**
  * 
@@ -28,13 +26,15 @@ import kotlinx.serialization.encoding.*
  * @param vegnettsrutesegmenter 
  * @param metadata 
  */
-@Serializable
+
 
 data class Rute (
 
-    @SerialName(value = "vegnettsrutesegmenter") @Required val vegnettsrutesegmenter: kotlin.collections.List<Rutesegment>,
+    @get:JsonProperty("vegnettsrutesegmenter")
+    val vegnettsrutesegmenter: kotlin.collections.List<Rutesegment>,
 
-    @SerialName(value = "metadata") @Required val metadata: RuteMetadata
+    @get:JsonProperty("metadata")
+    val metadata: RuteMetadata
 
 ) {
 

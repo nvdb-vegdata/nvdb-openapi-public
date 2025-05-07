@@ -19,186 +19,116 @@ import no.vegvesen.nvdb.vegnett.model.Node
 import no.vegvesen.nvdb.vegnett.model.NodeSide
 import no.vegvesen.nvdb.vegnett.model.ProblemDetail
 
-import org.openapitools.client.infrastructure.*
-import io.ktor.client.HttpClient
+import no.vegvesen.nvdb.vegnett.infrastructure.*
 import io.ktor.client.HttpClientConfig
 import io.ktor.client.request.forms.formData
 import io.ktor.client.engine.HttpClientEngine
-import kotlinx.serialization.json.Json
 import io.ktor.http.ParametersBuilder
-import kotlinx.serialization.*
-import kotlinx.serialization.descriptors.*
-import kotlinx.serialization.encoding.*
+import com.fasterxml.jackson.databind.ObjectMapper
 
-open class NoderApi : ApiClient {
+    open class NoderApi(
+    baseUrl: String = ApiClient.BASE_URL,
+    httpClientEngine: HttpClientEngine? = null,
+    httpClientConfig: ((HttpClientConfig<*>) -> Unit)? = null,
+    jsonBlock: ObjectMapper.() -> Unit = ApiClient.JSON_DEFAULT,
+    ) : ApiClient(
+        baseUrl,
+        httpClientEngine,
+        httpClientConfig,
+        jsonBlock,
+    ) {
 
-    constructor(
-        baseUrl: String = ApiClient.BASE_URL,
-        httpClientEngine: HttpClientEngine? = null,
-        httpClientConfig: ((HttpClientConfig<*>) -> Unit)? = null,
-        jsonSerializer: Json = ApiClient.JSON_DEFAULT
-    ) : super(baseUrl = baseUrl, httpClientEngine = httpClientEngine, httpClientConfig = httpClientConfig, jsonBlock = jsonSerializer)
+        /**
+        * GET /api/v4/noder/{id}
+        * Hent en node
+        * 
+         * @param id ID for noden. 
+         * @param srid Angir hvilket geografisk referansesystem geometrien skal returneres i. Utdata i UTM-formater begrenses til 3 desimaler, 4326/WGS84 begrenses til 8 desimaler. Mer informasjon: &lt;a href&#x3D;&#39;https://epsg.io/5972&#39;&gt;EPSG:5972&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5973&#39;&gt;EPSG:5973&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5975&#39;&gt;EPSG:5975&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/4326&#39;&gt;EPSG:4326&lt;/a&gt;. (optional)
+         * @return Node
+        */
+            @Suppress("UNCHECKED_CAST")
+        open suspend fun getNode(id: kotlin.Long, srid: kotlin.String?): HttpResponse<Node> {
 
-    constructor(
-        baseUrl: String,
-        httpClient: HttpClient
-    ): super(baseUrl = baseUrl, httpClient = httpClient)
+            val localVariableAuthNames = listOf<String>()
 
+            val localVariableBody = 
+                    io.ktor.client.utils.EmptyContent
 
-    /**
-     * enum for parameter srid
-     */
-    @Serializable
-    enum class SridGetNode(val value: kotlin.String) {
-        
-        @SerialName(value = "5972")
-        _5972("5972"),
-        
-        @SerialName(value = "5973")
-        _5973("5973"),
-        
-        @SerialName(value = "5975")
-        _5975("5975"),
-        
-        @SerialName(value = "4326")
-        _4326("4326"),
-        
-        @SerialName(value = "UTM32")
-        UTM32("UTM32"),
-        
-        @SerialName(value = "UTM33")
-        UTM33("UTM33"),
-        
-        @SerialName(value = "UTM35")
-        UTM35("UTM35"),
-        
-        @SerialName(value = "WGS84")
-        WGS84("WGS84")
-        
-    }
+            val localVariableQuery = mutableMapOf<String, List<String>>()
+            srid?.apply { localVariableQuery["srid"] = listOf("$srid") }
 
-    /**
-     * Hent en node
-     * 
-     * @param id ID for noden.
-     * @param srid Angir hvilket geografisk referansesystem geometrien skal returneres i. Utdata i UTM-formater begrenses til 3 desimaler, 4326/WGS84 begrenses til 8 desimaler. Mer informasjon: &lt;a href&#x3D;&#39;https://epsg.io/5972&#39;&gt;EPSG:5972&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5973&#39;&gt;EPSG:5973&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5975&#39;&gt;EPSG:5975&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/4326&#39;&gt;EPSG:4326&lt;/a&gt;. (optional)
-     * @return Node
-     */
-    @Suppress("UNCHECKED_CAST")
-    open suspend fun getNode(id: kotlin.Long, srid: SridGetNode? = null): HttpResponse<Node> {
+            val localVariableHeaders = mutableMapOf<String, String>()
 
-        val localVariableAuthNames = listOf<String>()
-
-        val localVariableBody = 
-            io.ktor.client.utils.EmptyContent
-
-        val localVariableQuery = mutableMapOf<String, List<String>>()
-        srid?.apply { localVariableQuery["srid"] = listOf("${ srid.value }") }
-        val localVariableHeaders = mutableMapOf<String, String>()
-
-        val localVariableConfig = RequestConfig<kotlin.Any?>(
+            val localVariableConfig = RequestConfig<kotlin.Any?>(
             RequestMethod.GET,
             "/api/v4/noder/{id}".replace("{" + "id" + "}", "$id"),
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
-        )
+            )
 
-        return request(
+            return request(
             localVariableConfig,
             localVariableBody,
             localVariableAuthNames
-        ).wrap()
-    }
+            ).wrap()
+            }
 
+        /**
+        * GET /api/v4/noder
+        * Hent noder
+        * 
+         * @param srid Angir hvilket geografisk referansesystem geometrien skal returneres i. Utdata i UTM-formater begrenses til 3 desimaler, 4326/WGS84 begrenses til 8 desimaler. Mer informasjon: &lt;a href&#x3D;&#39;https://epsg.io/5972&#39;&gt;EPSG:5972&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5973&#39;&gt;EPSG:5973&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5975&#39;&gt;EPSG:5975&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/4326&#39;&gt;EPSG:4326&lt;/a&gt;. (optional)
+         * @param ider Kommaseparert liste med IDer. (optional)
+         * @param fylke Filtrer på fylke. Kommaseparert liste. Se [/omrader/api/v4/fylker](https://nvdbapiles.atlas.vegvesen.no/webjars/swagger-ui/index.html?urls.primaryName&#x3D;Omr%C3%A5der) for mulige verdier.  Eksempel: &#x60;50&#x60; (optional)
+         * @param kommune Filtrer på kommune. Kommaseparert liste. Se [/omrader/api/v4/kommuner](https://nvdbapiles.atlas.vegvesen.no/webjars/swagger-ui/index.html?urls.primaryName&#x3D;Omr%C3%A5der) for mulige verdier.  Eksempel: &#x60;5001&#x60; (optional)
+         * @param kontraktsomrade Filtrer på kontraktsomrade. Kommaseparert liste. Se [/omrader/api/v4/kontraktsomrader](https://nvdbapiles.atlas.vegvesen.no/webjars/swagger-ui/index.html?urls.primaryName&#x3D;Omr%C3%A5der) for mulige verdier.  Eksempel: &#x60;1539 Tunnel- og bergsikr 2018-2023 Nordm og Romsd&#x60; (optional)
+         * @param vegsystemreferanse Filtrer på [vegsystemreferanse](https://nvdbapiles-v3.atlas.vegvesen.no/dokumentasjon/#vegsystemreferanse). Kommaseparert liste. Legg til kommunenummer i starten av vegsystemreferansen for å filtrere på område.  Eksempel: &#x60;EV6S1D1 m12&#x60; (optional)
+         * @param kartutsnitt Filtrer med kartutsnitt i det gjeldende geografiske referansesystemet (&#x60;srid&#x60;-paramteret). Formatet er &#x60;minX, minY, maxX, maxY&#x60;.  Eksempel: &#x60;265273, 7019372, 346553, 7061071&#x60; (optional)
+         * @param polygon Filtrer med polygon i det gjeldende geografiske referansesystemet (&#x60;srid&#x60;-paramteret).  Eksempel: &#x60;20000 6520000, 20500 6520000, 21000 6500000, 20000 6520000&#x60; (optional)
+         * @param superid Hent noder tilkoblet detaljerte veglenker stedfestet på veglenkesekvens med denne IDen. (optional)
+         * @param antall Angir hvor mange objekter som skal returneres. Se også &#x60;sidestørrelse&#x60; i responsens &#x60;metadata&#x60;-objekt. (optional)
+         * @param start Angir paginerings-start for objekter som skal returneres. Brukes sammen med &#x60;antall&#x60;. Neste start får man i metadata-feltet i responsen. Settes blankt for å starte fra begynnelsen. (optional)
+         * @param inkluderAntall Hvorvidt totalt antall objekter skal returneres i responsen. Default er &#x60;false&#x60;. (optional)
+         * @return NodeSide
+        */
+            @Suppress("UNCHECKED_CAST")
+        open suspend fun getNoder(srid: kotlin.String?, ider: kotlin.collections.Set<kotlin.Long>?, fylke: kotlin.collections.Set<kotlin.Int>?, kommune: kotlin.collections.Set<kotlin.Int>?, kontraktsomrade: kotlin.collections.Set<kotlin.String>?, vegsystemreferanse: kotlin.collections.Set<kotlin.String>?, kartutsnitt: kotlin.String?, polygon: kotlin.String?, superid: kotlin.Long?, antall: kotlin.Int?, start: kotlin.String?, inkluderAntall: kotlin.Boolean?): HttpResponse<NodeSide> {
 
+            val localVariableAuthNames = listOf<String>()
 
-    /**
-     * enum for parameter srid
-     */
-    @Serializable
-    enum class SridGetNoder(val value: kotlin.String) {
-        
-        @SerialName(value = "5972")
-        _5972("5972"),
-        
-        @SerialName(value = "5973")
-        _5973("5973"),
-        
-        @SerialName(value = "5975")
-        _5975("5975"),
-        
-        @SerialName(value = "4326")
-        _4326("4326"),
-        
-        @SerialName(value = "UTM32")
-        UTM32("UTM32"),
-        
-        @SerialName(value = "UTM33")
-        UTM33("UTM33"),
-        
-        @SerialName(value = "UTM35")
-        UTM35("UTM35"),
-        
-        @SerialName(value = "WGS84")
-        WGS84("WGS84")
-        
-    }
+            val localVariableBody = 
+                    io.ktor.client.utils.EmptyContent
 
-    /**
-     * Hent noder
-     * 
-     * @param srid Angir hvilket geografisk referansesystem geometrien skal returneres i. Utdata i UTM-formater begrenses til 3 desimaler, 4326/WGS84 begrenses til 8 desimaler. Mer informasjon: &lt;a href&#x3D;&#39;https://epsg.io/5972&#39;&gt;EPSG:5972&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5973&#39;&gt;EPSG:5973&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5975&#39;&gt;EPSG:5975&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/4326&#39;&gt;EPSG:4326&lt;/a&gt;. (optional)
-     * @param ider Kommaseparert liste med IDer. (optional)
-     * @param fylke Filtrer på fylke. Kommaseparert liste. Se [/omrader/api/v4/fylker](https://nvdbapiles.atlas.vegvesen.no/webjars/swagger-ui/index.html?urls.primaryName&#x3D;Omr%C3%A5der) for mulige verdier.  Eksempel: &#x60;50&#x60; (optional)
-     * @param kommune Filtrer på kommune. Kommaseparert liste. Se [/omrader/api/v4/kommuner](https://nvdbapiles.atlas.vegvesen.no/webjars/swagger-ui/index.html?urls.primaryName&#x3D;Omr%C3%A5der) for mulige verdier.  Eksempel: &#x60;5001&#x60; (optional)
-     * @param kontraktsomrade Filtrer på kontraktsomrade. Kommaseparert liste. Se [/omrader/api/v4/kontraktsomrader](https://nvdbapiles.atlas.vegvesen.no/webjars/swagger-ui/index.html?urls.primaryName&#x3D;Omr%C3%A5der) for mulige verdier.  Eksempel: &#x60;1539 Tunnel- og bergsikr 2018-2023 Nordm og Romsd&#x60; (optional)
-     * @param vegsystemreferanse Filtrer på [vegsystemreferanse](https://nvdbapiles-v3.atlas.vegvesen.no/dokumentasjon/#vegsystemreferanse). Kommaseparert liste. Legg til kommunenummer i starten av vegsystemreferansen for å filtrere på område.  Eksempel: &#x60;EV6S1D1 m12&#x60; (optional)
-     * @param kartutsnitt Filtrer med kartutsnitt i det gjeldende geografiske referansesystemet (&#x60;srid&#x60;-paramteret). Formatet er &#x60;minX, minY, maxX, maxY&#x60;.  Eksempel: &#x60;265273, 7019372, 346553, 7061071&#x60; (optional)
-     * @param polygon Filtrer med polygon i det gjeldende geografiske referansesystemet (&#x60;srid&#x60;-paramteret).  Eksempel: &#x60;20000 6520000, 20500 6520000, 21000 6500000, 20000 6520000&#x60; (optional)
-     * @param superid Hent noder tilkoblet detaljerte veglenker stedfestet på veglenkesekvens med denne IDen. (optional)
-     * @param antall Angir hvor mange objekter som skal returneres. Se også &#x60;sidestørrelse&#x60; i responsens &#x60;metadata&#x60;-objekt. (optional)
-     * @param start Angir paginerings-start for objekter som skal returneres. Brukes sammen med &#x60;antall&#x60;. Neste start får man i metadata-feltet i responsen. Settes blankt for å starte fra begynnelsen. (optional)
-     * @param inkluderAntall Hvorvidt totalt antall objekter skal returneres i responsen. Default er &#x60;false&#x60;. (optional)
-     * @return NodeSide
-     */
-    @Suppress("UNCHECKED_CAST")
-    open suspend fun getNoder(srid: SridGetNoder? = null, ider: kotlin.collections.Set<kotlin.Long>? = null, fylke: kotlin.collections.Set<kotlin.Int>? = null, kommune: kotlin.collections.Set<kotlin.Int>? = null, kontraktsomrade: kotlin.collections.Set<kotlin.String>? = null, vegsystemreferanse: kotlin.collections.Set<kotlin.String>? = null, kartutsnitt: kotlin.String? = null, polygon: kotlin.String? = null, superid: kotlin.Long? = null, antall: kotlin.Int? = null, start: kotlin.String? = null, inkluderAntall: kotlin.Boolean? = null): HttpResponse<NodeSide> {
+            val localVariableQuery = mutableMapOf<String, List<String>>()
+            srid?.apply { localVariableQuery["srid"] = listOf("$srid") }
+            ider?.apply { localVariableQuery["ider"] = toMultiValue(this, "multi") }
+            fylke?.apply { localVariableQuery["fylke"] = toMultiValue(this, "multi") }
+            kommune?.apply { localVariableQuery["kommune"] = toMultiValue(this, "multi") }
+            kontraktsomrade?.apply { localVariableQuery["kontraktsomrade"] = toMultiValue(this, "multi") }
+            vegsystemreferanse?.apply { localVariableQuery["vegsystemreferanse"] = toMultiValue(this, "multi") }
+            kartutsnitt?.apply { localVariableQuery["kartutsnitt"] = listOf("$kartutsnitt") }
+            polygon?.apply { localVariableQuery["polygon"] = listOf("$polygon") }
+            superid?.apply { localVariableQuery["superid"] = listOf("$superid") }
+            antall?.apply { localVariableQuery["antall"] = listOf("$antall") }
+            start?.apply { localVariableQuery["start"] = listOf("$start") }
+            inkluderAntall?.apply { localVariableQuery["inkluderAntall"] = listOf("$inkluderAntall") }
 
-        val localVariableAuthNames = listOf<String>()
+            val localVariableHeaders = mutableMapOf<String, String>()
 
-        val localVariableBody = 
-            io.ktor.client.utils.EmptyContent
-
-        val localVariableQuery = mutableMapOf<String, List<String>>()
-        srid?.apply { localVariableQuery["srid"] = listOf("${ srid.value }") }
-        ider?.apply { localVariableQuery["ider"] = toMultiValue(this, "multi") }
-        fylke?.apply { localVariableQuery["fylke"] = toMultiValue(this, "multi") }
-        kommune?.apply { localVariableQuery["kommune"] = toMultiValue(this, "multi") }
-        kontraktsomrade?.apply { localVariableQuery["kontraktsomrade"] = toMultiValue(this, "multi") }
-        vegsystemreferanse?.apply { localVariableQuery["vegsystemreferanse"] = toMultiValue(this, "multi") }
-        kartutsnitt?.apply { localVariableQuery["kartutsnitt"] = listOf("$kartutsnitt") }
-        polygon?.apply { localVariableQuery["polygon"] = listOf("$polygon") }
-        superid?.apply { localVariableQuery["superid"] = listOf("$superid") }
-        antall?.apply { localVariableQuery["antall"] = listOf("$antall") }
-        start?.apply { localVariableQuery["start"] = listOf("$start") }
-        inkluderAntall?.apply { localVariableQuery["inkluderAntall"] = listOf("$inkluderAntall") }
-        val localVariableHeaders = mutableMapOf<String, String>()
-
-        val localVariableConfig = RequestConfig<kotlin.Any?>(
+            val localVariableConfig = RequestConfig<kotlin.Any?>(
             RequestMethod.GET,
             "/api/v4/noder",
             query = localVariableQuery,
             headers = localVariableHeaders,
             requiresAuthentication = false,
-        )
+            )
 
-        return request(
+            return request(
             localVariableConfig,
             localVariableBody,
             localVariableAuthNames
-        ).wrap()
-    }
+            ).wrap()
+            }
 
-
-}
+        }

@@ -16,9 +16,7 @@
 package no.vegvesen.nvdb.vegobjekter.model
 
 
-import kotlinx.serialization.*
-import kotlinx.serialization.descriptors.*
-import kotlinx.serialization.encoding.*
+import com.fasterxml.jackson.annotation.JsonProperty
 
 /**
  * 
@@ -26,13 +24,15 @@ import kotlinx.serialization.encoding.*
  * @param navn 
  * @param adressekode 
  */
-@Serializable
+
 
 data class Adresse (
 
-    @SerialName(value = "navn") @Required val navn: kotlin.String,
+    @get:JsonProperty("navn")
+    val navn: kotlin.String,
 
-    @SerialName(value = "adressekode") @Required val adressekode: kotlin.Int
+    @get:JsonProperty("adressekode")
+    val adressekode: kotlin.Int
 
 ) {
 

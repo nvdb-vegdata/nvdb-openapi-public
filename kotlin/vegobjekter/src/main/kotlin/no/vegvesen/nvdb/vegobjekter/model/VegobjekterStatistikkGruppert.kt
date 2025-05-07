@@ -16,9 +16,7 @@
 package no.vegvesen.nvdb.vegobjekter.model
 
 
-import kotlinx.serialization.*
-import kotlinx.serialization.descriptors.*
-import kotlinx.serialization.encoding.*
+import com.fasterxml.jackson.annotation.JsonProperty
 
 /**
  * 
@@ -29,19 +27,24 @@ import kotlinx.serialization.encoding.*
  * @param kommune 
  * @param vegkategori 
  */
-@Serializable
+
 
 data class VegobjekterStatistikkGruppert (
 
-    @SerialName(value = "antall") val antall: kotlin.Int? = null,
+    @get:JsonProperty("antall")
+    val antall: kotlin.Int? = null,
 
-    @SerialName(value = "lengde") val lengde: kotlin.Double? = null,
+    @get:JsonProperty("lengde")
+    val lengde: kotlin.Double? = null,
 
-    @SerialName(value = "fylke") val fylke: kotlin.Int? = null,
+    @get:JsonProperty("fylke")
+    val fylke: kotlin.Int? = null,
 
-    @SerialName(value = "kommune") val kommune: kotlin.Int? = null,
+    @get:JsonProperty("kommune")
+    val kommune: kotlin.Int? = null,
 
-    @SerialName(value = "vegkategori") val vegkategori: VegobjekterStatistikkGruppert.Vegkategori? = null
+    @get:JsonProperty("vegkategori")
+    val vegkategori: VegobjekterStatistikkGruppert.Vegkategori? = null
 
 ) {
 
@@ -50,14 +53,13 @@ data class VegobjekterStatistikkGruppert (
      *
      * Values: E,F,K,P,R,S
      */
-    @Serializable
     enum class Vegkategori(val value: kotlin.String) {
-        @SerialName(value = "E") E("E"),
-        @SerialName(value = "F") F("F"),
-        @SerialName(value = "K") K("K"),
-        @SerialName(value = "P") P("P"),
-        @SerialName(value = "R") R("R"),
-        @SerialName(value = "S") S("S");
+        @JsonProperty(value = "E") E("E"),
+        @JsonProperty(value = "F") F("F"),
+        @JsonProperty(value = "K") K("K"),
+        @JsonProperty(value = "P") P("P"),
+        @JsonProperty(value = "R") R("R"),
+        @JsonProperty(value = "S") S("S");
     }
 
 }

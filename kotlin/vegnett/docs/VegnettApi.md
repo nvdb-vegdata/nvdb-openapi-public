@@ -21,14 +21,14 @@ Hent en segmentert veglenkesekvens
 
 ```kotlin
 // Import classes:
-//import org.openapitools.client.infrastructure.*
+//import no.vegvesen.nvdb.vegnett.infrastructure.*
 //import no.vegvesen.nvdb.vegnett.model.*
 
 val apiInstance = VegnettApi()
 val veglenkesekvensId : kotlin.Long = 789 // kotlin.Long | ID for veglenkesekvensen.
 val srid : kotlin.String = srid_example // kotlin.String | Angir hvilket geografisk referansesystem geometrien skal returneres i. Utdata i UTM-formater begrenses til 3 desimaler, 4326/WGS84 begrenses til 8 desimaler. Mer informasjon: <a href='https://epsg.io/5972'>EPSG:5972</a> <a href='https://epsg.io/5973'>EPSG:5973</a> <a href='https://epsg.io/5975'>EPSG:5975</a> <a href='https://epsg.io/4326'>EPSG:4326</a>.
 val historisk : kotlin.Boolean = true // kotlin.Boolean | For `false` returneres kun dagens veglenkesegmenter. For `true` returneres dagens og historiske veglenkesegmenter. Default er `false`.
-val tidspunkt : kotlinx.datetime.LocalDate = 2013-10-20 // kotlinx.datetime.LocalDate | Begrens spørring til det gitte tidspunktet.
+val tidspunkt : java.time.LocalDate = 2013-10-20 // java.time.LocalDate | Begrens spørring til det gitte tidspunktet.
 try {
     val result : kotlin.collections.List<Veglenkesegment> = apiInstance.getSegmentertVeglenkesekvens(veglenkesekvensId, srid, historisk, tidspunkt)
     println(result)
@@ -48,7 +48,7 @@ try {
 | **historisk** | **kotlin.Boolean**| For &#x60;false&#x60; returneres kun dagens veglenkesegmenter. For &#x60;true&#x60; returneres dagens og historiske veglenkesegmenter. Default er &#x60;false&#x60;. | [optional] |
 | Name | Type | Description | Notes |
 | ------------- | ------------- | ------------- | ------------- |
-| **tidspunkt** | **kotlinx.datetime.LocalDate**| Begrens spørring til det gitte tidspunktet. | [optional] |
+| **tidspunkt** | **java.time.LocalDate**| Begrens spørring til det gitte tidspunktet. | [optional] |
 
 ### Return type
 
@@ -75,7 +75,7 @@ Hent segmenterte veglenkesekvenser
 
 ```kotlin
 // Import classes:
-//import org.openapitools.client.infrastructure.*
+//import no.vegvesen.nvdb.vegnett.infrastructure.*
 //import no.vegvesen.nvdb.vegnett.model.*
 
 val apiInstance = VegnettApi()
@@ -100,7 +100,7 @@ val arm : kotlin.Boolean = true // kotlin.Boolean | Filtrer veglenker på om de 
 val trafikantgruppe : kotlin.String = trafikantgruppe_example // kotlin.String | Filtrer på trafikantgruppe.
 val geometritoleranse : kotlin.Int = 56 // kotlin.Int | Angir om det skal returneres en forenklet geometri. Dersom parameteren utelates, returneres full geometri. Nummeret angir distansetoleranse i meter for generering av forenklet geometri.
 val historisk : kotlin.Boolean = true // kotlin.Boolean | For `false` returneres kun dagens veglenkesegmenter. For `true` returneres dagens og historiske veglenkesegmenter. Default er `false`.
-val tidspunkt : kotlinx.datetime.LocalDate = 2013-10-20 // kotlinx.datetime.LocalDate | Begrens spørring til det gitte tidspunktet.
+val tidspunkt : java.time.LocalDate = 2013-10-20 // java.time.LocalDate | Begrens spørring til det gitte tidspunktet.
 val antall : kotlin.Int = 56 // kotlin.Int | Angir hvor mange objekter som skal returneres. Se også `sidestørrelse` i responsens `metadata`-objekt.
 val start : kotlin.String = start_example // kotlin.String | Angir paginerings-start for objekter som skal returneres. Brukes sammen med `antall`. Neste start får man i metadata-feltet i responsen. Settes blankt for å starte fra begynnelsen.
 val inkluderAntall : kotlin.Boolean = true // kotlin.Boolean | Hvorvidt totalt antall objekter skal returneres i responsen. Default er `false`.
@@ -139,7 +139,7 @@ try {
 | **trafikantgruppe** | **kotlin.String**| Filtrer på trafikantgruppe. | [optional] [enum: K, G] |
 | **geometritoleranse** | **kotlin.Int**| Angir om det skal returneres en forenklet geometri. Dersom parameteren utelates, returneres full geometri. Nummeret angir distansetoleranse i meter for generering av forenklet geometri. | [optional] |
 | **historisk** | **kotlin.Boolean**| For &#x60;false&#x60; returneres kun dagens veglenkesegmenter. For &#x60;true&#x60; returneres dagens og historiske veglenkesegmenter. Default er &#x60;false&#x60;. | [optional] |
-| **tidspunkt** | **kotlinx.datetime.LocalDate**| Begrens spørring til det gitte tidspunktet. | [optional] |
+| **tidspunkt** | **java.time.LocalDate**| Begrens spørring til det gitte tidspunktet. | [optional] |
 | **antall** | **kotlin.Int**| Angir hvor mange objekter som skal returneres. Se også &#x60;sidestørrelse&#x60; i responsens &#x60;metadata&#x60;-objekt. | [optional] |
 | **start** | **kotlin.String**| Angir paginerings-start for objekter som skal returneres. Brukes sammen med &#x60;antall&#x60;. Neste start får man i metadata-feltet i responsen. Settes blankt for å starte fra begynnelsen. | [optional] |
 | Name | Type | Description | Notes |
@@ -171,7 +171,7 @@ Hent en veglenkesekvens
 
 ```kotlin
 // Import classes:
-//import org.openapitools.client.infrastructure.*
+//import no.vegvesen.nvdb.vegnett.infrastructure.*
 //import no.vegvesen.nvdb.vegnett.model.*
 
 val apiInstance = VegnettApi()
@@ -221,7 +221,7 @@ Hent veglenkesekvenser
 
 ```kotlin
 // Import classes:
-//import org.openapitools.client.infrastructure.*
+//import no.vegvesen.nvdb.vegnett.infrastructure.*
 //import no.vegvesen.nvdb.vegnett.model.*
 
 val apiInstance = VegnettApi()

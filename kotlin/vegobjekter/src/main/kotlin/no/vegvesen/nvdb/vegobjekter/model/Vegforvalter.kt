@@ -16,9 +16,7 @@
 package no.vegvesen.nvdb.vegobjekter.model
 
 
-import kotlinx.serialization.*
-import kotlinx.serialization.descriptors.*
-import kotlinx.serialization.encoding.*
+import com.fasterxml.jackson.annotation.JsonProperty
 
 /**
  * 
@@ -26,13 +24,15 @@ import kotlinx.serialization.encoding.*
  * @param enumid 
  * @param vegforvalter 
  */
-@Serializable
+
 
 data class Vegforvalter (
 
-    @SerialName(value = "enumid") @Required val enumid: kotlin.Int,
+    @get:JsonProperty("enumid")
+    val enumid: kotlin.Int,
 
-    @SerialName(value = "vegforvalter") @Required val vegforvalter: kotlin.String
+    @get:JsonProperty("vegforvalter")
+    val vegforvalter: kotlin.String
 
 ) {
 
