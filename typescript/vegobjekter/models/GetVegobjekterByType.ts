@@ -33,8 +33,6 @@ export type GetVegobjekterByTypeQueryParamsInkludergeometri =
   | 'utledet'
 export type GetVegobjekterByTypeQueryParamsInkluderEgenskaper =
   | 'basis'
-  | 'assosiasjon'
-  | 'stedfesting'
   | 'geometri'
   | 'alle'
 export type GetVegobjekterByTypeQueryParamsTypeveg =
@@ -95,7 +93,7 @@ export type GetVegobjekterByTypeQueryParams = {
    */
   inkluder_egenskaper?: GetVegobjekterByTypeQueryParamsInkluderEgenskaper
   /**
-   * @description Angir om strekningsobjekter skal segmenteres etter søkeområdet (fylke, kommune, vegsystemreferanse, kontraktsområde, riksvegrute).\n\nDefault: `true`
+   * @description Angir om strekningsobjekter skal segmenteres etter søkeområdet (fylke, kommune, vegsystemreferanse, kontraktsområde, riksvegrute, vegforvalter).\n\nDefault: `false`
    * @type boolean | undefined
    */
   segmentering?: boolean
@@ -110,7 +108,7 @@ export type GetVegobjekterByTypeQueryParams = {
    */
   kommune?: number[]
   /**
-   * @description Filtrer på kontraktsomrade. Kommaseparert liste. Se /omrader/kontraktsomrader for mulige verdier.\n\nEksempel: `1539 Tunnel- og bergsikr 2018-2023 Nordm og Romsd`
+   * @description Filtrer på kontraktsomrade. Kommaseparert liste. Se /omrader/kontraktsomrader for mulige verdier.\n\nEksempel: `9503 Midtre Hålogaland 2021-2026`
    * @type array | undefined
    */
   kontraktsomrade?: string[]
@@ -120,12 +118,17 @@ export type GetVegobjekterByTypeQueryParams = {
    */
   riksvegrute?: string[]
   /**
+   * @description Filtrer på vegforvalter. Kommaseparert liste. Se [/omrader/api/v4/vegforvaltere](https://nvdbapiles.atlas.vegvesen.no/webjars/swagger-ui/index.html?urls.primaryName=Omr%C3%A5der) for mulige verdier.\n\nEksempel: `Møre og Romsdal fylkeskommune` eller som enumid `21774`
+   * @type array | undefined
+   */
+  vegforvalter?: string[]
+  /**
    * @description Filtrer vegobjekter på [vegsystemreferanse](https://nvdbapiles-v3.atlas.vegvesen.no/dokumentasjon/#vegsystemreferanse). Kommaseparert liste. Legg til kommunenummer i starten av vegsystemreferansen for å filtrere på område.\n\nEksempel: `EV6S1D1 m12`
    * @type array | undefined
    */
   vegsystemreferanse?: string[]
   /**
-   * @description Filtrer vegobjekter med kartutsnitt i det gjeldende geografiske referansesystemet (`srid`-paramteret). Formatet er `minX, minY, maxX, maxY`.\n\nEksempel: `265273, 7019372, 346553, 7061071`
+   * @description Filtrer vegobjekter med kartutsnitt i det gjeldende geografiske referansesystemet (`srid`-paramteret). Formatet er `minX, minY, maxX, maxY`. Merk at vegobjektets bounding box benyttes for sammenligning, som kan medføre at vegobjekter som er utenfor kartutsnittet også returneres. For å unngå dette, kan du bruke `polygon` i stedet.\n\nEksempel: `265273, 7019372, 346553, 7061071`
    * @type string | undefined
    */
   kartutsnitt?: string
@@ -135,15 +138,10 @@ export type GetVegobjekterByTypeQueryParams = {
    */
   polygon?: string
   /**
-   * @description Filtrer vegobjekter på type veg på vegnettet objektet er stedfestet på. Kommaseparert liste.\n\nEksempel: `kanalisertVeg, enkelBilveg, rampe, rundkjøring, bilferje, passasjerferje, gangOgSykkelveg, sykkelveg, gangveg, gågate, fortau, trapp, gangfelt, gatetun, traktorveg, sti, annet`
+   * @description Filtrer Relasjonstype.vegobjekter på type veg på vegnettet objektet er stedfestet på. Kommaseparert liste.\n\nEksempel: `kanalisertVeg, enkelBilveg, rampe, rundkjøring, bilferje, passasjerferje, gangOgSykkelveg, sykkelveg, gangveg, gågate, fortau, trapp, gangfelt, gatetun, traktorveg, sti, annet`
    * @type array | undefined
    */
   typeveg?: GetVegobjekterByTypeQueryParamsTypeveg[]
-  /**
-   * @description Filtrer vegobjekter på om de har geometri som overlapper med vegobjekt med gitt id. Hvis flere vegobjekt-ider spesifiseres vil vegobjekter som overlapper med minst én av de bli returnert.
-   * @type array | undefined
-   */
-  overlappendeVegobjektIder?: number[]
   /**
    * @description Filtrer vegobjekter på om de er stedfestet hvor det er en Strekning med verdi satt for «adskilte løp».
    * @type array | undefined
@@ -194,11 +192,6 @@ export type GetVegobjekterByTypeQueryParams = {
    * @type boolean | undefined
    */
   inkluderAntall?: boolean
-  /**
-   * @description Hvorvidt resultatet skal sorteres på ID. Default er `true`. Bør være satt for paginering for å sikre deterministisk resultat, men kan slås av for å forbedre ytelse. Satt `false` som standard for søk med kartutsnitt eller polygon.
-   * @type boolean | undefined
-   */
-  sortert?: boolean
   /**
    * @description Filtrer vegobjekter på om de er stedfestet på gjeldende veglenkesekvenser. Kommaseparert liste.\n\nEksempel: `0.37@319531,0.83-0.97@41640`
    * @type array | undefined

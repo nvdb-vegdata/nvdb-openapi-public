@@ -3,10 +3,6 @@ import type { VegobjektType } from './VegobjektType'
 export type RelasjonRelasjonstype = 'vegobjekter' | 'vegobjektIder'
 export type Relasjon = {
   /**
-   * @type string
-   */
-  relasjonstype: RelasjonRelasjonstype
-  /**
    * @type integer, int32
    */
   id: number
@@ -15,7 +11,11 @@ export type Relasjon = {
    */
   type: VegobjektType
   /**
-   * @type integer, int32
+   * @type integer | undefined, int32
    */
-  listeid: number
+  listeid?: number
+  /**
+   * @type string
+   */
+  relasjonstype: RelasjonRelasjonstype
 }

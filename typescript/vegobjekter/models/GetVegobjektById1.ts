@@ -37,8 +37,6 @@ export type GetVegobjektById1QueryParamsInkludergeometri =
   | 'utledet'
 export type GetVegobjektById1QueryParamsInkluderEgenskaper =
   | 'basis'
-  | 'assosiasjon'
-  | 'stedfesting'
   | 'geometri'
   | 'alle'
 export type GetVegobjektById1QueryParams = {

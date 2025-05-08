@@ -53,7 +53,7 @@ export const getVegobjektById1QueryParamsSchema = z
       )
       .optional(),
     inkluder_egenskaper: z
-      .enum(['basis', 'assosiasjon', 'stedfesting', 'geometri', 'alle'])
+      .enum(['basis', 'geometri', 'alle'])
       .describe(
         'Gir mulighet til \u00E5 filtrere hvilke egenskaper som skal returneres med inkluder=egenskaper. `basis` er alle egenskaper som ikke er assosiasjoner, stedfesting, geometri, eller lister av disse.',
       )

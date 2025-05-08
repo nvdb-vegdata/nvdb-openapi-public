@@ -2,6 +2,20 @@ import type { Geometri } from './Geometri'
 import type { Vegsystemreferanse } from './Vegsystemreferanse'
 
 export type VegsegmentRetning = 'MED' | 'MOT'
+export type VegsegmentSideposisjon =
+  | 'MH'
+  | 'MV'
+  | 'VT'
+  | 'M'
+  | 'H'
+  | 'HT'
+  | 'VH'
+  | 'HV'
+  | 'K'
+  | 'V'
+  | 'L'
+  | 'R'
+  | 'R0'
 export type VegsegmentVeglenkeType =
   | 'Ukjent'
   | 'DETALJERT'
@@ -71,9 +85,17 @@ export type Vegsegment = {
    */
   lengde?: number
   /**
+   * @type string
+   */
+  retning: VegsegmentRetning
+  /**
+   * @type array | undefined
+   */
+  kjørefelt?: string[]
+  /**
    * @type string | undefined
    */
-  retning?: VegsegmentRetning
+  sideposisjon?: VegsegmentSideposisjon
   /**
    * @type array | undefined
    */
@@ -126,4 +148,12 @@ export type Vegsegment = {
    * @type array | undefined
    */
   riksvegruter?: number[]
+  /**
+   * @type array | undefined
+   */
+  vegforvaltere?: number[]
+  /**
+   * @type array | undefined
+   */
+  adresser?: number[]
 }

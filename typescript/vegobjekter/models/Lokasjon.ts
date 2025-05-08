@@ -1,6 +1,7 @@
 import type { Kontraktsomrade } from './Kontraktsomrade'
 import type { Riksvegrute } from './Riksvegrute'
-import type { Gate } from './Gate'
+import type { Vegforvalter } from './Vegforvalter'
+import type { Adresse } from './Adresse'
 import type { Vegsystemreferanse } from './Vegsystemreferanse'
 import type { Stedfesting } from './Stedfesting'
 import type { Geometri } from './Geometri'
@@ -15,25 +16,29 @@ export type Lokasjon = {
    */
   fylker: number[]
   /**
-   * @type array
+   * @type array | undefined
    */
-  kontraktsområder: Kontraktsomrade[]
+  kontraktsområder?: Kontraktsomrade[]
   /**
-   * @type array
+   * @type array | undefined
    */
-  riksvegruter: Riksvegrute[]
+  riksvegruter?: Riksvegrute[]
   /**
-   * @type array
+   * @type array | undefined
    */
-  gater: Gate[]
+  vegforvaltere?: Vegforvalter[]
   /**
-   * @type array
+   * @type array | undefined
    */
-  vegsystemreferanser: Vegsystemreferanse[]
+  adresser?: Adresse[]
   /**
-   * @type array
+   * @type array | undefined
    */
-  stedfestinger: Stedfesting[]
+  vegsystemreferanser?: Vegsystemreferanse[]
+  /**
+   * @type array | undefined
+   */
+  stedfestinger?: Stedfesting[]
   /**
    * @type object | undefined
    */

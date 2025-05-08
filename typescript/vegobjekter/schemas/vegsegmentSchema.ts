@@ -8,7 +8,25 @@ export const vegsegmentSchema = z.object({
   sluttposisjon: z.number().optional(),
   relativPosisjon: z.number().optional(),
   lengde: z.number().optional(),
-  retning: z.enum(['MED', 'MOT']).optional(),
+  retning: z.enum(['MED', 'MOT']),
+  'kj\u00F8refelt': z.array(z.string()).optional(),
+  sideposisjon: z
+    .enum([
+      'MH',
+      'MV',
+      'VT',
+      'M',
+      'H',
+      'HT',
+      'VH',
+      'HV',
+      'K',
+      'V',
+      'L',
+      'R',
+      'R0',
+    ])
+    .optional(),
   feltoversikt: z.array(z.string()).optional(),
   veglenkeType: z.enum([
     'Ukjent',
@@ -69,4 +87,6 @@ export const vegsegmentSchema = z.object({
   vegsystemreferanse: z.lazy(() => vegsystemreferanseSchema).optional(),
   'kontraktsomr\u00E5der': z.array(z.number().int()).optional(),
   riksvegruter: z.array(z.number().int()).optional(),
+  vegforvaltere: z.array(z.number().int()).optional(),
+  adresser: z.array(z.number().int()).optional(),
 })

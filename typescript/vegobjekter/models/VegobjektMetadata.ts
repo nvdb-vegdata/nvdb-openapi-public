@@ -18,7 +18,7 @@ export type VegobjektMetadata = {
    */
   sluttdato?: string
   /**
-   * @description Dato og tid uten tidssone på formatet yyyy-MM-ddTHH:mm:ss
+   * @description Dato og tid i UTC-format: yyyy-MM-ddTHH:mm:ssZ
    * @type string
    */
   sist_modifisert: string

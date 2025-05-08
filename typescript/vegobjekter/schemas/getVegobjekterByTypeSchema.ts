@@ -58,7 +58,7 @@ export const getVegobjekterByTypeQueryParamsSchema = z
       )
       .optional(),
     inkluder_egenskaper: z
-      .enum(['basis', 'assosiasjon', 'stedfesting', 'geometri', 'alle'])
+      .enum(['basis', 'geometri', 'alle'])
       .describe(
         'Gir mulighet til \u00E5 filtrere hvilke egenskaper som skal returneres med inkluder=egenskaper. `basis` er alle egenskaper som ikke er assosiasjoner, stedfesting, geometri, eller lister av disse.',
       )
@@ -66,7 +66,7 @@ export const getVegobjekterByTypeQueryParamsSchema = z
     segmentering: z
       .boolean()
       .describe(
-        'Angir om strekningsobjekter skal segmenteres etter s\u00F8keomr\u00E5det (fylke, kommune, vegsystemreferanse, kontraktsomr\u00E5de, riksvegrute).\n\nDefault: `true`',
+        'Angir om strekningsobjekter skal segmenteres etter s\u00F8keomr\u00E5det (fylke, kommune, vegsystemreferanse, kontraktsomr\u00E5de, riksvegrute, vegforvalter).\n\nDefault: `false`',
       )
       .optional(),
     fylke: z
@@ -84,13 +84,19 @@ export const getVegobjekterByTypeQueryParamsSchema = z
     kontraktsomrade: z
       .array(z.string())
       .describe(
-        'Filtrer p\u00E5 kontraktsomrade. Kommaseparert liste. Se /omrader/kontraktsomrader for mulige verdier.\n\nEksempel: `1539 Tunnel- og bergsikr 2018-2023 Nordm og Romsd`',
+        'Filtrer p\u00E5 kontraktsomrade. Kommaseparert liste. Se /omrader/kontraktsomrader for mulige verdier.\n\nEksempel: `9503 Midtre H\u00E5logaland 2021-2026`',
       )
       .optional(),
     riksvegrute: z
       .array(z.string())
       .describe(
         'Filtrer p\u00E5 riksvegrute. Kommaseparert liste. Se /omrader/riksvegruter for mulige verdier.\n\nEksempel: `RUTE4A` eller som enumid `20290`',
+      )
+      .optional(),
+    vegforvalter: z
+      .array(z.string())
+      .describe(
+        'Filtrer p\u00E5 vegforvalter. Kommaseparert liste. Se [/omrader/api/v4/vegforvaltere](https://nvdbapiles.atlas.vegvesen.no/webjars/swagger-ui/index.html?urls.primaryName=Omr%C3%A5der) for mulige verdier.\n\nEksempel: `M\u00F8re og Romsdal fylkeskommune` eller som enumid `21774`',
       )
       .optional(),
     vegsystemreferanse: z
@@ -102,7 +108,7 @@ export const getVegobjekterByTypeQueryParamsSchema = z
     kartutsnitt: z
       .string()
       .describe(
-        'Filtrer vegobjekter med kartutsnitt i det gjeldende geografiske referansesystemet (`srid`-paramteret). Formatet er `minX, minY, maxX, maxY`.\n\nEksempel: `265273, 7019372, 346553, 7061071`',
+        'Filtrer vegobjekter med kartutsnitt i det gjeldende geografiske referansesystemet (`srid`-paramteret). Formatet er `minX, minY, maxX, maxY`. Merk at vegobjektets bounding box benyttes for sammenligning, som kan medf\u00F8re at vegobjekter som er utenfor kartutsnittet ogs\u00E5 returneres. For \u00E5 unng\u00E5 dette, kan du bruke `polygon` i stedet.\n\nEksempel: `265273, 7019372, 346553, 7061071`',
       )
       .optional(),
     polygon: z
@@ -134,13 +140,7 @@ export const getVegobjekterByTypeQueryParamsSchema = z
         ]),
       )
       .describe(
-        'Filtrer vegobjekter p\u00E5 type veg p\u00E5 vegnettet objektet er stedfestet p\u00E5. Kommaseparert liste.\n\nEksempel: `kanalisertVeg, enkelBilveg, rampe, rundkj\u00F8ring, bilferje, passasjerferje, gangOgSykkelveg, sykkelveg, gangveg, g\u00E5gate, fortau, trapp, gangfelt, gatetun, traktorveg, sti, annet`',
-      )
-      .optional(),
-    overlappendeVegobjektIder: z
-      .array(z.number().int())
-      .describe(
-        'Filtrer vegobjekter p\u00E5 om de har geometri som overlapper med vegobjekt med gitt id. Hvis flere vegobjekt-ider spesifiseres vil vegobjekter som overlapper med minst \u00E9n av de bli returnert.',
+        'Filtrer Relasjonstype.vegobjekter p\u00E5 type veg p\u00E5 vegnettet objektet er stedfestet p\u00E5. Kommaseparert liste.\n\nEksempel: `kanalisertVeg, enkelBilveg, rampe, rundkj\u00F8ring, bilferje, passasjerferje, gangOgSykkelveg, sykkelveg, gangveg, g\u00E5gate, fortau, trapp, gangfelt, gatetun, traktorveg, sti, annet`',
       )
       .optional(),
     adskiltelop: z
@@ -200,12 +200,6 @@ export const getVegobjekterByTypeQueryParamsSchema = z
       .boolean()
       .describe(
         'Hvorvidt totalt antall objekter skal returneres i responsen. Default er `false`.',
-      )
-      .optional(),
-    sortert: z
-      .boolean()
-      .describe(
-        'Hvorvidt resultatet skal sorteres p\u00E5 ID. Default er `true`. B\u00F8r v\u00E6re satt for paginering for \u00E5 sikre deterministisk resultat, men kan sl\u00E5s av for \u00E5 forbedre ytelse. Satt `false` som standard for s\u00F8k med kartutsnitt eller polygon.',
       )
       .optional(),
     veglenkesekvens: z

@@ -16,4 +16,12 @@ export type UtledetGeometri = {
    * @type boolean | undefined
    */
   forenklet?: boolean
+  /**
+   * @type number | undefined, double
+   */
+  lengde?: number
+  /**
+   * @type number | undefined, double
+   */
+  areal?: number
 }
