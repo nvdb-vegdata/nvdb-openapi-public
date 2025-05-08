@@ -7,11 +7,12 @@ export const geometriEgenskapSchema = z
   .and(
     z.object({
       verdi: z.string().optional(),
+      srid: z.number().int().optional(),
       kvalitet: z.lazy(() => geometriKvalitetSchema).optional(),
       datafangstdato: z.string().date().optional(),
       verifiseringsdato: z.string().date().optional(),
       oppdateringsdato: z.string().date().optional(),
-      prosesshistoriskk: z.string().optional(),
+      prosesshistorikk: z.string().optional(),
       kommune: z.number().int().optional(),
       medium: z
         .enum([

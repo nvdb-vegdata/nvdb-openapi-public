@@ -1,6 +1,6 @@
 # NoderApi
 
-All URIs are relative to *https://nvdbapiles.atlas.vegvesen.no/vegnett-blue*
+All URIs are relative to *https://nvdbapiles.atlas.vegvesen.no/vegnett*
 
 | Method                               | HTTP request               | Description  |
 | ------------------------------------ | -------------------------- | ------------ |

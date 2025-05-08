@@ -15,34 +15,6 @@ export type Egenskapstype = {
    */
   egenskapstype: EgenskapstypeEnum
   /**
-   * @type integer | undefined, int32
-   */
-  komplementær_egenskapstype?: number
-  /**
-   * @type string | undefined
-   */
-  kortnavn?: string
-  /**
-   * @type string | undefined
-   */
-  beskrivelse?: string
-  /**
-   * @type string | undefined
-   */
-  sosinavn?: string
-  /**
-   * @type string | undefined
-   */
-  sosinvdbnavn?: string
-  /**
-   * @type integer, int32
-   */
-  sorteringsnummer: number
-  /**
-   * @type boolean
-   */
-  avledet: boolean
-  /**
    * @type boolean
    */
   obligatorisk_verdi: boolean
@@ -98,4 +70,32 @@ export type Egenskapstype = {
    * @type integer, int32
    */
   kategori: number
+  /**
+   * @type integer | undefined, int32
+   */
+  komplementær_egenskapstype?: number
+  /**
+   * @type string | undefined
+   */
+  kortnavn?: string
+  /**
+   * @type string | undefined
+   */
+  beskrivelse?: string
+  /**
+   * @type string | undefined
+   */
+  sosinavn?: string
+  /**
+   * @type string | undefined
+   */
+  sosinvdbnavn?: string
+  /**
+   * @type integer, int32
+   */
+  sorteringsnummer: number
+  /**
+   * @type boolean
+   */
+  avledet: boolean
 }

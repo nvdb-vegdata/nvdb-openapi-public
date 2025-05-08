@@ -8,5 +8,5 @@ export const vegobjektMetadataSchema = z.object({
   sluttdato: z.string().date().optional(),
   sist_modifisert: z
     .string()
-    .describe('Dato og tid uten tidssone p\u00E5 formatet yyyy-MM-ddTHH:mm:ss'),
+    .describe('Dato og tid i UTC-format: yyyy-MM-ddTHH:mm:ssZ'),
 })

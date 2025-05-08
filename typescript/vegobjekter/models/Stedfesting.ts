@@ -58,9 +58,9 @@ export type Stedfesting = {
   /**
    * @type string | undefined
    */
-  kortform?: string
+  sideposisjon?: StedfestingSideposisjon
   /**
    * @type string | undefined
    */
-  sideposisjon?: StedfestingSideposisjon
+  kortform?: string
 }

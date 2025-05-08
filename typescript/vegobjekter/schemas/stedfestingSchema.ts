@@ -11,7 +11,6 @@ export const stedfestingSchema = z.object({
   sluttpunkt: z.lazy(() => stedfestingSchema).optional(),
   retning: z.enum(['MED', 'MOT']).optional(),
   'kj\u00F8refelt': z.array(z.string()).optional(),
-  kortform: z.string().optional(),
   sideposisjon: z
     .enum([
       'MH',
@@ -29,4 +28,5 @@ export const stedfestingSchema = z.object({
       'R0',
     ])
     .optional(),
+  kortform: z.string().optional(),
 })

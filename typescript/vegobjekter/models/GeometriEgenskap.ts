@@ -21,6 +21,10 @@ export type GeometriEgenskap = Egenskap & {
    */
   verdi?: string
   /**
+   * @type integer | undefined, int32
+   */
+  srid?: number
+  /**
    * @type object | undefined
    */
   kvalitet?: GeometriKvalitet
@@ -39,7 +43,7 @@ export type GeometriEgenskap = Egenskap & {
   /**
    * @type string | undefined
    */
-  prosesshistoriskk?: string
+  prosesshistorikk?: string
   /**
    * @type integer | undefined, int32
    */
