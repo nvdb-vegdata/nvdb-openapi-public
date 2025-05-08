@@ -20,6 +20,7 @@ build.sbt
 git_push.sh
 .github/workflows/maven.yml
 api/openapi.yaml
+pom.xml
 
 # You can match any string of characters against a directory, file or extension with a single asterisk (*):
 #foo/*/qux

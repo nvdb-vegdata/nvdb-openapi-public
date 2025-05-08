@@ -36,7 +36,7 @@
         }
       },
       "vegnett-kotlin": {
-        "inputSpec": "https://nvdbapiles.atlas.vegvesen.no/api-docs/vegnett_blue",
+        "inputSpec": "https://nvdbapiles.atlas.vegvesen.no/api-docs/vegnett",
         "output": "kotlin/vegnett",
         "generatorName": "kotlin",
         "library": "jvm-ktor",
@@ -57,7 +57,7 @@
         "generatorName": "typescript-fetch"
       },
       "vegobjekter-kotlin": {
-        "inputSpec": "https://nvdbapiles.atlas.vegvesen.no/api-docs/vegobjekter_blue",
+        "inputSpec": "https://nvdbapiles.atlas.vegvesen.no/api-docs/vegobjekter",
         "output": "kotlin/vegobjekter",
         "generatorName": "kotlin",
         "library": "jvm-ktor",
