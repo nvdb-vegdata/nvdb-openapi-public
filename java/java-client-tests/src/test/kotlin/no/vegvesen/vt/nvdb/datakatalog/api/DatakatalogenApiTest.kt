@@ -1,4 +1,4 @@
-package no.vegvesen.nvdb.datakatalog.api
+package no.vegvesen.vt.nvdb.datakatalog.api
 
 import io.kotest.core.spec.style.ShouldSpec
 import io.kotest.matchers.ints.shouldBeGreaterThan
@@ -7,9 +7,9 @@ import io.kotest.matchers.shouldBe
 import io.kotest.matchers.shouldNotBe
 import io.kotest.matchers.types.beInstanceOf
 import kotlinx.coroutines.runBlocking
-import no.vegvesen.nvdb.datakatalog.model.EgenskapstypeEnum
-import no.vegvesen.nvdb.datakatalog.model.StedfestingEnkel
-import no.vegvesen.nvdb.datakatalog.model.StedfestingListe
+import no.vegvesen.vt.nvdb.datakatalog.model.EgenskapstypeEnum
+import no.vegvesen.vt.nvdb.datakatalog.model.StedfestingEnkel
+import no.vegvesen.vt.nvdb.datakatalog.model.StedfestingListe
 
 class DatakatalogenApiTest() : ShouldSpec({
     should("get vegobjekttyper") {
