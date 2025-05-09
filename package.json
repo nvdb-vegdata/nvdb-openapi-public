@@ -4,10 +4,7 @@
     "generate:datakatalog-java": "rm -rf java/datakatalog/src java/datakatalog/docs && openapi-generator-cli generate --generator-key datakatalog-java",
     "generate:vegnett-java": "rm -rf java/vegnett/src java/vegnett/docs && openapi-generator-cli generate --generator-key vegnett-java",
     "generate:vegobjekter-java": "rm -rf java/vegobjekter/src java/vegobjekter/docs && openapi-generator-cli generate --generator-key vegobjekter-java",
-    "generate:datakatalog-kotlin": "rm -rf kotlin/datakatalog/src kotlin/datakatalog/docs && openapi-generator-cli generate --generator-key datakatalog-kotlin",
     "generate:datakatalog-ts": "rm -rf typescript/datakatalog && openapi-generator-cli generate --generator-key datakatalog-ts",
-    "generate:vegobjekter-kotlin": "rm -rf kotlin/vegobjekter/src kotlin/vegobjekter/docs && openapi-generator-cli generate --generator-key vegobjekter-kotlin",
-    "generate:vegnett-kotlin": "rm -rf kotlin/vegnett/src kotlin/vegnett/docs && openapi-generator-cli generate --generator-key vegnett-kotlin",
     "generate:kubb": "kubb",
     "generate": "run-p generate:*",
     "lint": "prettier --write ."

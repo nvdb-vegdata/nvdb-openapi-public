@@ -52,58 +52,10 @@
           "hideGenerationTimestamp": true
         }
       },
-      "datakatalog-kotlin": {
-        "inputSpec": "https://nvdbapiles.atlas.vegvesen.no/api-docs/datakatalog",
-        "output": "kotlin/datakatalog",
-        "generatorName": "kotlin",
-        "library": "jvm-ktor",
-        "apiPackage": "no.vegvesen.nvdb.datakatalog.api",
-        "modelPackage": "no.vegvesen.nvdb.datakatalog.model",
-        "globalProperty": "modelDocs=false,modelTests=false,apiTests=false",
-        "additionalProperties": {
-          "serializationLibrary": "jackson",
-          "sourceFolder": "src/main/kotlin",
-          "omitGradleWrapper": true,
-          "packageName": "no.vegvesen.nvdb.datakatalog",
-          "groupId": "no.vegvesen.vt.nvdb.apiles"
-        }
-      },
-      "vegnett-kotlin": {
-        "inputSpec": "https://nvdbapiles.atlas.vegvesen.no/api-docs/vegnett",
-        "output": "kotlin/vegnett",
-        "generatorName": "kotlin",
-        "library": "jvm-ktor",
-        "apiPackage": "no.vegvesen.nvdb.vegnett.api",
-        "modelPackage": "no.vegvesen.nvdb.vegnett.model",
-        "globalProperty": "modelDocs=false,modelTests=false,apiTests=false",
-        "additionalProperties": {
-          "serializationLibrary": "jackson",
-          "sourceFolder": "src/main/kotlin",
-          "omitGradleWrapper": true,
-          "packageName": "no.vegvesen.nvdb.vegnett",
-          "groupId": "no.vegvesen.vt.nvdb.apiles"
-        }
-      },
       "datakatalog-ts": {
         "inputSpec": "https://nvdbapiles.atlas.vegvesen.no/api-docs/datakatalog",
         "output": "typescript/datakatalog",
         "generatorName": "typescript-fetch"
-      },
-      "vegobjekter-kotlin": {
-        "inputSpec": "https://nvdbapiles.atlas.vegvesen.no/api-docs/vegobjekter",
-        "output": "kotlin/vegobjekter",
-        "generatorName": "kotlin",
-        "library": "jvm-ktor",
-        "apiPackage": "no.vegvesen.nvdb.vegobjekter.api",
-        "modelPackage": "no.vegvesen.nvdb.vegobjekter.model",
-        "globalProperty": "modelDocs=false,modelTests=false,apiTests=false",
-        "additionalProperties": {
-          "serializationLibrary": "jackson",
-          "sourceFolder": "src/main/kotlin",
-          "omitGradleWrapper": true,
-          "packageName": "no.vegvesen.nvdb.vegobjekter",
-          "groupId": "no.vegvesen.vt.nvdb.apiles"
-        }
       }
     }
   }
