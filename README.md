@@ -102,8 +102,8 @@ Se også [package.json](package.json) og [openapitools.json](openapitools.json) 
 ### Ferdig genererte eksempler
 
 - [Java-klient for datakatalogen, med Spring Reactive WebClient og Jackson](./java/datakatalog/)
-- [Java-klient for vegnett, med Spring Reactive Webclient og Jackson](./java/vegnett/)
-- [Java-klient for vegnett-APIet, med Spring Reactive Webclient og Jackson](./java/vegobjekter/)
+- [Java-klient for vegnett-APIet, med Spring Reactive Webclient og Jackson](./java/vegnett/)
+- [Java-klient for vegobjekter-APIet, med Spring Reactive Webclient og Jackson](./java/vegobjekter/)
 - [TypeScript-klient for datakatalogen, med fetch](./typescript/datakatalog/)
 
 # Bedre Frontend-støtte med [Kubb](https://www.kubb.dev/)
