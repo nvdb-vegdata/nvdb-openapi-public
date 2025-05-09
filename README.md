@@ -19,33 +19,22 @@ Du trenger en nyere Node-versjon (20+) og NPM tilgjengelig i PATH. Du kan følge
 npm install @openapitools/openapi-generator-cli -g
 ```
 
-For å generere f.eks. en ferdig Kotlin-klient mot vår datakatalog, med `RestClient` og Jackson-serialisering, kall dette:
+For å generere f.eks. en ferdig Java-klient mot vår datakatalog, med `webclient` og Jackson-serialisering, kall dette:
 
 ```
 openapi-generator-cli generate --input-spec https://nvdbapiles.atlas.vegvesen.no/api-docs/datakatalog \
-  --generator-name kotlin \
+  --generator-name java \
   --output nvdb-datakatalog \
   --global-property models,apis,modelDocs=false \
-  --library jvm-spring-restclient \
-  --additional-properties useSpringBoot3=true,serializationLibrary=jackson,packageName=no.vegvesen.nvdb.datakatalog,sourceFolder=src/main/kotlin
-```
-
-Hvis du heller ønsker en full Kotlin-implementasjon med `kotlinx.serialization`, kall dette:
-
-```
-openapi-generator-cli generate --input-spec https://nvdbapiles.atlas.vegvesen.no/api-docs/datakatalog \
-  --generator-name kotlin \
-  --output nvdb-datakatalog \
-  --global-property models,apis,modelDocs=false \
-  --library multiplatform \
-  --additional-properties dateLibrary=kotlinx-datetime,packageName=no.vegevesen.nvdb.datakatalog,sourceFolder=src/main/kotlin
+  --library restclient \
+  --additional-properties serializationLibrary=jackson,packageName=no.vegvesen.nvdb.datakatalog,sourceFolder=src/main/kotlin
 ```
 
 For å bare generere modeller, med f.eks. Jackson serialisering, kall dette:
 
 ```
 openapi-generator-cli generate --input-spec https://nvdbapiles.atlas.vegvesen.no/api-docs/datakatalog \
-  --generator-name kotlin \
+  --generator-name java \
   --output nvdb-datakatalog \
   --global-property models,modelDocs=false \
   --additional-properties serializationLibrary=jackson,packageName=no.vegevesen.nvdb.datakatalog,sourceFolder=src/main/kotlin
@@ -70,7 +59,7 @@ Vi anbefaler å initialisere en `package.json` og legge inn `@openapitools/opena
     "generate:datakatalog": "rm -rf datakatalog openapi-generator-cli generate --generator-key datakatalog"
   },
   "dependencies": {
-    "@openapitools/openapi-generator-cli": "^2.9.0"
+    "@openapitools/openapi-generator-cli": "^2.20.0"
   }
 }
 ```
@@ -82,19 +71,19 @@ Her er et eksempel på `openapitools.json`:
   "$schema": "./node_modules/@openapitools/openapi-generator-cli/config.schema.json",
   "spaces": 2,
   "generator-cli": {
-    "version": "7.3.0",
+    "version": "7.13.0",
     "generators": {
       "datakatalog": {
         "inputSpec": "https://nvdbapiles.atlas.vegvesen.no/api-docs/datakatalog",
         "output": "datakatalog",
-        "generatorName": "kotlin",
-        "library": "multiplatform",
+        "generatorName": "java",
+        "library": "restclient",
         "apiPackage": "no.vegvesen.nvdb.datakatalog.api",
         "modelPackage": "no.vegvesen.nvdb.datakatalog.model",
         "globalProperty": "models,apis,modelDocs=false,modelTests=false,apiTests=false",
         "additionalProperties": {
-          "dateLibrary": "kotlinx-datetime",
-          "sourceFolder": "src/main/kotlin"
+          "dateLibrary": "java8-datetime",
+          "sourceFolder": "src/main/java"
         }
       }
     }
@@ -113,9 +102,9 @@ Se også [package.json](package.json) og [openapitools.json](openapitools.json) 
 ### Ferdig genererte eksempler
 
 - [Java-klient for datakatalogen, med Spring Reactive WebClient og Jackson](./java/datakatalog/)
-- [Kotlin-klient for datakatalogen, med Ktor HttpClient og kotlinx.serialization](./kotlin/datakatalog/)
+- [Java-klient for vegnett, med Spring Reactive Webclient og Jackson](./java/vegnett/)
+- [Java-klient for vegnett-APIet, med Spring Reactive Webclient og Jackson](./java/vegobjekter/)
 - [TypeScript-klient for datakatalogen, med fetch](./typescript/datakatalog/)
-- [Kotlin-klient for vegnett-APIet, med Ktor HttpClient og kotlinx.serialization](./kotlin/vegnett/)
 
 # Bedre Frontend-støtte med [Kubb](https://www.kubb.dev/)
 

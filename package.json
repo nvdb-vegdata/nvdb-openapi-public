@@ -16,7 +16,7 @@
     "@kubb/swagger-tanstack-query": "^2.6.3",
     "@kubb/swagger-ts": "^2.6.3",
     "@kubb/swagger-zod": "^2.6.3",
-    "@openapitools/openapi-generator-cli": "^2.9.0",
+    "@openapitools/openapi-generator-cli": "^2.20.0",
     "@tanstack/react-query": "^5.22.2",
     "axios": "^1.6.7",
     "npm-run-all2": "^6.1.2",
