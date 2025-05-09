@@ -9,13 +9,46 @@
         "output": "java/datakatalog",
         "generatorName": "java",
         "library": "webclient",
-        "apiPackage": "no.vegvesen.nvdb.datakatalog.api",
-        "modelPackage": "no.vegvesen.nvdb.datakatalog.model",
         "globalProperty": "modelDocs=false,modelTests=false,apiTests=false",
         "additionalProperties": {
-          "packageName": "no.vegvesen.nvdb.datakatalog",
+          "apiPackage": "no.vegvesen.vt.nvdb.datakatalog.api",
+          "modelPackage": "no.vegvesen.vt.nvdb.datakatalog.model",
+          "invokerPackage": "no.vegvesen.vt.nvdb.datakatalog.infrastructure",
           "groupId": "no.vegvesen.vt.nvdb.apiles",
           "artifactId": "nvdbapiles-datakatalogen-java-klient",
+          "useJakartaEe": true,
+          "hideGenerationTimestamp": true
+        }
+      },
+      "vegnett-java": {
+        "inputSpec": "https://nvdbapiles.atlas.vegvesen.no/api-docs/vegnett",
+        "output": "java/vegnett",
+        "generatorName": "java",
+        "library": "webclient",
+        "globalProperty": "modelDocs=false,modelTests=false,apiTests=false",
+        "additionalProperties": {
+          "apiPackage": "no.vegvesen.vt.nvdb.vegnett.api",
+          "modelPackage": "no.vegvesen.vt.nvdb.vegnett.model",
+          "invokerPackage": "no.vegvesen.vt.nvdb.vegnett.infrastructure",
+          "groupId": "no.vegvesen.vt.nvdb.apiles",
+          "artifactId": "nvdbapiles-vegnett-java-klient",
+          "useJakartaEe": true,
+          "hideGenerationTimestamp": true
+        }
+      },
+      "vegobjekter-java": {
+        "inputSpec": "https://nvdbapiles.atlas.vegvesen.no/api-docs/vegobjekter",
+        "output": "java/vegobjekter",
+        "generatorName": "java",
+        "library": "webclient",
+        "globalProperty": "modelDocs=false,modelTests=false,apiTests=false",
+        "additionalProperties": {
+          "apiPackage": "no.vegvesen.vt.nvdb.vegobjekter.api",
+          "modelPackage": "no.vegvesen.vt.nvdb.vegobjekter.model",
+          "invokerPackage": "no.vegvesen.vt.nvdb.vegobjekter.infrastructure",
+          "groupId": "no.vegvesen.vt.nvdb.apiles",
+          "artifactId": "nvdbapiles-vegobjekter-java-klient",
+          "useJakartaEe": true,
           "hideGenerationTimestamp": true
         }
       },
