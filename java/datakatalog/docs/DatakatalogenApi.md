@@ -25,11 +25,11 @@ Returnerer angitt egenskapstype
 
 ```java
 // Import classes:
-import no.vegvesen.nvdb.datakatalog.ApiClient;
-import no.vegvesen.nvdb.datakatalog.ApiException;
-import no.vegvesen.nvdb.datakatalog.Configuration;
-import no.vegvesen.nvdb.datakatalog.models.*;
-import no.vegvesen.nvdb.datakatalog.api.DatakatalogenApi;
+import no.vegvesen.vt.nvdb.datakatalog.infrastructure.ApiClient;
+import no.vegvesen.vt.nvdb.datakatalog.infrastructure.ApiException;
+import no.vegvesen.vt.nvdb.datakatalog.infrastructure.Configuration;
+import no.vegvesen.vt.nvdb.datakatalog.infrastructure.models.*;
+import no.vegvesen.vt.nvdb.datakatalog.api.DatakatalogenApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -90,11 +90,11 @@ Returnerer angitt egenskapstype for angitt vegobjekttype
 
 ```java
 // Import classes:
-import no.vegvesen.nvdb.datakatalog.ApiClient;
-import no.vegvesen.nvdb.datakatalog.ApiException;
-import no.vegvesen.nvdb.datakatalog.Configuration;
-import no.vegvesen.nvdb.datakatalog.models.*;
-import no.vegvesen.nvdb.datakatalog.api.DatakatalogenApi;
+import no.vegvesen.vt.nvdb.datakatalog.infrastructure.ApiClient;
+import no.vegvesen.vt.nvdb.datakatalog.infrastructure.ApiException;
+import no.vegvesen.vt.nvdb.datakatalog.infrastructure.Configuration;
+import no.vegvesen.vt.nvdb.datakatalog.infrastructure.models.*;
+import no.vegvesen.vt.nvdb.datakatalog.api.DatakatalogenApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -157,11 +157,11 @@ Returnerer alle kategorier for egenskapstypene
 
 ```java
 // Import classes:
-import no.vegvesen.nvdb.datakatalog.ApiClient;
-import no.vegvesen.nvdb.datakatalog.ApiException;
-import no.vegvesen.nvdb.datakatalog.Configuration;
-import no.vegvesen.nvdb.datakatalog.models.*;
-import no.vegvesen.nvdb.datakatalog.api.DatakatalogenApi;
+import no.vegvesen.vt.nvdb.datakatalog.infrastructure.ApiClient;
+import no.vegvesen.vt.nvdb.datakatalog.infrastructure.ApiException;
+import no.vegvesen.vt.nvdb.datakatalog.infrastructure.Configuration;
+import no.vegvesen.vt.nvdb.datakatalog.infrastructure.models.*;
+import no.vegvesen.vt.nvdb.datakatalog.api.DatakatalogenApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -219,11 +219,11 @@ Returnerer alle enheter
 
 ```java
 // Import classes:
-import no.vegvesen.nvdb.datakatalog.ApiClient;
-import no.vegvesen.nvdb.datakatalog.ApiException;
-import no.vegvesen.nvdb.datakatalog.Configuration;
-import no.vegvesen.nvdb.datakatalog.models.*;
-import no.vegvesen.nvdb.datakatalog.api.DatakatalogenApi;
+import no.vegvesen.vt.nvdb.datakatalog.infrastructure.ApiClient;
+import no.vegvesen.vt.nvdb.datakatalog.infrastructure.ApiException;
+import no.vegvesen.vt.nvdb.datakatalog.infrastructure.Configuration;
+import no.vegvesen.vt.nvdb.datakatalog.infrastructure.models.*;
+import no.vegvesen.vt.nvdb.datakatalog.api.DatakatalogenApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -281,11 +281,11 @@ Returnerer alle kategorier for vegobjekter
 
 ```java
 // Import classes:
-import no.vegvesen.nvdb.datakatalog.ApiClient;
-import no.vegvesen.nvdb.datakatalog.ApiException;
-import no.vegvesen.nvdb.datakatalog.Configuration;
-import no.vegvesen.nvdb.datakatalog.models.*;
-import no.vegvesen.nvdb.datakatalog.api.DatakatalogenApi;
+import no.vegvesen.vt.nvdb.datakatalog.infrastructure.ApiClient;
+import no.vegvesen.vt.nvdb.datakatalog.infrastructure.ApiException;
+import no.vegvesen.vt.nvdb.datakatalog.infrastructure.Configuration;
+import no.vegvesen.vt.nvdb.datakatalog.infrastructure.models.*;
+import no.vegvesen.vt.nvdb.datakatalog.api.DatakatalogenApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -343,11 +343,11 @@ Returnerer produktspesifikasjonen til den angitte vegobjekttypen
 
 ```java
 // Import classes:
-import no.vegvesen.nvdb.datakatalog.ApiClient;
-import no.vegvesen.nvdb.datakatalog.ApiException;
-import no.vegvesen.nvdb.datakatalog.Configuration;
-import no.vegvesen.nvdb.datakatalog.models.*;
-import no.vegvesen.nvdb.datakatalog.api.DatakatalogenApi;
+import no.vegvesen.vt.nvdb.datakatalog.infrastructure.ApiClient;
+import no.vegvesen.vt.nvdb.datakatalog.infrastructure.ApiException;
+import no.vegvesen.vt.nvdb.datakatalog.infrastructure.Configuration;
+import no.vegvesen.vt.nvdb.datakatalog.infrastructure.models.*;
+import no.vegvesen.vt.nvdb.datakatalog.api.DatakatalogenApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -408,11 +408,11 @@ Returnerer angitt vegobjekttype
 
 ```java
 // Import classes:
-import no.vegvesen.nvdb.datakatalog.ApiClient;
-import no.vegvesen.nvdb.datakatalog.ApiException;
-import no.vegvesen.nvdb.datakatalog.Configuration;
-import no.vegvesen.nvdb.datakatalog.models.*;
-import no.vegvesen.nvdb.datakatalog.api.DatakatalogenApi;
+import no.vegvesen.vt.nvdb.datakatalog.infrastructure.ApiClient;
+import no.vegvesen.vt.nvdb.datakatalog.infrastructure.ApiException;
+import no.vegvesen.vt.nvdb.datakatalog.infrastructure.Configuration;
+import no.vegvesen.vt.nvdb.datakatalog.infrastructure.models.*;
+import no.vegvesen.vt.nvdb.datakatalog.api.DatakatalogenApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -475,11 +475,11 @@ Returnerer alle vegobjekttypene
 
 ```java
 // Import classes:
-import no.vegvesen.nvdb.datakatalog.ApiClient;
-import no.vegvesen.nvdb.datakatalog.ApiException;
-import no.vegvesen.nvdb.datakatalog.Configuration;
-import no.vegvesen.nvdb.datakatalog.models.*;
-import no.vegvesen.nvdb.datakatalog.api.DatakatalogenApi;
+import no.vegvesen.vt.nvdb.datakatalog.infrastructure.ApiClient;
+import no.vegvesen.vt.nvdb.datakatalog.infrastructure.ApiException;
+import no.vegvesen.vt.nvdb.datakatalog.infrastructure.Configuration;
+import no.vegvesen.vt.nvdb.datakatalog.infrastructure.models.*;
+import no.vegvesen.vt.nvdb.datakatalog.api.DatakatalogenApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -542,11 +542,11 @@ Returnerer alle vegobjekttypene for en gitt versjon av datakatalogen, f.eks. 2.3
 
 ```java
 // Import classes:
-import no.vegvesen.nvdb.datakatalog.ApiClient;
-import no.vegvesen.nvdb.datakatalog.ApiException;
-import no.vegvesen.nvdb.datakatalog.Configuration;
-import no.vegvesen.nvdb.datakatalog.models.*;
-import no.vegvesen.nvdb.datakatalog.api.DatakatalogenApi;
+import no.vegvesen.vt.nvdb.datakatalog.infrastructure.ApiClient;
+import no.vegvesen.vt.nvdb.datakatalog.infrastructure.ApiException;
+import no.vegvesen.vt.nvdb.datakatalog.infrastructure.Configuration;
+import no.vegvesen.vt.nvdb.datakatalog.infrastructure.models.*;
+import no.vegvesen.vt.nvdb.datakatalog.api.DatakatalogenApi;
 
 public class Example {
     public static void main(String[] args) {
@@ -611,11 +611,11 @@ Returnerer aktiv versjon på datakatalog
 
 ```java
 // Import classes:
-import no.vegvesen.nvdb.datakatalog.ApiClient;
-import no.vegvesen.nvdb.datakatalog.ApiException;
-import no.vegvesen.nvdb.datakatalog.Configuration;
-import no.vegvesen.nvdb.datakatalog.models.*;
-import no.vegvesen.nvdb.datakatalog.api.DatakatalogenApi;
+import no.vegvesen.vt.nvdb.datakatalog.infrastructure.ApiClient;
+import no.vegvesen.vt.nvdb.datakatalog.infrastructure.ApiException;
+import no.vegvesen.vt.nvdb.datakatalog.infrastructure.Configuration;
+import no.vegvesen.vt.nvdb.datakatalog.infrastructure.models.*;
+import no.vegvesen.vt.nvdb.datakatalog.api.DatakatalogenApi;
 
 public class Example {
     public static void main(String[] args) {
