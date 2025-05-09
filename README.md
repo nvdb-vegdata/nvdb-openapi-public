@@ -27,7 +27,7 @@ openapi-generator-cli generate --input-spec https://nvdbapiles.atlas.vegvesen.no
   --output nvdb-datakatalog \
   --global-property models,apis,modelDocs=false \
   --library restclient \
-  --additional-properties serializationLibrary=jackson,packageName=no.vegvesen.nvdb.datakatalog,sourceFolder=src/main/kotlin
+  --additional-properties serializationLibrary=jackson,packageName=no.vegvesen.nvdb.datakatalog,sourceFolder=src/main/java
 ```
 
 For å bare generere modeller, med f.eks. Jackson serialisering, kall dette:
@@ -37,7 +37,7 @@ openapi-generator-cli generate --input-spec https://nvdbapiles.atlas.vegvesen.no
   --generator-name java \
   --output nvdb-datakatalog \
   --global-property models,modelDocs=false \
-  --additional-properties serializationLibrary=jackson,packageName=no.vegevesen.nvdb.datakatalog,sourceFolder=src/main/kotlin
+  --additional-properties serializationLibrary=jackson,packageName=no.vegevesen.nvdb.datakatalog,sourceFolder=src/main/java
 ```
 
 ## Konfigurasjon
