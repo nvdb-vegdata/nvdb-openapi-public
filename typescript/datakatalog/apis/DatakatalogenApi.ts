@@ -57,17 +57,17 @@ export interface GetProduktspesifikasjonRequest {
 
 export interface GetVegobjekttypeRequest {
   vegobjekttypeid: number
-  inkluder?: Array<GetVegobjekttypeInkluderEnum>
+  inkluder?: Set<GetVegobjekttypeInkluderEnum>
 }
 
 export interface GetVegobjekttyperRequest {
-  inkluder?: Array<GetVegobjekttyperInkluderEnum>
+  inkluder?: Set<GetVegobjekttyperInkluderEnum>
   kategori?: number
 }
 
 export interface GetVegobjekttyperHistoriskRequest {
   versjon: string
-  inkluder?: Array<GetVegobjekttyperHistoriskInkluderEnum>
+  inkluder?: Set<GetVegobjekttyperHistoriskInkluderEnum>
   kategori?: number
 }
 

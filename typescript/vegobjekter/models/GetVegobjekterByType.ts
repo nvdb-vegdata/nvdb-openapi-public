@@ -218,8 +218,8 @@ export type GetVegobjekterByTypeQueryParams = {
    */
   detaljniva?: GetVegobjekterByTypeQueryParamsDetaljniva[]
   /**
-   * @description Hente endringer siden sist. Eksempel: 2024-12-02T10:15:30.123456
-   * @type string | undefined, date-time
+   * @description Hente endringer siden et tidspunkt. Tidspunkt skal følge ISO 8601 med tidssone eller som UTC. Eksempler: `2024-12-02T10:15:30.123+01:00`, `2024-12-02T09:15:30.123Z`
+   * @type unknown | undefined, date-time
    */
   endret_etter?: string
 }

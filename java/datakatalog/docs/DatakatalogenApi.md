@@ -421,7 +421,7 @@ public class Example {
 
         DatakatalogenApi apiInstance = new DatakatalogenApi(defaultClient);
         Integer vegobjekttypeid = 56; // Integer |
-        List<String> inkluder = Arrays.asList(); // List<String> | Kommaseparert liste med hvilke informasjonsfelter som skal inkluderes i tillegg til vegobjekttypenes metadata.
+        Set<String> inkluder = Arrays.asList(); // Set<String> | Kommaseparert liste med hvilke informasjonsfelter som skal inkluderes i tillegg til vegobjekttypenes metadata.
         try {
             Vegobjekttype result = apiInstance.getVegobjekttype(vegobjekttypeid, inkluder);
             System.out.println(result);
@@ -438,10 +438,10 @@ public class Example {
 
 ### Parameters
 
-| Name                | Type                                | Description                                                                                                    | Notes                                                                         |
-| ------------------- | ----------------------------------- | -------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
-| **vegobjekttypeid** | **Integer**                         |                                                                                                                |                                                                               |
-| **inkluder**        | [**List&lt;String&gt;**](String.md) | Kommaseparert liste med hvilke informasjonsfelter som skal inkluderes i tillegg til vegobjekttypenes metadata. | [optional] [enum: egenskapstyper, relasjonstyper, stedfesting, alle, minimum] |
+| Name                | Type                               | Description                                                                                                    | Notes                                                                         |
+| ------------------- | ---------------------------------- | -------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
+| **vegobjekttypeid** | **Integer**                        |                                                                                                                |                                                                               |
+| **inkluder**        | [**Set&lt;String&gt;**](String.md) | Kommaseparert liste med hvilke informasjonsfelter som skal inkluderes i tillegg til vegobjekttypenes metadata. | [optional] [enum: egenskapstyper, relasjonstyper, stedfesting, alle, minimum] |
 
 ### Return type
 
@@ -487,7 +487,7 @@ public class Example {
         defaultClient.setBasePath("https://nvdbapiles.atlas.vegvesen.no/datakatalog");
 
         DatakatalogenApi apiInstance = new DatakatalogenApi(defaultClient);
-        List<String> inkluder = Arrays.asList(); // List<String> | Kommaseparert liste med hvilke informasjonsfelter som skal inkluderes i tillegg til vegobjekttypenes metadata.
+        Set<String> inkluder = Arrays.asList(); // Set<String> | Kommaseparert liste med hvilke informasjonsfelter som skal inkluderes i tillegg til vegobjekttypenes metadata.
         Integer kategori = 56; // Integer | Begrens vegobjekttyper etter kategori. (/vegobjekttyper/kategorier)
         try {
             List<Vegobjekttype> result = apiInstance.getVegobjekttyper(inkluder, kategori);
@@ -505,10 +505,10 @@ public class Example {
 
 ### Parameters
 
-| Name         | Type                                | Description                                                                                                    | Notes                                                                         |
-| ------------ | ----------------------------------- | -------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
-| **inkluder** | [**List&lt;String&gt;**](String.md) | Kommaseparert liste med hvilke informasjonsfelter som skal inkluderes i tillegg til vegobjekttypenes metadata. | [optional] [enum: egenskapstyper, relasjonstyper, stedfesting, alle, minimum] |
-| **kategori** | **Integer**                         | Begrens vegobjekttyper etter kategori. (/vegobjekttyper/kategorier)                                            | [optional]                                                                    |
+| Name         | Type                               | Description                                                                                                    | Notes                                                                         |
+| ------------ | ---------------------------------- | -------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
+| **inkluder** | [**Set&lt;String&gt;**](String.md) | Kommaseparert liste med hvilke informasjonsfelter som skal inkluderes i tillegg til vegobjekttypenes metadata. | [optional] [enum: egenskapstyper, relasjonstyper, stedfesting, alle, minimum] |
+| **kategori** | **Integer**                        | Begrens vegobjekttyper etter kategori. (/vegobjekttyper/kategorier)                                            | [optional]                                                                    |
 
 ### Return type
 
@@ -555,7 +555,7 @@ public class Example {
 
         DatakatalogenApi apiInstance = new DatakatalogenApi(defaultClient);
         String versjon = "versjon_example"; // String |
-        List<String> inkluder = Arrays.asList(); // List<String> | Kommaseparert liste med hvilke informasjonsfelter som skal inkluderes i tillegg til vegobjekttypenes metadata.
+        Set<String> inkluder = Arrays.asList(); // Set<String> | Kommaseparert liste med hvilke informasjonsfelter som skal inkluderes i tillegg til vegobjekttypenes metadata.
         Integer kategori = 56; // Integer | Begrens vegobjekttyper etter kategori. (/vegobjekttyper/kategorier)
         try {
             List<Vegobjekttype> result = apiInstance.getVegobjekttyperHistorisk(versjon, inkluder, kategori);
@@ -573,11 +573,11 @@ public class Example {
 
 ### Parameters
 
-| Name         | Type                                | Description                                                                                                    | Notes                                                                         |
-| ------------ | ----------------------------------- | -------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
-| **versjon**  | **String**                          |                                                                                                                |                                                                               |
-| **inkluder** | [**List&lt;String&gt;**](String.md) | Kommaseparert liste med hvilke informasjonsfelter som skal inkluderes i tillegg til vegobjekttypenes metadata. | [optional] [enum: egenskapstyper, relasjonstyper, stedfesting, alle, minimum] |
-| **kategori** | **Integer**                         | Begrens vegobjekttyper etter kategori. (/vegobjekttyper/kategorier)                                            | [optional]                                                                    |
+| Name         | Type                               | Description                                                                                                    | Notes                                                                         |
+| ------------ | ---------------------------------- | -------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
+| **versjon**  | **String**                         |                                                                                                                |                                                                               |
+| **inkluder** | [**Set&lt;String&gt;**](String.md) | Kommaseparert liste med hvilke informasjonsfelter som skal inkluderes i tillegg til vegobjekttypenes metadata. | [optional] [enum: egenskapstyper, relasjonstyper, stedfesting, alle, minimum] |
+| **kategori** | **Integer**                        | Begrens vegobjekttyper etter kategori. (/vegobjekttyper/kategorier)                                            | [optional]                                                                    |
 
 ### Return type
 

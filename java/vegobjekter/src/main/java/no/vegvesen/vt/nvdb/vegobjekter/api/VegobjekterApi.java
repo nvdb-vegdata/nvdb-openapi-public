@@ -7,6 +7,7 @@ import java.time.OffsetDateTime;
 import no.vegvesen.vt.nvdb.vegobjekter.model.ProblemDetail;
 import java.util.Set;
 import no.vegvesen.vt.nvdb.vegobjekter.model.Vegobjekt;
+import no.vegvesen.vt.nvdb.vegobjekter.model.VegobjektNotifikasjonerSide;
 import no.vegvesen.vt.nvdb.vegobjekter.model.VegobjekterSide;
 
 import java.util.HashMap;
@@ -205,15 +206,15 @@ public class VegobjekterApi {
      * @return Vegobjekt
      * @throws WebClientResponseException if an error occurs while attempting to invoke the API
      */
-    private ResponseSpec getVegobjektById1RequestCreation(@jakarta.annotation.Nonnull Integer vegobjekttypeId, @jakarta.annotation.Nonnull Long vegobjektId, @jakarta.annotation.Nullable Set<String> inkluder, @jakarta.annotation.Nullable String srid, @jakarta.annotation.Nullable String inkludergeometri, @jakarta.annotation.Nullable String inkluderEgenskaper, @jakarta.annotation.Nullable String dybde, @jakarta.annotation.Nullable Integer geometritoleranse, @jakarta.annotation.Nullable LocalDate tidspunkt) throws WebClientResponseException {
+    private ResponseSpec getVegobjektByTypeAndIdRequestCreation(@jakarta.annotation.Nonnull Integer vegobjekttypeId, @jakarta.annotation.Nonnull Long vegobjektId, @jakarta.annotation.Nullable Set<String> inkluder, @jakarta.annotation.Nullable String srid, @jakarta.annotation.Nullable String inkludergeometri, @jakarta.annotation.Nullable String inkluderEgenskaper, @jakarta.annotation.Nullable String dybde, @jakarta.annotation.Nullable Integer geometritoleranse, @jakarta.annotation.Nullable LocalDate tidspunkt) throws WebClientResponseException {
         Object postBody = null;
         // verify the required parameter 'vegobjekttypeId' is set
         if (vegobjekttypeId == null) {
-            throw new WebClientResponseException("Missing the required parameter 'vegobjekttypeId' when calling getVegobjektById1", HttpStatus.BAD_REQUEST.value(), HttpStatus.BAD_REQUEST.getReasonPhrase(), null, null, null);
+            throw new WebClientResponseException("Missing the required parameter 'vegobjekttypeId' when calling getVegobjektByTypeAndId", HttpStatus.BAD_REQUEST.value(), HttpStatus.BAD_REQUEST.getReasonPhrase(), null, null, null);
         }
         // verify the required parameter 'vegobjektId' is set
         if (vegobjektId == null) {
-            throw new WebClientResponseException("Missing the required parameter 'vegobjektId' when calling getVegobjektById1", HttpStatus.BAD_REQUEST.value(), HttpStatus.BAD_REQUEST.getReasonPhrase(), null, null, null);
+            throw new WebClientResponseException("Missing the required parameter 'vegobjektId' when calling getVegobjektByTypeAndId", HttpStatus.BAD_REQUEST.value(), HttpStatus.BAD_REQUEST.getReasonPhrase(), null, null, null);
         }
         // create path and map variables
         final Map<String, Object> pathParams = new HashMap<String, Object>();
@@ -268,9 +269,9 @@ public class VegobjekterApi {
      * @return Vegobjekt
      * @throws WebClientResponseException if an error occurs while attempting to invoke the API
      */
-    public Mono<Vegobjekt> getVegobjektById1(@jakarta.annotation.Nonnull Integer vegobjekttypeId, @jakarta.annotation.Nonnull Long vegobjektId, @jakarta.annotation.Nullable Set<String> inkluder, @jakarta.annotation.Nullable String srid, @jakarta.annotation.Nullable String inkludergeometri, @jakarta.annotation.Nullable String inkluderEgenskaper, @jakarta.annotation.Nullable String dybde, @jakarta.annotation.Nullable Integer geometritoleranse, @jakarta.annotation.Nullable LocalDate tidspunkt) throws WebClientResponseException {
+    public Mono<Vegobjekt> getVegobjektByTypeAndId(@jakarta.annotation.Nonnull Integer vegobjekttypeId, @jakarta.annotation.Nonnull Long vegobjektId, @jakarta.annotation.Nullable Set<String> inkluder, @jakarta.annotation.Nullable String srid, @jakarta.annotation.Nullable String inkludergeometri, @jakarta.annotation.Nullable String inkluderEgenskaper, @jakarta.annotation.Nullable String dybde, @jakarta.annotation.Nullable Integer geometritoleranse, @jakarta.annotation.Nullable LocalDate tidspunkt) throws WebClientResponseException {
         ParameterizedTypeReference<Vegobjekt> localVarReturnType = new ParameterizedTypeReference<Vegobjekt>() {};
-        return getVegobjektById1RequestCreation(vegobjekttypeId, vegobjektId, inkluder, srid, inkludergeometri, inkluderEgenskaper, dybde, geometritoleranse, tidspunkt).bodyToMono(localVarReturnType);
+        return getVegobjektByTypeAndIdRequestCreation(vegobjekttypeId, vegobjektId, inkluder, srid, inkludergeometri, inkluderEgenskaper, dybde, geometritoleranse, tidspunkt).bodyToMono(localVarReturnType);
     }
 
     /**
@@ -294,9 +295,9 @@ public class VegobjekterApi {
      * @return ResponseEntity&lt;Vegobjekt&gt;
      * @throws WebClientResponseException if an error occurs while attempting to invoke the API
      */
-    public Mono<ResponseEntity<Vegobjekt>> getVegobjektById1WithHttpInfo(@jakarta.annotation.Nonnull Integer vegobjekttypeId, @jakarta.annotation.Nonnull Long vegobjektId, @jakarta.annotation.Nullable Set<String> inkluder, @jakarta.annotation.Nullable String srid, @jakarta.annotation.Nullable String inkludergeometri, @jakarta.annotation.Nullable String inkluderEgenskaper, @jakarta.annotation.Nullable String dybde, @jakarta.annotation.Nullable Integer geometritoleranse, @jakarta.annotation.Nullable LocalDate tidspunkt) throws WebClientResponseException {
+    public Mono<ResponseEntity<Vegobjekt>> getVegobjektByTypeAndIdWithHttpInfo(@jakarta.annotation.Nonnull Integer vegobjekttypeId, @jakarta.annotation.Nonnull Long vegobjektId, @jakarta.annotation.Nullable Set<String> inkluder, @jakarta.annotation.Nullable String srid, @jakarta.annotation.Nullable String inkludergeometri, @jakarta.annotation.Nullable String inkluderEgenskaper, @jakarta.annotation.Nullable String dybde, @jakarta.annotation.Nullable Integer geometritoleranse, @jakarta.annotation.Nullable LocalDate tidspunkt) throws WebClientResponseException {
         ParameterizedTypeReference<Vegobjekt> localVarReturnType = new ParameterizedTypeReference<Vegobjekt>() {};
-        return getVegobjektById1RequestCreation(vegobjekttypeId, vegobjektId, inkluder, srid, inkludergeometri, inkluderEgenskaper, dybde, geometritoleranse, tidspunkt).toEntity(localVarReturnType);
+        return getVegobjektByTypeAndIdRequestCreation(vegobjekttypeId, vegobjektId, inkluder, srid, inkludergeometri, inkluderEgenskaper, dybde, geometritoleranse, tidspunkt).toEntity(localVarReturnType);
     }
 
     /**
@@ -320,8 +321,8 @@ public class VegobjekterApi {
      * @return ResponseSpec
      * @throws WebClientResponseException if an error occurs while attempting to invoke the API
      */
-    public ResponseSpec getVegobjektById1WithResponseSpec(@jakarta.annotation.Nonnull Integer vegobjekttypeId, @jakarta.annotation.Nonnull Long vegobjektId, @jakarta.annotation.Nullable Set<String> inkluder, @jakarta.annotation.Nullable String srid, @jakarta.annotation.Nullable String inkludergeometri, @jakarta.annotation.Nullable String inkluderEgenskaper, @jakarta.annotation.Nullable String dybde, @jakarta.annotation.Nullable Integer geometritoleranse, @jakarta.annotation.Nullable LocalDate tidspunkt) throws WebClientResponseException {
-        return getVegobjektById1RequestCreation(vegobjekttypeId, vegobjektId, inkluder, srid, inkludergeometri, inkluderEgenskaper, dybde, geometritoleranse, tidspunkt);
+    public ResponseSpec getVegobjektByTypeAndIdWithResponseSpec(@jakarta.annotation.Nonnull Integer vegobjekttypeId, @jakarta.annotation.Nonnull Long vegobjektId, @jakarta.annotation.Nullable Set<String> inkluder, @jakarta.annotation.Nullable String srid, @jakarta.annotation.Nullable String inkludergeometri, @jakarta.annotation.Nullable String inkluderEgenskaper, @jakarta.annotation.Nullable String dybde, @jakarta.annotation.Nullable Integer geometritoleranse, @jakarta.annotation.Nullable LocalDate tidspunkt) throws WebClientResponseException {
+        return getVegobjektByTypeAndIdRequestCreation(vegobjekttypeId, vegobjektId, inkluder, srid, inkludergeometri, inkluderEgenskaper, dybde, geometritoleranse, tidspunkt);
     }
 
     /**
@@ -346,19 +347,19 @@ public class VegobjekterApi {
      * @return Vegobjekt
      * @throws WebClientResponseException if an error occurs while attempting to invoke the API
      */
-    private ResponseSpec getVegobjektByIdAndVersjonRequestCreation(@jakarta.annotation.Nonnull Integer vegobjekttypeId, @jakarta.annotation.Nonnull Long vegobjektId, @jakarta.annotation.Nonnull Integer versjon, @jakarta.annotation.Nullable Set<String> inkluder, @jakarta.annotation.Nullable String srid, @jakarta.annotation.Nullable String inkludergeometri, @jakarta.annotation.Nullable String inkluderEgenskaper, @jakarta.annotation.Nullable String dybde, @jakarta.annotation.Nullable Integer geometritoleranse, @jakarta.annotation.Nullable LocalDate tidspunkt) throws WebClientResponseException {
+    private ResponseSpec getVegobjektByTypeIdAndVersjonRequestCreation(@jakarta.annotation.Nonnull Integer vegobjekttypeId, @jakarta.annotation.Nonnull Long vegobjektId, @jakarta.annotation.Nonnull Integer versjon, @jakarta.annotation.Nullable Set<String> inkluder, @jakarta.annotation.Nullable String srid, @jakarta.annotation.Nullable String inkludergeometri, @jakarta.annotation.Nullable String inkluderEgenskaper, @jakarta.annotation.Nullable String dybde, @jakarta.annotation.Nullable Integer geometritoleranse, @jakarta.annotation.Nullable LocalDate tidspunkt) throws WebClientResponseException {
         Object postBody = null;
         // verify the required parameter 'vegobjekttypeId' is set
         if (vegobjekttypeId == null) {
-            throw new WebClientResponseException("Missing the required parameter 'vegobjekttypeId' when calling getVegobjektByIdAndVersjon", HttpStatus.BAD_REQUEST.value(), HttpStatus.BAD_REQUEST.getReasonPhrase(), null, null, null);
+            throw new WebClientResponseException("Missing the required parameter 'vegobjekttypeId' when calling getVegobjektByTypeIdAndVersjon", HttpStatus.BAD_REQUEST.value(), HttpStatus.BAD_REQUEST.getReasonPhrase(), null, null, null);
         }
         // verify the required parameter 'vegobjektId' is set
         if (vegobjektId == null) {
-            throw new WebClientResponseException("Missing the required parameter 'vegobjektId' when calling getVegobjektByIdAndVersjon", HttpStatus.BAD_REQUEST.value(), HttpStatus.BAD_REQUEST.getReasonPhrase(), null, null, null);
+            throw new WebClientResponseException("Missing the required parameter 'vegobjektId' when calling getVegobjektByTypeIdAndVersjon", HttpStatus.BAD_REQUEST.value(), HttpStatus.BAD_REQUEST.getReasonPhrase(), null, null, null);
         }
         // verify the required parameter 'versjon' is set
         if (versjon == null) {
-            throw new WebClientResponseException("Missing the required parameter 'versjon' when calling getVegobjektByIdAndVersjon", HttpStatus.BAD_REQUEST.value(), HttpStatus.BAD_REQUEST.getReasonPhrase(), null, null, null);
+            throw new WebClientResponseException("Missing the required parameter 'versjon' when calling getVegobjektByTypeIdAndVersjon", HttpStatus.BAD_REQUEST.value(), HttpStatus.BAD_REQUEST.getReasonPhrase(), null, null, null);
         }
         // create path and map variables
         final Map<String, Object> pathParams = new HashMap<String, Object>();
@@ -415,9 +416,9 @@ public class VegobjekterApi {
      * @return Vegobjekt
      * @throws WebClientResponseException if an error occurs while attempting to invoke the API
      */
-    public Mono<Vegobjekt> getVegobjektByIdAndVersjon(@jakarta.annotation.Nonnull Integer vegobjekttypeId, @jakarta.annotation.Nonnull Long vegobjektId, @jakarta.annotation.Nonnull Integer versjon, @jakarta.annotation.Nullable Set<String> inkluder, @jakarta.annotation.Nullable String srid, @jakarta.annotation.Nullable String inkludergeometri, @jakarta.annotation.Nullable String inkluderEgenskaper, @jakarta.annotation.Nullable String dybde, @jakarta.annotation.Nullable Integer geometritoleranse, @jakarta.annotation.Nullable LocalDate tidspunkt) throws WebClientResponseException {
+    public Mono<Vegobjekt> getVegobjektByTypeIdAndVersjon(@jakarta.annotation.Nonnull Integer vegobjekttypeId, @jakarta.annotation.Nonnull Long vegobjektId, @jakarta.annotation.Nonnull Integer versjon, @jakarta.annotation.Nullable Set<String> inkluder, @jakarta.annotation.Nullable String srid, @jakarta.annotation.Nullable String inkludergeometri, @jakarta.annotation.Nullable String inkluderEgenskaper, @jakarta.annotation.Nullable String dybde, @jakarta.annotation.Nullable Integer geometritoleranse, @jakarta.annotation.Nullable LocalDate tidspunkt) throws WebClientResponseException {
         ParameterizedTypeReference<Vegobjekt> localVarReturnType = new ParameterizedTypeReference<Vegobjekt>() {};
-        return getVegobjektByIdAndVersjonRequestCreation(vegobjekttypeId, vegobjektId, versjon, inkluder, srid, inkludergeometri, inkluderEgenskaper, dybde, geometritoleranse, tidspunkt).bodyToMono(localVarReturnType);
+        return getVegobjektByTypeIdAndVersjonRequestCreation(vegobjekttypeId, vegobjektId, versjon, inkluder, srid, inkludergeometri, inkluderEgenskaper, dybde, geometritoleranse, tidspunkt).bodyToMono(localVarReturnType);
     }
 
     /**
@@ -442,9 +443,9 @@ public class VegobjekterApi {
      * @return ResponseEntity&lt;Vegobjekt&gt;
      * @throws WebClientResponseException if an error occurs while attempting to invoke the API
      */
-    public Mono<ResponseEntity<Vegobjekt>> getVegobjektByIdAndVersjonWithHttpInfo(@jakarta.annotation.Nonnull Integer vegobjekttypeId, @jakarta.annotation.Nonnull Long vegobjektId, @jakarta.annotation.Nonnull Integer versjon, @jakarta.annotation.Nullable Set<String> inkluder, @jakarta.annotation.Nullable String srid, @jakarta.annotation.Nullable String inkludergeometri, @jakarta.annotation.Nullable String inkluderEgenskaper, @jakarta.annotation.Nullable String dybde, @jakarta.annotation.Nullable Integer geometritoleranse, @jakarta.annotation.Nullable LocalDate tidspunkt) throws WebClientResponseException {
+    public Mono<ResponseEntity<Vegobjekt>> getVegobjektByTypeIdAndVersjonWithHttpInfo(@jakarta.annotation.Nonnull Integer vegobjekttypeId, @jakarta.annotation.Nonnull Long vegobjektId, @jakarta.annotation.Nonnull Integer versjon, @jakarta.annotation.Nullable Set<String> inkluder, @jakarta.annotation.Nullable String srid, @jakarta.annotation.Nullable String inkludergeometri, @jakarta.annotation.Nullable String inkluderEgenskaper, @jakarta.annotation.Nullable String dybde, @jakarta.annotation.Nullable Integer geometritoleranse, @jakarta.annotation.Nullable LocalDate tidspunkt) throws WebClientResponseException {
         ParameterizedTypeReference<Vegobjekt> localVarReturnType = new ParameterizedTypeReference<Vegobjekt>() {};
-        return getVegobjektByIdAndVersjonRequestCreation(vegobjekttypeId, vegobjektId, versjon, inkluder, srid, inkludergeometri, inkluderEgenskaper, dybde, geometritoleranse, tidspunkt).toEntity(localVarReturnType);
+        return getVegobjektByTypeIdAndVersjonRequestCreation(vegobjekttypeId, vegobjektId, versjon, inkluder, srid, inkludergeometri, inkluderEgenskaper, dybde, geometritoleranse, tidspunkt).toEntity(localVarReturnType);
     }
 
     /**
@@ -469,8 +470,119 @@ public class VegobjekterApi {
      * @return ResponseSpec
      * @throws WebClientResponseException if an error occurs while attempting to invoke the API
      */
-    public ResponseSpec getVegobjektByIdAndVersjonWithResponseSpec(@jakarta.annotation.Nonnull Integer vegobjekttypeId, @jakarta.annotation.Nonnull Long vegobjektId, @jakarta.annotation.Nonnull Integer versjon, @jakarta.annotation.Nullable Set<String> inkluder, @jakarta.annotation.Nullable String srid, @jakarta.annotation.Nullable String inkludergeometri, @jakarta.annotation.Nullable String inkluderEgenskaper, @jakarta.annotation.Nullable String dybde, @jakarta.annotation.Nullable Integer geometritoleranse, @jakarta.annotation.Nullable LocalDate tidspunkt) throws WebClientResponseException {
-        return getVegobjektByIdAndVersjonRequestCreation(vegobjekttypeId, vegobjektId, versjon, inkluder, srid, inkludergeometri, inkluderEgenskaper, dybde, geometritoleranse, tidspunkt);
+    public ResponseSpec getVegobjektByTypeIdAndVersjonWithResponseSpec(@jakarta.annotation.Nonnull Integer vegobjekttypeId, @jakarta.annotation.Nonnull Long vegobjektId, @jakarta.annotation.Nonnull Integer versjon, @jakarta.annotation.Nullable Set<String> inkluder, @jakarta.annotation.Nullable String srid, @jakarta.annotation.Nullable String inkludergeometri, @jakarta.annotation.Nullable String inkluderEgenskaper, @jakarta.annotation.Nullable String dybde, @jakarta.annotation.Nullable Integer geometritoleranse, @jakarta.annotation.Nullable LocalDate tidspunkt) throws WebClientResponseException {
+        return getVegobjektByTypeIdAndVersjonRequestCreation(vegobjekttypeId, vegobjektId, versjon, inkluder, srid, inkludergeometri, inkluderEgenskaper, dybde, geometritoleranse, tidspunkt);
+    }
+
+    /**
+     * Hent endringer på vegobjekter
+     * 
+     * <p><b>500</b> - Internal Server Error
+     * <p><b>400</b> - Bad Request
+     * <p><b>404</b> - Not Found
+     * <p><b>401</b> - Unauthorized
+     * <p><b>403</b> - Forbidden
+     * <p><b>200</b> - OK
+     * @param vegobjekttypeId Finn vegobjekter med denne vegobjekttypen. Se [Datakatalogen](https://datakatalogen.atlas.vegvesen.no) for mulige verdier.  Eksempel: 581         
+     * @param start Hent alle endringer etter gitt tidspunkt. Dersom denne utelates vil de eldste endringene hentes først.
+     * @param antall Antall endringer som skal være med i responsen. Merk at det faktiske antallet kan variere fra respons til respons. Dette er fordi endringer på samme vegobjektversjon innenfor samme side blir aggregert sammen ved å ta den nyeste endringen. Maksverdi: 1000
+     * @param historisk Bestem om du ønsker endringer for aktive eller historiske vegobjekter. Standardverdi: &#x60;false&#x60;
+     * @return VegobjektNotifikasjonerSide
+     * @throws WebClientResponseException if an error occurs while attempting to invoke the API
+     */
+    private ResponseSpec getVegobjektNotifikasjonerRequestCreation(@jakarta.annotation.Nonnull Integer vegobjekttypeId, @jakarta.annotation.Nullable OffsetDateTime start, @jakarta.annotation.Nullable Integer antall, @jakarta.annotation.Nullable Boolean historisk) throws WebClientResponseException {
+        Object postBody = null;
+        // verify the required parameter 'vegobjekttypeId' is set
+        if (vegobjekttypeId == null) {
+            throw new WebClientResponseException("Missing the required parameter 'vegobjekttypeId' when calling getVegobjektNotifikasjoner", HttpStatus.BAD_REQUEST.value(), HttpStatus.BAD_REQUEST.getReasonPhrase(), null, null, null);
+        }
+        // create path and map variables
+        final Map<String, Object> pathParams = new HashMap<String, Object>();
+
+        pathParams.put("vegobjekttypeId", vegobjekttypeId);
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<String, String>();
+        final HttpHeaders headerParams = new HttpHeaders();
+        final MultiValueMap<String, String> cookieParams = new LinkedMultiValueMap<String, String>();
+        final MultiValueMap<String, Object> formParams = new LinkedMultiValueMap<String, Object>();
+
+        queryParams.putAll(apiClient.parameterToMultiValueMap(null, "start", start));
+        queryParams.putAll(apiClient.parameterToMultiValueMap(null, "antall", antall));
+        queryParams.putAll(apiClient.parameterToMultiValueMap(null, "historisk", historisk));
+        
+        final String[] localVarAccepts = { 
+            "*/*"
+        };
+        final List<MediaType> localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        final String[] localVarContentTypes = { };
+        final MediaType localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+        String[] localVarAuthNames = new String[] { "bearerAuth" };
+
+        ParameterizedTypeReference<VegobjektNotifikasjonerSide> localVarReturnType = new ParameterizedTypeReference<VegobjektNotifikasjonerSide>() {};
+        return apiClient.invokeAPI("/api/v4/vegobjekter/{vegobjekttypeId}/endringer", HttpMethod.GET, pathParams, queryParams, postBody, headerParams, cookieParams, formParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+    }
+
+    /**
+     * Hent endringer på vegobjekter
+     * 
+     * <p><b>500</b> - Internal Server Error
+     * <p><b>400</b> - Bad Request
+     * <p><b>404</b> - Not Found
+     * <p><b>401</b> - Unauthorized
+     * <p><b>403</b> - Forbidden
+     * <p><b>200</b> - OK
+     * @param vegobjekttypeId Finn vegobjekter med denne vegobjekttypen. Se [Datakatalogen](https://datakatalogen.atlas.vegvesen.no) for mulige verdier.  Eksempel: 581         
+     * @param start Hent alle endringer etter gitt tidspunkt. Dersom denne utelates vil de eldste endringene hentes først.
+     * @param antall Antall endringer som skal være med i responsen. Merk at det faktiske antallet kan variere fra respons til respons. Dette er fordi endringer på samme vegobjektversjon innenfor samme side blir aggregert sammen ved å ta den nyeste endringen. Maksverdi: 1000
+     * @param historisk Bestem om du ønsker endringer for aktive eller historiske vegobjekter. Standardverdi: &#x60;false&#x60;
+     * @return VegobjektNotifikasjonerSide
+     * @throws WebClientResponseException if an error occurs while attempting to invoke the API
+     */
+    public Mono<VegobjektNotifikasjonerSide> getVegobjektNotifikasjoner(@jakarta.annotation.Nonnull Integer vegobjekttypeId, @jakarta.annotation.Nullable OffsetDateTime start, @jakarta.annotation.Nullable Integer antall, @jakarta.annotation.Nullable Boolean historisk) throws WebClientResponseException {
+        ParameterizedTypeReference<VegobjektNotifikasjonerSide> localVarReturnType = new ParameterizedTypeReference<VegobjektNotifikasjonerSide>() {};
+        return getVegobjektNotifikasjonerRequestCreation(vegobjekttypeId, start, antall, historisk).bodyToMono(localVarReturnType);
+    }
+
+    /**
+     * Hent endringer på vegobjekter
+     * 
+     * <p><b>500</b> - Internal Server Error
+     * <p><b>400</b> - Bad Request
+     * <p><b>404</b> - Not Found
+     * <p><b>401</b> - Unauthorized
+     * <p><b>403</b> - Forbidden
+     * <p><b>200</b> - OK
+     * @param vegobjekttypeId Finn vegobjekter med denne vegobjekttypen. Se [Datakatalogen](https://datakatalogen.atlas.vegvesen.no) for mulige verdier.  Eksempel: 581         
+     * @param start Hent alle endringer etter gitt tidspunkt. Dersom denne utelates vil de eldste endringene hentes først.
+     * @param antall Antall endringer som skal være med i responsen. Merk at det faktiske antallet kan variere fra respons til respons. Dette er fordi endringer på samme vegobjektversjon innenfor samme side blir aggregert sammen ved å ta den nyeste endringen. Maksverdi: 1000
+     * @param historisk Bestem om du ønsker endringer for aktive eller historiske vegobjekter. Standardverdi: &#x60;false&#x60;
+     * @return ResponseEntity&lt;VegobjektNotifikasjonerSide&gt;
+     * @throws WebClientResponseException if an error occurs while attempting to invoke the API
+     */
+    public Mono<ResponseEntity<VegobjektNotifikasjonerSide>> getVegobjektNotifikasjonerWithHttpInfo(@jakarta.annotation.Nonnull Integer vegobjekttypeId, @jakarta.annotation.Nullable OffsetDateTime start, @jakarta.annotation.Nullable Integer antall, @jakarta.annotation.Nullable Boolean historisk) throws WebClientResponseException {
+        ParameterizedTypeReference<VegobjektNotifikasjonerSide> localVarReturnType = new ParameterizedTypeReference<VegobjektNotifikasjonerSide>() {};
+        return getVegobjektNotifikasjonerRequestCreation(vegobjekttypeId, start, antall, historisk).toEntity(localVarReturnType);
+    }
+
+    /**
+     * Hent endringer på vegobjekter
+     * 
+     * <p><b>500</b> - Internal Server Error
+     * <p><b>400</b> - Bad Request
+     * <p><b>404</b> - Not Found
+     * <p><b>401</b> - Unauthorized
+     * <p><b>403</b> - Forbidden
+     * <p><b>200</b> - OK
+     * @param vegobjekttypeId Finn vegobjekter med denne vegobjekttypen. Se [Datakatalogen](https://datakatalogen.atlas.vegvesen.no) for mulige verdier.  Eksempel: 581         
+     * @param start Hent alle endringer etter gitt tidspunkt. Dersom denne utelates vil de eldste endringene hentes først.
+     * @param antall Antall endringer som skal være med i responsen. Merk at det faktiske antallet kan variere fra respons til respons. Dette er fordi endringer på samme vegobjektversjon innenfor samme side blir aggregert sammen ved å ta den nyeste endringen. Maksverdi: 1000
+     * @param historisk Bestem om du ønsker endringer for aktive eller historiske vegobjekter. Standardverdi: &#x60;false&#x60;
+     * @return ResponseSpec
+     * @throws WebClientResponseException if an error occurs while attempting to invoke the API
+     */
+    public ResponseSpec getVegobjektNotifikasjonerWithResponseSpec(@jakarta.annotation.Nonnull Integer vegobjekttypeId, @jakarta.annotation.Nullable OffsetDateTime start, @jakarta.annotation.Nullable Integer antall, @jakarta.annotation.Nullable Boolean historisk) throws WebClientResponseException {
+        return getVegobjektNotifikasjonerRequestCreation(vegobjekttypeId, start, antall, historisk);
     }
 
     /**
@@ -653,11 +765,11 @@ public class VegobjekterApi {
      * @param overlapp Filtrer vegobjekter på overlapp. Se [dokumentasjon](https://nvdb.atlas.vegvesen.no/docs/produkter/nvdbapil/v4/introduksjon/Avanserte_filter)
      * @param veglenketype Filtrer vegobjekter på veglenketype på vegnettet objektet er stedfestet. Kommaseparert liste.
      * @param detaljniva Filtrer vegobjekter på detaljnivå på vegnettet objektet er stedfestet på (kortnavn fra datakatalogen).
-     * @param endretEtter Hente endringer siden sist. Eksempel: 2024-12-02T10:15:30.123456
+     * @param endretEtter Hente endringer siden et tidspunkt. Tidspunkt skal følge ISO 8601 med tidssone eller som UTC. Eksempler: &#x60;2024-12-02T10:15:30.123+01:00&#x60;, &#x60;2024-12-02T09:15:30.123Z&#x60;
      * @return VegobjekterSide
      * @throws WebClientResponseException if an error occurs while attempting to invoke the API
      */
-    private ResponseSpec getVegobjekterByTypeRequestCreation(@jakarta.annotation.Nonnull Integer vegobjekttypeId, @jakarta.annotation.Nullable Set<Long> ider, @jakarta.annotation.Nullable List<String> inkluder, @jakarta.annotation.Nullable String srid, @jakarta.annotation.Nullable String inkludergeometri, @jakarta.annotation.Nullable String inkluderEgenskaper, @jakarta.annotation.Nullable Boolean segmentering, @jakarta.annotation.Nullable Set<Integer> fylke, @jakarta.annotation.Nullable Set<Integer> kommune, @jakarta.annotation.Nullable Set<String> kontraktsomrade, @jakarta.annotation.Nullable Set<String> riksvegrute, @jakarta.annotation.Nullable Set<String> vegforvalter, @jakarta.annotation.Nullable Set<String> vegsystemreferanse, @jakarta.annotation.Nullable String kartutsnitt, @jakarta.annotation.Nullable String polygon, @jakarta.annotation.Nullable Set<String> typeveg, @jakarta.annotation.Nullable Set<String> adskiltelop, @jakarta.annotation.Nullable Boolean kryssystem, @jakarta.annotation.Nullable Boolean sideanlegg, @jakarta.annotation.Nullable String trafikantgruppe, @jakarta.annotation.Nullable Integer antall, @jakarta.annotation.Nullable String start, @jakarta.annotation.Nullable Integer geometritoleranse, @jakarta.annotation.Nullable LocalDate tidspunkt, @jakarta.annotation.Nullable Boolean alleVersjoner, @jakarta.annotation.Nullable Boolean inkluderAntall, @jakarta.annotation.Nullable Set<String> veglenkesekvens, @jakarta.annotation.Nullable List<String> egenskap, @jakarta.annotation.Nullable List<String> overlapp, @jakarta.annotation.Nullable Set<String> veglenketype, @jakarta.annotation.Nullable Set<String> detaljniva, @jakarta.annotation.Nullable OffsetDateTime endretEtter) throws WebClientResponseException {
+    private ResponseSpec getVegobjekterByTypeRequestCreation(@jakarta.annotation.Nonnull Integer vegobjekttypeId, @jakarta.annotation.Nullable Set<Long> ider, @jakarta.annotation.Nullable Set<String> inkluder, @jakarta.annotation.Nullable String srid, @jakarta.annotation.Nullable String inkludergeometri, @jakarta.annotation.Nullable String inkluderEgenskaper, @jakarta.annotation.Nullable Boolean segmentering, @jakarta.annotation.Nullable Set<Integer> fylke, @jakarta.annotation.Nullable Set<Integer> kommune, @jakarta.annotation.Nullable Set<String> kontraktsomrade, @jakarta.annotation.Nullable Set<String> riksvegrute, @jakarta.annotation.Nullable Set<String> vegforvalter, @jakarta.annotation.Nullable Set<String> vegsystemreferanse, @jakarta.annotation.Nullable String kartutsnitt, @jakarta.annotation.Nullable String polygon, @jakarta.annotation.Nullable Set<String> typeveg, @jakarta.annotation.Nullable Set<String> adskiltelop, @jakarta.annotation.Nullable Boolean kryssystem, @jakarta.annotation.Nullable Boolean sideanlegg, @jakarta.annotation.Nullable String trafikantgruppe, @jakarta.annotation.Nullable Integer antall, @jakarta.annotation.Nullable String start, @jakarta.annotation.Nullable Integer geometritoleranse, @jakarta.annotation.Nullable LocalDate tidspunkt, @jakarta.annotation.Nullable Boolean alleVersjoner, @jakarta.annotation.Nullable Boolean inkluderAntall, @jakarta.annotation.Nullable Set<String> veglenkesekvens, @jakarta.annotation.Nullable List<String> egenskap, @jakarta.annotation.Nullable List<String> overlapp, @jakarta.annotation.Nullable Set<String> veglenketype, @jakarta.annotation.Nullable Set<String> detaljniva, @jakarta.annotation.Nullable Object endretEtter) throws WebClientResponseException {
         Object postBody = null;
         // verify the required parameter 'vegobjekttypeId' is set
         if (vegobjekttypeId == null) {
@@ -758,11 +870,11 @@ public class VegobjekterApi {
      * @param overlapp Filtrer vegobjekter på overlapp. Se [dokumentasjon](https://nvdb.atlas.vegvesen.no/docs/produkter/nvdbapil/v4/introduksjon/Avanserte_filter)
      * @param veglenketype Filtrer vegobjekter på veglenketype på vegnettet objektet er stedfestet. Kommaseparert liste.
      * @param detaljniva Filtrer vegobjekter på detaljnivå på vegnettet objektet er stedfestet på (kortnavn fra datakatalogen).
-     * @param endretEtter Hente endringer siden sist. Eksempel: 2024-12-02T10:15:30.123456
+     * @param endretEtter Hente endringer siden et tidspunkt. Tidspunkt skal følge ISO 8601 med tidssone eller som UTC. Eksempler: &#x60;2024-12-02T10:15:30.123+01:00&#x60;, &#x60;2024-12-02T09:15:30.123Z&#x60;
      * @return VegobjekterSide
      * @throws WebClientResponseException if an error occurs while attempting to invoke the API
      */
-    public Mono<VegobjekterSide> getVegobjekterByType(@jakarta.annotation.Nonnull Integer vegobjekttypeId, @jakarta.annotation.Nullable Set<Long> ider, @jakarta.annotation.Nullable List<String> inkluder, @jakarta.annotation.Nullable String srid, @jakarta.annotation.Nullable String inkludergeometri, @jakarta.annotation.Nullable String inkluderEgenskaper, @jakarta.annotation.Nullable Boolean segmentering, @jakarta.annotation.Nullable Set<Integer> fylke, @jakarta.annotation.Nullable Set<Integer> kommune, @jakarta.annotation.Nullable Set<String> kontraktsomrade, @jakarta.annotation.Nullable Set<String> riksvegrute, @jakarta.annotation.Nullable Set<String> vegforvalter, @jakarta.annotation.Nullable Set<String> vegsystemreferanse, @jakarta.annotation.Nullable String kartutsnitt, @jakarta.annotation.Nullable String polygon, @jakarta.annotation.Nullable Set<String> typeveg, @jakarta.annotation.Nullable Set<String> adskiltelop, @jakarta.annotation.Nullable Boolean kryssystem, @jakarta.annotation.Nullable Boolean sideanlegg, @jakarta.annotation.Nullable String trafikantgruppe, @jakarta.annotation.Nullable Integer antall, @jakarta.annotation.Nullable String start, @jakarta.annotation.Nullable Integer geometritoleranse, @jakarta.annotation.Nullable LocalDate tidspunkt, @jakarta.annotation.Nullable Boolean alleVersjoner, @jakarta.annotation.Nullable Boolean inkluderAntall, @jakarta.annotation.Nullable Set<String> veglenkesekvens, @jakarta.annotation.Nullable List<String> egenskap, @jakarta.annotation.Nullable List<String> overlapp, @jakarta.annotation.Nullable Set<String> veglenketype, @jakarta.annotation.Nullable Set<String> detaljniva, @jakarta.annotation.Nullable OffsetDateTime endretEtter) throws WebClientResponseException {
+    public Mono<VegobjekterSide> getVegobjekterByType(@jakarta.annotation.Nonnull Integer vegobjekttypeId, @jakarta.annotation.Nullable Set<Long> ider, @jakarta.annotation.Nullable Set<String> inkluder, @jakarta.annotation.Nullable String srid, @jakarta.annotation.Nullable String inkludergeometri, @jakarta.annotation.Nullable String inkluderEgenskaper, @jakarta.annotation.Nullable Boolean segmentering, @jakarta.annotation.Nullable Set<Integer> fylke, @jakarta.annotation.Nullable Set<Integer> kommune, @jakarta.annotation.Nullable Set<String> kontraktsomrade, @jakarta.annotation.Nullable Set<String> riksvegrute, @jakarta.annotation.Nullable Set<String> vegforvalter, @jakarta.annotation.Nullable Set<String> vegsystemreferanse, @jakarta.annotation.Nullable String kartutsnitt, @jakarta.annotation.Nullable String polygon, @jakarta.annotation.Nullable Set<String> typeveg, @jakarta.annotation.Nullable Set<String> adskiltelop, @jakarta.annotation.Nullable Boolean kryssystem, @jakarta.annotation.Nullable Boolean sideanlegg, @jakarta.annotation.Nullable String trafikantgruppe, @jakarta.annotation.Nullable Integer antall, @jakarta.annotation.Nullable String start, @jakarta.annotation.Nullable Integer geometritoleranse, @jakarta.annotation.Nullable LocalDate tidspunkt, @jakarta.annotation.Nullable Boolean alleVersjoner, @jakarta.annotation.Nullable Boolean inkluderAntall, @jakarta.annotation.Nullable Set<String> veglenkesekvens, @jakarta.annotation.Nullable List<String> egenskap, @jakarta.annotation.Nullable List<String> overlapp, @jakarta.annotation.Nullable Set<String> veglenketype, @jakarta.annotation.Nullable Set<String> detaljniva, @jakarta.annotation.Nullable Object endretEtter) throws WebClientResponseException {
         ParameterizedTypeReference<VegobjekterSide> localVarReturnType = new ParameterizedTypeReference<VegobjekterSide>() {};
         return getVegobjekterByTypeRequestCreation(vegobjekttypeId, ider, inkluder, srid, inkludergeometri, inkluderEgenskaper, segmentering, fylke, kommune, kontraktsomrade, riksvegrute, vegforvalter, vegsystemreferanse, kartutsnitt, polygon, typeveg, adskiltelop, kryssystem, sideanlegg, trafikantgruppe, antall, start, geometritoleranse, tidspunkt, alleVersjoner, inkluderAntall, veglenkesekvens, egenskap, overlapp, veglenketype, detaljniva, endretEtter).bodyToMono(localVarReturnType);
     }
@@ -807,11 +919,11 @@ public class VegobjekterApi {
      * @param overlapp Filtrer vegobjekter på overlapp. Se [dokumentasjon](https://nvdb.atlas.vegvesen.no/docs/produkter/nvdbapil/v4/introduksjon/Avanserte_filter)
      * @param veglenketype Filtrer vegobjekter på veglenketype på vegnettet objektet er stedfestet. Kommaseparert liste.
      * @param detaljniva Filtrer vegobjekter på detaljnivå på vegnettet objektet er stedfestet på (kortnavn fra datakatalogen).
-     * @param endretEtter Hente endringer siden sist. Eksempel: 2024-12-02T10:15:30.123456
+     * @param endretEtter Hente endringer siden et tidspunkt. Tidspunkt skal følge ISO 8601 med tidssone eller som UTC. Eksempler: &#x60;2024-12-02T10:15:30.123+01:00&#x60;, &#x60;2024-12-02T09:15:30.123Z&#x60;
      * @return ResponseEntity&lt;VegobjekterSide&gt;
      * @throws WebClientResponseException if an error occurs while attempting to invoke the API
      */
-    public Mono<ResponseEntity<VegobjekterSide>> getVegobjekterByTypeWithHttpInfo(@jakarta.annotation.Nonnull Integer vegobjekttypeId, @jakarta.annotation.Nullable Set<Long> ider, @jakarta.annotation.Nullable List<String> inkluder, @jakarta.annotation.Nullable String srid, @jakarta.annotation.Nullable String inkludergeometri, @jakarta.annotation.Nullable String inkluderEgenskaper, @jakarta.annotation.Nullable Boolean segmentering, @jakarta.annotation.Nullable Set<Integer> fylke, @jakarta.annotation.Nullable Set<Integer> kommune, @jakarta.annotation.Nullable Set<String> kontraktsomrade, @jakarta.annotation.Nullable Set<String> riksvegrute, @jakarta.annotation.Nullable Set<String> vegforvalter, @jakarta.annotation.Nullable Set<String> vegsystemreferanse, @jakarta.annotation.Nullable String kartutsnitt, @jakarta.annotation.Nullable String polygon, @jakarta.annotation.Nullable Set<String> typeveg, @jakarta.annotation.Nullable Set<String> adskiltelop, @jakarta.annotation.Nullable Boolean kryssystem, @jakarta.annotation.Nullable Boolean sideanlegg, @jakarta.annotation.Nullable String trafikantgruppe, @jakarta.annotation.Nullable Integer antall, @jakarta.annotation.Nullable String start, @jakarta.annotation.Nullable Integer geometritoleranse, @jakarta.annotation.Nullable LocalDate tidspunkt, @jakarta.annotation.Nullable Boolean alleVersjoner, @jakarta.annotation.Nullable Boolean inkluderAntall, @jakarta.annotation.Nullable Set<String> veglenkesekvens, @jakarta.annotation.Nullable List<String> egenskap, @jakarta.annotation.Nullable List<String> overlapp, @jakarta.annotation.Nullable Set<String> veglenketype, @jakarta.annotation.Nullable Set<String> detaljniva, @jakarta.annotation.Nullable OffsetDateTime endretEtter) throws WebClientResponseException {
+    public Mono<ResponseEntity<VegobjekterSide>> getVegobjekterByTypeWithHttpInfo(@jakarta.annotation.Nonnull Integer vegobjekttypeId, @jakarta.annotation.Nullable Set<Long> ider, @jakarta.annotation.Nullable Set<String> inkluder, @jakarta.annotation.Nullable String srid, @jakarta.annotation.Nullable String inkludergeometri, @jakarta.annotation.Nullable String inkluderEgenskaper, @jakarta.annotation.Nullable Boolean segmentering, @jakarta.annotation.Nullable Set<Integer> fylke, @jakarta.annotation.Nullable Set<Integer> kommune, @jakarta.annotation.Nullable Set<String> kontraktsomrade, @jakarta.annotation.Nullable Set<String> riksvegrute, @jakarta.annotation.Nullable Set<String> vegforvalter, @jakarta.annotation.Nullable Set<String> vegsystemreferanse, @jakarta.annotation.Nullable String kartutsnitt, @jakarta.annotation.Nullable String polygon, @jakarta.annotation.Nullable Set<String> typeveg, @jakarta.annotation.Nullable Set<String> adskiltelop, @jakarta.annotation.Nullable Boolean kryssystem, @jakarta.annotation.Nullable Boolean sideanlegg, @jakarta.annotation.Nullable String trafikantgruppe, @jakarta.annotation.Nullable Integer antall, @jakarta.annotation.Nullable String start, @jakarta.annotation.Nullable Integer geometritoleranse, @jakarta.annotation.Nullable LocalDate tidspunkt, @jakarta.annotation.Nullable Boolean alleVersjoner, @jakarta.annotation.Nullable Boolean inkluderAntall, @jakarta.annotation.Nullable Set<String> veglenkesekvens, @jakarta.annotation.Nullable List<String> egenskap, @jakarta.annotation.Nullable List<String> overlapp, @jakarta.annotation.Nullable Set<String> veglenketype, @jakarta.annotation.Nullable Set<String> detaljniva, @jakarta.annotation.Nullable Object endretEtter) throws WebClientResponseException {
         ParameterizedTypeReference<VegobjekterSide> localVarReturnType = new ParameterizedTypeReference<VegobjekterSide>() {};
         return getVegobjekterByTypeRequestCreation(vegobjekttypeId, ider, inkluder, srid, inkludergeometri, inkluderEgenskaper, segmentering, fylke, kommune, kontraktsomrade, riksvegrute, vegforvalter, vegsystemreferanse, kartutsnitt, polygon, typeveg, adskiltelop, kryssystem, sideanlegg, trafikantgruppe, antall, start, geometritoleranse, tidspunkt, alleVersjoner, inkluderAntall, veglenkesekvens, egenskap, overlapp, veglenketype, detaljniva, endretEtter).toEntity(localVarReturnType);
     }
@@ -856,11 +968,11 @@ public class VegobjekterApi {
      * @param overlapp Filtrer vegobjekter på overlapp. Se [dokumentasjon](https://nvdb.atlas.vegvesen.no/docs/produkter/nvdbapil/v4/introduksjon/Avanserte_filter)
      * @param veglenketype Filtrer vegobjekter på veglenketype på vegnettet objektet er stedfestet. Kommaseparert liste.
      * @param detaljniva Filtrer vegobjekter på detaljnivå på vegnettet objektet er stedfestet på (kortnavn fra datakatalogen).
-     * @param endretEtter Hente endringer siden sist. Eksempel: 2024-12-02T10:15:30.123456
+     * @param endretEtter Hente endringer siden et tidspunkt. Tidspunkt skal følge ISO 8601 med tidssone eller som UTC. Eksempler: &#x60;2024-12-02T10:15:30.123+01:00&#x60;, &#x60;2024-12-02T09:15:30.123Z&#x60;
      * @return ResponseSpec
      * @throws WebClientResponseException if an error occurs while attempting to invoke the API
      */
-    public ResponseSpec getVegobjekterByTypeWithResponseSpec(@jakarta.annotation.Nonnull Integer vegobjekttypeId, @jakarta.annotation.Nullable Set<Long> ider, @jakarta.annotation.Nullable List<String> inkluder, @jakarta.annotation.Nullable String srid, @jakarta.annotation.Nullable String inkludergeometri, @jakarta.annotation.Nullable String inkluderEgenskaper, @jakarta.annotation.Nullable Boolean segmentering, @jakarta.annotation.Nullable Set<Integer> fylke, @jakarta.annotation.Nullable Set<Integer> kommune, @jakarta.annotation.Nullable Set<String> kontraktsomrade, @jakarta.annotation.Nullable Set<String> riksvegrute, @jakarta.annotation.Nullable Set<String> vegforvalter, @jakarta.annotation.Nullable Set<String> vegsystemreferanse, @jakarta.annotation.Nullable String kartutsnitt, @jakarta.annotation.Nullable String polygon, @jakarta.annotation.Nullable Set<String> typeveg, @jakarta.annotation.Nullable Set<String> adskiltelop, @jakarta.annotation.Nullable Boolean kryssystem, @jakarta.annotation.Nullable Boolean sideanlegg, @jakarta.annotation.Nullable String trafikantgruppe, @jakarta.annotation.Nullable Integer antall, @jakarta.annotation.Nullable String start, @jakarta.annotation.Nullable Integer geometritoleranse, @jakarta.annotation.Nullable LocalDate tidspunkt, @jakarta.annotation.Nullable Boolean alleVersjoner, @jakarta.annotation.Nullable Boolean inkluderAntall, @jakarta.annotation.Nullable Set<String> veglenkesekvens, @jakarta.annotation.Nullable List<String> egenskap, @jakarta.annotation.Nullable List<String> overlapp, @jakarta.annotation.Nullable Set<String> veglenketype, @jakarta.annotation.Nullable Set<String> detaljniva, @jakarta.annotation.Nullable OffsetDateTime endretEtter) throws WebClientResponseException {
+    public ResponseSpec getVegobjekterByTypeWithResponseSpec(@jakarta.annotation.Nonnull Integer vegobjekttypeId, @jakarta.annotation.Nullable Set<Long> ider, @jakarta.annotation.Nullable Set<String> inkluder, @jakarta.annotation.Nullable String srid, @jakarta.annotation.Nullable String inkludergeometri, @jakarta.annotation.Nullable String inkluderEgenskaper, @jakarta.annotation.Nullable Boolean segmentering, @jakarta.annotation.Nullable Set<Integer> fylke, @jakarta.annotation.Nullable Set<Integer> kommune, @jakarta.annotation.Nullable Set<String> kontraktsomrade, @jakarta.annotation.Nullable Set<String> riksvegrute, @jakarta.annotation.Nullable Set<String> vegforvalter, @jakarta.annotation.Nullable Set<String> vegsystemreferanse, @jakarta.annotation.Nullable String kartutsnitt, @jakarta.annotation.Nullable String polygon, @jakarta.annotation.Nullable Set<String> typeveg, @jakarta.annotation.Nullable Set<String> adskiltelop, @jakarta.annotation.Nullable Boolean kryssystem, @jakarta.annotation.Nullable Boolean sideanlegg, @jakarta.annotation.Nullable String trafikantgruppe, @jakarta.annotation.Nullable Integer antall, @jakarta.annotation.Nullable String start, @jakarta.annotation.Nullable Integer geometritoleranse, @jakarta.annotation.Nullable LocalDate tidspunkt, @jakarta.annotation.Nullable Boolean alleVersjoner, @jakarta.annotation.Nullable Boolean inkluderAntall, @jakarta.annotation.Nullable Set<String> veglenkesekvens, @jakarta.annotation.Nullable List<String> egenskap, @jakarta.annotation.Nullable List<String> overlapp, @jakarta.annotation.Nullable Set<String> veglenketype, @jakarta.annotation.Nullable Set<String> detaljniva, @jakarta.annotation.Nullable Object endretEtter) throws WebClientResponseException {
         return getVegobjekterByTypeRequestCreation(vegobjekttypeId, ider, inkluder, srid, inkludergeometri, inkluderEgenskaper, segmentering, fylke, kommune, kontraktsomrade, riksvegrute, vegforvalter, vegsystemreferanse, kartutsnitt, polygon, typeveg, adskiltelop, kryssystem, sideanlegg, trafikantgruppe, antall, start, geometritoleranse, tidspunkt, alleVersjoner, inkluderAntall, veglenkesekvens, egenskap, overlapp, veglenketype, detaljniva, endretEtter);
     }
 }

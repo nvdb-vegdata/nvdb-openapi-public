@@ -307,14 +307,56 @@ public class EgenskapstypeKortdato extends Egenskapstype {
   }
 
   @Override
-  public EgenskapstypeKortdato obligatoriskVerdi(@jakarta.annotation.Nonnull Boolean obligatoriskVerdi) {
-    this.setObligatoriskVerdi(obligatoriskVerdi);
+  public EgenskapstypeKortdato skrivebeskyttet(@jakarta.annotation.Nonnull Boolean skrivebeskyttet) {
+    this.setSkrivebeskyttet(skrivebeskyttet);
     return this;
   }
 
   @Override
-  public EgenskapstypeKortdato skrivebeskyttet(@jakarta.annotation.Nonnull Boolean skrivebeskyttet) {
-    this.setSkrivebeskyttet(skrivebeskyttet);
+  public EgenskapstypeKortdato komplementærEgenskapstype(@jakarta.annotation.Nullable Integer komplementærEgenskapstype) {
+    this.setKomplementærEgenskapstype(komplementærEgenskapstype);
+    return this;
+  }
+
+  @Override
+  public EgenskapstypeKortdato kortnavn(@jakarta.annotation.Nullable String kortnavn) {
+    this.setKortnavn(kortnavn);
+    return this;
+  }
+
+  @Override
+  public EgenskapstypeKortdato beskrivelse(@jakarta.annotation.Nullable String beskrivelse) {
+    this.setBeskrivelse(beskrivelse);
+    return this;
+  }
+
+  @Override
+  public EgenskapstypeKortdato sosinavn(@jakarta.annotation.Nullable String sosinavn) {
+    this.setSosinavn(sosinavn);
+    return this;
+  }
+
+  @Override
+  public EgenskapstypeKortdato sosinvdbnavn(@jakarta.annotation.Nullable String sosinvdbnavn) {
+    this.setSosinvdbnavn(sosinvdbnavn);
+    return this;
+  }
+
+  @Override
+  public EgenskapstypeKortdato sorteringsnummer(@jakarta.annotation.Nonnull Integer sorteringsnummer) {
+    this.setSorteringsnummer(sorteringsnummer);
+    return this;
+  }
+
+  @Override
+  public EgenskapstypeKortdato avledet(@jakarta.annotation.Nonnull Boolean avledet) {
+    this.setAvledet(avledet);
+    return this;
+  }
+
+  @Override
+  public EgenskapstypeKortdato obligatoriskVerdi(@jakarta.annotation.Nonnull Boolean obligatoriskVerdi) {
+    this.setObligatoriskVerdi(obligatoriskVerdi);
     return this;
   }
 
@@ -387,48 +429,6 @@ public class EgenskapstypeKortdato extends Egenskapstype {
   @Override
   public EgenskapstypeKortdato kategori(@jakarta.annotation.Nonnull Integer kategori) {
     this.setKategori(kategori);
-    return this;
-  }
-
-  @Override
-  public EgenskapstypeKortdato komplementærEgenskapstype(@jakarta.annotation.Nullable Integer komplementærEgenskapstype) {
-    this.setKomplementærEgenskapstype(komplementærEgenskapstype);
-    return this;
-  }
-
-  @Override
-  public EgenskapstypeKortdato kortnavn(@jakarta.annotation.Nullable String kortnavn) {
-    this.setKortnavn(kortnavn);
-    return this;
-  }
-
-  @Override
-  public EgenskapstypeKortdato beskrivelse(@jakarta.annotation.Nullable String beskrivelse) {
-    this.setBeskrivelse(beskrivelse);
-    return this;
-  }
-
-  @Override
-  public EgenskapstypeKortdato sosinavn(@jakarta.annotation.Nullable String sosinavn) {
-    this.setSosinavn(sosinavn);
-    return this;
-  }
-
-  @Override
-  public EgenskapstypeKortdato sosinvdbnavn(@jakarta.annotation.Nullable String sosinvdbnavn) {
-    this.setSosinvdbnavn(sosinvdbnavn);
-    return this;
-  }
-
-  @Override
-  public EgenskapstypeKortdato sorteringsnummer(@jakarta.annotation.Nonnull Integer sorteringsnummer) {
-    this.setSorteringsnummer(sorteringsnummer);
-    return this;
-  }
-
-  @Override
-  public EgenskapstypeKortdato avledet(@jakarta.annotation.Nonnull Boolean avledet) {
-    this.setAvledet(avledet);
     return this;
   }
 

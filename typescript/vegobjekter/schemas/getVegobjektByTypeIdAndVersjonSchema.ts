@@ -2,7 +2,7 @@ import { z } from 'zod'
 import { vegobjektSchema } from './vegobjektSchema'
 import { problemDetailSchema } from './problemDetailSchema'
 
-export const getVegobjektByIdAndVersjonPathParamsSchema = z.object({
+export const getVegobjektByTypeIdAndVersjonPathParamsSchema = z.object({
   vegobjekttypeId: z
     .number()
     .int()
@@ -13,7 +13,7 @@ export const getVegobjektByIdAndVersjonPathParamsSchema = z.object({
   versjon: z.number().int(),
 })
 
-export const getVegobjektByIdAndVersjonQueryParamsSchema = z
+export const getVegobjektByTypeIdAndVersjonQueryParamsSchema = z
   .object({
     inkluder: z
       .array(
@@ -82,40 +82,42 @@ export const getVegobjektByIdAndVersjonQueryParamsSchema = z
 /**
  * @description OK
  */
-export const getVegobjektByIdAndVersjon200Schema = z.lazy(() => vegobjektSchema)
+export const getVegobjektByTypeIdAndVersjon200Schema = z.lazy(
+  () => vegobjektSchema,
+)
 /**
  * @description Bad Request
  */
-export const getVegobjektByIdAndVersjon400Schema = z.lazy(
+export const getVegobjektByTypeIdAndVersjon400Schema = z.lazy(
   () => problemDetailSchema,
 )
 /**
  * @description Unauthorized
  */
-export const getVegobjektByIdAndVersjon401Schema = z.lazy(
+export const getVegobjektByTypeIdAndVersjon401Schema = z.lazy(
   () => problemDetailSchema,
 )
 /**
  * @description Forbidden
  */
-export const getVegobjektByIdAndVersjon403Schema = z.lazy(
+export const getVegobjektByTypeIdAndVersjon403Schema = z.lazy(
   () => problemDetailSchema,
 )
 /**
  * @description Not Found
  */
-export const getVegobjektByIdAndVersjon404Schema = z.lazy(
+export const getVegobjektByTypeIdAndVersjon404Schema = z.lazy(
   () => problemDetailSchema,
 )
 /**
  * @description Internal Server Error
  */
-export const getVegobjektByIdAndVersjon500Schema = z.lazy(
+export const getVegobjektByTypeIdAndVersjon500Schema = z.lazy(
   () => problemDetailSchema,
 )
 /**
  * @description OK
  */
-export const getVegobjektByIdAndVersjonQueryResponseSchema = z.lazy(
+export const getVegobjektByTypeIdAndVersjonQueryResponseSchema = z.lazy(
   () => vegobjektSchema,
 )

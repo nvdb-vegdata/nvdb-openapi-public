@@ -15,6 +15,10 @@ export type Egenskapstype = {
    */
   egenskapstype: EgenskapstypeEnum
   /**
+   * @type boolean
+   */
+  skrivebeskyttet: boolean
+  /**
    * @type integer | undefined, int32
    */
   komplementær_egenskapstype?: number
@@ -46,10 +50,6 @@ export type Egenskapstype = {
    * @type boolean
    */
   obligatorisk_verdi: boolean
-  /**
-   * @type boolean
-   */
-  skrivebeskyttet: boolean
   /**
    * @type integer, int32
    */

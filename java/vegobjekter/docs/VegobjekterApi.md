@@ -2,13 +2,14 @@
 
 All URIs are relative to *https://nvdbapiles.atlas.vegvesen.no/vegobjekter*
 
-| Method                                                                         | HTTP request                                                          | Description                            |
-| ------------------------------------------------------------------------------ | --------------------------------------------------------------------- | -------------------------------------- |
-| [**getVegobjektById**](VegobjekterApi.md#getVegobjektById)                     | **GET** /api/v4/vegobjekt                                             | Hent enkelt vegobjekt                  |
-| [**getVegobjektById1**](VegobjekterApi.md#getVegobjektById1)                   | **GET** /api/v4/vegobjekter/{vegobjekttypeId}/{vegobjektId}           | Hent gjeldende versjon av et vegobjekt |
-| [**getVegobjektByIdAndVersjon**](VegobjekterApi.md#getVegobjektByIdAndVersjon) | **GET** /api/v4/vegobjekter/{vegobjekttypeId}/{vegobjektId}/{versjon} | Hent spesifikk versjon av et vegobjekt |
-| [**getVegobjektVersjoner**](VegobjekterApi.md#getVegobjektVersjoner)           | **GET** /api/v4/vegobjekter/{vegobjekttypeId}/{vegobjektId}/versjoner | Hent alle versjoner av et vegobjekt    |
-| [**getVegobjekterByType**](VegobjekterApi.md#getVegobjekterByType)             | **GET** /api/v4/vegobjekter/{vegobjekttypeId}                         | Hent vegobjekter av en type            |
+| Method                                                                                 | HTTP request                                                          | Description                            |
+| -------------------------------------------------------------------------------------- | --------------------------------------------------------------------- | -------------------------------------- |
+| [**getVegobjektById**](VegobjekterApi.md#getVegobjektById)                             | **GET** /api/v4/vegobjekt                                             | Hent enkelt vegobjekt                  |
+| [**getVegobjektByTypeAndId**](VegobjekterApi.md#getVegobjektByTypeAndId)               | **GET** /api/v4/vegobjekter/{vegobjekttypeId}/{vegobjektId}           | Hent gjeldende versjon av et vegobjekt |
+| [**getVegobjektByTypeIdAndVersjon**](VegobjekterApi.md#getVegobjektByTypeIdAndVersjon) | **GET** /api/v4/vegobjekter/{vegobjekttypeId}/{vegobjektId}/{versjon} | Hent spesifikk versjon av et vegobjekt |
+| [**getVegobjektNotifikasjoner**](VegobjekterApi.md#getVegobjektNotifikasjoner)         | **GET** /api/v4/vegobjekter/{vegobjekttypeId}/endringer               | Hent endringer på vegobjekter          |
+| [**getVegobjektVersjoner**](VegobjekterApi.md#getVegobjektVersjoner)                   | **GET** /api/v4/vegobjekter/{vegobjekttypeId}/{vegobjektId}/versjoner | Hent alle versjoner av et vegobjekt    |
+| [**getVegobjekterByType**](VegobjekterApi.md#getVegobjekterByType)                     | **GET** /api/v4/vegobjekter/{vegobjekttypeId}                         | Hent vegobjekter av en type            |
 
 ## getVegobjektById
 
@@ -96,9 +97,9 @@ public class Example {
 | **403**     | Forbidden             | -                |
 | **200**     | OK                    | -                |
 
-## getVegobjektById1
+## getVegobjektByTypeAndId
 
-> Vegobjekt getVegobjektById1(vegobjekttypeId, vegobjektId, inkluder, srid, inkludergeometri, inkluderEgenskaper, dybde, geometritoleranse, tidspunkt)
+> Vegobjekt getVegobjektByTypeAndId(vegobjekttypeId, vegobjektId, inkluder, srid, inkludergeometri, inkluderEgenskaper, dybde, geometritoleranse, tidspunkt)
 
 Hent gjeldende versjon av et vegobjekt
 
@@ -133,10 +134,10 @@ public class Example {
         Integer geometritoleranse = 56; // Integer | Angir om det skal returneres en forenklet geometri. Dersom parameteren utelates, returneres full geometri for vegobjektene. Nummeret angir distansetoleranse i meter for generering av forenklet geometri.
         LocalDate tidspunkt = LocalDate.now(); // LocalDate | Finner versjonen som var gyldig denne datoen.
         try {
-            Vegobjekt result = apiInstance.getVegobjektById1(vegobjekttypeId, vegobjektId, inkluder, srid, inkludergeometri, inkluderEgenskaper, dybde, geometritoleranse, tidspunkt);
+            Vegobjekt result = apiInstance.getVegobjektByTypeAndId(vegobjekttypeId, vegobjektId, inkluder, srid, inkludergeometri, inkluderEgenskaper, dybde, geometritoleranse, tidspunkt);
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling VegobjekterApi#getVegobjektById1");
+            System.err.println("Exception when calling VegobjekterApi#getVegobjektByTypeAndId");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -184,9 +185,9 @@ public class Example {
 | **403**     | Forbidden             | -                |
 | **200**     | OK                    | -                |
 
-## getVegobjektByIdAndVersjon
+## getVegobjektByTypeIdAndVersjon
 
-> Vegobjekt getVegobjektByIdAndVersjon(vegobjekttypeId, vegobjektId, versjon, inkluder, srid, inkludergeometri, inkluderEgenskaper, dybde, geometritoleranse, tidspunkt)
+> Vegobjekt getVegobjektByTypeIdAndVersjon(vegobjekttypeId, vegobjektId, versjon, inkluder, srid, inkludergeometri, inkluderEgenskaper, dybde, geometritoleranse, tidspunkt)
 
 Hent spesifikk versjon av et vegobjekt
 
@@ -222,10 +223,10 @@ public class Example {
         Integer geometritoleranse = 56; // Integer | Angir om det skal returneres en forenklet geometri. Dersom parameteren utelates, returneres full geometri for vegobjektene. Nummeret angir distansetoleranse i meter for generering av forenklet geometri.
         LocalDate tidspunkt = LocalDate.now(); // LocalDate | Finner versjonen som var gyldig denne datoen.
         try {
-            Vegobjekt result = apiInstance.getVegobjektByIdAndVersjon(vegobjekttypeId, vegobjektId, versjon, inkluder, srid, inkludergeometri, inkluderEgenskaper, dybde, geometritoleranse, tidspunkt);
+            Vegobjekt result = apiInstance.getVegobjektByTypeIdAndVersjon(vegobjekttypeId, vegobjektId, versjon, inkluder, srid, inkludergeometri, inkluderEgenskaper, dybde, geometritoleranse, tidspunkt);
             System.out.println(result);
         } catch (ApiException e) {
-            System.err.println("Exception when calling VegobjekterApi#getVegobjektByIdAndVersjon");
+            System.err.println("Exception when calling VegobjekterApi#getVegobjektByTypeIdAndVersjon");
             System.err.println("Status code: " + e.getCode());
             System.err.println("Reason: " + e.getResponseBody());
             System.err.println("Response headers: " + e.getResponseHeaders());
@@ -253,6 +254,84 @@ public class Example {
 ### Return type
 
 [**Vegobjekt**](Vegobjekt.md)
+
+### Authorization
+
+[bearerAuth](../README.md#bearerAuth)
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: _/_
+
+### HTTP response details
+
+| Status code | Description           | Response headers |
+| ----------- | --------------------- | ---------------- |
+| **500**     | Internal Server Error | -                |
+| **400**     | Bad Request           | -                |
+| **404**     | Not Found             | -                |
+| **401**     | Unauthorized          | -                |
+| **403**     | Forbidden             | -                |
+| **200**     | OK                    | -                |
+
+## getVegobjektNotifikasjoner
+
+> VegobjektNotifikasjonerSide getVegobjektNotifikasjoner(vegobjekttypeId, start, antall, historisk)
+
+Hent endringer på vegobjekter
+
+### Example
+
+```java
+// Import classes:
+import no.vegvesen.vt.nvdb.vegobjekter.infrastructure.ApiClient;
+import no.vegvesen.vt.nvdb.vegobjekter.infrastructure.ApiException;
+import no.vegvesen.vt.nvdb.vegobjekter.infrastructure.Configuration;
+import no.vegvesen.vt.nvdb.vegobjekter.infrastructure.auth.*;
+import no.vegvesen.vt.nvdb.vegobjekter.infrastructure.models.*;
+import no.vegvesen.vt.nvdb.vegobjekter.api.VegobjekterApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://nvdbapiles.atlas.vegvesen.no/vegobjekter");
+
+        // Configure HTTP bearer authorization: bearerAuth
+        HttpBearerAuth bearerAuth = (HttpBearerAuth) defaultClient.getAuthentication("bearerAuth");
+        bearerAuth.setBearerToken("BEARER TOKEN");
+
+        VegobjekterApi apiInstance = new VegobjekterApi(defaultClient);
+        Integer vegobjekttypeId = 56; // Integer | Finn vegobjekter med denne vegobjekttypen. Se [Datakatalogen](https://datakatalogen.atlas.vegvesen.no) for mulige verdier.  Eksempel: 581
+        OffsetDateTime start = OffsetDateTime.now(); // OffsetDateTime | Hent alle endringer etter gitt tidspunkt. Dersom denne utelates vil de eldste endringene hentes først.
+        Integer antall = 56; // Integer | Antall endringer som skal være med i responsen. Merk at det faktiske antallet kan variere fra respons til respons. Dette er fordi endringer på samme vegobjektversjon innenfor samme side blir aggregert sammen ved å ta den nyeste endringen. Maksverdi: 1000
+        Boolean historisk = true; // Boolean | Bestem om du ønsker endringer for aktive eller historiske vegobjekter. Standardverdi: `false`
+        try {
+            VegobjektNotifikasjonerSide result = apiInstance.getVegobjektNotifikasjoner(vegobjekttypeId, start, antall, historisk);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling VegobjekterApi#getVegobjektNotifikasjoner");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+| Name                | Type               | Description                                                                                                                                                                                                                                                    | Notes      |
+| ------------------- | ------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- |
+| **vegobjekttypeId** | **Integer**        | Finn vegobjekter med denne vegobjekttypen. Se [Datakatalogen](https://datakatalogen.atlas.vegvesen.no) for mulige verdier. Eksempel: 581                                                                                                                       |            |
+| **start**           | **OffsetDateTime** | Hent alle endringer etter gitt tidspunkt. Dersom denne utelates vil de eldste endringene hentes først.                                                                                                                                                         | [optional] |
+| **antall**          | **Integer**        | Antall endringer som skal være med i responsen. Merk at det faktiske antallet kan variere fra respons til respons. Dette er fordi endringer på samme vegobjektversjon innenfor samme side blir aggregert sammen ved å ta den nyeste endringen. Maksverdi: 1000 | [optional] |
+| **historisk**       | **Boolean**        | Bestem om du ønsker endringer for aktive eller historiske vegobjekter. Standardverdi: &#x60;false&#x60;                                                                                                                                                        | [optional] |
+
+### Return type
+
+[**VegobjektNotifikasjonerSide**](VegobjektNotifikasjonerSide.md)
 
 ### Authorization
 
@@ -391,7 +470,7 @@ public class Example {
         VegobjekterApi apiInstance = new VegobjekterApi(defaultClient);
         Integer vegobjekttypeId = 56; // Integer | Finn vegobjekter med denne vegobjekttypen. Se [Datakatalogen](https://datakatalogen.atlas.vegvesen.no) for mulige verdier.  Eksempel: 581
         Set<Long> ider = Arrays.asList(); // Set<Long> | Kommaseparert liste med vegobjekt-IDer.
-        List<String> inkluder = Arrays.asList(); // List<String> | Kommaseparert liste over hvilke informasjonselementer som skal returneres i tillegg til vegobjektenes ID.
+        Set<String> inkluder = Arrays.asList(); // Set<String> | Kommaseparert liste over hvilke informasjonselementer som skal returneres i tillegg til vegobjektenes ID.
         String srid = "5972"; // String | Angir hvilket geografisk referansesystem som benyttes for geografisk søk, og som geometrien skal returneres i (hvis relevant). Utdata i UTM-formater begrenses til 3 desimaler, 4326/WGS84 begrenses til 8 desimaler. Mer informasjon: <a href='https://epsg.io/5972'>EPSG:5972</a> <a href='https://epsg.io/5973'>EPSG:5973</a> <a href='https://epsg.io/5975'>EPSG:5975</a> <a href='https://epsg.io/4326'>EPSG:4326</a>.
         String inkludergeometri = "ingen"; // String | Et vegobjekt har opptil to geometrier, egengeometri og stedfestet geometri. Egengeometrien er plassert under `vegobjekt.egenskaper` om den finnes, stedfestet geometri er plassert under `vegobjekt.lokasjon`. I tillegg til de nevnte feltene på vegobjekt-responsen returneres også `vegobjekt.geometri` (dersom man har `inkluder=geometri` eller `alle`), slik at man alltid finner geometrien for vegobjektet ett sted. Dette feltet er egengeometri dersom objektet har det, hvis ikke har feltet stedfestet geometri Ved hvilken av disse som er tilfelle finner man ut ved å se på `vegobjekt.geometri.egengeometri`.
         String inkluderEgenskaper = "basis"; // String | Gir mulighet til å filtrere hvilke egenskaper som skal returneres med inkluder=egenskaper. `basis` er alle egenskaper som ikke er assosiasjoner, stedfesting, geometri, eller lister av disse.
@@ -420,7 +499,7 @@ public class Example {
         List<String> overlapp = Arrays.asList(); // List<String> | Filtrer vegobjekter på overlapp. Se [dokumentasjon](https://nvdb.atlas.vegvesen.no/docs/produkter/nvdbapil/v4/introduksjon/Avanserte_filter)
         Set<String> veglenketype = Arrays.asList(); // Set<String> | Filtrer vegobjekter på veglenketype på vegnettet objektet er stedfestet. Kommaseparert liste.
         Set<String> detaljniva = Arrays.asList(); // Set<String> | Filtrer vegobjekter på detaljnivå på vegnettet objektet er stedfestet på (kortnavn fra datakatalogen).
-        OffsetDateTime endretEtter = OffsetDateTime.now(); // OffsetDateTime | Hente endringer siden sist. Eksempel: 2024-12-02T10:15:30.123456
+        Object endretEtter = null; // Object | Hente endringer siden et tidspunkt. Tidspunkt skal følge ISO 8601 med tidssone eller som UTC. Eksempler: `2024-12-02T10:15:30.123+01:00`, `2024-12-02T09:15:30.123Z`
         try {
             VegobjekterSide result = apiInstance.getVegobjekterByType(vegobjekttypeId, ider, inkluder, srid, inkludergeometri, inkluderEgenskaper, segmentering, fylke, kommune, kontraktsomrade, riksvegrute, vegforvalter, vegsystemreferanse, kartutsnitt, polygon, typeveg, adskiltelop, kryssystem, sideanlegg, trafikantgruppe, antall, start, geometritoleranse, tidspunkt, alleVersjoner, inkluderAntall, veglenkesekvens, egenskap, overlapp, veglenketype, detaljniva, endretEtter);
             System.out.println(result);
@@ -441,7 +520,7 @@ public class Example {
 | ---------------------- | ------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **vegobjekttypeId**    | **Integer**                          | Finn vegobjekter med denne vegobjekttypen. Se [Datakatalogen](https://datakatalogen.atlas.vegvesen.no) for mulige verdier. Eksempel: 581                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       |                                                                                                                                                                                                    |
 | **ider**               | [**Set&lt;Long&gt;**](Long.md)       | Kommaseparert liste med vegobjekt-IDer.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | [optional]                                                                                                                                                                                         |
-| **inkluder**           | [**List&lt;String&gt;**](String.md)  | Kommaseparert liste over hvilke informasjonselementer som skal returneres i tillegg til vegobjektenes ID.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      | [optional] [enum: metadata, egenskaper, relasjoner, lokasjon, vegsegmenter, geometri, alle, minimum]                                                                                               |
+| **inkluder**           | [**Set&lt;String&gt;**](String.md)   | Kommaseparert liste over hvilke informasjonselementer som skal returneres i tillegg til vegobjektenes ID.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      | [optional] [enum: metadata, egenskaper, relasjoner, lokasjon, vegsegmenter, geometri, alle, minimum]                                                                                               |
 | **srid**               | **String**                           | Angir hvilket geografisk referansesystem som benyttes for geografisk søk, og som geometrien skal returneres i (hvis relevant). Utdata i UTM-formater begrenses til 3 desimaler, 4326/WGS84 begrenses til 8 desimaler. Mer informasjon: &lt;a href&#x3D;&#39;https://epsg.io/5972&#39;&gt;EPSG:5972&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5973&#39;&gt;EPSG:5973&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5975&#39;&gt;EPSG:5975&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/4326&#39;&gt;EPSG:4326&lt;/a&gt;.                                                                                                                                                                | [optional] [enum: 5972, 5973, 5975, 4326, UTM32, UTM33, UTM35, WGS84]                                                                                                                              |
 | **inkludergeometri**   | **String**                           | Et vegobjekt har opptil to geometrier, egengeometri og stedfestet geometri. Egengeometrien er plassert under &#x60;vegobjekt.egenskaper&#x60; om den finnes, stedfestet geometri er plassert under &#x60;vegobjekt.lokasjon&#x60;. I tillegg til de nevnte feltene på vegobjekt-responsen returneres også &#x60;vegobjekt.geometri&#x60; (dersom man har &#x60;inkluder&#x3D;geometri&#x60; eller &#x60;alle&#x60;), slik at man alltid finner geometrien for vegobjektet ett sted. Dette feltet er egengeometri dersom objektet har det, hvis ikke har feltet stedfestet geometri Ved hvilken av disse som er tilfelle finner man ut ved å se på &#x60;vegobjekt.geometri.egengeometri&#x60;. | [optional] [enum: ingen, egenskaper, lokasjon, utledet]                                                                                                                                            |
 | **inkluderEgenskaper** | **String**                           | Gir mulighet til å filtrere hvilke egenskaper som skal returneres med inkluder&#x3D;egenskaper. &#x60;basis&#x60; er alle egenskaper som ikke er assosiasjoner, stedfesting, geometri, eller lister av disse.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  | [optional] [enum: basis, geometri, alle]                                                                                                                                                           |
@@ -470,7 +549,7 @@ public class Example {
 | **overlapp**           | [**List&lt;String&gt;**](String.md)  | Filtrer vegobjekter på overlapp. Se [dokumentasjon](https://nvdb.atlas.vegvesen.no/docs/produkter/nvdbapil/v4/introduksjon/Avanserte_filter)                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | [optional]                                                                                                                                                                                         |
 | **veglenketype**       | [**Set&lt;String&gt;**](String.md)   | Filtrer vegobjekter på veglenketype på vegnettet objektet er stedfestet. Kommaseparert liste.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  | [optional] [enum: ukjent, detaljert, konnektering, detaljert_konnektering, hoved]                                                                                                                  |
 | **detaljniva**         | [**Set&lt;String&gt;**](String.md)   | Filtrer vegobjekter på detaljnivå på vegnettet objektet er stedfestet på (kortnavn fra datakatalogen).                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | [optional] [enum: VT, KB, KF, VTKB]                                                                                                                                                                |
-| **endretEtter**        | **OffsetDateTime**                   | Hente endringer siden sist. Eksempel: 2024-12-02T10:15:30.123456                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                               | [optional]                                                                                                                                                                                         |
+| **endretEtter**        | [**Object**](.md)                    | Hente endringer siden et tidspunkt. Tidspunkt skal følge ISO 8601 med tidssone eller som UTC. Eksempler: &#x60;2024-12-02T10:15:30.123+01:00&#x60;, &#x60;2024-12-02T09:15:30.123Z&#x60;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | [optional]                                                                                                                                                                                         |
 
 ### Return type
 

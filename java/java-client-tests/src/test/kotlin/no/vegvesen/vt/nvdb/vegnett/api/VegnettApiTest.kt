@@ -1,12 +1,10 @@
-package no.vegvesen.nvdb.vegnett.api
+package no.vegvesen.vt.nvdb.vegnett.api
 
 import io.kotest.core.spec.style.ShouldSpec
 import io.kotest.matchers.collections.shouldNotBeEmpty
 import io.kotest.matchers.ints.shouldBeGreaterThan
 import io.kotest.matchers.shouldBe
 import kotlinx.coroutines.runBlocking
-import no.vegvesen.vt.nvdb.vegnett.api.NoderApi
-import no.vegvesen.vt.nvdb.vegnett.api.VegnettApi
 
 class VegnettApiTest() : ShouldSpec({
     should("get veglenkesekvenser") {

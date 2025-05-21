@@ -458,14 +458,56 @@ public class EgenskapstypeFlyttall extends Egenskapstype {
   }
 
   @Override
-  public EgenskapstypeFlyttall obligatoriskVerdi(@jakarta.annotation.Nonnull Boolean obligatoriskVerdi) {
-    this.setObligatoriskVerdi(obligatoriskVerdi);
+  public EgenskapstypeFlyttall skrivebeskyttet(@jakarta.annotation.Nonnull Boolean skrivebeskyttet) {
+    this.setSkrivebeskyttet(skrivebeskyttet);
     return this;
   }
 
   @Override
-  public EgenskapstypeFlyttall skrivebeskyttet(@jakarta.annotation.Nonnull Boolean skrivebeskyttet) {
-    this.setSkrivebeskyttet(skrivebeskyttet);
+  public EgenskapstypeFlyttall komplementærEgenskapstype(@jakarta.annotation.Nullable Integer komplementærEgenskapstype) {
+    this.setKomplementærEgenskapstype(komplementærEgenskapstype);
+    return this;
+  }
+
+  @Override
+  public EgenskapstypeFlyttall kortnavn(@jakarta.annotation.Nullable String kortnavn) {
+    this.setKortnavn(kortnavn);
+    return this;
+  }
+
+  @Override
+  public EgenskapstypeFlyttall beskrivelse(@jakarta.annotation.Nullable String beskrivelse) {
+    this.setBeskrivelse(beskrivelse);
+    return this;
+  }
+
+  @Override
+  public EgenskapstypeFlyttall sosinavn(@jakarta.annotation.Nullable String sosinavn) {
+    this.setSosinavn(sosinavn);
+    return this;
+  }
+
+  @Override
+  public EgenskapstypeFlyttall sosinvdbnavn(@jakarta.annotation.Nullable String sosinvdbnavn) {
+    this.setSosinvdbnavn(sosinvdbnavn);
+    return this;
+  }
+
+  @Override
+  public EgenskapstypeFlyttall sorteringsnummer(@jakarta.annotation.Nonnull Integer sorteringsnummer) {
+    this.setSorteringsnummer(sorteringsnummer);
+    return this;
+  }
+
+  @Override
+  public EgenskapstypeFlyttall avledet(@jakarta.annotation.Nonnull Boolean avledet) {
+    this.setAvledet(avledet);
+    return this;
+  }
+
+  @Override
+  public EgenskapstypeFlyttall obligatoriskVerdi(@jakarta.annotation.Nonnull Boolean obligatoriskVerdi) {
+    this.setObligatoriskVerdi(obligatoriskVerdi);
     return this;
   }
 
@@ -538,48 +580,6 @@ public class EgenskapstypeFlyttall extends Egenskapstype {
   @Override
   public EgenskapstypeFlyttall kategori(@jakarta.annotation.Nonnull Integer kategori) {
     this.setKategori(kategori);
-    return this;
-  }
-
-  @Override
-  public EgenskapstypeFlyttall komplementærEgenskapstype(@jakarta.annotation.Nullable Integer komplementærEgenskapstype) {
-    this.setKomplementærEgenskapstype(komplementærEgenskapstype);
-    return this;
-  }
-
-  @Override
-  public EgenskapstypeFlyttall kortnavn(@jakarta.annotation.Nullable String kortnavn) {
-    this.setKortnavn(kortnavn);
-    return this;
-  }
-
-  @Override
-  public EgenskapstypeFlyttall beskrivelse(@jakarta.annotation.Nullable String beskrivelse) {
-    this.setBeskrivelse(beskrivelse);
-    return this;
-  }
-
-  @Override
-  public EgenskapstypeFlyttall sosinavn(@jakarta.annotation.Nullable String sosinavn) {
-    this.setSosinavn(sosinavn);
-    return this;
-  }
-
-  @Override
-  public EgenskapstypeFlyttall sosinvdbnavn(@jakarta.annotation.Nullable String sosinvdbnavn) {
-    this.setSosinvdbnavn(sosinvdbnavn);
-    return this;
-  }
-
-  @Override
-  public EgenskapstypeFlyttall sorteringsnummer(@jakarta.annotation.Nonnull Integer sorteringsnummer) {
-    this.setSorteringsnummer(sorteringsnummer);
-    return this;
-  }
-
-  @Override
-  public EgenskapstypeFlyttall avledet(@jakarta.annotation.Nonnull Boolean avledet) {
-    this.setAvledet(avledet);
     return this;
   }
 
