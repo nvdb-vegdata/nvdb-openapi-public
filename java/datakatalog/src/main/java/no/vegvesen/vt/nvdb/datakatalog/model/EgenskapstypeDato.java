@@ -307,12 +307,6 @@ public class EgenskapstypeDato extends Egenskapstype {
   }
 
   @Override
-  public EgenskapstypeDato skrivebeskyttet(@jakarta.annotation.Nonnull Boolean skrivebeskyttet) {
-    this.setSkrivebeskyttet(skrivebeskyttet);
-    return this;
-  }
-
-  @Override
   public EgenskapstypeDato komplementærEgenskapstype(@jakarta.annotation.Nullable Integer komplementærEgenskapstype) {
     this.setKomplementærEgenskapstype(komplementærEgenskapstype);
     return this;
@@ -357,6 +351,12 @@ public class EgenskapstypeDato extends Egenskapstype {
   @Override
   public EgenskapstypeDato obligatoriskVerdi(@jakarta.annotation.Nonnull Boolean obligatoriskVerdi) {
     this.setObligatoriskVerdi(obligatoriskVerdi);
+    return this;
+  }
+
+  @Override
+  public EgenskapstypeDato skrivebeskyttet(@jakarta.annotation.Nonnull Boolean skrivebeskyttet) {
+    this.setSkrivebeskyttet(skrivebeskyttet);
     return this;
   }
 

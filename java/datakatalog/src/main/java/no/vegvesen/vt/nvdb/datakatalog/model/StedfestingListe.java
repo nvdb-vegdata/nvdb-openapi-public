@@ -157,12 +157,6 @@ public class StedfestingListe extends Stedfesting {
   }
 
   @Override
-  public StedfestingListe skrivebeskyttet(@jakarta.annotation.Nonnull Boolean skrivebeskyttet) {
-    this.setSkrivebeskyttet(skrivebeskyttet);
-    return this;
-  }
-
-  @Override
   public StedfestingListe komplementærEgenskapstype(@jakarta.annotation.Nullable Integer komplementærEgenskapstype) {
     this.setKomplementærEgenskapstype(komplementærEgenskapstype);
     return this;
@@ -207,6 +201,12 @@ public class StedfestingListe extends Stedfesting {
   @Override
   public StedfestingListe obligatoriskVerdi(@jakarta.annotation.Nonnull Boolean obligatoriskVerdi) {
     this.setObligatoriskVerdi(obligatoriskVerdi);
+    return this;
+  }
+
+  @Override
+  public StedfestingListe skrivebeskyttet(@jakarta.annotation.Nonnull Boolean skrivebeskyttet) {
+    this.setSkrivebeskyttet(skrivebeskyttet);
     return this;
   }
 

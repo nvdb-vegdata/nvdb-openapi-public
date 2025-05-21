@@ -35,7 +35,6 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
   Egenskapstype.JSON_PROPERTY_ID,
   Egenskapstype.JSON_PROPERTY_NAVN,
   Egenskapstype.JSON_PROPERTY_EGENSKAPSTYPE,
-  Egenskapstype.JSON_PROPERTY_SKRIVEBESKYTTET,
   Egenskapstype.JSON_PROPERTY_KOMPLEMENTæR_EGENSKAPSTYPE,
   Egenskapstype.JSON_PROPERTY_KORTNAVN,
   Egenskapstype.JSON_PROPERTY_BESKRIVELSE,
@@ -44,6 +43,7 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
   Egenskapstype.JSON_PROPERTY_SORTERINGSNUMMER,
   Egenskapstype.JSON_PROPERTY_AVLEDET,
   Egenskapstype.JSON_PROPERTY_OBLIGATORISK_VERDI,
+  Egenskapstype.JSON_PROPERTY_SKRIVEBESKYTTET,
   Egenskapstype.JSON_PROPERTY_SENSITIVITET,
   Egenskapstype.JSON_PROPERTY_GRUPPESORTERINGSNUMMER,
   Egenskapstype.JSON_PROPERTY_VEILEDNING,
@@ -95,10 +95,6 @@ public class Egenskapstype {
   @jakarta.annotation.Nonnull
   protected EgenskapstypeEnum egenskapstype;
 
-  public static final String JSON_PROPERTY_SKRIVEBESKYTTET = "skrivebeskyttet";
-  @jakarta.annotation.Nonnull
-  protected Boolean skrivebeskyttet;
-
   public static final String JSON_PROPERTY_KOMPLEMENTæR_EGENSKAPSTYPE = "komplementær_egenskapstype";
   @jakarta.annotation.Nullable
   protected Integer komplementærEgenskapstype;
@@ -130,6 +126,10 @@ public class Egenskapstype {
   public static final String JSON_PROPERTY_OBLIGATORISK_VERDI = "obligatorisk_verdi";
   @jakarta.annotation.Nonnull
   protected Boolean obligatoriskVerdi;
+
+  public static final String JSON_PROPERTY_SKRIVEBESKYTTET = "skrivebeskyttet";
+  @jakarta.annotation.Nonnull
+  protected Boolean skrivebeskyttet;
 
   public static final String JSON_PROPERTY_SENSITIVITET = "sensitivitet";
   @jakarta.annotation.Nonnull
@@ -255,31 +255,6 @@ public class Egenskapstype {
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setEgenskapstype(@jakarta.annotation.Nonnull EgenskapstypeEnum egenskapstype) {
     this.egenskapstype = egenskapstype;
-  }
-
-  public Egenskapstype skrivebeskyttet(@jakarta.annotation.Nonnull Boolean skrivebeskyttet) {
-    
-    this.skrivebeskyttet = skrivebeskyttet;
-    return this;
-  }
-
-  /**
-   * Get skrivebeskyttet
-   * @return skrivebeskyttet
-   */
-  @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_SKRIVEBESKYTTET)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
-  public Boolean getSkrivebeskyttet() {
-    return skrivebeskyttet;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_SKRIVEBESKYTTET)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setSkrivebeskyttet(@jakarta.annotation.Nonnull Boolean skrivebeskyttet) {
-    this.skrivebeskyttet = skrivebeskyttet;
   }
 
   public Egenskapstype komplementærEgenskapstype(@jakarta.annotation.Nullable Integer komplementærEgenskapstype) {
@@ -480,6 +455,31 @@ public class Egenskapstype {
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setObligatoriskVerdi(@jakarta.annotation.Nonnull Boolean obligatoriskVerdi) {
     this.obligatoriskVerdi = obligatoriskVerdi;
+  }
+
+  public Egenskapstype skrivebeskyttet(@jakarta.annotation.Nonnull Boolean skrivebeskyttet) {
+    
+    this.skrivebeskyttet = skrivebeskyttet;
+    return this;
+  }
+
+  /**
+   * Get skrivebeskyttet
+   * @return skrivebeskyttet
+   */
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_SKRIVEBESKYTTET)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public Boolean getSkrivebeskyttet() {
+    return skrivebeskyttet;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_SKRIVEBESKYTTET)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setSkrivebeskyttet(@jakarta.annotation.Nonnull Boolean skrivebeskyttet) {
+    this.skrivebeskyttet = skrivebeskyttet;
   }
 
   public Egenskapstype sensitivitet(@jakarta.annotation.Nonnull Integer sensitivitet) {
@@ -795,7 +795,6 @@ public class Egenskapstype {
     return Objects.equals(this.id, egenskapstype.id) &&
         Objects.equals(this.navn, egenskapstype.navn) &&
         Objects.equals(this.egenskapstype, egenskapstype.egenskapstype) &&
-        Objects.equals(this.skrivebeskyttet, egenskapstype.skrivebeskyttet) &&
         Objects.equals(this.komplementærEgenskapstype, egenskapstype.komplementærEgenskapstype) &&
         Objects.equals(this.kortnavn, egenskapstype.kortnavn) &&
         Objects.equals(this.beskrivelse, egenskapstype.beskrivelse) &&
@@ -804,6 +803,7 @@ public class Egenskapstype {
         Objects.equals(this.sorteringsnummer, egenskapstype.sorteringsnummer) &&
         Objects.equals(this.avledet, egenskapstype.avledet) &&
         Objects.equals(this.obligatoriskVerdi, egenskapstype.obligatoriskVerdi) &&
+        Objects.equals(this.skrivebeskyttet, egenskapstype.skrivebeskyttet) &&
         Objects.equals(this.sensitivitet, egenskapstype.sensitivitet) &&
         Objects.equals(this.gruppesorteringsnummer, egenskapstype.gruppesorteringsnummer) &&
         Objects.equals(this.veiledning, egenskapstype.veiledning) &&
@@ -820,7 +820,7 @@ public class Egenskapstype {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, navn, egenskapstype, skrivebeskyttet, komplementærEgenskapstype, kortnavn, beskrivelse, sosinavn, sosinvdbnavn, sorteringsnummer, avledet, obligatoriskVerdi, sensitivitet, gruppesorteringsnummer, veiledning, grunnrissreferanse, høydereferanse, høydereferanseTall, nøyaktighetskravGrunnriss, nøyaktighetskravHøyde, sosiReferanse, referansegeometriTilstrekkelig, viktighet, kategori);
+    return Objects.hash(id, navn, egenskapstype, komplementærEgenskapstype, kortnavn, beskrivelse, sosinavn, sosinvdbnavn, sorteringsnummer, avledet, obligatoriskVerdi, skrivebeskyttet, sensitivitet, gruppesorteringsnummer, veiledning, grunnrissreferanse, høydereferanse, høydereferanseTall, nøyaktighetskravGrunnriss, nøyaktighetskravHøyde, sosiReferanse, referansegeometriTilstrekkelig, viktighet, kategori);
   }
 
   @Override
@@ -830,7 +830,6 @@ public class Egenskapstype {
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    navn: ").append(toIndentedString(navn)).append("\n");
     sb.append("    egenskapstype: ").append(toIndentedString(egenskapstype)).append("\n");
-    sb.append("    skrivebeskyttet: ").append(toIndentedString(skrivebeskyttet)).append("\n");
     sb.append("    komplementærEgenskapstype: ").append(toIndentedString(komplementærEgenskapstype)).append("\n");
     sb.append("    kortnavn: ").append(toIndentedString(kortnavn)).append("\n");
     sb.append("    beskrivelse: ").append(toIndentedString(beskrivelse)).append("\n");
@@ -839,6 +838,7 @@ public class Egenskapstype {
     sb.append("    sorteringsnummer: ").append(toIndentedString(sorteringsnummer)).append("\n");
     sb.append("    avledet: ").append(toIndentedString(avledet)).append("\n");
     sb.append("    obligatoriskVerdi: ").append(toIndentedString(obligatoriskVerdi)).append("\n");
+    sb.append("    skrivebeskyttet: ").append(toIndentedString(skrivebeskyttet)).append("\n");
     sb.append("    sensitivitet: ").append(toIndentedString(sensitivitet)).append("\n");
     sb.append("    gruppesorteringsnummer: ").append(toIndentedString(gruppesorteringsnummer)).append("\n");
     sb.append("    veiledning: ").append(toIndentedString(veiledning)).append("\n");

@@ -217,12 +217,6 @@ public class EgenskapstypeBoolsk extends Egenskapstype {
   }
 
   @Override
-  public EgenskapstypeBoolsk skrivebeskyttet(@jakarta.annotation.Nonnull Boolean skrivebeskyttet) {
-    this.setSkrivebeskyttet(skrivebeskyttet);
-    return this;
-  }
-
-  @Override
   public EgenskapstypeBoolsk komplementærEgenskapstype(@jakarta.annotation.Nullable Integer komplementærEgenskapstype) {
     this.setKomplementærEgenskapstype(komplementærEgenskapstype);
     return this;
@@ -267,6 +261,12 @@ public class EgenskapstypeBoolsk extends Egenskapstype {
   @Override
   public EgenskapstypeBoolsk obligatoriskVerdi(@jakarta.annotation.Nonnull Boolean obligatoriskVerdi) {
     this.setObligatoriskVerdi(obligatoriskVerdi);
+    return this;
+  }
+
+  @Override
+  public EgenskapstypeBoolsk skrivebeskyttet(@jakarta.annotation.Nonnull Boolean skrivebeskyttet) {
+    this.setSkrivebeskyttet(skrivebeskyttet);
     return this;
   }
 
