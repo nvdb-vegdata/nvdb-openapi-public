@@ -1,13 +1,11 @@
-package no.vegvesen.nvdb.vegobjekter.api
+package no.vegvesen.vt.nvdb.vegobjekter.api
 
 import io.kotest.core.spec.style.ShouldSpec
 import io.kotest.matchers.collections.shouldNotBeEmpty
-import io.kotest.matchers.ints.shouldBeGreaterThan
 import io.kotest.matchers.nulls.shouldNotBeNull
 import io.kotest.matchers.shouldBe
 import io.kotest.matchers.types.shouldBeInstanceOf
 import kotlinx.coroutines.runBlocking
-import no.vegvesen.vt.nvdb.vegobjekter.api.VegobjekterApi
 import no.vegvesen.vt.nvdb.vegobjekter.model.*
 
 class VegobjekterApiTest() : ShouldSpec({
@@ -43,7 +41,7 @@ class VegobjekterApiTest() : ShouldSpec({
             vegobjekter.getVegobjekterByType(
                 105,
                 null,
-                listOf("alle"),
+                setOf("alle"),
                 null,
                 null,
                 null,
@@ -84,7 +82,7 @@ class VegobjekterApiTest() : ShouldSpec({
     should("get vegobjekt with kortdato-egenskap") {
         val vegobjekter = VegobjekterApi()
         val kortdatoVegobjekt = runBlocking {
-            vegobjekter.getVegobjektById1(
+            vegobjekter.getVegobjektByTypeAndId(
                 721,
                 190266874,
                 setOf("alle"),
@@ -110,7 +108,7 @@ class VegobjekterApiTest() : ShouldSpec({
     should("get vegobjekt with dato-egenskap") {
         val vegobjekter = VegobjekterApi()
         val datoVegobjekt = runBlocking {
-            vegobjekter.getVegobjektById1(
+            vegobjekter.getVegobjektByTypeAndId(
                 721,
                 190266874,
                 setOf("alle"),
@@ -136,7 +134,7 @@ class VegobjekterApiTest() : ShouldSpec({
     should("get vegobjekt with tid-egenskap") {
         val vegobjekter = VegobjekterApi()
         val tidVegobjekt = runBlocking {
-            vegobjekter.getVegobjektById1(
+            vegobjekter.getVegobjektByTypeAndId(
                 721,
                 190266874,
                 setOf("alle"),
@@ -162,7 +160,7 @@ class VegobjekterApiTest() : ShouldSpec({
     should("get relasjoner with dybde") {
         val vegobjekter = VegobjekterApi()
         val dybdeVegobjekt = runBlocking {
-            vegobjekter.getVegobjektById1(
+            vegobjekter.getVegobjektByTypeAndId(
                 95,
                 78735745,
                 setOf("alle"),

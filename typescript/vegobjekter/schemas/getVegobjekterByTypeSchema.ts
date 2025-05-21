@@ -244,7 +244,7 @@ export const getVegobjekterByTypeQueryParamsSchema = z
       .string()
       .datetime()
       .describe(
-        'Hente endringer siden sist. Eksempel: 2024-12-02T10:15:30.123456',
+        'Hente endringer siden et tidspunkt. Tidspunkt skal f\u00F8lge ISO 8601 med tidssone eller som UTC. Eksempler: `2024-12-02T10:15:30.123+01:00`, `2024-12-02T09:15:30.123Z`',
       )
       .optional(),
   })

@@ -2,12 +2,13 @@
 
 All URIs are relative to *https://nvdbapiles.atlas.vegvesen.no/vegnett*
 
-| Method                                                                         | HTTP request                                                     | Description                        |
-| ------------------------------------------------------------------------------ | ---------------------------------------------------------------- | ---------------------------------- |
-| [**getSegmentertVeglenkesekvens**](VegnettApi.md#getSegmentertVeglenkesekvens) | **GET** /api/v4/veglenkesekvenser/segmentert/{veglenkesekvensId} | Hent en segmentert veglenkesekvens |
-| [**getVeglenkesegmenter**](VegnettApi.md#getVeglenkesegmenter)                 | **GET** /api/v4/veglenkesekvenser/segmentert                     | Hent segmenterte veglenkesekvenser |
-| [**getVeglenkesekvens**](VegnettApi.md#getVeglenkesekvens)                     | **GET** /api/v4/veglenkesekvenser/{veglenkesekvensId}            | Hent en veglenkesekvens            |
-| [**getVeglenkesekvenser**](VegnettApi.md#getVeglenkesekvenser)                 | **GET** /api/v4/veglenkesekvenser                                | Hent veglenkesekvenser             |
+| Method                                                                         | HTTP request                                                     | Description                         |
+| ------------------------------------------------------------------------------ | ---------------------------------------------------------------- | ----------------------------------- |
+| [**getSegmentertVeglenkesekvens**](VegnettApi.md#getSegmentertVeglenkesekvens) | **GET** /api/v4/veglenkesekvenser/segmentert/{veglenkesekvensId} | Hent en segmentert veglenkesekvens  |
+| [**getVeglenkesegmenter**](VegnettApi.md#getVeglenkesegmenter)                 | **GET** /api/v4/veglenkesekvenser/segmentert                     | Hent segmenterte veglenkesekvenser  |
+| [**getVeglenkesekvens**](VegnettApi.md#getVeglenkesekvens)                     | **GET** /api/v4/veglenkesekvenser/{veglenkesekvensId}            | Hent en veglenkesekvens             |
+| [**getVeglenkesekvensEndringer**](VegnettApi.md#getVeglenkesekvensEndringer)   | **GET** /api/v4/veglenkesekvenser/endringer                      | Hent endringer på veglenkesekvenser |
+| [**getVeglenkesekvenser**](VegnettApi.md#getVeglenkesekvenser)                 | **GET** /api/v4/veglenkesekvenser                                | Hent veglenkesekvenser              |
 
 ## getSegmentertVeglenkesekvens
 
@@ -106,7 +107,7 @@ public class Example {
         Set<Long> ider = Arrays.asList(); // Set<Long> | Kommaseparert liste med IDer.
         Set<Integer> fylke = Arrays.asList(); // Set<Integer> | Filtrer på fylke. Kommaseparert liste. Se [/omrader/api/v4/fylker](https://nvdbapiles.atlas.vegvesen.no/webjars/swagger-ui/index.html?urls.primaryName=Omr%C3%A5der) for mulige verdier.  Eksempel: `50`
         Set<Integer> kommune = Arrays.asList(); // Set<Integer> | Filtrer på kommune. Kommaseparert liste. Se [/omrader/api/v4/kommuner](https://nvdbapiles.atlas.vegvesen.no/webjars/swagger-ui/index.html?urls.primaryName=Omr%C3%A5der) for mulige verdier.  Eksempel: `5001`
-        Set<String> kontraktsomrade = Arrays.asList(); // Set<String> | Filtrer på kontraktsomrade. Kommaseparert liste. Se [/omrader/api/v4/kontraktsomrader](https://nvdbapiles.atlas.vegvesen.no/webjars/swagger-ui/index.html?urls.primaryName=Omr%C3%A5der) for mulige verdier.  Eksempel: `1539 Tunnel- og bergsikr 2018-2023 Nordm og Romsd`
+        Set<String> kontraktsomrade = Arrays.asList(); // Set<String> | Filtrer på kontraktsomrade. Kommaseparert liste. Se [/omrader/api/v4/kontraktsomrader](https://nvdbapiles.atlas.vegvesen.no/webjars/swagger-ui/index.html?urls.primaryName=Omr%C3%A5der) for mulige verdier.  Eksempel: `9503 Midtre Hålogaland 2021-2026`
         Set<String> riksvegrute = Arrays.asList(); // Set<String> | Filtrer på riksvegrute. Kommaseparert liste. Se [/omrader/api/v4/riksvegruter](https://nvdbapiles.atlas.vegvesen.no/webjars/swagger-ui/index.html?urls.primaryName=Omr%C3%A5der) for mulige verdier.  Eksempel: `RUTE4A` eller som enumid `20290`
         Set<String> vegforvalter = Arrays.asList(); // Set<String> | Filtrer på vegforvalter. Kommaseparert liste. Se [/omrader/api/v4/vegforvaltere](https://nvdbapiles.atlas.vegvesen.no/webjars/swagger-ui/index.html?urls.primaryName=Omr%C3%A5der) for mulige verdier.  Eksempel: `Møre og Romsdal fylkeskommune` eller som enumid `21774`
         Set<String> vegsystemreferanse = Arrays.asList(); // Set<String> | Filtrer på [vegsystemreferanse](https://nvdbapiles-v3.atlas.vegvesen.no/dokumentasjon/#vegsystemreferanse). Kommaseparert liste. Legg til kommunenummer i starten av vegsystemreferansen for å filtrere på område.  Eksempel: `EV6S1D1 m12`
@@ -149,7 +150,7 @@ public class Example {
 | **ider**               | [**Set&lt;Long&gt;**](Long.md)       | Kommaseparert liste med IDer.                                                                                                                                                                                                                                                                                                                                                                                                                                           | [optional]                                                                                                                                                                                         |
 | **fylke**              | [**Set&lt;Integer&gt;**](Integer.md) | Filtrer på fylke. Kommaseparert liste. Se [/omrader/api/v4/fylker](https://nvdbapiles.atlas.vegvesen.no/webjars/swagger-ui/index.html?urls.primaryName=Omr%C3%A5der) for mulige verdier. Eksempel: &#x60;50&#x60;                                                                                                                                                                                                                                                       | [optional]                                                                                                                                                                                         |
 | **kommune**            | [**Set&lt;Integer&gt;**](Integer.md) | Filtrer på kommune. Kommaseparert liste. Se [/omrader/api/v4/kommuner](https://nvdbapiles.atlas.vegvesen.no/webjars/swagger-ui/index.html?urls.primaryName=Omr%C3%A5der) for mulige verdier. Eksempel: &#x60;5001&#x60;                                                                                                                                                                                                                                                 | [optional]                                                                                                                                                                                         |
-| **kontraktsomrade**    | [**Set&lt;String&gt;**](String.md)   | Filtrer på kontraktsomrade. Kommaseparert liste. Se [/omrader/api/v4/kontraktsomrader](https://nvdbapiles.atlas.vegvesen.no/webjars/swagger-ui/index.html?urls.primaryName=Omr%C3%A5der) for mulige verdier. Eksempel: &#x60;1539 Tunnel- og bergsikr 2018-2023 Nordm og Romsd&#x60;                                                                                                                                                                                    | [optional]                                                                                                                                                                                         |
+| **kontraktsomrade**    | [**Set&lt;String&gt;**](String.md)   | Filtrer på kontraktsomrade. Kommaseparert liste. Se [/omrader/api/v4/kontraktsomrader](https://nvdbapiles.atlas.vegvesen.no/webjars/swagger-ui/index.html?urls.primaryName=Omr%C3%A5der) for mulige verdier. Eksempel: &#x60;9503 Midtre Hålogaland 2021-2026&#x60;                                                                                                                                                                                                     | [optional]                                                                                                                                                                                         |
 | **riksvegrute**        | [**Set&lt;String&gt;**](String.md)   | Filtrer på riksvegrute. Kommaseparert liste. Se [/omrader/api/v4/riksvegruter](https://nvdbapiles.atlas.vegvesen.no/webjars/swagger-ui/index.html?urls.primaryName=Omr%C3%A5der) for mulige verdier. Eksempel: &#x60;RUTE4A&#x60; eller som enumid &#x60;20290&#x60;                                                                                                                                                                                                    | [optional]                                                                                                                                                                                         |
 | **vegforvalter**       | [**Set&lt;String&gt;**](String.md)   | Filtrer på vegforvalter. Kommaseparert liste. Se [/omrader/api/v4/vegforvaltere](https://nvdbapiles.atlas.vegvesen.no/webjars/swagger-ui/index.html?urls.primaryName=Omr%C3%A5der) for mulige verdier. Eksempel: &#x60;Møre og Romsdal fylkeskommune&#x60; eller som enumid &#x60;21774&#x60;                                                                                                                                                                           | [optional]                                                                                                                                                                                         |
 | **vegsystemreferanse** | [**Set&lt;String&gt;**](String.md)   | Filtrer på [vegsystemreferanse](https://nvdbapiles-v3.atlas.vegvesen.no/dokumentasjon/#vegsystemreferanse). Kommaseparert liste. Legg til kommunenummer i starten av vegsystemreferansen for å filtrere på område. Eksempel: &#x60;EV6S1D1 m12&#x60;                                                                                                                                                                                                                    | [optional]                                                                                                                                                                                         |
@@ -260,6 +261,73 @@ No authorization required
 | **404**     | Not Found             | -                |
 | **200**     | OK                    | -                |
 
+## getVeglenkesekvensEndringer
+
+> VeglenkesekvensNotifikasjonerSide getVeglenkesekvensEndringer(start, antall)
+
+Hent endringer på veglenkesekvenser
+
+### Example
+
+```java
+// Import classes:
+import no.vegvesen.vt.nvdb.vegnett.infrastructure.ApiClient;
+import no.vegvesen.vt.nvdb.vegnett.infrastructure.ApiException;
+import no.vegvesen.vt.nvdb.vegnett.infrastructure.Configuration;
+import no.vegvesen.vt.nvdb.vegnett.infrastructure.models.*;
+import no.vegvesen.vt.nvdb.vegnett.api.VegnettApi;
+
+public class Example {
+    public static void main(String[] args) {
+        ApiClient defaultClient = Configuration.getDefaultApiClient();
+        defaultClient.setBasePath("https://nvdbapiles.atlas.vegvesen.no/vegnett");
+
+        VegnettApi apiInstance = new VegnettApi(defaultClient);
+        OffsetDateTime start = OffsetDateTime.now(); // OffsetDateTime | Hent alle endringer etter gitt tidspunkt. Dersom denne utelates vil de eldste endringene hentes først.
+        Integer antall = 56; // Integer | Antall endringer som skal være med i responsen. Merk at det faktiske antallet kan variere fra respons til respons. Dette er fordi endringer på samme veglenkesekvens innenfor samme side blir aggregert sammen ved å ta den nyeste endringen.
+        try {
+            VeglenkesekvensNotifikasjonerSide result = apiInstance.getVeglenkesekvensEndringer(start, antall);
+            System.out.println(result);
+        } catch (ApiException e) {
+            System.err.println("Exception when calling VegnettApi#getVeglenkesekvensEndringer");
+            System.err.println("Status code: " + e.getCode());
+            System.err.println("Reason: " + e.getResponseBody());
+            System.err.println("Response headers: " + e.getResponseHeaders());
+            e.printStackTrace();
+        }
+    }
+}
+```
+
+### Parameters
+
+| Name       | Type               | Description                                                                                                                                                                                                                                   | Notes      |
+| ---------- | ------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- |
+| **start**  | **OffsetDateTime** | Hent alle endringer etter gitt tidspunkt. Dersom denne utelates vil de eldste endringene hentes først.                                                                                                                                        | [optional] |
+| **antall** | **Integer**        | Antall endringer som skal være med i responsen. Merk at det faktiske antallet kan variere fra respons til respons. Dette er fordi endringer på samme veglenkesekvens innenfor samme side blir aggregert sammen ved å ta den nyeste endringen. | [optional] |
+
+### Return type
+
+[**VeglenkesekvensNotifikasjonerSide**](VeglenkesekvensNotifikasjonerSide.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+- **Content-Type**: Not defined
+- **Accept**: _/_
+
+### HTTP response details
+
+| Status code | Description           | Response headers |
+| ----------- | --------------------- | ---------------- |
+| **500**     | Internal Server Error | -                |
+| **400**     | Bad Request           | -                |
+| **404**     | Not Found             | -                |
+| **200**     | OK                    | -                |
+
 ## getVeglenkesekvenser
 
 > VeglenkesekvenserSide getVeglenkesekvenser(ider, fylke, kommune, kontraktsomrade, riksvegrute, vegsystemreferanse, topologiniva, superid, srid, antall, start, inkluderAntall)
@@ -285,7 +353,7 @@ public class Example {
         Set<Long> ider = Arrays.asList(); // Set<Long> | Kommaseparert liste med IDer.
         Set<Integer> fylke = Arrays.asList(); // Set<Integer> | Filtrer på fylke. Kommaseparert liste. Se [/omrader/api/v4/fylker](https://nvdbapiles.atlas.vegvesen.no/webjars/swagger-ui/index.html?urls.primaryName=Omr%C3%A5der) for mulige verdier.  Eksempel: `50`
         Set<Integer> kommune = Arrays.asList(); // Set<Integer> | Filtrer på kommune. Kommaseparert liste. Se [/omrader/api/v4/kommuner](https://nvdbapiles.atlas.vegvesen.no/webjars/swagger-ui/index.html?urls.primaryName=Omr%C3%A5der) for mulige verdier.  Eksempel: `5001`
-        Set<String> kontraktsomrade = Arrays.asList(); // Set<String> | Filtrer på kontraktsomrade. Kommaseparert liste. Se [/omrader/api/v4/kontraktsomrader](https://nvdbapiles.atlas.vegvesen.no/webjars/swagger-ui/index.html?urls.primaryName=Omr%C3%A5der) for mulige verdier.  Eksempel: `1539 Tunnel- og bergsikr 2018-2023 Nordm og Romsd`
+        Set<String> kontraktsomrade = Arrays.asList(); // Set<String> | Filtrer på kontraktsomrade. Kommaseparert liste. Se [/omrader/api/v4/kontraktsomrader](https://nvdbapiles.atlas.vegvesen.no/webjars/swagger-ui/index.html?urls.primaryName=Omr%C3%A5der) for mulige verdier.  Eksempel: `9503 Midtre Hålogaland 2021-2026`
         Set<String> riksvegrute = Arrays.asList(); // Set<String> | Filtrer på riksvegrute. Kommaseparert liste. Se [/omrader/api/v4/riksvegruter](https://nvdbapiles.atlas.vegvesen.no/webjars/swagger-ui/index.html?urls.primaryName=Omr%C3%A5der) for mulige verdier.  Eksempel: `RUTE4A` eller som enumid `20290`
         Set<String> vegsystemreferanse = Arrays.asList(); // Set<String> | Filtrer på [vegsystemreferanse](https://nvdbapiles-v3.atlas.vegvesen.no/dokumentasjon/#vegsystemreferanse). Kommaseparert liste. Legg til kommunenummer i starten av vegsystemreferansen for å filtrere på område.  Eksempel: `EV6S1D1 m12`
         String topologiniva = "kjørebane"; // String | Hent kun elementer på det gitte topologinivået. - Dersom en veglenke har nivå vegtrasé er ofte feltet for topologinivå ikke tilstede. Man vil da få alle veglenker som ikke har verdi `kjørefelt` eller `kjørebane`.
@@ -315,7 +383,7 @@ public class Example {
 | **ider**               | [**Set&lt;Long&gt;**](Long.md)       | Kommaseparert liste med IDer.                                                                                                                                                                                                                                                                                                                                                                                                                                           | [optional]                                                            |
 | **fylke**              | [**Set&lt;Integer&gt;**](Integer.md) | Filtrer på fylke. Kommaseparert liste. Se [/omrader/api/v4/fylker](https://nvdbapiles.atlas.vegvesen.no/webjars/swagger-ui/index.html?urls.primaryName=Omr%C3%A5der) for mulige verdier. Eksempel: &#x60;50&#x60;                                                                                                                                                                                                                                                       | [optional]                                                            |
 | **kommune**            | [**Set&lt;Integer&gt;**](Integer.md) | Filtrer på kommune. Kommaseparert liste. Se [/omrader/api/v4/kommuner](https://nvdbapiles.atlas.vegvesen.no/webjars/swagger-ui/index.html?urls.primaryName=Omr%C3%A5der) for mulige verdier. Eksempel: &#x60;5001&#x60;                                                                                                                                                                                                                                                 | [optional]                                                            |
-| **kontraktsomrade**    | [**Set&lt;String&gt;**](String.md)   | Filtrer på kontraktsomrade. Kommaseparert liste. Se [/omrader/api/v4/kontraktsomrader](https://nvdbapiles.atlas.vegvesen.no/webjars/swagger-ui/index.html?urls.primaryName=Omr%C3%A5der) for mulige verdier. Eksempel: &#x60;1539 Tunnel- og bergsikr 2018-2023 Nordm og Romsd&#x60;                                                                                                                                                                                    | [optional]                                                            |
+| **kontraktsomrade**    | [**Set&lt;String&gt;**](String.md)   | Filtrer på kontraktsomrade. Kommaseparert liste. Se [/omrader/api/v4/kontraktsomrader](https://nvdbapiles.atlas.vegvesen.no/webjars/swagger-ui/index.html?urls.primaryName=Omr%C3%A5der) for mulige verdier. Eksempel: &#x60;9503 Midtre Hålogaland 2021-2026&#x60;                                                                                                                                                                                                     | [optional]                                                            |
 | **riksvegrute**        | [**Set&lt;String&gt;**](String.md)   | Filtrer på riksvegrute. Kommaseparert liste. Se [/omrader/api/v4/riksvegruter](https://nvdbapiles.atlas.vegvesen.no/webjars/swagger-ui/index.html?urls.primaryName=Omr%C3%A5der) for mulige verdier. Eksempel: &#x60;RUTE4A&#x60; eller som enumid &#x60;20290&#x60;                                                                                                                                                                                                    | [optional]                                                            |
 | **vegsystemreferanse** | [**Set&lt;String&gt;**](String.md)   | Filtrer på [vegsystemreferanse](https://nvdbapiles-v3.atlas.vegvesen.no/dokumentasjon/#vegsystemreferanse). Kommaseparert liste. Legg til kommunenummer i starten av vegsystemreferansen for å filtrere på område. Eksempel: &#x60;EV6S1D1 m12&#x60;                                                                                                                                                                                                                    | [optional]                                                            |
 | **topologiniva**       | **String**                           | Hent kun elementer på det gitte topologinivået. - Dersom en veglenke har nivå vegtrasé er ofte feltet for topologinivå ikke tilstede. Man vil da få alle veglenker som ikke har verdi &#x60;kjørefelt&#x60; eller &#x60;kjørebane&#x60;.                                                                                                                                                                                                                                | [optional] [enum: kjørebane, kjørefelt, vegtrase]                     |

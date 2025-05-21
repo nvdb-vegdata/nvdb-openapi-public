@@ -35,8 +35,15 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
   Egenskapstype.JSON_PROPERTY_ID,
   Egenskapstype.JSON_PROPERTY_NAVN,
   Egenskapstype.JSON_PROPERTY_EGENSKAPSTYPE,
-  Egenskapstype.JSON_PROPERTY_OBLIGATORISK_VERDI,
   Egenskapstype.JSON_PROPERTY_SKRIVEBESKYTTET,
+  Egenskapstype.JSON_PROPERTY_KOMPLEMENTæR_EGENSKAPSTYPE,
+  Egenskapstype.JSON_PROPERTY_KORTNAVN,
+  Egenskapstype.JSON_PROPERTY_BESKRIVELSE,
+  Egenskapstype.JSON_PROPERTY_SOSINAVN,
+  Egenskapstype.JSON_PROPERTY_SOSINVDBNAVN,
+  Egenskapstype.JSON_PROPERTY_SORTERINGSNUMMER,
+  Egenskapstype.JSON_PROPERTY_AVLEDET,
+  Egenskapstype.JSON_PROPERTY_OBLIGATORISK_VERDI,
   Egenskapstype.JSON_PROPERTY_SENSITIVITET,
   Egenskapstype.JSON_PROPERTY_GRUPPESORTERINGSNUMMER,
   Egenskapstype.JSON_PROPERTY_VEILEDNING,
@@ -48,14 +55,7 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
   Egenskapstype.JSON_PROPERTY_SOSI_REFERANSE,
   Egenskapstype.JSON_PROPERTY_REFERANSEGEOMETRI_TILSTREKKELIG,
   Egenskapstype.JSON_PROPERTY_VIKTIGHET,
-  Egenskapstype.JSON_PROPERTY_KATEGORI,
-  Egenskapstype.JSON_PROPERTY_KOMPLEMENTæR_EGENSKAPSTYPE,
-  Egenskapstype.JSON_PROPERTY_KORTNAVN,
-  Egenskapstype.JSON_PROPERTY_BESKRIVELSE,
-  Egenskapstype.JSON_PROPERTY_SOSINAVN,
-  Egenskapstype.JSON_PROPERTY_SOSINVDBNAVN,
-  Egenskapstype.JSON_PROPERTY_SORTERINGSNUMMER,
-  Egenskapstype.JSON_PROPERTY_AVLEDET
+  Egenskapstype.JSON_PROPERTY_KATEGORI
 })
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.13.0")
 @JsonIgnoreProperties(
@@ -95,13 +95,41 @@ public class Egenskapstype {
   @jakarta.annotation.Nonnull
   protected EgenskapstypeEnum egenskapstype;
 
-  public static final String JSON_PROPERTY_OBLIGATORISK_VERDI = "obligatorisk_verdi";
-  @jakarta.annotation.Nonnull
-  protected Boolean obligatoriskVerdi;
-
   public static final String JSON_PROPERTY_SKRIVEBESKYTTET = "skrivebeskyttet";
   @jakarta.annotation.Nonnull
   protected Boolean skrivebeskyttet;
+
+  public static final String JSON_PROPERTY_KOMPLEMENTæR_EGENSKAPSTYPE = "komplementær_egenskapstype";
+  @jakarta.annotation.Nullable
+  protected Integer komplementærEgenskapstype;
+
+  public static final String JSON_PROPERTY_KORTNAVN = "kortnavn";
+  @jakarta.annotation.Nullable
+  protected String kortnavn;
+
+  public static final String JSON_PROPERTY_BESKRIVELSE = "beskrivelse";
+  @jakarta.annotation.Nullable
+  protected String beskrivelse;
+
+  public static final String JSON_PROPERTY_SOSINAVN = "sosinavn";
+  @jakarta.annotation.Nullable
+  protected String sosinavn;
+
+  public static final String JSON_PROPERTY_SOSINVDBNAVN = "sosinvdbnavn";
+  @jakarta.annotation.Nullable
+  protected String sosinvdbnavn;
+
+  public static final String JSON_PROPERTY_SORTERINGSNUMMER = "sorteringsnummer";
+  @jakarta.annotation.Nonnull
+  protected Integer sorteringsnummer;
+
+  public static final String JSON_PROPERTY_AVLEDET = "avledet";
+  @jakarta.annotation.Nonnull
+  protected Boolean avledet;
+
+  public static final String JSON_PROPERTY_OBLIGATORISK_VERDI = "obligatorisk_verdi";
+  @jakarta.annotation.Nonnull
+  protected Boolean obligatoriskVerdi;
 
   public static final String JSON_PROPERTY_SENSITIVITET = "sensitivitet";
   @jakarta.annotation.Nonnull
@@ -150,34 +178,6 @@ public class Egenskapstype {
   public static final String JSON_PROPERTY_KATEGORI = "kategori";
   @jakarta.annotation.Nonnull
   protected Integer kategori;
-
-  public static final String JSON_PROPERTY_KOMPLEMENTæR_EGENSKAPSTYPE = "komplementær_egenskapstype";
-  @jakarta.annotation.Nullable
-  protected Integer komplementærEgenskapstype;
-
-  public static final String JSON_PROPERTY_KORTNAVN = "kortnavn";
-  @jakarta.annotation.Nullable
-  protected String kortnavn;
-
-  public static final String JSON_PROPERTY_BESKRIVELSE = "beskrivelse";
-  @jakarta.annotation.Nullable
-  protected String beskrivelse;
-
-  public static final String JSON_PROPERTY_SOSINAVN = "sosinavn";
-  @jakarta.annotation.Nullable
-  protected String sosinavn;
-
-  public static final String JSON_PROPERTY_SOSINVDBNAVN = "sosinvdbnavn";
-  @jakarta.annotation.Nullable
-  protected String sosinvdbnavn;
-
-  public static final String JSON_PROPERTY_SORTERINGSNUMMER = "sorteringsnummer";
-  @jakarta.annotation.Nonnull
-  protected Integer sorteringsnummer;
-
-  public static final String JSON_PROPERTY_AVLEDET = "avledet";
-  @jakarta.annotation.Nonnull
-  protected Boolean avledet;
 
   public Egenskapstype() {
   }
@@ -257,31 +257,6 @@ public class Egenskapstype {
     this.egenskapstype = egenskapstype;
   }
 
-  public Egenskapstype obligatoriskVerdi(@jakarta.annotation.Nonnull Boolean obligatoriskVerdi) {
-    
-    this.obligatoriskVerdi = obligatoriskVerdi;
-    return this;
-  }
-
-  /**
-   * Get obligatoriskVerdi
-   * @return obligatoriskVerdi
-   */
-  @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_OBLIGATORISK_VERDI)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
-  public Boolean getObligatoriskVerdi() {
-    return obligatoriskVerdi;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_OBLIGATORISK_VERDI)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setObligatoriskVerdi(@jakarta.annotation.Nonnull Boolean obligatoriskVerdi) {
-    this.obligatoriskVerdi = obligatoriskVerdi;
-  }
-
   public Egenskapstype skrivebeskyttet(@jakarta.annotation.Nonnull Boolean skrivebeskyttet) {
     
     this.skrivebeskyttet = skrivebeskyttet;
@@ -305,6 +280,206 @@ public class Egenskapstype {
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setSkrivebeskyttet(@jakarta.annotation.Nonnull Boolean skrivebeskyttet) {
     this.skrivebeskyttet = skrivebeskyttet;
+  }
+
+  public Egenskapstype komplementærEgenskapstype(@jakarta.annotation.Nullable Integer komplementærEgenskapstype) {
+    
+    this.komplementærEgenskapstype = komplementærEgenskapstype;
+    return this;
+  }
+
+  /**
+   * Get komplementærEgenskapstype
+   * @return komplementærEgenskapstype
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_KOMPLEMENTæR_EGENSKAPSTYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Integer getKomplementærEgenskapstype() {
+    return komplementærEgenskapstype;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_KOMPLEMENTæR_EGENSKAPSTYPE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setKomplementærEgenskapstype(@jakarta.annotation.Nullable Integer komplementærEgenskapstype) {
+    this.komplementærEgenskapstype = komplementærEgenskapstype;
+  }
+
+  public Egenskapstype kortnavn(@jakarta.annotation.Nullable String kortnavn) {
+    
+    this.kortnavn = kortnavn;
+    return this;
+  }
+
+  /**
+   * Get kortnavn
+   * @return kortnavn
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_KORTNAVN)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getKortnavn() {
+    return kortnavn;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_KORTNAVN)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setKortnavn(@jakarta.annotation.Nullable String kortnavn) {
+    this.kortnavn = kortnavn;
+  }
+
+  public Egenskapstype beskrivelse(@jakarta.annotation.Nullable String beskrivelse) {
+    
+    this.beskrivelse = beskrivelse;
+    return this;
+  }
+
+  /**
+   * Get beskrivelse
+   * @return beskrivelse
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_BESKRIVELSE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getBeskrivelse() {
+    return beskrivelse;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_BESKRIVELSE)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setBeskrivelse(@jakarta.annotation.Nullable String beskrivelse) {
+    this.beskrivelse = beskrivelse;
+  }
+
+  public Egenskapstype sosinavn(@jakarta.annotation.Nullable String sosinavn) {
+    
+    this.sosinavn = sosinavn;
+    return this;
+  }
+
+  /**
+   * Get sosinavn
+   * @return sosinavn
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SOSINAVN)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getSosinavn() {
+    return sosinavn;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_SOSINAVN)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setSosinavn(@jakarta.annotation.Nullable String sosinavn) {
+    this.sosinavn = sosinavn;
+  }
+
+  public Egenskapstype sosinvdbnavn(@jakarta.annotation.Nullable String sosinvdbnavn) {
+    
+    this.sosinvdbnavn = sosinvdbnavn;
+    return this;
+  }
+
+  /**
+   * Get sosinvdbnavn
+   * @return sosinvdbnavn
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_SOSINVDBNAVN)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getSosinvdbnavn() {
+    return sosinvdbnavn;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_SOSINVDBNAVN)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setSosinvdbnavn(@jakarta.annotation.Nullable String sosinvdbnavn) {
+    this.sosinvdbnavn = sosinvdbnavn;
+  }
+
+  public Egenskapstype sorteringsnummer(@jakarta.annotation.Nonnull Integer sorteringsnummer) {
+    
+    this.sorteringsnummer = sorteringsnummer;
+    return this;
+  }
+
+  /**
+   * Get sorteringsnummer
+   * @return sorteringsnummer
+   */
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_SORTERINGSNUMMER)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public Integer getSorteringsnummer() {
+    return sorteringsnummer;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_SORTERINGSNUMMER)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setSorteringsnummer(@jakarta.annotation.Nonnull Integer sorteringsnummer) {
+    this.sorteringsnummer = sorteringsnummer;
+  }
+
+  public Egenskapstype avledet(@jakarta.annotation.Nonnull Boolean avledet) {
+    
+    this.avledet = avledet;
+    return this;
+  }
+
+  /**
+   * Get avledet
+   * @return avledet
+   */
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_AVLEDET)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public Boolean getAvledet() {
+    return avledet;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_AVLEDET)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setAvledet(@jakarta.annotation.Nonnull Boolean avledet) {
+    this.avledet = avledet;
+  }
+
+  public Egenskapstype obligatoriskVerdi(@jakarta.annotation.Nonnull Boolean obligatoriskVerdi) {
+    
+    this.obligatoriskVerdi = obligatoriskVerdi;
+    return this;
+  }
+
+  /**
+   * Get obligatoriskVerdi
+   * @return obligatoriskVerdi
+   */
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_OBLIGATORISK_VERDI)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public Boolean getObligatoriskVerdi() {
+    return obligatoriskVerdi;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_OBLIGATORISK_VERDI)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setObligatoriskVerdi(@jakarta.annotation.Nonnull Boolean obligatoriskVerdi) {
+    this.obligatoriskVerdi = obligatoriskVerdi;
   }
 
   public Egenskapstype sensitivitet(@jakarta.annotation.Nonnull Integer sensitivitet) {
@@ -607,181 +782,6 @@ public class Egenskapstype {
     this.kategori = kategori;
   }
 
-  public Egenskapstype komplementærEgenskapstype(@jakarta.annotation.Nullable Integer komplementærEgenskapstype) {
-    
-    this.komplementærEgenskapstype = komplementærEgenskapstype;
-    return this;
-  }
-
-  /**
-   * Get komplementærEgenskapstype
-   * @return komplementærEgenskapstype
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_KOMPLEMENTæR_EGENSKAPSTYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public Integer getKomplementærEgenskapstype() {
-    return komplementærEgenskapstype;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_KOMPLEMENTæR_EGENSKAPSTYPE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setKomplementærEgenskapstype(@jakarta.annotation.Nullable Integer komplementærEgenskapstype) {
-    this.komplementærEgenskapstype = komplementærEgenskapstype;
-  }
-
-  public Egenskapstype kortnavn(@jakarta.annotation.Nullable String kortnavn) {
-    
-    this.kortnavn = kortnavn;
-    return this;
-  }
-
-  /**
-   * Get kortnavn
-   * @return kortnavn
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_KORTNAVN)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public String getKortnavn() {
-    return kortnavn;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_KORTNAVN)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setKortnavn(@jakarta.annotation.Nullable String kortnavn) {
-    this.kortnavn = kortnavn;
-  }
-
-  public Egenskapstype beskrivelse(@jakarta.annotation.Nullable String beskrivelse) {
-    
-    this.beskrivelse = beskrivelse;
-    return this;
-  }
-
-  /**
-   * Get beskrivelse
-   * @return beskrivelse
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_BESKRIVELSE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public String getBeskrivelse() {
-    return beskrivelse;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_BESKRIVELSE)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setBeskrivelse(@jakarta.annotation.Nullable String beskrivelse) {
-    this.beskrivelse = beskrivelse;
-  }
-
-  public Egenskapstype sosinavn(@jakarta.annotation.Nullable String sosinavn) {
-    
-    this.sosinavn = sosinavn;
-    return this;
-  }
-
-  /**
-   * Get sosinavn
-   * @return sosinavn
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SOSINAVN)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public String getSosinavn() {
-    return sosinavn;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_SOSINAVN)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setSosinavn(@jakarta.annotation.Nullable String sosinavn) {
-    this.sosinavn = sosinavn;
-  }
-
-  public Egenskapstype sosinvdbnavn(@jakarta.annotation.Nullable String sosinvdbnavn) {
-    
-    this.sosinvdbnavn = sosinvdbnavn;
-    return this;
-  }
-
-  /**
-   * Get sosinvdbnavn
-   * @return sosinvdbnavn
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SOSINVDBNAVN)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public String getSosinvdbnavn() {
-    return sosinvdbnavn;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_SOSINVDBNAVN)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setSosinvdbnavn(@jakarta.annotation.Nullable String sosinvdbnavn) {
-    this.sosinvdbnavn = sosinvdbnavn;
-  }
-
-  public Egenskapstype sorteringsnummer(@jakarta.annotation.Nonnull Integer sorteringsnummer) {
-    
-    this.sorteringsnummer = sorteringsnummer;
-    return this;
-  }
-
-  /**
-   * Get sorteringsnummer
-   * @return sorteringsnummer
-   */
-  @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_SORTERINGSNUMMER)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
-  public Integer getSorteringsnummer() {
-    return sorteringsnummer;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_SORTERINGSNUMMER)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setSorteringsnummer(@jakarta.annotation.Nonnull Integer sorteringsnummer) {
-    this.sorteringsnummer = sorteringsnummer;
-  }
-
-  public Egenskapstype avledet(@jakarta.annotation.Nonnull Boolean avledet) {
-    
-    this.avledet = avledet;
-    return this;
-  }
-
-  /**
-   * Get avledet
-   * @return avledet
-   */
-  @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_AVLEDET)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
-  public Boolean getAvledet() {
-    return avledet;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_AVLEDET)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setAvledet(@jakarta.annotation.Nonnull Boolean avledet) {
-    this.avledet = avledet;
-  }
-
 
   @Override
   public boolean equals(Object o) {
@@ -795,8 +795,15 @@ public class Egenskapstype {
     return Objects.equals(this.id, egenskapstype.id) &&
         Objects.equals(this.navn, egenskapstype.navn) &&
         Objects.equals(this.egenskapstype, egenskapstype.egenskapstype) &&
-        Objects.equals(this.obligatoriskVerdi, egenskapstype.obligatoriskVerdi) &&
         Objects.equals(this.skrivebeskyttet, egenskapstype.skrivebeskyttet) &&
+        Objects.equals(this.komplementærEgenskapstype, egenskapstype.komplementærEgenskapstype) &&
+        Objects.equals(this.kortnavn, egenskapstype.kortnavn) &&
+        Objects.equals(this.beskrivelse, egenskapstype.beskrivelse) &&
+        Objects.equals(this.sosinavn, egenskapstype.sosinavn) &&
+        Objects.equals(this.sosinvdbnavn, egenskapstype.sosinvdbnavn) &&
+        Objects.equals(this.sorteringsnummer, egenskapstype.sorteringsnummer) &&
+        Objects.equals(this.avledet, egenskapstype.avledet) &&
+        Objects.equals(this.obligatoriskVerdi, egenskapstype.obligatoriskVerdi) &&
         Objects.equals(this.sensitivitet, egenskapstype.sensitivitet) &&
         Objects.equals(this.gruppesorteringsnummer, egenskapstype.gruppesorteringsnummer) &&
         Objects.equals(this.veiledning, egenskapstype.veiledning) &&
@@ -808,19 +815,12 @@ public class Egenskapstype {
         Objects.equals(this.sosiReferanse, egenskapstype.sosiReferanse) &&
         Objects.equals(this.referansegeometriTilstrekkelig, egenskapstype.referansegeometriTilstrekkelig) &&
         Objects.equals(this.viktighet, egenskapstype.viktighet) &&
-        Objects.equals(this.kategori, egenskapstype.kategori) &&
-        Objects.equals(this.komplementærEgenskapstype, egenskapstype.komplementærEgenskapstype) &&
-        Objects.equals(this.kortnavn, egenskapstype.kortnavn) &&
-        Objects.equals(this.beskrivelse, egenskapstype.beskrivelse) &&
-        Objects.equals(this.sosinavn, egenskapstype.sosinavn) &&
-        Objects.equals(this.sosinvdbnavn, egenskapstype.sosinvdbnavn) &&
-        Objects.equals(this.sorteringsnummer, egenskapstype.sorteringsnummer) &&
-        Objects.equals(this.avledet, egenskapstype.avledet);
+        Objects.equals(this.kategori, egenskapstype.kategori);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, navn, egenskapstype, obligatoriskVerdi, skrivebeskyttet, sensitivitet, gruppesorteringsnummer, veiledning, grunnrissreferanse, høydereferanse, høydereferanseTall, nøyaktighetskravGrunnriss, nøyaktighetskravHøyde, sosiReferanse, referansegeometriTilstrekkelig, viktighet, kategori, komplementærEgenskapstype, kortnavn, beskrivelse, sosinavn, sosinvdbnavn, sorteringsnummer, avledet);
+    return Objects.hash(id, navn, egenskapstype, skrivebeskyttet, komplementærEgenskapstype, kortnavn, beskrivelse, sosinavn, sosinvdbnavn, sorteringsnummer, avledet, obligatoriskVerdi, sensitivitet, gruppesorteringsnummer, veiledning, grunnrissreferanse, høydereferanse, høydereferanseTall, nøyaktighetskravGrunnriss, nøyaktighetskravHøyde, sosiReferanse, referansegeometriTilstrekkelig, viktighet, kategori);
   }
 
   @Override
@@ -830,8 +830,15 @@ public class Egenskapstype {
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    navn: ").append(toIndentedString(navn)).append("\n");
     sb.append("    egenskapstype: ").append(toIndentedString(egenskapstype)).append("\n");
-    sb.append("    obligatoriskVerdi: ").append(toIndentedString(obligatoriskVerdi)).append("\n");
     sb.append("    skrivebeskyttet: ").append(toIndentedString(skrivebeskyttet)).append("\n");
+    sb.append("    komplementærEgenskapstype: ").append(toIndentedString(komplementærEgenskapstype)).append("\n");
+    sb.append("    kortnavn: ").append(toIndentedString(kortnavn)).append("\n");
+    sb.append("    beskrivelse: ").append(toIndentedString(beskrivelse)).append("\n");
+    sb.append("    sosinavn: ").append(toIndentedString(sosinavn)).append("\n");
+    sb.append("    sosinvdbnavn: ").append(toIndentedString(sosinvdbnavn)).append("\n");
+    sb.append("    sorteringsnummer: ").append(toIndentedString(sorteringsnummer)).append("\n");
+    sb.append("    avledet: ").append(toIndentedString(avledet)).append("\n");
+    sb.append("    obligatoriskVerdi: ").append(toIndentedString(obligatoriskVerdi)).append("\n");
     sb.append("    sensitivitet: ").append(toIndentedString(sensitivitet)).append("\n");
     sb.append("    gruppesorteringsnummer: ").append(toIndentedString(gruppesorteringsnummer)).append("\n");
     sb.append("    veiledning: ").append(toIndentedString(veiledning)).append("\n");
@@ -844,13 +851,6 @@ public class Egenskapstype {
     sb.append("    referansegeometriTilstrekkelig: ").append(toIndentedString(referansegeometriTilstrekkelig)).append("\n");
     sb.append("    viktighet: ").append(toIndentedString(viktighet)).append("\n");
     sb.append("    kategori: ").append(toIndentedString(kategori)).append("\n");
-    sb.append("    komplementærEgenskapstype: ").append(toIndentedString(komplementærEgenskapstype)).append("\n");
-    sb.append("    kortnavn: ").append(toIndentedString(kortnavn)).append("\n");
-    sb.append("    beskrivelse: ").append(toIndentedString(beskrivelse)).append("\n");
-    sb.append("    sosinavn: ").append(toIndentedString(sosinavn)).append("\n");
-    sb.append("    sosinvdbnavn: ").append(toIndentedString(sosinvdbnavn)).append("\n");
-    sb.append("    sorteringsnummer: ").append(toIndentedString(sorteringsnummer)).append("\n");
-    sb.append("    avledet: ").append(toIndentedString(avledet)).append("\n");
     sb.append("}");
     return sb.toString();
   }

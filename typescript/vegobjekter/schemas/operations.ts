@@ -18,25 +18,25 @@ import {
   getVegobjekterByTypeQueryParamsSchema,
 } from './getVegobjekterByTypeSchema'
 import {
-  getVegobjektById1QueryResponseSchema,
-  getVegobjektById1400Schema,
-  getVegobjektById1401Schema,
-  getVegobjektById1403Schema,
-  getVegobjektById1404Schema,
-  getVegobjektById1500Schema,
-  getVegobjektById1PathParamsSchema,
-  getVegobjektById1QueryParamsSchema,
-} from './getVegobjektById1Schema'
+  getVegobjektByTypeAndIdQueryResponseSchema,
+  getVegobjektByTypeAndId400Schema,
+  getVegobjektByTypeAndId401Schema,
+  getVegobjektByTypeAndId403Schema,
+  getVegobjektByTypeAndId404Schema,
+  getVegobjektByTypeAndId500Schema,
+  getVegobjektByTypeAndIdPathParamsSchema,
+  getVegobjektByTypeAndIdQueryParamsSchema,
+} from './getVegobjektByTypeAndIdSchema'
 import {
-  getVegobjektByIdAndVersjonQueryResponseSchema,
-  getVegobjektByIdAndVersjon400Schema,
-  getVegobjektByIdAndVersjon401Schema,
-  getVegobjektByIdAndVersjon403Schema,
-  getVegobjektByIdAndVersjon404Schema,
-  getVegobjektByIdAndVersjon500Schema,
-  getVegobjektByIdAndVersjonPathParamsSchema,
-  getVegobjektByIdAndVersjonQueryParamsSchema,
-} from './getVegobjektByIdAndVersjonSchema'
+  getVegobjektByTypeIdAndVersjonQueryResponseSchema,
+  getVegobjektByTypeIdAndVersjon400Schema,
+  getVegobjektByTypeIdAndVersjon401Schema,
+  getVegobjektByTypeIdAndVersjon403Schema,
+  getVegobjektByTypeIdAndVersjon404Schema,
+  getVegobjektByTypeIdAndVersjon500Schema,
+  getVegobjektByTypeIdAndVersjonPathParamsSchema,
+  getVegobjektByTypeIdAndVersjonQueryParamsSchema,
+} from './getVegobjektByTypeIdAndVersjonSchema'
 import {
   getVegobjektVersjonerQueryResponseSchema,
   getVegobjektVersjoner400Schema,
@@ -47,6 +47,16 @@ import {
   getVegobjektVersjonerPathParamsSchema,
   getVegobjektVersjonerQueryParamsSchema,
 } from './getVegobjektVersjonerSchema'
+import {
+  getVegobjektNotifikasjonerQueryResponseSchema,
+  getVegobjektNotifikasjoner400Schema,
+  getVegobjektNotifikasjoner401Schema,
+  getVegobjektNotifikasjoner403Schema,
+  getVegobjektNotifikasjoner404Schema,
+  getVegobjektNotifikasjoner500Schema,
+  getVegobjektNotifikasjonerPathParamsSchema,
+  getVegobjektNotifikasjonerQueryParamsSchema,
+} from './getVegobjektNotifikasjonerSchema'
 
 export const operations = {
   getVegobjektById: {
@@ -97,52 +107,52 @@ export const operations = {
       500: getVegobjekterByType500Schema,
     },
   },
-  getVegobjektById_1: {
+  getVegobjektByTypeAndId: {
     request: undefined,
     parameters: {
-      path: getVegobjektById1PathParamsSchema,
-      query: getVegobjektById1QueryParamsSchema,
+      path: getVegobjektByTypeAndIdPathParamsSchema,
+      query: getVegobjektByTypeAndIdQueryParamsSchema,
       header: undefined,
     },
     responses: {
-      200: getVegobjektById1QueryResponseSchema,
-      400: getVegobjektById1400Schema,
-      401: getVegobjektById1401Schema,
-      403: getVegobjektById1403Schema,
-      404: getVegobjektById1404Schema,
-      500: getVegobjektById1500Schema,
-      default: getVegobjektById1QueryResponseSchema,
+      200: getVegobjektByTypeAndIdQueryResponseSchema,
+      400: getVegobjektByTypeAndId400Schema,
+      401: getVegobjektByTypeAndId401Schema,
+      403: getVegobjektByTypeAndId403Schema,
+      404: getVegobjektByTypeAndId404Schema,
+      500: getVegobjektByTypeAndId500Schema,
+      default: getVegobjektByTypeAndIdQueryResponseSchema,
     },
     errors: {
-      400: getVegobjektById1400Schema,
-      401: getVegobjektById1401Schema,
-      403: getVegobjektById1403Schema,
-      404: getVegobjektById1404Schema,
-      500: getVegobjektById1500Schema,
+      400: getVegobjektByTypeAndId400Schema,
+      401: getVegobjektByTypeAndId401Schema,
+      403: getVegobjektByTypeAndId403Schema,
+      404: getVegobjektByTypeAndId404Schema,
+      500: getVegobjektByTypeAndId500Schema,
     },
   },
-  getVegobjektByIdAndVersjon: {
+  getVegobjektByTypeIdAndVersjon: {
     request: undefined,
     parameters: {
-      path: getVegobjektByIdAndVersjonPathParamsSchema,
-      query: getVegobjektByIdAndVersjonQueryParamsSchema,
+      path: getVegobjektByTypeIdAndVersjonPathParamsSchema,
+      query: getVegobjektByTypeIdAndVersjonQueryParamsSchema,
       header: undefined,
     },
     responses: {
-      200: getVegobjektByIdAndVersjonQueryResponseSchema,
-      400: getVegobjektByIdAndVersjon400Schema,
-      401: getVegobjektByIdAndVersjon401Schema,
-      403: getVegobjektByIdAndVersjon403Schema,
-      404: getVegobjektByIdAndVersjon404Schema,
-      500: getVegobjektByIdAndVersjon500Schema,
-      default: getVegobjektByIdAndVersjonQueryResponseSchema,
+      200: getVegobjektByTypeIdAndVersjonQueryResponseSchema,
+      400: getVegobjektByTypeIdAndVersjon400Schema,
+      401: getVegobjektByTypeIdAndVersjon401Schema,
+      403: getVegobjektByTypeIdAndVersjon403Schema,
+      404: getVegobjektByTypeIdAndVersjon404Schema,
+      500: getVegobjektByTypeIdAndVersjon500Schema,
+      default: getVegobjektByTypeIdAndVersjonQueryResponseSchema,
     },
     errors: {
-      400: getVegobjektByIdAndVersjon400Schema,
-      401: getVegobjektByIdAndVersjon401Schema,
-      403: getVegobjektByIdAndVersjon403Schema,
-      404: getVegobjektByIdAndVersjon404Schema,
-      500: getVegobjektByIdAndVersjon500Schema,
+      400: getVegobjektByTypeIdAndVersjon400Schema,
+      401: getVegobjektByTypeIdAndVersjon401Schema,
+      403: getVegobjektByTypeIdAndVersjon403Schema,
+      404: getVegobjektByTypeIdAndVersjon404Schema,
+      500: getVegobjektByTypeIdAndVersjon500Schema,
     },
   },
   getVegobjektVersjoner: {
@@ -169,6 +179,30 @@ export const operations = {
       500: getVegobjektVersjoner500Schema,
     },
   },
+  getVegobjektNotifikasjoner: {
+    request: undefined,
+    parameters: {
+      path: getVegobjektNotifikasjonerPathParamsSchema,
+      query: getVegobjektNotifikasjonerQueryParamsSchema,
+      header: undefined,
+    },
+    responses: {
+      200: getVegobjektNotifikasjonerQueryResponseSchema,
+      400: getVegobjektNotifikasjoner400Schema,
+      401: getVegobjektNotifikasjoner401Schema,
+      403: getVegobjektNotifikasjoner403Schema,
+      404: getVegobjektNotifikasjoner404Schema,
+      500: getVegobjektNotifikasjoner500Schema,
+      default: getVegobjektNotifikasjonerQueryResponseSchema,
+    },
+    errors: {
+      400: getVegobjektNotifikasjoner400Schema,
+      401: getVegobjektNotifikasjoner401Schema,
+      403: getVegobjektNotifikasjoner403Schema,
+      404: getVegobjektNotifikasjoner404Schema,
+      500: getVegobjektNotifikasjoner500Schema,
+    },
+  },
 } as const
 export const paths = {
   '/api/v4/vegobjekt': {
@@ -178,12 +212,15 @@ export const paths = {
     get: operations['getVegobjekterByType'],
   },
   '/api/v4/vegobjekter/{vegobjekttypeId}/{vegobjektId}': {
-    get: operations['getVegobjektById_1'],
+    get: operations['getVegobjektByTypeAndId'],
   },
   '/api/v4/vegobjekter/{vegobjekttypeId}/{vegobjektId}/{versjon}': {
-    get: operations['getVegobjektByIdAndVersjon'],
+    get: operations['getVegobjektByTypeIdAndVersjon'],
   },
   '/api/v4/vegobjekter/{vegobjekttypeId}/{vegobjektId}/versjoner': {
     get: operations['getVegobjektVersjoner'],
+  },
+  '/api/v4/vegobjekter/{vegobjekttypeId}/endringer': {
+    get: operations['getVegobjektNotifikasjoner'],
   },
 } as const

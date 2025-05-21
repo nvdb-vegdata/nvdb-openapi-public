@@ -2,7 +2,7 @@ import { z } from 'zod'
 import { vegobjektSchema } from './vegobjektSchema'
 import { problemDetailSchema } from './problemDetailSchema'
 
-export const getVegobjektById1PathParamsSchema = z.object({
+export const getVegobjektByTypeAndIdPathParamsSchema = z.object({
   vegobjekttypeId: z
     .number()
     .int()
@@ -12,7 +12,7 @@ export const getVegobjektById1PathParamsSchema = z.object({
   vegobjektId: z.number().int(),
 })
 
-export const getVegobjektById1QueryParamsSchema = z
+export const getVegobjektByTypeAndIdQueryParamsSchema = z
   .object({
     inkluder: z
       .array(
@@ -81,30 +81,40 @@ export const getVegobjektById1QueryParamsSchema = z
 /**
  * @description OK
  */
-export const getVegobjektById1200Schema = z.lazy(() => vegobjektSchema)
+export const getVegobjektByTypeAndId200Schema = z.lazy(() => vegobjektSchema)
 /**
  * @description Bad Request
  */
-export const getVegobjektById1400Schema = z.lazy(() => problemDetailSchema)
+export const getVegobjektByTypeAndId400Schema = z.lazy(
+  () => problemDetailSchema,
+)
 /**
  * @description Unauthorized
  */
-export const getVegobjektById1401Schema = z.lazy(() => problemDetailSchema)
+export const getVegobjektByTypeAndId401Schema = z.lazy(
+  () => problemDetailSchema,
+)
 /**
  * @description Forbidden
  */
-export const getVegobjektById1403Schema = z.lazy(() => problemDetailSchema)
+export const getVegobjektByTypeAndId403Schema = z.lazy(
+  () => problemDetailSchema,
+)
 /**
  * @description Not Found
  */
-export const getVegobjektById1404Schema = z.lazy(() => problemDetailSchema)
+export const getVegobjektByTypeAndId404Schema = z.lazy(
+  () => problemDetailSchema,
+)
 /**
  * @description Internal Server Error
  */
-export const getVegobjektById1500Schema = z.lazy(() => problemDetailSchema)
+export const getVegobjektByTypeAndId500Schema = z.lazy(
+  () => problemDetailSchema,
+)
 /**
  * @description OK
  */
-export const getVegobjektById1QueryResponseSchema = z.lazy(
+export const getVegobjektByTypeAndIdQueryResponseSchema = z.lazy(
   () => vegobjektSchema,
 )

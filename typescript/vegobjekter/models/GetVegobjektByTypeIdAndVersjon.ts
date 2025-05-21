@@ -1,7 +1,7 @@
 import type { Vegobjekt } from './Vegobjekt'
 import type { ProblemDetail } from './ProblemDetail'
 
-export type GetVegobjektByIdAndVersjonPathParams = {
+export type GetVegobjektByTypeIdAndVersjonPathParams = {
   /**
    * @description Finn vegobjekter med denne vegobjekttypen. Se [Datakatalogen](https://datakatalogen.atlas.vegvesen.no) for mulige verdier.\n\nEksempel: 581\n
    * @type integer, int32
@@ -16,7 +16,7 @@ export type GetVegobjektByIdAndVersjonPathParams = {
    */
   versjon: number
 }
-export type GetVegobjektByIdAndVersjonQueryParamsInkluder =
+export type GetVegobjektByTypeIdAndVersjonQueryParamsInkluder =
   | 'metadata'
   | 'egenskaper'
   | 'relasjoner'
@@ -25,7 +25,7 @@ export type GetVegobjektByIdAndVersjonQueryParamsInkluder =
   | 'geometri'
   | 'alle'
   | 'minimum'
-export type GetVegobjektByIdAndVersjonQueryParamsSrid =
+export type GetVegobjektByTypeIdAndVersjonQueryParamsSrid =
   | '5972'
   | '5973'
   | '5975'
@@ -34,36 +34,36 @@ export type GetVegobjektByIdAndVersjonQueryParamsSrid =
   | 'UTM33'
   | 'UTM35'
   | 'WGS84'
-export type GetVegobjektByIdAndVersjonQueryParamsInkludergeometri =
+export type GetVegobjektByTypeIdAndVersjonQueryParamsInkludergeometri =
   | 'ingen'
   | 'egenskaper'
   | 'lokasjon'
   | 'utledet'
-export type GetVegobjektByIdAndVersjonQueryParamsInkluderEgenskaper =
+export type GetVegobjektByTypeIdAndVersjonQueryParamsInkluderEgenskaper =
   | 'basis'
   | 'geometri'
   | 'alle'
-export type GetVegobjektByIdAndVersjonQueryParams = {
+export type GetVegobjektByTypeIdAndVersjonQueryParams = {
   /**
    * @description Kommaseparert liste over hvilke informasjonselementer som skal returneres i tillegg til vegobjektenes ID.
    * @type array | undefined
    */
-  inkluder?: GetVegobjektByIdAndVersjonQueryParamsInkluder[]
+  inkluder?: GetVegobjektByTypeIdAndVersjonQueryParamsInkluder[]
   /**
    * @description Angir hvilket geografisk referansesystem som benyttes for geografisk søk, og som geometrien skal returneres i (hvis relevant). Utdata i UTM-formater begrenses til 3 desimaler, 4326/WGS84 begrenses til 8 desimaler. Mer informasjon: <a href=\'https://epsg.io/5972\'>EPSG:5972</a> <a href=\'https://epsg.io/5973\'>EPSG:5973</a> <a href=\'https://epsg.io/5975\'>EPSG:5975</a> <a href=\'https://epsg.io/4326\'>EPSG:4326</a>.
    * @type string | undefined
    */
-  srid?: GetVegobjektByIdAndVersjonQueryParamsSrid
+  srid?: GetVegobjektByTypeIdAndVersjonQueryParamsSrid
   /**
    * @description Et vegobjekt har opptil to geometrier, egengeometri og stedfestet geometri. Egengeometrien er plassert under `vegobjekt.egenskaper` om den finnes, stedfestet geometri er plassert under `vegobjekt.lokasjon`. I tillegg til de nevnte feltene på vegobjekt-responsen returneres også `vegobjekt.geometri` (dersom man har `inkluder=geometri` eller `alle`), slik at man alltid finner geometrien for vegobjektet ett sted. Dette feltet er egengeometri dersom objektet har det, hvis ikke har feltet stedfestet geometri Ved hvilken av disse som er tilfelle finner man ut ved å se på `vegobjekt.geometri.egengeometri`.
    * @type string | undefined
    */
-  inkludergeometri?: GetVegobjektByIdAndVersjonQueryParamsInkludergeometri
+  inkludergeometri?: GetVegobjektByTypeIdAndVersjonQueryParamsInkludergeometri
   /**
    * @description Gir mulighet til å filtrere hvilke egenskaper som skal returneres med inkluder=egenskaper. `basis` er alle egenskaper som ikke er assosiasjoner, stedfesting, geometri, eller lister av disse.
    * @type string | undefined
    */
-  inkluder_egenskaper?: GetVegobjektByIdAndVersjonQueryParamsInkluderEgenskaper
+  inkluder_egenskaper?: GetVegobjektByTypeIdAndVersjonQueryParamsInkluderEgenskaper
   /**
    * @description Hvor mange nivå barn skal inkluderes. 1 betyr bare IDer, 2-n betyr ett eller flere mellomnivåer, \'full\' betyr alle nivåer.
    * @type string | undefined
@@ -83,39 +83,39 @@ export type GetVegobjektByIdAndVersjonQueryParams = {
 /**
  * @description OK
  */
-export type GetVegobjektByIdAndVersjon200 = Vegobjekt
+export type GetVegobjektByTypeIdAndVersjon200 = Vegobjekt
 /**
  * @description Bad Request
  */
-export type GetVegobjektByIdAndVersjon400 = ProblemDetail
+export type GetVegobjektByTypeIdAndVersjon400 = ProblemDetail
 /**
  * @description Unauthorized
  */
-export type GetVegobjektByIdAndVersjon401 = ProblemDetail
+export type GetVegobjektByTypeIdAndVersjon401 = ProblemDetail
 /**
  * @description Forbidden
  */
-export type GetVegobjektByIdAndVersjon403 = ProblemDetail
+export type GetVegobjektByTypeIdAndVersjon403 = ProblemDetail
 /**
  * @description Not Found
  */
-export type GetVegobjektByIdAndVersjon404 = ProblemDetail
+export type GetVegobjektByTypeIdAndVersjon404 = ProblemDetail
 /**
  * @description Internal Server Error
  */
-export type GetVegobjektByIdAndVersjon500 = ProblemDetail
+export type GetVegobjektByTypeIdAndVersjon500 = ProblemDetail
 /**
  * @description OK
  */
-export type GetVegobjektByIdAndVersjonQueryResponse = Vegobjekt
-export type GetVegobjektByIdAndVersjonQuery = {
-  Response: GetVegobjektByIdAndVersjonQueryResponse
-  PathParams: GetVegobjektByIdAndVersjonPathParams
-  QueryParams: GetVegobjektByIdAndVersjonQueryParams
+export type GetVegobjektByTypeIdAndVersjonQueryResponse = Vegobjekt
+export type GetVegobjektByTypeIdAndVersjonQuery = {
+  Response: GetVegobjektByTypeIdAndVersjonQueryResponse
+  PathParams: GetVegobjektByTypeIdAndVersjonPathParams
+  QueryParams: GetVegobjektByTypeIdAndVersjonQueryParams
   Errors:
-    | GetVegobjektByIdAndVersjon400
-    | GetVegobjektByIdAndVersjon401
-    | GetVegobjektByIdAndVersjon403
-    | GetVegobjektByIdAndVersjon404
-    | GetVegobjektByIdAndVersjon500
+    | GetVegobjektByTypeIdAndVersjon400
+    | GetVegobjektByTypeIdAndVersjon401
+    | GetVegobjektByTypeIdAndVersjon403
+    | GetVegobjektByTypeIdAndVersjon404
+    | GetVegobjektByTypeIdAndVersjon500
 }
