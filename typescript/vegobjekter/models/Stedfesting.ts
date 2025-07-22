@@ -24,8 +24,8 @@ export type Stedfesting = {
    * @type number | undefined double
    */
   sluttposisjon?: number
-  startpunkt?: any
-  sluttpunkt?: any
+  startpunkt?: Stedfesting
+  sluttpunkt?: Stedfesting
   retning?: Retning
   /**
    * @description Utelatt for svingstedfesting

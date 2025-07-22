@@ -6,5 +6,5 @@ export const problemDetailSchema = z.object({
   status: z.number().optional(),
   detail: z.string().optional(),
   instance: z.string().optional(),
-  properties: z.object({}).catchall(z.any()).optional(),
+  properties: z.object({}).catchall(z.object({})).optional(),
 })

@@ -22,6 +22,7 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.time.LocalDate;
 import no.vegvesen.vt.nvdb.vegnett.model.Kvalitet;
+import no.vegvesen.vt.nvdb.vegnett.model.SosiMedium;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 
@@ -69,66 +70,9 @@ public class GeometriMedKvalitet {
   @jakarta.annotation.Nonnull
   private Double lengde;
 
-  /**
-   * Gets or Sets medium
-   */
-  public enum MediumEnum {
-    T(String.valueOf("T")),
-    
-    B(String.valueOf("B")),
-    
-    L(String.valueOf("L")),
-    
-    U(String.valueOf("U")),
-    
-    S(String.valueOf("S")),
-    
-    O(String.valueOf("O")),
-    
-    V(String.valueOf("V")),
-    
-    D(String.valueOf("D")),
-    
-    I(String.valueOf("I")),
-    
-    W(String.valueOf("W")),
-    
-    J(String.valueOf("J")),
-    
-    X(String.valueOf("X")),
-    
-    IKKE_REGISTRERT(String.valueOf("IKKE_REGISTRERT"));
-
-    private String value;
-
-    MediumEnum(String value) {
-      this.value = value;
-    }
-
-    @JsonValue
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-
-    @JsonCreator
-    public static MediumEnum fromValue(String value) {
-      for (MediumEnum b : MediumEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
-        }
-      }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
-    }
-  }
-
   public static final String JSON_PROPERTY_MEDIUM = "medium";
   @jakarta.annotation.Nullable
-  private MediumEnum medium;
+  private SosiMedium medium;
 
   public static final String JSON_PROPERTY_MEDIUM_NVDB = "medium_nvdb";
   @jakarta.annotation.Nullable
@@ -312,7 +256,7 @@ public class GeometriMedKvalitet {
     this.lengde = lengde;
   }
 
-  public GeometriMedKvalitet medium(@jakarta.annotation.Nullable MediumEnum medium) {
+  public GeometriMedKvalitet medium(@jakarta.annotation.Nullable SosiMedium medium) {
     
     this.medium = medium;
     return this;
@@ -326,14 +270,14 @@ public class GeometriMedKvalitet {
   @JsonProperty(JSON_PROPERTY_MEDIUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public MediumEnum getMedium() {
+  public SosiMedium getMedium() {
     return medium;
   }
 
 
   @JsonProperty(JSON_PROPERTY_MEDIUM)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setMedium(@jakarta.annotation.Nullable MediumEnum medium) {
+  public void setMedium(@jakarta.annotation.Nullable SosiMedium medium) {
     this.medium = medium;
   }
 

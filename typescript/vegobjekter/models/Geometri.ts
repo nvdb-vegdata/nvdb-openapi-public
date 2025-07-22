@@ -12,7 +12,7 @@ export type Geometri = {
   /**
    * @description Indikerer at geometrien er forenklet. Kun inkludert om den er true
    * @type boolean | undefined
-   * @default false
+   * @default 'false'
    */
   forenklet?: boolean
   /**

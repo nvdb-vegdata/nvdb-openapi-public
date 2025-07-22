@@ -108,7 +108,7 @@ public class VegobjekterApi {
         queryParams.putAll(apiClient.parameterToMultiValueMap(null, "tidspunkt", tidspunkt));
         
         final String[] localVarAccepts = { 
-            "application/problem+json", "*/*"
+            "*/*"
         };
         final List<MediaType> localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         final String[] localVarContentTypes = { };
@@ -245,7 +245,7 @@ public class VegobjekterApi {
         queryParams.putAll(apiClient.parameterToMultiValueMap(null, "tidspunkt", tidspunkt));
         
         final String[] localVarAccepts = { 
-            "application/problem+json", "*/*"
+            "*/*"
         };
         final List<MediaType> localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         final String[] localVarContentTypes = { };
@@ -391,7 +391,7 @@ public class VegobjekterApi {
         queryParams.putAll(apiClient.parameterToMultiValueMap(null, "tidspunkt", tidspunkt));
         
         final String[] localVarAccepts = { 
-            "application/problem+json", "*/*"
+            "*/*"
         };
         final List<MediaType> localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         final String[] localVarContentTypes = { };
@@ -522,7 +522,7 @@ public class VegobjekterApi {
         queryParams.putAll(apiClient.parameterToMultiValueMap(null, "historisk", historisk));
         
         final String[] localVarAccepts = { 
-            "application/problem+json", "*/*"
+            "*/*"
         };
         final List<MediaType> localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         final String[] localVarContentTypes = { };
@@ -650,7 +650,7 @@ public class VegobjekterApi {
         queryParams.putAll(apiClient.parameterToMultiValueMap(null, "tidspunkt", tidspunkt));
         
         final String[] localVarAccepts = { 
-            "application/problem+json", "*/*"
+            "*/*"
         };
         final List<MediaType> localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         final String[] localVarContentTypes = { };
@@ -832,7 +832,7 @@ public class VegobjekterApi {
         queryParams.putAll(apiClient.parameterToMultiValueMap(null, "endret_etter", endretEtter));
         
         final String[] localVarAccepts = { 
-            "application/problem+json", "*/*"
+            "*/*"
         };
         final List<MediaType> localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         final String[] localVarContentTypes = { };

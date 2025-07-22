@@ -10,8 +10,8 @@ export const stedfestingSchema = z.object({
   relativPosisjon: z.number().optional(),
   startposisjon: z.number().optional(),
   sluttposisjon: z.number().optional(),
-  startpunkt: z.any().optional(),
-  sluttpunkt: z.any().optional(),
+  startpunkt: z.lazy(() => stedfestingSchema).optional(),
+  sluttpunkt: z.lazy(() => stedfestingSchema).optional(),
   retning: z.lazy(() => retningSchema).optional(),
   kjørefelt: z
     .array(z.string())

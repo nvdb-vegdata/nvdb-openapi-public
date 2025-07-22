@@ -2,7 +2,9 @@ package no.vegvesen.vt.nvdb.vegnett.api;
 
 import no.vegvesen.vt.nvdb.vegnett.infrastructure.ApiClient;
 
+import no.vegvesen.vt.nvdb.vegnett.model.Gruppering;
 import no.vegvesen.vt.nvdb.vegnett.model.ProblemDetail;
+import no.vegvesen.vt.nvdb.vegnett.model.SridParameter;
 import no.vegvesen.vt.nvdb.vegnett.model.VeglenkesegmenterStatistikkGruppert;
 
 import java.util.HashMap;
@@ -63,7 +65,7 @@ public class StatistikkApi {
      * @return List&lt;VeglenkesegmenterStatistikkGruppert&gt;
      * @throws WebClientResponseException if an error occurs while attempting to invoke the API
      */
-    private ResponseSpec getVeglenkesegmenterStatistikkGruppertRequestCreation(@jakarta.annotation.Nonnull List<String> gruppering, @jakarta.annotation.Nullable String srid, @jakarta.annotation.Nullable String kartutsnitt) throws WebClientResponseException {
+    private ResponseSpec getVeglenkesegmenterStatistikkGruppertRequestCreation(@jakarta.annotation.Nonnull List<Gruppering> gruppering, @jakarta.annotation.Nullable SridParameter srid, @jakarta.annotation.Nullable String kartutsnitt) throws WebClientResponseException {
         Object postBody = null;
         // verify the required parameter 'gruppering' is set
         if (gruppering == null) {
@@ -107,7 +109,7 @@ public class StatistikkApi {
      * @return List&lt;VeglenkesegmenterStatistikkGruppert&gt;
      * @throws WebClientResponseException if an error occurs while attempting to invoke the API
      */
-    public Flux<VeglenkesegmenterStatistikkGruppert> getVeglenkesegmenterStatistikkGruppert(@jakarta.annotation.Nonnull List<String> gruppering, @jakarta.annotation.Nullable String srid, @jakarta.annotation.Nullable String kartutsnitt) throws WebClientResponseException {
+    public Flux<VeglenkesegmenterStatistikkGruppert> getVeglenkesegmenterStatistikkGruppert(@jakarta.annotation.Nonnull List<Gruppering> gruppering, @jakarta.annotation.Nullable SridParameter srid, @jakarta.annotation.Nullable String kartutsnitt) throws WebClientResponseException {
         ParameterizedTypeReference<VeglenkesegmenterStatistikkGruppert> localVarReturnType = new ParameterizedTypeReference<VeglenkesegmenterStatistikkGruppert>() {};
         return getVeglenkesegmenterStatistikkGruppertRequestCreation(gruppering, srid, kartutsnitt).bodyToFlux(localVarReturnType);
     }
@@ -125,7 +127,7 @@ public class StatistikkApi {
      * @return ResponseEntity&lt;List&lt;VeglenkesegmenterStatistikkGruppert&gt;&gt;
      * @throws WebClientResponseException if an error occurs while attempting to invoke the API
      */
-    public Mono<ResponseEntity<List<VeglenkesegmenterStatistikkGruppert>>> getVeglenkesegmenterStatistikkGruppertWithHttpInfo(@jakarta.annotation.Nonnull List<String> gruppering, @jakarta.annotation.Nullable String srid, @jakarta.annotation.Nullable String kartutsnitt) throws WebClientResponseException {
+    public Mono<ResponseEntity<List<VeglenkesegmenterStatistikkGruppert>>> getVeglenkesegmenterStatistikkGruppertWithHttpInfo(@jakarta.annotation.Nonnull List<Gruppering> gruppering, @jakarta.annotation.Nullable SridParameter srid, @jakarta.annotation.Nullable String kartutsnitt) throws WebClientResponseException {
         ParameterizedTypeReference<VeglenkesegmenterStatistikkGruppert> localVarReturnType = new ParameterizedTypeReference<VeglenkesegmenterStatistikkGruppert>() {};
         return getVeglenkesegmenterStatistikkGruppertRequestCreation(gruppering, srid, kartutsnitt).toEntityList(localVarReturnType);
     }
@@ -143,7 +145,7 @@ public class StatistikkApi {
      * @return ResponseSpec
      * @throws WebClientResponseException if an error occurs while attempting to invoke the API
      */
-    public ResponseSpec getVeglenkesegmenterStatistikkGruppertWithResponseSpec(@jakarta.annotation.Nonnull List<String> gruppering, @jakarta.annotation.Nullable String srid, @jakarta.annotation.Nullable String kartutsnitt) throws WebClientResponseException {
+    public ResponseSpec getVeglenkesegmenterStatistikkGruppertWithResponseSpec(@jakarta.annotation.Nonnull List<Gruppering> gruppering, @jakarta.annotation.Nullable SridParameter srid, @jakarta.annotation.Nullable String kartutsnitt) throws WebClientResponseException {
         return getVeglenkesegmenterStatistikkGruppertRequestCreation(gruppering, srid, kartutsnitt);
     }
 }

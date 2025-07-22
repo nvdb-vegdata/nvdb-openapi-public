@@ -500,6 +500,12 @@ public class EgenskapstypeFlyttallenum extends Egenskapstype {
   }
 
   @Override
+  public EgenskapstypeFlyttallenum komplementærEgenskapstype(@jakarta.annotation.Nullable Integer komplementærEgenskapstype) {
+    this.setKomplementærEgenskapstype(komplementærEgenskapstype);
+    return this;
+  }
+
+  @Override
   public EgenskapstypeFlyttallenum kortnavn(@jakarta.annotation.Nullable String kortnavn) {
     this.setKortnavn(kortnavn);
     return this;
@@ -542,20 +548,14 @@ public class EgenskapstypeFlyttallenum extends Egenskapstype {
   }
 
   @Override
-  public EgenskapstypeFlyttallenum komplementærEgenskapstype(@jakarta.annotation.Nullable Integer komplementærEgenskapstype) {
-    this.setKomplementærEgenskapstype(komplementærEgenskapstype);
+  public EgenskapstypeFlyttallenum obligatoriskVerdi(@jakarta.annotation.Nonnull Boolean obligatoriskVerdi) {
+    this.setObligatoriskVerdi(obligatoriskVerdi);
     return this;
   }
 
   @Override
   public EgenskapstypeFlyttallenum skrivebeskyttet(@jakarta.annotation.Nonnull Boolean skrivebeskyttet) {
     this.setSkrivebeskyttet(skrivebeskyttet);
-    return this;
-  }
-
-  @Override
-  public EgenskapstypeFlyttallenum obligatoriskVerdi(@jakarta.annotation.Nonnull Boolean obligatoriskVerdi) {
-    this.setObligatoriskVerdi(obligatoriskVerdi);
     return this;
   }
 

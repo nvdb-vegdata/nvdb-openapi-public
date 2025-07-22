@@ -6,6 +6,7 @@ import no.vegvesen.vt.nvdb.vegnett.model.Node;
 import no.vegvesen.vt.nvdb.vegnett.model.NodeSide;
 import no.vegvesen.vt.nvdb.vegnett.model.ProblemDetail;
 import java.util.Set;
+import no.vegvesen.vt.nvdb.vegnett.model.SridParameter;
 
 import java.util.HashMap;
 import java.util.List;
@@ -64,7 +65,7 @@ public class NoderApi {
      * @return Node
      * @throws WebClientResponseException if an error occurs while attempting to invoke the API
      */
-    private ResponseSpec getNodeRequestCreation(@jakarta.annotation.Nonnull Long id, @jakarta.annotation.Nullable String srid) throws WebClientResponseException {
+    private ResponseSpec getNodeRequestCreation(@jakarta.annotation.Nonnull Long id, @jakarta.annotation.Nullable SridParameter srid) throws WebClientResponseException {
         Object postBody = null;
         // verify the required parameter 'id' is set
         if (id == null) {
@@ -107,7 +108,7 @@ public class NoderApi {
      * @return Node
      * @throws WebClientResponseException if an error occurs while attempting to invoke the API
      */
-    public Mono<Node> getNode(@jakarta.annotation.Nonnull Long id, @jakarta.annotation.Nullable String srid) throws WebClientResponseException {
+    public Mono<Node> getNode(@jakarta.annotation.Nonnull Long id, @jakarta.annotation.Nullable SridParameter srid) throws WebClientResponseException {
         ParameterizedTypeReference<Node> localVarReturnType = new ParameterizedTypeReference<Node>() {};
         return getNodeRequestCreation(id, srid).bodyToMono(localVarReturnType);
     }
@@ -124,7 +125,7 @@ public class NoderApi {
      * @return ResponseEntity&lt;Node&gt;
      * @throws WebClientResponseException if an error occurs while attempting to invoke the API
      */
-    public Mono<ResponseEntity<Node>> getNodeWithHttpInfo(@jakarta.annotation.Nonnull Long id, @jakarta.annotation.Nullable String srid) throws WebClientResponseException {
+    public Mono<ResponseEntity<Node>> getNodeWithHttpInfo(@jakarta.annotation.Nonnull Long id, @jakarta.annotation.Nullable SridParameter srid) throws WebClientResponseException {
         ParameterizedTypeReference<Node> localVarReturnType = new ParameterizedTypeReference<Node>() {};
         return getNodeRequestCreation(id, srid).toEntity(localVarReturnType);
     }
@@ -141,7 +142,7 @@ public class NoderApi {
      * @return ResponseSpec
      * @throws WebClientResponseException if an error occurs while attempting to invoke the API
      */
-    public ResponseSpec getNodeWithResponseSpec(@jakarta.annotation.Nonnull Long id, @jakarta.annotation.Nullable String srid) throws WebClientResponseException {
+    public ResponseSpec getNodeWithResponseSpec(@jakarta.annotation.Nonnull Long id, @jakarta.annotation.Nullable SridParameter srid) throws WebClientResponseException {
         return getNodeRequestCreation(id, srid);
     }
 
@@ -167,7 +168,7 @@ public class NoderApi {
      * @return NodeSide
      * @throws WebClientResponseException if an error occurs while attempting to invoke the API
      */
-    private ResponseSpec getNoderRequestCreation(@jakarta.annotation.Nullable String srid, @jakarta.annotation.Nullable Set<Long> ider, @jakarta.annotation.Nullable Set<Integer> fylke, @jakarta.annotation.Nullable Set<Integer> kommune, @jakarta.annotation.Nullable Set<String> kontraktsomrade, @jakarta.annotation.Nullable Set<String> vegsystemreferanse, @jakarta.annotation.Nullable String kartutsnitt, @jakarta.annotation.Nullable String polygon, @jakarta.annotation.Nullable Long superid, @jakarta.annotation.Nullable Integer antall, @jakarta.annotation.Nullable String start, @jakarta.annotation.Nullable Boolean inkluderAntall) throws WebClientResponseException {
+    private ResponseSpec getNoderRequestCreation(@jakarta.annotation.Nullable SridParameter srid, @jakarta.annotation.Nullable Set<Long> ider, @jakarta.annotation.Nullable Set<Integer> fylke, @jakarta.annotation.Nullable Set<Integer> kommune, @jakarta.annotation.Nullable Set<String> kontraktsomrade, @jakarta.annotation.Nullable Set<String> vegsystemreferanse, @jakarta.annotation.Nullable String kartutsnitt, @jakarta.annotation.Nullable String polygon, @jakarta.annotation.Nullable Long superid, @jakarta.annotation.Nullable Integer antall, @jakarta.annotation.Nullable String start, @jakarta.annotation.Nullable Boolean inkluderAntall) throws WebClientResponseException {
         Object postBody = null;
         // create path and map variables
         final Map<String, Object> pathParams = new HashMap<String, Object>();
@@ -225,7 +226,7 @@ public class NoderApi {
      * @return NodeSide
      * @throws WebClientResponseException if an error occurs while attempting to invoke the API
      */
-    public Mono<NodeSide> getNoder(@jakarta.annotation.Nullable String srid, @jakarta.annotation.Nullable Set<Long> ider, @jakarta.annotation.Nullable Set<Integer> fylke, @jakarta.annotation.Nullable Set<Integer> kommune, @jakarta.annotation.Nullable Set<String> kontraktsomrade, @jakarta.annotation.Nullable Set<String> vegsystemreferanse, @jakarta.annotation.Nullable String kartutsnitt, @jakarta.annotation.Nullable String polygon, @jakarta.annotation.Nullable Long superid, @jakarta.annotation.Nullable Integer antall, @jakarta.annotation.Nullable String start, @jakarta.annotation.Nullable Boolean inkluderAntall) throws WebClientResponseException {
+    public Mono<NodeSide> getNoder(@jakarta.annotation.Nullable SridParameter srid, @jakarta.annotation.Nullable Set<Long> ider, @jakarta.annotation.Nullable Set<Integer> fylke, @jakarta.annotation.Nullable Set<Integer> kommune, @jakarta.annotation.Nullable Set<String> kontraktsomrade, @jakarta.annotation.Nullable Set<String> vegsystemreferanse, @jakarta.annotation.Nullable String kartutsnitt, @jakarta.annotation.Nullable String polygon, @jakarta.annotation.Nullable Long superid, @jakarta.annotation.Nullable Integer antall, @jakarta.annotation.Nullable String start, @jakarta.annotation.Nullable Boolean inkluderAntall) throws WebClientResponseException {
         ParameterizedTypeReference<NodeSide> localVarReturnType = new ParameterizedTypeReference<NodeSide>() {};
         return getNoderRequestCreation(srid, ider, fylke, kommune, kontraktsomrade, vegsystemreferanse, kartutsnitt, polygon, superid, antall, start, inkluderAntall).bodyToMono(localVarReturnType);
     }
@@ -252,7 +253,7 @@ public class NoderApi {
      * @return ResponseEntity&lt;NodeSide&gt;
      * @throws WebClientResponseException if an error occurs while attempting to invoke the API
      */
-    public Mono<ResponseEntity<NodeSide>> getNoderWithHttpInfo(@jakarta.annotation.Nullable String srid, @jakarta.annotation.Nullable Set<Long> ider, @jakarta.annotation.Nullable Set<Integer> fylke, @jakarta.annotation.Nullable Set<Integer> kommune, @jakarta.annotation.Nullable Set<String> kontraktsomrade, @jakarta.annotation.Nullable Set<String> vegsystemreferanse, @jakarta.annotation.Nullable String kartutsnitt, @jakarta.annotation.Nullable String polygon, @jakarta.annotation.Nullable Long superid, @jakarta.annotation.Nullable Integer antall, @jakarta.annotation.Nullable String start, @jakarta.annotation.Nullable Boolean inkluderAntall) throws WebClientResponseException {
+    public Mono<ResponseEntity<NodeSide>> getNoderWithHttpInfo(@jakarta.annotation.Nullable SridParameter srid, @jakarta.annotation.Nullable Set<Long> ider, @jakarta.annotation.Nullable Set<Integer> fylke, @jakarta.annotation.Nullable Set<Integer> kommune, @jakarta.annotation.Nullable Set<String> kontraktsomrade, @jakarta.annotation.Nullable Set<String> vegsystemreferanse, @jakarta.annotation.Nullable String kartutsnitt, @jakarta.annotation.Nullable String polygon, @jakarta.annotation.Nullable Long superid, @jakarta.annotation.Nullable Integer antall, @jakarta.annotation.Nullable String start, @jakarta.annotation.Nullable Boolean inkluderAntall) throws WebClientResponseException {
         ParameterizedTypeReference<NodeSide> localVarReturnType = new ParameterizedTypeReference<NodeSide>() {};
         return getNoderRequestCreation(srid, ider, fylke, kommune, kontraktsomrade, vegsystemreferanse, kartutsnitt, polygon, superid, antall, start, inkluderAntall).toEntity(localVarReturnType);
     }
@@ -279,7 +280,7 @@ public class NoderApi {
      * @return ResponseSpec
      * @throws WebClientResponseException if an error occurs while attempting to invoke the API
      */
-    public ResponseSpec getNoderWithResponseSpec(@jakarta.annotation.Nullable String srid, @jakarta.annotation.Nullable Set<Long> ider, @jakarta.annotation.Nullable Set<Integer> fylke, @jakarta.annotation.Nullable Set<Integer> kommune, @jakarta.annotation.Nullable Set<String> kontraktsomrade, @jakarta.annotation.Nullable Set<String> vegsystemreferanse, @jakarta.annotation.Nullable String kartutsnitt, @jakarta.annotation.Nullable String polygon, @jakarta.annotation.Nullable Long superid, @jakarta.annotation.Nullable Integer antall, @jakarta.annotation.Nullable String start, @jakarta.annotation.Nullable Boolean inkluderAntall) throws WebClientResponseException {
+    public ResponseSpec getNoderWithResponseSpec(@jakarta.annotation.Nullable SridParameter srid, @jakarta.annotation.Nullable Set<Long> ider, @jakarta.annotation.Nullable Set<Integer> fylke, @jakarta.annotation.Nullable Set<Integer> kommune, @jakarta.annotation.Nullable Set<String> kontraktsomrade, @jakarta.annotation.Nullable Set<String> vegsystemreferanse, @jakarta.annotation.Nullable String kartutsnitt, @jakarta.annotation.Nullable String polygon, @jakarta.annotation.Nullable Long superid, @jakarta.annotation.Nullable Integer antall, @jakarta.annotation.Nullable String start, @jakarta.annotation.Nullable Boolean inkluderAntall) throws WebClientResponseException {
         return getNoderRequestCreation(srid, ider, fylke, kommune, kontraktsomrade, vegsystemreferanse, kartutsnitt, polygon, superid, antall, start, inkluderAntall);
     }
 }

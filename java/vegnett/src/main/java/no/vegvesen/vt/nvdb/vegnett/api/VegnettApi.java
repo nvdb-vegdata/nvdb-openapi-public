@@ -2,15 +2,22 @@ package no.vegvesen.vt.nvdb.vegnett.api;
 
 import no.vegvesen.vt.nvdb.vegnett.infrastructure.ApiClient;
 
+import no.vegvesen.vt.nvdb.vegnett.model.AdskilteLop;
+import no.vegvesen.vt.nvdb.vegnett.model.DetaljnivaParameter;
 import java.time.LocalDate;
 import java.time.OffsetDateTime;
 import no.vegvesen.vt.nvdb.vegnett.model.ProblemDetail;
 import java.util.Set;
+import no.vegvesen.vt.nvdb.vegnett.model.SridParameter;
+import no.vegvesen.vt.nvdb.vegnett.model.TopologinivaParameter;
+import no.vegvesen.vt.nvdb.vegnett.model.Trafikantgruppe;
+import no.vegvesen.vt.nvdb.vegnett.model.TypeVegSosi;
 import no.vegvesen.vt.nvdb.vegnett.model.Veglenkesegment;
 import no.vegvesen.vt.nvdb.vegnett.model.VeglenkesegmenterSide;
 import no.vegvesen.vt.nvdb.vegnett.model.Veglenkesekvens;
 import no.vegvesen.vt.nvdb.vegnett.model.VeglenkesekvensEndringerSide;
 import no.vegvesen.vt.nvdb.vegnett.model.VeglenkesekvenserSide;
+import no.vegvesen.vt.nvdb.vegnett.model.VeglenketypeParameter;
 
 import java.util.HashMap;
 import java.util.List;
@@ -71,7 +78,7 @@ public class VegnettApi {
      * @return List&lt;Veglenkesegment&gt;
      * @throws WebClientResponseException if an error occurs while attempting to invoke the API
      */
-    private ResponseSpec getSegmentertVeglenkesekvensRequestCreation(@jakarta.annotation.Nonnull Long veglenkesekvensId, @jakarta.annotation.Nullable String srid, @jakarta.annotation.Nullable Boolean historisk, @jakarta.annotation.Nullable LocalDate tidspunkt) throws WebClientResponseException {
+    private ResponseSpec getSegmentertVeglenkesekvensRequestCreation(@jakarta.annotation.Nonnull Long veglenkesekvensId, @jakarta.annotation.Nullable SridParameter srid, @jakarta.annotation.Nullable Boolean historisk, @jakarta.annotation.Nullable LocalDate tidspunkt) throws WebClientResponseException {
         Object postBody = null;
         // verify the required parameter 'veglenkesekvensId' is set
         if (veglenkesekvensId == null) {
@@ -118,7 +125,7 @@ public class VegnettApi {
      * @return List&lt;Veglenkesegment&gt;
      * @throws WebClientResponseException if an error occurs while attempting to invoke the API
      */
-    public Flux<Veglenkesegment> getSegmentertVeglenkesekvens(@jakarta.annotation.Nonnull Long veglenkesekvensId, @jakarta.annotation.Nullable String srid, @jakarta.annotation.Nullable Boolean historisk, @jakarta.annotation.Nullable LocalDate tidspunkt) throws WebClientResponseException {
+    public Flux<Veglenkesegment> getSegmentertVeglenkesekvens(@jakarta.annotation.Nonnull Long veglenkesekvensId, @jakarta.annotation.Nullable SridParameter srid, @jakarta.annotation.Nullable Boolean historisk, @jakarta.annotation.Nullable LocalDate tidspunkt) throws WebClientResponseException {
         ParameterizedTypeReference<Veglenkesegment> localVarReturnType = new ParameterizedTypeReference<Veglenkesegment>() {};
         return getSegmentertVeglenkesekvensRequestCreation(veglenkesekvensId, srid, historisk, tidspunkt).bodyToFlux(localVarReturnType);
     }
@@ -137,7 +144,7 @@ public class VegnettApi {
      * @return ResponseEntity&lt;List&lt;Veglenkesegment&gt;&gt;
      * @throws WebClientResponseException if an error occurs while attempting to invoke the API
      */
-    public Mono<ResponseEntity<List<Veglenkesegment>>> getSegmentertVeglenkesekvensWithHttpInfo(@jakarta.annotation.Nonnull Long veglenkesekvensId, @jakarta.annotation.Nullable String srid, @jakarta.annotation.Nullable Boolean historisk, @jakarta.annotation.Nullable LocalDate tidspunkt) throws WebClientResponseException {
+    public Mono<ResponseEntity<List<Veglenkesegment>>> getSegmentertVeglenkesekvensWithHttpInfo(@jakarta.annotation.Nonnull Long veglenkesekvensId, @jakarta.annotation.Nullable SridParameter srid, @jakarta.annotation.Nullable Boolean historisk, @jakarta.annotation.Nullable LocalDate tidspunkt) throws WebClientResponseException {
         ParameterizedTypeReference<Veglenkesegment> localVarReturnType = new ParameterizedTypeReference<Veglenkesegment>() {};
         return getSegmentertVeglenkesekvensRequestCreation(veglenkesekvensId, srid, historisk, tidspunkt).toEntityList(localVarReturnType);
     }
@@ -156,7 +163,7 @@ public class VegnettApi {
      * @return ResponseSpec
      * @throws WebClientResponseException if an error occurs while attempting to invoke the API
      */
-    public ResponseSpec getSegmentertVeglenkesekvensWithResponseSpec(@jakarta.annotation.Nonnull Long veglenkesekvensId, @jakarta.annotation.Nullable String srid, @jakarta.annotation.Nullable Boolean historisk, @jakarta.annotation.Nullable LocalDate tidspunkt) throws WebClientResponseException {
+    public ResponseSpec getSegmentertVeglenkesekvensWithResponseSpec(@jakarta.annotation.Nonnull Long veglenkesekvensId, @jakarta.annotation.Nullable SridParameter srid, @jakarta.annotation.Nullable Boolean historisk, @jakarta.annotation.Nullable LocalDate tidspunkt) throws WebClientResponseException {
         return getSegmentertVeglenkesekvensRequestCreation(veglenkesekvensId, srid, historisk, tidspunkt);
     }
 
@@ -195,7 +202,7 @@ public class VegnettApi {
      * @return VeglenkesegmenterSide
      * @throws WebClientResponseException if an error occurs while attempting to invoke the API
      */
-    private ResponseSpec getVeglenkesegmenterRequestCreation(@jakarta.annotation.Nullable String srid, @jakarta.annotation.Nullable Set<Long> ider, @jakarta.annotation.Nullable Set<Integer> fylke, @jakarta.annotation.Nullable Set<Integer> kommune, @jakarta.annotation.Nullable Set<String> kontraktsomrade, @jakarta.annotation.Nullable Set<String> riksvegrute, @jakarta.annotation.Nullable Set<String> vegforvalter, @jakarta.annotation.Nullable Set<String> vegsystemreferanse, @jakarta.annotation.Nullable String kartutsnitt, @jakarta.annotation.Nullable String polygon, @jakarta.annotation.Nullable Set<String> detaljniva, @jakarta.annotation.Nullable Set<String> typeveg, @jakarta.annotation.Nullable Long superid, @jakarta.annotation.Nullable Set<String> adskiltelop, @jakarta.annotation.Nullable Boolean kryssystem, @jakarta.annotation.Nullable Boolean sideanlegg, @jakarta.annotation.Nullable Set<String> veglenketype, @jakarta.annotation.Nullable Boolean arm, @jakarta.annotation.Nullable String trafikantgruppe, @jakarta.annotation.Nullable Integer geometritoleranse, @jakarta.annotation.Nullable Boolean historisk, @jakarta.annotation.Nullable LocalDate tidspunkt, @jakarta.annotation.Nullable Integer antall, @jakarta.annotation.Nullable String start, @jakarta.annotation.Nullable Boolean inkluderAntall) throws WebClientResponseException {
+    private ResponseSpec getVeglenkesegmenterRequestCreation(@jakarta.annotation.Nullable SridParameter srid, @jakarta.annotation.Nullable Set<Long> ider, @jakarta.annotation.Nullable Set<Integer> fylke, @jakarta.annotation.Nullable Set<Integer> kommune, @jakarta.annotation.Nullable Set<String> kontraktsomrade, @jakarta.annotation.Nullable Set<String> riksvegrute, @jakarta.annotation.Nullable Set<String> vegforvalter, @jakarta.annotation.Nullable Set<String> vegsystemreferanse, @jakarta.annotation.Nullable String kartutsnitt, @jakarta.annotation.Nullable String polygon, @jakarta.annotation.Nullable Set<DetaljnivaParameter> detaljniva, @jakarta.annotation.Nullable Set<TypeVegSosi> typeveg, @jakarta.annotation.Nullable Long superid, @jakarta.annotation.Nullable Set<AdskilteLop> adskiltelop, @jakarta.annotation.Nullable Boolean kryssystem, @jakarta.annotation.Nullable Boolean sideanlegg, @jakarta.annotation.Nullable Set<VeglenketypeParameter> veglenketype, @jakarta.annotation.Nullable Boolean arm, @jakarta.annotation.Nullable Trafikantgruppe trafikantgruppe, @jakarta.annotation.Nullable Integer geometritoleranse, @jakarta.annotation.Nullable Boolean historisk, @jakarta.annotation.Nullable LocalDate tidspunkt, @jakarta.annotation.Nullable Integer antall, @jakarta.annotation.Nullable String start, @jakarta.annotation.Nullable Boolean inkluderAntall) throws WebClientResponseException {
         Object postBody = null;
         // create path and map variables
         final Map<String, Object> pathParams = new HashMap<String, Object>();
@@ -279,7 +286,7 @@ public class VegnettApi {
      * @return VeglenkesegmenterSide
      * @throws WebClientResponseException if an error occurs while attempting to invoke the API
      */
-    public Mono<VeglenkesegmenterSide> getVeglenkesegmenter(@jakarta.annotation.Nullable String srid, @jakarta.annotation.Nullable Set<Long> ider, @jakarta.annotation.Nullable Set<Integer> fylke, @jakarta.annotation.Nullable Set<Integer> kommune, @jakarta.annotation.Nullable Set<String> kontraktsomrade, @jakarta.annotation.Nullable Set<String> riksvegrute, @jakarta.annotation.Nullable Set<String> vegforvalter, @jakarta.annotation.Nullable Set<String> vegsystemreferanse, @jakarta.annotation.Nullable String kartutsnitt, @jakarta.annotation.Nullable String polygon, @jakarta.annotation.Nullable Set<String> detaljniva, @jakarta.annotation.Nullable Set<String> typeveg, @jakarta.annotation.Nullable Long superid, @jakarta.annotation.Nullable Set<String> adskiltelop, @jakarta.annotation.Nullable Boolean kryssystem, @jakarta.annotation.Nullable Boolean sideanlegg, @jakarta.annotation.Nullable Set<String> veglenketype, @jakarta.annotation.Nullable Boolean arm, @jakarta.annotation.Nullable String trafikantgruppe, @jakarta.annotation.Nullable Integer geometritoleranse, @jakarta.annotation.Nullable Boolean historisk, @jakarta.annotation.Nullable LocalDate tidspunkt, @jakarta.annotation.Nullable Integer antall, @jakarta.annotation.Nullable String start, @jakarta.annotation.Nullable Boolean inkluderAntall) throws WebClientResponseException {
+    public Mono<VeglenkesegmenterSide> getVeglenkesegmenter(@jakarta.annotation.Nullable SridParameter srid, @jakarta.annotation.Nullable Set<Long> ider, @jakarta.annotation.Nullable Set<Integer> fylke, @jakarta.annotation.Nullable Set<Integer> kommune, @jakarta.annotation.Nullable Set<String> kontraktsomrade, @jakarta.annotation.Nullable Set<String> riksvegrute, @jakarta.annotation.Nullable Set<String> vegforvalter, @jakarta.annotation.Nullable Set<String> vegsystemreferanse, @jakarta.annotation.Nullable String kartutsnitt, @jakarta.annotation.Nullable String polygon, @jakarta.annotation.Nullable Set<DetaljnivaParameter> detaljniva, @jakarta.annotation.Nullable Set<TypeVegSosi> typeveg, @jakarta.annotation.Nullable Long superid, @jakarta.annotation.Nullable Set<AdskilteLop> adskiltelop, @jakarta.annotation.Nullable Boolean kryssystem, @jakarta.annotation.Nullable Boolean sideanlegg, @jakarta.annotation.Nullable Set<VeglenketypeParameter> veglenketype, @jakarta.annotation.Nullable Boolean arm, @jakarta.annotation.Nullable Trafikantgruppe trafikantgruppe, @jakarta.annotation.Nullable Integer geometritoleranse, @jakarta.annotation.Nullable Boolean historisk, @jakarta.annotation.Nullable LocalDate tidspunkt, @jakarta.annotation.Nullable Integer antall, @jakarta.annotation.Nullable String start, @jakarta.annotation.Nullable Boolean inkluderAntall) throws WebClientResponseException {
         ParameterizedTypeReference<VeglenkesegmenterSide> localVarReturnType = new ParameterizedTypeReference<VeglenkesegmenterSide>() {};
         return getVeglenkesegmenterRequestCreation(srid, ider, fylke, kommune, kontraktsomrade, riksvegrute, vegforvalter, vegsystemreferanse, kartutsnitt, polygon, detaljniva, typeveg, superid, adskiltelop, kryssystem, sideanlegg, veglenketype, arm, trafikantgruppe, geometritoleranse, historisk, tidspunkt, antall, start, inkluderAntall).bodyToMono(localVarReturnType);
     }
@@ -319,7 +326,7 @@ public class VegnettApi {
      * @return ResponseEntity&lt;VeglenkesegmenterSide&gt;
      * @throws WebClientResponseException if an error occurs while attempting to invoke the API
      */
-    public Mono<ResponseEntity<VeglenkesegmenterSide>> getVeglenkesegmenterWithHttpInfo(@jakarta.annotation.Nullable String srid, @jakarta.annotation.Nullable Set<Long> ider, @jakarta.annotation.Nullable Set<Integer> fylke, @jakarta.annotation.Nullable Set<Integer> kommune, @jakarta.annotation.Nullable Set<String> kontraktsomrade, @jakarta.annotation.Nullable Set<String> riksvegrute, @jakarta.annotation.Nullable Set<String> vegforvalter, @jakarta.annotation.Nullable Set<String> vegsystemreferanse, @jakarta.annotation.Nullable String kartutsnitt, @jakarta.annotation.Nullable String polygon, @jakarta.annotation.Nullable Set<String> detaljniva, @jakarta.annotation.Nullable Set<String> typeveg, @jakarta.annotation.Nullable Long superid, @jakarta.annotation.Nullable Set<String> adskiltelop, @jakarta.annotation.Nullable Boolean kryssystem, @jakarta.annotation.Nullable Boolean sideanlegg, @jakarta.annotation.Nullable Set<String> veglenketype, @jakarta.annotation.Nullable Boolean arm, @jakarta.annotation.Nullable String trafikantgruppe, @jakarta.annotation.Nullable Integer geometritoleranse, @jakarta.annotation.Nullable Boolean historisk, @jakarta.annotation.Nullable LocalDate tidspunkt, @jakarta.annotation.Nullable Integer antall, @jakarta.annotation.Nullable String start, @jakarta.annotation.Nullable Boolean inkluderAntall) throws WebClientResponseException {
+    public Mono<ResponseEntity<VeglenkesegmenterSide>> getVeglenkesegmenterWithHttpInfo(@jakarta.annotation.Nullable SridParameter srid, @jakarta.annotation.Nullable Set<Long> ider, @jakarta.annotation.Nullable Set<Integer> fylke, @jakarta.annotation.Nullable Set<Integer> kommune, @jakarta.annotation.Nullable Set<String> kontraktsomrade, @jakarta.annotation.Nullable Set<String> riksvegrute, @jakarta.annotation.Nullable Set<String> vegforvalter, @jakarta.annotation.Nullable Set<String> vegsystemreferanse, @jakarta.annotation.Nullable String kartutsnitt, @jakarta.annotation.Nullable String polygon, @jakarta.annotation.Nullable Set<DetaljnivaParameter> detaljniva, @jakarta.annotation.Nullable Set<TypeVegSosi> typeveg, @jakarta.annotation.Nullable Long superid, @jakarta.annotation.Nullable Set<AdskilteLop> adskiltelop, @jakarta.annotation.Nullable Boolean kryssystem, @jakarta.annotation.Nullable Boolean sideanlegg, @jakarta.annotation.Nullable Set<VeglenketypeParameter> veglenketype, @jakarta.annotation.Nullable Boolean arm, @jakarta.annotation.Nullable Trafikantgruppe trafikantgruppe, @jakarta.annotation.Nullable Integer geometritoleranse, @jakarta.annotation.Nullable Boolean historisk, @jakarta.annotation.Nullable LocalDate tidspunkt, @jakarta.annotation.Nullable Integer antall, @jakarta.annotation.Nullable String start, @jakarta.annotation.Nullable Boolean inkluderAntall) throws WebClientResponseException {
         ParameterizedTypeReference<VeglenkesegmenterSide> localVarReturnType = new ParameterizedTypeReference<VeglenkesegmenterSide>() {};
         return getVeglenkesegmenterRequestCreation(srid, ider, fylke, kommune, kontraktsomrade, riksvegrute, vegforvalter, vegsystemreferanse, kartutsnitt, polygon, detaljniva, typeveg, superid, adskiltelop, kryssystem, sideanlegg, veglenketype, arm, trafikantgruppe, geometritoleranse, historisk, tidspunkt, antall, start, inkluderAntall).toEntity(localVarReturnType);
     }
@@ -359,7 +366,7 @@ public class VegnettApi {
      * @return ResponseSpec
      * @throws WebClientResponseException if an error occurs while attempting to invoke the API
      */
-    public ResponseSpec getVeglenkesegmenterWithResponseSpec(@jakarta.annotation.Nullable String srid, @jakarta.annotation.Nullable Set<Long> ider, @jakarta.annotation.Nullable Set<Integer> fylke, @jakarta.annotation.Nullable Set<Integer> kommune, @jakarta.annotation.Nullable Set<String> kontraktsomrade, @jakarta.annotation.Nullable Set<String> riksvegrute, @jakarta.annotation.Nullable Set<String> vegforvalter, @jakarta.annotation.Nullable Set<String> vegsystemreferanse, @jakarta.annotation.Nullable String kartutsnitt, @jakarta.annotation.Nullable String polygon, @jakarta.annotation.Nullable Set<String> detaljniva, @jakarta.annotation.Nullable Set<String> typeveg, @jakarta.annotation.Nullable Long superid, @jakarta.annotation.Nullable Set<String> adskiltelop, @jakarta.annotation.Nullable Boolean kryssystem, @jakarta.annotation.Nullable Boolean sideanlegg, @jakarta.annotation.Nullable Set<String> veglenketype, @jakarta.annotation.Nullable Boolean arm, @jakarta.annotation.Nullable String trafikantgruppe, @jakarta.annotation.Nullable Integer geometritoleranse, @jakarta.annotation.Nullable Boolean historisk, @jakarta.annotation.Nullable LocalDate tidspunkt, @jakarta.annotation.Nullable Integer antall, @jakarta.annotation.Nullable String start, @jakarta.annotation.Nullable Boolean inkluderAntall) throws WebClientResponseException {
+    public ResponseSpec getVeglenkesegmenterWithResponseSpec(@jakarta.annotation.Nullable SridParameter srid, @jakarta.annotation.Nullable Set<Long> ider, @jakarta.annotation.Nullable Set<Integer> fylke, @jakarta.annotation.Nullable Set<Integer> kommune, @jakarta.annotation.Nullable Set<String> kontraktsomrade, @jakarta.annotation.Nullable Set<String> riksvegrute, @jakarta.annotation.Nullable Set<String> vegforvalter, @jakarta.annotation.Nullable Set<String> vegsystemreferanse, @jakarta.annotation.Nullable String kartutsnitt, @jakarta.annotation.Nullable String polygon, @jakarta.annotation.Nullable Set<DetaljnivaParameter> detaljniva, @jakarta.annotation.Nullable Set<TypeVegSosi> typeveg, @jakarta.annotation.Nullable Long superid, @jakarta.annotation.Nullable Set<AdskilteLop> adskiltelop, @jakarta.annotation.Nullable Boolean kryssystem, @jakarta.annotation.Nullable Boolean sideanlegg, @jakarta.annotation.Nullable Set<VeglenketypeParameter> veglenketype, @jakarta.annotation.Nullable Boolean arm, @jakarta.annotation.Nullable Trafikantgruppe trafikantgruppe, @jakarta.annotation.Nullable Integer geometritoleranse, @jakarta.annotation.Nullable Boolean historisk, @jakarta.annotation.Nullable LocalDate tidspunkt, @jakarta.annotation.Nullable Integer antall, @jakarta.annotation.Nullable String start, @jakarta.annotation.Nullable Boolean inkluderAntall) throws WebClientResponseException {
         return getVeglenkesegmenterRequestCreation(srid, ider, fylke, kommune, kontraktsomrade, riksvegrute, vegforvalter, vegsystemreferanse, kartutsnitt, polygon, detaljniva, typeveg, superid, adskiltelop, kryssystem, sideanlegg, veglenketype, arm, trafikantgruppe, geometritoleranse, historisk, tidspunkt, antall, start, inkluderAntall);
     }
 
@@ -375,7 +382,7 @@ public class VegnettApi {
      * @return Veglenkesekvens
      * @throws WebClientResponseException if an error occurs while attempting to invoke the API
      */
-    private ResponseSpec getVeglenkesekvensRequestCreation(@jakarta.annotation.Nonnull Long veglenkesekvensId, @jakarta.annotation.Nullable String srid) throws WebClientResponseException {
+    private ResponseSpec getVeglenkesekvensRequestCreation(@jakarta.annotation.Nonnull Long veglenkesekvensId, @jakarta.annotation.Nullable SridParameter srid) throws WebClientResponseException {
         Object postBody = null;
         // verify the required parameter 'veglenkesekvensId' is set
         if (veglenkesekvensId == null) {
@@ -418,7 +425,7 @@ public class VegnettApi {
      * @return Veglenkesekvens
      * @throws WebClientResponseException if an error occurs while attempting to invoke the API
      */
-    public Mono<Veglenkesekvens> getVeglenkesekvens(@jakarta.annotation.Nonnull Long veglenkesekvensId, @jakarta.annotation.Nullable String srid) throws WebClientResponseException {
+    public Mono<Veglenkesekvens> getVeglenkesekvens(@jakarta.annotation.Nonnull Long veglenkesekvensId, @jakarta.annotation.Nullable SridParameter srid) throws WebClientResponseException {
         ParameterizedTypeReference<Veglenkesekvens> localVarReturnType = new ParameterizedTypeReference<Veglenkesekvens>() {};
         return getVeglenkesekvensRequestCreation(veglenkesekvensId, srid).bodyToMono(localVarReturnType);
     }
@@ -435,7 +442,7 @@ public class VegnettApi {
      * @return ResponseEntity&lt;Veglenkesekvens&gt;
      * @throws WebClientResponseException if an error occurs while attempting to invoke the API
      */
-    public Mono<ResponseEntity<Veglenkesekvens>> getVeglenkesekvensWithHttpInfo(@jakarta.annotation.Nonnull Long veglenkesekvensId, @jakarta.annotation.Nullable String srid) throws WebClientResponseException {
+    public Mono<ResponseEntity<Veglenkesekvens>> getVeglenkesekvensWithHttpInfo(@jakarta.annotation.Nonnull Long veglenkesekvensId, @jakarta.annotation.Nullable SridParameter srid) throws WebClientResponseException {
         ParameterizedTypeReference<Veglenkesekvens> localVarReturnType = new ParameterizedTypeReference<Veglenkesekvens>() {};
         return getVeglenkesekvensRequestCreation(veglenkesekvensId, srid).toEntity(localVarReturnType);
     }
@@ -452,7 +459,7 @@ public class VegnettApi {
      * @return ResponseSpec
      * @throws WebClientResponseException if an error occurs while attempting to invoke the API
      */
-    public ResponseSpec getVeglenkesekvensWithResponseSpec(@jakarta.annotation.Nonnull Long veglenkesekvensId, @jakarta.annotation.Nullable String srid) throws WebClientResponseException {
+    public ResponseSpec getVeglenkesekvensWithResponseSpec(@jakarta.annotation.Nonnull Long veglenkesekvensId, @jakarta.annotation.Nullable SridParameter srid) throws WebClientResponseException {
         return getVeglenkesekvensRequestCreation(veglenkesekvensId, srid);
     }
 
@@ -572,7 +579,7 @@ public class VegnettApi {
      * @return VeglenkesekvenserSide
      * @throws WebClientResponseException if an error occurs while attempting to invoke the API
      */
-    private ResponseSpec getVeglenkesekvenserRequestCreation(@jakarta.annotation.Nullable Set<Long> ider, @jakarta.annotation.Nullable Set<Integer> fylke, @jakarta.annotation.Nullable Set<Integer> kommune, @jakarta.annotation.Nullable Set<String> kontraktsomrade, @jakarta.annotation.Nullable Set<String> riksvegrute, @jakarta.annotation.Nullable Set<String> vegsystemreferanse, @jakarta.annotation.Nullable String topologiniva, @jakarta.annotation.Nullable Long superid, @jakarta.annotation.Nullable String srid, @jakarta.annotation.Nullable String polygon, @jakarta.annotation.Nullable Integer antall, @jakarta.annotation.Nullable String start, @jakarta.annotation.Nullable Boolean inkluderAntall) throws WebClientResponseException {
+    private ResponseSpec getVeglenkesekvenserRequestCreation(@jakarta.annotation.Nullable Set<Long> ider, @jakarta.annotation.Nullable Set<Integer> fylke, @jakarta.annotation.Nullable Set<Integer> kommune, @jakarta.annotation.Nullable Set<String> kontraktsomrade, @jakarta.annotation.Nullable Set<String> riksvegrute, @jakarta.annotation.Nullable Set<String> vegsystemreferanse, @jakarta.annotation.Nullable TopologinivaParameter topologiniva, @jakarta.annotation.Nullable Long superid, @jakarta.annotation.Nullable SridParameter srid, @jakarta.annotation.Nullable String polygon, @jakarta.annotation.Nullable Integer antall, @jakarta.annotation.Nullable String start, @jakarta.annotation.Nullable Boolean inkluderAntall) throws WebClientResponseException {
         Object postBody = null;
         // create path and map variables
         final Map<String, Object> pathParams = new HashMap<String, Object>();
@@ -632,7 +639,7 @@ public class VegnettApi {
      * @return VeglenkesekvenserSide
      * @throws WebClientResponseException if an error occurs while attempting to invoke the API
      */
-    public Mono<VeglenkesekvenserSide> getVeglenkesekvenser(@jakarta.annotation.Nullable Set<Long> ider, @jakarta.annotation.Nullable Set<Integer> fylke, @jakarta.annotation.Nullable Set<Integer> kommune, @jakarta.annotation.Nullable Set<String> kontraktsomrade, @jakarta.annotation.Nullable Set<String> riksvegrute, @jakarta.annotation.Nullable Set<String> vegsystemreferanse, @jakarta.annotation.Nullable String topologiniva, @jakarta.annotation.Nullable Long superid, @jakarta.annotation.Nullable String srid, @jakarta.annotation.Nullable String polygon, @jakarta.annotation.Nullable Integer antall, @jakarta.annotation.Nullable String start, @jakarta.annotation.Nullable Boolean inkluderAntall) throws WebClientResponseException {
+    public Mono<VeglenkesekvenserSide> getVeglenkesekvenser(@jakarta.annotation.Nullable Set<Long> ider, @jakarta.annotation.Nullable Set<Integer> fylke, @jakarta.annotation.Nullable Set<Integer> kommune, @jakarta.annotation.Nullable Set<String> kontraktsomrade, @jakarta.annotation.Nullable Set<String> riksvegrute, @jakarta.annotation.Nullable Set<String> vegsystemreferanse, @jakarta.annotation.Nullable TopologinivaParameter topologiniva, @jakarta.annotation.Nullable Long superid, @jakarta.annotation.Nullable SridParameter srid, @jakarta.annotation.Nullable String polygon, @jakarta.annotation.Nullable Integer antall, @jakarta.annotation.Nullable String start, @jakarta.annotation.Nullable Boolean inkluderAntall) throws WebClientResponseException {
         ParameterizedTypeReference<VeglenkesekvenserSide> localVarReturnType = new ParameterizedTypeReference<VeglenkesekvenserSide>() {};
         return getVeglenkesekvenserRequestCreation(ider, fylke, kommune, kontraktsomrade, riksvegrute, vegsystemreferanse, topologiniva, superid, srid, polygon, antall, start, inkluderAntall).bodyToMono(localVarReturnType);
     }
@@ -660,7 +667,7 @@ public class VegnettApi {
      * @return ResponseEntity&lt;VeglenkesekvenserSide&gt;
      * @throws WebClientResponseException if an error occurs while attempting to invoke the API
      */
-    public Mono<ResponseEntity<VeglenkesekvenserSide>> getVeglenkesekvenserWithHttpInfo(@jakarta.annotation.Nullable Set<Long> ider, @jakarta.annotation.Nullable Set<Integer> fylke, @jakarta.annotation.Nullable Set<Integer> kommune, @jakarta.annotation.Nullable Set<String> kontraktsomrade, @jakarta.annotation.Nullable Set<String> riksvegrute, @jakarta.annotation.Nullable Set<String> vegsystemreferanse, @jakarta.annotation.Nullable String topologiniva, @jakarta.annotation.Nullable Long superid, @jakarta.annotation.Nullable String srid, @jakarta.annotation.Nullable String polygon, @jakarta.annotation.Nullable Integer antall, @jakarta.annotation.Nullable String start, @jakarta.annotation.Nullable Boolean inkluderAntall) throws WebClientResponseException {
+    public Mono<ResponseEntity<VeglenkesekvenserSide>> getVeglenkesekvenserWithHttpInfo(@jakarta.annotation.Nullable Set<Long> ider, @jakarta.annotation.Nullable Set<Integer> fylke, @jakarta.annotation.Nullable Set<Integer> kommune, @jakarta.annotation.Nullable Set<String> kontraktsomrade, @jakarta.annotation.Nullable Set<String> riksvegrute, @jakarta.annotation.Nullable Set<String> vegsystemreferanse, @jakarta.annotation.Nullable TopologinivaParameter topologiniva, @jakarta.annotation.Nullable Long superid, @jakarta.annotation.Nullable SridParameter srid, @jakarta.annotation.Nullable String polygon, @jakarta.annotation.Nullable Integer antall, @jakarta.annotation.Nullable String start, @jakarta.annotation.Nullable Boolean inkluderAntall) throws WebClientResponseException {
         ParameterizedTypeReference<VeglenkesekvenserSide> localVarReturnType = new ParameterizedTypeReference<VeglenkesekvenserSide>() {};
         return getVeglenkesekvenserRequestCreation(ider, fylke, kommune, kontraktsomrade, riksvegrute, vegsystemreferanse, topologiniva, superid, srid, polygon, antall, start, inkluderAntall).toEntity(localVarReturnType);
     }
@@ -688,7 +695,7 @@ public class VegnettApi {
      * @return ResponseSpec
      * @throws WebClientResponseException if an error occurs while attempting to invoke the API
      */
-    public ResponseSpec getVeglenkesekvenserWithResponseSpec(@jakarta.annotation.Nullable Set<Long> ider, @jakarta.annotation.Nullable Set<Integer> fylke, @jakarta.annotation.Nullable Set<Integer> kommune, @jakarta.annotation.Nullable Set<String> kontraktsomrade, @jakarta.annotation.Nullable Set<String> riksvegrute, @jakarta.annotation.Nullable Set<String> vegsystemreferanse, @jakarta.annotation.Nullable String topologiniva, @jakarta.annotation.Nullable Long superid, @jakarta.annotation.Nullable String srid, @jakarta.annotation.Nullable String polygon, @jakarta.annotation.Nullable Integer antall, @jakarta.annotation.Nullable String start, @jakarta.annotation.Nullable Boolean inkluderAntall) throws WebClientResponseException {
+    public ResponseSpec getVeglenkesekvenserWithResponseSpec(@jakarta.annotation.Nullable Set<Long> ider, @jakarta.annotation.Nullable Set<Integer> fylke, @jakarta.annotation.Nullable Set<Integer> kommune, @jakarta.annotation.Nullable Set<String> kontraktsomrade, @jakarta.annotation.Nullable Set<String> riksvegrute, @jakarta.annotation.Nullable Set<String> vegsystemreferanse, @jakarta.annotation.Nullable TopologinivaParameter topologiniva, @jakarta.annotation.Nullable Long superid, @jakarta.annotation.Nullable SridParameter srid, @jakarta.annotation.Nullable String polygon, @jakarta.annotation.Nullable Integer antall, @jakarta.annotation.Nullable String start, @jakarta.annotation.Nullable Boolean inkluderAntall) throws WebClientResponseException {
         return getVeglenkesekvenserRequestCreation(ider, fylke, kommune, kontraktsomrade, riksvegrute, vegsystemreferanse, topologiniva, superid, srid, polygon, antall, start, inkluderAntall);
     }
 }

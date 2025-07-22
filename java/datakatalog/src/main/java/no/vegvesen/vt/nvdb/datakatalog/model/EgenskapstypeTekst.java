@@ -280,6 +280,12 @@ public class EgenskapstypeTekst extends Egenskapstype {
   }
 
   @Override
+  public EgenskapstypeTekst komplementærEgenskapstype(@jakarta.annotation.Nullable Integer komplementærEgenskapstype) {
+    this.setKomplementærEgenskapstype(komplementærEgenskapstype);
+    return this;
+  }
+
+  @Override
   public EgenskapstypeTekst kortnavn(@jakarta.annotation.Nullable String kortnavn) {
     this.setKortnavn(kortnavn);
     return this;
@@ -322,20 +328,14 @@ public class EgenskapstypeTekst extends Egenskapstype {
   }
 
   @Override
-  public EgenskapstypeTekst komplementærEgenskapstype(@jakarta.annotation.Nullable Integer komplementærEgenskapstype) {
-    this.setKomplementærEgenskapstype(komplementærEgenskapstype);
+  public EgenskapstypeTekst obligatoriskVerdi(@jakarta.annotation.Nonnull Boolean obligatoriskVerdi) {
+    this.setObligatoriskVerdi(obligatoriskVerdi);
     return this;
   }
 
   @Override
   public EgenskapstypeTekst skrivebeskyttet(@jakarta.annotation.Nonnull Boolean skrivebeskyttet) {
     this.setSkrivebeskyttet(skrivebeskyttet);
-    return this;
-  }
-
-  @Override
-  public EgenskapstypeTekst obligatoriskVerdi(@jakarta.annotation.Nonnull Boolean obligatoriskVerdi) {
-    this.setObligatoriskVerdi(obligatoriskVerdi);
     return this;
   }
 

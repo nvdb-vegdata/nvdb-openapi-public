@@ -20,6 +20,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import no.vegvesen.vt.nvdb.vegnett.model.Retning;
+import no.vegvesen.vt.nvdb.vegnett.model.Trafikantgruppe;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 
@@ -45,83 +47,13 @@ public class Kryssystem {
   @jakarta.annotation.Nonnull
   private Integer kryssdel;
 
-  /**
-   * Gets or Sets retning
-   */
-  public enum RetningEnum {
-    MED(String.valueOf("MED")),
-    
-    MOT(String.valueOf("MOT"));
-
-    private String value;
-
-    RetningEnum(String value) {
-      this.value = value;
-    }
-
-    @JsonValue
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-
-    @JsonCreator
-    public static RetningEnum fromValue(String value) {
-      for (RetningEnum b : RetningEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
-        }
-      }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
-    }
-  }
-
   public static final String JSON_PROPERTY_RETNING = "retning";
   @jakarta.annotation.Nonnull
-  private RetningEnum retning;
-
-  /**
-   * Gets or Sets trafikantgruppe
-   */
-  public enum TrafikantgruppeEnum {
-    K(String.valueOf("K")),
-    
-    G(String.valueOf("G"));
-
-    private String value;
-
-    TrafikantgruppeEnum(String value) {
-      this.value = value;
-    }
-
-    @JsonValue
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-
-    @JsonCreator
-    public static TrafikantgruppeEnum fromValue(String value) {
-      for (TrafikantgruppeEnum b : TrafikantgruppeEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
-        }
-      }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
-    }
-  }
+  private Retning retning;
 
   public static final String JSON_PROPERTY_TRAFIKANTGRUPPE = "trafikantgruppe";
   @jakarta.annotation.Nonnull
-  private TrafikantgruppeEnum trafikantgruppe;
+  private Trafikantgruppe trafikantgruppe;
 
   public static final String JSON_PROPERTY_METER = "meter";
   @jakarta.annotation.Nullable
@@ -188,7 +120,7 @@ public class Kryssystem {
     this.kryssdel = kryssdel;
   }
 
-  public Kryssystem retning(@jakarta.annotation.Nonnull RetningEnum retning) {
+  public Kryssystem retning(@jakarta.annotation.Nonnull Retning retning) {
     
     this.retning = retning;
     return this;
@@ -202,18 +134,18 @@ public class Kryssystem {
   @JsonProperty(JSON_PROPERTY_RETNING)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public RetningEnum getRetning() {
+  public Retning getRetning() {
     return retning;
   }
 
 
   @JsonProperty(JSON_PROPERTY_RETNING)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setRetning(@jakarta.annotation.Nonnull RetningEnum retning) {
+  public void setRetning(@jakarta.annotation.Nonnull Retning retning) {
     this.retning = retning;
   }
 
-  public Kryssystem trafikantgruppe(@jakarta.annotation.Nonnull TrafikantgruppeEnum trafikantgruppe) {
+  public Kryssystem trafikantgruppe(@jakarta.annotation.Nonnull Trafikantgruppe trafikantgruppe) {
     
     this.trafikantgruppe = trafikantgruppe;
     return this;
@@ -227,14 +159,14 @@ public class Kryssystem {
   @JsonProperty(JSON_PROPERTY_TRAFIKANTGRUPPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public TrafikantgruppeEnum getTrafikantgruppe() {
+  public Trafikantgruppe getTrafikantgruppe() {
     return trafikantgruppe;
   }
 
 
   @JsonProperty(JSON_PROPERTY_TRAFIKANTGRUPPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setTrafikantgruppe(@jakarta.annotation.Nonnull TrafikantgruppeEnum trafikantgruppe) {
+  public void setTrafikantgruppe(@jakarta.annotation.Nonnull Trafikantgruppe trafikantgruppe) {
     this.trafikantgruppe = trafikantgruppe;
   }
 

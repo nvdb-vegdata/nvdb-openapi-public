@@ -84,7 +84,7 @@ public class Example {
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/problem+json, _/_
+- **Accept**: _/_
 
 ### HTTP response details
 
@@ -172,7 +172,7 @@ public class Example {
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/problem+json, _/_
+- **Accept**: _/_
 
 ### HTTP response details
 
@@ -262,7 +262,7 @@ public class Example {
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/problem+json, _/_
+- **Accept**: _/_
 
 ### HTTP response details
 
@@ -342,7 +342,7 @@ public class Example {
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/problem+json, _/_
+- **Accept**: _/_
 
 ### HTTP response details
 
@@ -430,7 +430,7 @@ public class Example {
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/problem+json, _/_
+- **Accept**: _/_
 
 ### HTTP response details
 
@@ -564,7 +564,7 @@ public class Example {
 ### HTTP request headers
 
 - **Content-Type**: Not defined
-- **Accept**: application/problem+json, _/_
+- **Accept**: _/_
 
 ### HTTP response details
 

@@ -140,7 +140,7 @@ public class StatistikkApi {
         queryParams.putAll(apiClient.parameterToMultiValueMap(ApiClient.CollectionFormat.valueOf("multi".toUpperCase(Locale.ROOT)), "overlapp", overlapp));
         
         final String[] localVarAccepts = { 
-            "application/problem+json", "*/*"
+            "*/*"
         };
         final List<MediaType> localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         final String[] localVarContentTypes = { };
@@ -321,7 +321,7 @@ public class StatistikkApi {
         queryParams.putAll(apiClient.parameterToMultiValueMap(null, "tidspunkt", tidspunkt));
         
         final String[] localVarAccepts = { 
-            "application/problem+json", "*/*"
+            "*/*"
         };
         final List<MediaType> localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         final String[] localVarContentTypes = { };
@@ -434,7 +434,7 @@ public class StatistikkApi {
         queryParams.putAll(apiClient.parameterToMultiValueMap(null, "tidspunkt", tidspunkt));
         
         final String[] localVarAccepts = { 
-            "application/problem+json", "*/*"
+            "*/*"
         };
         final List<MediaType> localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
         final String[] localVarContentTypes = { };

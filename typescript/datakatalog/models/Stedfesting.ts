@@ -66,6 +66,12 @@ export interface Stedfesting {
   egenskapstype: EgenskapstypeEnum
   /**
    *
+   * @type {number}
+   * @memberof Stedfesting
+   */
+  komplementrEgenskapstype?: number
+  /**
+   *
    * @type {string}
    * @memberof Stedfesting
    */
@@ -108,22 +114,16 @@ export interface Stedfesting {
   avledet: boolean
   /**
    *
-   * @type {number}
+   * @type {boolean}
    * @memberof Stedfesting
    */
-  komplementrEgenskapstype?: number
+  obligatoriskVerdi: boolean
   /**
    *
    * @type {boolean}
    * @memberof Stedfesting
    */
   skrivebeskyttet: boolean
-  /**
-   *
-   * @type {boolean}
-   * @memberof Stedfesting
-   */
-  obligatoriskVerdi: boolean
   /**
    *
    * @type {number}
@@ -202,12 +202,12 @@ export function instanceOfStedfesting(value: object): value is Stedfesting {
   if (!('sorteringsnummer' in value) || value['sorteringsnummer'] === undefined)
     return false
   if (!('avledet' in value) || value['avledet'] === undefined) return false
-  if (!('skrivebeskyttet' in value) || value['skrivebeskyttet'] === undefined)
-    return false
   if (
     !('obligatoriskVerdi' in value) ||
     value['obligatoriskVerdi'] === undefined
   )
+    return false
+  if (!('skrivebeskyttet' in value) || value['skrivebeskyttet'] === undefined)
     return false
   if (!('sensitivitet' in value) || value['sensitivitet'] === undefined)
     return false
@@ -259,6 +259,10 @@ export function StedfestingFromJSONTyped(
     id: json['id'],
     navn: json['navn'] == null ? undefined : json['navn'],
     egenskapstype: EgenskapstypeEnumFromJSON(json['egenskapstype']),
+    komplementrEgenskapstype:
+      json['komplementær_egenskapstype'] == null
+        ? undefined
+        : json['komplementær_egenskapstype'],
     kortnavn: json['kortnavn'] == null ? undefined : json['kortnavn'],
     beskrivelse: json['beskrivelse'] == null ? undefined : json['beskrivelse'],
     veiledning: json['veiledning'] == null ? undefined : json['veiledning'],
@@ -267,12 +271,8 @@ export function StedfestingFromJSONTyped(
       json['sosinvdbnavn'] == null ? undefined : json['sosinvdbnavn'],
     sorteringsnummer: json['sorteringsnummer'],
     avledet: json['avledet'],
-    komplementrEgenskapstype:
-      json['komplementær_egenskapstype'] == null
-        ? undefined
-        : json['komplementær_egenskapstype'],
-    skrivebeskyttet: json['skrivebeskyttet'],
     obligatoriskVerdi: json['obligatorisk_verdi'],
+    skrivebeskyttet: json['skrivebeskyttet'],
     sensitivitet: json['sensitivitet'],
     gruppesorteringsnummer:
       json['gruppesorteringsnummer'] == null
@@ -328,6 +328,7 @@ export function StedfestingToJSONTyped(
     id: value['id'],
     navn: value['navn'],
     egenskapstype: EgenskapstypeEnumToJSON(value['egenskapstype']),
+    komplementær_egenskapstype: value['komplementrEgenskapstype'],
     kortnavn: value['kortnavn'],
     beskrivelse: value['beskrivelse'],
     veiledning: value['veiledning'],
@@ -335,9 +336,8 @@ export function StedfestingToJSONTyped(
     sosinvdbnavn: value['sosinvdbnavn'],
     sorteringsnummer: value['sorteringsnummer'],
     avledet: value['avledet'],
-    komplementær_egenskapstype: value['komplementrEgenskapstype'],
-    skrivebeskyttet: value['skrivebeskyttet'],
     obligatorisk_verdi: value['obligatoriskVerdi'],
+    skrivebeskyttet: value['skrivebeskyttet'],
     sensitivitet: value['sensitivitet'],
     gruppesorteringsnummer: value['gruppesorteringsnummer'],
     grunnrissreferanse: value['grunnrissreferanse'],

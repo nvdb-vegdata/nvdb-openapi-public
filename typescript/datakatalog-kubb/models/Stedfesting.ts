@@ -12,10 +12,6 @@ export type Stedfesting = {
   navn?: string
   egenskapstype: EgenskapstypeEnum
   /**
-   * @type integer | undefined int32
-   */
-  komplementær_egenskapstype?: number
-  /**
    * @type string | undefined
    */
   kortnavn?: string
@@ -44,13 +40,17 @@ export type Stedfesting = {
    */
   avledet: boolean
   /**
-   * @type boolean
+   * @type integer | undefined int32
    */
-  obligatorisk_verdi: boolean
+  komplementær_egenskapstype?: number
   /**
    * @type boolean
    */
   skrivebeskyttet: boolean
+  /**
+   * @type boolean
+   */
+  obligatorisk_verdi: boolean
   /**
    * @type integer int32
    */

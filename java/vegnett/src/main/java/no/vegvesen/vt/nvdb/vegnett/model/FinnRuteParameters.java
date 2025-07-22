@@ -24,6 +24,9 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import java.time.LocalDate;
 import java.util.LinkedHashSet;
 import java.util.Set;
+import no.vegvesen.vt.nvdb.vegnett.model.SridParameter;
+import no.vegvesen.vt.nvdb.vegnett.model.Trafikantgruppe;
+import no.vegvesen.vt.nvdb.vegnett.model.TypeVeg;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 
@@ -84,172 +87,25 @@ public class FinnRuteParameters {
   @jakarta.annotation.Nullable
   private Set<String> vegsystemreferanse = new LinkedHashSet<>();
 
-  /**
-   * Gets or Sets trafikantgruppe
-   */
-  public enum TrafikantgruppeEnum {
-    K(String.valueOf("K")),
-    
-    G(String.valueOf("G"));
-
-    private String value;
-
-    TrafikantgruppeEnum(String value) {
-      this.value = value;
-    }
-
-    @JsonValue
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-
-    @JsonCreator
-    public static TrafikantgruppeEnum fromValue(String value) {
-      for (TrafikantgruppeEnum b : TrafikantgruppeEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
-        }
-      }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
-    }
-  }
-
   public static final String JSON_PROPERTY_TRAFIKANTGRUPPE = "trafikantgruppe";
   @jakarta.annotation.Nullable
-  private TrafikantgruppeEnum trafikantgruppe;
+  private Trafikantgruppe trafikantgruppe;
 
   public static final String JSON_PROPERTY_BEHOLD_TRAFIKANTGRUPPE = "behold_trafikantgruppe";
   @jakarta.annotation.Nonnull
   private Boolean beholdTrafikantgruppe;
 
-  /**
-   * Gets or Sets typeveg
-   */
-  public enum TypevegEnum {
-    ENKEL_BILVEG(String.valueOf("Enkel bilveg")),
-    
-    KANALISERT_VEG(String.valueOf("Kanalisert veg")),
-    
-    RAMPE(String.valueOf("Rampe")),
-    
-    RUNDKJ_RING(String.valueOf("Rundkjøring")),
-    
-    BILFERJE(String.valueOf("Bilferje")),
-    
-    GANG_OG_SYKKELVEG(String.valueOf("Gang- og sykkelveg")),
-    
-    SYKKELVEG(String.valueOf("Sykkelveg")),
-    
-    GANGVEG(String.valueOf("Gangveg")),
-    
-    G_GATE(String.valueOf("Gågate")),
-    
-    FORTAU(String.valueOf("Fortau")),
-    
-    TRAPP(String.valueOf("Trapp")),
-    
-    GANGFELT(String.valueOf("Gangfelt")),
-    
-    GATETUN(String.valueOf("Gatetun")),
-    
-    PASSASJERFERJE(String.valueOf("Passasjerferje")),
-    
-    TRAKTORVEG(String.valueOf("Traktorveg")),
-    
-    STI(String.valueOf("Sti")),
-    
-    ANNET(String.valueOf("Annet"));
-
-    private String value;
-
-    TypevegEnum(String value) {
-      this.value = value;
-    }
-
-    @JsonValue
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-
-    @JsonCreator
-    public static TypevegEnum fromValue(String value) {
-      for (TypevegEnum b : TypevegEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
-        }
-      }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
-    }
-  }
-
   public static final String JSON_PROPERTY_TYPEVEG = "typeveg";
   @jakarta.annotation.Nullable
-  private Set<TypevegEnum> typeveg = new LinkedHashSet<>();
+  private Set<TypeVeg> typeveg = new LinkedHashSet<>();
 
   public static final String JSON_PROPERTY_TIDSPUNKT = "tidspunkt";
   @jakarta.annotation.Nullable
   private LocalDate tidspunkt;
 
-  /**
-   * Gets or Sets srid
-   */
-  public enum SridEnum {
-    _5972(String.valueOf("5972")),
-    
-    _5973(String.valueOf("5973")),
-    
-    _5975(String.valueOf("5975")),
-    
-    _4326(String.valueOf("4326")),
-    
-    UTM32(String.valueOf("UTM32")),
-    
-    UTM33(String.valueOf("UTM33")),
-    
-    UTM35(String.valueOf("UTM35")),
-    
-    WGS84(String.valueOf("WGS84"));
-
-    private String value;
-
-    SridEnum(String value) {
-      this.value = value;
-    }
-
-    @JsonValue
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-
-    @JsonCreator
-    public static SridEnum fromValue(String value) {
-      for (SridEnum b : SridEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
-        }
-      }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
-    }
-  }
-
   public static final String JSON_PROPERTY_SRID = "srid";
   @jakarta.annotation.Nullable
-  private SridEnum srid;
+  private SridParameter srid;
 
   public FinnRuteParameters() {
   }
@@ -488,7 +344,7 @@ public class FinnRuteParameters {
     this.vegsystemreferanse = vegsystemreferanse;
   }
 
-  public FinnRuteParameters trafikantgruppe(@jakarta.annotation.Nullable TrafikantgruppeEnum trafikantgruppe) {
+  public FinnRuteParameters trafikantgruppe(@jakarta.annotation.Nullable Trafikantgruppe trafikantgruppe) {
     
     this.trafikantgruppe = trafikantgruppe;
     return this;
@@ -502,14 +358,14 @@ public class FinnRuteParameters {
   @JsonProperty(JSON_PROPERTY_TRAFIKANTGRUPPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public TrafikantgruppeEnum getTrafikantgruppe() {
+  public Trafikantgruppe getTrafikantgruppe() {
     return trafikantgruppe;
   }
 
 
   @JsonProperty(JSON_PROPERTY_TRAFIKANTGRUPPE)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setTrafikantgruppe(@jakarta.annotation.Nullable TrafikantgruppeEnum trafikantgruppe) {
+  public void setTrafikantgruppe(@jakarta.annotation.Nullable Trafikantgruppe trafikantgruppe) {
     this.trafikantgruppe = trafikantgruppe;
   }
 
@@ -538,13 +394,13 @@ public class FinnRuteParameters {
     this.beholdTrafikantgruppe = beholdTrafikantgruppe;
   }
 
-  public FinnRuteParameters typeveg(@jakarta.annotation.Nullable Set<TypevegEnum> typeveg) {
+  public FinnRuteParameters typeveg(@jakarta.annotation.Nullable Set<TypeVeg> typeveg) {
     
     this.typeveg = typeveg;
     return this;
   }
 
-  public FinnRuteParameters addTypevegItem(TypevegEnum typevegItem) {
+  public FinnRuteParameters addTypevegItem(TypeVeg typevegItem) {
     if (this.typeveg == null) {
       this.typeveg = new LinkedHashSet<>();
     }
@@ -560,7 +416,7 @@ public class FinnRuteParameters {
   @JsonProperty(JSON_PROPERTY_TYPEVEG)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public Set<TypevegEnum> getTypeveg() {
+  public Set<TypeVeg> getTypeveg() {
     return typeveg;
   }
 
@@ -568,7 +424,7 @@ public class FinnRuteParameters {
   @JsonDeserialize(as = LinkedHashSet.class)
   @JsonProperty(JSON_PROPERTY_TYPEVEG)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setTypeveg(@jakarta.annotation.Nullable Set<TypevegEnum> typeveg) {
+  public void setTypeveg(@jakarta.annotation.Nullable Set<TypeVeg> typeveg) {
     this.typeveg = typeveg;
   }
 
@@ -597,7 +453,7 @@ public class FinnRuteParameters {
     this.tidspunkt = tidspunkt;
   }
 
-  public FinnRuteParameters srid(@jakarta.annotation.Nullable SridEnum srid) {
+  public FinnRuteParameters srid(@jakarta.annotation.Nullable SridParameter srid) {
     
     this.srid = srid;
     return this;
@@ -611,14 +467,14 @@ public class FinnRuteParameters {
   @JsonProperty(JSON_PROPERTY_SRID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public SridEnum getSrid() {
+  public SridParameter getSrid() {
     return srid;
   }
 
 
   @JsonProperty(JSON_PROPERTY_SRID)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setSrid(@jakarta.annotation.Nullable SridEnum srid) {
+  public void setSrid(@jakarta.annotation.Nullable SridParameter srid) {
     this.srid = srid;
   }
 

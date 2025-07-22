@@ -7,6 +7,9 @@ import java.time.LocalDate;
 import no.vegvesen.vt.nvdb.vegnett.model.ProblemDetail;
 import no.vegvesen.vt.nvdb.vegnett.model.RuteResponse;
 import java.util.Set;
+import no.vegvesen.vt.nvdb.vegnett.model.SridParameter;
+import no.vegvesen.vt.nvdb.vegnett.model.Trafikantgruppe;
+import no.vegvesen.vt.nvdb.vegnett.model.TypeVeg;
 
 import java.util.HashMap;
 import java.util.List;
@@ -77,7 +80,7 @@ public class RuteApi {
      * @return RuteResponse
      * @throws WebClientResponseException if an error occurs while attempting to invoke the API
      */
-    private ResponseSpec getRuteRequestCreation(@jakarta.annotation.Nullable String start, @jakarta.annotation.Nullable String slutt, @jakarta.annotation.Nullable String geometri, @jakarta.annotation.Nullable Integer maksAvstand, @jakarta.annotation.Nullable Integer omkrets, @jakarta.annotation.Nullable Boolean konnekteringslenker, @jakarta.annotation.Nullable Boolean detaljerteLenker, @jakarta.annotation.Nullable Boolean kortform, @jakarta.annotation.Nullable Set<String> vegsystemreferanse, @jakarta.annotation.Nullable String trafikantgruppe, @jakarta.annotation.Nullable Boolean beholdTrafikantgruppe, @jakarta.annotation.Nullable Set<String> typeveg, @jakarta.annotation.Nullable LocalDate tidspunkt, @jakarta.annotation.Nullable String srid) throws WebClientResponseException {
+    private ResponseSpec getRuteRequestCreation(@jakarta.annotation.Nullable String start, @jakarta.annotation.Nullable String slutt, @jakarta.annotation.Nullable String geometri, @jakarta.annotation.Nullable Integer maksAvstand, @jakarta.annotation.Nullable Integer omkrets, @jakarta.annotation.Nullable Boolean konnekteringslenker, @jakarta.annotation.Nullable Boolean detaljerteLenker, @jakarta.annotation.Nullable Boolean kortform, @jakarta.annotation.Nullable Set<String> vegsystemreferanse, @jakarta.annotation.Nullable Trafikantgruppe trafikantgruppe, @jakarta.annotation.Nullable Boolean beholdTrafikantgruppe, @jakarta.annotation.Nullable Set<TypeVeg> typeveg, @jakarta.annotation.Nullable LocalDate tidspunkt, @jakarta.annotation.Nullable SridParameter srid) throws WebClientResponseException {
         Object postBody = null;
         // create path and map variables
         final Map<String, Object> pathParams = new HashMap<String, Object>();
@@ -139,7 +142,7 @@ public class RuteApi {
      * @return RuteResponse
      * @throws WebClientResponseException if an error occurs while attempting to invoke the API
      */
-    public Mono<RuteResponse> getRute(@jakarta.annotation.Nullable String start, @jakarta.annotation.Nullable String slutt, @jakarta.annotation.Nullable String geometri, @jakarta.annotation.Nullable Integer maksAvstand, @jakarta.annotation.Nullable Integer omkrets, @jakarta.annotation.Nullable Boolean konnekteringslenker, @jakarta.annotation.Nullable Boolean detaljerteLenker, @jakarta.annotation.Nullable Boolean kortform, @jakarta.annotation.Nullable Set<String> vegsystemreferanse, @jakarta.annotation.Nullable String trafikantgruppe, @jakarta.annotation.Nullable Boolean beholdTrafikantgruppe, @jakarta.annotation.Nullable Set<String> typeveg, @jakarta.annotation.Nullable LocalDate tidspunkt, @jakarta.annotation.Nullable String srid) throws WebClientResponseException {
+    public Mono<RuteResponse> getRute(@jakarta.annotation.Nullable String start, @jakarta.annotation.Nullable String slutt, @jakarta.annotation.Nullable String geometri, @jakarta.annotation.Nullable Integer maksAvstand, @jakarta.annotation.Nullable Integer omkrets, @jakarta.annotation.Nullable Boolean konnekteringslenker, @jakarta.annotation.Nullable Boolean detaljerteLenker, @jakarta.annotation.Nullable Boolean kortform, @jakarta.annotation.Nullable Set<String> vegsystemreferanse, @jakarta.annotation.Nullable Trafikantgruppe trafikantgruppe, @jakarta.annotation.Nullable Boolean beholdTrafikantgruppe, @jakarta.annotation.Nullable Set<TypeVeg> typeveg, @jakarta.annotation.Nullable LocalDate tidspunkt, @jakarta.annotation.Nullable SridParameter srid) throws WebClientResponseException {
         ParameterizedTypeReference<RuteResponse> localVarReturnType = new ParameterizedTypeReference<RuteResponse>() {};
         return getRuteRequestCreation(start, slutt, geometri, maksAvstand, omkrets, konnekteringslenker, detaljerteLenker, kortform, vegsystemreferanse, trafikantgruppe, beholdTrafikantgruppe, typeveg, tidspunkt, srid).bodyToMono(localVarReturnType);
     }
@@ -168,7 +171,7 @@ public class RuteApi {
      * @return ResponseEntity&lt;RuteResponse&gt;
      * @throws WebClientResponseException if an error occurs while attempting to invoke the API
      */
-    public Mono<ResponseEntity<RuteResponse>> getRuteWithHttpInfo(@jakarta.annotation.Nullable String start, @jakarta.annotation.Nullable String slutt, @jakarta.annotation.Nullable String geometri, @jakarta.annotation.Nullable Integer maksAvstand, @jakarta.annotation.Nullable Integer omkrets, @jakarta.annotation.Nullable Boolean konnekteringslenker, @jakarta.annotation.Nullable Boolean detaljerteLenker, @jakarta.annotation.Nullable Boolean kortform, @jakarta.annotation.Nullable Set<String> vegsystemreferanse, @jakarta.annotation.Nullable String trafikantgruppe, @jakarta.annotation.Nullable Boolean beholdTrafikantgruppe, @jakarta.annotation.Nullable Set<String> typeveg, @jakarta.annotation.Nullable LocalDate tidspunkt, @jakarta.annotation.Nullable String srid) throws WebClientResponseException {
+    public Mono<ResponseEntity<RuteResponse>> getRuteWithHttpInfo(@jakarta.annotation.Nullable String start, @jakarta.annotation.Nullable String slutt, @jakarta.annotation.Nullable String geometri, @jakarta.annotation.Nullable Integer maksAvstand, @jakarta.annotation.Nullable Integer omkrets, @jakarta.annotation.Nullable Boolean konnekteringslenker, @jakarta.annotation.Nullable Boolean detaljerteLenker, @jakarta.annotation.Nullable Boolean kortform, @jakarta.annotation.Nullable Set<String> vegsystemreferanse, @jakarta.annotation.Nullable Trafikantgruppe trafikantgruppe, @jakarta.annotation.Nullable Boolean beholdTrafikantgruppe, @jakarta.annotation.Nullable Set<TypeVeg> typeveg, @jakarta.annotation.Nullable LocalDate tidspunkt, @jakarta.annotation.Nullable SridParameter srid) throws WebClientResponseException {
         ParameterizedTypeReference<RuteResponse> localVarReturnType = new ParameterizedTypeReference<RuteResponse>() {};
         return getRuteRequestCreation(start, slutt, geometri, maksAvstand, omkrets, konnekteringslenker, detaljerteLenker, kortform, vegsystemreferanse, trafikantgruppe, beholdTrafikantgruppe, typeveg, tidspunkt, srid).toEntity(localVarReturnType);
     }
@@ -197,7 +200,7 @@ public class RuteApi {
      * @return ResponseSpec
      * @throws WebClientResponseException if an error occurs while attempting to invoke the API
      */
-    public ResponseSpec getRuteWithResponseSpec(@jakarta.annotation.Nullable String start, @jakarta.annotation.Nullable String slutt, @jakarta.annotation.Nullable String geometri, @jakarta.annotation.Nullable Integer maksAvstand, @jakarta.annotation.Nullable Integer omkrets, @jakarta.annotation.Nullable Boolean konnekteringslenker, @jakarta.annotation.Nullable Boolean detaljerteLenker, @jakarta.annotation.Nullable Boolean kortform, @jakarta.annotation.Nullable Set<String> vegsystemreferanse, @jakarta.annotation.Nullable String trafikantgruppe, @jakarta.annotation.Nullable Boolean beholdTrafikantgruppe, @jakarta.annotation.Nullable Set<String> typeveg, @jakarta.annotation.Nullable LocalDate tidspunkt, @jakarta.annotation.Nullable String srid) throws WebClientResponseException {
+    public ResponseSpec getRuteWithResponseSpec(@jakarta.annotation.Nullable String start, @jakarta.annotation.Nullable String slutt, @jakarta.annotation.Nullable String geometri, @jakarta.annotation.Nullable Integer maksAvstand, @jakarta.annotation.Nullable Integer omkrets, @jakarta.annotation.Nullable Boolean konnekteringslenker, @jakarta.annotation.Nullable Boolean detaljerteLenker, @jakarta.annotation.Nullable Boolean kortform, @jakarta.annotation.Nullable Set<String> vegsystemreferanse, @jakarta.annotation.Nullable Trafikantgruppe trafikantgruppe, @jakarta.annotation.Nullable Boolean beholdTrafikantgruppe, @jakarta.annotation.Nullable Set<TypeVeg> typeveg, @jakarta.annotation.Nullable LocalDate tidspunkt, @jakarta.annotation.Nullable SridParameter srid) throws WebClientResponseException {
         return getRuteRequestCreation(start, slutt, geometri, maksAvstand, omkrets, konnekteringslenker, detaljerteLenker, kortform, vegsystemreferanse, trafikantgruppe, beholdTrafikantgruppe, typeveg, tidspunkt, srid);
     }
 

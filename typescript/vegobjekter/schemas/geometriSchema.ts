@@ -6,7 +6,7 @@ export const geometriSchema = z.object({
   srid: z.lazy(() => sridSchema),
   forenklet: z
     .boolean()
-    .default(false)
+    .default('false')
     .describe(
       `Indikerer at geometrien er forenklet. Kun inkludert om den er true`,
     )

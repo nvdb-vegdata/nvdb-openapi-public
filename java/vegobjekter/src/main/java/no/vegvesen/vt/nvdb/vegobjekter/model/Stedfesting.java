@@ -26,10 +26,6 @@ import java.util.List;
 import no.vegvesen.vt.nvdb.vegobjekter.model.Retning;
 import no.vegvesen.vt.nvdb.vegobjekter.model.Sideposisjon;
 import no.vegvesen.vt.nvdb.vegobjekter.model.Stedfestingstype;
-import org.openapitools.jackson.nullable.JsonNullable;
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import org.openapitools.jackson.nullable.JsonNullable;
-import java.util.NoSuchElementException;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 
@@ -78,11 +74,11 @@ public class Stedfesting {
 
   public static final String JSON_PROPERTY_STARTPUNKT = "startpunkt";
   @jakarta.annotation.Nullable
-  private JsonNullable<Object> startpunkt = JsonNullable.<Object>of(null);
+  private Stedfesting startpunkt;
 
   public static final String JSON_PROPERTY_SLUTTPUNKT = "sluttpunkt";
   @jakarta.annotation.Nullable
-  private JsonNullable<Object> sluttpunkt = JsonNullable.<Object>of(null);
+  private Stedfesting sluttpunkt;
 
   public static final String JSON_PROPERTY_RETNING = "retning";
   @jakarta.annotation.Nullable
@@ -253,9 +249,9 @@ public class Stedfesting {
     this.sluttposisjon = sluttposisjon;
   }
 
-  public Stedfesting startpunkt(@jakarta.annotation.Nullable Object startpunkt) {
-    this.startpunkt = JsonNullable.<Object>of(startpunkt);
+  public Stedfesting startpunkt(@jakarta.annotation.Nullable Stedfesting startpunkt) {
     
+    this.startpunkt = startpunkt;
     return this;
   }
 
@@ -264,31 +260,23 @@ public class Stedfesting {
    * @return startpunkt
    */
   @jakarta.annotation.Nullable
-  @JsonIgnore
-
-  public Object getStartpunkt() {
-        return startpunkt.orElse(null);
-  }
-
   @JsonProperty(JSON_PROPERTY_STARTPUNKT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<Object> getStartpunkt_JsonNullable() {
+  public Stedfesting getStartpunkt() {
     return startpunkt;
   }
-  
+
+
   @JsonProperty(JSON_PROPERTY_STARTPUNKT)
-  public void setStartpunkt_JsonNullable(JsonNullable<Object> startpunkt) {
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setStartpunkt(@jakarta.annotation.Nullable Stedfesting startpunkt) {
     this.startpunkt = startpunkt;
   }
 
-  public void setStartpunkt(@jakarta.annotation.Nullable Object startpunkt) {
-    this.startpunkt = JsonNullable.<Object>of(startpunkt);
-  }
-
-  public Stedfesting sluttpunkt(@jakarta.annotation.Nullable Object sluttpunkt) {
-    this.sluttpunkt = JsonNullable.<Object>of(sluttpunkt);
+  public Stedfesting sluttpunkt(@jakarta.annotation.Nullable Stedfesting sluttpunkt) {
     
+    this.sluttpunkt = sluttpunkt;
     return this;
   }
 
@@ -297,26 +285,18 @@ public class Stedfesting {
    * @return sluttpunkt
    */
   @jakarta.annotation.Nullable
-  @JsonIgnore
-
-  public Object getSluttpunkt() {
-        return sluttpunkt.orElse(null);
-  }
-
   @JsonProperty(JSON_PROPERTY_SLUTTPUNKT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public JsonNullable<Object> getSluttpunkt_JsonNullable() {
+  public Stedfesting getSluttpunkt() {
     return sluttpunkt;
   }
-  
-  @JsonProperty(JSON_PROPERTY_SLUTTPUNKT)
-  public void setSluttpunkt_JsonNullable(JsonNullable<Object> sluttpunkt) {
-    this.sluttpunkt = sluttpunkt;
-  }
 
-  public void setSluttpunkt(@jakarta.annotation.Nullable Object sluttpunkt) {
-    this.sluttpunkt = JsonNullable.<Object>of(sluttpunkt);
+
+  @JsonProperty(JSON_PROPERTY_SLUTTPUNKT)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setSluttpunkt(@jakarta.annotation.Nullable Stedfesting sluttpunkt) {
+    this.sluttpunkt = sluttpunkt;
   }
 
   public Stedfesting retning(@jakarta.annotation.Nullable Retning retning) {
@@ -443,28 +423,17 @@ public class Stedfesting {
         Objects.equals(this.relativPosisjon, stedfesting.relativPosisjon) &&
         Objects.equals(this.startposisjon, stedfesting.startposisjon) &&
         Objects.equals(this.sluttposisjon, stedfesting.sluttposisjon) &&
-        equalsNullable(this.startpunkt, stedfesting.startpunkt) &&
-        equalsNullable(this.sluttpunkt, stedfesting.sluttpunkt) &&
+        Objects.equals(this.startpunkt, stedfesting.startpunkt) &&
+        Objects.equals(this.sluttpunkt, stedfesting.sluttpunkt) &&
         Objects.equals(this.retning, stedfesting.retning) &&
         Objects.equals(this.kjørefelt, stedfesting.kjørefelt) &&
         Objects.equals(this.sideposisjon, stedfesting.sideposisjon) &&
         Objects.equals(this.kortform, stedfesting.kortform);
   }
 
-  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
-    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
-  }
-
   @Override
   public int hashCode() {
-    return Objects.hash(type, veglenkesekvensid, nodeid, relativPosisjon, startposisjon, sluttposisjon, hashCodeNullable(startpunkt), hashCodeNullable(sluttpunkt), retning, kjørefelt, sideposisjon, kortform);
-  }
-
-  private static <T> int hashCodeNullable(JsonNullable<T> a) {
-    if (a == null) {
-      return 1;
-    }
-    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
+    return Objects.hash(type, veglenkesekvensid, nodeid, relativPosisjon, startposisjon, sluttposisjon, startpunkt, sluttpunkt, retning, kjørefelt, sideposisjon, kortform);
   }
 
   @Override

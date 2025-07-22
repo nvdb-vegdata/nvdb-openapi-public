@@ -8,6 +8,8 @@ import no.vegvesen.vt.nvdb.vegnett.model.Posisjon;
 import no.vegvesen.vt.nvdb.vegnett.model.PosisjonMedAvstand;
 import no.vegvesen.vt.nvdb.vegnett.model.ProblemDetail;
 import java.util.Set;
+import no.vegvesen.vt.nvdb.vegnett.model.SridParameter;
+import no.vegvesen.vt.nvdb.vegnett.model.Trafikantgruppe;
 
 import java.util.HashMap;
 import java.util.List;
@@ -76,7 +78,7 @@ public class PosisjonApi {
      * @return List&lt;PosisjonMedAvstand&gt;
      * @throws WebClientResponseException if an error occurs while attempting to invoke the API
      */
-    private ResponseSpec findPosisjonRequestCreation(@jakarta.annotation.Nullable Double nord, @jakarta.annotation.Nullable Double ost, @jakarta.annotation.Nullable Double lat, @jakarta.annotation.Nullable Double lon, @jakarta.annotation.Nullable Integer maksAvstand, @jakarta.annotation.Nullable Integer maksAntall, @jakarta.annotation.Nullable Boolean konnekteringslenker, @jakarta.annotation.Nullable Boolean detaljerteLenker, @jakarta.annotation.Nullable LocalDate tidspunkt, @jakarta.annotation.Nullable Set<String> vegsystemreferanse, @jakarta.annotation.Nullable String srid, @jakarta.annotation.Nullable String trafikantgruppe) throws WebClientResponseException {
+    private ResponseSpec findPosisjonRequestCreation(@jakarta.annotation.Nullable Double nord, @jakarta.annotation.Nullable Double ost, @jakarta.annotation.Nullable Double lat, @jakarta.annotation.Nullable Double lon, @jakarta.annotation.Nullable Integer maksAvstand, @jakarta.annotation.Nullable Integer maksAntall, @jakarta.annotation.Nullable Boolean konnekteringslenker, @jakarta.annotation.Nullable Boolean detaljerteLenker, @jakarta.annotation.Nullable LocalDate tidspunkt, @jakarta.annotation.Nullable Set<String> vegsystemreferanse, @jakarta.annotation.Nullable SridParameter srid, @jakarta.annotation.Nullable Trafikantgruppe trafikantgruppe) throws WebClientResponseException {
         Object postBody = null;
         // create path and map variables
         final Map<String, Object> pathParams = new HashMap<String, Object>();
@@ -134,7 +136,7 @@ public class PosisjonApi {
      * @return List&lt;PosisjonMedAvstand&gt;
      * @throws WebClientResponseException if an error occurs while attempting to invoke the API
      */
-    public Flux<PosisjonMedAvstand> findPosisjon(@jakarta.annotation.Nullable Double nord, @jakarta.annotation.Nullable Double ost, @jakarta.annotation.Nullable Double lat, @jakarta.annotation.Nullable Double lon, @jakarta.annotation.Nullable Integer maksAvstand, @jakarta.annotation.Nullable Integer maksAntall, @jakarta.annotation.Nullable Boolean konnekteringslenker, @jakarta.annotation.Nullable Boolean detaljerteLenker, @jakarta.annotation.Nullable LocalDate tidspunkt, @jakarta.annotation.Nullable Set<String> vegsystemreferanse, @jakarta.annotation.Nullable String srid, @jakarta.annotation.Nullable String trafikantgruppe) throws WebClientResponseException {
+    public Flux<PosisjonMedAvstand> findPosisjon(@jakarta.annotation.Nullable Double nord, @jakarta.annotation.Nullable Double ost, @jakarta.annotation.Nullable Double lat, @jakarta.annotation.Nullable Double lon, @jakarta.annotation.Nullable Integer maksAvstand, @jakarta.annotation.Nullable Integer maksAntall, @jakarta.annotation.Nullable Boolean konnekteringslenker, @jakarta.annotation.Nullable Boolean detaljerteLenker, @jakarta.annotation.Nullable LocalDate tidspunkt, @jakarta.annotation.Nullable Set<String> vegsystemreferanse, @jakarta.annotation.Nullable SridParameter srid, @jakarta.annotation.Nullable Trafikantgruppe trafikantgruppe) throws WebClientResponseException {
         ParameterizedTypeReference<PosisjonMedAvstand> localVarReturnType = new ParameterizedTypeReference<PosisjonMedAvstand>() {};
         return findPosisjonRequestCreation(nord, ost, lat, lon, maksAvstand, maksAntall, konnekteringslenker, detaljerteLenker, tidspunkt, vegsystemreferanse, srid, trafikantgruppe).bodyToFlux(localVarReturnType);
     }
@@ -161,7 +163,7 @@ public class PosisjonApi {
      * @return ResponseEntity&lt;List&lt;PosisjonMedAvstand&gt;&gt;
      * @throws WebClientResponseException if an error occurs while attempting to invoke the API
      */
-    public Mono<ResponseEntity<List<PosisjonMedAvstand>>> findPosisjonWithHttpInfo(@jakarta.annotation.Nullable Double nord, @jakarta.annotation.Nullable Double ost, @jakarta.annotation.Nullable Double lat, @jakarta.annotation.Nullable Double lon, @jakarta.annotation.Nullable Integer maksAvstand, @jakarta.annotation.Nullable Integer maksAntall, @jakarta.annotation.Nullable Boolean konnekteringslenker, @jakarta.annotation.Nullable Boolean detaljerteLenker, @jakarta.annotation.Nullable LocalDate tidspunkt, @jakarta.annotation.Nullable Set<String> vegsystemreferanse, @jakarta.annotation.Nullable String srid, @jakarta.annotation.Nullable String trafikantgruppe) throws WebClientResponseException {
+    public Mono<ResponseEntity<List<PosisjonMedAvstand>>> findPosisjonWithHttpInfo(@jakarta.annotation.Nullable Double nord, @jakarta.annotation.Nullable Double ost, @jakarta.annotation.Nullable Double lat, @jakarta.annotation.Nullable Double lon, @jakarta.annotation.Nullable Integer maksAvstand, @jakarta.annotation.Nullable Integer maksAntall, @jakarta.annotation.Nullable Boolean konnekteringslenker, @jakarta.annotation.Nullable Boolean detaljerteLenker, @jakarta.annotation.Nullable LocalDate tidspunkt, @jakarta.annotation.Nullable Set<String> vegsystemreferanse, @jakarta.annotation.Nullable SridParameter srid, @jakarta.annotation.Nullable Trafikantgruppe trafikantgruppe) throws WebClientResponseException {
         ParameterizedTypeReference<PosisjonMedAvstand> localVarReturnType = new ParameterizedTypeReference<PosisjonMedAvstand>() {};
         return findPosisjonRequestCreation(nord, ost, lat, lon, maksAvstand, maksAntall, konnekteringslenker, detaljerteLenker, tidspunkt, vegsystemreferanse, srid, trafikantgruppe).toEntityList(localVarReturnType);
     }
@@ -188,7 +190,7 @@ public class PosisjonApi {
      * @return ResponseSpec
      * @throws WebClientResponseException if an error occurs while attempting to invoke the API
      */
-    public ResponseSpec findPosisjonWithResponseSpec(@jakarta.annotation.Nullable Double nord, @jakarta.annotation.Nullable Double ost, @jakarta.annotation.Nullable Double lat, @jakarta.annotation.Nullable Double lon, @jakarta.annotation.Nullable Integer maksAvstand, @jakarta.annotation.Nullable Integer maksAntall, @jakarta.annotation.Nullable Boolean konnekteringslenker, @jakarta.annotation.Nullable Boolean detaljerteLenker, @jakarta.annotation.Nullable LocalDate tidspunkt, @jakarta.annotation.Nullable Set<String> vegsystemreferanse, @jakarta.annotation.Nullable String srid, @jakarta.annotation.Nullable String trafikantgruppe) throws WebClientResponseException {
+    public ResponseSpec findPosisjonWithResponseSpec(@jakarta.annotation.Nullable Double nord, @jakarta.annotation.Nullable Double ost, @jakarta.annotation.Nullable Double lat, @jakarta.annotation.Nullable Double lon, @jakarta.annotation.Nullable Integer maksAvstand, @jakarta.annotation.Nullable Integer maksAntall, @jakarta.annotation.Nullable Boolean konnekteringslenker, @jakarta.annotation.Nullable Boolean detaljerteLenker, @jakarta.annotation.Nullable LocalDate tidspunkt, @jakarta.annotation.Nullable Set<String> vegsystemreferanse, @jakarta.annotation.Nullable SridParameter srid, @jakarta.annotation.Nullable Trafikantgruppe trafikantgruppe) throws WebClientResponseException {
         return findPosisjonRequestCreation(nord, ost, lat, lon, maksAvstand, maksAntall, konnekteringslenker, detaljerteLenker, tidspunkt, vegsystemreferanse, srid, trafikantgruppe);
     }
 
@@ -207,7 +209,7 @@ public class PosisjonApi {
      * @return Posisjon
      * @throws WebClientResponseException if an error occurs while attempting to invoke the API
      */
-    private ResponseSpec findPosisjonForVegRequestCreation(@jakarta.annotation.Nullable String vegsystemreferanse, @jakarta.annotation.Nullable String veglenkesekvens, @jakarta.annotation.Nullable LocalDate tidspunkt, @jakarta.annotation.Nullable String srid, @jakarta.annotation.Nullable Set<Integer> kommune) throws WebClientResponseException {
+    private ResponseSpec findPosisjonForVegRequestCreation(@jakarta.annotation.Nullable String vegsystemreferanse, @jakarta.annotation.Nullable String veglenkesekvens, @jakarta.annotation.Nullable LocalDate tidspunkt, @jakarta.annotation.Nullable SridParameter srid, @jakarta.annotation.Nullable Set<Integer> kommune) throws WebClientResponseException {
         Object postBody = null;
         // create path and map variables
         final Map<String, Object> pathParams = new HashMap<String, Object>();
@@ -251,7 +253,7 @@ public class PosisjonApi {
      * @return Posisjon
      * @throws WebClientResponseException if an error occurs while attempting to invoke the API
      */
-    public Mono<Posisjon> findPosisjonForVeg(@jakarta.annotation.Nullable String vegsystemreferanse, @jakarta.annotation.Nullable String veglenkesekvens, @jakarta.annotation.Nullable LocalDate tidspunkt, @jakarta.annotation.Nullable String srid, @jakarta.annotation.Nullable Set<Integer> kommune) throws WebClientResponseException {
+    public Mono<Posisjon> findPosisjonForVeg(@jakarta.annotation.Nullable String vegsystemreferanse, @jakarta.annotation.Nullable String veglenkesekvens, @jakarta.annotation.Nullable LocalDate tidspunkt, @jakarta.annotation.Nullable SridParameter srid, @jakarta.annotation.Nullable Set<Integer> kommune) throws WebClientResponseException {
         ParameterizedTypeReference<Posisjon> localVarReturnType = new ParameterizedTypeReference<Posisjon>() {};
         return findPosisjonForVegRequestCreation(vegsystemreferanse, veglenkesekvens, tidspunkt, srid, kommune).bodyToMono(localVarReturnType);
     }
@@ -271,7 +273,7 @@ public class PosisjonApi {
      * @return ResponseEntity&lt;Posisjon&gt;
      * @throws WebClientResponseException if an error occurs while attempting to invoke the API
      */
-    public Mono<ResponseEntity<Posisjon>> findPosisjonForVegWithHttpInfo(@jakarta.annotation.Nullable String vegsystemreferanse, @jakarta.annotation.Nullable String veglenkesekvens, @jakarta.annotation.Nullable LocalDate tidspunkt, @jakarta.annotation.Nullable String srid, @jakarta.annotation.Nullable Set<Integer> kommune) throws WebClientResponseException {
+    public Mono<ResponseEntity<Posisjon>> findPosisjonForVegWithHttpInfo(@jakarta.annotation.Nullable String vegsystemreferanse, @jakarta.annotation.Nullable String veglenkesekvens, @jakarta.annotation.Nullable LocalDate tidspunkt, @jakarta.annotation.Nullable SridParameter srid, @jakarta.annotation.Nullable Set<Integer> kommune) throws WebClientResponseException {
         ParameterizedTypeReference<Posisjon> localVarReturnType = new ParameterizedTypeReference<Posisjon>() {};
         return findPosisjonForVegRequestCreation(vegsystemreferanse, veglenkesekvens, tidspunkt, srid, kommune).toEntity(localVarReturnType);
     }
@@ -291,7 +293,7 @@ public class PosisjonApi {
      * @return ResponseSpec
      * @throws WebClientResponseException if an error occurs while attempting to invoke the API
      */
-    public ResponseSpec findPosisjonForVegWithResponseSpec(@jakarta.annotation.Nullable String vegsystemreferanse, @jakarta.annotation.Nullable String veglenkesekvens, @jakarta.annotation.Nullable LocalDate tidspunkt, @jakarta.annotation.Nullable String srid, @jakarta.annotation.Nullable Set<Integer> kommune) throws WebClientResponseException {
+    public ResponseSpec findPosisjonForVegWithResponseSpec(@jakarta.annotation.Nullable String vegsystemreferanse, @jakarta.annotation.Nullable String veglenkesekvens, @jakarta.annotation.Nullable LocalDate tidspunkt, @jakarta.annotation.Nullable SridParameter srid, @jakarta.annotation.Nullable Set<Integer> kommune) throws WebClientResponseException {
         return findPosisjonForVegRequestCreation(vegsystemreferanse, veglenkesekvens, tidspunkt, srid, kommune);
     }
 
@@ -309,7 +311,7 @@ public class PosisjonApi {
      * @return AlwaysIncludeMapStringPosisjon
      * @throws WebClientResponseException if an error occurs while attempting to invoke the API
      */
-    private ResponseSpec findPosisjonerForVegRequestCreation(@jakarta.annotation.Nullable List<String> vegsystemreferanser, @jakarta.annotation.Nullable List<String> veglenkesekvenser, @jakarta.annotation.Nullable Set<Integer> kommune, @jakarta.annotation.Nullable String srid) throws WebClientResponseException {
+    private ResponseSpec findPosisjonerForVegRequestCreation(@jakarta.annotation.Nullable List<String> vegsystemreferanser, @jakarta.annotation.Nullable List<String> veglenkesekvenser, @jakarta.annotation.Nullable Set<Integer> kommune, @jakarta.annotation.Nullable SridParameter srid) throws WebClientResponseException {
         Object postBody = null;
         // create path and map variables
         final Map<String, Object> pathParams = new HashMap<String, Object>();
@@ -351,7 +353,7 @@ public class PosisjonApi {
      * @return AlwaysIncludeMapStringPosisjon
      * @throws WebClientResponseException if an error occurs while attempting to invoke the API
      */
-    public Mono<AlwaysIncludeMapStringPosisjon> findPosisjonerForVeg(@jakarta.annotation.Nullable List<String> vegsystemreferanser, @jakarta.annotation.Nullable List<String> veglenkesekvenser, @jakarta.annotation.Nullable Set<Integer> kommune, @jakarta.annotation.Nullable String srid) throws WebClientResponseException {
+    public Mono<AlwaysIncludeMapStringPosisjon> findPosisjonerForVeg(@jakarta.annotation.Nullable List<String> vegsystemreferanser, @jakarta.annotation.Nullable List<String> veglenkesekvenser, @jakarta.annotation.Nullable Set<Integer> kommune, @jakarta.annotation.Nullable SridParameter srid) throws WebClientResponseException {
         ParameterizedTypeReference<AlwaysIncludeMapStringPosisjon> localVarReturnType = new ParameterizedTypeReference<AlwaysIncludeMapStringPosisjon>() {};
         return findPosisjonerForVegRequestCreation(vegsystemreferanser, veglenkesekvenser, kommune, srid).bodyToMono(localVarReturnType);
     }
@@ -370,7 +372,7 @@ public class PosisjonApi {
      * @return ResponseEntity&lt;AlwaysIncludeMapStringPosisjon&gt;
      * @throws WebClientResponseException if an error occurs while attempting to invoke the API
      */
-    public Mono<ResponseEntity<AlwaysIncludeMapStringPosisjon>> findPosisjonerForVegWithHttpInfo(@jakarta.annotation.Nullable List<String> vegsystemreferanser, @jakarta.annotation.Nullable List<String> veglenkesekvenser, @jakarta.annotation.Nullable Set<Integer> kommune, @jakarta.annotation.Nullable String srid) throws WebClientResponseException {
+    public Mono<ResponseEntity<AlwaysIncludeMapStringPosisjon>> findPosisjonerForVegWithHttpInfo(@jakarta.annotation.Nullable List<String> vegsystemreferanser, @jakarta.annotation.Nullable List<String> veglenkesekvenser, @jakarta.annotation.Nullable Set<Integer> kommune, @jakarta.annotation.Nullable SridParameter srid) throws WebClientResponseException {
         ParameterizedTypeReference<AlwaysIncludeMapStringPosisjon> localVarReturnType = new ParameterizedTypeReference<AlwaysIncludeMapStringPosisjon>() {};
         return findPosisjonerForVegRequestCreation(vegsystemreferanser, veglenkesekvenser, kommune, srid).toEntity(localVarReturnType);
     }
@@ -389,7 +391,7 @@ public class PosisjonApi {
      * @return ResponseSpec
      * @throws WebClientResponseException if an error occurs while attempting to invoke the API
      */
-    public ResponseSpec findPosisjonerForVegWithResponseSpec(@jakarta.annotation.Nullable List<String> vegsystemreferanser, @jakarta.annotation.Nullable List<String> veglenkesekvenser, @jakarta.annotation.Nullable Set<Integer> kommune, @jakarta.annotation.Nullable String srid) throws WebClientResponseException {
+    public ResponseSpec findPosisjonerForVegWithResponseSpec(@jakarta.annotation.Nullable List<String> vegsystemreferanser, @jakarta.annotation.Nullable List<String> veglenkesekvenser, @jakarta.annotation.Nullable Set<Integer> kommune, @jakarta.annotation.Nullable SridParameter srid) throws WebClientResponseException {
         return findPosisjonerForVegRequestCreation(vegsystemreferanser, veglenkesekvenser, kommune, srid);
     }
 }
