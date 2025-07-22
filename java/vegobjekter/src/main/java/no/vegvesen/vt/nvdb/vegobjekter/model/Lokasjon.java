@@ -174,7 +174,7 @@ public class Lokasjon {
   }
 
   /**
-   * Get kontraktsområder
+   * Utelatt om vegobjektet ikke overlapper med noen kontraktsområder
    * @return kontraktsområder
    */
   @jakarta.annotation.Nullable
@@ -207,7 +207,7 @@ public class Lokasjon {
   }
 
   /**
-   * Get riksvegruter
+   * Utelatt om vegobjektet ikke overlapper med noen riksvegruter
    * @return riksvegruter
    */
   @jakarta.annotation.Nullable
@@ -240,7 +240,7 @@ public class Lokasjon {
   }
 
   /**
-   * Get vegforvaltere
+   * Utelatt om vegobjektet ikke overlapper med noen vegforvaltere
    * @return vegforvaltere
    */
   @jakarta.annotation.Nullable
@@ -273,7 +273,7 @@ public class Lokasjon {
   }
 
   /**
-   * Get adresser
+   * Utelatt om vegobjektet ikke overlapper med noen adresser
    * @return adresser
    */
   @jakarta.annotation.Nullable
@@ -306,7 +306,7 @@ public class Lokasjon {
   }
 
   /**
-   * Get vegsystemreferanser
+   * Utelatt om vegobjektet ikke har noen vegsystemreferanser
    * @return vegsystemreferanser
    */
   @jakarta.annotation.Nullable
@@ -339,7 +339,7 @@ public class Lokasjon {
   }
 
   /**
-   * Get stedfestinger
+   * Utelatt om vegobjektet ikke har noen stedfestinger
    * @return stedfestinger
    */
   @jakarta.annotation.Nullable
@@ -364,7 +364,7 @@ public class Lokasjon {
   }
 
   /**
-   * Get geometri
+   * Kun med om inkludergeometri&#x3D;lokasjon eller inkludergeometri ikke er oppgitt
    * @return geometri
    */
   @jakarta.annotation.Nullable
@@ -389,7 +389,7 @@ public class Lokasjon {
   }
 
   /**
-   * Get lengde
+   * Utelatt om lengde er lik 0
    * @return lengde
    */
   @jakarta.annotation.Nullable

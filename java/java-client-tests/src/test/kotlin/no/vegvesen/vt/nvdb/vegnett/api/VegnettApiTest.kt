@@ -21,6 +21,7 @@ class VegnettApiTest() : ShouldSpec({
                 null,
                 null,
                 null,
+                null,
                 antall,
                 null,
                 null,

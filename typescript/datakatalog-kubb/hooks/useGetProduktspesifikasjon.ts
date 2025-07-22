@@ -73,8 +73,7 @@ export function getProduktspesifikasjonQueryOptions(
 }
 /**
  * @summary Returnerer produktspesifikasjonen til den angitte vegobjekttypen
- * @link /api/v1/vegobjekttyper/:vegobjekttypeid/produktspesifikasjon
- */
+ * @link /api/v1/vegobjekttyper/:vegobjekttypeid/produktspesifikasjon */
 export function useGetProduktspesifikasjon<
   TData = GetProduktspesifikasjon['response'],
   TQueryData = GetProduktspesifikasjon['response'],
@@ -103,7 +102,7 @@ export function useGetProduktspesifikasjon<
     ...(getProduktspesifikasjonQueryOptions(
       vegobjekttypeid,
       clientOptions,
-    ) as unknown as QueryObserverOptions),
+    ) as QueryObserverOptions),
     queryKey,
     ...(queryOptions as unknown as Omit<QueryObserverOptions, 'queryKey'>),
   }) as UseQueryResult<TData, GetProduktspesifikasjon['error']> & {
@@ -146,8 +145,7 @@ export function getProduktspesifikasjonSuspenseQueryOptions(
 }
 /**
  * @summary Returnerer produktspesifikasjonen til den angitte vegobjekttypen
- * @link /api/v1/vegobjekttyper/:vegobjekttypeid/produktspesifikasjon
- */
+ * @link /api/v1/vegobjekttyper/:vegobjekttypeid/produktspesifikasjon */
 export function useGetProduktspesifikasjonSuspense<
   TData = GetProduktspesifikasjon['response'],
   TQueryKey extends QueryKey = GetProduktspesifikasjonSuspenseQueryKey,
@@ -175,9 +173,9 @@ export function useGetProduktspesifikasjonSuspense<
     ...(getProduktspesifikasjonSuspenseQueryOptions(
       vegobjekttypeid,
       clientOptions,
-    ) as unknown as UseSuspenseQueryOptions),
+    ) as QueryObserverOptions),
     queryKey,
-    ...(queryOptions as unknown as Omit<UseSuspenseQueryOptions, 'queryKey'>),
+    ...(queryOptions as unknown as Omit<QueryObserverOptions, 'queryKey'>),
   }) as UseSuspenseQueryResult<TData, GetProduktspesifikasjon['error']> & {
     queryKey: TQueryKey
   }

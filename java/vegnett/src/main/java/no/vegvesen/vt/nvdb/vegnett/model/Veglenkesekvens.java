@@ -100,7 +100,7 @@ public class Veglenkesekvens {
   }
 
   /**
-   * Get href
+   * URL-en til denne veglenkesekvensen
    * @return href
    */
   @jakarta.annotation.Nonnull
@@ -158,7 +158,7 @@ public class Veglenkesekvens {
   }
 
   /**
-   * Get porter
+   * Liste av porter som er tilknyttet veglenkesekvensen
    * @return porter
    */
   @jakarta.annotation.Nonnull
@@ -191,7 +191,7 @@ public class Veglenkesekvens {
   }
 
   /**
-   * Get veglenker
+   * Liste av veglenker som inngår i denne veglenkesekvensen
    * @return veglenker
    */
   @jakarta.annotation.Nonnull

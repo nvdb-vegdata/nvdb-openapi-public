@@ -319,12 +319,6 @@ public class EgenskapstypeTekstenum extends Egenskapstype {
   }
 
   @Override
-  public EgenskapstypeTekstenum komplementærEgenskapstype(@jakarta.annotation.Nullable Integer komplementærEgenskapstype) {
-    this.setKomplementærEgenskapstype(komplementærEgenskapstype);
-    return this;
-  }
-
-  @Override
   public EgenskapstypeTekstenum kortnavn(@jakarta.annotation.Nullable String kortnavn) {
     this.setKortnavn(kortnavn);
     return this;
@@ -333,6 +327,12 @@ public class EgenskapstypeTekstenum extends Egenskapstype {
   @Override
   public EgenskapstypeTekstenum beskrivelse(@jakarta.annotation.Nullable String beskrivelse) {
     this.setBeskrivelse(beskrivelse);
+    return this;
+  }
+
+  @Override
+  public EgenskapstypeTekstenum veiledning(@jakarta.annotation.Nullable String veiledning) {
+    this.setVeiledning(veiledning);
     return this;
   }
 
@@ -361,14 +361,20 @@ public class EgenskapstypeTekstenum extends Egenskapstype {
   }
 
   @Override
-  public EgenskapstypeTekstenum obligatoriskVerdi(@jakarta.annotation.Nonnull Boolean obligatoriskVerdi) {
-    this.setObligatoriskVerdi(obligatoriskVerdi);
+  public EgenskapstypeTekstenum komplementærEgenskapstype(@jakarta.annotation.Nullable Integer komplementærEgenskapstype) {
+    this.setKomplementærEgenskapstype(komplementærEgenskapstype);
     return this;
   }
 
   @Override
   public EgenskapstypeTekstenum skrivebeskyttet(@jakarta.annotation.Nonnull Boolean skrivebeskyttet) {
     this.setSkrivebeskyttet(skrivebeskyttet);
+    return this;
+  }
+
+  @Override
+  public EgenskapstypeTekstenum obligatoriskVerdi(@jakarta.annotation.Nonnull Boolean obligatoriskVerdi) {
+    this.setObligatoriskVerdi(obligatoriskVerdi);
     return this;
   }
 
@@ -381,12 +387,6 @@ public class EgenskapstypeTekstenum extends Egenskapstype {
   @Override
   public EgenskapstypeTekstenum gruppesorteringsnummer(@jakarta.annotation.Nullable Integer gruppesorteringsnummer) {
     this.setGruppesorteringsnummer(gruppesorteringsnummer);
-    return this;
-  }
-
-  @Override
-  public EgenskapstypeTekstenum veiledning(@jakarta.annotation.Nullable String veiledning) {
-    this.setVeiledning(veiledning);
     return this;
   }
 
@@ -441,6 +441,12 @@ public class EgenskapstypeTekstenum extends Egenskapstype {
   @Override
   public EgenskapstypeTekstenum kategori(@jakarta.annotation.Nonnull Integer kategori) {
     this.setKategori(kategori);
+    return this;
+  }
+
+  @Override
+  public EgenskapstypeTekstenum tilleggskrav(@jakarta.annotation.Nullable List<String> tilleggskrav) {
+    this.setTilleggskrav(tilleggskrav);
     return this;
   }
 

@@ -1,16 +1,11 @@
-export type VegsystemVegkategori = 'E' | 'F' | 'K' | 'P' | 'R' | 'S'
-export type VegsystemFase = 'P' | 'A' | 'V' | 'F'
+import type { Vegkategori } from './Vegkategori'
+import type { Vegfase } from './Vegfase'
+
 export type Vegsystem = {
+  vegkategori: Vegkategori
+  fase: Vegfase
   /**
-   * @type string
-   */
-  vegkategori: VegsystemVegkategori
-  /**
-   * @type string
-   */
-  fase: VegsystemFase
-  /**
-   * @type integer | undefined, int32
+   * @type integer | undefined int32
    */
   nummer?: number
 }

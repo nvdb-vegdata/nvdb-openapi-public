@@ -5,8 +5,8 @@ export const egenskapstypeListeSchema = z
   .lazy(() => egenskapstypeSchema)
   .and(
     z.object({
-      maksimalt_antall_verdier: z.number().int().optional(),
-      minimalt_antall_verdier: z.number().int().optional(),
+      maksimalt_antall_verdier: z.number().optional(),
+      minimalt_antall_verdier: z.number().optional(),
       innhold: z.lazy(() => egenskapstypeSchema).optional(),
     }),
   )

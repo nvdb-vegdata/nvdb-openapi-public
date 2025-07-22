@@ -23,6 +23,9 @@ import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import no.vegvesen.vt.nvdb.datakatalog.model.Egenskapstype;
 import no.vegvesen.vt.nvdb.datakatalog.model.EgenskapstypeEnum;
 import no.vegvesen.vt.nvdb.datakatalog.model.Viktighet;
@@ -156,12 +159,6 @@ public class EgenskapstypeListe extends Egenskapstype {
   }
 
   @Override
-  public EgenskapstypeListe komplementærEgenskapstype(@jakarta.annotation.Nullable Integer komplementærEgenskapstype) {
-    this.setKomplementærEgenskapstype(komplementærEgenskapstype);
-    return this;
-  }
-
-  @Override
   public EgenskapstypeListe kortnavn(@jakarta.annotation.Nullable String kortnavn) {
     this.setKortnavn(kortnavn);
     return this;
@@ -170,6 +167,12 @@ public class EgenskapstypeListe extends Egenskapstype {
   @Override
   public EgenskapstypeListe beskrivelse(@jakarta.annotation.Nullable String beskrivelse) {
     this.setBeskrivelse(beskrivelse);
+    return this;
+  }
+
+  @Override
+  public EgenskapstypeListe veiledning(@jakarta.annotation.Nullable String veiledning) {
+    this.setVeiledning(veiledning);
     return this;
   }
 
@@ -198,14 +201,20 @@ public class EgenskapstypeListe extends Egenskapstype {
   }
 
   @Override
-  public EgenskapstypeListe obligatoriskVerdi(@jakarta.annotation.Nonnull Boolean obligatoriskVerdi) {
-    this.setObligatoriskVerdi(obligatoriskVerdi);
+  public EgenskapstypeListe komplementærEgenskapstype(@jakarta.annotation.Nullable Integer komplementærEgenskapstype) {
+    this.setKomplementærEgenskapstype(komplementærEgenskapstype);
     return this;
   }
 
   @Override
   public EgenskapstypeListe skrivebeskyttet(@jakarta.annotation.Nonnull Boolean skrivebeskyttet) {
     this.setSkrivebeskyttet(skrivebeskyttet);
+    return this;
+  }
+
+  @Override
+  public EgenskapstypeListe obligatoriskVerdi(@jakarta.annotation.Nonnull Boolean obligatoriskVerdi) {
+    this.setObligatoriskVerdi(obligatoriskVerdi);
     return this;
   }
 
@@ -218,12 +227,6 @@ public class EgenskapstypeListe extends Egenskapstype {
   @Override
   public EgenskapstypeListe gruppesorteringsnummer(@jakarta.annotation.Nullable Integer gruppesorteringsnummer) {
     this.setGruppesorteringsnummer(gruppesorteringsnummer);
-    return this;
-  }
-
-  @Override
-  public EgenskapstypeListe veiledning(@jakarta.annotation.Nullable String veiledning) {
-    this.setVeiledning(veiledning);
     return this;
   }
 
@@ -278,6 +281,12 @@ public class EgenskapstypeListe extends Egenskapstype {
   @Override
   public EgenskapstypeListe kategori(@jakarta.annotation.Nonnull Integer kategori) {
     this.setKategori(kategori);
+    return this;
+  }
+
+  @Override
+  public EgenskapstypeListe tilleggskrav(@jakarta.annotation.Nullable List<String> tilleggskrav) {
+    this.setTilleggskrav(tilleggskrav);
     return this;
   }
 

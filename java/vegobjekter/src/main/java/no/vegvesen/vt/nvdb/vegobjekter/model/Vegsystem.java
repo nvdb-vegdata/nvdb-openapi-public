@@ -20,6 +20,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import no.vegvesen.vt.nvdb.vegobjekter.model.Vegfase;
+import no.vegvesen.vt.nvdb.vegobjekter.model.Vegkategori;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 
@@ -33,95 +35,13 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 })
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.13.0")
 public class Vegsystem {
-  /**
-   * Gets or Sets vegkategori
-   */
-  public enum VegkategoriEnum {
-    E(String.valueOf("E")),
-    
-    F(String.valueOf("F")),
-    
-    K(String.valueOf("K")),
-    
-    P(String.valueOf("P")),
-    
-    R(String.valueOf("R")),
-    
-    S(String.valueOf("S"));
-
-    private String value;
-
-    VegkategoriEnum(String value) {
-      this.value = value;
-    }
-
-    @JsonValue
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-
-    @JsonCreator
-    public static VegkategoriEnum fromValue(String value) {
-      for (VegkategoriEnum b : VegkategoriEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
-        }
-      }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
-    }
-  }
-
   public static final String JSON_PROPERTY_VEGKATEGORI = "vegkategori";
   @jakarta.annotation.Nonnull
-  private VegkategoriEnum vegkategori;
-
-  /**
-   * Gets or Sets fase
-   */
-  public enum FaseEnum {
-    P(String.valueOf("P")),
-    
-    A(String.valueOf("A")),
-    
-    V(String.valueOf("V")),
-    
-    F(String.valueOf("F"));
-
-    private String value;
-
-    FaseEnum(String value) {
-      this.value = value;
-    }
-
-    @JsonValue
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-
-    @JsonCreator
-    public static FaseEnum fromValue(String value) {
-      for (FaseEnum b : FaseEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
-        }
-      }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
-    }
-  }
+  private Vegkategori vegkategori;
 
   public static final String JSON_PROPERTY_FASE = "fase";
   @jakarta.annotation.Nonnull
-  private FaseEnum fase;
+  private Vegfase fase;
 
   public static final String JSON_PROPERTY_NUMMER = "nummer";
   @jakarta.annotation.Nullable
@@ -130,7 +50,7 @@ public class Vegsystem {
   public Vegsystem() {
   }
 
-  public Vegsystem vegkategori(@jakarta.annotation.Nonnull VegkategoriEnum vegkategori) {
+  public Vegsystem vegkategori(@jakarta.annotation.Nonnull Vegkategori vegkategori) {
     
     this.vegkategori = vegkategori;
     return this;
@@ -144,18 +64,18 @@ public class Vegsystem {
   @JsonProperty(JSON_PROPERTY_VEGKATEGORI)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public VegkategoriEnum getVegkategori() {
+  public Vegkategori getVegkategori() {
     return vegkategori;
   }
 
 
   @JsonProperty(JSON_PROPERTY_VEGKATEGORI)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setVegkategori(@jakarta.annotation.Nonnull VegkategoriEnum vegkategori) {
+  public void setVegkategori(@jakarta.annotation.Nonnull Vegkategori vegkategori) {
     this.vegkategori = vegkategori;
   }
 
-  public Vegsystem fase(@jakarta.annotation.Nonnull FaseEnum fase) {
+  public Vegsystem fase(@jakarta.annotation.Nonnull Vegfase fase) {
     
     this.fase = fase;
     return this;
@@ -169,14 +89,14 @@ public class Vegsystem {
   @JsonProperty(JSON_PROPERTY_FASE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public FaseEnum getFase() {
+  public Vegfase getFase() {
     return fase;
   }
 
 
   @JsonProperty(JSON_PROPERTY_FASE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setFase(@jakarta.annotation.Nonnull FaseEnum fase) {
+  public void setFase(@jakarta.annotation.Nonnull Vegfase fase) {
     this.fase = fase;
   }
 

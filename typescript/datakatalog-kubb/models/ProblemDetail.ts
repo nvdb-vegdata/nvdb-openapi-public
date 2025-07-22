@@ -1,6 +1,6 @@
 export type ProblemDetail = {
   /**
-   * @type string | undefined, uri
+   * @type string | undefined uri
    */
   type?: string
   /**
@@ -8,7 +8,7 @@ export type ProblemDetail = {
    */
   title?: string
   /**
-   * @type integer | undefined, int32
+   * @type integer | undefined int32
    */
   status?: number
   /**
@@ -16,7 +16,7 @@ export type ProblemDetail = {
    */
   detail?: string
   /**
-   * @type string | undefined, uri
+   * @type string | undefined uri
    */
   instance?: string
   /**

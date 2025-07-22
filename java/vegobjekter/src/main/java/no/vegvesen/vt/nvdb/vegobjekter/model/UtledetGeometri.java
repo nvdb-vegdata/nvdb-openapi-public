@@ -20,6 +20,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import no.vegvesen.vt.nvdb.vegobjekter.model.SRID;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 
@@ -40,48 +41,9 @@ public class UtledetGeometri {
   @jakarta.annotation.Nonnull
   private String wkt;
 
-  /**
-   * Gets or Sets srid
-   */
-  public enum SridEnum {
-    _5972(String.valueOf("5972")),
-    
-    _5973(String.valueOf("5973")),
-    
-    _5975(String.valueOf("5975")),
-    
-    _4326(String.valueOf("4326"));
-
-    private String value;
-
-    SridEnum(String value) {
-      this.value = value;
-    }
-
-    @JsonValue
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-
-    @JsonCreator
-    public static SridEnum fromValue(String value) {
-      for (SridEnum b : SridEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
-        }
-      }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
-    }
-  }
-
   public static final String JSON_PROPERTY_SRID = "srid";
   @jakarta.annotation.Nonnull
-  private SridEnum srid;
+  private SRID srid;
 
   public static final String JSON_PROPERTY_EGENGEOMETRI = "egengeometri";
   @jakarta.annotation.Nonnull
@@ -127,28 +89,28 @@ public class UtledetGeometri {
     this.wkt = wkt;
   }
 
-  public UtledetGeometri srid(@jakarta.annotation.Nonnull SridEnum srid) {
+  public UtledetGeometri srid(@jakarta.annotation.Nonnull SRID srid) {
     
     this.srid = srid;
     return this;
   }
 
   /**
-   * Get srid
+   * Hvilket geografiske referansesystem koordinatene er i
    * @return srid
    */
   @jakarta.annotation.Nonnull
   @JsonProperty(JSON_PROPERTY_SRID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public SridEnum getSrid() {
+  public SRID getSrid() {
     return srid;
   }
 
 
   @JsonProperty(JSON_PROPERTY_SRID)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setSrid(@jakarta.annotation.Nonnull SridEnum srid) {
+  public void setSrid(@jakarta.annotation.Nonnull SRID srid) {
     this.srid = srid;
   }
 
@@ -159,7 +121,7 @@ public class UtledetGeometri {
   }
 
   /**
-   * Get egengeometri
+   * Angir om geometrien er vegobjektets egengeometri, eller om geometrien er utledet fra vegnettes geometri
    * @return egengeometri
    */
   @jakarta.annotation.Nonnull
@@ -184,7 +146,7 @@ public class UtledetGeometri {
   }
 
   /**
-   * Get forenklet
+   * Indikerer at geometrien er forenklet. Kun inkludert om den er true
    * @return forenklet
    */
   @jakarta.annotation.Nullable
@@ -209,7 +171,7 @@ public class UtledetGeometri {
   }
 
   /**
-   * Get lengde
+   * Utelatt hvis geometrien ikke er en linje
    * @return lengde
    */
   @jakarta.annotation.Nullable
@@ -234,7 +196,7 @@ public class UtledetGeometri {
   }
 
   /**
-   * Get areal
+   * Utelatt hvis geometrien ikke er et polygon
    * @return areal
    */
   @jakarta.annotation.Nullable

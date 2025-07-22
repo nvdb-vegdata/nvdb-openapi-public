@@ -1,32 +1,22 @@
+import { stedfestingstypeSchema } from './stedfestingstypeSchema'
+import { retningSchema } from './retningSchema'
+import { sideposisjonSchema } from './sideposisjonSchema'
 import { z } from 'zod'
 
 export const stedfestingSchema = z.object({
-  type: z.enum(['Punkt', 'Linje', 'Sving']),
-  veglenkesekvensid: z.number().int().optional(),
-  nodeid: z.number().int().optional(),
+  type: z.lazy(() => stedfestingstypeSchema),
+  veglenkesekvensid: z.number().optional(),
+  nodeid: z.number().optional(),
   relativPosisjon: z.number().optional(),
   startposisjon: z.number().optional(),
   sluttposisjon: z.number().optional(),
-  startpunkt: z.lazy(() => stedfestingSchema).optional(),
-  sluttpunkt: z.lazy(() => stedfestingSchema).optional(),
-  retning: z.enum(['MED', 'MOT']).optional(),
-  'kj\u00F8refelt': z.array(z.string()).optional(),
-  sideposisjon: z
-    .enum([
-      'MH',
-      'MV',
-      'VT',
-      'M',
-      'H',
-      'HT',
-      'VH',
-      'HV',
-      'K',
-      'V',
-      'L',
-      'R',
-      'R0',
-    ])
+  startpunkt: z.any().optional(),
+  sluttpunkt: z.any().optional(),
+  retning: z.lazy(() => retningSchema).optional(),
+  kjørefelt: z
+    .array(z.string())
+    .describe(`Utelatt for svingstedfesting`)
     .optional(),
+  sideposisjon: z.lazy(() => sideposisjonSchema).optional(),
   kortform: z.string().optional(),
 })

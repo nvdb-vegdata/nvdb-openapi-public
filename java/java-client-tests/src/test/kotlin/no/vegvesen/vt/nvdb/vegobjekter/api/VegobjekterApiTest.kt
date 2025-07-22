@@ -14,7 +14,7 @@ class VegobjekterApiTest() : ShouldSpec({
         val fartsgrense = runBlocking {
             vegobjekter.getVegobjektById(
                 78697179,
-                setOf("alle"),
+                setOf(InkluderIVegobjekt.ALLE),
                 null,
                 null,
                 null,
@@ -28,7 +28,7 @@ class VegobjekterApiTest() : ShouldSpec({
             with(egenskaper!!){
                 shouldNotBeEmpty()
                 any {
-                    it.navn == "Fartsgrense" && it.egenskapstype == Egenskap.EgenskapstypeEnum.HELTALLENUM
+                    it.navn == "Fartsgrense" && it.egenskapstype == Egenskapstype.HELTALLENUM
                 }
             }
         }
@@ -41,7 +41,7 @@ class VegobjekterApiTest() : ShouldSpec({
             vegobjekter.getVegobjekterByType(
                 105,
                 null,
-                setOf("alle"),
+                setOf(InkluderIVegobjekt.ALLE),
                 null,
                 null,
                 null,
@@ -85,7 +85,7 @@ class VegobjekterApiTest() : ShouldSpec({
             vegobjekter.getVegobjektByTypeAndId(
                 721,
                 190266874,
-                setOf("alle"),
+                setOf(InkluderIVegobjekt.ALLE),
                 null,
                 null,
                 null,
@@ -99,7 +99,7 @@ class VegobjekterApiTest() : ShouldSpec({
             with(egenskaper!!){
                 shouldNotBeEmpty()
                 any {
-                    it.egenskapstype == Egenskap.EgenskapstypeEnum.KORTDATO && (it as KortDatoEgenskap).verdi!!.matches("""^\d{2}-\d{2}$""".toRegex())
+                    it.egenskapstype == Egenskapstype.KORTDATO && (it as KortDatoEgenskap).verdi!!.matches("""^\d{2}-\d{2}$""".toRegex())
                 }
             }
         }
@@ -111,7 +111,7 @@ class VegobjekterApiTest() : ShouldSpec({
             vegobjekter.getVegobjektByTypeAndId(
                 721,
                 190266874,
-                setOf("alle"),
+                setOf(InkluderIVegobjekt.ALLE),
                 null,
                 null,
                 null,
@@ -125,7 +125,7 @@ class VegobjekterApiTest() : ShouldSpec({
             with(egenskaper!!){
                 shouldNotBeEmpty()
                 any {
-                    it.egenskapstype == Egenskap.EgenskapstypeEnum.DATO && (it as DatoEgenskap).verdi != null
+                    it.egenskapstype == Egenskapstype.DATO && (it as DatoEgenskap).verdi != null
                 }
             }
         }
@@ -137,7 +137,7 @@ class VegobjekterApiTest() : ShouldSpec({
             vegobjekter.getVegobjektByTypeAndId(
                 721,
                 190266874,
-                setOf("alle"),
+                setOf(InkluderIVegobjekt.ALLE),
                 null,
                 null,
                 null,
@@ -151,7 +151,7 @@ class VegobjekterApiTest() : ShouldSpec({
             with(egenskaper!!){
                 shouldNotBeEmpty()
                 any {
-                    it.egenskapstype == Egenskap.EgenskapstypeEnum.TID && (it as TidEgenskap).verdi!!.matches("""^\d{2}:\d{2}$""".toRegex())
+                    it.egenskapstype == Egenskapstype.TID && (it as TidEgenskap).verdi!!.matches("""^\d{2}:\d{2}$""".toRegex())
                 }
             }
         }
@@ -163,7 +163,7 @@ class VegobjekterApiTest() : ShouldSpec({
             vegobjekter.getVegobjektByTypeAndId(
                 95,
                 78735745,
-                setOf("alle"),
+                setOf(InkluderIVegobjekt.ALLE),
                 null,
                 null,
                 null,

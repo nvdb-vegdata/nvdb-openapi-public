@@ -2,7 +2,7 @@ import type { Egenskap } from './Egenskap'
 
 export type BinaerEgenskap = Egenskap & {
   /**
-   * @type integer | undefined, int32
+   * @type integer | undefined int32
    */
   blob_id?: number
   /**

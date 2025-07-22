@@ -3,11 +3,11 @@ import type { Enhet } from './Enhet'
 
 export type EgenskapstypeHeltall = Egenskapstype & {
   /**
-   * @type string | undefined, date
+   * @type string | undefined date
    */
   objektliste_dato?: string
   /**
-   * @type string | undefined, date
+   * @type string | undefined date
    */
   slutt_dato?: string
   /**
@@ -19,35 +19,32 @@ export type EgenskapstypeHeltall = Egenskapstype & {
    */
   ajourhold_snu?: boolean
   /**
-   * @type integer | undefined, int32
+   * @type integer | undefined int32
    */
   standardverdi?: number
   /**
-   * @type integer | undefined, int32
+   * @type integer | undefined int32
    */
   min_anbefalt?: number
   /**
-   * @type integer | undefined, int32
+   * @type integer | undefined int32
    */
   maks_anbefalt?: number
   /**
-   * @type integer | undefined, int32
+   * @type integer | undefined int32
    */
   min?: number
   /**
-   * @type integer | undefined, int32
+   * @type integer | undefined int32
    */
   maks?: number
   /**
-   * @type integer | undefined, int32
+   * @type integer | undefined int32
    */
   feltlengde?: number
   /**
    * @type boolean | undefined
    */
   fortegnsendring_snu?: boolean
-  /**
-   * @type object | undefined
-   */
   enhet?: Enhet
 }

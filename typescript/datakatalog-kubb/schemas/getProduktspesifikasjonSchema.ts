@@ -1,34 +1,32 @@
 import { z } from 'zod'
-import { productSpecificationSchema } from './productSpecificationSchema'
 import { problemDetailSchema } from './problemDetailSchema'
+import { productSpecificationSchema } from './productSpecificationSchema'
 
 export const getProduktspesifikasjonPathParamsSchema = z.object({
-  vegobjekttypeid: z.number().int(),
+  vegobjekttypeid: z.number(),
 })
-/**
- * @description OK
- */
-export const getProduktspesifikasjon200Schema = z.lazy(
-  () => productSpecificationSchema,
-)
+
 /**
  * @description Not Found
  */
 export const getProduktspesifikasjon404Schema = z.lazy(
   () => problemDetailSchema,
 )
+
 /**
  * @description Internal Server Error
  */
 export const getProduktspesifikasjon500Schema = z.lazy(
   () => problemDetailSchema,
 )
+
 /**
  * @description Service Unavailable
  */
 export const getProduktspesifikasjon503Schema = z.lazy(
   () => problemDetailSchema,
 )
+
 /**
  * @description OK
  */

@@ -50,7 +50,7 @@ public class NesteSide {
   }
 
   /**
-   * Get start
+   * Token som brukes for å få neste side
    * @return start
    */
   @jakarta.annotation.Nonnull
@@ -75,7 +75,7 @@ public class NesteSide {
   }
 
   /**
-   * Get href
+   * Komplett url for neste side
    * @return href
    */
   @jakarta.annotation.Nonnull

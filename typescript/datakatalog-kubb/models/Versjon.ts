@@ -1,10 +1,10 @@
 export type Versjon = {
   /**
-   * @type integer, int32
+   * @type integer int32
    */
   id: number
   /**
-   * @type string, date
+   * @type string date
    */
   dato: string
   /**

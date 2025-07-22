@@ -86,7 +86,7 @@ public class VegobjektFjernet {
   }
 
   /**
-   * Get versjon
+   * Versjon av vegobjektet som er fjernet
    * @return versjon
    */
   @jakarta.annotation.Nonnull
@@ -136,7 +136,7 @@ public class VegobjektFjernet {
   }
 
   /**
-   * Get tidspunkt
+   * Tidspunktet da endringen ble gjort tilgjengelig i Les API V4
    * @return tidspunkt
    */
   @jakarta.annotation.Nonnull

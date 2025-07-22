@@ -26,7 +26,6 @@ src/main/java/no/vegvesen/vt/nvdb/vegnett/model/Adresse.java
 src/main/java/no/vegvesen/vt/nvdb/vegnett/model/AlwaysIncludeMapStringPosisjon.java
 src/main/java/no/vegvesen/vt/nvdb/vegnett/model/FinnRuteParameters.java
 src/main/java/no/vegvesen/vt/nvdb/vegnett/model/GeometriMedKvalitet.java
-src/main/java/no/vegvesen/vt/nvdb/vegnett/model/GetRute200Response.java
 src/main/java/no/vegvesen/vt/nvdb/vegnett/model/Kontraktsomrade.java
 src/main/java/no/vegvesen/vt/nvdb/vegnett/model/Kryssystem.java
 src/main/java/no/vegvesen/vt/nvdb/vegnett/model/Kvalitet.java
@@ -47,8 +46,8 @@ src/main/java/no/vegvesen/vt/nvdb/vegnett/model/Punkt.java
 src/main/java/no/vegvesen/vt/nvdb/vegnett/model/Riksvegrute.java
 src/main/java/no/vegvesen/vt/nvdb/vegnett/model/Rute.java
 src/main/java/no/vegvesen/vt/nvdb/vegnett/model/RuteKortform.java
-src/main/java/no/vegvesen/vt/nvdb/vegnett/model/RuteKortformAllOfVegnettsrutesegmenter.java
 src/main/java/no/vegvesen/vt/nvdb/vegnett/model/RuteMetadata.java
+src/main/java/no/vegvesen/vt/nvdb/vegnett/model/RuteResponse.java
 src/main/java/no/vegvesen/vt/nvdb/vegnett/model/Rutesegment.java
 src/main/java/no/vegvesen/vt/nvdb/vegnett/model/Segment.java
 src/main/java/no/vegvesen/vt/nvdb/vegnett/model/SideMetadata.java
@@ -63,7 +62,10 @@ src/main/java/no/vegvesen/vt/nvdb/vegnett/model/Veglenkesegment.java
 src/main/java/no/vegvesen/vt/nvdb/vegnett/model/VeglenkesegmenterSide.java
 src/main/java/no/vegvesen/vt/nvdb/vegnett/model/VeglenkesegmenterStatistikkGruppert.java
 src/main/java/no/vegvesen/vt/nvdb/vegnett/model/Veglenkesekvens.java
-src/main/java/no/vegvesen/vt/nvdb/vegnett/model/VeglenkesekvensNotifikasjonerSide.java
+src/main/java/no/vegvesen/vt/nvdb/vegnett/model/VeglenkesekvensEndret.java
+src/main/java/no/vegvesen/vt/nvdb/vegnett/model/VeglenkesekvensEndringerSide.java
+src/main/java/no/vegvesen/vt/nvdb/vegnett/model/VeglenkesekvensFjernet.java
+src/main/java/no/vegvesen/vt/nvdb/vegnett/model/VeglenkesekvensSegmentert.java
 src/main/java/no/vegvesen/vt/nvdb/vegnett/model/VeglenkesekvenserSide.java
 src/main/java/no/vegvesen/vt/nvdb/vegnett/model/Vegsystem.java
 src/main/java/no/vegvesen/vt/nvdb/vegnett/model/Vegsystemreferanse.java

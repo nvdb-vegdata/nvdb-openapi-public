@@ -1,6 +1,6 @@
 export type Kategori = {
   /**
-   * @type integer, int32
+   * @type integer int32
    */
   id: number
   /**
@@ -12,7 +12,7 @@ export type Kategori = {
    */
   kortnavn?: string
   /**
-   * @type integer, int32
+   * @type integer int32
    */
   sorteringsnummer: number
   /**
@@ -20,7 +20,7 @@ export type Kategori = {
    */
   beskrivelse?: string
   /**
-   * @type string | undefined, date
+   * @type string | undefined date
    */
   startDato?: string
 }

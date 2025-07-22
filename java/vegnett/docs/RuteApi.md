@@ -9,7 +9,7 @@ All URIs are relative to *https://nvdbapiles.atlas.vegvesen.no/vegnett*
 
 ## getRute
 
-> GetRute200Response getRute(start, slutt, geometri, maksAvstand, omkrets, konnekteringslenker, detaljerteLenker, kortform, vegsystemreferanse, trafikantgruppe, beholdTrafikantgruppe, typeveg, tidspunkt, srid)
+> RuteResponse getRute(start, slutt, geometri, maksAvstand, omkrets, konnekteringslenker, detaljerteLenker, kortform, vegsystemreferanse, trafikantgruppe, beholdTrafikantgruppe, typeveg, tidspunkt, srid)
 
 ### Example
 
@@ -42,7 +42,7 @@ public class Example {
         LocalDate tidspunkt = LocalDate.now(); // LocalDate | Begrens spørring til dette tidspunktet.
         String srid = "5972"; // String | Angir hvilket geografisk referansesystem geometrien skal returneres i. Utdata i UTM-formater begrenses til 3 desimaler, 4326/WGS84 begrenses til 8 desimaler. Mer informasjon: <a href='https://epsg.io/5972'>EPSG:5972</a> <a href='https://epsg.io/5973'>EPSG:5973</a> <a href='https://epsg.io/5975'>EPSG:5975</a> <a href='https://epsg.io/4326'>EPSG:4326</a>.
         try {
-            GetRute200Response result = apiInstance.getRute(start, slutt, geometri, maksAvstand, omkrets, konnekteringslenker, detaljerteLenker, kortform, vegsystemreferanse, trafikantgruppe, beholdTrafikantgruppe, typeveg, tidspunkt, srid);
+            RuteResponse result = apiInstance.getRute(start, slutt, geometri, maksAvstand, omkrets, konnekteringslenker, detaljerteLenker, kortform, vegsystemreferanse, trafikantgruppe, beholdTrafikantgruppe, typeveg, tidspunkt, srid);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling RuteApi#getRute");
@@ -76,7 +76,7 @@ public class Example {
 
 ### Return type
 
-[**GetRute200Response**](GetRute200Response.md)
+[**RuteResponse**](RuteResponse.md)
 
 ### Authorization
 
@@ -98,7 +98,7 @@ No authorization required
 
 ## postRute
 
-> GetRute200Response postRute(finnRuteParameters)
+> RuteResponse postRute(finnRuteParameters)
 
 ### Example
 
@@ -118,7 +118,7 @@ public class Example {
         RuteApi apiInstance = new RuteApi(defaultClient);
         FinnRuteParameters finnRuteParameters = new FinnRuteParameters(); // FinnRuteParameters |
         try {
-            GetRute200Response result = apiInstance.postRute(finnRuteParameters);
+            RuteResponse result = apiInstance.postRute(finnRuteParameters);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling RuteApi#postRute");
@@ -139,7 +139,7 @@ public class Example {
 
 ### Return type
 
-[**GetRute200Response**](GetRute200Response.md)
+[**RuteResponse**](RuteResponse.md)
 
 ### Authorization
 

@@ -1,6 +1,6 @@
 export type EnumverdiFlyttall = {
   /**
-   * @type integer, int32
+   * @type integer int32
    */
   id: number
   /**
@@ -8,7 +8,7 @@ export type EnumverdiFlyttall = {
    */
   kortnavn?: string
   /**
-   * @type integer | undefined, int32
+   * @type integer | undefined int32
    */
   kortnavnlengde?: number
   /**
@@ -20,15 +20,15 @@ export type EnumverdiFlyttall = {
    */
   beskrivelse?: string
   /**
-   * @type integer, int32
+   * @type integer int32
    */
   sorteringsnummer: number
   /**
-   * @type string | undefined, date
+   * @type string | undefined date
    */
   objektliste_dato?: string
   /**
-   * @type string | undefined, date
+   * @type string | undefined date
    */
   sluttdato?: string
   /**
@@ -36,11 +36,11 @@ export type EnumverdiFlyttall = {
    */
   standardverdi: boolean
   /**
-   * @type integer | undefined, int32
+   * @type integer | undefined int32
    */
   komplementær_enumverdi?: number
   /**
-   * @type number | undefined, double
+   * @type number | undefined double
    */
   verdi?: number
   /**

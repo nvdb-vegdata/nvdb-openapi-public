@@ -117,7 +117,7 @@ public class VegobjektEndret {
   }
 
   /**
-   * Get versjon
+   * Versjon av vegobjektet som er endret. Dersom ny versjon er opprettet, vil dette være den nye versjonen
    * @return versjon
    */
   @jakarta.annotation.Nonnull
@@ -167,7 +167,7 @@ public class VegobjektEndret {
   }
 
   /**
-   * Get tidspunkt
+   * Tidspunktet da endringen ble gjort tilgjengelig i Les API V4
    * @return tidspunkt
    */
   @jakarta.annotation.Nonnull
@@ -217,7 +217,7 @@ public class VegobjektEndret {
   }
 
   /**
-   * Get sluttdato
+   * Utelatt dersom sluttdato ikke er satt
    * @return sluttdato
    */
   @jakarta.annotation.Nullable
@@ -242,7 +242,7 @@ public class VegobjektEndret {
   }
 
   /**
-   * Get egenskaperEndret
+   * Indikerer om egenskaper er endret/korrigert. Vil alltid være true dersom ny versjon av vegobjektet er opprettet
    * @return egenskaperEndret
    */
   @jakarta.annotation.Nonnull
@@ -267,7 +267,7 @@ public class VegobjektEndret {
   }
 
   /**
-   * Get barnEndret
+   * Indikerer om barn er endret/korrigert. Vil alltid være true dersom ny versjon av vegobjektet er opprettet
    * @return barnEndret
    */
   @jakarta.annotation.Nonnull
@@ -292,7 +292,7 @@ public class VegobjektEndret {
   }
 
   /**
-   * Get stedfestingEndret
+   * Indikerer om stedfesting er endret/korrigert. Vil alltid være true dersom ny versjon av vegobjektet er opprettet
    * @return stedfestingEndret
    */
   @jakarta.annotation.Nonnull
@@ -317,7 +317,7 @@ public class VegobjektEndret {
   }
 
   /**
-   * Get gyldighetsperiodeEndret
+   * Indikerer om gyldighetsperioden er endret/korrigert. Vil alltid være true dersom ny versjon av vegobjektet er opprettet
    * @return gyldighetsperiodeEndret
    */
   @jakarta.annotation.Nonnull

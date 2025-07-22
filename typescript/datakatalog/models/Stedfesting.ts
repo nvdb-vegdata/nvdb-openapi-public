@@ -66,18 +66,6 @@ export interface Stedfesting {
   egenskapstype: EgenskapstypeEnum
   /**
    *
-   * @type {boolean}
-   * @memberof Stedfesting
-   */
-  skrivebeskyttet: boolean
-  /**
-   *
-   * @type {number}
-   * @memberof Stedfesting
-   */
-  komplementrEgenskapstype?: number
-  /**
-   *
    * @type {string}
    * @memberof Stedfesting
    */
@@ -88,6 +76,12 @@ export interface Stedfesting {
    * @memberof Stedfesting
    */
   beskrivelse?: string
+  /**
+   *
+   * @type {string}
+   * @memberof Stedfesting
+   */
+  veiledning?: string
   /**
    *
    * @type {string}
@@ -114,6 +108,18 @@ export interface Stedfesting {
   avledet: boolean
   /**
    *
+   * @type {number}
+   * @memberof Stedfesting
+   */
+  komplementrEgenskapstype?: number
+  /**
+   *
+   * @type {boolean}
+   * @memberof Stedfesting
+   */
+  skrivebeskyttet: boolean
+  /**
+   *
    * @type {boolean}
    * @memberof Stedfesting
    */
@@ -130,12 +136,6 @@ export interface Stedfesting {
    * @memberof Stedfesting
    */
   gruppesorteringsnummer?: number
-  /**
-   *
-   * @type {string}
-   * @memberof Stedfesting
-   */
-  veiledning?: string
   /**
    *
    * @type {string}
@@ -199,11 +199,11 @@ export function instanceOfStedfesting(value: object): value is Stedfesting {
   if (!('id' in value) || value['id'] === undefined) return false
   if (!('egenskapstype' in value) || value['egenskapstype'] === undefined)
     return false
-  if (!('skrivebeskyttet' in value) || value['skrivebeskyttet'] === undefined)
-    return false
   if (!('sorteringsnummer' in value) || value['sorteringsnummer'] === undefined)
     return false
   if (!('avledet' in value) || value['avledet'] === undefined) return false
+  if (!('skrivebeskyttet' in value) || value['skrivebeskyttet'] === undefined)
+    return false
   if (
     !('obligatoriskVerdi' in value) ||
     value['obligatoriskVerdi'] === undefined
@@ -259,25 +259,25 @@ export function StedfestingFromJSONTyped(
     id: json['id'],
     navn: json['navn'] == null ? undefined : json['navn'],
     egenskapstype: EgenskapstypeEnumFromJSON(json['egenskapstype']),
-    skrivebeskyttet: json['skrivebeskyttet'],
-    komplementrEgenskapstype:
-      json['komplementær_egenskapstype'] == null
-        ? undefined
-        : json['komplementær_egenskapstype'],
     kortnavn: json['kortnavn'] == null ? undefined : json['kortnavn'],
     beskrivelse: json['beskrivelse'] == null ? undefined : json['beskrivelse'],
+    veiledning: json['veiledning'] == null ? undefined : json['veiledning'],
     sosinavn: json['sosinavn'] == null ? undefined : json['sosinavn'],
     sosinvdbnavn:
       json['sosinvdbnavn'] == null ? undefined : json['sosinvdbnavn'],
     sorteringsnummer: json['sorteringsnummer'],
     avledet: json['avledet'],
+    komplementrEgenskapstype:
+      json['komplementær_egenskapstype'] == null
+        ? undefined
+        : json['komplementær_egenskapstype'],
+    skrivebeskyttet: json['skrivebeskyttet'],
     obligatoriskVerdi: json['obligatorisk_verdi'],
     sensitivitet: json['sensitivitet'],
     gruppesorteringsnummer:
       json['gruppesorteringsnummer'] == null
         ? undefined
         : json['gruppesorteringsnummer'],
-    veiledning: json['veiledning'] == null ? undefined : json['veiledning'],
     grunnrissreferanse:
       json['grunnrissreferanse'] == null
         ? undefined
@@ -328,18 +328,18 @@ export function StedfestingToJSONTyped(
     id: value['id'],
     navn: value['navn'],
     egenskapstype: EgenskapstypeEnumToJSON(value['egenskapstype']),
-    skrivebeskyttet: value['skrivebeskyttet'],
-    komplementær_egenskapstype: value['komplementrEgenskapstype'],
     kortnavn: value['kortnavn'],
     beskrivelse: value['beskrivelse'],
+    veiledning: value['veiledning'],
     sosinavn: value['sosinavn'],
     sosinvdbnavn: value['sosinvdbnavn'],
     sorteringsnummer: value['sorteringsnummer'],
     avledet: value['avledet'],
+    komplementær_egenskapstype: value['komplementrEgenskapstype'],
+    skrivebeskyttet: value['skrivebeskyttet'],
     obligatorisk_verdi: value['obligatoriskVerdi'],
     sensitivitet: value['sensitivitet'],
     gruppesorteringsnummer: value['gruppesorteringsnummer'],
-    veiledning: value['veiledning'],
     grunnrissreferanse: value['grunnrissreferanse'],
     høydereferanse: value['hydereferanse'],
     høydereferanse_tall: value['hydereferanseTall'],

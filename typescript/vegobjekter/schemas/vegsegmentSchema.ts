@@ -1,92 +1,63 @@
+import { retningSchema } from './retningSchema'
+import { sideposisjonSchema } from './sideposisjonSchema'
+import { veglenkeTypeSchema } from './veglenkeTypeSchema'
+import { detaljnivaSchema } from './detaljnivaSchema'
+import { typeVegSchema } from './typeVegSchema'
+import { typeVegSosiSchema } from './typeVegSosiSchema'
 import { geometriSchema } from './geometriSchema'
 import { vegsystemreferanseSchema } from './vegsystemreferanseSchema'
 import { z } from 'zod'
 
 export const vegsegmentSchema = z.object({
-  veglenkesekvensid: z.number().int(),
+  veglenkesekvensid: z.number(),
   startposisjon: z.number().optional(),
   sluttposisjon: z.number().optional(),
   relativPosisjon: z.number().optional(),
-  lengde: z.number().optional(),
-  retning: z.enum(['MED', 'MOT']),
-  'kj\u00F8refelt': z.array(z.string()).optional(),
-  sideposisjon: z
-    .enum([
-      'MH',
-      'MV',
-      'VT',
-      'M',
-      'H',
-      'HT',
-      'VH',
-      'HV',
-      'K',
-      'V',
-      'L',
-      'R',
-      'R0',
-    ])
+  lengde: z
+    .number()
+    .describe(`Utelatt dersom vegsegmentets lengde er lik 0`)
     .optional(),
-  feltoversikt: z.array(z.string()).optional(),
-  veglenkeType: z.enum([
-    'Ukjent',
-    'DETALJERT',
-    'KONNEKTERING',
-    'DETALJERT_KONNEKTERING',
-    'HOVED',
-  ]),
-  'detaljniv\u00E5': z.enum([
-    'Vegtrase',
-    'Kj\u00F8rebane',
-    'Kj\u00F8refelt',
-    'Vegtrase og kj\u00F8rebane',
-  ]),
-  typeVeg: z.enum([
-    'Kanalisert veg',
-    'Enkel bilveg',
-    'Rampe',
-    'Rundkj\u00F8ring',
-    'Bilferje',
-    'Passasjerferje',
-    'Gang- og sykkelveg',
-    'Sykkelveg',
-    'Gangveg',
-    'G\u00E5gate',
-    'Fortau',
-    'Trapp',
-    'Gangfelt',
-    'Gatetun',
-    'Traktorveg',
-    'Sti',
-    'Annet',
-  ]),
-  typeVeg_sosi: z.enum([
-    'kanalisertVeg',
-    'enkelBilveg',
-    'rampe',
-    'rundkj\u00F8ring',
-    'bilferje',
-    'passasjerferje',
-    'gangOgSykkelveg',
-    'sykkelveg',
-    'gangveg',
-    'g\u00E5gate',
-    'fortau',
-    'trapp',
-    'gangfelt',
-    'gatetun',
-    'traktorveg',
-    'sti',
-    'annet',
-  ]),
-  startdato: z.string().date(),
-  sluttdato: z.string().date().optional(),
+  retning: z.lazy(() => retningSchema),
+  kjørefelt: z
+    .array(z.string())
+    .describe(`Utelatt dersom kjørefelt ikke er relevant for vegsegmentet`)
+    .optional(),
+  sideposisjon: z.lazy(() => sideposisjonSchema).optional(),
+  feltoversikt: z
+    .array(z.string())
+    .describe(
+      `Utelatt dersom vegsegmentet ikke har noen felter i feltoversikten`,
+    )
+    .optional(),
+  veglenkeType: z.lazy(() => veglenkeTypeSchema),
+  detaljnivå: z.lazy(() => detaljnivaSchema),
+  typeVeg: z.lazy(() => typeVegSchema),
+  typeVeg_sosi: z.lazy(() => typeVegSosiSchema),
+  startdato: z.string(),
+  sluttdato: z
+    .string()
+    .describe(`Utelatt dersom vegsegmentet ikke har noe satt sluttdato`)
+    .optional(),
   geometri: z.lazy(() => geometriSchema),
-  kommune: z.number().int(),
-  fylke: z.number().int(),
+  kommune: z.number(),
+  fylke: z.number(),
   vegsystemreferanse: z.lazy(() => vegsystemreferanseSchema).optional(),
-  'kontraktsomr\u00E5der': z.array(z.number().int()).optional(),
-  riksvegruter: z.array(z.number().int()).optional(),
-  vegforvaltere: z.array(z.number().int()).optional(),
-  adresser: z.array(z.number().int()).optional(),
+  kontraktsområder: z
+    .array(z.number())
+    .describe(
+      `Utelatt om vegsegmentet ikke overlapper med noen kontraktsområder`,
+    )
+    .optional(),
+  riksvegruter: z
+    .array(z.number())
+    .describe(`Utelatt om vegsegmentet ikke overlapper med noen riksvegruter`)
+    .optional(),
+  vegforvaltere: z
+    .array(z.number())
+    .describe(`Utelatt om vegsegmentet ikke overlapper med noen vegforvaltere`)
+    .optional(),
+  adresser: z
+    .array(z.number())
+    .describe(`Utelatt om vegsegmentet ikke overlapper med noen adresser`)
+    .optional(),
 })

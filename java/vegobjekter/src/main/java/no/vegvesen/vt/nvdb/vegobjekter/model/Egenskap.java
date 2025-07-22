@@ -23,6 +23,7 @@ import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import no.vegvesen.vt.nvdb.vegobjekter.model.Egenskapstype;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 
@@ -41,7 +42,6 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 )
 @JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.PROPERTY, property = "egenskapstype", visible = true)
 @JsonSubTypes({
-  @JsonSubTypes.Type(value = AssosiasjonEgenskap.class, name = "Assosiasjon"),
   @JsonSubTypes.Type(value = BinaerEgenskap.class, name = "Binær"),
   @JsonSubTypes.Type(value = BoolskEgenskap.class, name = "Boolsk"),
   @JsonSubTypes.Type(value = DatoEgenskap.class, name = "Dato"),
@@ -52,7 +52,6 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
   @JsonSubTypes.Type(value = HeltallEnumEgenskap.class, name = "Heltallenum"),
   @JsonSubTypes.Type(value = KortDatoEgenskap.class, name = "Kortdato"),
   @JsonSubTypes.Type(value = ListeEgenskap.class, name = "Liste"),
-  @JsonSubTypes.Type(value = StedfestingEgenskap.class, name = "Stedfesting"),
   @JsonSubTypes.Type(value = StrukturEgenskap.class, name = "Struktur"),
   @JsonSubTypes.Type(value = TekstEgenskap.class, name = "Tekst"),
   @JsonSubTypes.Type(value = TekstEnumEgenskap.class, name = "Tekstenum"),
@@ -68,72 +67,9 @@ public class Egenskap {
   @jakarta.annotation.Nonnull
   protected String navn;
 
-  /**
-   * Gets or Sets egenskapstype
-   */
-  public enum EgenskapstypeEnum {
-    ASSOSIASJON(String.valueOf("Assosiasjon")),
-    
-    BOOLSK(String.valueOf("Boolsk")),
-    
-    BIN_R(String.valueOf("Binær")),
-    
-    TEKST(String.valueOf("Tekst")),
-    
-    DATO(String.valueOf("Dato")),
-    
-    FLYTTALL(String.valueOf("Flyttall")),
-    
-    HELTALL(String.valueOf("Heltall")),
-    
-    STRUKTUR(String.valueOf("Struktur")),
-    
-    GEOMETRI(String.valueOf("Geometri")),
-    
-    STEDFESTING(String.valueOf("Stedfesting")),
-    
-    KORTDATO(String.valueOf("Kortdato")),
-    
-    TID(String.valueOf("Tid")),
-    
-    LISTE(String.valueOf("Liste")),
-    
-    TEKSTENUM(String.valueOf("Tekstenum")),
-    
-    HELTALLENUM(String.valueOf("Heltallenum")),
-    
-    FLYTTALLENUM(String.valueOf("Flyttallenum"));
-
-    private String value;
-
-    EgenskapstypeEnum(String value) {
-      this.value = value;
-    }
-
-    @JsonValue
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-
-    @JsonCreator
-    public static EgenskapstypeEnum fromValue(String value) {
-      for (EgenskapstypeEnum b : EgenskapstypeEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
-        }
-      }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
-    }
-  }
-
   public static final String JSON_PROPERTY_EGENSKAPSTYPE = "egenskapstype";
   @jakarta.annotation.Nonnull
-  protected EgenskapstypeEnum egenskapstype;
+  protected Egenskapstype egenskapstype;
 
   public Egenskap() {
   }
@@ -188,7 +124,7 @@ public class Egenskap {
     this.navn = navn;
   }
 
-  public Egenskap egenskapstype(@jakarta.annotation.Nonnull EgenskapstypeEnum egenskapstype) {
+  public Egenskap egenskapstype(@jakarta.annotation.Nonnull Egenskapstype egenskapstype) {
     
     this.egenskapstype = egenskapstype;
     return this;
@@ -202,14 +138,14 @@ public class Egenskap {
   @JsonProperty(JSON_PROPERTY_EGENSKAPSTYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public EgenskapstypeEnum getEgenskapstype() {
+  public Egenskapstype getEgenskapstype() {
     return egenskapstype;
   }
 
 
   @JsonProperty(JSON_PROPERTY_EGENSKAPSTYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setEgenskapstype(@jakarta.annotation.Nonnull EgenskapstypeEnum egenskapstype) {
+  public void setEgenskapstype(@jakarta.annotation.Nonnull Egenskapstype egenskapstype) {
     this.egenskapstype = egenskapstype;
   }
 

@@ -50,7 +50,7 @@ public class VegobjekterStatistikk {
   }
 
   /**
-   * Get antall
+   * Antallet objekter. Utelatt dersom inkluder&#x3D;lengde
    * @return antall
    */
   @jakarta.annotation.Nullable
@@ -75,7 +75,7 @@ public class VegobjekterStatistikk {
   }
 
   /**
-   * Get lengde
+   * Den summerte lengden av objektene. Utelatt dersom inkluder&#x3D;antall
    * @return lengde
    */
   @jakarta.annotation.Nullable

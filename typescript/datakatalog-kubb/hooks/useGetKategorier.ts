@@ -54,8 +54,7 @@ export function getKategorierQueryOptions(
 }
 /**
  * @summary Returnerer alle kategorier for vegobjekter
- * @link /api/v1/kategorier
- */
+ * @link /api/v1/kategorier */
 export function useGetKategorier<
   TData = GetKategorier['response'],
   TQueryData = GetKategorier['response'],
@@ -79,9 +78,7 @@ export function useGetKategorier<
   const { query: queryOptions, client: clientOptions = {} } = options ?? {}
   const queryKey = queryOptions?.queryKey ?? getKategorierQueryKey()
   const query = useQuery({
-    ...(getKategorierQueryOptions(
-      clientOptions,
-    ) as unknown as QueryObserverOptions),
+    ...(getKategorierQueryOptions(clientOptions) as QueryObserverOptions),
     queryKey,
     ...(queryOptions as unknown as Omit<QueryObserverOptions, 'queryKey'>),
   }) as UseQueryResult<TData, GetKategorier['error']> & {
@@ -113,8 +110,7 @@ export function getKategorierSuspenseQueryOptions(
 }
 /**
  * @summary Returnerer alle kategorier for vegobjekter
- * @link /api/v1/kategorier
- */
+ * @link /api/v1/kategorier */
 export function useGetKategorierSuspense<
   TData = GetKategorier['response'],
   TQueryKey extends QueryKey = GetKategorierSuspenseQueryKey,
@@ -138,9 +134,9 @@ export function useGetKategorierSuspense<
   const query = useSuspenseQuery({
     ...(getKategorierSuspenseQueryOptions(
       clientOptions,
-    ) as unknown as UseSuspenseQueryOptions),
+    ) as QueryObserverOptions),
     queryKey,
-    ...(queryOptions as unknown as Omit<UseSuspenseQueryOptions, 'queryKey'>),
+    ...(queryOptions as unknown as Omit<QueryObserverOptions, 'queryKey'>),
   }) as UseSuspenseQueryResult<TData, GetKategorier['error']> & {
     queryKey: TQueryKey
   }

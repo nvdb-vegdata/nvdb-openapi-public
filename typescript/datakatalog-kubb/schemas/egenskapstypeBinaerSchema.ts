@@ -5,12 +5,12 @@ export const egenskapstypeBinaerSchema = z
   .lazy(() => egenskapstypeSchema)
   .and(
     z.object({
-      objektliste_dato: z.string().date().optional(),
-      slutt_dato: z.string().date().optional(),
+      objektliste_dato: z.string().optional(),
+      slutt_dato: z.string().optional(),
       lengdeavhengig_verdi: z.boolean().optional(),
       ajourhold_snu: z.boolean().optional(),
       mediatype: z
-        .enum(['Audio', 'Bilde', 'Tekst', 'TSF', 'Video', 'Udefinert'])
+        .enum([`Audio`, `Bilde`, `Tekst`, `TSF`, `Video`, `Udefinert`])
         .optional(),
     }),
   )

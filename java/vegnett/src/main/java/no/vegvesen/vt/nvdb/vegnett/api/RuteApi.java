@@ -3,9 +3,9 @@ package no.vegvesen.vt.nvdb.vegnett.api;
 import no.vegvesen.vt.nvdb.vegnett.infrastructure.ApiClient;
 
 import no.vegvesen.vt.nvdb.vegnett.model.FinnRuteParameters;
-import no.vegvesen.vt.nvdb.vegnett.model.GetRute200Response;
 import java.time.LocalDate;
 import no.vegvesen.vt.nvdb.vegnett.model.ProblemDetail;
+import no.vegvesen.vt.nvdb.vegnett.model.RuteResponse;
 import java.util.Set;
 
 import java.util.HashMap;
@@ -74,7 +74,7 @@ public class RuteApi {
      * @param typeveg Filtrer på type veg. Kommaseparert liste.
      * @param tidspunkt Begrens spørring til dette tidspunktet.
      * @param srid Angir hvilket geografisk referansesystem geometrien skal returneres i. Utdata i UTM-formater begrenses til 3 desimaler, 4326/WGS84 begrenses til 8 desimaler. Mer informasjon: &lt;a href&#x3D;&#39;https://epsg.io/5972&#39;&gt;EPSG:5972&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5973&#39;&gt;EPSG:5973&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5975&#39;&gt;EPSG:5975&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/4326&#39;&gt;EPSG:4326&lt;/a&gt;.
-     * @return GetRute200Response
+     * @return RuteResponse
      * @throws WebClientResponseException if an error occurs while attempting to invoke the API
      */
     private ResponseSpec getRuteRequestCreation(@jakarta.annotation.Nullable String start, @jakarta.annotation.Nullable String slutt, @jakarta.annotation.Nullable String geometri, @jakarta.annotation.Nullable Integer maksAvstand, @jakarta.annotation.Nullable Integer omkrets, @jakarta.annotation.Nullable Boolean konnekteringslenker, @jakarta.annotation.Nullable Boolean detaljerteLenker, @jakarta.annotation.Nullable Boolean kortform, @jakarta.annotation.Nullable Set<String> vegsystemreferanse, @jakarta.annotation.Nullable String trafikantgruppe, @jakarta.annotation.Nullable Boolean beholdTrafikantgruppe, @jakarta.annotation.Nullable Set<String> typeveg, @jakarta.annotation.Nullable LocalDate tidspunkt, @jakarta.annotation.Nullable String srid) throws WebClientResponseException {
@@ -111,7 +111,7 @@ public class RuteApi {
 
         String[] localVarAuthNames = new String[] {  };
 
-        ParameterizedTypeReference<GetRute200Response> localVarReturnType = new ParameterizedTypeReference<GetRute200Response>() {};
+        ParameterizedTypeReference<RuteResponse> localVarReturnType = new ParameterizedTypeReference<RuteResponse>() {};
         return apiClient.invokeAPI("/api/v4/beta/vegnett/rute", HttpMethod.GET, pathParams, queryParams, postBody, headerParams, cookieParams, formParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
     }
 
@@ -136,11 +136,11 @@ public class RuteApi {
      * @param typeveg Filtrer på type veg. Kommaseparert liste.
      * @param tidspunkt Begrens spørring til dette tidspunktet.
      * @param srid Angir hvilket geografisk referansesystem geometrien skal returneres i. Utdata i UTM-formater begrenses til 3 desimaler, 4326/WGS84 begrenses til 8 desimaler. Mer informasjon: &lt;a href&#x3D;&#39;https://epsg.io/5972&#39;&gt;EPSG:5972&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5973&#39;&gt;EPSG:5973&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5975&#39;&gt;EPSG:5975&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/4326&#39;&gt;EPSG:4326&lt;/a&gt;.
-     * @return GetRute200Response
+     * @return RuteResponse
      * @throws WebClientResponseException if an error occurs while attempting to invoke the API
      */
-    public Mono<GetRute200Response> getRute(@jakarta.annotation.Nullable String start, @jakarta.annotation.Nullable String slutt, @jakarta.annotation.Nullable String geometri, @jakarta.annotation.Nullable Integer maksAvstand, @jakarta.annotation.Nullable Integer omkrets, @jakarta.annotation.Nullable Boolean konnekteringslenker, @jakarta.annotation.Nullable Boolean detaljerteLenker, @jakarta.annotation.Nullable Boolean kortform, @jakarta.annotation.Nullable Set<String> vegsystemreferanse, @jakarta.annotation.Nullable String trafikantgruppe, @jakarta.annotation.Nullable Boolean beholdTrafikantgruppe, @jakarta.annotation.Nullable Set<String> typeveg, @jakarta.annotation.Nullable LocalDate tidspunkt, @jakarta.annotation.Nullable String srid) throws WebClientResponseException {
-        ParameterizedTypeReference<GetRute200Response> localVarReturnType = new ParameterizedTypeReference<GetRute200Response>() {};
+    public Mono<RuteResponse> getRute(@jakarta.annotation.Nullable String start, @jakarta.annotation.Nullable String slutt, @jakarta.annotation.Nullable String geometri, @jakarta.annotation.Nullable Integer maksAvstand, @jakarta.annotation.Nullable Integer omkrets, @jakarta.annotation.Nullable Boolean konnekteringslenker, @jakarta.annotation.Nullable Boolean detaljerteLenker, @jakarta.annotation.Nullable Boolean kortform, @jakarta.annotation.Nullable Set<String> vegsystemreferanse, @jakarta.annotation.Nullable String trafikantgruppe, @jakarta.annotation.Nullable Boolean beholdTrafikantgruppe, @jakarta.annotation.Nullable Set<String> typeveg, @jakarta.annotation.Nullable LocalDate tidspunkt, @jakarta.annotation.Nullable String srid) throws WebClientResponseException {
+        ParameterizedTypeReference<RuteResponse> localVarReturnType = new ParameterizedTypeReference<RuteResponse>() {};
         return getRuteRequestCreation(start, slutt, geometri, maksAvstand, omkrets, konnekteringslenker, detaljerteLenker, kortform, vegsystemreferanse, trafikantgruppe, beholdTrafikantgruppe, typeveg, tidspunkt, srid).bodyToMono(localVarReturnType);
     }
 
@@ -165,11 +165,11 @@ public class RuteApi {
      * @param typeveg Filtrer på type veg. Kommaseparert liste.
      * @param tidspunkt Begrens spørring til dette tidspunktet.
      * @param srid Angir hvilket geografisk referansesystem geometrien skal returneres i. Utdata i UTM-formater begrenses til 3 desimaler, 4326/WGS84 begrenses til 8 desimaler. Mer informasjon: &lt;a href&#x3D;&#39;https://epsg.io/5972&#39;&gt;EPSG:5972&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5973&#39;&gt;EPSG:5973&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5975&#39;&gt;EPSG:5975&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/4326&#39;&gt;EPSG:4326&lt;/a&gt;.
-     * @return ResponseEntity&lt;GetRute200Response&gt;
+     * @return ResponseEntity&lt;RuteResponse&gt;
      * @throws WebClientResponseException if an error occurs while attempting to invoke the API
      */
-    public Mono<ResponseEntity<GetRute200Response>> getRuteWithHttpInfo(@jakarta.annotation.Nullable String start, @jakarta.annotation.Nullable String slutt, @jakarta.annotation.Nullable String geometri, @jakarta.annotation.Nullable Integer maksAvstand, @jakarta.annotation.Nullable Integer omkrets, @jakarta.annotation.Nullable Boolean konnekteringslenker, @jakarta.annotation.Nullable Boolean detaljerteLenker, @jakarta.annotation.Nullable Boolean kortform, @jakarta.annotation.Nullable Set<String> vegsystemreferanse, @jakarta.annotation.Nullable String trafikantgruppe, @jakarta.annotation.Nullable Boolean beholdTrafikantgruppe, @jakarta.annotation.Nullable Set<String> typeveg, @jakarta.annotation.Nullable LocalDate tidspunkt, @jakarta.annotation.Nullable String srid) throws WebClientResponseException {
-        ParameterizedTypeReference<GetRute200Response> localVarReturnType = new ParameterizedTypeReference<GetRute200Response>() {};
+    public Mono<ResponseEntity<RuteResponse>> getRuteWithHttpInfo(@jakarta.annotation.Nullable String start, @jakarta.annotation.Nullable String slutt, @jakarta.annotation.Nullable String geometri, @jakarta.annotation.Nullable Integer maksAvstand, @jakarta.annotation.Nullable Integer omkrets, @jakarta.annotation.Nullable Boolean konnekteringslenker, @jakarta.annotation.Nullable Boolean detaljerteLenker, @jakarta.annotation.Nullable Boolean kortform, @jakarta.annotation.Nullable Set<String> vegsystemreferanse, @jakarta.annotation.Nullable String trafikantgruppe, @jakarta.annotation.Nullable Boolean beholdTrafikantgruppe, @jakarta.annotation.Nullable Set<String> typeveg, @jakarta.annotation.Nullable LocalDate tidspunkt, @jakarta.annotation.Nullable String srid) throws WebClientResponseException {
+        ParameterizedTypeReference<RuteResponse> localVarReturnType = new ParameterizedTypeReference<RuteResponse>() {};
         return getRuteRequestCreation(start, slutt, geometri, maksAvstand, omkrets, konnekteringslenker, detaljerteLenker, kortform, vegsystemreferanse, trafikantgruppe, beholdTrafikantgruppe, typeveg, tidspunkt, srid).toEntity(localVarReturnType);
     }
 
@@ -209,7 +209,7 @@ public class RuteApi {
      * <p><b>404</b> - Not Found
      * <p><b>200</b> - OK
      * @param finnRuteParameters The finnRuteParameters parameter
-     * @return GetRute200Response
+     * @return RuteResponse
      * @throws WebClientResponseException if an error occurs while attempting to invoke the API
      */
     private ResponseSpec postRuteRequestCreation(@jakarta.annotation.Nonnull FinnRuteParameters finnRuteParameters) throws WebClientResponseException {
@@ -237,7 +237,7 @@ public class RuteApi {
 
         String[] localVarAuthNames = new String[] {  };
 
-        ParameterizedTypeReference<GetRute200Response> localVarReturnType = new ParameterizedTypeReference<GetRute200Response>() {};
+        ParameterizedTypeReference<RuteResponse> localVarReturnType = new ParameterizedTypeReference<RuteResponse>() {};
         return apiClient.invokeAPI("/api/v4/beta/vegnett/rute", HttpMethod.POST, pathParams, queryParams, postBody, headerParams, cookieParams, formParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
     }
 
@@ -249,11 +249,11 @@ public class RuteApi {
      * <p><b>404</b> - Not Found
      * <p><b>200</b> - OK
      * @param finnRuteParameters The finnRuteParameters parameter
-     * @return GetRute200Response
+     * @return RuteResponse
      * @throws WebClientResponseException if an error occurs while attempting to invoke the API
      */
-    public Mono<GetRute200Response> postRute(@jakarta.annotation.Nonnull FinnRuteParameters finnRuteParameters) throws WebClientResponseException {
-        ParameterizedTypeReference<GetRute200Response> localVarReturnType = new ParameterizedTypeReference<GetRute200Response>() {};
+    public Mono<RuteResponse> postRute(@jakarta.annotation.Nonnull FinnRuteParameters finnRuteParameters) throws WebClientResponseException {
+        ParameterizedTypeReference<RuteResponse> localVarReturnType = new ParameterizedTypeReference<RuteResponse>() {};
         return postRuteRequestCreation(finnRuteParameters).bodyToMono(localVarReturnType);
     }
 
@@ -265,11 +265,11 @@ public class RuteApi {
      * <p><b>404</b> - Not Found
      * <p><b>200</b> - OK
      * @param finnRuteParameters The finnRuteParameters parameter
-     * @return ResponseEntity&lt;GetRute200Response&gt;
+     * @return ResponseEntity&lt;RuteResponse&gt;
      * @throws WebClientResponseException if an error occurs while attempting to invoke the API
      */
-    public Mono<ResponseEntity<GetRute200Response>> postRuteWithHttpInfo(@jakarta.annotation.Nonnull FinnRuteParameters finnRuteParameters) throws WebClientResponseException {
-        ParameterizedTypeReference<GetRute200Response> localVarReturnType = new ParameterizedTypeReference<GetRute200Response>() {};
+    public Mono<ResponseEntity<RuteResponse>> postRuteWithHttpInfo(@jakarta.annotation.Nonnull FinnRuteParameters finnRuteParameters) throws WebClientResponseException {
+        ParameterizedTypeReference<RuteResponse> localVarReturnType = new ParameterizedTypeReference<RuteResponse>() {};
         return postRuteRequestCreation(finnRuteParameters).toEntity(localVarReturnType);
     }
 

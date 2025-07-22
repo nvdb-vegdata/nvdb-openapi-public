@@ -16,7 +16,7 @@
 
     <properties>
         <kotest.version>5.9.1</kotest.version>
-        <kotlin.version>2.1.0</kotlin.version>
+        <kotlin.version>2.2.0</kotlin.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
 

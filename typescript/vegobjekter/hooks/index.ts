@@ -1,6 +1,6 @@
 export * from './useGetVegobjektById'
 export * from './useGetVegobjektByTypeAndId'
 export * from './useGetVegobjektByTypeIdAndVersjon'
-export * from './useGetVegobjektNotifikasjoner'
+export * from './useGetVegobjektEndringerForType'
 export * from './useGetVegobjektVersjoner'
 export * from './useGetVegobjekterByType'

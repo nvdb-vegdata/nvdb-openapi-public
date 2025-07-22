@@ -20,6 +20,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import no.vegvesen.vt.nvdb.vegobjekter.model.Vegkategori;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 
@@ -51,52 +52,9 @@ public class VegobjekterStatistikkGruppert {
   @jakarta.annotation.Nullable
   private Integer kommune;
 
-  /**
-   * Gets or Sets vegkategori
-   */
-  public enum VegkategoriEnum {
-    E(String.valueOf("E")),
-    
-    F(String.valueOf("F")),
-    
-    K(String.valueOf("K")),
-    
-    P(String.valueOf("P")),
-    
-    R(String.valueOf("R")),
-    
-    S(String.valueOf("S"));
-
-    private String value;
-
-    VegkategoriEnum(String value) {
-      this.value = value;
-    }
-
-    @JsonValue
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-
-    @JsonCreator
-    public static VegkategoriEnum fromValue(String value) {
-      for (VegkategoriEnum b : VegkategoriEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
-        }
-      }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
-    }
-  }
-
   public static final String JSON_PROPERTY_VEGKATEGORI = "vegkategori";
   @jakarta.annotation.Nullable
-  private VegkategoriEnum vegkategori;
+  private Vegkategori vegkategori;
 
   public VegobjekterStatistikkGruppert() {
   }
@@ -108,7 +66,7 @@ public class VegobjekterStatistikkGruppert {
   }
 
   /**
-   * Get antall
+   * Antallet objekter i gruppen. Utelatt dersom inkluder&#x3D;lengde
    * @return antall
    */
   @jakarta.annotation.Nullable
@@ -133,7 +91,7 @@ public class VegobjekterStatistikkGruppert {
   }
 
   /**
-   * Get lengde
+   * Den summerte lengden av objektene i gruppen. Utelatt dersom inkluder&#x3D;antall
    * @return lengde
    */
   @jakarta.annotation.Nullable
@@ -158,7 +116,7 @@ public class VegobjekterStatistikkGruppert {
   }
 
   /**
-   * Get fylke
+   * Hvilket fylke gruppen tilhører. Utelatt hvis ikke gruppert på fylke
    * @return fylke
    */
   @jakarta.annotation.Nullable
@@ -183,7 +141,7 @@ public class VegobjekterStatistikkGruppert {
   }
 
   /**
-   * Get kommune
+   * Hvilken kommune gruppen tilhører. Utelatt hvis ikke gruppert på kommune
    * @return kommune
    */
   @jakarta.annotation.Nullable
@@ -201,28 +159,28 @@ public class VegobjekterStatistikkGruppert {
     this.kommune = kommune;
   }
 
-  public VegobjekterStatistikkGruppert vegkategori(@jakarta.annotation.Nullable VegkategoriEnum vegkategori) {
+  public VegobjekterStatistikkGruppert vegkategori(@jakarta.annotation.Nullable Vegkategori vegkategori) {
     
     this.vegkategori = vegkategori;
     return this;
   }
 
   /**
-   * Get vegkategori
+   * Hvilken vegkategori gruppen tilhører. Utelatt hvis ikke gruppert på vegkategori
    * @return vegkategori
    */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_VEGKATEGORI)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public VegkategoriEnum getVegkategori() {
+  public Vegkategori getVegkategori() {
     return vegkategori;
   }
 
 
   @JsonProperty(JSON_PROPERTY_VEGKATEGORI)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setVegkategori(@jakarta.annotation.Nullable VegkategoriEnum vegkategori) {
+  public void setVegkategori(@jakarta.annotation.Nullable Vegkategori vegkategori) {
     this.vegkategori = vegkategori;
   }
 

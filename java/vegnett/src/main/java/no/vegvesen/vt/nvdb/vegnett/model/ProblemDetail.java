@@ -211,7 +211,7 @@ public class ProblemDetail {
    */
   @jakarta.annotation.Nullable
   @JsonProperty(JSON_PROPERTY_PROPERTIES)
-  @JsonInclude(content = JsonInclude.Include.ALWAYS, value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Map<String, Object> getProperties() {
     return properties;
@@ -219,7 +219,7 @@ public class ProblemDetail {
 
 
   @JsonProperty(JSON_PROPERTY_PROPERTIES)
-  @JsonInclude(content = JsonInclude.Include.ALWAYS, value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setProperties(@jakarta.annotation.Nullable Map<String, Object> properties) {
     this.properties = properties;
   }

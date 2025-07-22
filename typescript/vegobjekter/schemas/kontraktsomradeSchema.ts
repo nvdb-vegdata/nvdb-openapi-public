@@ -1,7 +1,7 @@
 import { z } from 'zod'
 
 export const kontraktsomradeSchema = z.object({
-  id: z.number().int(),
-  nummer: z.number().int().optional(),
+  id: z.number(),
+  nummer: z.number().optional(),
   navn: z.string(),
 })

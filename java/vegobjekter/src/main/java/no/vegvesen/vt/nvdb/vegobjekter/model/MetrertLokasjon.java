@@ -23,6 +23,8 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import no.vegvesen.vt.nvdb.vegobjekter.model.Retning;
+import no.vegvesen.vt.nvdb.vegobjekter.model.Sideposisjon;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 
@@ -36,105 +38,13 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 })
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.13.0")
 public class MetrertLokasjon {
-  /**
-   * Gets or Sets retning
-   */
-  public enum RetningEnum {
-    MED(String.valueOf("MED")),
-    
-    MOT(String.valueOf("MOT"));
-
-    private String value;
-
-    RetningEnum(String value) {
-      this.value = value;
-    }
-
-    @JsonValue
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-
-    @JsonCreator
-    public static RetningEnum fromValue(String value) {
-      for (RetningEnum b : RetningEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
-        }
-      }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
-    }
-  }
-
   public static final String JSON_PROPERTY_RETNING = "retning";
   @jakarta.annotation.Nullable
-  private RetningEnum retning;
-
-  /**
-   * Gets or Sets sideposisjon
-   */
-  public enum SideposisjonEnum {
-    MH(String.valueOf("MH")),
-    
-    MV(String.valueOf("MV")),
-    
-    VT(String.valueOf("VT")),
-    
-    M(String.valueOf("M")),
-    
-    H(String.valueOf("H")),
-    
-    HT(String.valueOf("HT")),
-    
-    VH(String.valueOf("VH")),
-    
-    HV(String.valueOf("HV")),
-    
-    K(String.valueOf("K")),
-    
-    V(String.valueOf("V")),
-    
-    L(String.valueOf("L")),
-    
-    R(String.valueOf("R")),
-    
-    R0(String.valueOf("R0"));
-
-    private String value;
-
-    SideposisjonEnum(String value) {
-      this.value = value;
-    }
-
-    @JsonValue
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-
-    @JsonCreator
-    public static SideposisjonEnum fromValue(String value) {
-      for (SideposisjonEnum b : SideposisjonEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
-        }
-      }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
-    }
-  }
+  private Retning retning;
 
   public static final String JSON_PROPERTY_SIDEPOSISJON = "sideposisjon";
   @jakarta.annotation.Nullable
-  private SideposisjonEnum sideposisjon;
+  private Sideposisjon sideposisjon;
 
   public static final String JSON_PROPERTY_KJøREFELT = "kjørefelt";
   @jakarta.annotation.Nullable
@@ -143,7 +53,7 @@ public class MetrertLokasjon {
   public MetrertLokasjon() {
   }
 
-  public MetrertLokasjon retning(@jakarta.annotation.Nullable RetningEnum retning) {
+  public MetrertLokasjon retning(@jakarta.annotation.Nullable Retning retning) {
     
     this.retning = retning;
     return this;
@@ -157,18 +67,18 @@ public class MetrertLokasjon {
   @JsonProperty(JSON_PROPERTY_RETNING)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public RetningEnum getRetning() {
+  public Retning getRetning() {
     return retning;
   }
 
 
   @JsonProperty(JSON_PROPERTY_RETNING)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setRetning(@jakarta.annotation.Nullable RetningEnum retning) {
+  public void setRetning(@jakarta.annotation.Nullable Retning retning) {
     this.retning = retning;
   }
 
-  public MetrertLokasjon sideposisjon(@jakarta.annotation.Nullable SideposisjonEnum sideposisjon) {
+  public MetrertLokasjon sideposisjon(@jakarta.annotation.Nullable Sideposisjon sideposisjon) {
     
     this.sideposisjon = sideposisjon;
     return this;
@@ -182,14 +92,14 @@ public class MetrertLokasjon {
   @JsonProperty(JSON_PROPERTY_SIDEPOSISJON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public SideposisjonEnum getSideposisjon() {
+  public Sideposisjon getSideposisjon() {
     return sideposisjon;
   }
 
 
   @JsonProperty(JSON_PROPERTY_SIDEPOSISJON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setSideposisjon(@jakarta.annotation.Nullable SideposisjonEnum sideposisjon) {
+  public void setSideposisjon(@jakarta.annotation.Nullable Sideposisjon sideposisjon) {
     this.sideposisjon = sideposisjon;
   }
 

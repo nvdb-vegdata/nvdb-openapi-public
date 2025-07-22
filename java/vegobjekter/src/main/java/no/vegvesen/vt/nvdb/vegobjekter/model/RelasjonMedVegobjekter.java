@@ -27,6 +27,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import no.vegvesen.vt.nvdb.vegobjekter.model.Relasjon;
+import no.vegvesen.vt.nvdb.vegobjekter.model.Relasjonstype;
 import no.vegvesen.vt.nvdb.vegobjekter.model.Vegobjekt;
 import no.vegvesen.vt.nvdb.vegobjekter.model.VegobjektType;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -107,7 +108,7 @@ public class RelasjonMedVegobjekter extends Relasjon {
   }
 
   @Override
-  public RelasjonMedVegobjekter relasjonstype(@jakarta.annotation.Nonnull RelasjonstypeEnum relasjonstype) {
+  public RelasjonMedVegobjekter relasjonstype(@jakarta.annotation.Nonnull Relasjonstype relasjonstype) {
     this.setRelasjonstype(relasjonstype);
     return this;
   }

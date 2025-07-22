@@ -1,8 +1,11 @@
 import { z } from 'zod'
 
 export const vegobjektFjernetSchema = z.object({
-  id: z.number().int(),
-  versjon: z.number().int(),
-  type: z.number().int(),
-  tidspunkt: z.string().datetime(),
+  id: z.number(),
+  versjon: z.number().describe(`Versjon av vegobjektet som er fjernet`),
+  type: z.number(),
+  tidspunkt: z
+    .string()
+    .datetime()
+    .describe(`Tidspunktet da endringen ble gjort tilgjengelig i Les API V4`),
 })

@@ -61,7 +61,7 @@ public class SideMetadata {
   }
 
   /**
-   * Get antall
+   * Totalt antall treff. Kun tilstede dersom inkluderAntall&#x3D;true
    * @return antall
    */
   @jakarta.annotation.Nullable
@@ -86,7 +86,7 @@ public class SideMetadata {
   }
 
   /**
-   * Get returnert
+   * Antallet objekter som ble returnert i denne responsen
    * @return returnert
    */
   @jakarta.annotation.Nonnull
@@ -111,7 +111,7 @@ public class SideMetadata {
   }
 
   /**
-   * Get sidestørrelse
+   * Maks antall objekter som blir returnert per side
    * @return sidestørrelse
    */
   @jakarta.annotation.Nonnull
@@ -136,7 +136,7 @@ public class SideMetadata {
   }
 
   /**
-   * Get neste
+   * Informasjon om neste side, utelatt dersom man spør på et endepunkt som gjelder et spesifikt vegobjekt. Når resultatsettet er tomt vil neste side være tom og samme start token vil returneres for påfølgende side.
    * @return neste
    */
   @jakarta.annotation.Nullable

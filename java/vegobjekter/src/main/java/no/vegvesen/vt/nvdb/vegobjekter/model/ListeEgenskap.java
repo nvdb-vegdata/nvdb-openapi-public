@@ -23,7 +23,11 @@ import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import no.vegvesen.vt.nvdb.vegobjekter.model.Egenskap;
+import no.vegvesen.vt.nvdb.vegobjekter.model.Egenskapstype;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 
@@ -31,6 +35,7 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
  * ListeEgenskap
  */
 @JsonPropertyOrder({
+  ListeEgenskap.JSON_PROPERTY_INNHOLD
 })
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.13.0")
 @JsonIgnoreProperties(
@@ -40,8 +45,45 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 @JsonTypeInfo(use = JsonTypeInfo.Id.NAME, include = JsonTypeInfo.As.PROPERTY, property = "egenskapstype", visible = true)
 
 public class ListeEgenskap extends Egenskap {
+  public static final String JSON_PROPERTY_INNHOLD = "innhold";
+  @jakarta.annotation.Nullable
+  private List<Egenskap> innhold = new ArrayList<>();
+
   public ListeEgenskap() {
 
+  }
+
+  public ListeEgenskap innhold(@jakarta.annotation.Nullable List<Egenskap> innhold) {
+    
+    this.innhold = innhold;
+    return this;
+  }
+
+  public ListeEgenskap addInnholdItem(Egenskap innholdItem) {
+    if (this.innhold == null) {
+      this.innhold = new ArrayList<>();
+    }
+    this.innhold.add(innholdItem);
+    return this;
+  }
+
+  /**
+   * Get innhold
+   * @return innhold
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_INNHOLD)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public List<Egenskap> getInnhold() {
+    return innhold;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_INNHOLD)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setInnhold(@jakarta.annotation.Nullable List<Egenskap> innhold) {
+    this.innhold = innhold;
   }
 
 
@@ -58,7 +100,7 @@ public class ListeEgenskap extends Egenskap {
   }
 
   @Override
-  public ListeEgenskap egenskapstype(@jakarta.annotation.Nonnull EgenskapstypeEnum egenskapstype) {
+  public ListeEgenskap egenskapstype(@jakarta.annotation.Nonnull Egenskapstype egenskapstype) {
     this.setEgenskapstype(egenskapstype);
     return this;
   }
@@ -71,12 +113,14 @@ public class ListeEgenskap extends Egenskap {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    return super.equals(o);
+    ListeEgenskap listeEgenskap = (ListeEgenskap) o;
+    return Objects.equals(this.innhold, listeEgenskap.innhold) &&
+        super.equals(o);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(super.hashCode());
+    return Objects.hash(innhold, super.hashCode());
   }
 
   @Override
@@ -84,6 +128,7 @@ public class ListeEgenskap extends Egenskap {
     StringBuilder sb = new StringBuilder();
     sb.append("class ListeEgenskap {\n");
     sb.append("    ").append(toIndentedString(super.toString())).append("\n");
+    sb.append("    innhold: ").append(toIndentedString(innhold)).append("\n");
     sb.append("}");
     return sb.toString();
   }

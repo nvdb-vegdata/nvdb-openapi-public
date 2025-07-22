@@ -78,8 +78,7 @@ export function getVegobjekttyperHistoriskQueryOptions(
 }
 /**
  * @summary Returnerer alle vegobjekttypene for en gitt versjon av datakatalogen, f.eks. 2.31
- * @link /api/v1/vegobjekttyper/historisk/:versjon
- */
+ * @link /api/v1/vegobjekttyper/historisk/:versjon */
 export function useGetVegobjekttyperHistorisk<
   TData = GetVegobjekttyperHistorisk['response'],
   TQueryData = GetVegobjekttyperHistorisk['response'],
@@ -111,7 +110,7 @@ export function useGetVegobjekttyperHistorisk<
       versjon,
       params,
       clientOptions,
-    ) as unknown as QueryObserverOptions),
+    ) as QueryObserverOptions),
     queryKey,
     ...(queryOptions as unknown as Omit<QueryObserverOptions, 'queryKey'>),
   }) as UseQueryResult<TData, GetVegobjekttyperHistorisk['error']> & {
@@ -158,8 +157,7 @@ export function getVegobjekttyperHistoriskSuspenseQueryOptions(
 }
 /**
  * @summary Returnerer alle vegobjekttypene for en gitt versjon av datakatalogen, f.eks. 2.31
- * @link /api/v1/vegobjekttyper/historisk/:versjon
- */
+ * @link /api/v1/vegobjekttyper/historisk/:versjon */
 export function useGetVegobjekttyperHistoriskSuspense<
   TData = GetVegobjekttyperHistorisk['response'],
   TQueryKey extends QueryKey = GetVegobjekttyperHistoriskSuspenseQueryKey,
@@ -189,9 +187,9 @@ export function useGetVegobjekttyperHistoriskSuspense<
       versjon,
       params,
       clientOptions,
-    ) as unknown as UseSuspenseQueryOptions),
+    ) as QueryObserverOptions),
     queryKey,
-    ...(queryOptions as unknown as Omit<UseSuspenseQueryOptions, 'queryKey'>),
+    ...(queryOptions as unknown as Omit<QueryObserverOptions, 'queryKey'>),
   }) as UseSuspenseQueryResult<TData, GetVegobjekttyperHistorisk['error']> & {
     queryKey: TQueryKey
   }

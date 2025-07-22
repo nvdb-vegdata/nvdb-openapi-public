@@ -63,7 +63,7 @@ public class Relasjoner {
   }
 
   /**
-   * Get foreldre
+   * Utelatt dersom vegobjektet ikke har noen foreldre
    * @return foreldre
    */
   @jakarta.annotation.Nullable
@@ -96,7 +96,7 @@ public class Relasjoner {
   }
 
   /**
-   * Get barn
+   * Utelatt dersom vegobjektet ikke har noen barn
    * @return barn
    */
   @jakarta.annotation.Nullable

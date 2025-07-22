@@ -27,7 +27,13 @@ import java.util.Arrays;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
+import no.vegvesen.vt.nvdb.vegobjekter.model.Detaljniva;
 import no.vegvesen.vt.nvdb.vegobjekter.model.Geometri;
+import no.vegvesen.vt.nvdb.vegobjekter.model.Retning;
+import no.vegvesen.vt.nvdb.vegobjekter.model.Sideposisjon;
+import no.vegvesen.vt.nvdb.vegobjekter.model.TypeVeg;
+import no.vegvesen.vt.nvdb.vegobjekter.model.TypeVegSosi;
+import no.vegvesen.vt.nvdb.vegobjekter.model.VeglenkeType;
 import no.vegvesen.vt.nvdb.vegobjekter.model.Vegsystemreferanse;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
@@ -82,339 +88,37 @@ public class Vegsegment {
   @jakarta.annotation.Nullable
   private Double lengde;
 
-  /**
-   * Gets or Sets retning
-   */
-  public enum RetningEnum {
-    MED(String.valueOf("MED")),
-    
-    MOT(String.valueOf("MOT"));
-
-    private String value;
-
-    RetningEnum(String value) {
-      this.value = value;
-    }
-
-    @JsonValue
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-
-    @JsonCreator
-    public static RetningEnum fromValue(String value) {
-      for (RetningEnum b : RetningEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
-        }
-      }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
-    }
-  }
-
   public static final String JSON_PROPERTY_RETNING = "retning";
   @jakarta.annotation.Nonnull
-  private RetningEnum retning;
+  private Retning retning;
 
   public static final String JSON_PROPERTY_KJøREFELT = "kjørefelt";
   @jakarta.annotation.Nullable
   private List<String> kjørefelt = new ArrayList<>();
 
-  /**
-   * Gets or Sets sideposisjon
-   */
-  public enum SideposisjonEnum {
-    MH(String.valueOf("MH")),
-    
-    MV(String.valueOf("MV")),
-    
-    VT(String.valueOf("VT")),
-    
-    M(String.valueOf("M")),
-    
-    H(String.valueOf("H")),
-    
-    HT(String.valueOf("HT")),
-    
-    VH(String.valueOf("VH")),
-    
-    HV(String.valueOf("HV")),
-    
-    K(String.valueOf("K")),
-    
-    V(String.valueOf("V")),
-    
-    L(String.valueOf("L")),
-    
-    R(String.valueOf("R")),
-    
-    R0(String.valueOf("R0"));
-
-    private String value;
-
-    SideposisjonEnum(String value) {
-      this.value = value;
-    }
-
-    @JsonValue
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-
-    @JsonCreator
-    public static SideposisjonEnum fromValue(String value) {
-      for (SideposisjonEnum b : SideposisjonEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
-        }
-      }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
-    }
-  }
-
   public static final String JSON_PROPERTY_SIDEPOSISJON = "sideposisjon";
   @jakarta.annotation.Nullable
-  private SideposisjonEnum sideposisjon;
+  private Sideposisjon sideposisjon;
 
   public static final String JSON_PROPERTY_FELTOVERSIKT = "feltoversikt";
   @jakarta.annotation.Nullable
   private List<String> feltoversikt = new ArrayList<>();
 
-  /**
-   * Gets or Sets veglenkeType
-   */
-  public enum VeglenkeTypeEnum {
-    UKJENT(String.valueOf("Ukjent")),
-    
-    DETALJERT(String.valueOf("DETALJERT")),
-    
-    KONNEKTERING(String.valueOf("KONNEKTERING")),
-    
-    DETALJERT_KONNEKTERING(String.valueOf("DETALJERT_KONNEKTERING")),
-    
-    HOVED(String.valueOf("HOVED"));
-
-    private String value;
-
-    VeglenkeTypeEnum(String value) {
-      this.value = value;
-    }
-
-    @JsonValue
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-
-    @JsonCreator
-    public static VeglenkeTypeEnum fromValue(String value) {
-      for (VeglenkeTypeEnum b : VeglenkeTypeEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
-        }
-      }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
-    }
-  }
-
   public static final String JSON_PROPERTY_VEGLENKE_TYPE = "veglenkeType";
   @jakarta.annotation.Nonnull
-  private VeglenkeTypeEnum veglenkeType;
-
-  /**
-   * Gets or Sets detaljnivå
-   */
-  public enum DetaljnivEnum {
-    VEGTRASE(String.valueOf("Vegtrase")),
-    
-    KJ_REBANE(String.valueOf("Kjørebane")),
-    
-    KJ_REFELT(String.valueOf("Kjørefelt")),
-    
-    VEGTRASE_OG_KJ_REBANE(String.valueOf("Vegtrase og kjørebane"));
-
-    private String value;
-
-    DetaljnivEnum(String value) {
-      this.value = value;
-    }
-
-    @JsonValue
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-
-    @JsonCreator
-    public static DetaljnivEnum fromValue(String value) {
-      for (DetaljnivEnum b : DetaljnivEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
-        }
-      }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
-    }
-  }
+  private VeglenkeType veglenkeType;
 
   public static final String JSON_PROPERTY_DETALJNIVå = "detaljnivå";
   @jakarta.annotation.Nonnull
-  private DetaljnivEnum detaljnivå;
-
-  /**
-   * Gets or Sets typeVeg
-   */
-  public enum TypeVegEnum {
-    KANALISERT_VEG(String.valueOf("Kanalisert veg")),
-    
-    ENKEL_BILVEG(String.valueOf("Enkel bilveg")),
-    
-    RAMPE(String.valueOf("Rampe")),
-    
-    RUNDKJ_RING(String.valueOf("Rundkjøring")),
-    
-    BILFERJE(String.valueOf("Bilferje")),
-    
-    PASSASJERFERJE(String.valueOf("Passasjerferje")),
-    
-    GANG_OG_SYKKELVEG(String.valueOf("Gang- og sykkelveg")),
-    
-    SYKKELVEG(String.valueOf("Sykkelveg")),
-    
-    GANGVEG(String.valueOf("Gangveg")),
-    
-    G_GATE(String.valueOf("Gågate")),
-    
-    FORTAU(String.valueOf("Fortau")),
-    
-    TRAPP(String.valueOf("Trapp")),
-    
-    GANGFELT(String.valueOf("Gangfelt")),
-    
-    GATETUN(String.valueOf("Gatetun")),
-    
-    TRAKTORVEG(String.valueOf("Traktorveg")),
-    
-    STI(String.valueOf("Sti")),
-    
-    ANNET(String.valueOf("Annet"));
-
-    private String value;
-
-    TypeVegEnum(String value) {
-      this.value = value;
-    }
-
-    @JsonValue
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-
-    @JsonCreator
-    public static TypeVegEnum fromValue(String value) {
-      for (TypeVegEnum b : TypeVegEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
-        }
-      }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
-    }
-  }
+  private Detaljniva detaljnivå;
 
   public static final String JSON_PROPERTY_TYPE_VEG = "typeVeg";
   @jakarta.annotation.Nonnull
-  private TypeVegEnum typeVeg;
-
-  /**
-   * Gets or Sets typeVegSosi
-   */
-  public enum TypeVegSosiEnum {
-    KANALISERT_VEG(String.valueOf("kanalisertVeg")),
-    
-    ENKEL_BILVEG(String.valueOf("enkelBilveg")),
-    
-    RAMPE(String.valueOf("rampe")),
-    
-    RUNDKJ_RING(String.valueOf("rundkjøring")),
-    
-    BILFERJE(String.valueOf("bilferje")),
-    
-    PASSASJERFERJE(String.valueOf("passasjerferje")),
-    
-    GANG_OG_SYKKELVEG(String.valueOf("gangOgSykkelveg")),
-    
-    SYKKELVEG(String.valueOf("sykkelveg")),
-    
-    GANGVEG(String.valueOf("gangveg")),
-    
-    G_GATE(String.valueOf("gågate")),
-    
-    FORTAU(String.valueOf("fortau")),
-    
-    TRAPP(String.valueOf("trapp")),
-    
-    GANGFELT(String.valueOf("gangfelt")),
-    
-    GATETUN(String.valueOf("gatetun")),
-    
-    TRAKTORVEG(String.valueOf("traktorveg")),
-    
-    STI(String.valueOf("sti")),
-    
-    ANNET(String.valueOf("annet"));
-
-    private String value;
-
-    TypeVegSosiEnum(String value) {
-      this.value = value;
-    }
-
-    @JsonValue
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-
-    @JsonCreator
-    public static TypeVegSosiEnum fromValue(String value) {
-      for (TypeVegSosiEnum b : TypeVegSosiEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
-        }
-      }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
-    }
-  }
+  private TypeVeg typeVeg;
 
   public static final String JSON_PROPERTY_TYPE_VEG_SOSI = "typeVeg_sosi";
   @jakarta.annotation.Nonnull
-  private TypeVegSosiEnum typeVegSosi;
+  private TypeVegSosi typeVegSosi;
 
   public static final String JSON_PROPERTY_STARTDATO = "startdato";
   @jakarta.annotation.Nonnull
@@ -566,7 +270,7 @@ public class Vegsegment {
   }
 
   /**
-   * Get lengde
+   * Utelatt dersom vegsegmentets lengde er lik 0
    * @return lengde
    */
   @jakarta.annotation.Nullable
@@ -584,7 +288,7 @@ public class Vegsegment {
     this.lengde = lengde;
   }
 
-  public Vegsegment retning(@jakarta.annotation.Nonnull RetningEnum retning) {
+  public Vegsegment retning(@jakarta.annotation.Nonnull Retning retning) {
     
     this.retning = retning;
     return this;
@@ -598,14 +302,14 @@ public class Vegsegment {
   @JsonProperty(JSON_PROPERTY_RETNING)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public RetningEnum getRetning() {
+  public Retning getRetning() {
     return retning;
   }
 
 
   @JsonProperty(JSON_PROPERTY_RETNING)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setRetning(@jakarta.annotation.Nonnull RetningEnum retning) {
+  public void setRetning(@jakarta.annotation.Nonnull Retning retning) {
     this.retning = retning;
   }
 
@@ -624,7 +328,7 @@ public class Vegsegment {
   }
 
   /**
-   * Get kjørefelt
+   * Utelatt dersom kjørefelt ikke er relevant for vegsegmentet
    * @return kjørefelt
    */
   @jakarta.annotation.Nullable
@@ -642,7 +346,7 @@ public class Vegsegment {
     this.kjørefelt = kjørefelt;
   }
 
-  public Vegsegment sideposisjon(@jakarta.annotation.Nullable SideposisjonEnum sideposisjon) {
+  public Vegsegment sideposisjon(@jakarta.annotation.Nullable Sideposisjon sideposisjon) {
     
     this.sideposisjon = sideposisjon;
     return this;
@@ -656,14 +360,14 @@ public class Vegsegment {
   @JsonProperty(JSON_PROPERTY_SIDEPOSISJON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public SideposisjonEnum getSideposisjon() {
+  public Sideposisjon getSideposisjon() {
     return sideposisjon;
   }
 
 
   @JsonProperty(JSON_PROPERTY_SIDEPOSISJON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setSideposisjon(@jakarta.annotation.Nullable SideposisjonEnum sideposisjon) {
+  public void setSideposisjon(@jakarta.annotation.Nullable Sideposisjon sideposisjon) {
     this.sideposisjon = sideposisjon;
   }
 
@@ -682,7 +386,7 @@ public class Vegsegment {
   }
 
   /**
-   * Get feltoversikt
+   * Utelatt dersom vegsegmentet ikke har noen felter i feltoversikten
    * @return feltoversikt
    */
   @jakarta.annotation.Nullable
@@ -700,7 +404,7 @@ public class Vegsegment {
     this.feltoversikt = feltoversikt;
   }
 
-  public Vegsegment veglenkeType(@jakarta.annotation.Nonnull VeglenkeTypeEnum veglenkeType) {
+  public Vegsegment veglenkeType(@jakarta.annotation.Nonnull VeglenkeType veglenkeType) {
     
     this.veglenkeType = veglenkeType;
     return this;
@@ -714,18 +418,18 @@ public class Vegsegment {
   @JsonProperty(JSON_PROPERTY_VEGLENKE_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public VeglenkeTypeEnum getVeglenkeType() {
+  public VeglenkeType getVeglenkeType() {
     return veglenkeType;
   }
 
 
   @JsonProperty(JSON_PROPERTY_VEGLENKE_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setVeglenkeType(@jakarta.annotation.Nonnull VeglenkeTypeEnum veglenkeType) {
+  public void setVeglenkeType(@jakarta.annotation.Nonnull VeglenkeType veglenkeType) {
     this.veglenkeType = veglenkeType;
   }
 
-  public Vegsegment detaljnivå(@jakarta.annotation.Nonnull DetaljnivEnum detaljnivå) {
+  public Vegsegment detaljnivå(@jakarta.annotation.Nonnull Detaljniva detaljnivå) {
     
     this.detaljnivå = detaljnivå;
     return this;
@@ -739,18 +443,18 @@ public class Vegsegment {
   @JsonProperty(JSON_PROPERTY_DETALJNIVå)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public DetaljnivEnum getDetaljnivå() {
+  public Detaljniva getDetaljnivå() {
     return detaljnivå;
   }
 
 
   @JsonProperty(JSON_PROPERTY_DETALJNIVå)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setDetaljnivå(@jakarta.annotation.Nonnull DetaljnivEnum detaljnivå) {
+  public void setDetaljnivå(@jakarta.annotation.Nonnull Detaljniva detaljnivå) {
     this.detaljnivå = detaljnivå;
   }
 
-  public Vegsegment typeVeg(@jakarta.annotation.Nonnull TypeVegEnum typeVeg) {
+  public Vegsegment typeVeg(@jakarta.annotation.Nonnull TypeVeg typeVeg) {
     
     this.typeVeg = typeVeg;
     return this;
@@ -764,18 +468,18 @@ public class Vegsegment {
   @JsonProperty(JSON_PROPERTY_TYPE_VEG)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public TypeVegEnum getTypeVeg() {
+  public TypeVeg getTypeVeg() {
     return typeVeg;
   }
 
 
   @JsonProperty(JSON_PROPERTY_TYPE_VEG)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setTypeVeg(@jakarta.annotation.Nonnull TypeVegEnum typeVeg) {
+  public void setTypeVeg(@jakarta.annotation.Nonnull TypeVeg typeVeg) {
     this.typeVeg = typeVeg;
   }
 
-  public Vegsegment typeVegSosi(@jakarta.annotation.Nonnull TypeVegSosiEnum typeVegSosi) {
+  public Vegsegment typeVegSosi(@jakarta.annotation.Nonnull TypeVegSosi typeVegSosi) {
     
     this.typeVegSosi = typeVegSosi;
     return this;
@@ -789,14 +493,14 @@ public class Vegsegment {
   @JsonProperty(JSON_PROPERTY_TYPE_VEG_SOSI)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public TypeVegSosiEnum getTypeVegSosi() {
+  public TypeVegSosi getTypeVegSosi() {
     return typeVegSosi;
   }
 
 
   @JsonProperty(JSON_PROPERTY_TYPE_VEG_SOSI)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setTypeVegSosi(@jakarta.annotation.Nonnull TypeVegSosiEnum typeVegSosi) {
+  public void setTypeVegSosi(@jakarta.annotation.Nonnull TypeVegSosi typeVegSosi) {
     this.typeVegSosi = typeVegSosi;
   }
 
@@ -832,7 +536,7 @@ public class Vegsegment {
   }
 
   /**
-   * Get sluttdato
+   * Utelatt dersom vegsegmentet ikke har noe satt sluttdato
    * @return sluttdato
    */
   @jakarta.annotation.Nullable
@@ -965,7 +669,7 @@ public class Vegsegment {
   }
 
   /**
-   * Get kontraktsområder
+   * Utelatt om vegsegmentet ikke overlapper med noen kontraktsområder
    * @return kontraktsområder
    */
   @jakarta.annotation.Nullable
@@ -999,7 +703,7 @@ public class Vegsegment {
   }
 
   /**
-   * Get riksvegruter
+   * Utelatt om vegsegmentet ikke overlapper med noen riksvegruter
    * @return riksvegruter
    */
   @jakarta.annotation.Nullable
@@ -1033,7 +737,7 @@ public class Vegsegment {
   }
 
   /**
-   * Get vegforvaltere
+   * Utelatt om vegsegmentet ikke overlapper med noen vegforvaltere
    * @return vegforvaltere
    */
   @jakarta.annotation.Nullable
@@ -1067,7 +771,7 @@ public class Vegsegment {
   }
 
   /**
-   * Get adresser
+   * Utelatt om vegsegmentet ikke overlapper med noen adresser
    * @return adresser
    */
   @jakarta.annotation.Nullable

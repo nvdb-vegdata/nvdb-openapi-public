@@ -23,6 +23,7 @@ import com.fasterxml.jackson.annotation.JsonSubTypes;
 import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import no.vegvesen.vt.nvdb.vegobjekter.model.Relasjonstype;
 import no.vegvesen.vt.nvdb.vegobjekter.model.VegobjektType;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
@@ -60,44 +61,9 @@ public class Relasjon {
   @jakarta.annotation.Nullable
   protected Integer listeid;
 
-  /**
-   * Gets or Sets relasjonstype
-   */
-  public enum RelasjonstypeEnum {
-    VEGOBJEKTER(String.valueOf("vegobjekter")),
-    
-    VEGOBJEKT_IDER(String.valueOf("vegobjektIder"));
-
-    private String value;
-
-    RelasjonstypeEnum(String value) {
-      this.value = value;
-    }
-
-    @JsonValue
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-
-    @JsonCreator
-    public static RelasjonstypeEnum fromValue(String value) {
-      for (RelasjonstypeEnum b : RelasjonstypeEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
-        }
-      }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
-    }
-  }
-
   public static final String JSON_PROPERTY_RELASJONSTYPE = "relasjonstype";
   @jakarta.annotation.Nonnull
-  protected RelasjonstypeEnum relasjonstype;
+  protected Relasjonstype relasjonstype;
 
   public Relasjon() {
   }
@@ -177,7 +143,7 @@ public class Relasjon {
     this.listeid = listeid;
   }
 
-  public Relasjon relasjonstype(@jakarta.annotation.Nonnull RelasjonstypeEnum relasjonstype) {
+  public Relasjon relasjonstype(@jakarta.annotation.Nonnull Relasjonstype relasjonstype) {
     
     this.relasjonstype = relasjonstype;
     return this;
@@ -191,14 +157,14 @@ public class Relasjon {
   @JsonProperty(JSON_PROPERTY_RELASJONSTYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public RelasjonstypeEnum getRelasjonstype() {
+  public Relasjonstype getRelasjonstype() {
     return relasjonstype;
   }
 
 
   @JsonProperty(JSON_PROPERTY_RELASJONSTYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setRelasjonstype(@jakarta.annotation.Nonnull RelasjonstypeEnum relasjonstype) {
+  public void setRelasjonstype(@jakarta.annotation.Nonnull Relasjonstype relasjonstype) {
     this.relasjonstype = relasjonstype;
   }
 

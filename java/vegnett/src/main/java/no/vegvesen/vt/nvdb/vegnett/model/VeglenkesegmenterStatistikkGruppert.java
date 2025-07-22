@@ -42,7 +42,7 @@ public class VeglenkesegmenterStatistikkGruppert {
   private Integer fylke;
 
   /**
-   * Gets or Sets vegkategori
+   * Hvilken vegkategori gruppen tilhører. Utelatt hvis ikke gruppert på vegkategori
    */
   public enum VegkategoriEnum {
     E(String.valueOf("E")),
@@ -98,7 +98,7 @@ public class VeglenkesegmenterStatistikkGruppert {
   }
 
   /**
-   * Get antall
+   * Antallet veglenkesegmenter i gruppen
    * @return antall
    */
   @jakarta.annotation.Nonnull
@@ -123,7 +123,7 @@ public class VeglenkesegmenterStatistikkGruppert {
   }
 
   /**
-   * Get fylke
+   * Hvilket fylke gruppen tilhører. Utelatt hvis ikke gruppert på fylke
    * @return fylke
    */
   @jakarta.annotation.Nullable
@@ -148,7 +148,7 @@ public class VeglenkesegmenterStatistikkGruppert {
   }
 
   /**
-   * Get vegkategori
+   * Hvilken vegkategori gruppen tilhører. Utelatt hvis ikke gruppert på vegkategori
    * @return vegkategori
    */
   @jakarta.annotation.Nullable

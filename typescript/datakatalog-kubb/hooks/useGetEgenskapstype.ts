@@ -68,8 +68,7 @@ export function getEgenskapstypeQueryOptions(
 }
 /**
  * @summary Returnerer angitt egenskapstype
- * @link /api/v1/egenskapstyper/:egenskapstypeid
- */
+ * @link /api/v1/egenskapstyper/:egenskapstypeid */
 export function useGetEgenskapstype<
   TData = GetEgenskapstype['response'],
   TQueryData = GetEgenskapstype['response'],
@@ -98,7 +97,7 @@ export function useGetEgenskapstype<
     ...(getEgenskapstypeQueryOptions(
       egenskapstypeid,
       clientOptions,
-    ) as unknown as QueryObserverOptions),
+    ) as QueryObserverOptions),
     queryKey,
     ...(queryOptions as unknown as Omit<QueryObserverOptions, 'queryKey'>),
   }) as UseQueryResult<TData, GetEgenskapstype['error']> & {
@@ -141,8 +140,7 @@ export function getEgenskapstypeSuspenseQueryOptions(
 }
 /**
  * @summary Returnerer angitt egenskapstype
- * @link /api/v1/egenskapstyper/:egenskapstypeid
- */
+ * @link /api/v1/egenskapstyper/:egenskapstypeid */
 export function useGetEgenskapstypeSuspense<
   TData = GetEgenskapstype['response'],
   TQueryKey extends QueryKey = GetEgenskapstypeSuspenseQueryKey,
@@ -169,9 +167,9 @@ export function useGetEgenskapstypeSuspense<
     ...(getEgenskapstypeSuspenseQueryOptions(
       egenskapstypeid,
       clientOptions,
-    ) as unknown as UseSuspenseQueryOptions),
+    ) as QueryObserverOptions),
     queryKey,
-    ...(queryOptions as unknown as Omit<UseSuspenseQueryOptions, 'queryKey'>),
+    ...(queryOptions as unknown as Omit<QueryObserverOptions, 'queryKey'>),
   }) as UseSuspenseQueryResult<TData, GetEgenskapstype['error']> & {
     queryKey: TQueryKey
   }

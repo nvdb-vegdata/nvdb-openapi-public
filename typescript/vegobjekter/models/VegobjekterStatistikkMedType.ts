@@ -2,7 +2,7 @@ import type { VegobjekterStatistikk } from './VegobjekterStatistikk'
 
 export type VegobjekterStatistikkMedType = {
   /**
-   * @type integer, int32
+   * @type integer int32
    */
   id: number
   /**
@@ -13,8 +13,5 @@ export type VegobjekterStatistikkMedType = {
    * @type string
    */
   href: string
-  /**
-   * @type object
-   */
   statistikk: VegobjekterStatistikk
 }

@@ -6,7 +6,7 @@ export type TekstEnumEgenskap = Egenskap & {
    */
   verdi?: string
   /**
-   * @type integer | undefined, int32
+   * @type integer | undefined int32
    */
   enum_id?: number
 }

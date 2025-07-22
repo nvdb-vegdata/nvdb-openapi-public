@@ -74,6 +74,18 @@ export interface Vegobjekttype {
   beskrivelse?: string
   /**
    *
+   * @type {Date}
+   * @memberof Vegobjekttype
+   */
+  objektlisteDato?: Date
+  /**
+   *
+   * @type {string}
+   * @memberof Vegobjekttype
+   */
+  veiledning?: string
+  /**
+   *
    * @type {Stedfesting}
    * @memberof Vegobjekttype
    */
@@ -143,6 +155,12 @@ export interface Vegobjekttype {
    * @type {boolean}
    * @memberof Vegobjekttype
    */
+  erDataserie: boolean
+  /**
+   *
+   * @type {boolean}
+   * @memberof Vegobjekttype
+   */
   enVersjon: boolean
   /**
    *
@@ -189,6 +207,8 @@ export function instanceOfVegobjekttype(value: object): value is Vegobjekttype {
     return false
   if (!('avledet' in value) || value['avledet'] === undefined) return false
   if (!('mHaMor' in value) || value['mHaMor'] === undefined) return false
+  if (!('erDataserie' in value) || value['erDataserie'] === undefined)
+    return false
   if (!('enVersjon' in value) || value['enVersjon'] === undefined) return false
   if (!('kategorier' in value) || value['kategorier'] === undefined)
     return false
@@ -212,6 +232,11 @@ export function VegobjekttypeFromJSONTyped(
     navn: json['navn'] == null ? undefined : json['navn'],
     kortnavn: json['kortnavn'] == null ? undefined : json['kortnavn'],
     beskrivelse: json['beskrivelse'] == null ? undefined : json['beskrivelse'],
+    objektlisteDato:
+      json['objektliste_dato'] == null
+        ? undefined
+        : new Date(json['objektliste_dato']),
+    veiledning: json['veiledning'] == null ? undefined : json['veiledning'],
     stedfesting:
       json['stedfesting'] == null
         ? undefined
@@ -231,6 +256,7 @@ export function VegobjekttypeFromJSONTyped(
     abstraktType: json['abstrakt_type'],
     avledet: json['avledet'],
     mHaMor: json['må_ha_mor'],
+    erDataserie: json['er_dataserie'],
     enVersjon: json['en_versjon'],
     tilleggsinformasjon:
       json['tilleggsinformasjon'] == null
@@ -268,6 +294,11 @@ export function VegobjekttypeToJSONTyped(
     navn: value['navn'],
     kortnavn: value['kortnavn'],
     beskrivelse: value['beskrivelse'],
+    objektliste_dato:
+      value['objektlisteDato'] == null
+        ? undefined
+        : value['objektlisteDato'].toISOString().substring(0, 10),
+    veiledning: value['veiledning'],
     stedfesting: StedfestingToJSON(value['stedfesting']),
     sosinavn: value['sosinavn'],
     sosinvdbnavn: value['sosinvdbnavn'],
@@ -279,6 +310,7 @@ export function VegobjekttypeToJSONTyped(
     abstrakt_type: value['abstraktType'],
     avledet: value['avledet'],
     må_ha_mor: value['mHaMor'],
+    er_dataserie: value['erDataserie'],
     en_versjon: value['enVersjon'],
     tilleggsinformasjon: value['tilleggsinformasjon'],
     kategorier: (value['kategorier'] as Array<any>).map(

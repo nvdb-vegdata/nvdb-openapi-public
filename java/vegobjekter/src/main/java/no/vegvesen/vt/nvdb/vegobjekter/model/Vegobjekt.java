@@ -89,7 +89,7 @@ public class Vegobjekt {
   }
 
   /**
-   * Get id
+   * Vegobjektets id i NVDB
    * @return id
    */
   @jakarta.annotation.Nonnull
@@ -114,7 +114,7 @@ public class Vegobjekt {
   }
 
   /**
-   * Get href
+   * URL-en til dette vegobjektet
    * @return href
    */
   @jakarta.annotation.Nonnull
@@ -139,7 +139,7 @@ public class Vegobjekt {
   }
 
   /**
-   * Get metadata
+   * Vegobjektets metadata. Inneholder ikke sluttdato dersom objektet ikke har noe sluttdato. Tilstede dersom inkluder&#x3D;alle|metadata
    * @return metadata
    */
   @jakarta.annotation.Nullable
@@ -172,7 +172,7 @@ public class Vegobjekt {
   }
 
   /**
-   * Get egenskaper
+   * Objektets egenskaper. Tilstede dersom inkluder&#x3D;alle|egenskaper. Inneholder ikke stedfestings- og relasjonsegenskaper til forskjell fra Les API V3 (tilsvarende informasjon finnes i vegobjekt.lokasjon og vegobjekt.relasjoner).
    * @return egenskaper
    */
   @jakarta.annotation.Nullable
@@ -197,7 +197,7 @@ public class Vegobjekt {
   }
 
   /**
-   * Get geometri
+   * Objektets geometri på vegnettet, eller egengeometri. Tilstede dersom inkluder&#x3D;alle|geometri. Kan være utelatt dersom objektet ikke har noe geometri.
    * @return geometri
    */
   @jakarta.annotation.Nullable
@@ -222,7 +222,7 @@ public class Vegobjekt {
   }
 
   /**
-   * Get lokasjon
+   * Plasseringen av dette objektet. Tilstede dersom inkluder&#x3D;alle|lokasjon
    * @return lokasjon
    */
   @jakarta.annotation.Nullable
@@ -247,7 +247,7 @@ public class Vegobjekt {
   }
 
   /**
-   * Get relasjoner
+   * Objektets foreldre og barn. Tilstede dersom inkluder&#x3D;alle|relasjoner
    * @return relasjoner
    */
   @jakarta.annotation.Nullable
@@ -280,7 +280,7 @@ public class Vegobjekt {
   }
 
   /**
-   * Get vegsegmenter
+   * Segmenter for dette objektet. Tilstede dersom inkluder&#x3D;alle|vegsegmenter
    * @return vegsegmenter
    */
   @jakarta.annotation.Nullable

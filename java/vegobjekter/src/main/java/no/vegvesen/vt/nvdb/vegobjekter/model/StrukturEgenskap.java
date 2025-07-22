@@ -24,6 +24,7 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import no.vegvesen.vt.nvdb.vegobjekter.model.Egenskap;
+import no.vegvesen.vt.nvdb.vegobjekter.model.Egenskapstype;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 
@@ -58,7 +59,7 @@ public class StrukturEgenskap extends Egenskap {
   }
 
   @Override
-  public StrukturEgenskap egenskapstype(@jakarta.annotation.Nonnull EgenskapstypeEnum egenskapstype) {
+  public StrukturEgenskap egenskapstype(@jakarta.annotation.Nonnull Egenskapstype egenskapstype) {
     this.setEgenskapstype(egenskapstype);
     return this;
   }

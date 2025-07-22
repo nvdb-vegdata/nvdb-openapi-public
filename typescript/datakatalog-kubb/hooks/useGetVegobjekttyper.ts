@@ -63,8 +63,7 @@ export function getVegobjekttyperQueryOptions(
 }
 /**
  * @summary Returnerer alle vegobjekttypene
- * @link /api/v1/vegobjekttyper
- */
+ * @link /api/v1/vegobjekttyper */
 export function useGetVegobjekttyper<
   TData = GetVegobjekttyper['response'],
   TQueryData = GetVegobjekttyper['response'],
@@ -92,7 +91,7 @@ export function useGetVegobjekttyper<
     ...(getVegobjekttyperQueryOptions(
       params,
       clientOptions,
-    ) as unknown as QueryObserverOptions),
+    ) as QueryObserverOptions),
     queryKey,
     ...(queryOptions as unknown as Omit<QueryObserverOptions, 'queryKey'>),
   }) as UseQueryResult<TData, GetVegobjekttyper['error']> & {
@@ -130,8 +129,7 @@ export function getVegobjekttyperSuspenseQueryOptions(
 }
 /**
  * @summary Returnerer alle vegobjekttypene
- * @link /api/v1/vegobjekttyper
- */
+ * @link /api/v1/vegobjekttyper */
 export function useGetVegobjekttyperSuspense<
   TData = GetVegobjekttyper['response'],
   TQueryKey extends QueryKey = GetVegobjekttyperSuspenseQueryKey,
@@ -158,9 +156,9 @@ export function useGetVegobjekttyperSuspense<
     ...(getVegobjekttyperSuspenseQueryOptions(
       params,
       clientOptions,
-    ) as unknown as UseSuspenseQueryOptions),
+    ) as QueryObserverOptions),
     queryKey,
-    ...(queryOptions as unknown as Omit<UseSuspenseQueryOptions, 'queryKey'>),
+    ...(queryOptions as unknown as Omit<QueryObserverOptions, 'queryKey'>),
   }) as UseSuspenseQueryResult<TData, GetVegobjekttyper['error']> & {
     queryKey: TQueryKey
   }

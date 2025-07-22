@@ -462,7 +462,7 @@ public class Veglenkesegment {
   }
 
   /**
-   * Get href
+   * URL-en til den segmenterte veglenkesekvensen som dette segmentet tilhører
    * @return href
    */
   @jakarta.annotation.Nonnull
@@ -637,7 +637,7 @@ public class Veglenkesegment {
   }
 
   /**
-   * Get startnode
+   * I V4 så er fiktive noder representert som posisjon@veglenkesekvens
    * @return startnode
    */
   @jakarta.annotation.Nonnull
@@ -662,7 +662,7 @@ public class Veglenkesegment {
   }
 
   /**
-   * Get sluttnode
+   * I V4 så er fiktive noder representert som posisjon@veglenkesekvens
    * @return sluttnode
    */
   @jakarta.annotation.Nonnull
@@ -687,7 +687,7 @@ public class Veglenkesegment {
   }
 
   /**
-   * Get referanse
+   * Kombinasjon av veglenkesekvensid, veglenkenummer og segmentnummer. Unik for hvert segment.
    * @return referanse
    */
   @jakarta.annotation.Nonnull

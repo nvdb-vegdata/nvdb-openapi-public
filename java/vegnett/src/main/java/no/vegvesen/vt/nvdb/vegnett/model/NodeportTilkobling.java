@@ -80,7 +80,7 @@ public class NodeportTilkobling {
   }
 
   /**
-   * Get veglenkesekvensid
+   * Veglenkesekvensid-en som porten er tilkoblet
    * @return veglenkesekvensid
    */
   @jakarta.annotation.Nonnull
@@ -105,7 +105,7 @@ public class NodeportTilkobling {
   }
 
   /**
-   * Get href
+   * URL-en til den segmenterte veglenkesekvensen som porten er tilkoblet
    * @return href
    */
   @jakarta.annotation.Nonnull

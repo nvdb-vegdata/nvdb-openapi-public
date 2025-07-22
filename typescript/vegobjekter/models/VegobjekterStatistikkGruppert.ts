@@ -1,29 +1,28 @@
-export type VegobjekterStatistikkGruppertVegkategori =
-  | 'E'
-  | 'F'
-  | 'K'
-  | 'P'
-  | 'R'
-  | 'S'
+import type { Vegkategori } from './Vegkategori'
+
 export type VegobjekterStatistikkGruppert = {
   /**
-   * @type integer | undefined, int32
+   * @description Antallet objekter i gruppen. Utelatt dersom inkluder=lengde
+   * @type integer | undefined int32
    */
   antall?: number
   /**
-   * @type number | undefined, double
+   * @description Den summerte lengden av objektene i gruppen. Utelatt dersom inkluder=antall
+   * @type number | undefined double
    */
   lengde?: number
   /**
-   * @type integer | undefined, int32
+   * @description Hvilket fylke gruppen tilhører. Utelatt hvis ikke gruppert på fylke
+   * @type integer | undefined int32
    */
   fylke?: number
   /**
-   * @type integer | undefined, int32
+   * @description Hvilken kommune gruppen tilhører. Utelatt hvis ikke gruppert på kommune
+   * @type integer | undefined int32
    */
   kommune?: number
   /**
-   * @type string | undefined
+   * @description Hvilken vegkategori gruppen tilhører. Utelatt hvis ikke gruppert på vegkategori
    */
-  vegkategori?: VegobjekterStatistikkGruppertVegkategori
+  vegkategori?: Vegkategori
 }

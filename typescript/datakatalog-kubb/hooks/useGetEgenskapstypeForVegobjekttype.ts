@@ -81,8 +81,7 @@ export function getEgenskapstypeForVegobjekttypeQueryOptions(
 }
 /**
  * @summary Returnerer angitt egenskapstype for angitt vegobjekttype
- * @link /api/v1/vegobjekttyper/:vegobjekttypeid/:egenskapstypeid
- */
+ * @link /api/v1/vegobjekttyper/:vegobjekttypeid/:egenskapstypeid */
 export function useGetEgenskapstypeForVegobjekttype<
   TData = GetEgenskapstypeForVegobjekttype['response'],
   TQueryData = GetEgenskapstypeForVegobjekttype['response'],
@@ -114,7 +113,7 @@ export function useGetEgenskapstypeForVegobjekttype<
       vegobjekttypeid,
       egenskapstypeid,
       clientOptions,
-    ) as unknown as QueryObserverOptions),
+    ) as QueryObserverOptions),
     queryKey,
     ...(queryOptions as unknown as Omit<QueryObserverOptions, 'queryKey'>),
   }) as UseQueryResult<TData, GetEgenskapstypeForVegobjekttype['error']> & {
@@ -165,8 +164,7 @@ export function getEgenskapstypeForVegobjekttypeSuspenseQueryOptions(
 }
 /**
  * @summary Returnerer angitt egenskapstype for angitt vegobjekttype
- * @link /api/v1/vegobjekttyper/:vegobjekttypeid/:egenskapstypeid
- */
+ * @link /api/v1/vegobjekttyper/:vegobjekttypeid/:egenskapstypeid */
 export function useGetEgenskapstypeForVegobjekttypeSuspense<
   TData = GetEgenskapstypeForVegobjekttype['response'],
   TQueryKey extends QueryKey = GetEgenskapstypeForVegobjekttypeSuspenseQueryKey,
@@ -199,9 +197,9 @@ export function useGetEgenskapstypeForVegobjekttypeSuspense<
       vegobjekttypeid,
       egenskapstypeid,
       clientOptions,
-    ) as unknown as UseSuspenseQueryOptions),
+    ) as QueryObserverOptions),
     queryKey,
-    ...(queryOptions as unknown as Omit<UseSuspenseQueryOptions, 'queryKey'>),
+    ...(queryOptions as unknown as Omit<QueryObserverOptions, 'queryKey'>),
   }) as UseSuspenseQueryResult<
     TData,
     GetEgenskapstypeForVegobjekttype['error']

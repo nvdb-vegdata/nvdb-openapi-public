@@ -107,12 +107,6 @@ public class EgenskapstypeStruktur extends Egenskapstype {
   }
 
   @Override
-  public EgenskapstypeStruktur komplementærEgenskapstype(@jakarta.annotation.Nullable Integer komplementærEgenskapstype) {
-    this.setKomplementærEgenskapstype(komplementærEgenskapstype);
-    return this;
-  }
-
-  @Override
   public EgenskapstypeStruktur kortnavn(@jakarta.annotation.Nullable String kortnavn) {
     this.setKortnavn(kortnavn);
     return this;
@@ -121,6 +115,12 @@ public class EgenskapstypeStruktur extends Egenskapstype {
   @Override
   public EgenskapstypeStruktur beskrivelse(@jakarta.annotation.Nullable String beskrivelse) {
     this.setBeskrivelse(beskrivelse);
+    return this;
+  }
+
+  @Override
+  public EgenskapstypeStruktur veiledning(@jakarta.annotation.Nullable String veiledning) {
+    this.setVeiledning(veiledning);
     return this;
   }
 
@@ -149,14 +149,20 @@ public class EgenskapstypeStruktur extends Egenskapstype {
   }
 
   @Override
-  public EgenskapstypeStruktur obligatoriskVerdi(@jakarta.annotation.Nonnull Boolean obligatoriskVerdi) {
-    this.setObligatoriskVerdi(obligatoriskVerdi);
+  public EgenskapstypeStruktur komplementærEgenskapstype(@jakarta.annotation.Nullable Integer komplementærEgenskapstype) {
+    this.setKomplementærEgenskapstype(komplementærEgenskapstype);
     return this;
   }
 
   @Override
   public EgenskapstypeStruktur skrivebeskyttet(@jakarta.annotation.Nonnull Boolean skrivebeskyttet) {
     this.setSkrivebeskyttet(skrivebeskyttet);
+    return this;
+  }
+
+  @Override
+  public EgenskapstypeStruktur obligatoriskVerdi(@jakarta.annotation.Nonnull Boolean obligatoriskVerdi) {
+    this.setObligatoriskVerdi(obligatoriskVerdi);
     return this;
   }
 
@@ -169,12 +175,6 @@ public class EgenskapstypeStruktur extends Egenskapstype {
   @Override
   public EgenskapstypeStruktur gruppesorteringsnummer(@jakarta.annotation.Nullable Integer gruppesorteringsnummer) {
     this.setGruppesorteringsnummer(gruppesorteringsnummer);
-    return this;
-  }
-
-  @Override
-  public EgenskapstypeStruktur veiledning(@jakarta.annotation.Nullable String veiledning) {
-    this.setVeiledning(veiledning);
     return this;
   }
 
@@ -229,6 +229,12 @@ public class EgenskapstypeStruktur extends Egenskapstype {
   @Override
   public EgenskapstypeStruktur kategori(@jakarta.annotation.Nonnull Integer kategori) {
     this.setKategori(kategori);
+    return this;
+  }
+
+  @Override
+  public EgenskapstypeStruktur tilleggskrav(@jakarta.annotation.Nullable List<String> tilleggskrav) {
+    this.setTilleggskrav(tilleggskrav);
     return this;
   }
 

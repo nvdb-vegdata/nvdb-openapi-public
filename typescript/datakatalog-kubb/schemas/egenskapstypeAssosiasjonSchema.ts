@@ -5,12 +5,12 @@ export const egenskapstypeAssosiasjonSchema = z
   .lazy(() => egenskapstypeSchema)
   .and(
     z.object({
-      tilknytning: z.number().int().optional(),
-      vegobjekttypeid: z.number().int().optional(),
-      innenfor_mor: z.number().int().optional(),
-      startdato: z.string().date().optional(),
-      sluttdato: z.string().date().optional(),
-      assosiasjonskrav: z.number().int().optional(),
+      tilknytning: z.number().optional(),
+      vegobjekttypeid: z.number().optional(),
+      innenfor_mor: z.number().optional(),
+      startdato: z.string().optional(),
+      sluttdato: z.string().optional(),
+      assosiasjonskrav: z.number().optional(),
       assosiasjonskravkommentar: z.string().optional(),
     }),
   )

@@ -24,6 +24,9 @@ import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 import no.vegvesen.vt.nvdb.datakatalog.model.Egenskapstype;
 import no.vegvesen.vt.nvdb.datakatalog.model.EgenskapstypeEnum;
 import no.vegvesen.vt.nvdb.datakatalog.model.Enhet;
@@ -428,12 +431,6 @@ public class EgenskapstypeHeltall extends Egenskapstype {
   }
 
   @Override
-  public EgenskapstypeHeltall komplementærEgenskapstype(@jakarta.annotation.Nullable Integer komplementærEgenskapstype) {
-    this.setKomplementærEgenskapstype(komplementærEgenskapstype);
-    return this;
-  }
-
-  @Override
   public EgenskapstypeHeltall kortnavn(@jakarta.annotation.Nullable String kortnavn) {
     this.setKortnavn(kortnavn);
     return this;
@@ -442,6 +439,12 @@ public class EgenskapstypeHeltall extends Egenskapstype {
   @Override
   public EgenskapstypeHeltall beskrivelse(@jakarta.annotation.Nullable String beskrivelse) {
     this.setBeskrivelse(beskrivelse);
+    return this;
+  }
+
+  @Override
+  public EgenskapstypeHeltall veiledning(@jakarta.annotation.Nullable String veiledning) {
+    this.setVeiledning(veiledning);
     return this;
   }
 
@@ -470,14 +473,20 @@ public class EgenskapstypeHeltall extends Egenskapstype {
   }
 
   @Override
-  public EgenskapstypeHeltall obligatoriskVerdi(@jakarta.annotation.Nonnull Boolean obligatoriskVerdi) {
-    this.setObligatoriskVerdi(obligatoriskVerdi);
+  public EgenskapstypeHeltall komplementærEgenskapstype(@jakarta.annotation.Nullable Integer komplementærEgenskapstype) {
+    this.setKomplementærEgenskapstype(komplementærEgenskapstype);
     return this;
   }
 
   @Override
   public EgenskapstypeHeltall skrivebeskyttet(@jakarta.annotation.Nonnull Boolean skrivebeskyttet) {
     this.setSkrivebeskyttet(skrivebeskyttet);
+    return this;
+  }
+
+  @Override
+  public EgenskapstypeHeltall obligatoriskVerdi(@jakarta.annotation.Nonnull Boolean obligatoriskVerdi) {
+    this.setObligatoriskVerdi(obligatoriskVerdi);
     return this;
   }
 
@@ -490,12 +499,6 @@ public class EgenskapstypeHeltall extends Egenskapstype {
   @Override
   public EgenskapstypeHeltall gruppesorteringsnummer(@jakarta.annotation.Nullable Integer gruppesorteringsnummer) {
     this.setGruppesorteringsnummer(gruppesorteringsnummer);
-    return this;
-  }
-
-  @Override
-  public EgenskapstypeHeltall veiledning(@jakarta.annotation.Nullable String veiledning) {
-    this.setVeiledning(veiledning);
     return this;
   }
 
@@ -550,6 +553,12 @@ public class EgenskapstypeHeltall extends Egenskapstype {
   @Override
   public EgenskapstypeHeltall kategori(@jakarta.annotation.Nonnull Integer kategori) {
     this.setKategori(kategori);
+    return this;
+  }
+
+  @Override
+  public EgenskapstypeHeltall tilleggskrav(@jakarta.annotation.Nullable List<String> tilleggskrav) {
+    this.setTilleggskrav(tilleggskrav);
     return this;
   }
 

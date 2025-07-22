@@ -23,6 +23,13 @@ import com.fasterxml.jackson.annotation.JsonValue;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import no.vegvesen.vt.nvdb.vegobjekter.model.Retning;
+import no.vegvesen.vt.nvdb.vegobjekter.model.Sideposisjon;
+import no.vegvesen.vt.nvdb.vegobjekter.model.Stedfestingstype;
+import org.openapitools.jackson.nullable.JsonNullable;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import org.openapitools.jackson.nullable.JsonNullable;
+import java.util.NoSuchElementException;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 
@@ -45,46 +52,9 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 })
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.13.0")
 public class Stedfesting {
-  /**
-   * Gets or Sets type
-   */
-  public enum TypeEnum {
-    PUNKT(String.valueOf("Punkt")),
-    
-    LINJE(String.valueOf("Linje")),
-    
-    SVING(String.valueOf("Sving"));
-
-    private String value;
-
-    TypeEnum(String value) {
-      this.value = value;
-    }
-
-    @JsonValue
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-
-    @JsonCreator
-    public static TypeEnum fromValue(String value) {
-      for (TypeEnum b : TypeEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
-        }
-      }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
-    }
-  }
-
   public static final String JSON_PROPERTY_TYPE = "type";
   @jakarta.annotation.Nonnull
-  private TypeEnum type;
+  private Stedfestingstype type;
 
   public static final String JSON_PROPERTY_VEGLENKESEKVENSID = "veglenkesekvensid";
   @jakarta.annotation.Nullable
@@ -108,115 +78,23 @@ public class Stedfesting {
 
   public static final String JSON_PROPERTY_STARTPUNKT = "startpunkt";
   @jakarta.annotation.Nullable
-  private Stedfesting startpunkt;
+  private JsonNullable<Object> startpunkt = JsonNullable.<Object>of(null);
 
   public static final String JSON_PROPERTY_SLUTTPUNKT = "sluttpunkt";
   @jakarta.annotation.Nullable
-  private Stedfesting sluttpunkt;
-
-  /**
-   * Gets or Sets retning
-   */
-  public enum RetningEnum {
-    MED(String.valueOf("MED")),
-    
-    MOT(String.valueOf("MOT"));
-
-    private String value;
-
-    RetningEnum(String value) {
-      this.value = value;
-    }
-
-    @JsonValue
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-
-    @JsonCreator
-    public static RetningEnum fromValue(String value) {
-      for (RetningEnum b : RetningEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
-        }
-      }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
-    }
-  }
+  private JsonNullable<Object> sluttpunkt = JsonNullable.<Object>of(null);
 
   public static final String JSON_PROPERTY_RETNING = "retning";
   @jakarta.annotation.Nullable
-  private RetningEnum retning;
+  private Retning retning;
 
   public static final String JSON_PROPERTY_KJøREFELT = "kjørefelt";
   @jakarta.annotation.Nullable
   private List<String> kjørefelt = new ArrayList<>();
 
-  /**
-   * Gets or Sets sideposisjon
-   */
-  public enum SideposisjonEnum {
-    MH(String.valueOf("MH")),
-    
-    MV(String.valueOf("MV")),
-    
-    VT(String.valueOf("VT")),
-    
-    M(String.valueOf("M")),
-    
-    H(String.valueOf("H")),
-    
-    HT(String.valueOf("HT")),
-    
-    VH(String.valueOf("VH")),
-    
-    HV(String.valueOf("HV")),
-    
-    K(String.valueOf("K")),
-    
-    V(String.valueOf("V")),
-    
-    L(String.valueOf("L")),
-    
-    R(String.valueOf("R")),
-    
-    R0(String.valueOf("R0"));
-
-    private String value;
-
-    SideposisjonEnum(String value) {
-      this.value = value;
-    }
-
-    @JsonValue
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-
-    @JsonCreator
-    public static SideposisjonEnum fromValue(String value) {
-      for (SideposisjonEnum b : SideposisjonEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
-        }
-      }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
-    }
-  }
-
   public static final String JSON_PROPERTY_SIDEPOSISJON = "sideposisjon";
   @jakarta.annotation.Nullable
-  private SideposisjonEnum sideposisjon;
+  private Sideposisjon sideposisjon;
 
   public static final String JSON_PROPERTY_KORTFORM = "kortform";
   @jakarta.annotation.Nullable
@@ -225,7 +103,7 @@ public class Stedfesting {
   public Stedfesting() {
   }
 
-  public Stedfesting type(@jakarta.annotation.Nonnull TypeEnum type) {
+  public Stedfesting type(@jakarta.annotation.Nonnull Stedfestingstype type) {
     
     this.type = type;
     return this;
@@ -239,14 +117,14 @@ public class Stedfesting {
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public TypeEnum getType() {
+  public Stedfestingstype getType() {
     return type;
   }
 
 
   @JsonProperty(JSON_PROPERTY_TYPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setType(@jakarta.annotation.Nonnull TypeEnum type) {
+  public void setType(@jakarta.annotation.Nonnull Stedfestingstype type) {
     this.type = type;
   }
 
@@ -375,9 +253,9 @@ public class Stedfesting {
     this.sluttposisjon = sluttposisjon;
   }
 
-  public Stedfesting startpunkt(@jakarta.annotation.Nullable Stedfesting startpunkt) {
+  public Stedfesting startpunkt(@jakarta.annotation.Nullable Object startpunkt) {
+    this.startpunkt = JsonNullable.<Object>of(startpunkt);
     
-    this.startpunkt = startpunkt;
     return this;
   }
 
@@ -386,23 +264,31 @@ public class Stedfesting {
    * @return startpunkt
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_STARTPUNKT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
-  public Stedfesting getStartpunkt() {
-    return startpunkt;
+  public Object getStartpunkt() {
+        return startpunkt.orElse(null);
   }
 
-
   @JsonProperty(JSON_PROPERTY_STARTPUNKT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setStartpunkt(@jakarta.annotation.Nullable Stedfesting startpunkt) {
+
+  public JsonNullable<Object> getStartpunkt_JsonNullable() {
+    return startpunkt;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_STARTPUNKT)
+  public void setStartpunkt_JsonNullable(JsonNullable<Object> startpunkt) {
     this.startpunkt = startpunkt;
   }
 
-  public Stedfesting sluttpunkt(@jakarta.annotation.Nullable Stedfesting sluttpunkt) {
+  public void setStartpunkt(@jakarta.annotation.Nullable Object startpunkt) {
+    this.startpunkt = JsonNullable.<Object>of(startpunkt);
+  }
+
+  public Stedfesting sluttpunkt(@jakarta.annotation.Nullable Object sluttpunkt) {
+    this.sluttpunkt = JsonNullable.<Object>of(sluttpunkt);
     
-    this.sluttpunkt = sluttpunkt;
     return this;
   }
 
@@ -411,21 +297,29 @@ public class Stedfesting {
    * @return sluttpunkt
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SLUTTPUNKT)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  @JsonIgnore
 
-  public Stedfesting getSluttpunkt() {
-    return sluttpunkt;
+  public Object getSluttpunkt() {
+        return sluttpunkt.orElse(null);
   }
 
-
   @JsonProperty(JSON_PROPERTY_SLUTTPUNKT)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setSluttpunkt(@jakarta.annotation.Nullable Stedfesting sluttpunkt) {
+
+  public JsonNullable<Object> getSluttpunkt_JsonNullable() {
+    return sluttpunkt;
+  }
+  
+  @JsonProperty(JSON_PROPERTY_SLUTTPUNKT)
+  public void setSluttpunkt_JsonNullable(JsonNullable<Object> sluttpunkt) {
     this.sluttpunkt = sluttpunkt;
   }
 
-  public Stedfesting retning(@jakarta.annotation.Nullable RetningEnum retning) {
+  public void setSluttpunkt(@jakarta.annotation.Nullable Object sluttpunkt) {
+    this.sluttpunkt = JsonNullable.<Object>of(sluttpunkt);
+  }
+
+  public Stedfesting retning(@jakarta.annotation.Nullable Retning retning) {
     
     this.retning = retning;
     return this;
@@ -439,14 +333,14 @@ public class Stedfesting {
   @JsonProperty(JSON_PROPERTY_RETNING)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public RetningEnum getRetning() {
+  public Retning getRetning() {
     return retning;
   }
 
 
   @JsonProperty(JSON_PROPERTY_RETNING)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setRetning(@jakarta.annotation.Nullable RetningEnum retning) {
+  public void setRetning(@jakarta.annotation.Nullable Retning retning) {
     this.retning = retning;
   }
 
@@ -465,7 +359,7 @@ public class Stedfesting {
   }
 
   /**
-   * Get kjørefelt
+   * Utelatt for svingstedfesting
    * @return kjørefelt
    */
   @jakarta.annotation.Nullable
@@ -483,7 +377,7 @@ public class Stedfesting {
     this.kjørefelt = kjørefelt;
   }
 
-  public Stedfesting sideposisjon(@jakarta.annotation.Nullable SideposisjonEnum sideposisjon) {
+  public Stedfesting sideposisjon(@jakarta.annotation.Nullable Sideposisjon sideposisjon) {
     
     this.sideposisjon = sideposisjon;
     return this;
@@ -497,14 +391,14 @@ public class Stedfesting {
   @JsonProperty(JSON_PROPERTY_SIDEPOSISJON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
-  public SideposisjonEnum getSideposisjon() {
+  public Sideposisjon getSideposisjon() {
     return sideposisjon;
   }
 
 
   @JsonProperty(JSON_PROPERTY_SIDEPOSISJON)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setSideposisjon(@jakarta.annotation.Nullable SideposisjonEnum sideposisjon) {
+  public void setSideposisjon(@jakarta.annotation.Nullable Sideposisjon sideposisjon) {
     this.sideposisjon = sideposisjon;
   }
 
@@ -549,17 +443,28 @@ public class Stedfesting {
         Objects.equals(this.relativPosisjon, stedfesting.relativPosisjon) &&
         Objects.equals(this.startposisjon, stedfesting.startposisjon) &&
         Objects.equals(this.sluttposisjon, stedfesting.sluttposisjon) &&
-        Objects.equals(this.startpunkt, stedfesting.startpunkt) &&
-        Objects.equals(this.sluttpunkt, stedfesting.sluttpunkt) &&
+        equalsNullable(this.startpunkt, stedfesting.startpunkt) &&
+        equalsNullable(this.sluttpunkt, stedfesting.sluttpunkt) &&
         Objects.equals(this.retning, stedfesting.retning) &&
         Objects.equals(this.kjørefelt, stedfesting.kjørefelt) &&
         Objects.equals(this.sideposisjon, stedfesting.sideposisjon) &&
         Objects.equals(this.kortform, stedfesting.kortform);
   }
 
+  private static <T> boolean equalsNullable(JsonNullable<T> a, JsonNullable<T> b) {
+    return a == b || (a != null && b != null && a.isPresent() && b.isPresent() && Objects.deepEquals(a.get(), b.get()));
+  }
+
   @Override
   public int hashCode() {
-    return Objects.hash(type, veglenkesekvensid, nodeid, relativPosisjon, startposisjon, sluttposisjon, startpunkt, sluttpunkt, retning, kjørefelt, sideposisjon, kortform);
+    return Objects.hash(type, veglenkesekvensid, nodeid, relativPosisjon, startposisjon, sluttposisjon, hashCodeNullable(startpunkt), hashCodeNullable(sluttpunkt), retning, kjørefelt, sideposisjon, kortform);
+  }
+
+  private static <T> int hashCodeNullable(JsonNullable<T> a) {
+    if (a == null) {
+      return 1;
+    }
+    return a.isPresent() ? Arrays.deepHashCode(new Object[]{a.get()}) : 31;
   }
 
   @Override

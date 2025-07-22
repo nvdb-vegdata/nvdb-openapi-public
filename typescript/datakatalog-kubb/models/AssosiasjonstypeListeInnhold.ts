@@ -16,7 +16,7 @@ export type AssosiasjonstypeListeInnhold = {
    */
   relasjonstype?: AssosiasjonstypeListeInnholdRelasjonstype
   /**
-   * @type integer, int32
+   * @type integer int32
    */
   id: number
   /**
@@ -27,8 +27,5 @@ export type AssosiasjonstypeListeInnhold = {
    * @type string
    */
   egenskapstype: string
-  /**
-   * @type object
-   */
   type: AssosiasjonstypeVegobjekttype
 }

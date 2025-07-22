@@ -6,8 +6,5 @@ export type VegobjekterSide = {
    * @type array
    */
   objekter: Vegobjekt[]
-  /**
-   * @type object
-   */
   metadata: SideMetadata
 }

@@ -84,7 +84,7 @@ public class Node {
   }
 
   /**
-   * Get id
+   * Nettelementid for noden
    * @return id
    */
   @jakarta.annotation.Nonnull
@@ -109,7 +109,7 @@ public class Node {
   }
 
   /**
-   * Get href
+   * URL-en til denne noden
    * @return href
    */
   @jakarta.annotation.Nonnull
@@ -251,7 +251,7 @@ public class Node {
   }
 
   /**
-   * Get porter
+   * Liste av porter som er tilknyttet noden
    * @return porter
    */
   @jakarta.annotation.Nonnull

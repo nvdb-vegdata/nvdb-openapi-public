@@ -3,11 +3,11 @@ import type { EnumverdiTekst } from './EnumverdiTekst'
 
 export type EgenskapstypeTekstenum = Egenskapstype & {
   /**
-   * @type string | undefined, date
+   * @type string | undefined date
    */
   objektliste_dato?: string
   /**
-   * @type string | undefined, date
+   * @type string | undefined date
    */
   slutt_dato?: string
   /**
@@ -23,7 +23,7 @@ export type EgenskapstypeTekstenum = Egenskapstype & {
    */
   standardverdi?: string
   /**
-   * @type integer | undefined, int32
+   * @type integer | undefined int32
    */
   feltlengde?: number
   /**

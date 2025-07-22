@@ -521,12 +521,6 @@ public class StedfestingEnkel extends Stedfesting {
   }
 
   @Override
-  public StedfestingEnkel komplementærEgenskapstype(@jakarta.annotation.Nullable Integer komplementærEgenskapstype) {
-    this.setKomplementærEgenskapstype(komplementærEgenskapstype);
-    return this;
-  }
-
-  @Override
   public StedfestingEnkel kortnavn(@jakarta.annotation.Nullable String kortnavn) {
     this.setKortnavn(kortnavn);
     return this;
@@ -535,6 +529,12 @@ public class StedfestingEnkel extends Stedfesting {
   @Override
   public StedfestingEnkel beskrivelse(@jakarta.annotation.Nullable String beskrivelse) {
     this.setBeskrivelse(beskrivelse);
+    return this;
+  }
+
+  @Override
+  public StedfestingEnkel veiledning(@jakarta.annotation.Nullable String veiledning) {
+    this.setVeiledning(veiledning);
     return this;
   }
 
@@ -563,14 +563,20 @@ public class StedfestingEnkel extends Stedfesting {
   }
 
   @Override
-  public StedfestingEnkel obligatoriskVerdi(@jakarta.annotation.Nonnull Boolean obligatoriskVerdi) {
-    this.setObligatoriskVerdi(obligatoriskVerdi);
+  public StedfestingEnkel komplementærEgenskapstype(@jakarta.annotation.Nullable Integer komplementærEgenskapstype) {
+    this.setKomplementærEgenskapstype(komplementærEgenskapstype);
     return this;
   }
 
   @Override
   public StedfestingEnkel skrivebeskyttet(@jakarta.annotation.Nonnull Boolean skrivebeskyttet) {
     this.setSkrivebeskyttet(skrivebeskyttet);
+    return this;
+  }
+
+  @Override
+  public StedfestingEnkel obligatoriskVerdi(@jakarta.annotation.Nonnull Boolean obligatoriskVerdi) {
+    this.setObligatoriskVerdi(obligatoriskVerdi);
     return this;
   }
 
@@ -583,12 +589,6 @@ public class StedfestingEnkel extends Stedfesting {
   @Override
   public StedfestingEnkel gruppesorteringsnummer(@jakarta.annotation.Nullable Integer gruppesorteringsnummer) {
     this.setGruppesorteringsnummer(gruppesorteringsnummer);
-    return this;
-  }
-
-  @Override
-  public StedfestingEnkel veiledning(@jakarta.annotation.Nullable String veiledning) {
-    this.setVeiledning(veiledning);
     return this;
   }
 

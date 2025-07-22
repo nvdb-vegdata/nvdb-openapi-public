@@ -20,6 +20,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import no.vegvesen.vt.nvdb.vegobjekter.model.AdskilteLop;
+import no.vegvesen.vt.nvdb.vegobjekter.model.Retning;
+import no.vegvesen.vt.nvdb.vegobjekter.model.Trafikantgruppe;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 
@@ -52,124 +55,17 @@ public class Strekning {
   @jakarta.annotation.Nonnull
   private Boolean arm;
 
-  /**
-   * Gets or Sets adskilteLøp
-   */
-  public enum AdskilteLpEnum {
-    MED(String.valueOf("Med")),
-    
-    MOT(String.valueOf("Mot")),
-    
-    NEI(String.valueOf("Nei"));
-
-    private String value;
-
-    AdskilteLpEnum(String value) {
-      this.value = value;
-    }
-
-    @JsonValue
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-
-    @JsonCreator
-    public static AdskilteLpEnum fromValue(String value) {
-      for (AdskilteLpEnum b : AdskilteLpEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
-        }
-      }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
-    }
-  }
-
   public static final String JSON_PROPERTY_ADSKILTE_LøP = "adskilte_løp";
   @jakarta.annotation.Nonnull
-  private AdskilteLpEnum adskilteLøp;
-
-  /**
-   * Gets or Sets trafikantgruppe
-   */
-  public enum TrafikantgruppeEnum {
-    K(String.valueOf("K")),
-    
-    G(String.valueOf("G"));
-
-    private String value;
-
-    TrafikantgruppeEnum(String value) {
-      this.value = value;
-    }
-
-    @JsonValue
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-
-    @JsonCreator
-    public static TrafikantgruppeEnum fromValue(String value) {
-      for (TrafikantgruppeEnum b : TrafikantgruppeEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
-        }
-      }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
-    }
-  }
+  private AdskilteLop adskilteLøp;
 
   public static final String JSON_PROPERTY_TRAFIKANTGRUPPE = "trafikantgruppe";
   @jakarta.annotation.Nonnull
-  private TrafikantgruppeEnum trafikantgruppe;
-
-  /**
-   * Gets or Sets retning
-   */
-  public enum RetningEnum {
-    MED(String.valueOf("MED")),
-    
-    MOT(String.valueOf("MOT"));
-
-    private String value;
-
-    RetningEnum(String value) {
-      this.value = value;
-    }
-
-    @JsonValue
-    public String getValue() {
-      return value;
-    }
-
-    @Override
-    public String toString() {
-      return String.valueOf(value);
-    }
-
-    @JsonCreator
-    public static RetningEnum fromValue(String value) {
-      for (RetningEnum b : RetningEnum.values()) {
-        if (b.value.equals(value)) {
-          return b;
-        }
-      }
-      throw new IllegalArgumentException("Unexpected value '" + value + "'");
-    }
-  }
+  private Trafikantgruppe trafikantgruppe;
 
   public static final String JSON_PROPERTY_RETNING = "retning";
   @jakarta.annotation.Nonnull
-  private RetningEnum retning;
+  private Retning retning;
 
   public static final String JSON_PROPERTY_METER = "meter";
   @jakarta.annotation.Nullable
@@ -265,7 +161,7 @@ public class Strekning {
     this.arm = arm;
   }
 
-  public Strekning adskilteLøp(@jakarta.annotation.Nonnull AdskilteLpEnum adskilteLøp) {
+  public Strekning adskilteLøp(@jakarta.annotation.Nonnull AdskilteLop adskilteLøp) {
     
     this.adskilteLøp = adskilteLøp;
     return this;
@@ -279,18 +175,18 @@ public class Strekning {
   @JsonProperty(JSON_PROPERTY_ADSKILTE_LøP)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public AdskilteLpEnum getAdskilteLøp() {
+  public AdskilteLop getAdskilteLøp() {
     return adskilteLøp;
   }
 
 
   @JsonProperty(JSON_PROPERTY_ADSKILTE_LøP)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setAdskilteLøp(@jakarta.annotation.Nonnull AdskilteLpEnum adskilteLøp) {
+  public void setAdskilteLøp(@jakarta.annotation.Nonnull AdskilteLop adskilteLøp) {
     this.adskilteLøp = adskilteLøp;
   }
 
-  public Strekning trafikantgruppe(@jakarta.annotation.Nonnull TrafikantgruppeEnum trafikantgruppe) {
+  public Strekning trafikantgruppe(@jakarta.annotation.Nonnull Trafikantgruppe trafikantgruppe) {
     
     this.trafikantgruppe = trafikantgruppe;
     return this;
@@ -304,18 +200,18 @@ public class Strekning {
   @JsonProperty(JSON_PROPERTY_TRAFIKANTGRUPPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public TrafikantgruppeEnum getTrafikantgruppe() {
+  public Trafikantgruppe getTrafikantgruppe() {
     return trafikantgruppe;
   }
 
 
   @JsonProperty(JSON_PROPERTY_TRAFIKANTGRUPPE)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setTrafikantgruppe(@jakarta.annotation.Nonnull TrafikantgruppeEnum trafikantgruppe) {
+  public void setTrafikantgruppe(@jakarta.annotation.Nonnull Trafikantgruppe trafikantgruppe) {
     this.trafikantgruppe = trafikantgruppe;
   }
 
-  public Strekning retning(@jakarta.annotation.Nonnull RetningEnum retning) {
+  public Strekning retning(@jakarta.annotation.Nonnull Retning retning) {
     
     this.retning = retning;
     return this;
@@ -329,14 +225,14 @@ public class Strekning {
   @JsonProperty(JSON_PROPERTY_RETNING)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public RetningEnum getRetning() {
+  public Retning getRetning() {
     return retning;
   }
 
 
   @JsonProperty(JSON_PROPERTY_RETNING)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setRetning(@jakarta.annotation.Nonnull RetningEnum retning) {
+  public void setRetning(@jakarta.annotation.Nonnull Retning retning) {
     this.retning = retning;
   }
 

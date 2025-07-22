@@ -470,12 +470,6 @@ public class EgenskapstypeHeltallenum extends Egenskapstype {
   }
 
   @Override
-  public EgenskapstypeHeltallenum komplementærEgenskapstype(@jakarta.annotation.Nullable Integer komplementærEgenskapstype) {
-    this.setKomplementærEgenskapstype(komplementærEgenskapstype);
-    return this;
-  }
-
-  @Override
   public EgenskapstypeHeltallenum kortnavn(@jakarta.annotation.Nullable String kortnavn) {
     this.setKortnavn(kortnavn);
     return this;
@@ -484,6 +478,12 @@ public class EgenskapstypeHeltallenum extends Egenskapstype {
   @Override
   public EgenskapstypeHeltallenum beskrivelse(@jakarta.annotation.Nullable String beskrivelse) {
     this.setBeskrivelse(beskrivelse);
+    return this;
+  }
+
+  @Override
+  public EgenskapstypeHeltallenum veiledning(@jakarta.annotation.Nullable String veiledning) {
+    this.setVeiledning(veiledning);
     return this;
   }
 
@@ -512,14 +512,20 @@ public class EgenskapstypeHeltallenum extends Egenskapstype {
   }
 
   @Override
-  public EgenskapstypeHeltallenum obligatoriskVerdi(@jakarta.annotation.Nonnull Boolean obligatoriskVerdi) {
-    this.setObligatoriskVerdi(obligatoriskVerdi);
+  public EgenskapstypeHeltallenum komplementærEgenskapstype(@jakarta.annotation.Nullable Integer komplementærEgenskapstype) {
+    this.setKomplementærEgenskapstype(komplementærEgenskapstype);
     return this;
   }
 
   @Override
   public EgenskapstypeHeltallenum skrivebeskyttet(@jakarta.annotation.Nonnull Boolean skrivebeskyttet) {
     this.setSkrivebeskyttet(skrivebeskyttet);
+    return this;
+  }
+
+  @Override
+  public EgenskapstypeHeltallenum obligatoriskVerdi(@jakarta.annotation.Nonnull Boolean obligatoriskVerdi) {
+    this.setObligatoriskVerdi(obligatoriskVerdi);
     return this;
   }
 
@@ -532,12 +538,6 @@ public class EgenskapstypeHeltallenum extends Egenskapstype {
   @Override
   public EgenskapstypeHeltallenum gruppesorteringsnummer(@jakarta.annotation.Nullable Integer gruppesorteringsnummer) {
     this.setGruppesorteringsnummer(gruppesorteringsnummer);
-    return this;
-  }
-
-  @Override
-  public EgenskapstypeHeltallenum veiledning(@jakarta.annotation.Nullable String veiledning) {
-    this.setVeiledning(veiledning);
     return this;
   }
 
@@ -592,6 +592,12 @@ public class EgenskapstypeHeltallenum extends Egenskapstype {
   @Override
   public EgenskapstypeHeltallenum kategori(@jakarta.annotation.Nonnull Integer kategori) {
     this.setKategori(kategori);
+    return this;
+  }
+
+  @Override
+  public EgenskapstypeHeltallenum tilleggskrav(@jakarta.annotation.Nullable List<String> tilleggskrav) {
+    this.setTilleggskrav(tilleggskrav);
     return this;
   }
 

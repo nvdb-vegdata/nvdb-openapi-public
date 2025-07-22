@@ -7,34 +7,38 @@ import type { Vegsegment } from './Vegsegment'
 
 export type Vegobjekt = {
   /**
-   * @type integer, int64
+   * @description Vegobjektets id i NVDB
+   * @type integer int64
    */
   id: number
   /**
+   * @description URL-en til dette vegobjektet
    * @type string
    */
   href: string
   /**
-   * @type object | undefined
+   * @description Vegobjektets metadata. Inneholder ikke sluttdato dersom objektet ikke har noe sluttdato. Tilstede dersom inkluder=alle|metadata
    */
   metadata?: VegobjektMetadata
   /**
+   * @description Objektets egenskaper. Tilstede dersom inkluder=alle|egenskaper. Inneholder ikke stedfestings- og relasjonsegenskaper til forskjell fra Les API V3 (tilsvarende informasjon finnes i vegobjekt.lokasjon og vegobjekt.relasjoner).
    * @type array | undefined
    */
   egenskaper?: Egenskap[]
   /**
-   * @type object | undefined
+   * @description Objektets geometri på vegnettet, eller egengeometri. Tilstede dersom inkluder=alle|geometri. Kan være utelatt dersom objektet ikke har noe geometri.
    */
   geometri?: UtledetGeometri
   /**
-   * @type object | undefined
+   * @description Plasseringen av dette objektet. Tilstede dersom inkluder=alle|lokasjon
    */
   lokasjon?: Lokasjon
   /**
-   * @type object | undefined
+   * @description Objektets foreldre og barn. Tilstede dersom inkluder=alle|relasjoner
    */
   relasjoner?: Relasjoner
   /**
+   * @description Segmenter for dette objektet. Tilstede dersom inkluder=alle|vegsegmenter
    * @type array | undefined
    */
   vegsegmenter?: Vegsegment[]

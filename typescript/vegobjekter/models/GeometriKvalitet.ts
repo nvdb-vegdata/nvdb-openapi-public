@@ -1,6 +1,6 @@
 export type GeometriKvalitet = {
   /**
-   * @type integer | undefined, int32
+   * @type integer | undefined int32
    */
   målemetode?: number
   /**
@@ -8,15 +8,15 @@ export type GeometriKvalitet = {
    */
   datafangstmetode?: string
   /**
-   * @type integer | undefined, int32
+   * @type integer | undefined int32
    */
   nøyaktighet?: number
   /**
-   * @type integer | undefined, int32
+   * @type integer | undefined int32
    */
   synbarhet?: number
   /**
-   * @type integer | undefined, int32
+   * @type integer | undefined int32
    */
   målemetodeHøyde?: number
   /**
@@ -24,11 +24,11 @@ export type GeometriKvalitet = {
    */
   datafangstmetodeHøyde?: string
   /**
-   * @type integer | undefined, int32
+   * @type integer | undefined int32
    */
   nøyaktighetHøyde?: number
   /**
-   * @type integer | undefined, int32
+   * @type integer | undefined int32
    */
   maksimaltAvvik?: number
 }

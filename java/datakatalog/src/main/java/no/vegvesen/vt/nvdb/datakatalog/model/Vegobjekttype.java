@@ -20,6 +20,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -38,6 +39,8 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
   Vegobjekttype.JSON_PROPERTY_NAVN,
   Vegobjekttype.JSON_PROPERTY_KORTNAVN,
   Vegobjekttype.JSON_PROPERTY_BESKRIVELSE,
+  Vegobjekttype.JSON_PROPERTY_OBJEKTLISTE_DATO,
+  Vegobjekttype.JSON_PROPERTY_VEILEDNING,
   Vegobjekttype.JSON_PROPERTY_STEDFESTING,
   Vegobjekttype.JSON_PROPERTY_SOSINAVN,
   Vegobjekttype.JSON_PROPERTY_SOSINVDBNAVN,
@@ -49,6 +52,7 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
   Vegobjekttype.JSON_PROPERTY_ABSTRAKT_TYPE,
   Vegobjekttype.JSON_PROPERTY_AVLEDET,
   Vegobjekttype.JSON_PROPERTY_Må_HA_MOR,
+  Vegobjekttype.JSON_PROPERTY_ER_DATASERIE,
   Vegobjekttype.JSON_PROPERTY_EN_VERSJON,
   Vegobjekttype.JSON_PROPERTY_TILLEGGSINFORMASJON,
   Vegobjekttype.JSON_PROPERTY_KATEGORIER,
@@ -73,6 +77,14 @@ public class Vegobjekttype {
   public static final String JSON_PROPERTY_BESKRIVELSE = "beskrivelse";
   @jakarta.annotation.Nullable
   private String beskrivelse;
+
+  public static final String JSON_PROPERTY_OBJEKTLISTE_DATO = "objektliste_dato";
+  @jakarta.annotation.Nullable
+  private LocalDate objektlisteDato;
+
+  public static final String JSON_PROPERTY_VEILEDNING = "veiledning";
+  @jakarta.annotation.Nullable
+  private String veiledning;
 
   public static final String JSON_PROPERTY_STEDFESTING = "stedfesting";
   @jakarta.annotation.Nullable
@@ -117,6 +129,10 @@ public class Vegobjekttype {
   public static final String JSON_PROPERTY_Må_HA_MOR = "må_ha_mor";
   @jakarta.annotation.Nonnull
   private Boolean måHaMor;
+
+  public static final String JSON_PROPERTY_ER_DATASERIE = "er_dataserie";
+  @jakarta.annotation.Nonnull
+  private Boolean erDataserie;
 
   public static final String JSON_PROPERTY_EN_VERSJON = "en_versjon";
   @jakarta.annotation.Nonnull
@@ -243,6 +259,56 @@ public class Vegobjekttype {
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBeskrivelse(@jakarta.annotation.Nullable String beskrivelse) {
     this.beskrivelse = beskrivelse;
+  }
+
+  public Vegobjekttype objektlisteDato(@jakarta.annotation.Nullable LocalDate objektlisteDato) {
+    
+    this.objektlisteDato = objektlisteDato;
+    return this;
+  }
+
+  /**
+   * Get objektlisteDato
+   * @return objektlisteDato
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_OBJEKTLISTE_DATO)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public LocalDate getObjektlisteDato() {
+    return objektlisteDato;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_OBJEKTLISTE_DATO)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setObjektlisteDato(@jakarta.annotation.Nullable LocalDate objektlisteDato) {
+    this.objektlisteDato = objektlisteDato;
+  }
+
+  public Vegobjekttype veiledning(@jakarta.annotation.Nullable String veiledning) {
+    
+    this.veiledning = veiledning;
+    return this;
+  }
+
+  /**
+   * Get veiledning
+   * @return veiledning
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(JSON_PROPERTY_VEILEDNING)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public String getVeiledning() {
+    return veiledning;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_VEILEDNING)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setVeiledning(@jakarta.annotation.Nullable String veiledning) {
+    this.veiledning = veiledning;
   }
 
   public Vegobjekttype stedfesting(@jakarta.annotation.Nullable Stedfesting stedfesting) {
@@ -520,6 +586,31 @@ public class Vegobjekttype {
     this.måHaMor = måHaMor;
   }
 
+  public Vegobjekttype erDataserie(@jakarta.annotation.Nonnull Boolean erDataserie) {
+    
+    this.erDataserie = erDataserie;
+    return this;
+  }
+
+  /**
+   * Get erDataserie
+   * @return erDataserie
+   */
+  @jakarta.annotation.Nonnull
+  @JsonProperty(JSON_PROPERTY_ER_DATASERIE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public Boolean getErDataserie() {
+    return erDataserie;
+  }
+
+
+  @JsonProperty(JSON_PROPERTY_ER_DATASERIE)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setErDataserie(@jakarta.annotation.Nonnull Boolean erDataserie) {
+    this.erDataserie = erDataserie;
+  }
+
   public Vegobjekttype enVersjon(@jakarta.annotation.Nonnull Boolean enVersjon) {
     
     this.enVersjon = enVersjon;
@@ -700,6 +791,8 @@ public class Vegobjekttype {
         Objects.equals(this.navn, vegobjekttype.navn) &&
         Objects.equals(this.kortnavn, vegobjekttype.kortnavn) &&
         Objects.equals(this.beskrivelse, vegobjekttype.beskrivelse) &&
+        Objects.equals(this.objektlisteDato, vegobjekttype.objektlisteDato) &&
+        Objects.equals(this.veiledning, vegobjekttype.veiledning) &&
         Objects.equals(this.stedfesting, vegobjekttype.stedfesting) &&
         Objects.equals(this.sosinavn, vegobjekttype.sosinavn) &&
         Objects.equals(this.sosinvdbnavn, vegobjekttype.sosinvdbnavn) &&
@@ -711,6 +804,7 @@ public class Vegobjekttype {
         Objects.equals(this.abstraktType, vegobjekttype.abstraktType) &&
         Objects.equals(this.avledet, vegobjekttype.avledet) &&
         Objects.equals(this.måHaMor, vegobjekttype.måHaMor) &&
+        Objects.equals(this.erDataserie, vegobjekttype.erDataserie) &&
         Objects.equals(this.enVersjon, vegobjekttype.enVersjon) &&
         Objects.equals(this.tilleggsinformasjon, vegobjekttype.tilleggsinformasjon) &&
         Objects.equals(this.kategorier, vegobjekttype.kategorier) &&
@@ -721,7 +815,7 @@ public class Vegobjekttype {
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, navn, kortnavn, beskrivelse, stedfesting, sosinavn, sosinvdbnavn, sorteringsnummer, status, hovedkategori, tidsromRelevant, konnekteringslenkeOk, abstraktType, avledet, måHaMor, enVersjon, tilleggsinformasjon, kategorier, egenskapstyper, relasjonstyper, sensitiv);
+    return Objects.hash(id, navn, kortnavn, beskrivelse, objektlisteDato, veiledning, stedfesting, sosinavn, sosinvdbnavn, sorteringsnummer, status, hovedkategori, tidsromRelevant, konnekteringslenkeOk, abstraktType, avledet, måHaMor, erDataserie, enVersjon, tilleggsinformasjon, kategorier, egenskapstyper, relasjonstyper, sensitiv);
   }
 
   @Override
@@ -732,6 +826,8 @@ public class Vegobjekttype {
     sb.append("    navn: ").append(toIndentedString(navn)).append("\n");
     sb.append("    kortnavn: ").append(toIndentedString(kortnavn)).append("\n");
     sb.append("    beskrivelse: ").append(toIndentedString(beskrivelse)).append("\n");
+    sb.append("    objektlisteDato: ").append(toIndentedString(objektlisteDato)).append("\n");
+    sb.append("    veiledning: ").append(toIndentedString(veiledning)).append("\n");
     sb.append("    stedfesting: ").append(toIndentedString(stedfesting)).append("\n");
     sb.append("    sosinavn: ").append(toIndentedString(sosinavn)).append("\n");
     sb.append("    sosinvdbnavn: ").append(toIndentedString(sosinvdbnavn)).append("\n");
@@ -743,6 +839,7 @@ public class Vegobjekttype {
     sb.append("    abstraktType: ").append(toIndentedString(abstraktType)).append("\n");
     sb.append("    avledet: ").append(toIndentedString(avledet)).append("\n");
     sb.append("    måHaMor: ").append(toIndentedString(måHaMor)).append("\n");
+    sb.append("    erDataserie: ").append(toIndentedString(erDataserie)).append("\n");
     sb.append("    enVersjon: ").append(toIndentedString(enVersjon)).append("\n");
     sb.append("    tilleggsinformasjon: ").append(toIndentedString(tilleggsinformasjon)).append("\n");
     sb.append("    kategorier: ").append(toIndentedString(kategorier)).append("\n");

@@ -51,7 +51,7 @@ public class Nodeport {
   }
 
   /**
-   * Get id
+   * Portnummer
    * @return id
    */
   @jakarta.annotation.Nonnull
@@ -76,7 +76,7 @@ public class Nodeport {
   }
 
   /**
-   * Get tilkobling
+   * Informasjon om portens tilkobling til veglenkesekvens
    * @return tilkobling
    */
   @jakarta.annotation.Nonnull
