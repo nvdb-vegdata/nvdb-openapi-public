@@ -24,7 +24,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import no.vegvesen.vt.nvdb.vegnett.model.SideMetadata;
-import no.vegvesen.vt.nvdb.vegnett.model.VeglenkesekvensEndret;
 import no.vegvesen.vt.nvdb.vegnett.model.VeglenkesekvensFjernet;
 import no.vegvesen.vt.nvdb.vegnett.model.VeglenkesekvensSegmentert;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -34,17 +33,12 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
  * VeglenkesekvensEndringerSide
  */
 @JsonPropertyOrder({
-  VeglenkesekvensEndringerSide.JSON_PROPERTY_VEGLENKESEKVENSER_ENDRET,
   VeglenkesekvensEndringerSide.JSON_PROPERTY_VEGLENKESEKVENSER_FJERNET,
   VeglenkesekvensEndringerSide.JSON_PROPERTY_VEGLENKESEKVENSER_SEGMENTERT,
   VeglenkesekvensEndringerSide.JSON_PROPERTY_METADATA
 })
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.13.0")
 public class VeglenkesekvensEndringerSide {
-  public static final String JSON_PROPERTY_VEGLENKESEKVENSER_ENDRET = "veglenkesekvenserEndret";
-  @jakarta.annotation.Nonnull
-  private List<VeglenkesekvensEndret> veglenkesekvenserEndret = new ArrayList<>();
-
   public static final String JSON_PROPERTY_VEGLENKESEKVENSER_FJERNET = "veglenkesekvenserFjernet";
   @jakarta.annotation.Nonnull
   private List<VeglenkesekvensFjernet> veglenkesekvenserFjernet = new ArrayList<>();
@@ -58,39 +52,6 @@ public class VeglenkesekvensEndringerSide {
   private SideMetadata metadata;
 
   public VeglenkesekvensEndringerSide() {
-  }
-
-  public VeglenkesekvensEndringerSide veglenkesekvenserEndret(@jakarta.annotation.Nonnull List<VeglenkesekvensEndret> veglenkesekvenserEndret) {
-    
-    this.veglenkesekvenserEndret = veglenkesekvenserEndret;
-    return this;
-  }
-
-  public VeglenkesekvensEndringerSide addVeglenkesekvenserEndretItem(VeglenkesekvensEndret veglenkesekvenserEndretItem) {
-    if (this.veglenkesekvenserEndret == null) {
-      this.veglenkesekvenserEndret = new ArrayList<>();
-    }
-    this.veglenkesekvenserEndret.add(veglenkesekvenserEndretItem);
-    return this;
-  }
-
-  /**
-   * Liste med alle endringer som oppretter eller endrer veglenkesekvenser
-   * @return veglenkesekvenserEndret
-   */
-  @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_VEGLENKESEKVENSER_ENDRET)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
-  public List<VeglenkesekvensEndret> getVeglenkesekvenserEndret() {
-    return veglenkesekvenserEndret;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_VEGLENKESEKVENSER_ENDRET)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setVeglenkesekvenserEndret(@jakarta.annotation.Nonnull List<VeglenkesekvensEndret> veglenkesekvenserEndret) {
-    this.veglenkesekvenserEndret = veglenkesekvenserEndret;
   }
 
   public VeglenkesekvensEndringerSide veglenkesekvenserFjernet(@jakarta.annotation.Nonnull List<VeglenkesekvensFjernet> veglenkesekvenserFjernet) {
@@ -194,22 +155,20 @@ public class VeglenkesekvensEndringerSide {
       return false;
     }
     VeglenkesekvensEndringerSide veglenkesekvensEndringerSide = (VeglenkesekvensEndringerSide) o;
-    return Objects.equals(this.veglenkesekvenserEndret, veglenkesekvensEndringerSide.veglenkesekvenserEndret) &&
-        Objects.equals(this.veglenkesekvenserFjernet, veglenkesekvensEndringerSide.veglenkesekvenserFjernet) &&
+    return Objects.equals(this.veglenkesekvenserFjernet, veglenkesekvensEndringerSide.veglenkesekvenserFjernet) &&
         Objects.equals(this.veglenkesekvenserSegmentert, veglenkesekvensEndringerSide.veglenkesekvenserSegmentert) &&
         Objects.equals(this.metadata, veglenkesekvensEndringerSide.metadata);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(veglenkesekvenserEndret, veglenkesekvenserFjernet, veglenkesekvenserSegmentert, metadata);
+    return Objects.hash(veglenkesekvenserFjernet, veglenkesekvenserSegmentert, metadata);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("class VeglenkesekvensEndringerSide {\n");
-    sb.append("    veglenkesekvenserEndret: ").append(toIndentedString(veglenkesekvenserEndret)).append("\n");
     sb.append("    veglenkesekvenserFjernet: ").append(toIndentedString(veglenkesekvenserFjernet)).append("\n");
     sb.append("    veglenkesekvenserSegmentert: ").append(toIndentedString(veglenkesekvenserSegmentert)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");

@@ -34,11 +34,7 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
   VegobjektEndret.JSON_PROPERTY_TYPE,
   VegobjektEndret.JSON_PROPERTY_TIDSPUNKT,
   VegobjektEndret.JSON_PROPERTY_STARTDATO,
-  VegobjektEndret.JSON_PROPERTY_SLUTTDATO,
-  VegobjektEndret.JSON_PROPERTY_EGENSKAPER_ENDRET,
-  VegobjektEndret.JSON_PROPERTY_BARN_ENDRET,
-  VegobjektEndret.JSON_PROPERTY_STEDFESTING_ENDRET,
-  VegobjektEndret.JSON_PROPERTY_GYLDIGHETSPERIODE_ENDRET
+  VegobjektEndret.JSON_PROPERTY_SLUTTDATO
 })
 @jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.13.0")
 public class VegobjektEndret {
@@ -65,22 +61,6 @@ public class VegobjektEndret {
   public static final String JSON_PROPERTY_SLUTTDATO = "sluttdato";
   @jakarta.annotation.Nullable
   private LocalDate sluttdato;
-
-  public static final String JSON_PROPERTY_EGENSKAPER_ENDRET = "egenskaperEndret";
-  @jakarta.annotation.Nonnull
-  private Boolean egenskaperEndret;
-
-  public static final String JSON_PROPERTY_BARN_ENDRET = "barnEndret";
-  @jakarta.annotation.Nonnull
-  private Boolean barnEndret;
-
-  public static final String JSON_PROPERTY_STEDFESTING_ENDRET = "stedfestingEndret";
-  @jakarta.annotation.Nonnull
-  private Boolean stedfestingEndret;
-
-  public static final String JSON_PROPERTY_GYLDIGHETSPERIODE_ENDRET = "gyldighetsperiodeEndret";
-  @jakarta.annotation.Nonnull
-  private Boolean gyldighetsperiodeEndret;
 
   public VegobjektEndret() {
   }
@@ -235,106 +215,6 @@ public class VegobjektEndret {
     this.sluttdato = sluttdato;
   }
 
-  public VegobjektEndret egenskaperEndret(@jakarta.annotation.Nonnull Boolean egenskaperEndret) {
-    
-    this.egenskaperEndret = egenskaperEndret;
-    return this;
-  }
-
-  /**
-   * Indikerer om egenskaper er endret/korrigert. Vil alltid være true dersom ny versjon av vegobjektet er opprettet
-   * @return egenskaperEndret
-   */
-  @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_EGENSKAPER_ENDRET)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
-  public Boolean getEgenskaperEndret() {
-    return egenskaperEndret;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_EGENSKAPER_ENDRET)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setEgenskaperEndret(@jakarta.annotation.Nonnull Boolean egenskaperEndret) {
-    this.egenskaperEndret = egenskaperEndret;
-  }
-
-  public VegobjektEndret barnEndret(@jakarta.annotation.Nonnull Boolean barnEndret) {
-    
-    this.barnEndret = barnEndret;
-    return this;
-  }
-
-  /**
-   * Indikerer om barn er endret/korrigert. Vil alltid være true dersom ny versjon av vegobjektet er opprettet
-   * @return barnEndret
-   */
-  @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_BARN_ENDRET)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
-  public Boolean getBarnEndret() {
-    return barnEndret;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_BARN_ENDRET)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setBarnEndret(@jakarta.annotation.Nonnull Boolean barnEndret) {
-    this.barnEndret = barnEndret;
-  }
-
-  public VegobjektEndret stedfestingEndret(@jakarta.annotation.Nonnull Boolean stedfestingEndret) {
-    
-    this.stedfestingEndret = stedfestingEndret;
-    return this;
-  }
-
-  /**
-   * Indikerer om stedfesting er endret/korrigert. Vil alltid være true dersom ny versjon av vegobjektet er opprettet
-   * @return stedfestingEndret
-   */
-  @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_STEDFESTING_ENDRET)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
-  public Boolean getStedfestingEndret() {
-    return stedfestingEndret;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_STEDFESTING_ENDRET)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setStedfestingEndret(@jakarta.annotation.Nonnull Boolean stedfestingEndret) {
-    this.stedfestingEndret = stedfestingEndret;
-  }
-
-  public VegobjektEndret gyldighetsperiodeEndret(@jakarta.annotation.Nonnull Boolean gyldighetsperiodeEndret) {
-    
-    this.gyldighetsperiodeEndret = gyldighetsperiodeEndret;
-    return this;
-  }
-
-  /**
-   * Indikerer om gyldighetsperioden er endret/korrigert. Vil alltid være true dersom ny versjon av vegobjektet er opprettet
-   * @return gyldighetsperiodeEndret
-   */
-  @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_GYLDIGHETSPERIODE_ENDRET)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
-  public Boolean getGyldighetsperiodeEndret() {
-    return gyldighetsperiodeEndret;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_GYLDIGHETSPERIODE_ENDRET)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setGyldighetsperiodeEndret(@jakarta.annotation.Nonnull Boolean gyldighetsperiodeEndret) {
-    this.gyldighetsperiodeEndret = gyldighetsperiodeEndret;
-  }
-
 
   @Override
   public boolean equals(Object o) {
@@ -350,16 +230,12 @@ public class VegobjektEndret {
         Objects.equals(this.type, vegobjektEndret.type) &&
         Objects.equals(this.tidspunkt, vegobjektEndret.tidspunkt) &&
         Objects.equals(this.startdato, vegobjektEndret.startdato) &&
-        Objects.equals(this.sluttdato, vegobjektEndret.sluttdato) &&
-        Objects.equals(this.egenskaperEndret, vegobjektEndret.egenskaperEndret) &&
-        Objects.equals(this.barnEndret, vegobjektEndret.barnEndret) &&
-        Objects.equals(this.stedfestingEndret, vegobjektEndret.stedfestingEndret) &&
-        Objects.equals(this.gyldighetsperiodeEndret, vegobjektEndret.gyldighetsperiodeEndret);
+        Objects.equals(this.sluttdato, vegobjektEndret.sluttdato);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, versjon, type, tidspunkt, startdato, sluttdato, egenskaperEndret, barnEndret, stedfestingEndret, gyldighetsperiodeEndret);
+    return Objects.hash(id, versjon, type, tidspunkt, startdato, sluttdato);
   }
 
   @Override
@@ -372,10 +248,6 @@ public class VegobjektEndret {
     sb.append("    tidspunkt: ").append(toIndentedString(tidspunkt)).append("\n");
     sb.append("    startdato: ").append(toIndentedString(startdato)).append("\n");
     sb.append("    sluttdato: ").append(toIndentedString(sluttdato)).append("\n");
-    sb.append("    egenskaperEndret: ").append(toIndentedString(egenskaperEndret)).append("\n");
-    sb.append("    barnEndret: ").append(toIndentedString(barnEndret)).append("\n");
-    sb.append("    stedfestingEndret: ").append(toIndentedString(stedfestingEndret)).append("\n");
-    sb.append("    gyldighetsperiodeEndret: ").append(toIndentedString(gyldighetsperiodeEndret)).append("\n");
     sb.append("}");
     return sb.toString();
   }

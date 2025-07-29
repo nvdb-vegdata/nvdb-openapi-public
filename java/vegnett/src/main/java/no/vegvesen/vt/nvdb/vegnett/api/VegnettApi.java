@@ -464,7 +464,7 @@ public class VegnettApi {
     }
 
     /**
-     * Hent endringer på veglenkesekvenser
+     * Hent endringer på veglenkesekvenser innen siste 30 dager
      * 
      * <p><b>500</b> - Internal Server Error
      * <p><b>400</b> - Bad Request
@@ -504,7 +504,7 @@ public class VegnettApi {
     }
 
     /**
-     * Hent endringer på veglenkesekvenser
+     * Hent endringer på veglenkesekvenser innen siste 30 dager
      * 
      * <p><b>500</b> - Internal Server Error
      * <p><b>400</b> - Bad Request
@@ -522,7 +522,7 @@ public class VegnettApi {
     }
 
     /**
-     * Hent endringer på veglenkesekvenser
+     * Hent endringer på veglenkesekvenser innen siste 30 dager
      * 
      * <p><b>500</b> - Internal Server Error
      * <p><b>400</b> - Bad Request
@@ -540,7 +540,7 @@ public class VegnettApi {
     }
 
     /**
-     * Hent endringer på veglenkesekvenser
+     * Hent endringer på veglenkesekvenser innen siste 30 dager
      * 
      * <p><b>500</b> - Internal Server Error
      * <p><b>400</b> - Bad Request

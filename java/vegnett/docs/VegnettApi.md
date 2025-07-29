@@ -2,13 +2,13 @@
 
 All URIs are relative to *https://nvdbapiles.atlas.vegvesen.no/vegnett*
 
-| Method                                                                         | HTTP request                                                     | Description                         |
-| ------------------------------------------------------------------------------ | ---------------------------------------------------------------- | ----------------------------------- |
-| [**getSegmentertVeglenkesekvens**](VegnettApi.md#getSegmentertVeglenkesekvens) | **GET** /api/v4/veglenkesekvenser/segmentert/{veglenkesekvensId} | Hent en segmentert veglenkesekvens  |
-| [**getVeglenkesegmenter**](VegnettApi.md#getVeglenkesegmenter)                 | **GET** /api/v4/veglenkesekvenser/segmentert                     | Hent segmenterte veglenkesekvenser  |
-| [**getVeglenkesekvens**](VegnettApi.md#getVeglenkesekvens)                     | **GET** /api/v4/veglenkesekvenser/{veglenkesekvensId}            | Hent en veglenkesekvens             |
-| [**getVeglenkesekvensEndringer**](VegnettApi.md#getVeglenkesekvensEndringer)   | **GET** /api/v4/veglenkesekvenser/endringer                      | Hent endringer på veglenkesekvenser |
-| [**getVeglenkesekvenser**](VegnettApi.md#getVeglenkesekvenser)                 | **GET** /api/v4/veglenkesekvenser                                | Hent veglenkesekvenser              |
+| Method                                                                         | HTTP request                                                     | Description                                              |
+| ------------------------------------------------------------------------------ | ---------------------------------------------------------------- | -------------------------------------------------------- |
+| [**getSegmentertVeglenkesekvens**](VegnettApi.md#getSegmentertVeglenkesekvens) | **GET** /api/v4/veglenkesekvenser/segmentert/{veglenkesekvensId} | Hent en segmentert veglenkesekvens                       |
+| [**getVeglenkesegmenter**](VegnettApi.md#getVeglenkesegmenter)                 | **GET** /api/v4/veglenkesekvenser/segmentert                     | Hent segmenterte veglenkesekvenser                       |
+| [**getVeglenkesekvens**](VegnettApi.md#getVeglenkesekvens)                     | **GET** /api/v4/veglenkesekvenser/{veglenkesekvensId}            | Hent en veglenkesekvens                                  |
+| [**getVeglenkesekvensEndringer**](VegnettApi.md#getVeglenkesekvensEndringer)   | **GET** /api/v4/veglenkesekvenser/endringer                      | Hent endringer på veglenkesekvenser innen siste 30 dager |
+| [**getVeglenkesekvenser**](VegnettApi.md#getVeglenkesekvenser)                 | **GET** /api/v4/veglenkesekvenser                                | Hent veglenkesekvenser                                   |
 
 ## getSegmentertVeglenkesekvens
 
@@ -265,7 +265,7 @@ No authorization required
 
 > VeglenkesekvensEndringerSide getVeglenkesekvensEndringer(start, antall, ider)
 
-Hent endringer på veglenkesekvenser
+Hent endringer på veglenkesekvenser innen siste 30 dager
 
 ### Example
 

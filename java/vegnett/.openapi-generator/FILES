@@ -78,7 +78,6 @@ src/main/java/no/vegvesen/vt/nvdb/vegnett/model/Veglenkesegment.java
 src/main/java/no/vegvesen/vt/nvdb/vegnett/model/VeglenkesegmenterSide.java
 src/main/java/no/vegvesen/vt/nvdb/vegnett/model/VeglenkesegmenterStatistikkGruppert.java
 src/main/java/no/vegvesen/vt/nvdb/vegnett/model/Veglenkesekvens.java
-src/main/java/no/vegvesen/vt/nvdb/vegnett/model/VeglenkesekvensEndret.java
 src/main/java/no/vegvesen/vt/nvdb/vegnett/model/VeglenkesekvensEndringerSide.java
 src/main/java/no/vegvesen/vt/nvdb/vegnett/model/VeglenkesekvensFjernet.java
 src/main/java/no/vegvesen/vt/nvdb/vegnett/model/VeglenkesekvensSegmentert.java

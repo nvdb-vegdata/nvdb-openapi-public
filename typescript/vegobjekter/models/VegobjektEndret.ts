@@ -26,24 +26,4 @@ export type VegobjektEndret = {
    * @type string | undefined date
    */
   sluttdato?: string
-  /**
-   * @description Indikerer om egenskaper er endret/korrigert. Vil alltid være true dersom ny versjon av vegobjektet er opprettet
-   * @type boolean
-   */
-  egenskaperEndret: boolean
-  /**
-   * @description Indikerer om barn er endret/korrigert. Vil alltid være true dersom ny versjon av vegobjektet er opprettet
-   * @type boolean
-   */
-  barnEndret: boolean
-  /**
-   * @description Indikerer om stedfesting er endret/korrigert. Vil alltid være true dersom ny versjon av vegobjektet er opprettet
-   * @type boolean
-   */
-  stedfestingEndret: boolean
-  /**
-   * @description Indikerer om gyldighetsperioden er endret/korrigert. Vil alltid være true dersom ny versjon av vegobjektet er opprettet
-   * @type boolean
-   */
-  gyldighetsperiodeEndret: boolean
 }

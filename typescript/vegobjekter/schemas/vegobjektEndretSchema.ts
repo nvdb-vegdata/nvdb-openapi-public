@@ -17,24 +17,4 @@ export const vegobjektEndretSchema = z.object({
     .string()
     .describe(`Utelatt dersom sluttdato ikke er satt`)
     .optional(),
-  egenskaperEndret: z
-    .boolean()
-    .describe(
-      `Indikerer om egenskaper er endret/korrigert. Vil alltid være true dersom ny versjon av vegobjektet er opprettet`,
-    ),
-  barnEndret: z
-    .boolean()
-    .describe(
-      `Indikerer om barn er endret/korrigert. Vil alltid være true dersom ny versjon av vegobjektet er opprettet`,
-    ),
-  stedfestingEndret: z
-    .boolean()
-    .describe(
-      `Indikerer om stedfesting er endret/korrigert. Vil alltid være true dersom ny versjon av vegobjektet er opprettet`,
-    ),
-  gyldighetsperiodeEndret: z
-    .boolean()
-    .describe(
-      `Indikerer om gyldighetsperioden er endret/korrigert. Vil alltid være true dersom ny versjon av vegobjektet er opprettet`,
-    ),
 })

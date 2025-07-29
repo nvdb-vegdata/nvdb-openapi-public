@@ -83,7 +83,7 @@ export function getVegobjektEndringerForTypeQueryOptions(
   })
 }
 /**
- * @summary Hent endringer for en vegobjekttype
+ * @summary Hent endringer for en vegobjekttype innen 30 dager
  * @link /api/v4/vegobjekter/:vegobjekttypeId/endringer */
 export function useGetVegobjektEndringerForType<
   TData = GetVegobjektEndringerForType['response'],
@@ -165,7 +165,7 @@ export function getVegobjektEndringerForTypeSuspenseQueryOptions(
   })
 }
 /**
- * @summary Hent endringer for en vegobjekttype
+ * @summary Hent endringer for en vegobjekttype innen 30 dager
  * @link /api/v4/vegobjekter/:vegobjekttypeId/endringer */
 export function useGetVegobjektEndringerForTypeSuspense<
   TData = GetVegobjektEndringerForType['response'],

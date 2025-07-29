@@ -484,7 +484,7 @@ public class VegobjekterApi {
     }
 
     /**
-     * Hent endringer for en vegobjekttype
+     * Hent endringer for en vegobjekttype innen 30 dager
      * 
      * <p><b>500</b> - Internal Server Error
      * <p><b>400</b> - Bad Request
@@ -535,7 +535,7 @@ public class VegobjekterApi {
     }
 
     /**
-     * Hent endringer for en vegobjekttype
+     * Hent endringer for en vegobjekttype innen 30 dager
      * 
      * <p><b>500</b> - Internal Server Error
      * <p><b>400</b> - Bad Request
@@ -557,7 +557,7 @@ public class VegobjekterApi {
     }
 
     /**
-     * Hent endringer for en vegobjekttype
+     * Hent endringer for en vegobjekttype innen 30 dager
      * 
      * <p><b>500</b> - Internal Server Error
      * <p><b>400</b> - Bad Request
@@ -579,7 +579,7 @@ public class VegobjekterApi {
     }
 
     /**
-     * Hent endringer for en vegobjekttype
+     * Hent endringer for en vegobjekttype innen 30 dager
      * 
      * <p><b>500</b> - Internal Server Error
      * <p><b>400</b> - Bad Request

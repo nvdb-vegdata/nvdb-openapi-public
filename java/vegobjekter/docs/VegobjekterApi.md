@@ -2,14 +2,14 @@
 
 All URIs are relative to *https://nvdbapiles.atlas.vegvesen.no/vegobjekter*
 
-| Method                                                                                 | HTTP request                                                          | Description                            |
-| -------------------------------------------------------------------------------------- | --------------------------------------------------------------------- | -------------------------------------- |
-| [**getVegobjektById**](VegobjekterApi.md#getVegobjektById)                             | **GET** /api/v4/vegobjekt                                             | Hent enkelt vegobjekt                  |
-| [**getVegobjektByTypeAndId**](VegobjekterApi.md#getVegobjektByTypeAndId)               | **GET** /api/v4/vegobjekter/{vegobjekttypeId}/{vegobjektId}           | Hent gjeldende versjon av et vegobjekt |
-| [**getVegobjektByTypeIdAndVersjon**](VegobjekterApi.md#getVegobjektByTypeIdAndVersjon) | **GET** /api/v4/vegobjekter/{vegobjekttypeId}/{vegobjektId}/{versjon} | Hent spesifikk versjon av et vegobjekt |
-| [**getVegobjektEndringerForType**](VegobjekterApi.md#getVegobjektEndringerForType)     | **GET** /api/v4/vegobjekter/{vegobjekttypeId}/endringer               | Hent endringer for en vegobjekttype    |
-| [**getVegobjektVersjoner**](VegobjekterApi.md#getVegobjektVersjoner)                   | **GET** /api/v4/vegobjekter/{vegobjekttypeId}/{vegobjektId}/versjoner | Hent alle versjoner av et vegobjekt    |
-| [**getVegobjekterByType**](VegobjekterApi.md#getVegobjekterByType)                     | **GET** /api/v4/vegobjekter/{vegobjekttypeId}                         | Hent vegobjekter av en type            |
+| Method                                                                                 | HTTP request                                                          | Description                                        |
+| -------------------------------------------------------------------------------------- | --------------------------------------------------------------------- | -------------------------------------------------- |
+| [**getVegobjektById**](VegobjekterApi.md#getVegobjektById)                             | **GET** /api/v4/vegobjekt                                             | Hent enkelt vegobjekt                              |
+| [**getVegobjektByTypeAndId**](VegobjekterApi.md#getVegobjektByTypeAndId)               | **GET** /api/v4/vegobjekter/{vegobjekttypeId}/{vegobjektId}           | Hent gjeldende versjon av et vegobjekt             |
+| [**getVegobjektByTypeIdAndVersjon**](VegobjekterApi.md#getVegobjektByTypeIdAndVersjon) | **GET** /api/v4/vegobjekter/{vegobjekttypeId}/{vegobjektId}/{versjon} | Hent spesifikk versjon av et vegobjekt             |
+| [**getVegobjektEndringerForType**](VegobjekterApi.md#getVegobjektEndringerForType)     | **GET** /api/v4/vegobjekter/{vegobjekttypeId}/endringer               | Hent endringer for en vegobjekttype innen 30 dager |
+| [**getVegobjektVersjoner**](VegobjekterApi.md#getVegobjektVersjoner)                   | **GET** /api/v4/vegobjekter/{vegobjekttypeId}/{vegobjektId}/versjoner | Hent alle versjoner av et vegobjekt                |
+| [**getVegobjekterByType**](VegobjekterApi.md#getVegobjekterByType)                     | **GET** /api/v4/vegobjekter/{vegobjekttypeId}                         | Hent vegobjekter av en type                        |
 
 ## getVegobjektById
 
@@ -279,7 +279,7 @@ public class Example {
 
 > VegobjektEndringerSide getVegobjektEndringerForType(vegobjekttypeId, ider, start, antall, historisk)
 
-Hent endringer for en vegobjekttype
+Hent endringer for en vegobjekttype innen 30 dager
 
 ### Example
 
