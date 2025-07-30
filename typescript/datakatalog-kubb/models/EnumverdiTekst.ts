@@ -1,6 +1,6 @@
 export type EnumverdiTekst = {
   /**
-   * @type integer int32
+   * @type integer, int32
    */
   id: number
   /**
@@ -8,7 +8,7 @@ export type EnumverdiTekst = {
    */
   kortnavn?: string
   /**
-   * @type integer | undefined int32
+   * @type integer | undefined, int32
    */
   kortnavnlengde?: number
   /**
@@ -20,15 +20,15 @@ export type EnumverdiTekst = {
    */
   beskrivelse?: string
   /**
-   * @type integer int32
+   * @type integer, int32
    */
   sorteringsnummer: number
   /**
-   * @type string | undefined date
+   * @type string | undefined, date
    */
   objektliste_dato?: string
   /**
-   * @type string | undefined date
+   * @type string | undefined, date
    */
   sluttdato?: string
   /**
@@ -36,7 +36,7 @@ export type EnumverdiTekst = {
    */
   standardverdi: boolean
   /**
-   * @type integer | undefined int32
+   * @type integer | undefined, int32
    */
   komplementær_enumverdi?: number
   /**

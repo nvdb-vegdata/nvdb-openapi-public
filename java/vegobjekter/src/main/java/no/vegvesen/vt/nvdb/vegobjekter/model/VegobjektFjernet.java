@@ -33,7 +33,7 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
   VegobjektFjernet.JSON_PROPERTY_TYPE,
   VegobjektFjernet.JSON_PROPERTY_TIDSPUNKT
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.13.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.14.0")
 public class VegobjektFjernet {
   public static final String JSON_PROPERTY_ID = "id";
   @jakarta.annotation.Nonnull

@@ -93,12 +93,15 @@ export class DatakatalogenApi extends runtime.BaseAPI {
 
     const headerParameters: runtime.HTTPHeaders = {}
 
+    let urlPath = `/api/v1/egenskapstyper/{egenskapstypeid}`
+    urlPath = urlPath.replace(
+      `{${'egenskapstypeid'}}`,
+      encodeURIComponent(String(requestParameters['egenskapstypeid'])),
+    )
+
     const response = await this.request(
       {
-        path: `/api/v1/egenskapstyper/{egenskapstypeid}`.replace(
-          `{${'egenskapstypeid'}}`,
-          encodeURIComponent(String(requestParameters['egenskapstypeid'])),
-        ),
+        path: urlPath,
         method: 'GET',
         headers: headerParameters,
         query: queryParameters,
@@ -150,17 +153,19 @@ export class DatakatalogenApi extends runtime.BaseAPI {
 
     const headerParameters: runtime.HTTPHeaders = {}
 
+    let urlPath = `/api/v1/vegobjekttyper/{vegobjekttypeid}/{egenskapstypeid}`
+    urlPath = urlPath.replace(
+      `{${'vegobjekttypeid'}}`,
+      encodeURIComponent(String(requestParameters['vegobjekttypeid'])),
+    )
+    urlPath = urlPath.replace(
+      `{${'egenskapstypeid'}}`,
+      encodeURIComponent(String(requestParameters['egenskapstypeid'])),
+    )
+
     const response = await this.request(
       {
-        path: `/api/v1/vegobjekttyper/{vegobjekttypeid}/{egenskapstypeid}`
-          .replace(
-            `{${'vegobjekttypeid'}}`,
-            encodeURIComponent(String(requestParameters['vegobjekttypeid'])),
-          )
-          .replace(
-            `{${'egenskapstypeid'}}`,
-            encodeURIComponent(String(requestParameters['egenskapstypeid'])),
-          ),
+        path: urlPath,
         method: 'GET',
         headers: headerParameters,
         query: queryParameters,
@@ -197,9 +202,11 @@ export class DatakatalogenApi extends runtime.BaseAPI {
 
     const headerParameters: runtime.HTTPHeaders = {}
 
+    let urlPath = `/api/v1/egenskapstypekategorier`
+
     const response = await this.request(
       {
-        path: `/api/v1/egenskapstypekategorier`,
+        path: urlPath,
         method: 'GET',
         headers: headerParameters,
         query: queryParameters,
@@ -232,9 +239,11 @@ export class DatakatalogenApi extends runtime.BaseAPI {
 
     const headerParameters: runtime.HTTPHeaders = {}
 
+    let urlPath = `/api/v1/enheter`
+
     const response = await this.request(
       {
-        path: `/api/v1/enheter`,
+        path: urlPath,
         method: 'GET',
         headers: headerParameters,
         query: queryParameters,
@@ -267,9 +276,11 @@ export class DatakatalogenApi extends runtime.BaseAPI {
 
     const headerParameters: runtime.HTTPHeaders = {}
 
+    let urlPath = `/api/v1/kategorier`
+
     const response = await this.request(
       {
-        path: `/api/v1/kategorier`,
+        path: urlPath,
         method: 'GET',
         headers: headerParameters,
         query: queryParameters,
@@ -310,12 +321,15 @@ export class DatakatalogenApi extends runtime.BaseAPI {
 
     const headerParameters: runtime.HTTPHeaders = {}
 
+    let urlPath = `/api/v1/vegobjekttyper/{vegobjekttypeid}/produktspesifikasjon`
+    urlPath = urlPath.replace(
+      `{${'vegobjekttypeid'}}`,
+      encodeURIComponent(String(requestParameters['vegobjekttypeid'])),
+    )
+
     const response = await this.request(
       {
-        path: `/api/v1/vegobjekttyper/{vegobjekttypeid}/produktspesifikasjon`.replace(
-          `{${'vegobjekttypeid'}}`,
-          encodeURIComponent(String(requestParameters['vegobjekttypeid'])),
-        ),
+        path: urlPath,
         method: 'GET',
         headers: headerParameters,
         query: queryParameters,
@@ -364,12 +378,15 @@ export class DatakatalogenApi extends runtime.BaseAPI {
 
     const headerParameters: runtime.HTTPHeaders = {}
 
+    let urlPath = `/api/v1/vegobjekttyper/{vegobjekttypeid}`
+    urlPath = urlPath.replace(
+      `{${'vegobjekttypeid'}}`,
+      encodeURIComponent(String(requestParameters['vegobjekttypeid'])),
+    )
+
     const response = await this.request(
       {
-        path: `/api/v1/vegobjekttyper/{vegobjekttypeid}`.replace(
-          `{${'vegobjekttypeid'}}`,
-          encodeURIComponent(String(requestParameters['vegobjekttypeid'])),
-        ),
+        path: urlPath,
         method: 'GET',
         headers: headerParameters,
         query: queryParameters,
@@ -415,9 +432,11 @@ export class DatakatalogenApi extends runtime.BaseAPI {
 
     const headerParameters: runtime.HTTPHeaders = {}
 
+    let urlPath = `/api/v1/vegobjekttyper`
+
     const response = await this.request(
       {
-        path: `/api/v1/vegobjekttyper`,
+        path: urlPath,
         method: 'GET',
         headers: headerParameters,
         query: queryParameters,
@@ -470,12 +489,15 @@ export class DatakatalogenApi extends runtime.BaseAPI {
 
     const headerParameters: runtime.HTTPHeaders = {}
 
+    let urlPath = `/api/v1/vegobjekttyper/historisk/{versjon}`
+    urlPath = urlPath.replace(
+      `{${'versjon'}}`,
+      encodeURIComponent(String(requestParameters['versjon'])),
+    )
+
     const response = await this.request(
       {
-        path: `/api/v1/vegobjekttyper/historisk/{versjon}`.replace(
-          `{${'versjon'}}`,
-          encodeURIComponent(String(requestParameters['versjon'])),
-        ),
+        path: urlPath,
         method: 'GET',
         headers: headerParameters,
         query: queryParameters,
@@ -512,9 +534,11 @@ export class DatakatalogenApi extends runtime.BaseAPI {
 
     const headerParameters: runtime.HTTPHeaders = {}
 
+    let urlPath = `/api/v1/versjon`
+
     const response = await this.request(
       {
-        path: `/api/v1/versjon`,
+        path: urlPath,
         method: 'GET',
         headers: headerParameters,
         query: queryParameters,

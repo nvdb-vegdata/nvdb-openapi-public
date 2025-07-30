@@ -32,7 +32,7 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
   AssosiasjonstypeVegobjekttype.JSON_PROPERTY_NAVN,
   AssosiasjonstypeVegobjekttype.JSON_PROPERTY_OBJEKTLISTE_DATO
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.13.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.14.0")
 public class AssosiasjonstypeVegobjekttype {
   public static final String JSON_PROPERTY_ID = "id";
   @jakarta.annotation.Nonnull

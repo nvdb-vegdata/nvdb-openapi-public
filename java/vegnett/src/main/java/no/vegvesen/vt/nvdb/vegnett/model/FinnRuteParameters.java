@@ -49,7 +49,7 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
   FinnRuteParameters.JSON_PROPERTY_TIDSPUNKT,
   FinnRuteParameters.JSON_PROPERTY_SRID
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.13.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.14.0")
 public class FinnRuteParameters {
   public static final String JSON_PROPERTY_START = "start";
   @jakarta.annotation.Nullable

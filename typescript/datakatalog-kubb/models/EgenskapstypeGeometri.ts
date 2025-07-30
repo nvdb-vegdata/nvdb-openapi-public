@@ -1,6 +1,6 @@
 import type { Egenskapstype } from './Egenskapstype'
 
-export type Geometritype =
+export type EgenskapstypeGeometriGeometritype =
   | 'PUNKT'
   | 'POLYGON'
   | 'LINJE'
@@ -11,13 +11,13 @@ export type Geometritype =
   | 'UKJENT'
 export type EgenskapstypeGeometri = Egenskapstype & {
   /**
-   * @type integer | undefined int32
+   * @type integer | undefined, int32
    */
   dimensjoner?: number
   /**
    * @type string | undefined
    */
-  geometritype?: Geometritype
+  geometritype?: EgenskapstypeGeometriGeometritype
   /**
    * @type boolean | undefined
    */

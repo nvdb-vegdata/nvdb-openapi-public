@@ -8,7 +8,7 @@ import type { Vegsegment } from './Vegsegment'
 export type Vegobjekt = {
   /**
    * @description Vegobjektets id i NVDB
-   * @type integer int64
+   * @type integer, int64
    */
   id: number
   /**
@@ -17,7 +17,7 @@ export type Vegobjekt = {
    */
   href: string
   /**
-   * @description Vegobjektets metadata. Inneholder ikke sluttdato dersom objektet ikke har noe sluttdato. Tilstede dersom inkluder=alle|metadata
+   * @type object | undefined
    */
   metadata?: VegobjektMetadata
   /**
@@ -26,15 +26,15 @@ export type Vegobjekt = {
    */
   egenskaper?: Egenskap[]
   /**
-   * @description Objektets geometri på vegnettet, eller egengeometri. Tilstede dersom inkluder=alle|geometri. Kan være utelatt dersom objektet ikke har noe geometri.
+   * @type object | undefined
    */
   geometri?: UtledetGeometri
   /**
-   * @description Plasseringen av dette objektet. Tilstede dersom inkluder=alle|lokasjon
+   * @type object | undefined
    */
   lokasjon?: Lokasjon
   /**
-   * @description Objektets foreldre og barn. Tilstede dersom inkluder=alle|relasjoner
+   * @type object | undefined
    */
   relasjoner?: Relasjoner
   /**

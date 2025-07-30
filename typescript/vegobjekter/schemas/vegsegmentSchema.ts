@@ -9,55 +9,56 @@ import { vegsystemreferanseSchema } from './vegsystemreferanseSchema'
 import { z } from 'zod'
 
 export const vegsegmentSchema = z.object({
-  veglenkesekvensid: z.number(),
+  veglenkesekvensid: z.number().int(),
   startposisjon: z.number().optional(),
   sluttposisjon: z.number().optional(),
   relativPosisjon: z.number().optional(),
   lengde: z
     .number()
-    .describe(`Utelatt dersom vegsegmentets lengde er lik 0`)
+    .describe('Utelatt dersom vegsegmentets lengde er lik 0')
     .optional(),
   retning: z.lazy(() => retningSchema),
-  kjørefelt: z
+  'kj\u00F8refelt': z
     .array(z.string())
-    .describe(`Utelatt dersom kjørefelt ikke er relevant for vegsegmentet`)
+    .describe('Utelatt dersom kj\u00F8refelt ikke er relevant for vegsegmentet')
     .optional(),
   sideposisjon: z.lazy(() => sideposisjonSchema).optional(),
   feltoversikt: z
     .array(z.string())
     .describe(
-      `Utelatt dersom vegsegmentet ikke har noen felter i feltoversikten`,
+      'Utelatt dersom vegsegmentet ikke har noen felter i feltoversikten',
     )
     .optional(),
   veglenkeType: z.lazy(() => veglenkeTypeSchema),
-  detaljnivå: z.lazy(() => detaljnivaSchema),
+  'detaljniv\u00E5': z.lazy(() => detaljnivaSchema),
   typeVeg: z.lazy(() => typeVegSchema),
   typeVeg_sosi: z.lazy(() => typeVegSosiSchema),
-  startdato: z.string(),
+  startdato: z.string().date(),
   sluttdato: z
     .string()
-    .describe(`Utelatt dersom vegsegmentet ikke har noe satt sluttdato`)
+    .date()
+    .describe('Utelatt dersom vegsegmentet ikke har noe satt sluttdato')
     .optional(),
   geometri: z.lazy(() => geometriSchema),
-  kommune: z.number(),
-  fylke: z.number(),
+  kommune: z.number().int(),
+  fylke: z.number().int(),
   vegsystemreferanse: z.lazy(() => vegsystemreferanseSchema).optional(),
-  kontraktsområder: z
-    .array(z.number())
+  'kontraktsomr\u00E5der': z
+    .array(z.number().int())
     .describe(
-      `Utelatt om vegsegmentet ikke overlapper med noen kontraktsområder`,
+      'Utelatt om vegsegmentet ikke overlapper med noen kontraktsomr\u00E5der',
     )
     .optional(),
   riksvegruter: z
-    .array(z.number())
-    .describe(`Utelatt om vegsegmentet ikke overlapper med noen riksvegruter`)
+    .array(z.number().int())
+    .describe('Utelatt om vegsegmentet ikke overlapper med noen riksvegruter')
     .optional(),
   vegforvaltere: z
-    .array(z.number())
-    .describe(`Utelatt om vegsegmentet ikke overlapper med noen vegforvaltere`)
+    .array(z.number().int())
+    .describe('Utelatt om vegsegmentet ikke overlapper med noen vegforvaltere')
     .optional(),
   adresser: z
-    .array(z.number())
-    .describe(`Utelatt om vegsegmentet ikke overlapper med noen adresser`)
+    .array(z.number().int())
+    .describe('Utelatt om vegsegmentet ikke overlapper med noen adresser')
     .optional(),
 })

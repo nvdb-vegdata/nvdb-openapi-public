@@ -36,7 +36,7 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
   VegobjektEndret.JSON_PROPERTY_STARTDATO,
   VegobjektEndret.JSON_PROPERTY_SLUTTDATO
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.13.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.14.0")
 public class VegobjektEndret {
   public static final String JSON_PROPERTY_ID = "id";
   @jakarta.annotation.Nonnull

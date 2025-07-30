@@ -29,97 +29,97 @@ import {
 } from './EgenskapstypeEnum'
 
 import {
-  EgenskapstypeAssosiasjon,
+  type EgenskapstypeAssosiasjon,
   EgenskapstypeAssosiasjonFromJSONTyped,
   EgenskapstypeAssosiasjonToJSON,
   EgenskapstypeAssosiasjonToJSONTyped,
 } from './EgenskapstypeAssosiasjon'
 import {
-  EgenskapstypeBinaer,
+  type EgenskapstypeBinaer,
   EgenskapstypeBinaerFromJSONTyped,
   EgenskapstypeBinaerToJSON,
   EgenskapstypeBinaerToJSONTyped,
 } from './EgenskapstypeBinaer'
 import {
-  EgenskapstypeBoolsk,
+  type EgenskapstypeBoolsk,
   EgenskapstypeBoolskFromJSONTyped,
   EgenskapstypeBoolskToJSON,
   EgenskapstypeBoolskToJSONTyped,
 } from './EgenskapstypeBoolsk'
 import {
-  EgenskapstypeDato,
+  type EgenskapstypeDato,
   EgenskapstypeDatoFromJSONTyped,
   EgenskapstypeDatoToJSON,
   EgenskapstypeDatoToJSONTyped,
 } from './EgenskapstypeDato'
 import {
-  EgenskapstypeFlyttall,
+  type EgenskapstypeFlyttall,
   EgenskapstypeFlyttallFromJSONTyped,
   EgenskapstypeFlyttallToJSON,
   EgenskapstypeFlyttallToJSONTyped,
 } from './EgenskapstypeFlyttall'
 import {
-  EgenskapstypeFlyttallenum,
+  type EgenskapstypeFlyttallenum,
   EgenskapstypeFlyttallenumFromJSONTyped,
   EgenskapstypeFlyttallenumToJSON,
   EgenskapstypeFlyttallenumToJSONTyped,
 } from './EgenskapstypeFlyttallenum'
 import {
-  EgenskapstypeGeometri,
+  type EgenskapstypeGeometri,
   EgenskapstypeGeometriFromJSONTyped,
   EgenskapstypeGeometriToJSON,
   EgenskapstypeGeometriToJSONTyped,
 } from './EgenskapstypeGeometri'
 import {
-  EgenskapstypeHeltall,
+  type EgenskapstypeHeltall,
   EgenskapstypeHeltallFromJSONTyped,
   EgenskapstypeHeltallToJSON,
   EgenskapstypeHeltallToJSONTyped,
 } from './EgenskapstypeHeltall'
 import {
-  EgenskapstypeHeltallenum,
+  type EgenskapstypeHeltallenum,
   EgenskapstypeHeltallenumFromJSONTyped,
   EgenskapstypeHeltallenumToJSON,
   EgenskapstypeHeltallenumToJSONTyped,
 } from './EgenskapstypeHeltallenum'
 import {
-  EgenskapstypeKortdato,
+  type EgenskapstypeKortdato,
   EgenskapstypeKortdatoFromJSONTyped,
   EgenskapstypeKortdatoToJSON,
   EgenskapstypeKortdatoToJSONTyped,
 } from './EgenskapstypeKortdato'
 import {
-  EgenskapstypeListe,
+  type EgenskapstypeListe,
   EgenskapstypeListeFromJSONTyped,
   EgenskapstypeListeToJSON,
   EgenskapstypeListeToJSONTyped,
 } from './EgenskapstypeListe'
 import {
-  EgenskapstypeStedfesting,
+  type EgenskapstypeStedfesting,
   EgenskapstypeStedfestingFromJSONTyped,
   EgenskapstypeStedfestingToJSON,
   EgenskapstypeStedfestingToJSONTyped,
 } from './EgenskapstypeStedfesting'
 import {
-  EgenskapstypeStruktur,
+  type EgenskapstypeStruktur,
   EgenskapstypeStrukturFromJSONTyped,
   EgenskapstypeStrukturToJSON,
   EgenskapstypeStrukturToJSONTyped,
 } from './EgenskapstypeStruktur'
 import {
-  EgenskapstypeTekst,
+  type EgenskapstypeTekst,
   EgenskapstypeTekstFromJSONTyped,
   EgenskapstypeTekstToJSON,
   EgenskapstypeTekstToJSONTyped,
 } from './EgenskapstypeTekst'
 import {
-  EgenskapstypeTekstenum,
+  type EgenskapstypeTekstenum,
   EgenskapstypeTekstenumFromJSONTyped,
   EgenskapstypeTekstenumToJSON,
   EgenskapstypeTekstenumToJSONTyped,
 } from './EgenskapstypeTekstenum'
 import {
-  EgenskapstypeTid,
+  type EgenskapstypeTid,
   EgenskapstypeTidFromJSONTyped,
   EgenskapstypeTidToJSON,
   EgenskapstypeTidToJSONTyped,

@@ -16,59 +16,37 @@ package no.vegvesen.vt.nvdb.vegnett.infrastructure;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
+import java.util.function.Consumer;
 import org.openapitools.jackson.nullable.JsonNullableModule;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
-import org.springframework.http.HttpRequest;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.InvalidMediaTypeException;
 import org.springframework.http.MediaType;
-import org.springframework.http.RequestEntity;
-import org.springframework.http.RequestEntity.BodyBuilder;
-import org.springframework.http.ResponseEntity;
-import org.springframework.http.client.BufferingClientHttpRequestFactory;
-import org.springframework.http.client.ClientHttpRequestExecution;
-import org.springframework.http.client.ClientHttpRequestInterceptor;
-import org.springframework.http.client.ClientHttpResponse;
-import org.springframework.http.client.reactive.ClientHttpRequest;
-import org.springframework.http.codec.json.Jackson2JsonDecoder;
-import org.springframework.http.codec.json.Jackson2JsonEncoder;
+import org.springframework.http.converter.HttpMessageConverter;
+import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.util.CollectionUtils;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.util.StringUtils;
 import org.springframework.web.client.RestClientException;
 import org.springframework.web.util.UriComponentsBuilder;
-import org.springframework.web.reactive.function.client.WebClient;
-import org.springframework.web.reactive.function.client.WebClient.ResponseSpec;
-import org.springframework.web.reactive.function.client.ClientResponse;
-import org.springframework.web.reactive.function.BodyInserter;
-import org.springframework.web.reactive.function.BodyInserters;
-import org.springframework.web.reactive.function.client.ExchangeStrategies;
-import reactor.core.publisher.Mono;
-import reactor.core.publisher.Flux;
+import org.springframework.web.client.RestClient;
+import org.springframework.web.client.RestClient.ResponseSpec;
 import java.util.Optional;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.net.URLEncoder;
-import java.nio.charset.StandardCharsets;
 import java.text.DateFormat;
 import java.text.ParseException;
-import java.util.Arrays;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.TimeZone;
+import java.util.function.Supplier;
 
 import jakarta.annotation.Nullable;
 
@@ -79,59 +57,54 @@ import no.vegvesen.vt.nvdb.vegnett.infrastructure.auth.HttpBasicAuth;
 import no.vegvesen.vt.nvdb.vegnett.infrastructure.auth.HttpBearerAuth;
 import no.vegvesen.vt.nvdb.vegnett.infrastructure.auth.ApiKeyAuth;
 
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.13.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.14.0")
 public class ApiClient extends JavaTimeFormatter {
     public enum CollectionFormat {
         CSV(","), TSV("\t"), SSV(" "), PIPES("|"), MULTI(null);
 
-        private final String separator;
-        private CollectionFormat(String separator) {
+        protected final String separator;
+        CollectionFormat(String separator) {
             this.separator = separator;
         }
 
-        private String collectionToString(Collection<?> collection) {
+        protected String collectionToString(Collection<?> collection) {
             return StringUtils.collectionToDelimitedString(collection, separator);
         }
     }
 
-    private static final String URI_TEMPLATE_ATTRIBUTE = WebClient.class.getName() + ".uriTemplate";
+    protected final HttpHeaders defaultHeaders = new HttpHeaders();
+    protected final MultiValueMap<String, String> defaultCookies = new LinkedMultiValueMap<>();
 
-    private HttpHeaders defaultHeaders = new HttpHeaders();
-    private MultiValueMap<String, String> defaultCookies = new LinkedMultiValueMap<String, String>();
+    protected String basePath = "https://nvdbapiles.atlas.vegvesen.no/vegnett";
 
-    private String basePath = "https://nvdbapiles.atlas.vegvesen.no/vegnett";
+    protected final RestClient restClient;
+    protected final DateFormat dateFormat;
+    protected final ObjectMapper objectMapper;
 
-    private final WebClient webClient;
-    private final DateFormat dateFormat;
-    private final ObjectMapper objectMapper;
-
-    private Map<String, Authentication> authentications;
+    protected Map<String, Authentication> authentications;
 
 
     public ApiClient() {
-        this.dateFormat = createDefaultDateFormat();
-        this.objectMapper = createDefaultObjectMapper(this.dateFormat);
-        this.webClient = buildWebClient(this.objectMapper);
-        this.init();
+        this(null);
     }
 
-    public ApiClient(WebClient webClient) {
-        this(Optional.ofNullable(webClient).orElseGet(() -> buildWebClient()), createDefaultDateFormat());
+    public ApiClient(RestClient restClient) {
+        this(restClient, createDefaultDateFormat());
     }
 
     public ApiClient(ObjectMapper mapper, DateFormat format) {
-        this(buildWebClient(mapper.copy()), format);
+        this(null, mapper, format);
     }
 
-    public ApiClient(WebClient webClient, ObjectMapper mapper, DateFormat format) {
-        this(Optional.ofNullable(webClient).orElseGet(() -> buildWebClient(mapper.copy())), format);
-    }
-
-    private ApiClient(WebClient webClient, DateFormat format) {
-        this.webClient = webClient;
+    public ApiClient(RestClient restClient, ObjectMapper mapper, DateFormat format) {
+        this.objectMapper = mapper.copy();
+        this.restClient = Optional.ofNullable(restClient).orElseGet(() -> buildRestClient(this.objectMapper));
         this.dateFormat = format;
-        this.objectMapper = createDefaultObjectMapper(format);
         this.init();
+    }
+
+    protected ApiClient(RestClient restClient, DateFormat format) {
+        this(restClient, createDefaultObjectMapper(format), format);
     }
 
     public static DateFormat createDefaultDateFormat() {
@@ -155,50 +128,47 @@ public class ApiClient extends JavaTimeFormatter {
 
     protected void init() {
         // Setup authentications (key: authentication name, value: authentication).
-        authentications = new HashMap<String, Authentication>();
+        authentications = new HashMap<>();
         // Prevent the authentications from being modified.
         authentications = Collections.unmodifiableMap(authentications);
     }
 
     /**
-    * Build the WebClientBuilder used to make WebClient.
+    * Build the RestClientBuilder used to make RestClient.
     * @param mapper ObjectMapper used for serialize/deserialize
-    * @return WebClient
+    * @return RestClient
     */
-    public static WebClient.Builder buildWebClientBuilder(ObjectMapper mapper) {
-        ExchangeStrategies strategies = ExchangeStrategies
-            .builder()
-            .codecs(clientDefaultCodecsConfigurer -> {
-                clientDefaultCodecsConfigurer.defaultCodecs().jackson2JsonEncoder(new Jackson2JsonEncoder(mapper, MediaType.APPLICATION_JSON));
-                clientDefaultCodecsConfigurer.defaultCodecs().jackson2JsonDecoder(new Jackson2JsonDecoder(mapper, MediaType.APPLICATION_JSON));
-            }).build();
-        WebClient.Builder webClientBuilder = WebClient.builder().exchangeStrategies(strategies);
-        return webClientBuilder;
+    public static RestClient.Builder buildRestClientBuilder(ObjectMapper mapper) {
+        Consumer<List<HttpMessageConverter<?>>> messageConverters = converters -> {
+            converters.add(0, new MappingJackson2HttpMessageConverter(mapper));
+        };
+
+        return RestClient.builder().messageConverters(messageConverters);
     }
 
     /**
-     * Build the WebClientBuilder used to make WebClient.
-     * @return WebClient
+     * Build the RestClientBuilder used to make RestClient.
+     * @return RestClient
      */
-    public static WebClient.Builder buildWebClientBuilder() {
-        return buildWebClientBuilder(createDefaultObjectMapper(null));
+    public static RestClient.Builder buildRestClientBuilder() {
+        return buildRestClientBuilder(createDefaultObjectMapper(null));
     }
 
     /**
-     * Build the WebClient used to make HTTP requests.
+     * Build the RestClient used to make HTTP requests.
      * @param mapper ObjectMapper used for serialize/deserialize
-     * @return WebClient
+     * @return RestClient
      */
-    public static WebClient buildWebClient(ObjectMapper mapper) {
-        return buildWebClientBuilder(mapper).build();
+    public static RestClient buildRestClient(ObjectMapper mapper) {
+        return buildRestClientBuilder(mapper).build();
     }
 
     /**
-     * Build the WebClient used to make HTTP requests.
-     * @return WebClient
+     * Build the RestClient used to make HTTP requests.
+     * @return RestClient
      */
-    public static WebClient buildWebClient() {
-        return buildWebClientBuilder(createDefaultObjectMapper(null)).build();
+    public static RestClient buildRestClient() {
+        return buildRestClientBuilder(createDefaultObjectMapper(null)).build();
     }
 
     /**
@@ -246,6 +216,21 @@ public class ApiClient extends JavaTimeFormatter {
             if (auth instanceof HttpBearerAuth) {
                 ((HttpBearerAuth) auth).setBearerToken(bearerToken);
                 return;
+            }
+        }
+        throw new RuntimeException("No Bearer authentication configured!");
+    }
+
+    /**
+    * Helper method to set the supplier of access tokens for Bearer authentication.
+    *
+    * @param tokenSupplier the token supplier function
+    */
+    public void setBearerToken(Supplier<String> tokenSupplier) {
+        for (Authentication auth : authentications.values()) {
+            if (auth instanceof HttpBearerAuth) {
+                ((HttpBearerAuth) auth).setBearerToken(tokenSupplier);
+            return;
             }
         }
         throw new RuntimeException("No Bearer authentication configured!");
@@ -382,11 +367,11 @@ public class ApiClient extends JavaTimeFormatter {
     }
 
     /**
-     * Get the WebClient used to make HTTP requests.
-     * @return WebClient webClient
+     * Get the RestClient used to make HTTP requests.
+     * @return RestClient restClient
      */
-    public WebClient getWebClient() {
-        return webClient;
+    public RestClient getRestClient() {
+        return restClient;
     }
 
     /**
@@ -423,7 +408,7 @@ public class ApiClient extends JavaTimeFormatter {
      * @return a Map containing the String value(s) of the input parameter
      */
     public MultiValueMap<String, String> parameterToMultiValueMap(CollectionFormat collectionFormat, String name, Object value) {
-        final MultiValueMap<String, String> params = new LinkedMultiValueMap<String, String>();
+        final MultiValueMap<String, String> params = new LinkedMultiValueMap<>();
 
         if (name == null || name.isEmpty() || value == null) {
             return params;
@@ -461,7 +446,7 @@ public class ApiClient extends JavaTimeFormatter {
             return params;
         }
 
-        List<String> values = new ArrayList<String>();
+        List<String> values = new ArrayList<>();
         for(Object o : valueCollection) {
             values.add(parameterToString(o));
         }
@@ -553,27 +538,16 @@ public class ApiClient extends JavaTimeFormatter {
     }
 
     /**
-     * Select the body to use for the request
-     * @param obj the body object
-     * @param formParams the form parameters
-     * @param contentType the content type of the request
-     * @return Object the selected body
-     */
-    protected BodyInserter<?, ? super ClientHttpRequest> selectBody(Object obj, MultiValueMap<String, Object> formParams, MediaType contentType) {
-        if(MediaType.APPLICATION_FORM_URLENCODED.equals(contentType)) {
-            MultiValueMap<String, String> map = new LinkedMultiValueMap<>();
-
-            formParams
-                    .toSingleValueMap()
-                    .entrySet()
-                    .forEach(es -> map.add(es.getKey(), String.valueOf(es.getValue())));
-
-            return BodyInserters.fromFormData(map);
-        } else if(MediaType.MULTIPART_FORM_DATA.equals(contentType)) {
-            return BodyInserters.fromMultipartData(formParams);
-        } else {
-            return obj != null ? BodyInserters.fromValue(obj) : null;
-        }
+    * Select the body to use for the request
+    *
+    * @param obj the body object
+    * @param formParams the form parameters
+    * @param contentType the content type of the request
+    * @return Object the selected body
+    */
+    protected Object selectBody(Object obj, MultiValueMap<String, Object> formParams, MediaType contentType) {
+        boolean isForm = MediaType.MULTIPART_FORM_DATA.isCompatibleWith(contentType) || MediaType.APPLICATION_FORM_URLENCODED.isCompatibleWith(contentType);
+        return isForm ? formParams : obj;
     }
 
     /**
@@ -594,7 +568,7 @@ public class ApiClient extends JavaTimeFormatter {
      * @return The response body in chosen type
      */
     public <T> ResponseSpec invokeAPI(String path, HttpMethod method, Map<String, Object> pathParams, MultiValueMap<String, String> queryParams, Object body, HttpHeaders headerParams, MultiValueMap<String, String> cookieParams, MultiValueMap<String, Object> formParams, List<MediaType> accept, MediaType contentType, String[] authNames, ParameterizedTypeReference<T> returnType) throws RestClientException {
-        final WebClient.RequestBodySpec requestBuilder = prepareRequest(path, method, pathParams, queryParams, body, headerParams, cookieParams, formParams, accept, contentType, authNames);
+        final RestClient.RequestBodySpec requestBuilder = prepareRequest(path, method, pathParams, queryParams, body, headerParams, cookieParams, formParams, accept, contentType, authNames);
         return requestBuilder.retrieve();
     }
 
@@ -604,7 +578,7 @@ public class ApiClient extends JavaTimeFormatter {
      * @param uriParams The path parameters
      * return templatized query string
      */
-    private String generateQueryUri(MultiValueMap<String, String> queryParams, Map<String, Object> uriParams) {
+    protected String generateQueryUri(MultiValueMap<String, String> queryParams, Map<String, Object> uriParams) {
         StringBuilder queryBuilder = new StringBuilder();
         queryParams.forEach((name, values) -> {
             if (CollectionUtils.isEmpty(values)) {
@@ -630,7 +604,7 @@ public class ApiClient extends JavaTimeFormatter {
         return queryBuilder.toString();
     }
 
-    private WebClient.RequestBodySpec prepareRequest(String path, HttpMethod method, Map<String, Object> pathParams,
+    protected RestClient.RequestBodySpec prepareRequest(String path, HttpMethod method, Map<String, Object> pathParams,
         MultiValueMap<String, String> queryParams, Object body, HttpHeaders headerParams,
         MultiValueMap<String, String> cookieParams, MultiValueMap<String, Object> formParams, List<MediaType> accept,
         MediaType contentType, String[] authNames) {
@@ -649,7 +623,7 @@ public class ApiClient extends JavaTimeFormatter {
             finalUri += "?" + queryUri;
         }
 
-        final WebClient.RequestBodySpec requestBuilder = webClient.method(method).uri(finalUri, uriParams);
+        final RestClient.RequestBodySpec requestBuilder = restClient.method(method).uri(finalUri, uriParams);
 
         if (accept != null) {
             requestBuilder.accept(accept.toArray(new MediaType[accept.size()]));
@@ -663,9 +637,23 @@ public class ApiClient extends JavaTimeFormatter {
         addCookiesToRequest(cookieParams, requestBuilder);
         addCookiesToRequest(defaultCookies, requestBuilder);
 
-        requestBuilder.attribute(URI_TEMPLATE_ATTRIBUTE, path);
+        if (MediaType.MULTIPART_FORM_DATA.isCompatibleWith(contentType)) {
+            formParams.forEach(
+                    (k, v) -> {
+                        if (v instanceof java.util.ArrayList) {
+                            Object o = v.get(0);
+                            if (o != null && o.getClass().getEnumConstants() != null) {
+                                v.set(0, o.toString());
+                            }
+                        }
+                    });
+        }
 
-        requestBuilder.body(selectBody(body, formParams, contentType));
+        var selectedBody = selectBody(body, formParams, contentType);
+        if (selectedBody != null) {
+          requestBuilder.body(selectedBody);
+        }
+
         return requestBuilder;
     }
 
@@ -674,7 +662,7 @@ public class ApiClient extends JavaTimeFormatter {
      * @param headers The headers to add
      * @param requestBuilder The current request
      */
-    protected void addHeadersToRequest(HttpHeaders headers, WebClient.RequestBodySpec requestBuilder) {
+    protected void addHeadersToRequest(HttpHeaders headers, RestClient.RequestBodySpec requestBuilder) {
         for (Entry<String, List<String>> entry : headers.entrySet()) {
             List<String> values = entry.getValue();
             for(String value : values) {
@@ -685,20 +673,34 @@ public class ApiClient extends JavaTimeFormatter {
         }
     }
 
-    /**
+     /**
      * Add cookies to the request that is being built
-     * @param cookies The cookies to add
+     *
+     * @param cookies        The cookies to add
      * @param requestBuilder The current request
      */
-    protected void addCookiesToRequest(MultiValueMap<String, String> cookies, WebClient.RequestBodySpec requestBuilder) {
-        for (Entry<String, List<String>> entry : cookies.entrySet()) {
-            List<String> values = entry.getValue();
-            for(String value : values) {
-                if (value != null) {
-                    requestBuilder.cookie(entry.getKey(), value);
-                }
-            }
+    protected void addCookiesToRequest(MultiValueMap<String, String> cookies, RestClient.RequestBodySpec requestBuilder) {
+        if (!cookies.isEmpty()) {
+            requestBuilder.header("Cookie", buildCookieHeader(cookies));
         }
+    }
+
+    /**
+     * Build cookie header. Keeps a single value per cookie (as per <a href="https://tools.ietf.org/html/rfc6265#section-5.3">
+     * RFC6265 section 5.3</a>).
+     *
+     * @param cookies map all cookies
+     * @return header string for cookies.
+     */
+    protected String buildCookieHeader(MultiValueMap<String, String> cookies) {
+        final StringBuilder cookieValue = new StringBuilder();
+        String delimiter = "";
+        for (final Map.Entry<String, List<String>> entry : cookies.entrySet()) {
+            final String value = entry.getValue().get(entry.getValue().size() - 1);
+            cookieValue.append(String.format("%s%s=%s", delimiter, entry.getKey(), value));
+            delimiter = "; ";
+        }
+        return cookieValue.toString();
     }
 
     /**

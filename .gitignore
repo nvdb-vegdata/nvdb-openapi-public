@@ -39,4 +39,7 @@ node_modules
 
 ### Lockfiles ###
 package-lock.json
-bun.lockb
+bun.lock*
+
+### Gradle ###
+.gradle/

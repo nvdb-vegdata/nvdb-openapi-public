@@ -6,8 +6,8 @@ export const heltallEnumEgenskapSchema = z
   .lazy(() => egenskapSchema)
   .and(
     z.object({
-      verdi: z.number().optional(),
-      enum_id: z.number().optional(),
+      verdi: z.number().int().optional(),
+      enum_id: z.number().int().optional(),
       enhet: z.lazy(() => enhetSchema).optional(),
     }),
   )

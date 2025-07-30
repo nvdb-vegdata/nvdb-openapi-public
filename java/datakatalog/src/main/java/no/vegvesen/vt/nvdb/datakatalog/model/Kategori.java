@@ -35,7 +35,7 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
   Kategori.JSON_PROPERTY_BESKRIVELSE,
   Kategori.JSON_PROPERTY_START_DATO
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.13.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.14.0")
 public class Kategori {
   public static final String JSON_PROPERTY_ID = "id";
   @jakarta.annotation.Nonnull

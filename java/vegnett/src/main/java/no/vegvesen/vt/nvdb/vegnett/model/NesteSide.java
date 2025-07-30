@@ -30,7 +30,7 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
   NesteSide.JSON_PROPERTY_START,
   NesteSide.JSON_PROPERTY_HREF
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.13.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.14.0")
 public class NesteSide {
   public static final String JSON_PROPERTY_START = "start";
   @jakarta.annotation.Nonnull

@@ -5,5 +5,5 @@ import { z } from 'zod'
 export const vegsystemSchema = z.object({
   vegkategori: z.lazy(() => vegkategoriSchema),
   fase: z.lazy(() => vegfaseSchema),
-  nummer: z.number().optional(),
+  nummer: z.number().int().optional(),
 })

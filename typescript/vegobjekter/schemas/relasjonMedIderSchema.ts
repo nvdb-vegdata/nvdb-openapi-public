@@ -3,4 +3,4 @@ import { z } from 'zod'
 
 export const relasjonMedIderSchema = z
   .lazy(() => relasjonSchema)
-  .and(z.object({ vegobjekter: z.array(z.number()).optional() }))
+  .and(z.object({ vegobjekter: z.array(z.number().int()).optional() }))

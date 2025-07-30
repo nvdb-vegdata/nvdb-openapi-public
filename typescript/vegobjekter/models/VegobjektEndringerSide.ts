@@ -13,5 +13,8 @@ export type VegobjektEndringerSide = {
    * @type array
    */
   vegobjektVersjonerFjernet: VegobjektFjernet[]
+  /**
+   * @type object
+   */
   metadata: SideMetadata
 }

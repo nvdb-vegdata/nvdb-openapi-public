@@ -7,7 +7,7 @@ export const flyttallEnumEgenskapSchema = z
   .and(
     z.object({
       verdi: z.number().optional(),
-      enum_id: z.number().optional(),
+      enum_id: z.number().int().optional(),
       enhet: z.lazy(() => enhetSchema).optional(),
     }),
   )

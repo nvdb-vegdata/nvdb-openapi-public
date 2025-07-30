@@ -6,7 +6,7 @@ export type UtledetGeometri = {
    */
   wkt: string
   /**
-   * @description Hvilket geografiske referansesystem koordinatene er i
+   * @type string
    */
   srid: Srid
   /**
@@ -21,12 +21,12 @@ export type UtledetGeometri = {
   forenklet?: boolean
   /**
    * @description Utelatt hvis geometrien ikke er en linje
-   * @type number | undefined double
+   * @type number | undefined, double
    */
   lengde?: number
   /**
    * @description Utelatt hvis geometrien ikke er et polygon
-   * @type number | undefined double
+   * @type number | undefined, double
    */
   areal?: number
 }

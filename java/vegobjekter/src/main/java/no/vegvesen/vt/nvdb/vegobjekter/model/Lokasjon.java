@@ -48,7 +48,7 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
   Lokasjon.JSON_PROPERTY_GEOMETRI,
   Lokasjon.JSON_PROPERTY_LENGDE
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.13.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.14.0")
 public class Lokasjon {
   public static final String JSON_PROPERTY_KOMMUNER = "kommuner";
   @jakarta.annotation.Nonnull

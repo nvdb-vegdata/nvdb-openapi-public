@@ -30,7 +30,7 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
   NodeGeometri.JSON_PROPERTY_WKT,
   NodeGeometri.JSON_PROPERTY_SRID
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.13.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.14.0")
 public class NodeGeometri {
   public static final String JSON_PROPERTY_WKT = "wkt";
   @jakarta.annotation.Nonnull

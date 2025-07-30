@@ -5,17 +5,17 @@ import { z } from 'zod'
 
 export const stedfestingSchema = z.object({
   type: z.lazy(() => stedfestingstypeSchema),
-  veglenkesekvensid: z.number().optional(),
-  nodeid: z.number().optional(),
+  veglenkesekvensid: z.number().int().optional(),
+  nodeid: z.number().int().optional(),
   relativPosisjon: z.number().optional(),
   startposisjon: z.number().optional(),
   sluttposisjon: z.number().optional(),
   startpunkt: z.lazy(() => stedfestingSchema).optional(),
   sluttpunkt: z.lazy(() => stedfestingSchema).optional(),
   retning: z.lazy(() => retningSchema).optional(),
-  kjørefelt: z
+  'kj\u00F8refelt': z
     .array(z.string())
-    .describe(`Utelatt for svingstedfesting`)
+    .describe('Utelatt for svingstedfesting')
     .optional(),
   sideposisjon: z.lazy(() => sideposisjonSchema).optional(),
   kortform: z.string().optional(),

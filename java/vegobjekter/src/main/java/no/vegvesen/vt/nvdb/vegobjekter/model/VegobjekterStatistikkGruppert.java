@@ -34,7 +34,7 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
   VegobjekterStatistikkGruppert.JSON_PROPERTY_KOMMUNE,
   VegobjekterStatistikkGruppert.JSON_PROPERTY_VEGKATEGORI
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.13.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.14.0")
 public class VegobjekterStatistikkGruppert {
   public static final String JSON_PROPERTY_ANTALL = "antall";
   @jakarta.annotation.Nullable

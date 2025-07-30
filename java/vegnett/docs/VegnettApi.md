@@ -263,7 +263,7 @@ No authorization required
 
 ## getVeglenkesekvensEndringer
 
-> VeglenkesekvensEndringerSide getVeglenkesekvensEndringer(start, antall, ider)
+> VeglenkesekvensEndringerSide getVeglenkesekvensEndringer(start, antall, ider, fylke, kommune)
 
 Hent endringer på veglenkesekvenser innen siste 30 dager
 
@@ -286,8 +286,10 @@ public class Example {
         OffsetDateTime start = OffsetDateTime.now(); // OffsetDateTime | Hent alle endringer etter gitt tidspunkt. Dersom denne utelates vil de eldste endringene hentes først.
         Integer antall = 56; // Integer | Antall endringer som skal være med i responsen. Merk at det faktiske antallet kan variere fra respons til respons. Dette er fordi endringer på samme veglenkesekvens innenfor samme side blir aggregert sammen ved å ta den nyeste endringen.
         Set<Long> ider = Arrays.asList(); // Set<Long> | Hent endringer for oppgitte veglenkesekvens IDer. Dersom denne utelates vil alle endringer hentes.
+        Set<Integer> fylke = Arrays.asList(); // Set<Integer> | Filtrer på fylke. Kommaseparert liste. Se [/omrader/api/v4/fylker](https://nvdbapiles.atlas.vegvesen.no/webjars/swagger-ui/index.html?urls.primaryName=Omr%C3%A5der#/Omr%C3%A5der/getFylker) for mulige verdier.  Eksempel: `50`
+        Set<Integer> kommune = Arrays.asList(); // Set<Integer> | Filtrer på kommune. Kommaseparert liste. Se [/omrader/api/v4/kommuner](https://nvdbapiles.atlas.vegvesen.no/webjars/swagger-ui/index.html?urls.primaryName=Omr%C3%A5der#/Omr%C3%A5der/getKommuner) for mulige verdier.  Eksempel: `5001`
         try {
-            VeglenkesekvensEndringerSide result = apiInstance.getVeglenkesekvensEndringer(start, antall, ider);
+            VeglenkesekvensEndringerSide result = apiInstance.getVeglenkesekvensEndringer(start, antall, ider, fylke, kommune);
             System.out.println(result);
         } catch (ApiException e) {
             System.err.println("Exception when calling VegnettApi#getVeglenkesekvensEndringer");
@@ -302,11 +304,13 @@ public class Example {
 
 ### Parameters
 
-| Name       | Type                           | Description                                                                                                                                                                                                                                   | Notes      |
-| ---------- | ------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- |
-| **start**  | **OffsetDateTime**             | Hent alle endringer etter gitt tidspunkt. Dersom denne utelates vil de eldste endringene hentes først.                                                                                                                                        | [optional] |
-| **antall** | **Integer**                    | Antall endringer som skal være med i responsen. Merk at det faktiske antallet kan variere fra respons til respons. Dette er fordi endringer på samme veglenkesekvens innenfor samme side blir aggregert sammen ved å ta den nyeste endringen. | [optional] |
-| **ider**   | [**Set&lt;Long&gt;**](Long.md) | Hent endringer for oppgitte veglenkesekvens IDer. Dersom denne utelates vil alle endringer hentes.                                                                                                                                            | [optional] |
+| Name        | Type                                 | Description                                                                                                                                                                                                                                       | Notes      |
+| ----------- | ------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------- |
+| **start**   | **OffsetDateTime**                   | Hent alle endringer etter gitt tidspunkt. Dersom denne utelates vil de eldste endringene hentes først.                                                                                                                                            | [optional] |
+| **antall**  | **Integer**                          | Antall endringer som skal være med i responsen. Merk at det faktiske antallet kan variere fra respons til respons. Dette er fordi endringer på samme veglenkesekvens innenfor samme side blir aggregert sammen ved å ta den nyeste endringen.     | [optional] |
+| **ider**    | [**Set&lt;Long&gt;**](Long.md)       | Hent endringer for oppgitte veglenkesekvens IDer. Dersom denne utelates vil alle endringer hentes.                                                                                                                                                | [optional] |
+| **fylke**   | [**Set&lt;Integer&gt;**](Integer.md) | Filtrer på fylke. Kommaseparert liste. Se [/omrader/api/v4/fylker](https://nvdbapiles.atlas.vegvesen.no/webjars/swagger-ui/index.html?urls.primaryName=Omr%C3%A5der#/Omr%C3%A5der/getFylker) for mulige verdier. Eksempel: &#x60;50&#x60;         | [optional] |
+| **kommune** | [**Set&lt;Integer&gt;**](Integer.md) | Filtrer på kommune. Kommaseparert liste. Se [/omrader/api/v4/kommuner](https://nvdbapiles.atlas.vegvesen.no/webjars/swagger-ui/index.html?urls.primaryName=Omr%C3%A5der#/Omr%C3%A5der/getKommuner) for mulige verdier. Eksempel: &#x60;5001&#x60; | [optional] |
 
 ### Return type
 

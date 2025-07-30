@@ -33,7 +33,7 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
   Geometri.JSON_PROPERTY_FORENKLET,
   Geometri.JSON_PROPERTY_EGENGEOMETRI
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.13.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.14.0")
 public class Geometri {
   public static final String JSON_PROPERTY_WKT = "wkt";
   @jakarta.annotation.Nonnull

@@ -45,7 +45,7 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
   Vegobjekt.JSON_PROPERTY_RELASJONER,
   Vegobjekt.JSON_PROPERTY_VEGSEGMENTER
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.13.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.14.0")
 public class Vegobjekt {
   public static final String JSON_PROPERTY_ID = "id";
   @jakarta.annotation.Nonnull

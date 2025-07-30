@@ -73,7 +73,7 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
   Veglenkesegment.JSON_PROPERTY_VEGFORVALTERE,
   Veglenkesegment.JSON_PROPERTY_ADRESSE
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.13.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.14.0")
 public class Veglenkesegment {
   public static final String JSON_PROPERTY_VEGLENKESEKVENSID = "veglenkesekvensid";
   @jakarta.annotation.Nonnull

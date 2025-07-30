@@ -32,7 +32,7 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
   Versjon.JSON_PROPERTY_DATO,
   Versjon.JSON_PROPERTY_VERSJON
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.13.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.14.0")
 public class Versjon {
   public static final String JSON_PROPERTY_ID = "id";
   @jakarta.annotation.Nonnull

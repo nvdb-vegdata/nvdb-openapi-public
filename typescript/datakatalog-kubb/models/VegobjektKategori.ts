@@ -1,6 +1,6 @@
 export type VegobjektKategori = {
   /**
-   * @type integer int32
+   * @type integer, int32
    */
   id: number
   /**
@@ -8,7 +8,7 @@ export type VegobjektKategori = {
    */
   primærkategori: boolean
   /**
-   * @type integer int32
+   * @type integer, int32
    */
   nummer: number
   /**
@@ -20,7 +20,7 @@ export type VegobjektKategori = {
    */
   kortnavn?: string
   /**
-   * @type integer int32
+   * @type integer, int32
    */
   sorteringsnummer: number
   /**
@@ -28,7 +28,7 @@ export type VegobjektKategori = {
    */
   beskrivelse?: string
   /**
-   * @type string | undefined date
+   * @type string | undefined, date
    */
   startDato?: string
 }

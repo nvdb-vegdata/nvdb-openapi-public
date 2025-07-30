@@ -6,7 +6,7 @@ export const heltallEgenskapSchema = z
   .lazy(() => egenskapSchema)
   .and(
     z.object({
-      verdi: z.number().optional(),
+      verdi: z.number().int().optional(),
       enhet: z.lazy(() => enhetSchema).optional(),
     }),
   )

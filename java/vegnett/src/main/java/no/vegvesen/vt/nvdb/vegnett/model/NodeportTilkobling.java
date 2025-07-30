@@ -31,7 +31,7 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
   NodeportTilkobling.JSON_PROPERTY_VEGLENKESEKVENSID,
   NodeportTilkobling.JSON_PROPERTY_HREF
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.13.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.14.0")
 public class NodeportTilkobling {
   public static final String JSON_PROPERTY_PORTNUMMER = "portnummer";
   @jakarta.annotation.Nonnull

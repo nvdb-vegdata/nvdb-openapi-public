@@ -33,7 +33,7 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
   Vegsystem.JSON_PROPERTY_FASE,
   Vegsystem.JSON_PROPERTY_NUMMER
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.13.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.14.0")
 public class Vegsystem {
   public static final String JSON_PROPERTY_VEGKATEGORI = "vegkategori";
   @jakarta.annotation.Nonnull

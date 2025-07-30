@@ -6,13 +6,13 @@ export type Geometri = {
    */
   wkt: string
   /**
-   * @description Hvilket geografiske referansesystem koordinatene er i
+   * @type string
    */
   srid: Srid
   /**
    * @description Indikerer at geometrien er forenklet. Kun inkludert om den er true
+   * @default "false"
    * @type boolean | undefined
-   * @default 'false'
    */
   forenklet?: boolean
   /**

@@ -37,7 +37,7 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
   VeglenkesekvensEndringerSide.JSON_PROPERTY_VEGLENKESEKVENSER_SEGMENTERT,
   VeglenkesekvensEndringerSide.JSON_PROPERTY_METADATA
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.13.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.14.0")
 public class VeglenkesekvensEndringerSide {
   public static final String JSON_PROPERTY_VEGLENKESEKVENSER_FJERNET = "veglenkesekvenserFjernet";
   @jakarta.annotation.Nonnull

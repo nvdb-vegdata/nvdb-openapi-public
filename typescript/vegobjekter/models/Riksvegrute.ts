@@ -1,6 +1,6 @@
 export type Riksvegrute = {
   /**
-   * @type integer int32
+   * @type integer, int32
    */
   enumid: number
   /**

@@ -32,7 +32,7 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
   RuteMetadata.JSON_PROPERTY_STATUS,
   RuteMetadata.JSON_PROPERTY_STATUS_TEKST
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.13.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.14.0")
 public class RuteMetadata {
   public static final String JSON_PROPERTY_ANTALL = "antall";
   @jakarta.annotation.Nonnull

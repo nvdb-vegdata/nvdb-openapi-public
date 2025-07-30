@@ -1,6 +1,6 @@
 import type { Egenskapstype } from './Egenskapstype'
 
-export type Mediatype =
+export type EgenskapstypeBinaerMediatype =
   | 'Audio'
   | 'Bilde'
   | 'Tekst'
@@ -9,11 +9,11 @@ export type Mediatype =
   | 'Udefinert'
 export type EgenskapstypeBinaer = Egenskapstype & {
   /**
-   * @type string | undefined date
+   * @type string | undefined, date
    */
   objektliste_dato?: string
   /**
-   * @type string | undefined date
+   * @type string | undefined, date
    */
   slutt_dato?: string
   /**
@@ -27,5 +27,5 @@ export type EgenskapstypeBinaer = Egenskapstype & {
   /**
    * @type string | undefined
    */
-  mediatype?: Mediatype
+  mediatype?: EgenskapstypeBinaerMediatype
 }

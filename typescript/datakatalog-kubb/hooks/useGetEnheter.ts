@@ -53,7 +53,8 @@ export function getEnheterQueryOptions(
 }
 /**
  * @summary Returnerer alle enheter
- * @link /api/v1/enheter */
+ * @link /api/v1/enheter
+ */
 export function useGetEnheter<
   TData = GetEnheter['response'],
   TQueryData = GetEnheter['response'],
@@ -77,7 +78,9 @@ export function useGetEnheter<
   const { query: queryOptions, client: clientOptions = {} } = options ?? {}
   const queryKey = queryOptions?.queryKey ?? getEnheterQueryKey()
   const query = useQuery({
-    ...(getEnheterQueryOptions(clientOptions) as QueryObserverOptions),
+    ...(getEnheterQueryOptions(
+      clientOptions,
+    ) as unknown as QueryObserverOptions),
     queryKey,
     ...(queryOptions as unknown as Omit<QueryObserverOptions, 'queryKey'>),
   }) as UseQueryResult<TData, GetEnheter['error']> & {
@@ -109,7 +112,8 @@ export function getEnheterSuspenseQueryOptions(
 }
 /**
  * @summary Returnerer alle enheter
- * @link /api/v1/enheter */
+ * @link /api/v1/enheter
+ */
 export function useGetEnheterSuspense<
   TData = GetEnheter['response'],
   TQueryKey extends QueryKey = GetEnheterSuspenseQueryKey,
@@ -131,9 +135,11 @@ export function useGetEnheterSuspense<
   const { query: queryOptions, client: clientOptions = {} } = options ?? {}
   const queryKey = queryOptions?.queryKey ?? getEnheterSuspenseQueryKey()
   const query = useSuspenseQuery({
-    ...(getEnheterSuspenseQueryOptions(clientOptions) as QueryObserverOptions),
+    ...(getEnheterSuspenseQueryOptions(
+      clientOptions,
+    ) as unknown as UseSuspenseQueryOptions),
     queryKey,
-    ...(queryOptions as unknown as Omit<QueryObserverOptions, 'queryKey'>),
+    ...(queryOptions as unknown as Omit<UseSuspenseQueryOptions, 'queryKey'>),
   }) as UseSuspenseQueryResult<TData, GetEnheter['error']> & {
     queryKey: TQueryKey
   }

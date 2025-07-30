@@ -5,5 +5,5 @@ import { z } from 'zod'
 export const metrertLokasjonSchema = z.object({
   retning: z.lazy(() => retningSchema).optional(),
   sideposisjon: z.lazy(() => sideposisjonSchema).optional(),
-  kjørefelt: z.array(z.string()).optional(),
+  'kj\u00F8refelt': z.array(z.string()).optional(),
 })

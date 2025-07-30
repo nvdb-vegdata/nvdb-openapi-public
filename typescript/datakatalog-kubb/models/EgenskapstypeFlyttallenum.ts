@@ -4,11 +4,11 @@ import type { EnumverdiFlyttall } from './EnumverdiFlyttall'
 
 export type EgenskapstypeFlyttallenum = Egenskapstype & {
   /**
-   * @type string | undefined date
+   * @type string | undefined, date
    */
   objektliste_dato?: string
   /**
-   * @type string | undefined date
+   * @type string | undefined, date
    */
   slutt_dato?: string
   /**
@@ -20,37 +20,40 @@ export type EgenskapstypeFlyttallenum = Egenskapstype & {
    */
   ajourhold_snu?: boolean
   /**
-   * @type number | undefined double
+   * @type number | undefined, double
    */
   standardverdi?: number
   /**
-   * @type number | undefined double
+   * @type number | undefined, double
    */
   min_anbefalt?: number
   /**
-   * @type number | undefined double
+   * @type number | undefined, double
    */
   maks_anbefalt?: number
   /**
-   * @type number | undefined double
+   * @type number | undefined, double
    */
   min?: number
   /**
-   * @type number | undefined double
+   * @type number | undefined, double
    */
   maks?: number
   /**
-   * @type integer | undefined int32
+   * @type integer | undefined, int32
    */
   desimaler?: number
   /**
-   * @type integer | undefined int32
+   * @type integer | undefined, int32
    */
   feltlengde?: number
   /**
    * @type boolean | undefined
    */
   fortegnsendring_snu?: boolean
+  /**
+   * @type object | undefined
+   */
   enhet?: Enhet
   /**
    * @type array | undefined

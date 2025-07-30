@@ -3,10 +3,10 @@ import { z } from 'zod'
 
 export const vegobjektMetadataSchema = z.object({
   type: z.lazy(() => vegobjektTypeSchema),
-  versjon: z.number(),
-  startdato: z.string(),
-  sluttdato: z.string().optional(),
+  versjon: z.number().int(),
+  startdato: z.string().date(),
+  sluttdato: z.string().date().optional(),
   sist_modifisert: z
     .string()
-    .describe(`Dato og tid i UTC-format: yyyy-MM-ddTHH:mm:ssZ`),
+    .describe('Dato og tid i UTC-format: yyyy-MM-ddTHH:mm:ssZ'),
 })

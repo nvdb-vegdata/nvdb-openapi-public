@@ -1,3 +1,3 @@
 import { z } from 'zod'
 
-export const adskilteLopSchema = z.enum([`Med`, `Mot`, `Nei`])
+export const adskilteLopSchema = z.enum(['Med', 'Mot', 'Nei'])

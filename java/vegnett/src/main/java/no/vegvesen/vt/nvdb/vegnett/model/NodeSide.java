@@ -35,7 +35,7 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
   NodeSide.JSON_PROPERTY_OBJEKTER,
   NodeSide.JSON_PROPERTY_METADATA
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.13.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.14.0")
 public class NodeSide {
   public static final String JSON_PROPERTY_OBJEKTER = "objekter";
   @jakarta.annotation.Nonnull

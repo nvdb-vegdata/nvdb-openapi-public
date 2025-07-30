@@ -26,7 +26,6 @@ import java.util.Objects;
 import java.util.Arrays;
 import java.util.stream.Collectors;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.FileSystemResource;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpHeaders;
@@ -36,12 +35,10 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
-import org.springframework.web.reactive.function.client.WebClient.ResponseSpec;
-import org.springframework.web.reactive.function.client.WebClientResponseException;
-import reactor.core.publisher.Mono;
-import reactor.core.publisher.Flux;
+import org.springframework.web.client.RestClient.ResponseSpec;
+import org.springframework.web.client.RestClientResponseException;
 
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.13.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.14.0")
 public class StatistikkApi {
     private ApiClient apiClient;
 
@@ -49,7 +46,6 @@ public class StatistikkApi {
         this(new ApiClient());
     }
 
-    @Autowired
     public StatistikkApi(ApiClient apiClient) {
         this.apiClient = apiClient;
     }
@@ -62,7 +58,346 @@ public class StatistikkApi {
         this.apiClient = apiClient;
     }
 
-    
+
+    public static class GetVegobjekterStatistikkRequest {
+        private @jakarta.annotation.Nonnull Integer vegobjekttypeid;
+        private @jakarta.annotation.Nullable SridParameter srid;
+        private @jakarta.annotation.Nullable Boolean segmentering;
+        private @jakarta.annotation.Nullable Set<Integer> fylke;
+        private @jakarta.annotation.Nullable Set<Integer> kommune;
+        private @jakarta.annotation.Nullable Set<String> kontraktsomrade;
+        private @jakarta.annotation.Nullable Set<String> riksvegrute;
+        private @jakarta.annotation.Nullable Set<String> vegforvalter;
+        private @jakarta.annotation.Nullable Set<String> vegsystemreferanse;
+        private @jakarta.annotation.Nullable String kartutsnitt;
+        private @jakarta.annotation.Nullable String polygon;
+        private @jakarta.annotation.Nullable Set<TypeVegSosi> typeveg;
+        private @jakarta.annotation.Nullable Set<AdskilteLop> adskiltelop;
+        private @jakarta.annotation.Nullable Boolean kryssystem;
+        private @jakarta.annotation.Nullable Boolean sideanlegg;
+        private @jakarta.annotation.Nullable Trafikantgruppe trafikantgruppe;
+        private @jakarta.annotation.Nullable Set<InkluderIStatistikk> inkluder;
+        private @jakarta.annotation.Nullable Set<String> veglenkesekvens;
+        private @jakarta.annotation.Nullable Set<VeglenkeTypeParameter> veglenketype;
+        private @jakarta.annotation.Nullable Set<DetaljnivaParameter> detaljniva;
+        private @jakarta.annotation.Nullable OffsetDateTime endretEtter;
+        private @jakarta.annotation.Nullable LocalDate tidspunkt;
+        private @jakarta.annotation.Nullable List<String> egenskap;
+        private @jakarta.annotation.Nullable List<String> overlapp;
+
+        public GetVegobjekterStatistikkRequest() {}
+
+        public GetVegobjekterStatistikkRequest(@jakarta.annotation.Nonnull Integer vegobjekttypeid, @jakarta.annotation.Nullable SridParameter srid, @jakarta.annotation.Nullable Boolean segmentering, @jakarta.annotation.Nullable Set<Integer> fylke, @jakarta.annotation.Nullable Set<Integer> kommune, @jakarta.annotation.Nullable Set<String> kontraktsomrade, @jakarta.annotation.Nullable Set<String> riksvegrute, @jakarta.annotation.Nullable Set<String> vegforvalter, @jakarta.annotation.Nullable Set<String> vegsystemreferanse, @jakarta.annotation.Nullable String kartutsnitt, @jakarta.annotation.Nullable String polygon, @jakarta.annotation.Nullable Set<TypeVegSosi> typeveg, @jakarta.annotation.Nullable Set<AdskilteLop> adskiltelop, @jakarta.annotation.Nullable Boolean kryssystem, @jakarta.annotation.Nullable Boolean sideanlegg, @jakarta.annotation.Nullable Trafikantgruppe trafikantgruppe, @jakarta.annotation.Nullable Set<InkluderIStatistikk> inkluder, @jakarta.annotation.Nullable Set<String> veglenkesekvens, @jakarta.annotation.Nullable Set<VeglenkeTypeParameter> veglenketype, @jakarta.annotation.Nullable Set<DetaljnivaParameter> detaljniva, @jakarta.annotation.Nullable OffsetDateTime endretEtter, @jakarta.annotation.Nullable LocalDate tidspunkt, @jakarta.annotation.Nullable List<String> egenskap, @jakarta.annotation.Nullable List<String> overlapp) {
+            this.vegobjekttypeid = vegobjekttypeid;
+            this.srid = srid;
+            this.segmentering = segmentering;
+            this.fylke = fylke;
+            this.kommune = kommune;
+            this.kontraktsomrade = kontraktsomrade;
+            this.riksvegrute = riksvegrute;
+            this.vegforvalter = vegforvalter;
+            this.vegsystemreferanse = vegsystemreferanse;
+            this.kartutsnitt = kartutsnitt;
+            this.polygon = polygon;
+            this.typeveg = typeveg;
+            this.adskiltelop = adskiltelop;
+            this.kryssystem = kryssystem;
+            this.sideanlegg = sideanlegg;
+            this.trafikantgruppe = trafikantgruppe;
+            this.inkluder = inkluder;
+            this.veglenkesekvens = veglenkesekvens;
+            this.veglenketype = veglenketype;
+            this.detaljniva = detaljniva;
+            this.endretEtter = endretEtter;
+            this.tidspunkt = tidspunkt;
+            this.egenskap = egenskap;
+            this.overlapp = overlapp;
+        }
+
+        public @jakarta.annotation.Nonnull Integer vegobjekttypeid() {
+            return this.vegobjekttypeid;
+        }
+        public GetVegobjekterStatistikkRequest vegobjekttypeid(@jakarta.annotation.Nonnull Integer vegobjekttypeid) {
+            this.vegobjekttypeid = vegobjekttypeid;
+            return this;
+        }
+
+        public @jakarta.annotation.Nullable SridParameter srid() {
+            return this.srid;
+        }
+        public GetVegobjekterStatistikkRequest srid(@jakarta.annotation.Nullable SridParameter srid) {
+            this.srid = srid;
+            return this;
+        }
+
+        public @jakarta.annotation.Nullable Boolean segmentering() {
+            return this.segmentering;
+        }
+        public GetVegobjekterStatistikkRequest segmentering(@jakarta.annotation.Nullable Boolean segmentering) {
+            this.segmentering = segmentering;
+            return this;
+        }
+
+        public @jakarta.annotation.Nullable Set<Integer> fylke() {
+            return this.fylke;
+        }
+        public GetVegobjekterStatistikkRequest fylke(@jakarta.annotation.Nullable Set<Integer> fylke) {
+            this.fylke = fylke;
+            return this;
+        }
+
+        public @jakarta.annotation.Nullable Set<Integer> kommune() {
+            return this.kommune;
+        }
+        public GetVegobjekterStatistikkRequest kommune(@jakarta.annotation.Nullable Set<Integer> kommune) {
+            this.kommune = kommune;
+            return this;
+        }
+
+        public @jakarta.annotation.Nullable Set<String> kontraktsomrade() {
+            return this.kontraktsomrade;
+        }
+        public GetVegobjekterStatistikkRequest kontraktsomrade(@jakarta.annotation.Nullable Set<String> kontraktsomrade) {
+            this.kontraktsomrade = kontraktsomrade;
+            return this;
+        }
+
+        public @jakarta.annotation.Nullable Set<String> riksvegrute() {
+            return this.riksvegrute;
+        }
+        public GetVegobjekterStatistikkRequest riksvegrute(@jakarta.annotation.Nullable Set<String> riksvegrute) {
+            this.riksvegrute = riksvegrute;
+            return this;
+        }
+
+        public @jakarta.annotation.Nullable Set<String> vegforvalter() {
+            return this.vegforvalter;
+        }
+        public GetVegobjekterStatistikkRequest vegforvalter(@jakarta.annotation.Nullable Set<String> vegforvalter) {
+            this.vegforvalter = vegforvalter;
+            return this;
+        }
+
+        public @jakarta.annotation.Nullable Set<String> vegsystemreferanse() {
+            return this.vegsystemreferanse;
+        }
+        public GetVegobjekterStatistikkRequest vegsystemreferanse(@jakarta.annotation.Nullable Set<String> vegsystemreferanse) {
+            this.vegsystemreferanse = vegsystemreferanse;
+            return this;
+        }
+
+        public @jakarta.annotation.Nullable String kartutsnitt() {
+            return this.kartutsnitt;
+        }
+        public GetVegobjekterStatistikkRequest kartutsnitt(@jakarta.annotation.Nullable String kartutsnitt) {
+            this.kartutsnitt = kartutsnitt;
+            return this;
+        }
+
+        public @jakarta.annotation.Nullable String polygon() {
+            return this.polygon;
+        }
+        public GetVegobjekterStatistikkRequest polygon(@jakarta.annotation.Nullable String polygon) {
+            this.polygon = polygon;
+            return this;
+        }
+
+        public @jakarta.annotation.Nullable Set<TypeVegSosi> typeveg() {
+            return this.typeveg;
+        }
+        public GetVegobjekterStatistikkRequest typeveg(@jakarta.annotation.Nullable Set<TypeVegSosi> typeveg) {
+            this.typeveg = typeveg;
+            return this;
+        }
+
+        public @jakarta.annotation.Nullable Set<AdskilteLop> adskiltelop() {
+            return this.adskiltelop;
+        }
+        public GetVegobjekterStatistikkRequest adskiltelop(@jakarta.annotation.Nullable Set<AdskilteLop> adskiltelop) {
+            this.adskiltelop = adskiltelop;
+            return this;
+        }
+
+        public @jakarta.annotation.Nullable Boolean kryssystem() {
+            return this.kryssystem;
+        }
+        public GetVegobjekterStatistikkRequest kryssystem(@jakarta.annotation.Nullable Boolean kryssystem) {
+            this.kryssystem = kryssystem;
+            return this;
+        }
+
+        public @jakarta.annotation.Nullable Boolean sideanlegg() {
+            return this.sideanlegg;
+        }
+        public GetVegobjekterStatistikkRequest sideanlegg(@jakarta.annotation.Nullable Boolean sideanlegg) {
+            this.sideanlegg = sideanlegg;
+            return this;
+        }
+
+        public @jakarta.annotation.Nullable Trafikantgruppe trafikantgruppe() {
+            return this.trafikantgruppe;
+        }
+        public GetVegobjekterStatistikkRequest trafikantgruppe(@jakarta.annotation.Nullable Trafikantgruppe trafikantgruppe) {
+            this.trafikantgruppe = trafikantgruppe;
+            return this;
+        }
+
+        public @jakarta.annotation.Nullable Set<InkluderIStatistikk> inkluder() {
+            return this.inkluder;
+        }
+        public GetVegobjekterStatistikkRequest inkluder(@jakarta.annotation.Nullable Set<InkluderIStatistikk> inkluder) {
+            this.inkluder = inkluder;
+            return this;
+        }
+
+        public @jakarta.annotation.Nullable Set<String> veglenkesekvens() {
+            return this.veglenkesekvens;
+        }
+        public GetVegobjekterStatistikkRequest veglenkesekvens(@jakarta.annotation.Nullable Set<String> veglenkesekvens) {
+            this.veglenkesekvens = veglenkesekvens;
+            return this;
+        }
+
+        public @jakarta.annotation.Nullable Set<VeglenkeTypeParameter> veglenketype() {
+            return this.veglenketype;
+        }
+        public GetVegobjekterStatistikkRequest veglenketype(@jakarta.annotation.Nullable Set<VeglenkeTypeParameter> veglenketype) {
+            this.veglenketype = veglenketype;
+            return this;
+        }
+
+        public @jakarta.annotation.Nullable Set<DetaljnivaParameter> detaljniva() {
+            return this.detaljniva;
+        }
+        public GetVegobjekterStatistikkRequest detaljniva(@jakarta.annotation.Nullable Set<DetaljnivaParameter> detaljniva) {
+            this.detaljniva = detaljniva;
+            return this;
+        }
+
+        public @jakarta.annotation.Nullable OffsetDateTime endretEtter() {
+            return this.endretEtter;
+        }
+        public GetVegobjekterStatistikkRequest endretEtter(@jakarta.annotation.Nullable OffsetDateTime endretEtter) {
+            this.endretEtter = endretEtter;
+            return this;
+        }
+
+        public @jakarta.annotation.Nullable LocalDate tidspunkt() {
+            return this.tidspunkt;
+        }
+        public GetVegobjekterStatistikkRequest tidspunkt(@jakarta.annotation.Nullable LocalDate tidspunkt) {
+            this.tidspunkt = tidspunkt;
+            return this;
+        }
+
+        public @jakarta.annotation.Nullable List<String> egenskap() {
+            return this.egenskap;
+        }
+        public GetVegobjekterStatistikkRequest egenskap(@jakarta.annotation.Nullable List<String> egenskap) {
+            this.egenskap = egenskap;
+            return this;
+        }
+
+        public @jakarta.annotation.Nullable List<String> overlapp() {
+            return this.overlapp;
+        }
+        public GetVegobjekterStatistikkRequest overlapp(@jakarta.annotation.Nullable List<String> overlapp) {
+            this.overlapp = overlapp;
+            return this;
+        }
+
+        @Override
+        public boolean equals(Object o) {
+            if (this == o) {
+                return true;
+            }
+            if (o == null || getClass() != o.getClass()) {
+                return false;
+            }
+            GetVegobjekterStatistikkRequest request = (GetVegobjekterStatistikkRequest) o;
+            return Objects.equals(this.vegobjekttypeid, request.vegobjekttypeid()) &&
+                Objects.equals(this.srid, request.srid()) &&
+                Objects.equals(this.segmentering, request.segmentering()) &&
+                Objects.equals(this.fylke, request.fylke()) &&
+                Objects.equals(this.kommune, request.kommune()) &&
+                Objects.equals(this.kontraktsomrade, request.kontraktsomrade()) &&
+                Objects.equals(this.riksvegrute, request.riksvegrute()) &&
+                Objects.equals(this.vegforvalter, request.vegforvalter()) &&
+                Objects.equals(this.vegsystemreferanse, request.vegsystemreferanse()) &&
+                Objects.equals(this.kartutsnitt, request.kartutsnitt()) &&
+                Objects.equals(this.polygon, request.polygon()) &&
+                Objects.equals(this.typeveg, request.typeveg()) &&
+                Objects.equals(this.adskiltelop, request.adskiltelop()) &&
+                Objects.equals(this.kryssystem, request.kryssystem()) &&
+                Objects.equals(this.sideanlegg, request.sideanlegg()) &&
+                Objects.equals(this.trafikantgruppe, request.trafikantgruppe()) &&
+                Objects.equals(this.inkluder, request.inkluder()) &&
+                Objects.equals(this.veglenkesekvens, request.veglenkesekvens()) &&
+                Objects.equals(this.veglenketype, request.veglenketype()) &&
+                Objects.equals(this.detaljniva, request.detaljniva()) &&
+                Objects.equals(this.endretEtter, request.endretEtter()) &&
+                Objects.equals(this.tidspunkt, request.tidspunkt()) &&
+                Objects.equals(this.egenskap, request.egenskap()) &&
+                Objects.equals(this.overlapp, request.overlapp());
+        }
+
+        @Override
+        public int hashCode() {
+            return Objects.hash(vegobjekttypeid, srid, segmentering, fylke, kommune, kontraktsomrade, riksvegrute, vegforvalter, vegsystemreferanse, kartutsnitt, polygon, typeveg, adskiltelop, kryssystem, sideanlegg, trafikantgruppe, inkluder, veglenkesekvens, veglenketype, detaljniva, endretEtter, tidspunkt, egenskap, overlapp);
+        }
+    }
+
+    /**
+    * Hent statistikk for en vegobjekttype
+    * 
+     * <p><b>500</b> - Internal Server Error
+     * <p><b>400</b> - Bad Request
+     * <p><b>404</b> - Not Found
+     * <p><b>401</b> - Unauthorized
+     * <p><b>403</b> - Forbidden
+     * <p><b>200</b> - OK
+     * @param requestParameters The getVegobjekterStatistikk request parameters as object
+     * @return VegobjekterStatistikk
+     * @throws RestClientResponseException if an error occurs while attempting to invoke the API
+    */
+    public VegobjekterStatistikk getVegobjekterStatistikk(GetVegobjekterStatistikkRequest requestParameters) throws RestClientResponseException {
+      return this.getVegobjekterStatistikk(requestParameters.vegobjekttypeid(), requestParameters.srid(), requestParameters.segmentering(), requestParameters.fylke(), requestParameters.kommune(), requestParameters.kontraktsomrade(), requestParameters.riksvegrute(), requestParameters.vegforvalter(), requestParameters.vegsystemreferanse(), requestParameters.kartutsnitt(), requestParameters.polygon(), requestParameters.typeveg(), requestParameters.adskiltelop(), requestParameters.kryssystem(), requestParameters.sideanlegg(), requestParameters.trafikantgruppe(), requestParameters.inkluder(), requestParameters.veglenkesekvens(), requestParameters.veglenketype(), requestParameters.detaljniva(), requestParameters.endretEtter(), requestParameters.tidspunkt(), requestParameters.egenskap(), requestParameters.overlapp());
+    }
+
+  /**
+  * Hent statistikk for en vegobjekttype
+  * 
+     * <p><b>500</b> - Internal Server Error
+     * <p><b>400</b> - Bad Request
+     * <p><b>404</b> - Not Found
+     * <p><b>401</b> - Unauthorized
+     * <p><b>403</b> - Forbidden
+     * <p><b>200</b> - OK
+     * @param requestParameters The getVegobjekterStatistikk request parameters as object
+     * @return ResponseEntity&lt;VegobjekterStatistikk&gt;
+     * @throws RestClientResponseException if an error occurs while attempting to invoke the API
+    */
+    public ResponseEntity<VegobjekterStatistikk> getVegobjekterStatistikkWithHttpInfo(GetVegobjekterStatistikkRequest requestParameters) throws RestClientResponseException {
+      return this.getVegobjekterStatistikkWithHttpInfo(requestParameters.vegobjekttypeid(), requestParameters.srid(), requestParameters.segmentering(), requestParameters.fylke(), requestParameters.kommune(), requestParameters.kontraktsomrade(), requestParameters.riksvegrute(), requestParameters.vegforvalter(), requestParameters.vegsystemreferanse(), requestParameters.kartutsnitt(), requestParameters.polygon(), requestParameters.typeveg(), requestParameters.adskiltelop(), requestParameters.kryssystem(), requestParameters.sideanlegg(), requestParameters.trafikantgruppe(), requestParameters.inkluder(), requestParameters.veglenkesekvens(), requestParameters.veglenketype(), requestParameters.detaljniva(), requestParameters.endretEtter(), requestParameters.tidspunkt(), requestParameters.egenskap(), requestParameters.overlapp());
+    }
+
+  /**
+  * Hent statistikk for en vegobjekttype
+  * 
+     * <p><b>500</b> - Internal Server Error
+     * <p><b>400</b> - Bad Request
+     * <p><b>404</b> - Not Found
+     * <p><b>401</b> - Unauthorized
+     * <p><b>403</b> - Forbidden
+     * <p><b>200</b> - OK
+     * @param requestParameters The getVegobjekterStatistikk request parameters as object
+  * @return ResponseSpec
+  * @throws RestClientResponseException if an error occurs while attempting to invoke the API
+    */
+    public ResponseSpec getVegobjekterStatistikkWithResponseSpec(GetVegobjekterStatistikkRequest requestParameters) throws RestClientResponseException {
+      return this.getVegobjekterStatistikkWithResponseSpec(requestParameters.vegobjekttypeid(), requestParameters.srid(), requestParameters.segmentering(), requestParameters.fylke(), requestParameters.kommune(), requestParameters.kontraktsomrade(), requestParameters.riksvegrute(), requestParameters.vegforvalter(), requestParameters.vegsystemreferanse(), requestParameters.kartutsnitt(), requestParameters.polygon(), requestParameters.typeveg(), requestParameters.adskiltelop(), requestParameters.kryssystem(), requestParameters.sideanlegg(), requestParameters.trafikantgruppe(), requestParameters.inkluder(), requestParameters.veglenkesekvens(), requestParameters.veglenketype(), requestParameters.detaljniva(), requestParameters.endretEtter(), requestParameters.tidspunkt(), requestParameters.egenskap(), requestParameters.overlapp());
+    }
+
     /**
      * Hent statistikk for en vegobjekttype
      * 
@@ -97,23 +432,23 @@ public class StatistikkApi {
      * @param egenskap Filtrer vegobjekter på egenskaper, relasjoner og overlapp. Husk URL encoding hvis verdien inneholder likhetstegn. Se [dokumentasjon](https://nvdb-docs.atlas.vegvesen.no/nvdbapil/v4/introduksjon/Avanserte_filter)
      * @param overlapp Filtrer vegobjekter på overlapp. Husk URL encoding hvis verdien inneholder likhetstegn. Se [dokumentasjon](https://nvdb-docs.atlas.vegvesen.no/nvdbapil/v4/introduksjon/Avanserte_filter)
      * @return VegobjekterStatistikk
-     * @throws WebClientResponseException if an error occurs while attempting to invoke the API
+     * @throws RestClientResponseException if an error occurs while attempting to invoke the API
      */
-    private ResponseSpec getVegobjekterStatistikkRequestCreation(@jakarta.annotation.Nonnull Integer vegobjekttypeid, @jakarta.annotation.Nullable SridParameter srid, @jakarta.annotation.Nullable Boolean segmentering, @jakarta.annotation.Nullable Set<Integer> fylke, @jakarta.annotation.Nullable Set<Integer> kommune, @jakarta.annotation.Nullable Set<String> kontraktsomrade, @jakarta.annotation.Nullable Set<String> riksvegrute, @jakarta.annotation.Nullable Set<String> vegforvalter, @jakarta.annotation.Nullable Set<String> vegsystemreferanse, @jakarta.annotation.Nullable String kartutsnitt, @jakarta.annotation.Nullable String polygon, @jakarta.annotation.Nullable Set<TypeVegSosi> typeveg, @jakarta.annotation.Nullable Set<AdskilteLop> adskiltelop, @jakarta.annotation.Nullable Boolean kryssystem, @jakarta.annotation.Nullable Boolean sideanlegg, @jakarta.annotation.Nullable Trafikantgruppe trafikantgruppe, @jakarta.annotation.Nullable Set<InkluderIStatistikk> inkluder, @jakarta.annotation.Nullable Set<String> veglenkesekvens, @jakarta.annotation.Nullable Set<VeglenkeTypeParameter> veglenketype, @jakarta.annotation.Nullable Set<DetaljnivaParameter> detaljniva, @jakarta.annotation.Nullable OffsetDateTime endretEtter, @jakarta.annotation.Nullable LocalDate tidspunkt, @jakarta.annotation.Nullable List<String> egenskap, @jakarta.annotation.Nullable List<String> overlapp) throws WebClientResponseException {
+    private ResponseSpec getVegobjekterStatistikkRequestCreation(@jakarta.annotation.Nonnull Integer vegobjekttypeid, @jakarta.annotation.Nullable SridParameter srid, @jakarta.annotation.Nullable Boolean segmentering, @jakarta.annotation.Nullable Set<Integer> fylke, @jakarta.annotation.Nullable Set<Integer> kommune, @jakarta.annotation.Nullable Set<String> kontraktsomrade, @jakarta.annotation.Nullable Set<String> riksvegrute, @jakarta.annotation.Nullable Set<String> vegforvalter, @jakarta.annotation.Nullable Set<String> vegsystemreferanse, @jakarta.annotation.Nullable String kartutsnitt, @jakarta.annotation.Nullable String polygon, @jakarta.annotation.Nullable Set<TypeVegSosi> typeveg, @jakarta.annotation.Nullable Set<AdskilteLop> adskiltelop, @jakarta.annotation.Nullable Boolean kryssystem, @jakarta.annotation.Nullable Boolean sideanlegg, @jakarta.annotation.Nullable Trafikantgruppe trafikantgruppe, @jakarta.annotation.Nullable Set<InkluderIStatistikk> inkluder, @jakarta.annotation.Nullable Set<String> veglenkesekvens, @jakarta.annotation.Nullable Set<VeglenkeTypeParameter> veglenketype, @jakarta.annotation.Nullable Set<DetaljnivaParameter> detaljniva, @jakarta.annotation.Nullable OffsetDateTime endretEtter, @jakarta.annotation.Nullable LocalDate tidspunkt, @jakarta.annotation.Nullable List<String> egenskap, @jakarta.annotation.Nullable List<String> overlapp) throws RestClientResponseException {
         Object postBody = null;
         // verify the required parameter 'vegobjekttypeid' is set
         if (vegobjekttypeid == null) {
-            throw new WebClientResponseException("Missing the required parameter 'vegobjekttypeid' when calling getVegobjekterStatistikk", HttpStatus.BAD_REQUEST.value(), HttpStatus.BAD_REQUEST.getReasonPhrase(), null, null, null);
+            throw new RestClientResponseException("Missing the required parameter 'vegobjekttypeid' when calling getVegobjekterStatistikk", HttpStatus.BAD_REQUEST.value(), HttpStatus.BAD_REQUEST.getReasonPhrase(), null, null, null);
         }
         // create path and map variables
-        final Map<String, Object> pathParams = new HashMap<String, Object>();
+        final Map<String, Object> pathParams = new HashMap<>();
 
         pathParams.put("vegobjekttypeid", vegobjekttypeid);
 
-        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<String, String>();
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
         final HttpHeaders headerParams = new HttpHeaders();
-        final MultiValueMap<String, String> cookieParams = new LinkedMultiValueMap<String, String>();
-        final MultiValueMap<String, Object> formParams = new LinkedMultiValueMap<String, Object>();
+        final MultiValueMap<String, String> cookieParams = new LinkedMultiValueMap<>();
+        final MultiValueMap<String, Object> formParams = new LinkedMultiValueMap<>();
 
         queryParams.putAll(apiClient.parameterToMultiValueMap(null, "srid", srid));
         queryParams.putAll(apiClient.parameterToMultiValueMap(null, "segmentering", segmentering));
@@ -148,7 +483,7 @@ public class StatistikkApi {
 
         String[] localVarAuthNames = new String[] { "bearerAuth" };
 
-        ParameterizedTypeReference<VegobjekterStatistikk> localVarReturnType = new ParameterizedTypeReference<VegobjekterStatistikk>() {};
+        ParameterizedTypeReference<VegobjekterStatistikk> localVarReturnType = new ParameterizedTypeReference<>() {};
         return apiClient.invokeAPI("/api/v4/vegobjekter/{vegobjekttypeid}/statistikk", HttpMethod.GET, pathParams, queryParams, postBody, headerParams, cookieParams, formParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
     }
 
@@ -186,11 +521,11 @@ public class StatistikkApi {
      * @param egenskap Filtrer vegobjekter på egenskaper, relasjoner og overlapp. Husk URL encoding hvis verdien inneholder likhetstegn. Se [dokumentasjon](https://nvdb-docs.atlas.vegvesen.no/nvdbapil/v4/introduksjon/Avanserte_filter)
      * @param overlapp Filtrer vegobjekter på overlapp. Husk URL encoding hvis verdien inneholder likhetstegn. Se [dokumentasjon](https://nvdb-docs.atlas.vegvesen.no/nvdbapil/v4/introduksjon/Avanserte_filter)
      * @return VegobjekterStatistikk
-     * @throws WebClientResponseException if an error occurs while attempting to invoke the API
+     * @throws RestClientResponseException if an error occurs while attempting to invoke the API
      */
-    public Mono<VegobjekterStatistikk> getVegobjekterStatistikk(@jakarta.annotation.Nonnull Integer vegobjekttypeid, @jakarta.annotation.Nullable SridParameter srid, @jakarta.annotation.Nullable Boolean segmentering, @jakarta.annotation.Nullable Set<Integer> fylke, @jakarta.annotation.Nullable Set<Integer> kommune, @jakarta.annotation.Nullable Set<String> kontraktsomrade, @jakarta.annotation.Nullable Set<String> riksvegrute, @jakarta.annotation.Nullable Set<String> vegforvalter, @jakarta.annotation.Nullable Set<String> vegsystemreferanse, @jakarta.annotation.Nullable String kartutsnitt, @jakarta.annotation.Nullable String polygon, @jakarta.annotation.Nullable Set<TypeVegSosi> typeveg, @jakarta.annotation.Nullable Set<AdskilteLop> adskiltelop, @jakarta.annotation.Nullable Boolean kryssystem, @jakarta.annotation.Nullable Boolean sideanlegg, @jakarta.annotation.Nullable Trafikantgruppe trafikantgruppe, @jakarta.annotation.Nullable Set<InkluderIStatistikk> inkluder, @jakarta.annotation.Nullable Set<String> veglenkesekvens, @jakarta.annotation.Nullable Set<VeglenkeTypeParameter> veglenketype, @jakarta.annotation.Nullable Set<DetaljnivaParameter> detaljniva, @jakarta.annotation.Nullable OffsetDateTime endretEtter, @jakarta.annotation.Nullable LocalDate tidspunkt, @jakarta.annotation.Nullable List<String> egenskap, @jakarta.annotation.Nullable List<String> overlapp) throws WebClientResponseException {
-        ParameterizedTypeReference<VegobjekterStatistikk> localVarReturnType = new ParameterizedTypeReference<VegobjekterStatistikk>() {};
-        return getVegobjekterStatistikkRequestCreation(vegobjekttypeid, srid, segmentering, fylke, kommune, kontraktsomrade, riksvegrute, vegforvalter, vegsystemreferanse, kartutsnitt, polygon, typeveg, adskiltelop, kryssystem, sideanlegg, trafikantgruppe, inkluder, veglenkesekvens, veglenketype, detaljniva, endretEtter, tidspunkt, egenskap, overlapp).bodyToMono(localVarReturnType);
+    public VegobjekterStatistikk getVegobjekterStatistikk(@jakarta.annotation.Nonnull Integer vegobjekttypeid, @jakarta.annotation.Nullable SridParameter srid, @jakarta.annotation.Nullable Boolean segmentering, @jakarta.annotation.Nullable Set<Integer> fylke, @jakarta.annotation.Nullable Set<Integer> kommune, @jakarta.annotation.Nullable Set<String> kontraktsomrade, @jakarta.annotation.Nullable Set<String> riksvegrute, @jakarta.annotation.Nullable Set<String> vegforvalter, @jakarta.annotation.Nullable Set<String> vegsystemreferanse, @jakarta.annotation.Nullable String kartutsnitt, @jakarta.annotation.Nullable String polygon, @jakarta.annotation.Nullable Set<TypeVegSosi> typeveg, @jakarta.annotation.Nullable Set<AdskilteLop> adskiltelop, @jakarta.annotation.Nullable Boolean kryssystem, @jakarta.annotation.Nullable Boolean sideanlegg, @jakarta.annotation.Nullable Trafikantgruppe trafikantgruppe, @jakarta.annotation.Nullable Set<InkluderIStatistikk> inkluder, @jakarta.annotation.Nullable Set<String> veglenkesekvens, @jakarta.annotation.Nullable Set<VeglenkeTypeParameter> veglenketype, @jakarta.annotation.Nullable Set<DetaljnivaParameter> detaljniva, @jakarta.annotation.Nullable OffsetDateTime endretEtter, @jakarta.annotation.Nullable LocalDate tidspunkt, @jakarta.annotation.Nullable List<String> egenskap, @jakarta.annotation.Nullable List<String> overlapp) throws RestClientResponseException {
+        ParameterizedTypeReference<VegobjekterStatistikk> localVarReturnType = new ParameterizedTypeReference<>() {};
+        return getVegobjekterStatistikkRequestCreation(vegobjekttypeid, srid, segmentering, fylke, kommune, kontraktsomrade, riksvegrute, vegforvalter, vegsystemreferanse, kartutsnitt, polygon, typeveg, adskiltelop, kryssystem, sideanlegg, trafikantgruppe, inkluder, veglenkesekvens, veglenketype, detaljniva, endretEtter, tidspunkt, egenskap, overlapp).body(localVarReturnType);
     }
 
     /**
@@ -227,10 +562,10 @@ public class StatistikkApi {
      * @param egenskap Filtrer vegobjekter på egenskaper, relasjoner og overlapp. Husk URL encoding hvis verdien inneholder likhetstegn. Se [dokumentasjon](https://nvdb-docs.atlas.vegvesen.no/nvdbapil/v4/introduksjon/Avanserte_filter)
      * @param overlapp Filtrer vegobjekter på overlapp. Husk URL encoding hvis verdien inneholder likhetstegn. Se [dokumentasjon](https://nvdb-docs.atlas.vegvesen.no/nvdbapil/v4/introduksjon/Avanserte_filter)
      * @return ResponseEntity&lt;VegobjekterStatistikk&gt;
-     * @throws WebClientResponseException if an error occurs while attempting to invoke the API
+     * @throws RestClientResponseException if an error occurs while attempting to invoke the API
      */
-    public Mono<ResponseEntity<VegobjekterStatistikk>> getVegobjekterStatistikkWithHttpInfo(@jakarta.annotation.Nonnull Integer vegobjekttypeid, @jakarta.annotation.Nullable SridParameter srid, @jakarta.annotation.Nullable Boolean segmentering, @jakarta.annotation.Nullable Set<Integer> fylke, @jakarta.annotation.Nullable Set<Integer> kommune, @jakarta.annotation.Nullable Set<String> kontraktsomrade, @jakarta.annotation.Nullable Set<String> riksvegrute, @jakarta.annotation.Nullable Set<String> vegforvalter, @jakarta.annotation.Nullable Set<String> vegsystemreferanse, @jakarta.annotation.Nullable String kartutsnitt, @jakarta.annotation.Nullable String polygon, @jakarta.annotation.Nullable Set<TypeVegSosi> typeveg, @jakarta.annotation.Nullable Set<AdskilteLop> adskiltelop, @jakarta.annotation.Nullable Boolean kryssystem, @jakarta.annotation.Nullable Boolean sideanlegg, @jakarta.annotation.Nullable Trafikantgruppe trafikantgruppe, @jakarta.annotation.Nullable Set<InkluderIStatistikk> inkluder, @jakarta.annotation.Nullable Set<String> veglenkesekvens, @jakarta.annotation.Nullable Set<VeglenkeTypeParameter> veglenketype, @jakarta.annotation.Nullable Set<DetaljnivaParameter> detaljniva, @jakarta.annotation.Nullable OffsetDateTime endretEtter, @jakarta.annotation.Nullable LocalDate tidspunkt, @jakarta.annotation.Nullable List<String> egenskap, @jakarta.annotation.Nullable List<String> overlapp) throws WebClientResponseException {
-        ParameterizedTypeReference<VegobjekterStatistikk> localVarReturnType = new ParameterizedTypeReference<VegobjekterStatistikk>() {};
+    public ResponseEntity<VegobjekterStatistikk> getVegobjekterStatistikkWithHttpInfo(@jakarta.annotation.Nonnull Integer vegobjekttypeid, @jakarta.annotation.Nullable SridParameter srid, @jakarta.annotation.Nullable Boolean segmentering, @jakarta.annotation.Nullable Set<Integer> fylke, @jakarta.annotation.Nullable Set<Integer> kommune, @jakarta.annotation.Nullable Set<String> kontraktsomrade, @jakarta.annotation.Nullable Set<String> riksvegrute, @jakarta.annotation.Nullable Set<String> vegforvalter, @jakarta.annotation.Nullable Set<String> vegsystemreferanse, @jakarta.annotation.Nullable String kartutsnitt, @jakarta.annotation.Nullable String polygon, @jakarta.annotation.Nullable Set<TypeVegSosi> typeveg, @jakarta.annotation.Nullable Set<AdskilteLop> adskiltelop, @jakarta.annotation.Nullable Boolean kryssystem, @jakarta.annotation.Nullable Boolean sideanlegg, @jakarta.annotation.Nullable Trafikantgruppe trafikantgruppe, @jakarta.annotation.Nullable Set<InkluderIStatistikk> inkluder, @jakarta.annotation.Nullable Set<String> veglenkesekvens, @jakarta.annotation.Nullable Set<VeglenkeTypeParameter> veglenketype, @jakarta.annotation.Nullable Set<DetaljnivaParameter> detaljniva, @jakarta.annotation.Nullable OffsetDateTime endretEtter, @jakarta.annotation.Nullable LocalDate tidspunkt, @jakarta.annotation.Nullable List<String> egenskap, @jakarta.annotation.Nullable List<String> overlapp) throws RestClientResponseException {
+        ParameterizedTypeReference<VegobjekterStatistikk> localVarReturnType = new ParameterizedTypeReference<>() {};
         return getVegobjekterStatistikkRequestCreation(vegobjekttypeid, srid, segmentering, fylke, kommune, kontraktsomrade, riksvegrute, vegforvalter, vegsystemreferanse, kartutsnitt, polygon, typeveg, adskiltelop, kryssystem, sideanlegg, trafikantgruppe, inkluder, veglenkesekvens, veglenketype, detaljniva, endretEtter, tidspunkt, egenskap, overlapp).toEntity(localVarReturnType);
     }
 
@@ -268,10 +603,162 @@ public class StatistikkApi {
      * @param egenskap Filtrer vegobjekter på egenskaper, relasjoner og overlapp. Husk URL encoding hvis verdien inneholder likhetstegn. Se [dokumentasjon](https://nvdb-docs.atlas.vegvesen.no/nvdbapil/v4/introduksjon/Avanserte_filter)
      * @param overlapp Filtrer vegobjekter på overlapp. Husk URL encoding hvis verdien inneholder likhetstegn. Se [dokumentasjon](https://nvdb-docs.atlas.vegvesen.no/nvdbapil/v4/introduksjon/Avanserte_filter)
      * @return ResponseSpec
-     * @throws WebClientResponseException if an error occurs while attempting to invoke the API
+     * @throws RestClientResponseException if an error occurs while attempting to invoke the API
      */
-    public ResponseSpec getVegobjekterStatistikkWithResponseSpec(@jakarta.annotation.Nonnull Integer vegobjekttypeid, @jakarta.annotation.Nullable SridParameter srid, @jakarta.annotation.Nullable Boolean segmentering, @jakarta.annotation.Nullable Set<Integer> fylke, @jakarta.annotation.Nullable Set<Integer> kommune, @jakarta.annotation.Nullable Set<String> kontraktsomrade, @jakarta.annotation.Nullable Set<String> riksvegrute, @jakarta.annotation.Nullable Set<String> vegforvalter, @jakarta.annotation.Nullable Set<String> vegsystemreferanse, @jakarta.annotation.Nullable String kartutsnitt, @jakarta.annotation.Nullable String polygon, @jakarta.annotation.Nullable Set<TypeVegSosi> typeveg, @jakarta.annotation.Nullable Set<AdskilteLop> adskiltelop, @jakarta.annotation.Nullable Boolean kryssystem, @jakarta.annotation.Nullable Boolean sideanlegg, @jakarta.annotation.Nullable Trafikantgruppe trafikantgruppe, @jakarta.annotation.Nullable Set<InkluderIStatistikk> inkluder, @jakarta.annotation.Nullable Set<String> veglenkesekvens, @jakarta.annotation.Nullable Set<VeglenkeTypeParameter> veglenketype, @jakarta.annotation.Nullable Set<DetaljnivaParameter> detaljniva, @jakarta.annotation.Nullable OffsetDateTime endretEtter, @jakarta.annotation.Nullable LocalDate tidspunkt, @jakarta.annotation.Nullable List<String> egenskap, @jakarta.annotation.Nullable List<String> overlapp) throws WebClientResponseException {
+    public ResponseSpec getVegobjekterStatistikkWithResponseSpec(@jakarta.annotation.Nonnull Integer vegobjekttypeid, @jakarta.annotation.Nullable SridParameter srid, @jakarta.annotation.Nullable Boolean segmentering, @jakarta.annotation.Nullable Set<Integer> fylke, @jakarta.annotation.Nullable Set<Integer> kommune, @jakarta.annotation.Nullable Set<String> kontraktsomrade, @jakarta.annotation.Nullable Set<String> riksvegrute, @jakarta.annotation.Nullable Set<String> vegforvalter, @jakarta.annotation.Nullable Set<String> vegsystemreferanse, @jakarta.annotation.Nullable String kartutsnitt, @jakarta.annotation.Nullable String polygon, @jakarta.annotation.Nullable Set<TypeVegSosi> typeveg, @jakarta.annotation.Nullable Set<AdskilteLop> adskiltelop, @jakarta.annotation.Nullable Boolean kryssystem, @jakarta.annotation.Nullable Boolean sideanlegg, @jakarta.annotation.Nullable Trafikantgruppe trafikantgruppe, @jakarta.annotation.Nullable Set<InkluderIStatistikk> inkluder, @jakarta.annotation.Nullable Set<String> veglenkesekvens, @jakarta.annotation.Nullable Set<VeglenkeTypeParameter> veglenketype, @jakarta.annotation.Nullable Set<DetaljnivaParameter> detaljniva, @jakarta.annotation.Nullable OffsetDateTime endretEtter, @jakarta.annotation.Nullable LocalDate tidspunkt, @jakarta.annotation.Nullable List<String> egenskap, @jakarta.annotation.Nullable List<String> overlapp) throws RestClientResponseException {
         return getVegobjekterStatistikkRequestCreation(vegobjekttypeid, srid, segmentering, fylke, kommune, kontraktsomrade, riksvegrute, vegforvalter, vegsystemreferanse, kartutsnitt, polygon, typeveg, adskiltelop, kryssystem, sideanlegg, trafikantgruppe, inkluder, veglenkesekvens, veglenketype, detaljniva, endretEtter, tidspunkt, egenskap, overlapp);
+    }
+
+    public static class GetVegobjekterStatistikkGruppertRequest {
+        private @jakarta.annotation.Nonnull Integer vegobjekttypeid;
+        private @jakarta.annotation.Nonnull Set<Gruppering> gruppering;
+        private @jakarta.annotation.Nullable SridParameter srid;
+        private @jakarta.annotation.Nullable String kartutsnitt;
+        private @jakarta.annotation.Nullable Set<InkluderIStatistikk> inkluder;
+        private @jakarta.annotation.Nullable Set<String> veglenkesekvens;
+        private @jakarta.annotation.Nullable LocalDate tidspunkt;
+
+        public GetVegobjekterStatistikkGruppertRequest() {}
+
+        public GetVegobjekterStatistikkGruppertRequest(@jakarta.annotation.Nonnull Integer vegobjekttypeid, @jakarta.annotation.Nonnull Set<Gruppering> gruppering, @jakarta.annotation.Nullable SridParameter srid, @jakarta.annotation.Nullable String kartutsnitt, @jakarta.annotation.Nullable Set<InkluderIStatistikk> inkluder, @jakarta.annotation.Nullable Set<String> veglenkesekvens, @jakarta.annotation.Nullable LocalDate tidspunkt) {
+            this.vegobjekttypeid = vegobjekttypeid;
+            this.gruppering = gruppering;
+            this.srid = srid;
+            this.kartutsnitt = kartutsnitt;
+            this.inkluder = inkluder;
+            this.veglenkesekvens = veglenkesekvens;
+            this.tidspunkt = tidspunkt;
+        }
+
+        public @jakarta.annotation.Nonnull Integer vegobjekttypeid() {
+            return this.vegobjekttypeid;
+        }
+        public GetVegobjekterStatistikkGruppertRequest vegobjekttypeid(@jakarta.annotation.Nonnull Integer vegobjekttypeid) {
+            this.vegobjekttypeid = vegobjekttypeid;
+            return this;
+        }
+
+        public @jakarta.annotation.Nonnull Set<Gruppering> gruppering() {
+            return this.gruppering;
+        }
+        public GetVegobjekterStatistikkGruppertRequest gruppering(@jakarta.annotation.Nonnull Set<Gruppering> gruppering) {
+            this.gruppering = gruppering;
+            return this;
+        }
+
+        public @jakarta.annotation.Nullable SridParameter srid() {
+            return this.srid;
+        }
+        public GetVegobjekterStatistikkGruppertRequest srid(@jakarta.annotation.Nullable SridParameter srid) {
+            this.srid = srid;
+            return this;
+        }
+
+        public @jakarta.annotation.Nullable String kartutsnitt() {
+            return this.kartutsnitt;
+        }
+        public GetVegobjekterStatistikkGruppertRequest kartutsnitt(@jakarta.annotation.Nullable String kartutsnitt) {
+            this.kartutsnitt = kartutsnitt;
+            return this;
+        }
+
+        public @jakarta.annotation.Nullable Set<InkluderIStatistikk> inkluder() {
+            return this.inkluder;
+        }
+        public GetVegobjekterStatistikkGruppertRequest inkluder(@jakarta.annotation.Nullable Set<InkluderIStatistikk> inkluder) {
+            this.inkluder = inkluder;
+            return this;
+        }
+
+        public @jakarta.annotation.Nullable Set<String> veglenkesekvens() {
+            return this.veglenkesekvens;
+        }
+        public GetVegobjekterStatistikkGruppertRequest veglenkesekvens(@jakarta.annotation.Nullable Set<String> veglenkesekvens) {
+            this.veglenkesekvens = veglenkesekvens;
+            return this;
+        }
+
+        public @jakarta.annotation.Nullable LocalDate tidspunkt() {
+            return this.tidspunkt;
+        }
+        public GetVegobjekterStatistikkGruppertRequest tidspunkt(@jakarta.annotation.Nullable LocalDate tidspunkt) {
+            this.tidspunkt = tidspunkt;
+            return this;
+        }
+
+        @Override
+        public boolean equals(Object o) {
+            if (this == o) {
+                return true;
+            }
+            if (o == null || getClass() != o.getClass()) {
+                return false;
+            }
+            GetVegobjekterStatistikkGruppertRequest request = (GetVegobjekterStatistikkGruppertRequest) o;
+            return Objects.equals(this.vegobjekttypeid, request.vegobjekttypeid()) &&
+                Objects.equals(this.gruppering, request.gruppering()) &&
+                Objects.equals(this.srid, request.srid()) &&
+                Objects.equals(this.kartutsnitt, request.kartutsnitt()) &&
+                Objects.equals(this.inkluder, request.inkluder()) &&
+                Objects.equals(this.veglenkesekvens, request.veglenkesekvens()) &&
+                Objects.equals(this.tidspunkt, request.tidspunkt());
+        }
+
+        @Override
+        public int hashCode() {
+            return Objects.hash(vegobjekttypeid, gruppering, srid, kartutsnitt, inkluder, veglenkesekvens, tidspunkt);
+        }
+    }
+
+    /**
+    * Hent statistikk for en vegobjekttype, gruppert på ett eller flere felter
+    * 
+     * <p><b>500</b> - Internal Server Error
+     * <p><b>400</b> - Bad Request
+     * <p><b>404</b> - Not Found
+     * <p><b>401</b> - Unauthorized
+     * <p><b>403</b> - Forbidden
+     * <p><b>200</b> - OK
+     * @param requestParameters The getVegobjekterStatistikkGruppert request parameters as object
+     * @return List&lt;VegobjekterStatistikkGruppert&gt;
+     * @throws RestClientResponseException if an error occurs while attempting to invoke the API
+    */
+    public List<VegobjekterStatistikkGruppert> getVegobjekterStatistikkGruppert(GetVegobjekterStatistikkGruppertRequest requestParameters) throws RestClientResponseException {
+      return this.getVegobjekterStatistikkGruppert(requestParameters.vegobjekttypeid(), requestParameters.gruppering(), requestParameters.srid(), requestParameters.kartutsnitt(), requestParameters.inkluder(), requestParameters.veglenkesekvens(), requestParameters.tidspunkt());
+    }
+
+  /**
+  * Hent statistikk for en vegobjekttype, gruppert på ett eller flere felter
+  * 
+     * <p><b>500</b> - Internal Server Error
+     * <p><b>400</b> - Bad Request
+     * <p><b>404</b> - Not Found
+     * <p><b>401</b> - Unauthorized
+     * <p><b>403</b> - Forbidden
+     * <p><b>200</b> - OK
+     * @param requestParameters The getVegobjekterStatistikkGruppert request parameters as object
+     * @return ResponseEntity&lt;List&lt;VegobjekterStatistikkGruppert&gt;&gt;
+     * @throws RestClientResponseException if an error occurs while attempting to invoke the API
+    */
+    public ResponseEntity<List<VegobjekterStatistikkGruppert>> getVegobjekterStatistikkGruppertWithHttpInfo(GetVegobjekterStatistikkGruppertRequest requestParameters) throws RestClientResponseException {
+      return this.getVegobjekterStatistikkGruppertWithHttpInfo(requestParameters.vegobjekttypeid(), requestParameters.gruppering(), requestParameters.srid(), requestParameters.kartutsnitt(), requestParameters.inkluder(), requestParameters.veglenkesekvens(), requestParameters.tidspunkt());
+    }
+
+  /**
+  * Hent statistikk for en vegobjekttype, gruppert på ett eller flere felter
+  * 
+     * <p><b>500</b> - Internal Server Error
+     * <p><b>400</b> - Bad Request
+     * <p><b>404</b> - Not Found
+     * <p><b>401</b> - Unauthorized
+     * <p><b>403</b> - Forbidden
+     * <p><b>200</b> - OK
+     * @param requestParameters The getVegobjekterStatistikkGruppert request parameters as object
+  * @return ResponseSpec
+  * @throws RestClientResponseException if an error occurs while attempting to invoke the API
+    */
+    public ResponseSpec getVegobjekterStatistikkGruppertWithResponseSpec(GetVegobjekterStatistikkGruppertRequest requestParameters) throws RestClientResponseException {
+      return this.getVegobjekterStatistikkGruppertWithResponseSpec(requestParameters.vegobjekttypeid(), requestParameters.gruppering(), requestParameters.srid(), requestParameters.kartutsnitt(), requestParameters.inkluder(), requestParameters.veglenkesekvens(), requestParameters.tidspunkt());
     }
 
     /**
@@ -291,27 +778,27 @@ public class StatistikkApi {
      * @param veglenkesekvens Filtrer vegobjekter på om de er stedfestet på gjeldende veglenkesekvenser. Kommaseparert liste.  Eksempel: &#x60;0.37@319531,0.83-0.97@41640&#x60;
      * @param tidspunkt Finner versjonen som var gyldig denne datoen.
      * @return List&lt;VegobjekterStatistikkGruppert&gt;
-     * @throws WebClientResponseException if an error occurs while attempting to invoke the API
+     * @throws RestClientResponseException if an error occurs while attempting to invoke the API
      */
-    private ResponseSpec getVegobjekterStatistikkGruppertRequestCreation(@jakarta.annotation.Nonnull Integer vegobjekttypeid, @jakarta.annotation.Nonnull Set<Gruppering> gruppering, @jakarta.annotation.Nullable SridParameter srid, @jakarta.annotation.Nullable String kartutsnitt, @jakarta.annotation.Nullable Set<InkluderIStatistikk> inkluder, @jakarta.annotation.Nullable Set<String> veglenkesekvens, @jakarta.annotation.Nullable LocalDate tidspunkt) throws WebClientResponseException {
+    private ResponseSpec getVegobjekterStatistikkGruppertRequestCreation(@jakarta.annotation.Nonnull Integer vegobjekttypeid, @jakarta.annotation.Nonnull Set<Gruppering> gruppering, @jakarta.annotation.Nullable SridParameter srid, @jakarta.annotation.Nullable String kartutsnitt, @jakarta.annotation.Nullable Set<InkluderIStatistikk> inkluder, @jakarta.annotation.Nullable Set<String> veglenkesekvens, @jakarta.annotation.Nullable LocalDate tidspunkt) throws RestClientResponseException {
         Object postBody = null;
         // verify the required parameter 'vegobjekttypeid' is set
         if (vegobjekttypeid == null) {
-            throw new WebClientResponseException("Missing the required parameter 'vegobjekttypeid' when calling getVegobjekterStatistikkGruppert", HttpStatus.BAD_REQUEST.value(), HttpStatus.BAD_REQUEST.getReasonPhrase(), null, null, null);
+            throw new RestClientResponseException("Missing the required parameter 'vegobjekttypeid' when calling getVegobjekterStatistikkGruppert", HttpStatus.BAD_REQUEST.value(), HttpStatus.BAD_REQUEST.getReasonPhrase(), null, null, null);
         }
         // verify the required parameter 'gruppering' is set
         if (gruppering == null) {
-            throw new WebClientResponseException("Missing the required parameter 'gruppering' when calling getVegobjekterStatistikkGruppert", HttpStatus.BAD_REQUEST.value(), HttpStatus.BAD_REQUEST.getReasonPhrase(), null, null, null);
+            throw new RestClientResponseException("Missing the required parameter 'gruppering' when calling getVegobjekterStatistikkGruppert", HttpStatus.BAD_REQUEST.value(), HttpStatus.BAD_REQUEST.getReasonPhrase(), null, null, null);
         }
         // create path and map variables
-        final Map<String, Object> pathParams = new HashMap<String, Object>();
+        final Map<String, Object> pathParams = new HashMap<>();
 
         pathParams.put("vegobjekttypeid", vegobjekttypeid);
 
-        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<String, String>();
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
         final HttpHeaders headerParams = new HttpHeaders();
-        final MultiValueMap<String, String> cookieParams = new LinkedMultiValueMap<String, String>();
-        final MultiValueMap<String, Object> formParams = new LinkedMultiValueMap<String, Object>();
+        final MultiValueMap<String, String> cookieParams = new LinkedMultiValueMap<>();
+        final MultiValueMap<String, Object> formParams = new LinkedMultiValueMap<>();
 
         queryParams.putAll(apiClient.parameterToMultiValueMap(null, "srid", srid));
         queryParams.putAll(apiClient.parameterToMultiValueMap(null, "kartutsnitt", kartutsnitt));
@@ -329,7 +816,7 @@ public class StatistikkApi {
 
         String[] localVarAuthNames = new String[] { "bearerAuth" };
 
-        ParameterizedTypeReference<VegobjekterStatistikkGruppert> localVarReturnType = new ParameterizedTypeReference<VegobjekterStatistikkGruppert>() {};
+        ParameterizedTypeReference<List<VegobjekterStatistikkGruppert>> localVarReturnType = new ParameterizedTypeReference<>() {};
         return apiClient.invokeAPI("/api/v4/vegobjekter/{vegobjekttypeid}/statistikk/gruppert", HttpMethod.GET, pathParams, queryParams, postBody, headerParams, cookieParams, formParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
     }
 
@@ -350,11 +837,11 @@ public class StatistikkApi {
      * @param veglenkesekvens Filtrer vegobjekter på om de er stedfestet på gjeldende veglenkesekvenser. Kommaseparert liste.  Eksempel: &#x60;0.37@319531,0.83-0.97@41640&#x60;
      * @param tidspunkt Finner versjonen som var gyldig denne datoen.
      * @return List&lt;VegobjekterStatistikkGruppert&gt;
-     * @throws WebClientResponseException if an error occurs while attempting to invoke the API
+     * @throws RestClientResponseException if an error occurs while attempting to invoke the API
      */
-    public Flux<VegobjekterStatistikkGruppert> getVegobjekterStatistikkGruppert(@jakarta.annotation.Nonnull Integer vegobjekttypeid, @jakarta.annotation.Nonnull Set<Gruppering> gruppering, @jakarta.annotation.Nullable SridParameter srid, @jakarta.annotation.Nullable String kartutsnitt, @jakarta.annotation.Nullable Set<InkluderIStatistikk> inkluder, @jakarta.annotation.Nullable Set<String> veglenkesekvens, @jakarta.annotation.Nullable LocalDate tidspunkt) throws WebClientResponseException {
-        ParameterizedTypeReference<VegobjekterStatistikkGruppert> localVarReturnType = new ParameterizedTypeReference<VegobjekterStatistikkGruppert>() {};
-        return getVegobjekterStatistikkGruppertRequestCreation(vegobjekttypeid, gruppering, srid, kartutsnitt, inkluder, veglenkesekvens, tidspunkt).bodyToFlux(localVarReturnType);
+    public List<VegobjekterStatistikkGruppert> getVegobjekterStatistikkGruppert(@jakarta.annotation.Nonnull Integer vegobjekttypeid, @jakarta.annotation.Nonnull Set<Gruppering> gruppering, @jakarta.annotation.Nullable SridParameter srid, @jakarta.annotation.Nullable String kartutsnitt, @jakarta.annotation.Nullable Set<InkluderIStatistikk> inkluder, @jakarta.annotation.Nullable Set<String> veglenkesekvens, @jakarta.annotation.Nullable LocalDate tidspunkt) throws RestClientResponseException {
+        ParameterizedTypeReference<List<VegobjekterStatistikkGruppert>> localVarReturnType = new ParameterizedTypeReference<>() {};
+        return getVegobjekterStatistikkGruppertRequestCreation(vegobjekttypeid, gruppering, srid, kartutsnitt, inkluder, veglenkesekvens, tidspunkt).body(localVarReturnType);
     }
 
     /**
@@ -374,11 +861,11 @@ public class StatistikkApi {
      * @param veglenkesekvens Filtrer vegobjekter på om de er stedfestet på gjeldende veglenkesekvenser. Kommaseparert liste.  Eksempel: &#x60;0.37@319531,0.83-0.97@41640&#x60;
      * @param tidspunkt Finner versjonen som var gyldig denne datoen.
      * @return ResponseEntity&lt;List&lt;VegobjekterStatistikkGruppert&gt;&gt;
-     * @throws WebClientResponseException if an error occurs while attempting to invoke the API
+     * @throws RestClientResponseException if an error occurs while attempting to invoke the API
      */
-    public Mono<ResponseEntity<List<VegobjekterStatistikkGruppert>>> getVegobjekterStatistikkGruppertWithHttpInfo(@jakarta.annotation.Nonnull Integer vegobjekttypeid, @jakarta.annotation.Nonnull Set<Gruppering> gruppering, @jakarta.annotation.Nullable SridParameter srid, @jakarta.annotation.Nullable String kartutsnitt, @jakarta.annotation.Nullable Set<InkluderIStatistikk> inkluder, @jakarta.annotation.Nullable Set<String> veglenkesekvens, @jakarta.annotation.Nullable LocalDate tidspunkt) throws WebClientResponseException {
-        ParameterizedTypeReference<VegobjekterStatistikkGruppert> localVarReturnType = new ParameterizedTypeReference<VegobjekterStatistikkGruppert>() {};
-        return getVegobjekterStatistikkGruppertRequestCreation(vegobjekttypeid, gruppering, srid, kartutsnitt, inkluder, veglenkesekvens, tidspunkt).toEntityList(localVarReturnType);
+    public ResponseEntity<List<VegobjekterStatistikkGruppert>> getVegobjekterStatistikkGruppertWithHttpInfo(@jakarta.annotation.Nonnull Integer vegobjekttypeid, @jakarta.annotation.Nonnull Set<Gruppering> gruppering, @jakarta.annotation.Nullable SridParameter srid, @jakarta.annotation.Nullable String kartutsnitt, @jakarta.annotation.Nullable Set<InkluderIStatistikk> inkluder, @jakarta.annotation.Nullable Set<String> veglenkesekvens, @jakarta.annotation.Nullable LocalDate tidspunkt) throws RestClientResponseException {
+        ParameterizedTypeReference<List<VegobjekterStatistikkGruppert>> localVarReturnType = new ParameterizedTypeReference<>() {};
+        return getVegobjekterStatistikkGruppertRequestCreation(vegobjekttypeid, gruppering, srid, kartutsnitt, inkluder, veglenkesekvens, tidspunkt).toEntity(localVarReturnType);
     }
 
     /**
@@ -398,10 +885,118 @@ public class StatistikkApi {
      * @param veglenkesekvens Filtrer vegobjekter på om de er stedfestet på gjeldende veglenkesekvenser. Kommaseparert liste.  Eksempel: &#x60;0.37@319531,0.83-0.97@41640&#x60;
      * @param tidspunkt Finner versjonen som var gyldig denne datoen.
      * @return ResponseSpec
-     * @throws WebClientResponseException if an error occurs while attempting to invoke the API
+     * @throws RestClientResponseException if an error occurs while attempting to invoke the API
      */
-    public ResponseSpec getVegobjekterStatistikkGruppertWithResponseSpec(@jakarta.annotation.Nonnull Integer vegobjekttypeid, @jakarta.annotation.Nonnull Set<Gruppering> gruppering, @jakarta.annotation.Nullable SridParameter srid, @jakarta.annotation.Nullable String kartutsnitt, @jakarta.annotation.Nullable Set<InkluderIStatistikk> inkluder, @jakarta.annotation.Nullable Set<String> veglenkesekvens, @jakarta.annotation.Nullable LocalDate tidspunkt) throws WebClientResponseException {
+    public ResponseSpec getVegobjekterStatistikkGruppertWithResponseSpec(@jakarta.annotation.Nonnull Integer vegobjekttypeid, @jakarta.annotation.Nonnull Set<Gruppering> gruppering, @jakarta.annotation.Nullable SridParameter srid, @jakarta.annotation.Nullable String kartutsnitt, @jakarta.annotation.Nullable Set<InkluderIStatistikk> inkluder, @jakarta.annotation.Nullable Set<String> veglenkesekvens, @jakarta.annotation.Nullable LocalDate tidspunkt) throws RestClientResponseException {
         return getVegobjekterStatistikkGruppertRequestCreation(vegobjekttypeid, gruppering, srid, kartutsnitt, inkluder, veglenkesekvens, tidspunkt);
+    }
+
+    public static class GetVegobjekterStatistikkMedTyperRequest {
+        private @jakarta.annotation.Nullable Set<InkluderIStatistikk> inkluder;
+        private @jakarta.annotation.Nullable Set<String> kontraktsomrade;
+        private @jakarta.annotation.Nullable LocalDate tidspunkt;
+
+        public GetVegobjekterStatistikkMedTyperRequest() {}
+
+        public GetVegobjekterStatistikkMedTyperRequest(@jakarta.annotation.Nullable Set<InkluderIStatistikk> inkluder, @jakarta.annotation.Nullable Set<String> kontraktsomrade, @jakarta.annotation.Nullable LocalDate tidspunkt) {
+            this.inkluder = inkluder;
+            this.kontraktsomrade = kontraktsomrade;
+            this.tidspunkt = tidspunkt;
+        }
+
+        public @jakarta.annotation.Nullable Set<InkluderIStatistikk> inkluder() {
+            return this.inkluder;
+        }
+        public GetVegobjekterStatistikkMedTyperRequest inkluder(@jakarta.annotation.Nullable Set<InkluderIStatistikk> inkluder) {
+            this.inkluder = inkluder;
+            return this;
+        }
+
+        public @jakarta.annotation.Nullable Set<String> kontraktsomrade() {
+            return this.kontraktsomrade;
+        }
+        public GetVegobjekterStatistikkMedTyperRequest kontraktsomrade(@jakarta.annotation.Nullable Set<String> kontraktsomrade) {
+            this.kontraktsomrade = kontraktsomrade;
+            return this;
+        }
+
+        public @jakarta.annotation.Nullable LocalDate tidspunkt() {
+            return this.tidspunkt;
+        }
+        public GetVegobjekterStatistikkMedTyperRequest tidspunkt(@jakarta.annotation.Nullable LocalDate tidspunkt) {
+            this.tidspunkt = tidspunkt;
+            return this;
+        }
+
+        @Override
+        public boolean equals(Object o) {
+            if (this == o) {
+                return true;
+            }
+            if (o == null || getClass() != o.getClass()) {
+                return false;
+            }
+            GetVegobjekterStatistikkMedTyperRequest request = (GetVegobjekterStatistikkMedTyperRequest) o;
+            return Objects.equals(this.inkluder, request.inkluder()) &&
+                Objects.equals(this.kontraktsomrade, request.kontraktsomrade()) &&
+                Objects.equals(this.tidspunkt, request.tidspunkt());
+        }
+
+        @Override
+        public int hashCode() {
+            return Objects.hash(inkluder, kontraktsomrade, tidspunkt);
+        }
+    }
+
+    /**
+    * Hent overordnet statistikk for alle vegobjekttyper
+    * 
+     * <p><b>500</b> - Internal Server Error
+     * <p><b>400</b> - Bad Request
+     * <p><b>404</b> - Not Found
+     * <p><b>401</b> - Unauthorized
+     * <p><b>403</b> - Forbidden
+     * <p><b>200</b> - OK
+     * @param requestParameters The getVegobjekterStatistikkMedTyper request parameters as object
+     * @return List&lt;VegobjekterStatistikkMedType&gt;
+     * @throws RestClientResponseException if an error occurs while attempting to invoke the API
+    */
+    public List<VegobjekterStatistikkMedType> getVegobjekterStatistikkMedTyper(GetVegobjekterStatistikkMedTyperRequest requestParameters) throws RestClientResponseException {
+      return this.getVegobjekterStatistikkMedTyper(requestParameters.inkluder(), requestParameters.kontraktsomrade(), requestParameters.tidspunkt());
+    }
+
+  /**
+  * Hent overordnet statistikk for alle vegobjekttyper
+  * 
+     * <p><b>500</b> - Internal Server Error
+     * <p><b>400</b> - Bad Request
+     * <p><b>404</b> - Not Found
+     * <p><b>401</b> - Unauthorized
+     * <p><b>403</b> - Forbidden
+     * <p><b>200</b> - OK
+     * @param requestParameters The getVegobjekterStatistikkMedTyper request parameters as object
+     * @return ResponseEntity&lt;List&lt;VegobjekterStatistikkMedType&gt;&gt;
+     * @throws RestClientResponseException if an error occurs while attempting to invoke the API
+    */
+    public ResponseEntity<List<VegobjekterStatistikkMedType>> getVegobjekterStatistikkMedTyperWithHttpInfo(GetVegobjekterStatistikkMedTyperRequest requestParameters) throws RestClientResponseException {
+      return this.getVegobjekterStatistikkMedTyperWithHttpInfo(requestParameters.inkluder(), requestParameters.kontraktsomrade(), requestParameters.tidspunkt());
+    }
+
+  /**
+  * Hent overordnet statistikk for alle vegobjekttyper
+  * 
+     * <p><b>500</b> - Internal Server Error
+     * <p><b>400</b> - Bad Request
+     * <p><b>404</b> - Not Found
+     * <p><b>401</b> - Unauthorized
+     * <p><b>403</b> - Forbidden
+     * <p><b>200</b> - OK
+     * @param requestParameters The getVegobjekterStatistikkMedTyper request parameters as object
+  * @return ResponseSpec
+  * @throws RestClientResponseException if an error occurs while attempting to invoke the API
+    */
+    public ResponseSpec getVegobjekterStatistikkMedTyperWithResponseSpec(GetVegobjekterStatistikkMedTyperRequest requestParameters) throws RestClientResponseException {
+      return this.getVegobjekterStatistikkMedTyperWithResponseSpec(requestParameters.inkluder(), requestParameters.kontraktsomrade(), requestParameters.tidspunkt());
     }
 
     /**
@@ -417,17 +1012,17 @@ public class StatistikkApi {
      * @param kontraktsomrade Filtrer på kontraktsomrade. Kommaseparert liste. Se /omrader/kontraktsomrader for mulige verdier. Det er mulig å bruke ID-en for kontraktsområdet istedenfor det fulle navnet.  Eksempel: &#x60;9503 Midtre Hålogaland 2021-2026&#x60;
      * @param tidspunkt Finner versjonen som var gyldig denne datoen.
      * @return List&lt;VegobjekterStatistikkMedType&gt;
-     * @throws WebClientResponseException if an error occurs while attempting to invoke the API
+     * @throws RestClientResponseException if an error occurs while attempting to invoke the API
      */
-    private ResponseSpec getVegobjekterStatistikkMedTyperRequestCreation(@jakarta.annotation.Nullable Set<InkluderIStatistikk> inkluder, @jakarta.annotation.Nullable Set<String> kontraktsomrade, @jakarta.annotation.Nullable LocalDate tidspunkt) throws WebClientResponseException {
+    private ResponseSpec getVegobjekterStatistikkMedTyperRequestCreation(@jakarta.annotation.Nullable Set<InkluderIStatistikk> inkluder, @jakarta.annotation.Nullable Set<String> kontraktsomrade, @jakarta.annotation.Nullable LocalDate tidspunkt) throws RestClientResponseException {
         Object postBody = null;
         // create path and map variables
-        final Map<String, Object> pathParams = new HashMap<String, Object>();
+        final Map<String, Object> pathParams = new HashMap<>();
 
-        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<String, String>();
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
         final HttpHeaders headerParams = new HttpHeaders();
-        final MultiValueMap<String, String> cookieParams = new LinkedMultiValueMap<String, String>();
-        final MultiValueMap<String, Object> formParams = new LinkedMultiValueMap<String, Object>();
+        final MultiValueMap<String, String> cookieParams = new LinkedMultiValueMap<>();
+        final MultiValueMap<String, Object> formParams = new LinkedMultiValueMap<>();
 
         queryParams.putAll(apiClient.parameterToMultiValueMap(ApiClient.CollectionFormat.valueOf("multi".toUpperCase(Locale.ROOT)), "inkluder", inkluder));
         queryParams.putAll(apiClient.parameterToMultiValueMap(ApiClient.CollectionFormat.valueOf("multi".toUpperCase(Locale.ROOT)), "kontraktsomrade", kontraktsomrade));
@@ -442,7 +1037,7 @@ public class StatistikkApi {
 
         String[] localVarAuthNames = new String[] { "bearerAuth" };
 
-        ParameterizedTypeReference<VegobjekterStatistikkMedType> localVarReturnType = new ParameterizedTypeReference<VegobjekterStatistikkMedType>() {};
+        ParameterizedTypeReference<List<VegobjekterStatistikkMedType>> localVarReturnType = new ParameterizedTypeReference<>() {};
         return apiClient.invokeAPI("/api/v4/vegobjekter/statistikk", HttpMethod.GET, pathParams, queryParams, postBody, headerParams, cookieParams, formParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
     }
 
@@ -459,11 +1054,11 @@ public class StatistikkApi {
      * @param kontraktsomrade Filtrer på kontraktsomrade. Kommaseparert liste. Se /omrader/kontraktsomrader for mulige verdier. Det er mulig å bruke ID-en for kontraktsområdet istedenfor det fulle navnet.  Eksempel: &#x60;9503 Midtre Hålogaland 2021-2026&#x60;
      * @param tidspunkt Finner versjonen som var gyldig denne datoen.
      * @return List&lt;VegobjekterStatistikkMedType&gt;
-     * @throws WebClientResponseException if an error occurs while attempting to invoke the API
+     * @throws RestClientResponseException if an error occurs while attempting to invoke the API
      */
-    public Flux<VegobjekterStatistikkMedType> getVegobjekterStatistikkMedTyper(@jakarta.annotation.Nullable Set<InkluderIStatistikk> inkluder, @jakarta.annotation.Nullable Set<String> kontraktsomrade, @jakarta.annotation.Nullable LocalDate tidspunkt) throws WebClientResponseException {
-        ParameterizedTypeReference<VegobjekterStatistikkMedType> localVarReturnType = new ParameterizedTypeReference<VegobjekterStatistikkMedType>() {};
-        return getVegobjekterStatistikkMedTyperRequestCreation(inkluder, kontraktsomrade, tidspunkt).bodyToFlux(localVarReturnType);
+    public List<VegobjekterStatistikkMedType> getVegobjekterStatistikkMedTyper(@jakarta.annotation.Nullable Set<InkluderIStatistikk> inkluder, @jakarta.annotation.Nullable Set<String> kontraktsomrade, @jakarta.annotation.Nullable LocalDate tidspunkt) throws RestClientResponseException {
+        ParameterizedTypeReference<List<VegobjekterStatistikkMedType>> localVarReturnType = new ParameterizedTypeReference<>() {};
+        return getVegobjekterStatistikkMedTyperRequestCreation(inkluder, kontraktsomrade, tidspunkt).body(localVarReturnType);
     }
 
     /**
@@ -479,11 +1074,11 @@ public class StatistikkApi {
      * @param kontraktsomrade Filtrer på kontraktsomrade. Kommaseparert liste. Se /omrader/kontraktsomrader for mulige verdier. Det er mulig å bruke ID-en for kontraktsområdet istedenfor det fulle navnet.  Eksempel: &#x60;9503 Midtre Hålogaland 2021-2026&#x60;
      * @param tidspunkt Finner versjonen som var gyldig denne datoen.
      * @return ResponseEntity&lt;List&lt;VegobjekterStatistikkMedType&gt;&gt;
-     * @throws WebClientResponseException if an error occurs while attempting to invoke the API
+     * @throws RestClientResponseException if an error occurs while attempting to invoke the API
      */
-    public Mono<ResponseEntity<List<VegobjekterStatistikkMedType>>> getVegobjekterStatistikkMedTyperWithHttpInfo(@jakarta.annotation.Nullable Set<InkluderIStatistikk> inkluder, @jakarta.annotation.Nullable Set<String> kontraktsomrade, @jakarta.annotation.Nullable LocalDate tidspunkt) throws WebClientResponseException {
-        ParameterizedTypeReference<VegobjekterStatistikkMedType> localVarReturnType = new ParameterizedTypeReference<VegobjekterStatistikkMedType>() {};
-        return getVegobjekterStatistikkMedTyperRequestCreation(inkluder, kontraktsomrade, tidspunkt).toEntityList(localVarReturnType);
+    public ResponseEntity<List<VegobjekterStatistikkMedType>> getVegobjekterStatistikkMedTyperWithHttpInfo(@jakarta.annotation.Nullable Set<InkluderIStatistikk> inkluder, @jakarta.annotation.Nullable Set<String> kontraktsomrade, @jakarta.annotation.Nullable LocalDate tidspunkt) throws RestClientResponseException {
+        ParameterizedTypeReference<List<VegobjekterStatistikkMedType>> localVarReturnType = new ParameterizedTypeReference<>() {};
+        return getVegobjekterStatistikkMedTyperRequestCreation(inkluder, kontraktsomrade, tidspunkt).toEntity(localVarReturnType);
     }
 
     /**
@@ -499,9 +1094,9 @@ public class StatistikkApi {
      * @param kontraktsomrade Filtrer på kontraktsomrade. Kommaseparert liste. Se /omrader/kontraktsomrader for mulige verdier. Det er mulig å bruke ID-en for kontraktsområdet istedenfor det fulle navnet.  Eksempel: &#x60;9503 Midtre Hålogaland 2021-2026&#x60;
      * @param tidspunkt Finner versjonen som var gyldig denne datoen.
      * @return ResponseSpec
-     * @throws WebClientResponseException if an error occurs while attempting to invoke the API
+     * @throws RestClientResponseException if an error occurs while attempting to invoke the API
      */
-    public ResponseSpec getVegobjekterStatistikkMedTyperWithResponseSpec(@jakarta.annotation.Nullable Set<InkluderIStatistikk> inkluder, @jakarta.annotation.Nullable Set<String> kontraktsomrade, @jakarta.annotation.Nullable LocalDate tidspunkt) throws WebClientResponseException {
+    public ResponseSpec getVegobjekterStatistikkMedTyperWithResponseSpec(@jakarta.annotation.Nullable Set<InkluderIStatistikk> inkluder, @jakarta.annotation.Nullable Set<String> kontraktsomrade, @jakarta.annotation.Nullable LocalDate tidspunkt) throws RestClientResponseException {
         return getVegobjekterStatistikkMedTyperRequestCreation(inkluder, kontraktsomrade, tidspunkt);
     }
 }

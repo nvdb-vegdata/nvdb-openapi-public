@@ -8,13 +8,13 @@ export const geometriSchema = z.object({
     .boolean()
     .default('false')
     .describe(
-      `Indikerer at geometrien er forenklet. Kun inkludert om den er true`,
+      'Indikerer at geometrien er forenklet. Kun inkludert om den er true',
     )
     .optional(),
   egengeometri: z
     .boolean()
     .describe(
-      `Angir om geometrien er vegobjektets egengeometri, eller om geometrien er utledet fra vegnettes geometri`,
+      'Angir om geometrien er vegobjektets egengeometri, eller om geometrien er utledet fra vegnettes geometri',
     )
     .optional(),
 })

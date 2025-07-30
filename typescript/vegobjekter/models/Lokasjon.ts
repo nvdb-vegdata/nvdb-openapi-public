@@ -46,12 +46,12 @@ export type Lokasjon = {
    */
   stedfestinger?: Stedfesting[]
   /**
-   * @description Kun med om inkludergeometri=lokasjon eller inkludergeometri ikke er oppgitt
+   * @type object | undefined
    */
   geometri?: Geometri
   /**
    * @description Utelatt om lengde er lik 0
-   * @type number | undefined double
+   * @type number | undefined, double
    */
   lengde?: number
 }

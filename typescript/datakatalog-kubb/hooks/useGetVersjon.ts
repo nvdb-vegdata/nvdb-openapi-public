@@ -53,7 +53,8 @@ export function getVersjonQueryOptions(
 }
 /**
  * @summary Returnerer aktiv versjon på datakatalog
- * @link /api/v1/versjon */
+ * @link /api/v1/versjon
+ */
 export function useGetVersjon<
   TData = GetVersjon['response'],
   TQueryData = GetVersjon['response'],
@@ -77,7 +78,9 @@ export function useGetVersjon<
   const { query: queryOptions, client: clientOptions = {} } = options ?? {}
   const queryKey = queryOptions?.queryKey ?? getVersjonQueryKey()
   const query = useQuery({
-    ...(getVersjonQueryOptions(clientOptions) as QueryObserverOptions),
+    ...(getVersjonQueryOptions(
+      clientOptions,
+    ) as unknown as QueryObserverOptions),
     queryKey,
     ...(queryOptions as unknown as Omit<QueryObserverOptions, 'queryKey'>),
   }) as UseQueryResult<TData, GetVersjon['error']> & {
@@ -109,7 +112,8 @@ export function getVersjonSuspenseQueryOptions(
 }
 /**
  * @summary Returnerer aktiv versjon på datakatalog
- * @link /api/v1/versjon */
+ * @link /api/v1/versjon
+ */
 export function useGetVersjonSuspense<
   TData = GetVersjon['response'],
   TQueryKey extends QueryKey = GetVersjonSuspenseQueryKey,
@@ -131,9 +135,11 @@ export function useGetVersjonSuspense<
   const { query: queryOptions, client: clientOptions = {} } = options ?? {}
   const queryKey = queryOptions?.queryKey ?? getVersjonSuspenseQueryKey()
   const query = useSuspenseQuery({
-    ...(getVersjonSuspenseQueryOptions(clientOptions) as QueryObserverOptions),
+    ...(getVersjonSuspenseQueryOptions(
+      clientOptions,
+    ) as unknown as UseSuspenseQueryOptions),
     queryKey,
-    ...(queryOptions as unknown as Omit<QueryObserverOptions, 'queryKey'>),
+    ...(queryOptions as unknown as Omit<UseSuspenseQueryOptions, 'queryKey'>),
   }) as UseSuspenseQueryResult<TData, GetVersjon['error']> & {
     queryKey: TQueryKey
   }

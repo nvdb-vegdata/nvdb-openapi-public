@@ -2,13 +2,13 @@
   "$schema": "./node_modules/@openapitools/openapi-generator-cli/config.schema.json",
   "spaces": 2,
   "generator-cli": {
-    "version": "7.13.0",
+    "version": "7.14.0",
     "generators": {
       "datakatalog-java": {
         "inputSpec": "https://nvdbapiles.atlas.vegvesen.no/api-docs/datakatalog",
         "output": "java/datakatalog",
         "generatorName": "java",
-        "library": "webclient",
+        "library": "restclient",
         "globalProperty": "modelDocs=false,modelTests=false,apiTests=false",
         "additionalProperties": {
           "apiPackage": "no.vegvesen.vt.nvdb.datakatalog.api",
@@ -17,14 +17,15 @@
           "groupId": "no.vegvesen.vt.nvdb.apiles",
           "artifactId": "nvdbapiles-datakatalogen-java-klient",
           "useJakartaEe": true,
-          "hideGenerationTimestamp": true
+          "hideGenerationTimestamp": true,
+          "useSingleRequestParameter": "static"
         }
       },
       "vegnett-java": {
         "inputSpec": "https://nvdbapiles.atlas.vegvesen.no/api-docs/vegnett",
         "output": "java/vegnett",
         "generatorName": "java",
-        "library": "webclient",
+        "library": "restclient",
         "globalProperty": "modelDocs=false,modelTests=false,apiTests=false",
         "additionalProperties": {
           "apiPackage": "no.vegvesen.vt.nvdb.vegnett.api",
@@ -33,14 +34,15 @@
           "groupId": "no.vegvesen.vt.nvdb.apiles",
           "artifactId": "nvdbapiles-vegnett-java-klient",
           "useJakartaEe": true,
-          "hideGenerationTimestamp": true
+          "hideGenerationTimestamp": true,
+          "useSingleRequestParameter": "static"
         }
       },
       "vegobjekter-java": {
         "inputSpec": "https://nvdbapiles.atlas.vegvesen.no/api-docs/vegobjekter",
         "output": "java/vegobjekter",
         "generatorName": "java",
-        "library": "webclient",
+        "library": "restclient",
         "globalProperty": "modelDocs=false,modelTests=false,apiTests=false",
         "additionalProperties": {
           "apiPackage": "no.vegvesen.vt.nvdb.vegobjekter.api",
@@ -49,7 +51,8 @@
           "groupId": "no.vegvesen.vt.nvdb.apiles",
           "artifactId": "nvdbapiles-vegobjekter-java-klient",
           "useJakartaEe": true,
-          "hideGenerationTimestamp": true
+          "hideGenerationTimestamp": true,
+          "useSingleRequestParameter": "static"
         }
       },
       "datakatalog-ts": {

@@ -1,3 +1,3 @@
 import { z } from 'zod'
 
-export const relasjonstypeSchema = z.enum([`vegobjekter`, `vegobjektIder`])
+export const relasjonstypeSchema = z.enum(['vegobjekter', 'vegobjektIder'])

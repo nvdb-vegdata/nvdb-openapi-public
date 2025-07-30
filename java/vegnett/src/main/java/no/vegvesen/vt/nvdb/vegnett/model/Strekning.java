@@ -41,7 +41,7 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
   Strekning.JSON_PROPERTY_TIL_METER,
   Strekning.JSON_PROPERTY_ADSKILTE_LøP_NUMMER
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.13.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.14.0")
 public class Strekning {
   public static final String JSON_PROPERTY_STREKNING = "strekning";
   @jakarta.annotation.Nonnull

@@ -3,8 +3,8 @@ import { relasjonstypeSchema } from './relasjonstypeSchema'
 import { z } from 'zod'
 
 export const relasjonSchema = z.object({
-  id: z.number(),
+  id: z.number().int(),
   type: z.lazy(() => vegobjektTypeSchema),
-  listeid: z.number().optional(),
+  listeid: z.number().int().optional(),
   relasjonstype: z.lazy(() => relasjonstypeSchema),
 })

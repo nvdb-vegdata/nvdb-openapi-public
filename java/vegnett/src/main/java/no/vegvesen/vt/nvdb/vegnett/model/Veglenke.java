@@ -56,7 +56,7 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
   Veglenke.JSON_PROPERTY_SLUTTDATO,
   Veglenke.JSON_PROPERTY_SUPERSTEDFESTING
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.13.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.14.0")
 public class Veglenke {
   public static final String JSON_PROPERTY_VEGLENKENUMMER = "veglenkenummer";
   @jakarta.annotation.Nonnull

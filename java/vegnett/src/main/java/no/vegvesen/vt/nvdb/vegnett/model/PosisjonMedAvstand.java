@@ -36,7 +36,7 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
   PosisjonMedAvstand.JSON_PROPERTY_KOMMUNE,
   PosisjonMedAvstand.JSON_PROPERTY_AVSTAND
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.13.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.14.0")
 public class PosisjonMedAvstand {
   public static final String JSON_PROPERTY_VEGSYSTEMREFERANSE = "vegsystemreferanse";
   @jakarta.annotation.Nonnull

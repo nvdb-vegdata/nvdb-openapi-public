@@ -64,7 +64,8 @@ export function getEgenskapstypeKategorierQueryOptions(
 }
 /**
  * @summary Returnerer alle kategorier for egenskapstypene
- * @link /api/v1/egenskapstypekategorier */
+ * @link /api/v1/egenskapstypekategorier
+ */
 export function useGetEgenskapstypeKategorier<
   TData = GetEgenskapstypeKategorier['response'],
   TQueryData = GetEgenskapstypeKategorier['response'],
@@ -91,7 +92,7 @@ export function useGetEgenskapstypeKategorier<
   const query = useQuery({
     ...(getEgenskapstypeKategorierQueryOptions(
       clientOptions,
-    ) as QueryObserverOptions),
+    ) as unknown as QueryObserverOptions),
     queryKey,
     ...(queryOptions as unknown as Omit<QueryObserverOptions, 'queryKey'>),
   }) as UseQueryResult<TData, GetEgenskapstypeKategorier['error']> & {
@@ -126,7 +127,8 @@ export function getEgenskapstypeKategorierSuspenseQueryOptions(
 }
 /**
  * @summary Returnerer alle kategorier for egenskapstypene
- * @link /api/v1/egenskapstypekategorier */
+ * @link /api/v1/egenskapstypekategorier
+ */
 export function useGetEgenskapstypeKategorierSuspense<
   TData = GetEgenskapstypeKategorier['response'],
   TQueryKey extends QueryKey = GetEgenskapstypeKategorierSuspenseQueryKey,
@@ -151,9 +153,9 @@ export function useGetEgenskapstypeKategorierSuspense<
   const query = useSuspenseQuery({
     ...(getEgenskapstypeKategorierSuspenseQueryOptions(
       clientOptions,
-    ) as QueryObserverOptions),
+    ) as unknown as UseSuspenseQueryOptions),
     queryKey,
-    ...(queryOptions as unknown as Omit<QueryObserverOptions, 'queryKey'>),
+    ...(queryOptions as unknown as Omit<UseSuspenseQueryOptions, 'queryKey'>),
   }) as UseSuspenseQueryResult<TData, GetEgenskapstypeKategorier['error']> & {
     queryKey: TQueryKey
   }

@@ -16,7 +16,7 @@ package no.vegvesen.vt.nvdb.vegnett.infrastructure.auth;
 import org.springframework.http.HttpHeaders;
 import org.springframework.util.MultiValueMap;
 
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.13.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.14.0")
 public interface Authentication {
     /**
      * Apply authentication settings to header and / or query parameters.

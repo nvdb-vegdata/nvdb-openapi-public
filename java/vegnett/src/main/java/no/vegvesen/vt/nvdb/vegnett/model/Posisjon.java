@@ -35,7 +35,7 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
   Posisjon.JSON_PROPERTY_GEOMETRI,
   Posisjon.JSON_PROPERTY_KOMMUNE
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.13.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.14.0")
 public class Posisjon {
   public static final String JSON_PROPERTY_VEGSYSTEMREFERANSE = "vegsystemreferanse";
   @jakarta.annotation.Nonnull

@@ -4,7 +4,7 @@ export type Adresse = {
    */
   navn: string
   /**
-   * @type integer int32
+   * @type integer, int32
    */
   adressekode: number
 }

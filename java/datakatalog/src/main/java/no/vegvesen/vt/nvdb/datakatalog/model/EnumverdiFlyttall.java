@@ -41,7 +41,7 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
   EnumverdiFlyttall.JSON_PROPERTY_VERDI,
   EnumverdiFlyttall.JSON_PROPERTY_TYPE
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.13.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.14.0")
 public class EnumverdiFlyttall {
   public static final String JSON_PROPERTY_ID = "id";
   @jakarta.annotation.Nonnull

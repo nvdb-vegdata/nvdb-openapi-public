@@ -29,13 +29,13 @@ import {
 } from './EgenskapstypeEnum'
 
 import {
-  StedfestingListe,
+  type StedfestingListe,
   StedfestingListeFromJSONTyped,
   StedfestingListeToJSON,
   StedfestingListeToJSONTyped,
 } from './StedfestingListe'
 import {
-  StedfestingEnkel,
+  type StedfestingEnkel,
   StedfestingEnkelFromJSONTyped,
   StedfestingEnkelToJSON,
   StedfestingEnkelToJSONTyped,

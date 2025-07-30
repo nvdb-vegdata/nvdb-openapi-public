@@ -84,7 +84,8 @@ export function getVegobjektEndringerForTypeQueryOptions(
 }
 /**
  * @summary Hent endringer for en vegobjekttype innen 30 dager
- * @link /api/v4/vegobjekter/:vegobjekttypeId/endringer */
+ * @link /api/v4/vegobjekter/:vegobjekttypeId/endringer
+ */
 export function useGetVegobjektEndringerForType<
   TData = GetVegobjektEndringerForType['response'],
   TQueryData = GetVegobjektEndringerForType['response'],
@@ -116,7 +117,7 @@ export function useGetVegobjektEndringerForType<
       vegobjekttypeId,
       params,
       clientOptions,
-    ) as QueryObserverOptions),
+    ) as unknown as QueryObserverOptions),
     queryKey,
     ...(queryOptions as unknown as Omit<QueryObserverOptions, 'queryKey'>),
   }) as UseQueryResult<TData, GetVegobjektEndringerForType['error']> & {
@@ -166,7 +167,8 @@ export function getVegobjektEndringerForTypeSuspenseQueryOptions(
 }
 /**
  * @summary Hent endringer for en vegobjekttype innen 30 dager
- * @link /api/v4/vegobjekter/:vegobjekttypeId/endringer */
+ * @link /api/v4/vegobjekter/:vegobjekttypeId/endringer
+ */
 export function useGetVegobjektEndringerForTypeSuspense<
   TData = GetVegobjektEndringerForType['response'],
   TQueryKey extends QueryKey = GetVegobjektEndringerForTypeSuspenseQueryKey,
@@ -196,9 +198,9 @@ export function useGetVegobjektEndringerForTypeSuspense<
       vegobjekttypeId,
       params,
       clientOptions,
-    ) as QueryObserverOptions),
+    ) as unknown as UseSuspenseQueryOptions),
     queryKey,
-    ...(queryOptions as unknown as Omit<QueryObserverOptions, 'queryKey'>),
+    ...(queryOptions as unknown as Omit<UseSuspenseQueryOptions, 'queryKey'>),
   }) as UseSuspenseQueryResult<TData, GetVegobjektEndringerForType['error']> & {
     queryKey: TQueryKey
   }

@@ -40,7 +40,7 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
   GeometriMedKvalitet.JSON_PROPERTY_MEDIUM,
   GeometriMedKvalitet.JSON_PROPERTY_MEDIUM_NVDB
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.13.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.14.0")
 public class GeometriMedKvalitet {
   public static final String JSON_PROPERTY_WKT = "wkt";
   @jakarta.annotation.Nonnull

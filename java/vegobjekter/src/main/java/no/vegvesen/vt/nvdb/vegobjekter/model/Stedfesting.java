@@ -46,7 +46,7 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
   Stedfesting.JSON_PROPERTY_SIDEPOSISJON,
   Stedfesting.JSON_PROPERTY_KORTFORM
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.13.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.14.0")
 public class Stedfesting {
   public static final String JSON_PROPERTY_TYPE = "type";
   @jakarta.annotation.Nonnull

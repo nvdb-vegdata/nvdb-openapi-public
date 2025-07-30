@@ -39,7 +39,7 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
   Vegsystemreferanse.JSON_PROPERTY_METRERT_LOKASJON,
   Vegsystemreferanse.JSON_PROPERTY_KORTFORM
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.13.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.14.0")
 public class Vegsystemreferanse {
   public static final String JSON_PROPERTY_VEGSYSTEM = "vegsystem";
   @jakarta.annotation.Nullable

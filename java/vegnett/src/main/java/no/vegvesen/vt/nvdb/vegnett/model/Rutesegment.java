@@ -71,7 +71,7 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
   Rutesegment.JSON_PROPERTY_RIKSVEGRUTER,
   Rutesegment.JSON_PROPERTY_ADRESSE
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.13.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.14.0")
 public class Rutesegment {
   public static final String JSON_PROPERTY_VEGLENKESEKVENSID = "veglenkesekvensid";
   @jakarta.annotation.Nonnull

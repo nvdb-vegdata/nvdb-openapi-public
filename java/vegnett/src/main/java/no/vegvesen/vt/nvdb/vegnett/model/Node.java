@@ -44,7 +44,7 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
   Node.JSON_PROPERTY_GEOMETRI,
   Node.JSON_PROPERTY_PORTER
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.13.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.14.0")
 public class Node {
   public static final String JSON_PROPERTY_ID = "id";
   @jakarta.annotation.Nonnull
