@@ -310,12 +310,6 @@ public class EgenskapstypeTid extends Egenskapstype {
   }
 
   @Override
-  public EgenskapstypeTid komplementærEgenskapstype(@jakarta.annotation.Nullable Integer komplementærEgenskapstype) {
-    this.setKomplementærEgenskapstype(komplementærEgenskapstype);
-    return this;
-  }
-
-  @Override
   public EgenskapstypeTid kortnavn(@jakarta.annotation.Nullable String kortnavn) {
     this.setKortnavn(kortnavn);
     return this;
@@ -358,14 +352,20 @@ public class EgenskapstypeTid extends Egenskapstype {
   }
 
   @Override
-  public EgenskapstypeTid obligatoriskVerdi(@jakarta.annotation.Nonnull Boolean obligatoriskVerdi) {
-    this.setObligatoriskVerdi(obligatoriskVerdi);
+  public EgenskapstypeTid komplementærEgenskapstype(@jakarta.annotation.Nullable Integer komplementærEgenskapstype) {
+    this.setKomplementærEgenskapstype(komplementærEgenskapstype);
     return this;
   }
 
   @Override
   public EgenskapstypeTid skrivebeskyttet(@jakarta.annotation.Nonnull Boolean skrivebeskyttet) {
     this.setSkrivebeskyttet(skrivebeskyttet);
+    return this;
+  }
+
+  @Override
+  public EgenskapstypeTid obligatoriskVerdi(@jakarta.annotation.Nonnull Boolean obligatoriskVerdi) {
+    this.setObligatoriskVerdi(obligatoriskVerdi);
     return this;
   }
 

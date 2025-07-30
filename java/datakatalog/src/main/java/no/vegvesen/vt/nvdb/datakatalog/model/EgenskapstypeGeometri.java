@@ -206,12 +206,6 @@ public class EgenskapstypeGeometri extends Egenskapstype {
   }
 
   @Override
-  public EgenskapstypeGeometri komplementærEgenskapstype(@jakarta.annotation.Nullable Integer komplementærEgenskapstype) {
-    this.setKomplementærEgenskapstype(komplementærEgenskapstype);
-    return this;
-  }
-
-  @Override
   public EgenskapstypeGeometri kortnavn(@jakarta.annotation.Nullable String kortnavn) {
     this.setKortnavn(kortnavn);
     return this;
@@ -254,14 +248,20 @@ public class EgenskapstypeGeometri extends Egenskapstype {
   }
 
   @Override
-  public EgenskapstypeGeometri obligatoriskVerdi(@jakarta.annotation.Nonnull Boolean obligatoriskVerdi) {
-    this.setObligatoriskVerdi(obligatoriskVerdi);
+  public EgenskapstypeGeometri komplementærEgenskapstype(@jakarta.annotation.Nullable Integer komplementærEgenskapstype) {
+    this.setKomplementærEgenskapstype(komplementærEgenskapstype);
     return this;
   }
 
   @Override
   public EgenskapstypeGeometri skrivebeskyttet(@jakarta.annotation.Nonnull Boolean skrivebeskyttet) {
     this.setSkrivebeskyttet(skrivebeskyttet);
+    return this;
+  }
+
+  @Override
+  public EgenskapstypeGeometri obligatoriskVerdi(@jakarta.annotation.Nonnull Boolean obligatoriskVerdi) {
+    this.setObligatoriskVerdi(obligatoriskVerdi);
     return this;
   }
 

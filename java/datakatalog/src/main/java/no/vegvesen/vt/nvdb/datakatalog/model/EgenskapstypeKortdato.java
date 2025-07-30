@@ -310,12 +310,6 @@ public class EgenskapstypeKortdato extends Egenskapstype {
   }
 
   @Override
-  public EgenskapstypeKortdato komplementærEgenskapstype(@jakarta.annotation.Nullable Integer komplementærEgenskapstype) {
-    this.setKomplementærEgenskapstype(komplementærEgenskapstype);
-    return this;
-  }
-
-  @Override
   public EgenskapstypeKortdato kortnavn(@jakarta.annotation.Nullable String kortnavn) {
     this.setKortnavn(kortnavn);
     return this;
@@ -358,14 +352,20 @@ public class EgenskapstypeKortdato extends Egenskapstype {
   }
 
   @Override
-  public EgenskapstypeKortdato obligatoriskVerdi(@jakarta.annotation.Nonnull Boolean obligatoriskVerdi) {
-    this.setObligatoriskVerdi(obligatoriskVerdi);
+  public EgenskapstypeKortdato komplementærEgenskapstype(@jakarta.annotation.Nullable Integer komplementærEgenskapstype) {
+    this.setKomplementærEgenskapstype(komplementærEgenskapstype);
     return this;
   }
 
   @Override
   public EgenskapstypeKortdato skrivebeskyttet(@jakarta.annotation.Nonnull Boolean skrivebeskyttet) {
     this.setSkrivebeskyttet(skrivebeskyttet);
+    return this;
+  }
+
+  @Override
+  public EgenskapstypeKortdato obligatoriskVerdi(@jakarta.annotation.Nonnull Boolean obligatoriskVerdi) {
+    this.setObligatoriskVerdi(obligatoriskVerdi);
     return this;
   }
 
