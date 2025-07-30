@@ -43,3 +43,5 @@ bun.lock*
 
 ### Gradle ###
 .gradle/
+
+*.db
