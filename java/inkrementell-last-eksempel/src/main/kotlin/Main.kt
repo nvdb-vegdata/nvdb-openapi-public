@@ -2,153 +2,61 @@
 
 package no.vegvesen.vt.nvdb.apiles
 
-import com.fasterxml.jackson.databind.ObjectMapper
-import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule
-import no.vegvesen.vt.nvdb.vegnett.api.VegnettApi
-import org.jetbrains.exposed.v1.core.SqlExpressionBuilder.eq
-import org.jetbrains.exposed.v1.core.Table
-import org.jetbrains.exposed.v1.jdbc.*
-import org.jetbrains.exposed.v1.jdbc.transactions.transaction
-import java.io.File
-import kotlin.time.Clock
+import no.vegvesen.vt.nvdb.apiles.KeyValueStore.get
+import java.time.Instant
 import kotlin.time.ExperimentalTime
-import kotlin.time.Instant
 
-object Vegobjekter : Table() {
-    val id = long("id")
-    val versjon = integer("versjon")
-    val type = integer("type")
-    val data = text("data")
 
-    override val primaryKey = PrimaryKey(id, versjon)
-}
-
-object Veglenkesegmenter : Table() {
-    val id = long("id")
-    val veglenkeNummer = integer("veglenke_nummer")
-    val segmentNummer = integer("segment_nummer")
-    val data = text("data")
-
-    override val primaryKey = PrimaryKey(id, veglenkeNummer, segmentNummer)
-}
-
-object KeyValue : Table() {
-    val key = varchar("key", 255)
-    val value = text("value")
-
-    override val primaryKey = PrimaryKey(key)
-}
-
-val objectMapper = ObjectMapper().apply {
-    registerModule(JavaTimeModule())
-}
-
-fun Any.toJson(): String = objectMapper.writeValueAsString(this)
-
-fun <T : Any> String.fromJson(clazz: Class<T>): T =
-    objectMapper.readValue<T>(this, clazz)
-
+/**
+ * Implements a resumable incremental import pattern for NVDB road network data.
+ *
+ * The system operates in two distinct phases:
+ * 1. Initial backfill: Paginated bulk import of all existing data
+ * 2. Event-driven updates: Continuous monitoring for changes using the endringer API
+ *
+ * State persistence allows the system to resume from interruptions at any point.
+ */
 fun main() {
-    val dbFile = File("nvdb.db")
-    Database.connect("jdbc:sqlite:${dbFile.absolutePath}", "org.sqlite.JDBC")
-    println("Prepared connection to SQLite database: ${dbFile.absolutePath}")
+    initializeDatabase()
 
-    val vegnettApi = VegnettApi()
+    val kommune = 5001 // Example municipality ID for testing
+    importAndUpdateVegnett(kommune)
 
-    transaction {
-        SchemaUtils.create(Vegobjekter, Veglenkesegmenter, KeyValue)
-        println("Tables created/verified: Vegobjekter, Veglenkesegmenter, KeyValue")
-    }
+    val vegobjektType = 3 // Example type ID for testing
+    importAndUpdateVegobjekter(vegobjektType)
+}
 
-    // Check import status
-    val importStatus = transaction {
-        val importStarted = KeyValue.select(KeyValue.value)
-            .where { KeyValue.key eq "ImportStarted" }
-            .map { it[KeyValue.value] }
-            .firstOrNull()
-            ?.fromJson(Instant::class.java)
+fun importAndUpdateVegobjekter(vegobjektType: Int) {
+    // State variables for tracking import progress and resumption points
+    val importStarted: Instant? = KeyValueStore.get<Instant>(Key.VegobjekterImportStarted)
+    val importCompleted: Instant? = KeyValueStore.get<Instant>(Key.VegobjekterImportCompleted)
+    val lastStart: String? =
+        KeyValueStore.get<String>(Key.VegobjekterLastStart)  // Pagination cursor for resuming backfill
 
-        val importCompleted = KeyValue.select(KeyValue.value)
-            .where { KeyValue.key eq "ImportCompleted" }
-            .map { it[KeyValue.value] }
-            .firstOrNull()
-            ?.fromJson(Instant::class.java)
-
-        val lastStart = KeyValue.select(KeyValue.value)
-            .where { KeyValue.key eq "LastStart" }
-            .map { it[KeyValue.value] }
-            .firstOrNull()
-
-        Triple(importStarted, importCompleted, lastStart)
-    }
-
-    val (importStarted, importCompleted, lastStart) = importStatus
-
+    // Determine which phase to execute based on persisted state
     if (importCompleted != null) {
         println("Import already completed")
     } else if (importStarted != null) {
+        // Resume interrupted backfill from last known pagination position
         println("Resuming import from position: $lastStart")
-        performImport(vegnettApi, lastStart)
+        performVegobjekterImport(vegobjektType, lastStart)
     } else {
+        // Begin fresh backfill import
         println("Starting new import...")
-        transaction {
-            KeyValue.insert {
-                it[key] = "ImportStarted"
-                it[value] = Clock.System.now().toJson()
-            }
-        }
-        performImport(vegnettApi, null)
-    }
-}
-
-fun performImport(vegnettApi: VegnettApi, startFrom: String?) {
-    var stop = false
-    var start: String? = startFrom
-    var totalImported = 0
-
-    while (!stop) {
-        val segmenter = vegnettApi.getVeglenkesegmenter(
-            VegnettApi.GetVeglenkesegmenterRequest().kommune(setOf(5001)).start(start)
-        )
-
-        if (segmenter.objekter.isEmpty()) {
-            stop = true
-            println("Import completed. Total segments imported: $totalImported")
-
-            // Mark import as completed
-            transaction {
-                KeyValue.insert {
-                    it[key] = "ImportCompleted"
-                    it[value] = Clock.System.now().toJson()
-                }
-            }
-        } else {
-            // Each fetch happens in its own transaction
-            transaction {
-                // Batch insert segmenter into Veglenkesegmenter
-                Veglenkesegmenter.batchInsert(segmenter.objekter) { segment ->
-                    this[Veglenkesegmenter.id] = segment.veglenkesekvensid
-                    this[Veglenkesegmenter.veglenkeNummer] = segment.veglenkenummer
-                    this[Veglenkesegmenter.segmentNummer] = segment.segmentnummer
-                    this[Veglenkesegmenter.data] = segment.toJson()
-                }
-
-                // Save the next start position
-                start = segmenter.metadata?.neste?.start
-                if (start != null) {
-                    // Delete existing LastStart entry if it exists
-                    KeyValue.deleteWhere { KeyValue.key eq "LastStart" }
-                    // Insert new LastStart entry
-                    KeyValue.insert {
-                        it[key] = "LastStart"
-                        it[value] = start!!
-                    }
-                }
-            }
-
-            totalImported += segmenter.objekter.size
-            println("Imported ${segmenter.objekter.size} segments (total: $totalImported)")
-        }
+        KeyValueStore.set(Key.VegobjekterImportStarted, Instant.now())
+        performVegobjekterImport(vegobjektType, null)
     }
 
+    // Transition to event-driven update phase after backfill completion
+    // Uses the completion timestamp as baseline for detecting subsequent changes
+    performVegobjekterUpdate(vegobjektType)
 }
+
+fun performVegobjekterImport(vegobjektType: Int, lastStart: String?) {
+
+}
+
+fun performVegobjekterUpdate(vegobjektType: Int) {
+    TODO("Not yet implemented")
+}
+
