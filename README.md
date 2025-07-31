@@ -106,10 +106,28 @@ Se også [package.json](package.json) og [openapitools.json](openapitools.json) 
 - [Java-klient for vegobjekter-APIet, med Spring Reactive Webclient og Jackson](./java/vegobjekter/)
 - [TypeScript-klient for datakatalogen, med fetch](./typescript/datakatalog/)
 
-# Bedre Frontend-støtte med [Kubb](https://www.kubb.dev/)
+## Bedre Frontend-støtte med [Kubb](https://www.kubb.dev/)
 
 Støtten for TypeScript i `openapi-generator` er noe grunnleggende. Dersom man ønsker mer avansert funksjonalitet, som generering av [Zod-skjemaer](https://zod.dev) eller [TanStack Query-hooks](https://tanstack.com/query/latest), kan man ta i bruk [Kubb](https://www.kubb.dev/).
 
 I dette repoet finnes et eksempel som genererer ferdige hooks med TanStack Query for React, inkludert fulle Zod-skjema for validering.
 
 Se [package.json](package.json) for installerte pakker (alle som starter med `@kubb`), og [kubb.config.ts](kubb.config.ts) for oppsettet. Generert kode finnes for [datakatalogen](./typescript/datakatalog-kubb/) og [vegobjekter fra NVDB LES API v4](./typescript/vegobjekter/).
+
+## Inkrementell last-eksempel
+
+I [java/inkrementell-last-eksempel](./java/inkrementell-last-eksempel/) finner du et Kotlin-eksempel som demonstrerer hvordan man kan implementere robust og gjenopptagbar import av NVDB-data.
+
+Eksemplet implementerer et to-fase system:
+
+1. **Initial backfill**: Paginert bulkimport av alle eksisterende data
+2. **Hendelsesdrevet oppdatering**: Kontinuerlig overvåking av endringer ved hjelp av endringer-APIet
+
+### Hovedfunksjoner:
+
+- **Gjenopptagbar import**: Systemet kan starte på nytt etter avbrudd uten tap av data eller duplikater
+- **Tilstandslagring**: Fremdrift lagres kontinuerlig for å muliggjøre gjenopptakelse
+- **Selektive oppdateringer**: Kun endrede objekter hentes og oppdateres, ikke hele datasettet
+- **Database-integrasjon**: Bruker Exposed ORM for effektiv datalagring
+
+Eksemplet viser import av både vegnett-data og vegobjekter, og kan tilpasses for andre NVDB-datasett. Dette mønsteret er spesielt nyttig for store datasett hvor full re-import ville være for tidkrevende.
