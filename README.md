@@ -19,7 +19,7 @@ Du trenger en nyere Node-versjon (20+) og NPM tilgjengelig i PATH. Du kan følge
 npm install @openapitools/openapi-generator-cli -g
 ```
 
-For å generere f.eks. en ferdig Java-klient mot vår datakatalog, med `webclient` og Jackson-serialisering, kall dette:
+For å generere f.eks. en ferdig Java-klient mot vår datakatalog, med Spring RestClient og Jackson-serialisering, kall dette:
 
 ```
 openapi-generator-cli generate --input-spec https://nvdbapiles.atlas.vegvesen.no/api-docs/datakatalog \
@@ -27,7 +27,7 @@ openapi-generator-cli generate --input-spec https://nvdbapiles.atlas.vegvesen.no
   --output nvdb-datakatalog \
   --global-property models,apis,modelDocs=false \
   --library restclient \
-  --additional-properties serializationLibrary=jackson,packageName=no.vegvesen.nvdb.datakatalog,sourceFolder=src/main/java
+  --additional-properties serializationLibrary=jackson,packageName=no.vegvesen.nvdb.datakatalog,sourceFolder=src/main/java,useSingleRequestParameter=static
 ```
 
 For å bare generere modeller, med f.eks. Jackson serialisering, kall dette:
