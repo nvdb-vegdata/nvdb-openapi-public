@@ -25,7 +25,6 @@ For å generere f.eks. en ferdig Java-klient mot vår datakatalog, med Spring Re
 openapi-generator-cli generate --input-spec https://nvdbapiles.atlas.vegvesen.no/api-docs/datakatalog \
   --generator-name java \
   --output nvdb-datakatalog \
-  --global-property models,apis,modelDocs=false \
   --library restclient \
   --additional-properties serializationLibrary=jackson,packageName=no.vegvesen.nvdb.datakatalog,sourceFolder=src/main/java,useSingleRequestParameter=static
 ```
