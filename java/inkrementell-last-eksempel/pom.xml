@@ -11,13 +11,6 @@
 
     <artifactId>inkrementell-last-eksempel</artifactId>
 
-    <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <kotlin.code.style>official</kotlin.code.style>
-        <kotlin.compiler.languageVersion>2.2</kotlin.compiler.languageVersion>
-        <kotlin.compiler.apiVersion>2.2</kotlin.compiler.apiVersion>
-    </properties>
-
     <dependencies>
         <dependency>
             <groupId>org.jetbrains.kotlin</groupId>
@@ -27,6 +20,11 @@
         <dependency>
             <groupId>no.vegvesen.vt.nvdb.apiles</groupId>
             <artifactId>nvdbapiles-vegnett-java-klient</artifactId>
+            <version>v4</version>
+        </dependency>
+        <dependency>
+            <groupId>no.vegvesen.vt.nvdb.apiles</groupId>
+            <artifactId>nvdbapiles-vegobjekter-java-klient</artifactId>
             <version>v4</version>
         </dependency>
         <dependency>
@@ -100,7 +98,7 @@
                 <artifactId>exec-maven-plugin</artifactId>
                 <version>1.6.0</version>
                 <configuration>
-                    <mainClass>MainKt</mainClass>
+                    <mainClass>no.vegvesen.vt.nvdb.apiles.MainKt</mainClass>
                 </configuration>
             </plugin>
         </plugins>
