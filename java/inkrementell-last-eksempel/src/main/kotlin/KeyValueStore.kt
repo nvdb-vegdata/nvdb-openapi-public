@@ -28,10 +28,10 @@ object KeyValueStore {
 enum class Key {
     VegnettImportStarted,
     VegnettImportCompleted,
-    VegnettLastStart,
-    VegnettLastUpdate,
+    VegnettImportLastStart,
+    VegnettUpdateLastStart,
     VegobjekterImportStarted,
     VegobjekterImportCompleted,
-    VegobjekterLastStart,
-    VegobjekterLastUpdate
+    VegobjekterImportLastStart,
+    VegobjekterUpdateLastStart
 }

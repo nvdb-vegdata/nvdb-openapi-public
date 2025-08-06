@@ -8,7 +8,6 @@ import org.jetbrains.exposed.v1.jdbc.batchInsert
 import org.jetbrains.exposed.v1.jdbc.deleteWhere
 import org.jetbrains.exposed.v1.jdbc.transactions.transaction
 import java.time.Instant
-import java.time.ZoneOffset
 
 
 val vegnettApi = VegnettApi()
@@ -17,7 +16,8 @@ fun importAndUpdateVegnett(kommune: Int) {
     // State variables for tracking import progress and resumption points
     val importStarted: Instant? = KeyValueStore.get<Instant>(Key.VegnettImportStarted)
     val importCompleted: Instant? = KeyValueStore.get<Instant>(Key.VegnettImportCompleted)
-    val lastStart: String? = KeyValueStore.get<String>(Key.VegnettLastStart)  // Pagination cursor for resuming backfill
+    val lastStart: String? =
+        KeyValueStore.get<String>(Key.VegnettImportLastStart)  // Pagination cursor for resuming backfill
 
     // Determine which phase to execute based on persisted state
     if (importCompleted != null) {
@@ -47,25 +47,24 @@ fun importAndUpdateVegnett(kommune: Int) {
  */
 private fun performVegnettUpdate(kommune: Int) {
     // Find updates from start of import to catch any changes that occurred during the backfill
-    var lastUpdate =
-        KeyValueStore.get<Instant>(Key.VegnettLastUpdate) ?: KeyValueStore.get(Key.VegnettImportStarted)
+    var lastStart: String? =
+        KeyValueStore.get<String>(Key.VegnettUpdateLastStart) ?: KeyValueStore.get<Instant>(Key.VegnettImportStarted)
+            ?.toString()
         ?: error("Perform a backfill import before starting updates")
 
     var stop = false
     while (!stop) {
-        println("Finding updates since: $lastUpdate")
+        println("Finding updates since: $lastStart")
 
         // Query the change log API to identify modified objects since last update
         val endringer = vegnettApi.getVeglenkesekvensEndringer(
             VegnettApi.GetVeglenkesekvensEndringerRequest().kommune(setOf(kommune)).start(
-                lastUpdate.atOffset(
-                    ZoneOffset.UTC
-                )
+                lastStart
             )
         )
         if (endringer.metadata.returnert == 0) {
             stop = true
-            println("No more updates found since $lastUpdate")
+            println("No more updates found since $lastStart")
         } else {
             val updatedIds = endringer.veglenkesekvenserSegmentert.map { it.id }.toSet()
             val removedIds = endringer.veglenkesekvenserFjernet.map { it.id }.toSet()
@@ -87,8 +86,12 @@ private fun performVegnettUpdate(kommune: Int) {
                 }
 
                 // Advance the update cursor to prevent reprocessing the same changes
-                lastUpdate = Instant.now()
-                KeyValueStore.set(Key.VegnettLastUpdate, lastUpdate)
+                lastStart = endringer.metadata.neste?.start
+                if (lastStart != null) {
+                    KeyValueStore.set(Key.VegnettUpdateLastStart, lastStart!!)
+                } else {
+                    stop = true
+                }
             }
             println("Processed ${endringer.metadata.returnert} updates")
         }
@@ -113,8 +116,8 @@ private fun fetchUpdatedSegments(segmentertIds: Set<Long>): List<Veglenkesegment
         )
         val elements = response.objekter
         segments.addAll(elements)
-        start = response.metadata?.neste?.start
-    } while (elements.isNotEmpty())
+        start = response.metadata.neste?.start
+    } while (elements.isNotEmpty() && start != null)
 
     return segments
 }
@@ -154,8 +157,8 @@ fun performVegnettImport(startFrom: String?, kommune: Int) {
                 }
 
                 // Save pagination cursor for potential resumption
-                start = response.metadata?.neste?.start
-                start?.let { KeyValueStore.set(Key.VegnettLastStart, it) }
+                start = response.metadata.neste?.start
+                start?.let { KeyValueStore.set(Key.VegnettImportLastStart, it) }
             }
 
             totalImported += response.objekter.size

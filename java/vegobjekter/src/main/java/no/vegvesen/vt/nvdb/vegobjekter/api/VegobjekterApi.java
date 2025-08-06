@@ -1004,13 +1004,13 @@ public class VegobjekterApi {
     public static class GetVegobjektEndringerForTypeRequest {
         private @jakarta.annotation.Nonnull Integer vegobjekttypeId;
         private @jakarta.annotation.Nullable Set<Long> ider;
-        private @jakarta.annotation.Nullable OffsetDateTime start;
+        private @jakarta.annotation.Nullable String start;
         private @jakarta.annotation.Nullable Integer antall;
         private @jakarta.annotation.Nullable Boolean historisk;
 
         public GetVegobjektEndringerForTypeRequest() {}
 
-        public GetVegobjektEndringerForTypeRequest(@jakarta.annotation.Nonnull Integer vegobjekttypeId, @jakarta.annotation.Nullable Set<Long> ider, @jakarta.annotation.Nullable OffsetDateTime start, @jakarta.annotation.Nullable Integer antall, @jakarta.annotation.Nullable Boolean historisk) {
+        public GetVegobjektEndringerForTypeRequest(@jakarta.annotation.Nonnull Integer vegobjekttypeId, @jakarta.annotation.Nullable Set<Long> ider, @jakarta.annotation.Nullable String start, @jakarta.annotation.Nullable Integer antall, @jakarta.annotation.Nullable Boolean historisk) {
             this.vegobjekttypeId = vegobjekttypeId;
             this.ider = ider;
             this.start = start;
@@ -1034,10 +1034,10 @@ public class VegobjekterApi {
             return this;
         }
 
-        public @jakarta.annotation.Nullable OffsetDateTime start() {
+        public @jakarta.annotation.Nullable String start() {
             return this.start;
         }
-        public GetVegobjektEndringerForTypeRequest start(@jakarta.annotation.Nullable OffsetDateTime start) {
+        public GetVegobjektEndringerForTypeRequest start(@jakarta.annotation.Nullable String start) {
             this.start = start;
             return this;
         }
@@ -1142,13 +1142,13 @@ public class VegobjekterApi {
      * <p><b>200</b> - OK
      * @param vegobjekttypeId Finn vegobjekter med denne vegobjekttypen. Se [Datakatalogen](https://datakatalogen.atlas.vegvesen.no) for mulige verdier.  Eksempel: 581         
      * @param ider Hent endringer for oppgitte vegobjekt IDer. Dersom denne utelates vil alle endringer for den angitte typen hentes.
-     * @param start Hent alle endringer etter gitt tidspunkt. Dersom denne utelates vil de eldste endringene hentes først.
+     * @param start Hent alle endringer etter gitt tidspunkt. Dersom denne utelates vil de eldste endringene hentes først.  Format kan være dato (&#x60;2025-06-01&#x60;) eller tidspunkt med tidssone (&#x60;2025-06-01T12:00:00Z&#x60; eller &#x60;2025-06-01T14:00:00+02:00&#x60;). For paginering vil det bli lagt ved siste vegobjekt-ID og versjon innen siste tidspunkt i responsen, i tilfelle flere endringer har skjedd på samme tidspunkt. Format for dette er &#x60;2025-06-01T12:00:00Z,12345,1&#x60; hvor &#x60;12345&#x60; er vegobjekt-ID og &#x60;1&#x60; er versjon.
      * @param antall Antall endringer som skal være med i responsen. Merk at det faktiske antallet kan variere fra respons til respons. Dette er fordi endringer på samme vegobjektversjon innenfor samme side blir aggregert sammen ved å ta den nyeste endringen. Maksverdi: 1000
      * @param historisk Bestem om du ønsker endringer for aktive eller historiske vegobjekter. Standardverdi: &#x60;false&#x60;
      * @return VegobjektEndringerSide
      * @throws RestClientResponseException if an error occurs while attempting to invoke the API
      */
-    private ResponseSpec getVegobjektEndringerForTypeRequestCreation(@jakarta.annotation.Nonnull Integer vegobjekttypeId, @jakarta.annotation.Nullable Set<Long> ider, @jakarta.annotation.Nullable OffsetDateTime start, @jakarta.annotation.Nullable Integer antall, @jakarta.annotation.Nullable Boolean historisk) throws RestClientResponseException {
+    private ResponseSpec getVegobjektEndringerForTypeRequestCreation(@jakarta.annotation.Nonnull Integer vegobjekttypeId, @jakarta.annotation.Nullable Set<Long> ider, @jakarta.annotation.Nullable String start, @jakarta.annotation.Nullable Integer antall, @jakarta.annotation.Nullable Boolean historisk) throws RestClientResponseException {
         Object postBody = null;
         // verify the required parameter 'vegobjekttypeId' is set
         if (vegobjekttypeId == null) {
@@ -1193,13 +1193,13 @@ public class VegobjekterApi {
      * <p><b>200</b> - OK
      * @param vegobjekttypeId Finn vegobjekter med denne vegobjekttypen. Se [Datakatalogen](https://datakatalogen.atlas.vegvesen.no) for mulige verdier.  Eksempel: 581         
      * @param ider Hent endringer for oppgitte vegobjekt IDer. Dersom denne utelates vil alle endringer for den angitte typen hentes.
-     * @param start Hent alle endringer etter gitt tidspunkt. Dersom denne utelates vil de eldste endringene hentes først.
+     * @param start Hent alle endringer etter gitt tidspunkt. Dersom denne utelates vil de eldste endringene hentes først.  Format kan være dato (&#x60;2025-06-01&#x60;) eller tidspunkt med tidssone (&#x60;2025-06-01T12:00:00Z&#x60; eller &#x60;2025-06-01T14:00:00+02:00&#x60;). For paginering vil det bli lagt ved siste vegobjekt-ID og versjon innen siste tidspunkt i responsen, i tilfelle flere endringer har skjedd på samme tidspunkt. Format for dette er &#x60;2025-06-01T12:00:00Z,12345,1&#x60; hvor &#x60;12345&#x60; er vegobjekt-ID og &#x60;1&#x60; er versjon.
      * @param antall Antall endringer som skal være med i responsen. Merk at det faktiske antallet kan variere fra respons til respons. Dette er fordi endringer på samme vegobjektversjon innenfor samme side blir aggregert sammen ved å ta den nyeste endringen. Maksverdi: 1000
      * @param historisk Bestem om du ønsker endringer for aktive eller historiske vegobjekter. Standardverdi: &#x60;false&#x60;
      * @return VegobjektEndringerSide
      * @throws RestClientResponseException if an error occurs while attempting to invoke the API
      */
-    public VegobjektEndringerSide getVegobjektEndringerForType(@jakarta.annotation.Nonnull Integer vegobjekttypeId, @jakarta.annotation.Nullable Set<Long> ider, @jakarta.annotation.Nullable OffsetDateTime start, @jakarta.annotation.Nullable Integer antall, @jakarta.annotation.Nullable Boolean historisk) throws RestClientResponseException {
+    public VegobjektEndringerSide getVegobjektEndringerForType(@jakarta.annotation.Nonnull Integer vegobjekttypeId, @jakarta.annotation.Nullable Set<Long> ider, @jakarta.annotation.Nullable String start, @jakarta.annotation.Nullable Integer antall, @jakarta.annotation.Nullable Boolean historisk) throws RestClientResponseException {
         ParameterizedTypeReference<VegobjektEndringerSide> localVarReturnType = new ParameterizedTypeReference<>() {};
         return getVegobjektEndringerForTypeRequestCreation(vegobjekttypeId, ider, start, antall, historisk).body(localVarReturnType);
     }
@@ -1215,13 +1215,13 @@ public class VegobjekterApi {
      * <p><b>200</b> - OK
      * @param vegobjekttypeId Finn vegobjekter med denne vegobjekttypen. Se [Datakatalogen](https://datakatalogen.atlas.vegvesen.no) for mulige verdier.  Eksempel: 581         
      * @param ider Hent endringer for oppgitte vegobjekt IDer. Dersom denne utelates vil alle endringer for den angitte typen hentes.
-     * @param start Hent alle endringer etter gitt tidspunkt. Dersom denne utelates vil de eldste endringene hentes først.
+     * @param start Hent alle endringer etter gitt tidspunkt. Dersom denne utelates vil de eldste endringene hentes først.  Format kan være dato (&#x60;2025-06-01&#x60;) eller tidspunkt med tidssone (&#x60;2025-06-01T12:00:00Z&#x60; eller &#x60;2025-06-01T14:00:00+02:00&#x60;). For paginering vil det bli lagt ved siste vegobjekt-ID og versjon innen siste tidspunkt i responsen, i tilfelle flere endringer har skjedd på samme tidspunkt. Format for dette er &#x60;2025-06-01T12:00:00Z,12345,1&#x60; hvor &#x60;12345&#x60; er vegobjekt-ID og &#x60;1&#x60; er versjon.
      * @param antall Antall endringer som skal være med i responsen. Merk at det faktiske antallet kan variere fra respons til respons. Dette er fordi endringer på samme vegobjektversjon innenfor samme side blir aggregert sammen ved å ta den nyeste endringen. Maksverdi: 1000
      * @param historisk Bestem om du ønsker endringer for aktive eller historiske vegobjekter. Standardverdi: &#x60;false&#x60;
      * @return ResponseEntity&lt;VegobjektEndringerSide&gt;
      * @throws RestClientResponseException if an error occurs while attempting to invoke the API
      */
-    public ResponseEntity<VegobjektEndringerSide> getVegobjektEndringerForTypeWithHttpInfo(@jakarta.annotation.Nonnull Integer vegobjekttypeId, @jakarta.annotation.Nullable Set<Long> ider, @jakarta.annotation.Nullable OffsetDateTime start, @jakarta.annotation.Nullable Integer antall, @jakarta.annotation.Nullable Boolean historisk) throws RestClientResponseException {
+    public ResponseEntity<VegobjektEndringerSide> getVegobjektEndringerForTypeWithHttpInfo(@jakarta.annotation.Nonnull Integer vegobjekttypeId, @jakarta.annotation.Nullable Set<Long> ider, @jakarta.annotation.Nullable String start, @jakarta.annotation.Nullable Integer antall, @jakarta.annotation.Nullable Boolean historisk) throws RestClientResponseException {
         ParameterizedTypeReference<VegobjektEndringerSide> localVarReturnType = new ParameterizedTypeReference<>() {};
         return getVegobjektEndringerForTypeRequestCreation(vegobjekttypeId, ider, start, antall, historisk).toEntity(localVarReturnType);
     }
@@ -1237,13 +1237,13 @@ public class VegobjekterApi {
      * <p><b>200</b> - OK
      * @param vegobjekttypeId Finn vegobjekter med denne vegobjekttypen. Se [Datakatalogen](https://datakatalogen.atlas.vegvesen.no) for mulige verdier.  Eksempel: 581         
      * @param ider Hent endringer for oppgitte vegobjekt IDer. Dersom denne utelates vil alle endringer for den angitte typen hentes.
-     * @param start Hent alle endringer etter gitt tidspunkt. Dersom denne utelates vil de eldste endringene hentes først.
+     * @param start Hent alle endringer etter gitt tidspunkt. Dersom denne utelates vil de eldste endringene hentes først.  Format kan være dato (&#x60;2025-06-01&#x60;) eller tidspunkt med tidssone (&#x60;2025-06-01T12:00:00Z&#x60; eller &#x60;2025-06-01T14:00:00+02:00&#x60;). For paginering vil det bli lagt ved siste vegobjekt-ID og versjon innen siste tidspunkt i responsen, i tilfelle flere endringer har skjedd på samme tidspunkt. Format for dette er &#x60;2025-06-01T12:00:00Z,12345,1&#x60; hvor &#x60;12345&#x60; er vegobjekt-ID og &#x60;1&#x60; er versjon.
      * @param antall Antall endringer som skal være med i responsen. Merk at det faktiske antallet kan variere fra respons til respons. Dette er fordi endringer på samme vegobjektversjon innenfor samme side blir aggregert sammen ved å ta den nyeste endringen. Maksverdi: 1000
      * @param historisk Bestem om du ønsker endringer for aktive eller historiske vegobjekter. Standardverdi: &#x60;false&#x60;
      * @return ResponseSpec
      * @throws RestClientResponseException if an error occurs while attempting to invoke the API
      */
-    public ResponseSpec getVegobjektEndringerForTypeWithResponseSpec(@jakarta.annotation.Nonnull Integer vegobjekttypeId, @jakarta.annotation.Nullable Set<Long> ider, @jakarta.annotation.Nullable OffsetDateTime start, @jakarta.annotation.Nullable Integer antall, @jakarta.annotation.Nullable Boolean historisk) throws RestClientResponseException {
+    public ResponseSpec getVegobjektEndringerForTypeWithResponseSpec(@jakarta.annotation.Nonnull Integer vegobjekttypeId, @jakarta.annotation.Nullable Set<Long> ider, @jakarta.annotation.Nullable String start, @jakarta.annotation.Nullable Integer antall, @jakarta.annotation.Nullable Boolean historisk) throws RestClientResponseException {
         return getVegobjektEndringerForTypeRequestCreation(vegobjekttypeId, ider, start, antall, historisk);
     }
 

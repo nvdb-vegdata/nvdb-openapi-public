@@ -15,8 +15,8 @@ export type GetVegobjektEndringerForTypeQueryParams = {
    */
   ider?: number[]
   /**
-   * @description Hent alle endringer etter gitt tidspunkt. Dersom denne utelates vil de eldste endringene hentes først.
-   * @type string | undefined, date-time
+   * @description Hent alle endringer etter gitt tidspunkt. Dersom denne utelates vil de eldste endringene hentes først.\n\nFormat kan være dato (`2025-06-01`) eller tidspunkt med tidssone (`2025-06-01T12:00:00Z` eller `2025-06-01T14:00:00+02:00`). For paginering vil det bli lagt ved siste vegobjekt-ID og versjon innen siste tidspunkt i responsen, i tilfelle flere endringer har skjedd på samme tidspunkt. Format for dette er `2025-06-01T12:00:00Z,12345,1` hvor `12345` er vegobjekt-ID og `1` er versjon.
+   * @type string | undefined
    */
   start?: string
   /**

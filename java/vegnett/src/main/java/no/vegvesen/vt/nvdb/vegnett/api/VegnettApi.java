@@ -5,7 +5,6 @@ import no.vegvesen.vt.nvdb.vegnett.infrastructure.ApiClient;
 import no.vegvesen.vt.nvdb.vegnett.model.AdskilteLop;
 import no.vegvesen.vt.nvdb.vegnett.model.DetaljnivaParameter;
 import java.time.LocalDate;
-import java.time.OffsetDateTime;
 import no.vegvesen.vt.nvdb.vegnett.model.ProblemDetail;
 import java.util.Set;
 import no.vegvesen.vt.nvdb.vegnett.model.SridParameter;
@@ -1008,7 +1007,7 @@ public class VegnettApi {
     }
 
     public static class GetVeglenkesekvensEndringerRequest {
-        private @jakarta.annotation.Nullable OffsetDateTime start;
+        private @jakarta.annotation.Nullable String start;
         private @jakarta.annotation.Nullable Integer antall;
         private @jakarta.annotation.Nullable Set<Long> ider;
         private @jakarta.annotation.Nullable Set<Integer> fylke;
@@ -1016,7 +1015,7 @@ public class VegnettApi {
 
         public GetVeglenkesekvensEndringerRequest() {}
 
-        public GetVeglenkesekvensEndringerRequest(@jakarta.annotation.Nullable OffsetDateTime start, @jakarta.annotation.Nullable Integer antall, @jakarta.annotation.Nullable Set<Long> ider, @jakarta.annotation.Nullable Set<Integer> fylke, @jakarta.annotation.Nullable Set<Integer> kommune) {
+        public GetVeglenkesekvensEndringerRequest(@jakarta.annotation.Nullable String start, @jakarta.annotation.Nullable Integer antall, @jakarta.annotation.Nullable Set<Long> ider, @jakarta.annotation.Nullable Set<Integer> fylke, @jakarta.annotation.Nullable Set<Integer> kommune) {
             this.start = start;
             this.antall = antall;
             this.ider = ider;
@@ -1024,10 +1023,10 @@ public class VegnettApi {
             this.kommune = kommune;
         }
 
-        public @jakarta.annotation.Nullable OffsetDateTime start() {
+        public @jakarta.annotation.Nullable String start() {
             return this.start;
         }
-        public GetVeglenkesekvensEndringerRequest start(@jakarta.annotation.Nullable OffsetDateTime start) {
+        public GetVeglenkesekvensEndringerRequest start(@jakarta.annotation.Nullable String start) {
             this.start = start;
             return this;
         }
@@ -1138,7 +1137,7 @@ public class VegnettApi {
      * <p><b>400</b> - Bad Request
      * <p><b>404</b> - Not Found
      * <p><b>200</b> - OK
-     * @param start Hent alle endringer etter gitt tidspunkt. Dersom denne utelates vil de eldste endringene hentes først.
+     * @param start Hent alle endringer etter gitt tidspunkt. Dersom denne utelates vil de eldste endringene hentes først.  Format kan være dato (&#x60;2025-06-01&#x60;) eller tidspunkt med tidssone (&#x60;2025-06-01T12:00:00Z&#x60; eller &#x60;2025-06-01T14:00:00+02:00&#x60;). For paginering vil det bli lagt ved siste veglenkesekvens innen siste tidspunkt i responsen, i tilfelle flere endringer har skjedd på samme tidspunkt. Format for dette er &#x60;2025-06-01T12:00:00Z,12345&#x60; hvor &#x60;12345&#x60; er IDen til veglenkesekvensen.
      * @param antall Antall endringer som skal være med i responsen. Merk at det faktiske antallet kan variere fra respons til respons. Dette er fordi endringer på samme veglenkesekvens innenfor samme side blir aggregert sammen ved å ta den nyeste endringen.
      * @param ider Hent endringer for oppgitte veglenkesekvens IDer. Dersom denne utelates vil alle endringer hentes.
      * @param fylke Filtrer på fylke. Kommaseparert liste. Se [/omrader/api/v4/fylker](https://nvdbapiles.atlas.vegvesen.no/webjars/swagger-ui/index.html?urls.primaryName&#x3D;Omr%C3%A5der#/Omr%C3%A5der/getFylker) for mulige verdier.  Eksempel: &#x60;50&#x60;
@@ -1146,7 +1145,7 @@ public class VegnettApi {
      * @return VeglenkesekvensEndringerSide
      * @throws RestClientResponseException if an error occurs while attempting to invoke the API
      */
-    private ResponseSpec getVeglenkesekvensEndringerRequestCreation(@jakarta.annotation.Nullable OffsetDateTime start, @jakarta.annotation.Nullable Integer antall, @jakarta.annotation.Nullable Set<Long> ider, @jakarta.annotation.Nullable Set<Integer> fylke, @jakarta.annotation.Nullable Set<Integer> kommune) throws RestClientResponseException {
+    private ResponseSpec getVeglenkesekvensEndringerRequestCreation(@jakarta.annotation.Nullable String start, @jakarta.annotation.Nullable Integer antall, @jakarta.annotation.Nullable Set<Long> ider, @jakarta.annotation.Nullable Set<Integer> fylke, @jakarta.annotation.Nullable Set<Integer> kommune) throws RestClientResponseException {
         Object postBody = null;
         // create path and map variables
         final Map<String, Object> pathParams = new HashMap<>();
@@ -1182,7 +1181,7 @@ public class VegnettApi {
      * <p><b>400</b> - Bad Request
      * <p><b>404</b> - Not Found
      * <p><b>200</b> - OK
-     * @param start Hent alle endringer etter gitt tidspunkt. Dersom denne utelates vil de eldste endringene hentes først.
+     * @param start Hent alle endringer etter gitt tidspunkt. Dersom denne utelates vil de eldste endringene hentes først.  Format kan være dato (&#x60;2025-06-01&#x60;) eller tidspunkt med tidssone (&#x60;2025-06-01T12:00:00Z&#x60; eller &#x60;2025-06-01T14:00:00+02:00&#x60;). For paginering vil det bli lagt ved siste veglenkesekvens innen siste tidspunkt i responsen, i tilfelle flere endringer har skjedd på samme tidspunkt. Format for dette er &#x60;2025-06-01T12:00:00Z,12345&#x60; hvor &#x60;12345&#x60; er IDen til veglenkesekvensen.
      * @param antall Antall endringer som skal være med i responsen. Merk at det faktiske antallet kan variere fra respons til respons. Dette er fordi endringer på samme veglenkesekvens innenfor samme side blir aggregert sammen ved å ta den nyeste endringen.
      * @param ider Hent endringer for oppgitte veglenkesekvens IDer. Dersom denne utelates vil alle endringer hentes.
      * @param fylke Filtrer på fylke. Kommaseparert liste. Se [/omrader/api/v4/fylker](https://nvdbapiles.atlas.vegvesen.no/webjars/swagger-ui/index.html?urls.primaryName&#x3D;Omr%C3%A5der#/Omr%C3%A5der/getFylker) for mulige verdier.  Eksempel: &#x60;50&#x60;
@@ -1190,7 +1189,7 @@ public class VegnettApi {
      * @return VeglenkesekvensEndringerSide
      * @throws RestClientResponseException if an error occurs while attempting to invoke the API
      */
-    public VeglenkesekvensEndringerSide getVeglenkesekvensEndringer(@jakarta.annotation.Nullable OffsetDateTime start, @jakarta.annotation.Nullable Integer antall, @jakarta.annotation.Nullable Set<Long> ider, @jakarta.annotation.Nullable Set<Integer> fylke, @jakarta.annotation.Nullable Set<Integer> kommune) throws RestClientResponseException {
+    public VeglenkesekvensEndringerSide getVeglenkesekvensEndringer(@jakarta.annotation.Nullable String start, @jakarta.annotation.Nullable Integer antall, @jakarta.annotation.Nullable Set<Long> ider, @jakarta.annotation.Nullable Set<Integer> fylke, @jakarta.annotation.Nullable Set<Integer> kommune) throws RestClientResponseException {
         ParameterizedTypeReference<VeglenkesekvensEndringerSide> localVarReturnType = new ParameterizedTypeReference<>() {};
         return getVeglenkesekvensEndringerRequestCreation(start, antall, ider, fylke, kommune).body(localVarReturnType);
     }
@@ -1202,7 +1201,7 @@ public class VegnettApi {
      * <p><b>400</b> - Bad Request
      * <p><b>404</b> - Not Found
      * <p><b>200</b> - OK
-     * @param start Hent alle endringer etter gitt tidspunkt. Dersom denne utelates vil de eldste endringene hentes først.
+     * @param start Hent alle endringer etter gitt tidspunkt. Dersom denne utelates vil de eldste endringene hentes først.  Format kan være dato (&#x60;2025-06-01&#x60;) eller tidspunkt med tidssone (&#x60;2025-06-01T12:00:00Z&#x60; eller &#x60;2025-06-01T14:00:00+02:00&#x60;). For paginering vil det bli lagt ved siste veglenkesekvens innen siste tidspunkt i responsen, i tilfelle flere endringer har skjedd på samme tidspunkt. Format for dette er &#x60;2025-06-01T12:00:00Z,12345&#x60; hvor &#x60;12345&#x60; er IDen til veglenkesekvensen.
      * @param antall Antall endringer som skal være med i responsen. Merk at det faktiske antallet kan variere fra respons til respons. Dette er fordi endringer på samme veglenkesekvens innenfor samme side blir aggregert sammen ved å ta den nyeste endringen.
      * @param ider Hent endringer for oppgitte veglenkesekvens IDer. Dersom denne utelates vil alle endringer hentes.
      * @param fylke Filtrer på fylke. Kommaseparert liste. Se [/omrader/api/v4/fylker](https://nvdbapiles.atlas.vegvesen.no/webjars/swagger-ui/index.html?urls.primaryName&#x3D;Omr%C3%A5der#/Omr%C3%A5der/getFylker) for mulige verdier.  Eksempel: &#x60;50&#x60;
@@ -1210,7 +1209,7 @@ public class VegnettApi {
      * @return ResponseEntity&lt;VeglenkesekvensEndringerSide&gt;
      * @throws RestClientResponseException if an error occurs while attempting to invoke the API
      */
-    public ResponseEntity<VeglenkesekvensEndringerSide> getVeglenkesekvensEndringerWithHttpInfo(@jakarta.annotation.Nullable OffsetDateTime start, @jakarta.annotation.Nullable Integer antall, @jakarta.annotation.Nullable Set<Long> ider, @jakarta.annotation.Nullable Set<Integer> fylke, @jakarta.annotation.Nullable Set<Integer> kommune) throws RestClientResponseException {
+    public ResponseEntity<VeglenkesekvensEndringerSide> getVeglenkesekvensEndringerWithHttpInfo(@jakarta.annotation.Nullable String start, @jakarta.annotation.Nullable Integer antall, @jakarta.annotation.Nullable Set<Long> ider, @jakarta.annotation.Nullable Set<Integer> fylke, @jakarta.annotation.Nullable Set<Integer> kommune) throws RestClientResponseException {
         ParameterizedTypeReference<VeglenkesekvensEndringerSide> localVarReturnType = new ParameterizedTypeReference<>() {};
         return getVeglenkesekvensEndringerRequestCreation(start, antall, ider, fylke, kommune).toEntity(localVarReturnType);
     }
@@ -1222,7 +1221,7 @@ public class VegnettApi {
      * <p><b>400</b> - Bad Request
      * <p><b>404</b> - Not Found
      * <p><b>200</b> - OK
-     * @param start Hent alle endringer etter gitt tidspunkt. Dersom denne utelates vil de eldste endringene hentes først.
+     * @param start Hent alle endringer etter gitt tidspunkt. Dersom denne utelates vil de eldste endringene hentes først.  Format kan være dato (&#x60;2025-06-01&#x60;) eller tidspunkt med tidssone (&#x60;2025-06-01T12:00:00Z&#x60; eller &#x60;2025-06-01T14:00:00+02:00&#x60;). For paginering vil det bli lagt ved siste veglenkesekvens innen siste tidspunkt i responsen, i tilfelle flere endringer har skjedd på samme tidspunkt. Format for dette er &#x60;2025-06-01T12:00:00Z,12345&#x60; hvor &#x60;12345&#x60; er IDen til veglenkesekvensen.
      * @param antall Antall endringer som skal være med i responsen. Merk at det faktiske antallet kan variere fra respons til respons. Dette er fordi endringer på samme veglenkesekvens innenfor samme side blir aggregert sammen ved å ta den nyeste endringen.
      * @param ider Hent endringer for oppgitte veglenkesekvens IDer. Dersom denne utelates vil alle endringer hentes.
      * @param fylke Filtrer på fylke. Kommaseparert liste. Se [/omrader/api/v4/fylker](https://nvdbapiles.atlas.vegvesen.no/webjars/swagger-ui/index.html?urls.primaryName&#x3D;Omr%C3%A5der#/Omr%C3%A5der/getFylker) for mulige verdier.  Eksempel: &#x60;50&#x60;
@@ -1230,7 +1229,7 @@ public class VegnettApi {
      * @return ResponseSpec
      * @throws RestClientResponseException if an error occurs while attempting to invoke the API
      */
-    public ResponseSpec getVeglenkesekvensEndringerWithResponseSpec(@jakarta.annotation.Nullable OffsetDateTime start, @jakarta.annotation.Nullable Integer antall, @jakarta.annotation.Nullable Set<Long> ider, @jakarta.annotation.Nullable Set<Integer> fylke, @jakarta.annotation.Nullable Set<Integer> kommune) throws RestClientResponseException {
+    public ResponseSpec getVeglenkesekvensEndringerWithResponseSpec(@jakarta.annotation.Nullable String start, @jakarta.annotation.Nullable Integer antall, @jakarta.annotation.Nullable Set<Long> ider, @jakarta.annotation.Nullable Set<Integer> fylke, @jakarta.annotation.Nullable Set<Integer> kommune) throws RestClientResponseException {
         return getVeglenkesekvensEndringerRequestCreation(start, antall, ider, fylke, kommune);
     }
 

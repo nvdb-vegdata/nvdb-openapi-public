@@ -280,6 +280,12 @@ public class EgenskapstypeAssosiasjon extends Egenskapstype {
   }
 
   @Override
+  public EgenskapstypeAssosiasjon komplementærEgenskapstype(@jakarta.annotation.Nullable Integer komplementærEgenskapstype) {
+    this.setKomplementærEgenskapstype(komplementærEgenskapstype);
+    return this;
+  }
+
+  @Override
   public EgenskapstypeAssosiasjon kortnavn(@jakarta.annotation.Nullable String kortnavn) {
     this.setKortnavn(kortnavn);
     return this;
@@ -322,20 +328,14 @@ public class EgenskapstypeAssosiasjon extends Egenskapstype {
   }
 
   @Override
-  public EgenskapstypeAssosiasjon komplementærEgenskapstype(@jakarta.annotation.Nullable Integer komplementærEgenskapstype) {
-    this.setKomplementærEgenskapstype(komplementærEgenskapstype);
+  public EgenskapstypeAssosiasjon obligatoriskVerdi(@jakarta.annotation.Nonnull Boolean obligatoriskVerdi) {
+    this.setObligatoriskVerdi(obligatoriskVerdi);
     return this;
   }
 
   @Override
   public EgenskapstypeAssosiasjon skrivebeskyttet(@jakarta.annotation.Nonnull Boolean skrivebeskyttet) {
     this.setSkrivebeskyttet(skrivebeskyttet);
-    return this;
-  }
-
-  @Override
-  public EgenskapstypeAssosiasjon obligatoriskVerdi(@jakarta.annotation.Nonnull Boolean obligatoriskVerdi) {
-    this.setObligatoriskVerdi(obligatoriskVerdi);
     return this;
   }
 

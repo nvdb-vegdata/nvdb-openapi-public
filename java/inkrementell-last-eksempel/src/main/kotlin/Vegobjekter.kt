@@ -11,7 +11,6 @@ import org.jetbrains.exposed.v1.jdbc.batchInsert
 import org.jetbrains.exposed.v1.jdbc.deleteWhere
 import org.jetbrains.exposed.v1.jdbc.transactions.transaction
 import java.time.Instant
-import java.time.ZoneOffset
 
 val vegobjekterApi = VegobjekterApi()
 
@@ -20,7 +19,7 @@ fun importAndUpdateVegobjekter(vegobjektType: Int) {
     val importStarted: Instant? = KeyValueStore.get<Instant>(Key.VegobjekterImportStarted)
     val importCompleted: Instant? = KeyValueStore.get<Instant>(Key.VegobjekterImportCompleted)
     val lastStart: String? =
-        KeyValueStore.get<String>(Key.VegobjekterLastStart)  // Pagination cursor for resuming backfill
+        KeyValueStore.get<String>(Key.VegobjekterImportLastStart)  // Pagination cursor for resuming backfill
 
     // Determine which phase to execute based on persisted state
     if (importCompleted != null) {
@@ -52,9 +51,10 @@ data class VersjonId(val id: Long, val versjon: Int)
  */
 private fun performVegobjekterUpdate(vegobjektType: Int) {
     // Find updates from start of import to catch any changes that occurred during the backfill
-    var lastUpdate =
-        KeyValueStore.get<Instant>(Key.VegobjekterLastUpdate) ?: KeyValueStore.get(Key.VegobjekterImportStarted)
-        ?: error("Perform a backfill import before starting updates")
+    var lastUpdate: String? =
+        KeyValueStore.get<String>(Key.VegobjekterUpdateLastStart)
+            ?: KeyValueStore.get<Instant>(Key.VegobjekterImportStarted)?.toString()
+            ?: error("Perform a backfill import before starting updates")
 
     var stop = false
     while (!stop) {
@@ -64,7 +64,7 @@ private fun performVegobjekterUpdate(vegobjektType: Int) {
         val endringer = vegobjekterApi.getVegobjektEndringerForType(
             VegobjekterApi.GetVegobjektEndringerForTypeRequest()
                 .vegobjekttypeId(vegobjektType)
-                .start(lastUpdate.atOffset(ZoneOffset.UTC))
+                .start(lastUpdate)
         )
 
         if (endringer.metadata.returnert == 0) {
@@ -93,14 +93,18 @@ private fun performVegobjekterUpdate(vegobjektType: Int) {
                 // Insert fresh data for updated objects (deleted objects are not re-inserted)
                 Vegobjekter.batchInsert(vegobjekter) { vegobjekt ->
                     this[Vegobjekter.id] = vegobjekt.id
-                    this[Vegobjekter.versjon] = vegobjekt.metadata.versjon
-                    this[Vegobjekter.type] = vegobjekt.metadata.type.id
+                    this[Vegobjekter.versjon] = vegobjekt.metadata!!.versjon
+                    this[Vegobjekter.type] = vegobjekt.metadata!!.type.id
                     this[Vegobjekter.data] = vegobjekt.toJson()
                 }
 
                 // Advance the update cursor to prevent reprocessing the same changes
-                lastUpdate = Instant.now()
-                KeyValueStore.set(Key.VegobjekterLastUpdate, lastUpdate)
+                lastUpdate = endringer.metadata.neste?.start
+                if (lastUpdate != null) {
+                    KeyValueStore.set(Key.VegobjekterUpdateLastStart, lastUpdate!!)
+                } else {
+                    stop = true
+                }
             }
             println("Processed ${endringer.metadata.returnert} vegobjekt updates")
         }
@@ -121,13 +125,14 @@ private fun fetchUpdatedVegobjekter(vegobjektType: Int, vegobjektIds: Set<Long>)
         val response = vegobjekterApi.getVegobjekterByType(
             VegobjekterApi.GetVegobjekterByTypeRequest()
                 .vegobjekttypeId(vegobjektType)
+                .inkluder(setOf(InkluderIVegobjekt.ALLE))
                 .start(start)
                 .ider(vegobjektIds)
         )
         val elements = response.objekter
         vegobjekter.addAll(elements)
-        start = response.metadata?.neste?.start
-    } while (elements.isNotEmpty())
+        start = response.metadata.neste?.start
+    } while (elements.isNotEmpty() && start != null)
 
     return vegobjekter
 }
@@ -164,14 +169,14 @@ fun performVegobjekterImport(vegobjektType: Int, startFrom: String?) {
             transaction {
                 Vegobjekter.batchInsert(response.objekter) { vegobjekt ->
                     this[Vegobjekter.id] = vegobjekt.id
-                    this[Vegobjekter.versjon] = vegobjekt.metadata.versjon
-                    this[Vegobjekter.type] = vegobjekt.metadata.type.id
+                    this[Vegobjekter.versjon] = vegobjekt.metadata!!.versjon
+                    this[Vegobjekter.type] = vegobjekt.metadata!!.type.id
                     this[Vegobjekter.data] = vegobjekt.toJson()
                 }
 
                 // Save pagination cursor for potential resumption
                 start = response.metadata?.neste?.start
-                start?.let { KeyValueStore.set(Key.VegobjekterLastStart, it) }
+                start?.let { KeyValueStore.set(Key.VegobjekterImportLastStart, it) }
             }
 
             totalImported += response.objekter.size

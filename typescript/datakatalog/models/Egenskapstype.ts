@@ -150,12 +150,6 @@ export interface Egenskapstype {
   egenskapstype: EgenskapstypeEnum
   /**
    *
-   * @type {number}
-   * @memberof Egenskapstype
-   */
-  komplementrEgenskapstype?: number
-  /**
-   *
    * @type {string}
    * @memberof Egenskapstype
    */
@@ -198,16 +192,22 @@ export interface Egenskapstype {
   avledet: boolean
   /**
    *
-   * @type {boolean}
+   * @type {number}
    * @memberof Egenskapstype
    */
-  obligatoriskVerdi: boolean
+  komplementrEgenskapstype?: number
   /**
    *
    * @type {boolean}
    * @memberof Egenskapstype
    */
   skrivebeskyttet: boolean
+  /**
+   *
+   * @type {boolean}
+   * @memberof Egenskapstype
+   */
+  obligatoriskVerdi: boolean
   /**
    *
    * @type {number}
@@ -292,12 +292,12 @@ export function instanceOfEgenskapstype(value: object): value is Egenskapstype {
   if (!('sorteringsnummer' in value) || value['sorteringsnummer'] === undefined)
     return false
   if (!('avledet' in value) || value['avledet'] === undefined) return false
+  if (!('skrivebeskyttet' in value) || value['skrivebeskyttet'] === undefined)
+    return false
   if (
     !('obligatoriskVerdi' in value) ||
     value['obligatoriskVerdi'] === undefined
   )
-    return false
-  if (!('skrivebeskyttet' in value) || value['skrivebeskyttet'] === undefined)
     return false
   if (!('sensitivitet' in value) || value['sensitivitet'] === undefined)
     return false
@@ -391,10 +391,6 @@ export function EgenskapstypeFromJSONTyped(
     id: json['id'],
     navn: json['navn'] == null ? undefined : json['navn'],
     egenskapstype: EgenskapstypeEnumFromJSON(json['egenskapstype']),
-    komplementrEgenskapstype:
-      json['komplementær_egenskapstype'] == null
-        ? undefined
-        : json['komplementær_egenskapstype'],
     kortnavn: json['kortnavn'] == null ? undefined : json['kortnavn'],
     beskrivelse: json['beskrivelse'] == null ? undefined : json['beskrivelse'],
     veiledning: json['veiledning'] == null ? undefined : json['veiledning'],
@@ -403,8 +399,12 @@ export function EgenskapstypeFromJSONTyped(
       json['sosinvdbnavn'] == null ? undefined : json['sosinvdbnavn'],
     sorteringsnummer: json['sorteringsnummer'],
     avledet: json['avledet'],
-    obligatoriskVerdi: json['obligatorisk_verdi'],
+    komplementrEgenskapstype:
+      json['komplementær_egenskapstype'] == null
+        ? undefined
+        : json['komplementær_egenskapstype'],
     skrivebeskyttet: json['skrivebeskyttet'],
+    obligatoriskVerdi: json['obligatorisk_verdi'],
     sensitivitet: json['sensitivitet'],
     gruppesorteringsnummer:
       json['gruppesorteringsnummer'] == null
@@ -532,7 +532,6 @@ export function EgenskapstypeToJSONTyped(
     id: value['id'],
     navn: value['navn'],
     egenskapstype: EgenskapstypeEnumToJSON(value['egenskapstype']),
-    komplementær_egenskapstype: value['komplementrEgenskapstype'],
     kortnavn: value['kortnavn'],
     beskrivelse: value['beskrivelse'],
     veiledning: value['veiledning'],
@@ -540,8 +539,9 @@ export function EgenskapstypeToJSONTyped(
     sosinvdbnavn: value['sosinvdbnavn'],
     sorteringsnummer: value['sorteringsnummer'],
     avledet: value['avledet'],
-    obligatorisk_verdi: value['obligatoriskVerdi'],
+    komplementær_egenskapstype: value['komplementrEgenskapstype'],
     skrivebeskyttet: value['skrivebeskyttet'],
+    obligatorisk_verdi: value['obligatoriskVerdi'],
     sensitivitet: value['sensitivitet'],
     gruppesorteringsnummer: value['gruppesorteringsnummer'],
     grunnrissreferanse: value['grunnrissreferanse'],
