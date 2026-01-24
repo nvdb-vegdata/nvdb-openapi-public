@@ -1,6 +1,6 @@
 /*
  * NVDB API Les Vegobjekter
- * Dette API-et brukes til å lese vegobjekter. Les mer om bruk av API-et på https://nvdb.atlas.vegvesen.no/produkter/nvdbapil/v4/Vegobjekter
+ * Dette API-et brukes til å lese vegobjekter.<br><br>[Dokumentasjon for Vegobjekter API](https://nvdb-docs.atlas.vegvesen.no/nvdbapil/v4/Vegobjekter)
  *
  * The version of the OpenAPI document: v4
  * Contact: nvdb@vegvesen.no
@@ -66,7 +66,7 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
   Vegsegment.JSON_PROPERTY_VEGFORVALTERE,
   Vegsegment.JSON_PROPERTY_ADRESSER
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.14.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0")
 public class Vegsegment {
   public static final String JSON_PROPERTY_VEGLENKESEKVENSID = "veglenkesekvensid";
   @jakarta.annotation.Nonnull
@@ -174,7 +174,7 @@ public class Vegsegment {
    * @return veglenkesekvensid
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_VEGLENKESEKVENSID)
+  @JsonProperty(value = JSON_PROPERTY_VEGLENKESEKVENSID, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Long getVeglenkesekvensid() {
@@ -182,7 +182,7 @@ public class Vegsegment {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_VEGLENKESEKVENSID)
+  @JsonProperty(value = JSON_PROPERTY_VEGLENKESEKVENSID, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setVeglenkesekvensid(@jakarta.annotation.Nonnull Long veglenkesekvensid) {
     this.veglenkesekvensid = veglenkesekvensid;
@@ -199,7 +199,7 @@ public class Vegsegment {
    * @return startposisjon
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_STARTPOSISJON)
+  @JsonProperty(value = JSON_PROPERTY_STARTPOSISJON, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Double getStartposisjon() {
@@ -207,7 +207,7 @@ public class Vegsegment {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_STARTPOSISJON)
+  @JsonProperty(value = JSON_PROPERTY_STARTPOSISJON, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStartposisjon(@jakarta.annotation.Nullable Double startposisjon) {
     this.startposisjon = startposisjon;
@@ -224,7 +224,7 @@ public class Vegsegment {
    * @return sluttposisjon
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SLUTTPOSISJON)
+  @JsonProperty(value = JSON_PROPERTY_SLUTTPOSISJON, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Double getSluttposisjon() {
@@ -232,7 +232,7 @@ public class Vegsegment {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_SLUTTPOSISJON)
+  @JsonProperty(value = JSON_PROPERTY_SLUTTPOSISJON, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSluttposisjon(@jakarta.annotation.Nullable Double sluttposisjon) {
     this.sluttposisjon = sluttposisjon;
@@ -249,7 +249,7 @@ public class Vegsegment {
    * @return relativPosisjon
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_RELATIV_POSISJON)
+  @JsonProperty(value = JSON_PROPERTY_RELATIV_POSISJON, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Double getRelativPosisjon() {
@@ -257,7 +257,7 @@ public class Vegsegment {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_RELATIV_POSISJON)
+  @JsonProperty(value = JSON_PROPERTY_RELATIV_POSISJON, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRelativPosisjon(@jakarta.annotation.Nullable Double relativPosisjon) {
     this.relativPosisjon = relativPosisjon;
@@ -274,7 +274,7 @@ public class Vegsegment {
    * @return lengde
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_LENGDE)
+  @JsonProperty(value = JSON_PROPERTY_LENGDE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Double getLengde() {
@@ -282,7 +282,7 @@ public class Vegsegment {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_LENGDE)
+  @JsonProperty(value = JSON_PROPERTY_LENGDE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLengde(@jakarta.annotation.Nullable Double lengde) {
     this.lengde = lengde;
@@ -299,7 +299,7 @@ public class Vegsegment {
    * @return retning
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_RETNING)
+  @JsonProperty(value = JSON_PROPERTY_RETNING, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Retning getRetning() {
@@ -307,7 +307,7 @@ public class Vegsegment {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_RETNING)
+  @JsonProperty(value = JSON_PROPERTY_RETNING, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setRetning(@jakarta.annotation.Nonnull Retning retning) {
     this.retning = retning;
@@ -332,7 +332,7 @@ public class Vegsegment {
    * @return kjørefelt
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_KJøREFELT)
+  @JsonProperty(value = JSON_PROPERTY_KJøREFELT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public List<String> getKjørefelt() {
@@ -340,7 +340,7 @@ public class Vegsegment {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_KJøREFELT)
+  @JsonProperty(value = JSON_PROPERTY_KJøREFELT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setKjørefelt(@jakarta.annotation.Nullable List<String> kjørefelt) {
     this.kjørefelt = kjørefelt;
@@ -357,7 +357,7 @@ public class Vegsegment {
    * @return sideposisjon
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SIDEPOSISJON)
+  @JsonProperty(value = JSON_PROPERTY_SIDEPOSISJON, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Sideposisjon getSideposisjon() {
@@ -365,7 +365,7 @@ public class Vegsegment {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_SIDEPOSISJON)
+  @JsonProperty(value = JSON_PROPERTY_SIDEPOSISJON, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSideposisjon(@jakarta.annotation.Nullable Sideposisjon sideposisjon) {
     this.sideposisjon = sideposisjon;
@@ -390,7 +390,7 @@ public class Vegsegment {
    * @return feltoversikt
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_FELTOVERSIKT)
+  @JsonProperty(value = JSON_PROPERTY_FELTOVERSIKT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public List<String> getFeltoversikt() {
@@ -398,7 +398,7 @@ public class Vegsegment {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_FELTOVERSIKT)
+  @JsonProperty(value = JSON_PROPERTY_FELTOVERSIKT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFeltoversikt(@jakarta.annotation.Nullable List<String> feltoversikt) {
     this.feltoversikt = feltoversikt;
@@ -415,7 +415,7 @@ public class Vegsegment {
    * @return veglenkeType
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_VEGLENKE_TYPE)
+  @JsonProperty(value = JSON_PROPERTY_VEGLENKE_TYPE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public VeglenkeType getVeglenkeType() {
@@ -423,7 +423,7 @@ public class Vegsegment {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_VEGLENKE_TYPE)
+  @JsonProperty(value = JSON_PROPERTY_VEGLENKE_TYPE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setVeglenkeType(@jakarta.annotation.Nonnull VeglenkeType veglenkeType) {
     this.veglenkeType = veglenkeType;
@@ -440,7 +440,7 @@ public class Vegsegment {
    * @return detaljnivå
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_DETALJNIVå)
+  @JsonProperty(value = JSON_PROPERTY_DETALJNIVå, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Detaljniva getDetaljnivå() {
@@ -448,7 +448,7 @@ public class Vegsegment {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_DETALJNIVå)
+  @JsonProperty(value = JSON_PROPERTY_DETALJNIVå, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setDetaljnivå(@jakarta.annotation.Nonnull Detaljniva detaljnivå) {
     this.detaljnivå = detaljnivå;
@@ -465,7 +465,7 @@ public class Vegsegment {
    * @return typeVeg
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_TYPE_VEG)
+  @JsonProperty(value = JSON_PROPERTY_TYPE_VEG, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public TypeVeg getTypeVeg() {
@@ -473,7 +473,7 @@ public class Vegsegment {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_TYPE_VEG)
+  @JsonProperty(value = JSON_PROPERTY_TYPE_VEG, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setTypeVeg(@jakarta.annotation.Nonnull TypeVeg typeVeg) {
     this.typeVeg = typeVeg;
@@ -490,7 +490,7 @@ public class Vegsegment {
    * @return typeVegSosi
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_TYPE_VEG_SOSI)
+  @JsonProperty(value = JSON_PROPERTY_TYPE_VEG_SOSI, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public TypeVegSosi getTypeVegSosi() {
@@ -498,7 +498,7 @@ public class Vegsegment {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_TYPE_VEG_SOSI)
+  @JsonProperty(value = JSON_PROPERTY_TYPE_VEG_SOSI, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setTypeVegSosi(@jakarta.annotation.Nonnull TypeVegSosi typeVegSosi) {
     this.typeVegSosi = typeVegSosi;
@@ -515,7 +515,7 @@ public class Vegsegment {
    * @return startdato
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_STARTDATO)
+  @JsonProperty(value = JSON_PROPERTY_STARTDATO, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public LocalDate getStartdato() {
@@ -523,7 +523,7 @@ public class Vegsegment {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_STARTDATO)
+  @JsonProperty(value = JSON_PROPERTY_STARTDATO, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setStartdato(@jakarta.annotation.Nonnull LocalDate startdato) {
     this.startdato = startdato;
@@ -540,7 +540,7 @@ public class Vegsegment {
    * @return sluttdato
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SLUTTDATO)
+  @JsonProperty(value = JSON_PROPERTY_SLUTTDATO, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public LocalDate getSluttdato() {
@@ -548,7 +548,7 @@ public class Vegsegment {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_SLUTTDATO)
+  @JsonProperty(value = JSON_PROPERTY_SLUTTDATO, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSluttdato(@jakarta.annotation.Nullable LocalDate sluttdato) {
     this.sluttdato = sluttdato;
@@ -565,7 +565,7 @@ public class Vegsegment {
    * @return geometri
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_GEOMETRI)
+  @JsonProperty(value = JSON_PROPERTY_GEOMETRI, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Geometri getGeometri() {
@@ -573,7 +573,7 @@ public class Vegsegment {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_GEOMETRI)
+  @JsonProperty(value = JSON_PROPERTY_GEOMETRI, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setGeometri(@jakarta.annotation.Nonnull Geometri geometri) {
     this.geometri = geometri;
@@ -590,7 +590,7 @@ public class Vegsegment {
    * @return kommune
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_KOMMUNE)
+  @JsonProperty(value = JSON_PROPERTY_KOMMUNE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Integer getKommune() {
@@ -598,7 +598,7 @@ public class Vegsegment {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_KOMMUNE)
+  @JsonProperty(value = JSON_PROPERTY_KOMMUNE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setKommune(@jakarta.annotation.Nonnull Integer kommune) {
     this.kommune = kommune;
@@ -615,7 +615,7 @@ public class Vegsegment {
    * @return fylke
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_FYLKE)
+  @JsonProperty(value = JSON_PROPERTY_FYLKE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Integer getFylke() {
@@ -623,7 +623,7 @@ public class Vegsegment {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_FYLKE)
+  @JsonProperty(value = JSON_PROPERTY_FYLKE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setFylke(@jakarta.annotation.Nonnull Integer fylke) {
     this.fylke = fylke;
@@ -640,7 +640,7 @@ public class Vegsegment {
    * @return vegsystemreferanse
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_VEGSYSTEMREFERANSE)
+  @JsonProperty(value = JSON_PROPERTY_VEGSYSTEMREFERANSE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Vegsystemreferanse getVegsystemreferanse() {
@@ -648,7 +648,7 @@ public class Vegsegment {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_VEGSYSTEMREFERANSE)
+  @JsonProperty(value = JSON_PROPERTY_VEGSYSTEMREFERANSE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setVegsystemreferanse(@jakarta.annotation.Nullable Vegsystemreferanse vegsystemreferanse) {
     this.vegsystemreferanse = vegsystemreferanse;
@@ -673,7 +673,7 @@ public class Vegsegment {
    * @return kontraktsområder
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_KONTRAKTSOMRåDER)
+  @JsonProperty(value = JSON_PROPERTY_KONTRAKTSOMRåDER, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Set<Long> getKontraktsområder() {
@@ -682,7 +682,7 @@ public class Vegsegment {
 
 
   @JsonDeserialize(as = LinkedHashSet.class)
-  @JsonProperty(JSON_PROPERTY_KONTRAKTSOMRåDER)
+  @JsonProperty(value = JSON_PROPERTY_KONTRAKTSOMRåDER, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setKontraktsområder(@jakarta.annotation.Nullable Set<Long> kontraktsområder) {
     this.kontraktsområder = kontraktsområder;
@@ -707,7 +707,7 @@ public class Vegsegment {
    * @return riksvegruter
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_RIKSVEGRUTER)
+  @JsonProperty(value = JSON_PROPERTY_RIKSVEGRUTER, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Set<Integer> getRiksvegruter() {
@@ -716,7 +716,7 @@ public class Vegsegment {
 
 
   @JsonDeserialize(as = LinkedHashSet.class)
-  @JsonProperty(JSON_PROPERTY_RIKSVEGRUTER)
+  @JsonProperty(value = JSON_PROPERTY_RIKSVEGRUTER, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRiksvegruter(@jakarta.annotation.Nullable Set<Integer> riksvegruter) {
     this.riksvegruter = riksvegruter;
@@ -741,7 +741,7 @@ public class Vegsegment {
    * @return vegforvaltere
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_VEGFORVALTERE)
+  @JsonProperty(value = JSON_PROPERTY_VEGFORVALTERE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Set<Integer> getVegforvaltere() {
@@ -750,7 +750,7 @@ public class Vegsegment {
 
 
   @JsonDeserialize(as = LinkedHashSet.class)
-  @JsonProperty(JSON_PROPERTY_VEGFORVALTERE)
+  @JsonProperty(value = JSON_PROPERTY_VEGFORVALTERE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setVegforvaltere(@jakarta.annotation.Nullable Set<Integer> vegforvaltere) {
     this.vegforvaltere = vegforvaltere;
@@ -775,7 +775,7 @@ public class Vegsegment {
    * @return adresser
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ADRESSER)
+  @JsonProperty(value = JSON_PROPERTY_ADRESSER, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Set<Long> getAdresser() {
@@ -784,7 +784,7 @@ public class Vegsegment {
 
 
   @JsonDeserialize(as = LinkedHashSet.class)
-  @JsonProperty(JSON_PROPERTY_ADRESSER)
+  @JsonProperty(value = JSON_PROPERTY_ADRESSER, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAdresser(@jakarta.annotation.Nullable Set<Long> adresser) {
     this.adresser = adresser;

@@ -1,6 +1,6 @@
 /*
  * NVDB API Les Vegnett
- * Dette API-et brukes til å lese vegnettelementer. Les mer om bruk av API-et på https://nvdb.test.atlas.vegvesen.no/produkter/nvdbapil/v4/Vegnett
+ * Dette API-et brukes til å lese vegnettelementer.<br><br>[Dokumentasjon for Vegnett API](https://nvdb-docs.atlas.vegvesen.no/nvdbapil/v4/Vegnett)
  *
  * The version of the OpenAPI document: v4
  * Contact: nvdb@vegvesen.no
@@ -31,7 +31,7 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
   NodeportTilkobling.JSON_PROPERTY_VEGLENKESEKVENSID,
   NodeportTilkobling.JSON_PROPERTY_HREF
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.14.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0")
 public class NodeportTilkobling {
   public static final String JSON_PROPERTY_PORTNUMMER = "portnummer";
   @jakarta.annotation.Nonnull
@@ -59,7 +59,7 @@ public class NodeportTilkobling {
    * @return portnummer
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_PORTNUMMER)
+  @JsonProperty(value = JSON_PROPERTY_PORTNUMMER, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Integer getPortnummer() {
@@ -67,7 +67,7 @@ public class NodeportTilkobling {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_PORTNUMMER)
+  @JsonProperty(value = JSON_PROPERTY_PORTNUMMER, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setPortnummer(@jakarta.annotation.Nonnull Integer portnummer) {
     this.portnummer = portnummer;
@@ -84,7 +84,7 @@ public class NodeportTilkobling {
    * @return veglenkesekvensid
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_VEGLENKESEKVENSID)
+  @JsonProperty(value = JSON_PROPERTY_VEGLENKESEKVENSID, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Long getVeglenkesekvensid() {
@@ -92,7 +92,7 @@ public class NodeportTilkobling {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_VEGLENKESEKVENSID)
+  @JsonProperty(value = JSON_PROPERTY_VEGLENKESEKVENSID, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setVeglenkesekvensid(@jakarta.annotation.Nonnull Long veglenkesekvensid) {
     this.veglenkesekvensid = veglenkesekvensid;
@@ -109,7 +109,7 @@ public class NodeportTilkobling {
    * @return href
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_HREF)
+  @JsonProperty(value = JSON_PROPERTY_HREF, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getHref() {
@@ -117,7 +117,7 @@ public class NodeportTilkobling {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_HREF)
+  @JsonProperty(value = JSON_PROPERTY_HREF, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setHref(@jakarta.annotation.Nonnull String href) {
     this.href = href;

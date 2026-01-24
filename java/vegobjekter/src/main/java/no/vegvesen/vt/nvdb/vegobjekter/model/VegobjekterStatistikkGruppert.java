@@ -1,6 +1,6 @@
 /*
  * NVDB API Les Vegobjekter
- * Dette API-et brukes til å lese vegobjekter. Les mer om bruk av API-et på https://nvdb.atlas.vegvesen.no/produkter/nvdbapil/v4/Vegobjekter
+ * Dette API-et brukes til å lese vegobjekter.<br><br>[Dokumentasjon for Vegobjekter API](https://nvdb-docs.atlas.vegvesen.no/nvdbapil/v4/Vegobjekter)
  *
  * The version of the OpenAPI document: v4
  * Contact: nvdb@vegvesen.no
@@ -34,7 +34,7 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
   VegobjekterStatistikkGruppert.JSON_PROPERTY_KOMMUNE,
   VegobjekterStatistikkGruppert.JSON_PROPERTY_VEGKATEGORI
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.14.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0")
 public class VegobjekterStatistikkGruppert {
   public static final String JSON_PROPERTY_ANTALL = "antall";
   @jakarta.annotation.Nullable
@@ -70,7 +70,7 @@ public class VegobjekterStatistikkGruppert {
    * @return antall
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ANTALL)
+  @JsonProperty(value = JSON_PROPERTY_ANTALL, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Integer getAntall() {
@@ -78,7 +78,7 @@ public class VegobjekterStatistikkGruppert {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ANTALL)
+  @JsonProperty(value = JSON_PROPERTY_ANTALL, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAntall(@jakarta.annotation.Nullable Integer antall) {
     this.antall = antall;
@@ -95,7 +95,7 @@ public class VegobjekterStatistikkGruppert {
    * @return lengde
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_LENGDE)
+  @JsonProperty(value = JSON_PROPERTY_LENGDE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Double getLengde() {
@@ -103,7 +103,7 @@ public class VegobjekterStatistikkGruppert {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_LENGDE)
+  @JsonProperty(value = JSON_PROPERTY_LENGDE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLengde(@jakarta.annotation.Nullable Double lengde) {
     this.lengde = lengde;
@@ -120,7 +120,7 @@ public class VegobjekterStatistikkGruppert {
    * @return fylke
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_FYLKE)
+  @JsonProperty(value = JSON_PROPERTY_FYLKE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Integer getFylke() {
@@ -128,7 +128,7 @@ public class VegobjekterStatistikkGruppert {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_FYLKE)
+  @JsonProperty(value = JSON_PROPERTY_FYLKE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFylke(@jakarta.annotation.Nullable Integer fylke) {
     this.fylke = fylke;
@@ -145,7 +145,7 @@ public class VegobjekterStatistikkGruppert {
    * @return kommune
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_KOMMUNE)
+  @JsonProperty(value = JSON_PROPERTY_KOMMUNE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Integer getKommune() {
@@ -153,7 +153,7 @@ public class VegobjekterStatistikkGruppert {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_KOMMUNE)
+  @JsonProperty(value = JSON_PROPERTY_KOMMUNE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setKommune(@jakarta.annotation.Nullable Integer kommune) {
     this.kommune = kommune;
@@ -170,7 +170,7 @@ public class VegobjekterStatistikkGruppert {
    * @return vegkategori
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_VEGKATEGORI)
+  @JsonProperty(value = JSON_PROPERTY_VEGKATEGORI, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Vegkategori getVegkategori() {
@@ -178,7 +178,7 @@ public class VegobjekterStatistikkGruppert {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_VEGKATEGORI)
+  @JsonProperty(value = JSON_PROPERTY_VEGKATEGORI, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setVegkategori(@jakarta.annotation.Nullable Vegkategori vegkategori) {
     this.vegkategori = vegkategori;

@@ -1,6 +1,6 @@
 /*
  * NVDB API Les Vegobjekter
- * Dette API-et brukes til å lese vegobjekter. Les mer om bruk av API-et på https://nvdb.atlas.vegvesen.no/produkter/nvdbapil/v4/Vegobjekter
+ * Dette API-et brukes til å lese vegobjekter.<br><br>[Dokumentasjon for Vegobjekter API](https://nvdb-docs.atlas.vegvesen.no/nvdbapil/v4/Vegobjekter)
  *
  * The version of the OpenAPI document: v4
  * Contact: nvdb@vegvesen.no
@@ -46,7 +46,7 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
   Stedfesting.JSON_PROPERTY_SIDEPOSISJON,
   Stedfesting.JSON_PROPERTY_KORTFORM
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.14.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0")
 public class Stedfesting {
   public static final String JSON_PROPERTY_TYPE = "type";
   @jakarta.annotation.Nonnull
@@ -110,7 +110,7 @@ public class Stedfesting {
    * @return type
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonProperty(value = JSON_PROPERTY_TYPE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Stedfestingstype getType() {
@@ -118,7 +118,7 @@ public class Stedfesting {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonProperty(value = JSON_PROPERTY_TYPE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setType(@jakarta.annotation.Nonnull Stedfestingstype type) {
     this.type = type;
@@ -135,7 +135,7 @@ public class Stedfesting {
    * @return veglenkesekvensid
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_VEGLENKESEKVENSID)
+  @JsonProperty(value = JSON_PROPERTY_VEGLENKESEKVENSID, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Long getVeglenkesekvensid() {
@@ -143,7 +143,7 @@ public class Stedfesting {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_VEGLENKESEKVENSID)
+  @JsonProperty(value = JSON_PROPERTY_VEGLENKESEKVENSID, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setVeglenkesekvensid(@jakarta.annotation.Nullable Long veglenkesekvensid) {
     this.veglenkesekvensid = veglenkesekvensid;
@@ -160,7 +160,7 @@ public class Stedfesting {
    * @return nodeid
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_NODEID)
+  @JsonProperty(value = JSON_PROPERTY_NODEID, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Long getNodeid() {
@@ -168,7 +168,7 @@ public class Stedfesting {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_NODEID)
+  @JsonProperty(value = JSON_PROPERTY_NODEID, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setNodeid(@jakarta.annotation.Nullable Long nodeid) {
     this.nodeid = nodeid;
@@ -185,7 +185,7 @@ public class Stedfesting {
    * @return relativPosisjon
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_RELATIV_POSISJON)
+  @JsonProperty(value = JSON_PROPERTY_RELATIV_POSISJON, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Double getRelativPosisjon() {
@@ -193,7 +193,7 @@ public class Stedfesting {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_RELATIV_POSISJON)
+  @JsonProperty(value = JSON_PROPERTY_RELATIV_POSISJON, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRelativPosisjon(@jakarta.annotation.Nullable Double relativPosisjon) {
     this.relativPosisjon = relativPosisjon;
@@ -210,7 +210,7 @@ public class Stedfesting {
    * @return startposisjon
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_STARTPOSISJON)
+  @JsonProperty(value = JSON_PROPERTY_STARTPOSISJON, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Double getStartposisjon() {
@@ -218,7 +218,7 @@ public class Stedfesting {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_STARTPOSISJON)
+  @JsonProperty(value = JSON_PROPERTY_STARTPOSISJON, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStartposisjon(@jakarta.annotation.Nullable Double startposisjon) {
     this.startposisjon = startposisjon;
@@ -235,7 +235,7 @@ public class Stedfesting {
    * @return sluttposisjon
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SLUTTPOSISJON)
+  @JsonProperty(value = JSON_PROPERTY_SLUTTPOSISJON, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Double getSluttposisjon() {
@@ -243,7 +243,7 @@ public class Stedfesting {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_SLUTTPOSISJON)
+  @JsonProperty(value = JSON_PROPERTY_SLUTTPOSISJON, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSluttposisjon(@jakarta.annotation.Nullable Double sluttposisjon) {
     this.sluttposisjon = sluttposisjon;
@@ -260,7 +260,7 @@ public class Stedfesting {
    * @return startpunkt
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_STARTPUNKT)
+  @JsonProperty(value = JSON_PROPERTY_STARTPUNKT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Stedfesting getStartpunkt() {
@@ -268,7 +268,7 @@ public class Stedfesting {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_STARTPUNKT)
+  @JsonProperty(value = JSON_PROPERTY_STARTPUNKT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStartpunkt(@jakarta.annotation.Nullable Stedfesting startpunkt) {
     this.startpunkt = startpunkt;
@@ -285,7 +285,7 @@ public class Stedfesting {
    * @return sluttpunkt
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SLUTTPUNKT)
+  @JsonProperty(value = JSON_PROPERTY_SLUTTPUNKT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Stedfesting getSluttpunkt() {
@@ -293,7 +293,7 @@ public class Stedfesting {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_SLUTTPUNKT)
+  @JsonProperty(value = JSON_PROPERTY_SLUTTPUNKT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSluttpunkt(@jakarta.annotation.Nullable Stedfesting sluttpunkt) {
     this.sluttpunkt = sluttpunkt;
@@ -310,7 +310,7 @@ public class Stedfesting {
    * @return retning
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_RETNING)
+  @JsonProperty(value = JSON_PROPERTY_RETNING, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Retning getRetning() {
@@ -318,7 +318,7 @@ public class Stedfesting {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_RETNING)
+  @JsonProperty(value = JSON_PROPERTY_RETNING, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRetning(@jakarta.annotation.Nullable Retning retning) {
     this.retning = retning;
@@ -343,7 +343,7 @@ public class Stedfesting {
    * @return kjørefelt
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_KJøREFELT)
+  @JsonProperty(value = JSON_PROPERTY_KJøREFELT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public List<String> getKjørefelt() {
@@ -351,7 +351,7 @@ public class Stedfesting {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_KJøREFELT)
+  @JsonProperty(value = JSON_PROPERTY_KJøREFELT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setKjørefelt(@jakarta.annotation.Nullable List<String> kjørefelt) {
     this.kjørefelt = kjørefelt;
@@ -368,7 +368,7 @@ public class Stedfesting {
    * @return sideposisjon
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SIDEPOSISJON)
+  @JsonProperty(value = JSON_PROPERTY_SIDEPOSISJON, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Sideposisjon getSideposisjon() {
@@ -376,7 +376,7 @@ public class Stedfesting {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_SIDEPOSISJON)
+  @JsonProperty(value = JSON_PROPERTY_SIDEPOSISJON, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSideposisjon(@jakarta.annotation.Nullable Sideposisjon sideposisjon) {
     this.sideposisjon = sideposisjon;
@@ -393,7 +393,7 @@ public class Stedfesting {
    * @return kortform
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_KORTFORM)
+  @JsonProperty(value = JSON_PROPERTY_KORTFORM, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getKortform() {
@@ -401,7 +401,7 @@ public class Stedfesting {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_KORTFORM)
+  @JsonProperty(value = JSON_PROPERTY_KORTFORM, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setKortform(@jakarta.annotation.Nullable String kortform) {
     this.kortform = kortform;

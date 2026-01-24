@@ -1,6 +1,6 @@
 /*
  * NVDB API Les Vegnett
- * Dette API-et brukes til å lese vegnettelementer. Les mer om bruk av API-et på https://nvdb.test.atlas.vegvesen.no/produkter/nvdbapil/v4/Vegnett
+ * Dette API-et brukes til å lese vegnettelementer.<br><br>[Dokumentasjon for Vegnett API](https://nvdb-docs.atlas.vegvesen.no/nvdbapil/v4/Vegnett)
  *
  * The version of the OpenAPI document: v4
  * Contact: nvdb@vegvesen.no
@@ -41,7 +41,7 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
   Strekning.JSON_PROPERTY_TIL_METER,
   Strekning.JSON_PROPERTY_ADSKILTE_LøP_NUMMER
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.14.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0")
 public class Strekning {
   public static final String JSON_PROPERTY_STREKNING = "strekning";
   @jakarta.annotation.Nonnull
@@ -97,7 +97,7 @@ public class Strekning {
    * @return strekning
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_STREKNING)
+  @JsonProperty(value = JSON_PROPERTY_STREKNING, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Integer getStrekning() {
@@ -105,7 +105,7 @@ public class Strekning {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_STREKNING)
+  @JsonProperty(value = JSON_PROPERTY_STREKNING, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setStrekning(@jakarta.annotation.Nonnull Integer strekning) {
     this.strekning = strekning;
@@ -122,7 +122,7 @@ public class Strekning {
    * @return delstrekning
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_DELSTREKNING)
+  @JsonProperty(value = JSON_PROPERTY_DELSTREKNING, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Integer getDelstrekning() {
@@ -130,7 +130,7 @@ public class Strekning {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_DELSTREKNING)
+  @JsonProperty(value = JSON_PROPERTY_DELSTREKNING, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setDelstrekning(@jakarta.annotation.Nonnull Integer delstrekning) {
     this.delstrekning = delstrekning;
@@ -147,7 +147,7 @@ public class Strekning {
    * @return arm
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_ARM)
+  @JsonProperty(value = JSON_PROPERTY_ARM, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Boolean getArm() {
@@ -155,7 +155,7 @@ public class Strekning {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ARM)
+  @JsonProperty(value = JSON_PROPERTY_ARM, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setArm(@jakarta.annotation.Nonnull Boolean arm) {
     this.arm = arm;
@@ -172,7 +172,7 @@ public class Strekning {
    * @return adskilteLøp
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_ADSKILTE_LøP)
+  @JsonProperty(value = JSON_PROPERTY_ADSKILTE_LøP, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public AdskilteLop getAdskilteLøp() {
@@ -180,7 +180,7 @@ public class Strekning {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ADSKILTE_LøP)
+  @JsonProperty(value = JSON_PROPERTY_ADSKILTE_LøP, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setAdskilteLøp(@jakarta.annotation.Nonnull AdskilteLop adskilteLøp) {
     this.adskilteLøp = adskilteLøp;
@@ -197,7 +197,7 @@ public class Strekning {
    * @return trafikantgruppe
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_TRAFIKANTGRUPPE)
+  @JsonProperty(value = JSON_PROPERTY_TRAFIKANTGRUPPE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Trafikantgruppe getTrafikantgruppe() {
@@ -205,7 +205,7 @@ public class Strekning {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_TRAFIKANTGRUPPE)
+  @JsonProperty(value = JSON_PROPERTY_TRAFIKANTGRUPPE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setTrafikantgruppe(@jakarta.annotation.Nonnull Trafikantgruppe trafikantgruppe) {
     this.trafikantgruppe = trafikantgruppe;
@@ -222,7 +222,7 @@ public class Strekning {
    * @return retning
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_RETNING)
+  @JsonProperty(value = JSON_PROPERTY_RETNING, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Retning getRetning() {
@@ -230,7 +230,7 @@ public class Strekning {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_RETNING)
+  @JsonProperty(value = JSON_PROPERTY_RETNING, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setRetning(@jakarta.annotation.Nonnull Retning retning) {
     this.retning = retning;
@@ -247,7 +247,7 @@ public class Strekning {
    * @return meter
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_METER)
+  @JsonProperty(value = JSON_PROPERTY_METER, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Double getMeter() {
@@ -255,7 +255,7 @@ public class Strekning {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_METER)
+  @JsonProperty(value = JSON_PROPERTY_METER, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMeter(@jakarta.annotation.Nullable Double meter) {
     this.meter = meter;
@@ -272,7 +272,7 @@ public class Strekning {
    * @return fraMeter
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_FRA_METER)
+  @JsonProperty(value = JSON_PROPERTY_FRA_METER, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Double getFraMeter() {
@@ -280,7 +280,7 @@ public class Strekning {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_FRA_METER)
+  @JsonProperty(value = JSON_PROPERTY_FRA_METER, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFraMeter(@jakarta.annotation.Nullable Double fraMeter) {
     this.fraMeter = fraMeter;
@@ -297,7 +297,7 @@ public class Strekning {
    * @return tilMeter
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TIL_METER)
+  @JsonProperty(value = JSON_PROPERTY_TIL_METER, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Double getTilMeter() {
@@ -305,7 +305,7 @@ public class Strekning {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_TIL_METER)
+  @JsonProperty(value = JSON_PROPERTY_TIL_METER, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTilMeter(@jakarta.annotation.Nullable Double tilMeter) {
     this.tilMeter = tilMeter;
@@ -322,7 +322,7 @@ public class Strekning {
    * @return adskilteLøpNummer
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ADSKILTE_LøP_NUMMER)
+  @JsonProperty(value = JSON_PROPERTY_ADSKILTE_LøP_NUMMER, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getAdskilteLøpNummer() {
@@ -330,7 +330,7 @@ public class Strekning {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ADSKILTE_LøP_NUMMER)
+  @JsonProperty(value = JSON_PROPERTY_ADSKILTE_LøP_NUMMER, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAdskilteLøpNummer(@jakarta.annotation.Nullable String adskilteLøpNummer) {
     this.adskilteLøpNummer = adskilteLøpNummer;

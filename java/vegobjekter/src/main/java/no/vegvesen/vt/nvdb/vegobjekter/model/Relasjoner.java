@@ -1,6 +1,6 @@
 /*
  * NVDB API Les Vegobjekter
- * Dette API-et brukes til å lese vegobjekter. Les mer om bruk av API-et på https://nvdb.atlas.vegvesen.no/produkter/nvdbapil/v4/Vegobjekter
+ * Dette API-et brukes til å lese vegobjekter.<br><br>[Dokumentasjon for Vegobjekter API](https://nvdb-docs.atlas.vegvesen.no/nvdbapil/v4/Vegobjekter)
  *
  * The version of the OpenAPI document: v4
  * Contact: nvdb@vegvesen.no
@@ -35,7 +35,7 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
   Relasjoner.JSON_PROPERTY_FORELDRE,
   Relasjoner.JSON_PROPERTY_BARN
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.14.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0")
 public class Relasjoner {
   public static final String JSON_PROPERTY_FORELDRE = "foreldre";
   @jakarta.annotation.Nullable
@@ -67,7 +67,7 @@ public class Relasjoner {
    * @return foreldre
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_FORELDRE)
+  @JsonProperty(value = JSON_PROPERTY_FORELDRE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public List<RelasjonMedIder> getForeldre() {
@@ -75,7 +75,7 @@ public class Relasjoner {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_FORELDRE)
+  @JsonProperty(value = JSON_PROPERTY_FORELDRE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setForeldre(@jakarta.annotation.Nullable List<RelasjonMedIder> foreldre) {
     this.foreldre = foreldre;
@@ -100,7 +100,7 @@ public class Relasjoner {
    * @return barn
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_BARN)
+  @JsonProperty(value = JSON_PROPERTY_BARN, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public List<Relasjon> getBarn() {
@@ -108,7 +108,7 @@ public class Relasjoner {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_BARN)
+  @JsonProperty(value = JSON_PROPERTY_BARN, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setBarn(@jakarta.annotation.Nullable List<Relasjon> barn) {
     this.barn = barn;

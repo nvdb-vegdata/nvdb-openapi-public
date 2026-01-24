@@ -1,6 +1,6 @@
 /*
  * NVDB API Les Vegobjekter
- * Dette API-et brukes til å lese vegobjekter. Les mer om bruk av API-et på https://nvdb.atlas.vegvesen.no/produkter/nvdbapil/v4/Vegobjekter
+ * Dette API-et brukes til å lese vegobjekter.<br><br>[Dokumentasjon for Vegobjekter API](https://nvdb-docs.atlas.vegvesen.no/nvdbapil/v4/Vegobjekter)
  *
  * The version of the OpenAPI document: v4
  * Contact: nvdb@vegvesen.no
@@ -35,7 +35,7 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
   UtledetGeometri.JSON_PROPERTY_LENGDE,
   UtledetGeometri.JSON_PROPERTY_AREAL
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.14.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0")
 public class UtledetGeometri {
   public static final String JSON_PROPERTY_WKT = "wkt";
   @jakarta.annotation.Nonnull
@@ -75,7 +75,7 @@ public class UtledetGeometri {
    * @return wkt
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_WKT)
+  @JsonProperty(value = JSON_PROPERTY_WKT, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getWkt() {
@@ -83,7 +83,7 @@ public class UtledetGeometri {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_WKT)
+  @JsonProperty(value = JSON_PROPERTY_WKT, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setWkt(@jakarta.annotation.Nonnull String wkt) {
     this.wkt = wkt;
@@ -100,7 +100,7 @@ public class UtledetGeometri {
    * @return srid
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_SRID)
+  @JsonProperty(value = JSON_PROPERTY_SRID, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public SRID getSrid() {
@@ -108,7 +108,7 @@ public class UtledetGeometri {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_SRID)
+  @JsonProperty(value = JSON_PROPERTY_SRID, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setSrid(@jakarta.annotation.Nonnull SRID srid) {
     this.srid = srid;
@@ -125,7 +125,7 @@ public class UtledetGeometri {
    * @return egengeometri
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_EGENGEOMETRI)
+  @JsonProperty(value = JSON_PROPERTY_EGENGEOMETRI, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Boolean getEgengeometri() {
@@ -133,7 +133,7 @@ public class UtledetGeometri {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_EGENGEOMETRI)
+  @JsonProperty(value = JSON_PROPERTY_EGENGEOMETRI, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setEgengeometri(@jakarta.annotation.Nonnull Boolean egengeometri) {
     this.egengeometri = egengeometri;
@@ -150,7 +150,7 @@ public class UtledetGeometri {
    * @return forenklet
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_FORENKLET)
+  @JsonProperty(value = JSON_PROPERTY_FORENKLET, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getForenklet() {
@@ -158,7 +158,7 @@ public class UtledetGeometri {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_FORENKLET)
+  @JsonProperty(value = JSON_PROPERTY_FORENKLET, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setForenklet(@jakarta.annotation.Nullable Boolean forenklet) {
     this.forenklet = forenklet;
@@ -175,7 +175,7 @@ public class UtledetGeometri {
    * @return lengde
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_LENGDE)
+  @JsonProperty(value = JSON_PROPERTY_LENGDE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Double getLengde() {
@@ -183,7 +183,7 @@ public class UtledetGeometri {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_LENGDE)
+  @JsonProperty(value = JSON_PROPERTY_LENGDE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLengde(@jakarta.annotation.Nullable Double lengde) {
     this.lengde = lengde;
@@ -200,7 +200,7 @@ public class UtledetGeometri {
    * @return areal
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_AREAL)
+  @JsonProperty(value = JSON_PROPERTY_AREAL, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Double getAreal() {
@@ -208,7 +208,7 @@ public class UtledetGeometri {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_AREAL)
+  @JsonProperty(value = JSON_PROPERTY_AREAL, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAreal(@jakarta.annotation.Nullable Double areal) {
     this.areal = areal;

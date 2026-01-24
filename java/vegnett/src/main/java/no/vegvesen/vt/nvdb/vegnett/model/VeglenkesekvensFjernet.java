@@ -1,6 +1,6 @@
 /*
  * NVDB API Les Vegnett
- * Dette API-et brukes til å lese vegnettelementer. Les mer om bruk av API-et på https://nvdb.test.atlas.vegvesen.no/produkter/nvdbapil/v4/Vegnett
+ * Dette API-et brukes til å lese vegnettelementer.<br><br>[Dokumentasjon for Vegnett API](https://nvdb-docs.atlas.vegvesen.no/nvdbapil/v4/Vegnett)
  *
  * The version of the OpenAPI document: v4
  * Contact: nvdb@vegvesen.no
@@ -31,7 +31,7 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
   VeglenkesekvensFjernet.JSON_PROPERTY_ID,
   VeglenkesekvensFjernet.JSON_PROPERTY_TIDSPUNKT
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.14.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0")
 public class VeglenkesekvensFjernet {
   public static final String JSON_PROPERTY_ID = "id";
   @jakarta.annotation.Nonnull
@@ -55,7 +55,7 @@ public class VeglenkesekvensFjernet {
    * @return id
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonProperty(value = JSON_PROPERTY_ID, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Long getId() {
@@ -63,7 +63,7 @@ public class VeglenkesekvensFjernet {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonProperty(value = JSON_PROPERTY_ID, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setId(@jakarta.annotation.Nonnull Long id) {
     this.id = id;
@@ -80,7 +80,7 @@ public class VeglenkesekvensFjernet {
    * @return tidspunkt
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_TIDSPUNKT)
+  @JsonProperty(value = JSON_PROPERTY_TIDSPUNKT, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public OffsetDateTime getTidspunkt() {
@@ -88,7 +88,7 @@ public class VeglenkesekvensFjernet {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_TIDSPUNKT)
+  @JsonProperty(value = JSON_PROPERTY_TIDSPUNKT, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setTidspunkt(@jakarta.annotation.Nonnull OffsetDateTime tidspunkt) {
     this.tidspunkt = tidspunkt;

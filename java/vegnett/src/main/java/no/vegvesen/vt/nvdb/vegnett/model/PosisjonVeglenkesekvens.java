@@ -1,6 +1,6 @@
 /*
  * NVDB API Les Vegnett
- * Dette API-et brukes til å lese vegnettelementer. Les mer om bruk av API-et på https://nvdb.test.atlas.vegvesen.no/produkter/nvdbapil/v4/Vegnett
+ * Dette API-et brukes til å lese vegnettelementer.<br><br>[Dokumentasjon for Vegnett API](https://nvdb-docs.atlas.vegvesen.no/nvdbapil/v4/Vegnett)
  *
  * The version of the OpenAPI document: v4
  * Contact: nvdb@vegvesen.no
@@ -31,7 +31,7 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
   PosisjonVeglenkesekvens.JSON_PROPERTY_RELATIV_POSISJON,
   PosisjonVeglenkesekvens.JSON_PROPERTY_KORTFORM
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.14.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0")
 public class PosisjonVeglenkesekvens {
   public static final String JSON_PROPERTY_VEGLENKESEKVENSID = "veglenkesekvensid";
   @jakarta.annotation.Nonnull
@@ -59,7 +59,7 @@ public class PosisjonVeglenkesekvens {
    * @return veglenkesekvensid
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_VEGLENKESEKVENSID)
+  @JsonProperty(value = JSON_PROPERTY_VEGLENKESEKVENSID, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Long getVeglenkesekvensid() {
@@ -67,7 +67,7 @@ public class PosisjonVeglenkesekvens {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_VEGLENKESEKVENSID)
+  @JsonProperty(value = JSON_PROPERTY_VEGLENKESEKVENSID, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setVeglenkesekvensid(@jakarta.annotation.Nonnull Long veglenkesekvensid) {
     this.veglenkesekvensid = veglenkesekvensid;
@@ -84,7 +84,7 @@ public class PosisjonVeglenkesekvens {
    * @return relativPosisjon
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_RELATIV_POSISJON)
+  @JsonProperty(value = JSON_PROPERTY_RELATIV_POSISJON, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Double getRelativPosisjon() {
@@ -92,7 +92,7 @@ public class PosisjonVeglenkesekvens {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_RELATIV_POSISJON)
+  @JsonProperty(value = JSON_PROPERTY_RELATIV_POSISJON, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setRelativPosisjon(@jakarta.annotation.Nonnull Double relativPosisjon) {
     this.relativPosisjon = relativPosisjon;
@@ -109,7 +109,7 @@ public class PosisjonVeglenkesekvens {
    * @return kortform
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_KORTFORM)
+  @JsonProperty(value = JSON_PROPERTY_KORTFORM, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getKortform() {
@@ -117,7 +117,7 @@ public class PosisjonVeglenkesekvens {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_KORTFORM)
+  @JsonProperty(value = JSON_PROPERTY_KORTFORM, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setKortform(@jakarta.annotation.Nonnull String kortform) {
     this.kortform = kortform;

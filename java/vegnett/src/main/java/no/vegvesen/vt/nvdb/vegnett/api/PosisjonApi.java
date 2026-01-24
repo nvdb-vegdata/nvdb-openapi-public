@@ -31,7 +31,7 @@ import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestClient.ResponseSpec;
 import org.springframework.web.client.RestClientResponseException;
 
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.14.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0")
 public class PosisjonApi {
     private ApiClient apiClient;
 
@@ -50,7 +50,6 @@ public class PosisjonApi {
     public void setApiClient(ApiClient apiClient) {
         this.apiClient = apiClient;
     }
-
 
     public static class FindPosisjonRequest {
         private @jakarta.annotation.Nullable Double nord;
@@ -209,56 +208,56 @@ public class PosisjonApi {
     }
 
     /**
-    * Finn nærmeste posisjon på vegnettet for gitte koordinater. Koordinater kan angis som &#x60;nord&#x60; og &#x60;ost&#x60; eller &#x60;lat&#x60; og &#x60;lon&#x60;.
-    * 
-     * <p><b>500</b> - Internal Server Error
+     * Finn nærmeste posisjon på vegnettet for gitte koordinater. Koordinater kan angis som &#x60;nord&#x60; og &#x60;ost&#x60; eller &#x60;lat&#x60; og &#x60;lon&#x60;.
+     * 
      * <p><b>400</b> - Bad Request
      * <p><b>404</b> - Not Found
+     * <p><b>500</b> - Internal Server Error
      * <p><b>200</b> - OK
      * @param requestParameters The findPosisjon request parameters as object
      * @return List&lt;PosisjonMedAvstand&gt;
      * @throws RestClientResponseException if an error occurs while attempting to invoke the API
-    */
+     */
     public List<PosisjonMedAvstand> findPosisjon(FindPosisjonRequest requestParameters) throws RestClientResponseException {
-      return this.findPosisjon(requestParameters.nord(), requestParameters.ost(), requestParameters.lat(), requestParameters.lon(), requestParameters.maksAvstand(), requestParameters.maksAntall(), requestParameters.konnekteringslenker(), requestParameters.detaljerteLenker(), requestParameters.tidspunkt(), requestParameters.vegsystemreferanse(), requestParameters.srid(), requestParameters.trafikantgruppe());
-    }
-
-  /**
-  * Finn nærmeste posisjon på vegnettet for gitte koordinater. Koordinater kan angis som &#x60;nord&#x60; og &#x60;ost&#x60; eller &#x60;lat&#x60; og &#x60;lon&#x60;.
-  * 
-     * <p><b>500</b> - Internal Server Error
-     * <p><b>400</b> - Bad Request
-     * <p><b>404</b> - Not Found
-     * <p><b>200</b> - OK
-     * @param requestParameters The findPosisjon request parameters as object
-     * @return ResponseEntity&lt;List&lt;PosisjonMedAvstand&gt;&gt;
-     * @throws RestClientResponseException if an error occurs while attempting to invoke the API
-    */
-    public ResponseEntity<List<PosisjonMedAvstand>> findPosisjonWithHttpInfo(FindPosisjonRequest requestParameters) throws RestClientResponseException {
-      return this.findPosisjonWithHttpInfo(requestParameters.nord(), requestParameters.ost(), requestParameters.lat(), requestParameters.lon(), requestParameters.maksAvstand(), requestParameters.maksAntall(), requestParameters.konnekteringslenker(), requestParameters.detaljerteLenker(), requestParameters.tidspunkt(), requestParameters.vegsystemreferanse(), requestParameters.srid(), requestParameters.trafikantgruppe());
-    }
-
-  /**
-  * Finn nærmeste posisjon på vegnettet for gitte koordinater. Koordinater kan angis som &#x60;nord&#x60; og &#x60;ost&#x60; eller &#x60;lat&#x60; og &#x60;lon&#x60;.
-  * 
-     * <p><b>500</b> - Internal Server Error
-     * <p><b>400</b> - Bad Request
-     * <p><b>404</b> - Not Found
-     * <p><b>200</b> - OK
-     * @param requestParameters The findPosisjon request parameters as object
-  * @return ResponseSpec
-  * @throws RestClientResponseException if an error occurs while attempting to invoke the API
-    */
-    public ResponseSpec findPosisjonWithResponseSpec(FindPosisjonRequest requestParameters) throws RestClientResponseException {
-      return this.findPosisjonWithResponseSpec(requestParameters.nord(), requestParameters.ost(), requestParameters.lat(), requestParameters.lon(), requestParameters.maksAvstand(), requestParameters.maksAntall(), requestParameters.konnekteringslenker(), requestParameters.detaljerteLenker(), requestParameters.tidspunkt(), requestParameters.vegsystemreferanse(), requestParameters.srid(), requestParameters.trafikantgruppe());
+        return this.findPosisjon(requestParameters.nord(), requestParameters.ost(), requestParameters.lat(), requestParameters.lon(), requestParameters.maksAvstand(), requestParameters.maksAntall(), requestParameters.konnekteringslenker(), requestParameters.detaljerteLenker(), requestParameters.tidspunkt(), requestParameters.vegsystemreferanse(), requestParameters.srid(), requestParameters.trafikantgruppe());
     }
 
     /**
      * Finn nærmeste posisjon på vegnettet for gitte koordinater. Koordinater kan angis som &#x60;nord&#x60; og &#x60;ost&#x60; eller &#x60;lat&#x60; og &#x60;lon&#x60;.
      * 
-     * <p><b>500</b> - Internal Server Error
      * <p><b>400</b> - Bad Request
      * <p><b>404</b> - Not Found
+     * <p><b>500</b> - Internal Server Error
+     * <p><b>200</b> - OK
+     * @param requestParameters The findPosisjon request parameters as object
+     * @return ResponseEntity&lt;List&lt;PosisjonMedAvstand&gt;&gt;
+     * @throws RestClientResponseException if an error occurs while attempting to invoke the API
+     */
+    public ResponseEntity<List<PosisjonMedAvstand>> findPosisjonWithHttpInfo(FindPosisjonRequest requestParameters) throws RestClientResponseException {
+        return this.findPosisjonWithHttpInfo(requestParameters.nord(), requestParameters.ost(), requestParameters.lat(), requestParameters.lon(), requestParameters.maksAvstand(), requestParameters.maksAntall(), requestParameters.konnekteringslenker(), requestParameters.detaljerteLenker(), requestParameters.tidspunkt(), requestParameters.vegsystemreferanse(), requestParameters.srid(), requestParameters.trafikantgruppe());
+    }
+
+    /**
+     * Finn nærmeste posisjon på vegnettet for gitte koordinater. Koordinater kan angis som &#x60;nord&#x60; og &#x60;ost&#x60; eller &#x60;lat&#x60; og &#x60;lon&#x60;.
+     * 
+     * <p><b>400</b> - Bad Request
+     * <p><b>404</b> - Not Found
+     * <p><b>500</b> - Internal Server Error
+     * <p><b>200</b> - OK
+     * @param requestParameters The findPosisjon request parameters as object
+     * @return ResponseSpec
+     * @throws RestClientResponseException if an error occurs while attempting to invoke the API
+     */
+    public ResponseSpec findPosisjonWithResponseSpec(FindPosisjonRequest requestParameters) throws RestClientResponseException {
+        return this.findPosisjonWithResponseSpec(requestParameters.nord(), requestParameters.ost(), requestParameters.lat(), requestParameters.lon(), requestParameters.maksAvstand(), requestParameters.maksAntall(), requestParameters.konnekteringslenker(), requestParameters.detaljerteLenker(), requestParameters.tidspunkt(), requestParameters.vegsystemreferanse(), requestParameters.srid(), requestParameters.trafikantgruppe());
+    }
+
+    /**
+     * Finn nærmeste posisjon på vegnettet for gitte koordinater. Koordinater kan angis som &#x60;nord&#x60; og &#x60;ost&#x60; eller &#x60;lat&#x60; og &#x60;lon&#x60;.
+     * 
+     * <p><b>400</b> - Bad Request
+     * <p><b>404</b> - Not Found
+     * <p><b>500</b> - Internal Server Error
      * <p><b>200</b> - OK
      * @param nord Nordlig koordinat
      * @param ost Østlig koordinat
@@ -270,7 +269,7 @@ public class PosisjonApi {
      * @param detaljerteLenker Angir om det skal returneres treff på detaljerte lenker
      * @param tidspunkt Begrens spørring til det gitte tidspunktet.
      * @param vegsystemreferanse Filtrer på [vegsystemreferanse](https://nvdb-docs.atlas.vegvesen.no/nvdbapil/v4/introduksjon/Vegsystemreferanse). Kommaseparert liste. Legg til kommunenummer i starten av vegsystemreferansen for å filtrere på område.  Eksempel: &#x60;EV6S1D1 m12&#x60;
-     * @param srid Angir hvilket geografisk referansesystem geometrien skal returneres i. Utdata i UTM-formater begrenses til 3 desimaler, 4326/WGS84 begrenses til 8 desimaler. Mer informasjon: &lt;a href&#x3D;&#39;https://epsg.io/5972&#39;&gt;EPSG:5972&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5973&#39;&gt;EPSG:5973&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5975&#39;&gt;EPSG:5975&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/4326&#39;&gt;EPSG:4326&lt;/a&gt;.
+     * @param srid Angir hvilket geografisk referansesystem geometrien skal returneres i. Utdata i UTM-formater begrenses til 3 desimaler, 4326/WGS84 begrenses til 8 desimaler. Query-parametere med koordinater oppgis i UTM33 for UTM-formater, 4326/WGS84 oppgis dersom srid er 4326/WGS84. Mer informasjon: &lt;a href&#x3D;&#39;https://epsg.io/5972&#39;&gt;EPSG:5972&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5973&#39;&gt;EPSG:5973&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5975&#39;&gt;EPSG:5975&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/4326&#39;&gt;EPSG:4326&lt;/a&gt;.
      * @param trafikantgruppe Filtrer på trafikantgruppe.
      * @return List&lt;PosisjonMedAvstand&gt;
      * @throws RestClientResponseException if an error occurs while attempting to invoke the API
@@ -297,7 +296,7 @@ public class PosisjonApi {
         queryParams.putAll(apiClient.parameterToMultiValueMap(ApiClient.CollectionFormat.valueOf("multi".toUpperCase(Locale.ROOT)), "vegsystemreferanse", vegsystemreferanse));
         queryParams.putAll(apiClient.parameterToMultiValueMap(null, "srid", srid));
         queryParams.putAll(apiClient.parameterToMultiValueMap(null, "trafikantgruppe", trafikantgruppe));
-        
+
         final String[] localVarAccepts = { 
             "*/*"
         };
@@ -314,9 +313,9 @@ public class PosisjonApi {
     /**
      * Finn nærmeste posisjon på vegnettet for gitte koordinater. Koordinater kan angis som &#x60;nord&#x60; og &#x60;ost&#x60; eller &#x60;lat&#x60; og &#x60;lon&#x60;.
      * 
-     * <p><b>500</b> - Internal Server Error
      * <p><b>400</b> - Bad Request
      * <p><b>404</b> - Not Found
+     * <p><b>500</b> - Internal Server Error
      * <p><b>200</b> - OK
      * @param nord Nordlig koordinat
      * @param ost Østlig koordinat
@@ -328,7 +327,7 @@ public class PosisjonApi {
      * @param detaljerteLenker Angir om det skal returneres treff på detaljerte lenker
      * @param tidspunkt Begrens spørring til det gitte tidspunktet.
      * @param vegsystemreferanse Filtrer på [vegsystemreferanse](https://nvdb-docs.atlas.vegvesen.no/nvdbapil/v4/introduksjon/Vegsystemreferanse). Kommaseparert liste. Legg til kommunenummer i starten av vegsystemreferansen for å filtrere på område.  Eksempel: &#x60;EV6S1D1 m12&#x60;
-     * @param srid Angir hvilket geografisk referansesystem geometrien skal returneres i. Utdata i UTM-formater begrenses til 3 desimaler, 4326/WGS84 begrenses til 8 desimaler. Mer informasjon: &lt;a href&#x3D;&#39;https://epsg.io/5972&#39;&gt;EPSG:5972&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5973&#39;&gt;EPSG:5973&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5975&#39;&gt;EPSG:5975&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/4326&#39;&gt;EPSG:4326&lt;/a&gt;.
+     * @param srid Angir hvilket geografisk referansesystem geometrien skal returneres i. Utdata i UTM-formater begrenses til 3 desimaler, 4326/WGS84 begrenses til 8 desimaler. Query-parametere med koordinater oppgis i UTM33 for UTM-formater, 4326/WGS84 oppgis dersom srid er 4326/WGS84. Mer informasjon: &lt;a href&#x3D;&#39;https://epsg.io/5972&#39;&gt;EPSG:5972&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5973&#39;&gt;EPSG:5973&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5975&#39;&gt;EPSG:5975&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/4326&#39;&gt;EPSG:4326&lt;/a&gt;.
      * @param trafikantgruppe Filtrer på trafikantgruppe.
      * @return List&lt;PosisjonMedAvstand&gt;
      * @throws RestClientResponseException if an error occurs while attempting to invoke the API
@@ -341,9 +340,9 @@ public class PosisjonApi {
     /**
      * Finn nærmeste posisjon på vegnettet for gitte koordinater. Koordinater kan angis som &#x60;nord&#x60; og &#x60;ost&#x60; eller &#x60;lat&#x60; og &#x60;lon&#x60;.
      * 
-     * <p><b>500</b> - Internal Server Error
      * <p><b>400</b> - Bad Request
      * <p><b>404</b> - Not Found
+     * <p><b>500</b> - Internal Server Error
      * <p><b>200</b> - OK
      * @param nord Nordlig koordinat
      * @param ost Østlig koordinat
@@ -355,7 +354,7 @@ public class PosisjonApi {
      * @param detaljerteLenker Angir om det skal returneres treff på detaljerte lenker
      * @param tidspunkt Begrens spørring til det gitte tidspunktet.
      * @param vegsystemreferanse Filtrer på [vegsystemreferanse](https://nvdb-docs.atlas.vegvesen.no/nvdbapil/v4/introduksjon/Vegsystemreferanse). Kommaseparert liste. Legg til kommunenummer i starten av vegsystemreferansen for å filtrere på område.  Eksempel: &#x60;EV6S1D1 m12&#x60;
-     * @param srid Angir hvilket geografisk referansesystem geometrien skal returneres i. Utdata i UTM-formater begrenses til 3 desimaler, 4326/WGS84 begrenses til 8 desimaler. Mer informasjon: &lt;a href&#x3D;&#39;https://epsg.io/5972&#39;&gt;EPSG:5972&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5973&#39;&gt;EPSG:5973&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5975&#39;&gt;EPSG:5975&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/4326&#39;&gt;EPSG:4326&lt;/a&gt;.
+     * @param srid Angir hvilket geografisk referansesystem geometrien skal returneres i. Utdata i UTM-formater begrenses til 3 desimaler, 4326/WGS84 begrenses til 8 desimaler. Query-parametere med koordinater oppgis i UTM33 for UTM-formater, 4326/WGS84 oppgis dersom srid er 4326/WGS84. Mer informasjon: &lt;a href&#x3D;&#39;https://epsg.io/5972&#39;&gt;EPSG:5972&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5973&#39;&gt;EPSG:5973&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5975&#39;&gt;EPSG:5975&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/4326&#39;&gt;EPSG:4326&lt;/a&gt;.
      * @param trafikantgruppe Filtrer på trafikantgruppe.
      * @return ResponseEntity&lt;List&lt;PosisjonMedAvstand&gt;&gt;
      * @throws RestClientResponseException if an error occurs while attempting to invoke the API
@@ -368,9 +367,9 @@ public class PosisjonApi {
     /**
      * Finn nærmeste posisjon på vegnettet for gitte koordinater. Koordinater kan angis som &#x60;nord&#x60; og &#x60;ost&#x60; eller &#x60;lat&#x60; og &#x60;lon&#x60;.
      * 
-     * <p><b>500</b> - Internal Server Error
      * <p><b>400</b> - Bad Request
      * <p><b>404</b> - Not Found
+     * <p><b>500</b> - Internal Server Error
      * <p><b>200</b> - OK
      * @param nord Nordlig koordinat
      * @param ost Østlig koordinat
@@ -382,7 +381,7 @@ public class PosisjonApi {
      * @param detaljerteLenker Angir om det skal returneres treff på detaljerte lenker
      * @param tidspunkt Begrens spørring til det gitte tidspunktet.
      * @param vegsystemreferanse Filtrer på [vegsystemreferanse](https://nvdb-docs.atlas.vegvesen.no/nvdbapil/v4/introduksjon/Vegsystemreferanse). Kommaseparert liste. Legg til kommunenummer i starten av vegsystemreferansen for å filtrere på område.  Eksempel: &#x60;EV6S1D1 m12&#x60;
-     * @param srid Angir hvilket geografisk referansesystem geometrien skal returneres i. Utdata i UTM-formater begrenses til 3 desimaler, 4326/WGS84 begrenses til 8 desimaler. Mer informasjon: &lt;a href&#x3D;&#39;https://epsg.io/5972&#39;&gt;EPSG:5972&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5973&#39;&gt;EPSG:5973&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5975&#39;&gt;EPSG:5975&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/4326&#39;&gt;EPSG:4326&lt;/a&gt;.
+     * @param srid Angir hvilket geografisk referansesystem geometrien skal returneres i. Utdata i UTM-formater begrenses til 3 desimaler, 4326/WGS84 begrenses til 8 desimaler. Query-parametere med koordinater oppgis i UTM33 for UTM-formater, 4326/WGS84 oppgis dersom srid er 4326/WGS84. Mer informasjon: &lt;a href&#x3D;&#39;https://epsg.io/5972&#39;&gt;EPSG:5972&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5973&#39;&gt;EPSG:5973&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5975&#39;&gt;EPSG:5975&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/4326&#39;&gt;EPSG:4326&lt;/a&gt;.
      * @param trafikantgruppe Filtrer på trafikantgruppe.
      * @return ResponseSpec
      * @throws RestClientResponseException if an error occurs while attempting to invoke the API
@@ -471,62 +470,62 @@ public class PosisjonApi {
     }
 
     /**
-    * Slå opp posisjon på veglenkesekvens eller vegsystemreferanse
-    * 
-     * <p><b>500</b> - Internal Server Error
+     * Slå opp posisjon på veglenkesekvens eller vegsystemreferanse
+     * 
      * <p><b>400</b> - Bad Request
      * <p><b>404</b> - Not Found
+     * <p><b>500</b> - Internal Server Error
      * <p><b>200</b> - OK
      * @param requestParameters The findPosisjonForVeg request parameters as object
      * @return Posisjon
      * @throws RestClientResponseException if an error occurs while attempting to invoke the API
-    */
+     */
     public Posisjon findPosisjonForVeg(FindPosisjonForVegRequest requestParameters) throws RestClientResponseException {
-      return this.findPosisjonForVeg(requestParameters.vegsystemreferanse(), requestParameters.veglenkesekvens(), requestParameters.tidspunkt(), requestParameters.srid(), requestParameters.kommune());
-    }
-
-  /**
-  * Slå opp posisjon på veglenkesekvens eller vegsystemreferanse
-  * 
-     * <p><b>500</b> - Internal Server Error
-     * <p><b>400</b> - Bad Request
-     * <p><b>404</b> - Not Found
-     * <p><b>200</b> - OK
-     * @param requestParameters The findPosisjonForVeg request parameters as object
-     * @return ResponseEntity&lt;Posisjon&gt;
-     * @throws RestClientResponseException if an error occurs while attempting to invoke the API
-    */
-    public ResponseEntity<Posisjon> findPosisjonForVegWithHttpInfo(FindPosisjonForVegRequest requestParameters) throws RestClientResponseException {
-      return this.findPosisjonForVegWithHttpInfo(requestParameters.vegsystemreferanse(), requestParameters.veglenkesekvens(), requestParameters.tidspunkt(), requestParameters.srid(), requestParameters.kommune());
-    }
-
-  /**
-  * Slå opp posisjon på veglenkesekvens eller vegsystemreferanse
-  * 
-     * <p><b>500</b> - Internal Server Error
-     * <p><b>400</b> - Bad Request
-     * <p><b>404</b> - Not Found
-     * <p><b>200</b> - OK
-     * @param requestParameters The findPosisjonForVeg request parameters as object
-  * @return ResponseSpec
-  * @throws RestClientResponseException if an error occurs while attempting to invoke the API
-    */
-    public ResponseSpec findPosisjonForVegWithResponseSpec(FindPosisjonForVegRequest requestParameters) throws RestClientResponseException {
-      return this.findPosisjonForVegWithResponseSpec(requestParameters.vegsystemreferanse(), requestParameters.veglenkesekvens(), requestParameters.tidspunkt(), requestParameters.srid(), requestParameters.kommune());
+        return this.findPosisjonForVeg(requestParameters.vegsystemreferanse(), requestParameters.veglenkesekvens(), requestParameters.tidspunkt(), requestParameters.srid(), requestParameters.kommune());
     }
 
     /**
      * Slå opp posisjon på veglenkesekvens eller vegsystemreferanse
      * 
-     * <p><b>500</b> - Internal Server Error
      * <p><b>400</b> - Bad Request
      * <p><b>404</b> - Not Found
+     * <p><b>500</b> - Internal Server Error
+     * <p><b>200</b> - OK
+     * @param requestParameters The findPosisjonForVeg request parameters as object
+     * @return ResponseEntity&lt;Posisjon&gt;
+     * @throws RestClientResponseException if an error occurs while attempting to invoke the API
+     */
+    public ResponseEntity<Posisjon> findPosisjonForVegWithHttpInfo(FindPosisjonForVegRequest requestParameters) throws RestClientResponseException {
+        return this.findPosisjonForVegWithHttpInfo(requestParameters.vegsystemreferanse(), requestParameters.veglenkesekvens(), requestParameters.tidspunkt(), requestParameters.srid(), requestParameters.kommune());
+    }
+
+    /**
+     * Slå opp posisjon på veglenkesekvens eller vegsystemreferanse
+     * 
+     * <p><b>400</b> - Bad Request
+     * <p><b>404</b> - Not Found
+     * <p><b>500</b> - Internal Server Error
+     * <p><b>200</b> - OK
+     * @param requestParameters The findPosisjonForVeg request parameters as object
+     * @return ResponseSpec
+     * @throws RestClientResponseException if an error occurs while attempting to invoke the API
+     */
+    public ResponseSpec findPosisjonForVegWithResponseSpec(FindPosisjonForVegRequest requestParameters) throws RestClientResponseException {
+        return this.findPosisjonForVegWithResponseSpec(requestParameters.vegsystemreferanse(), requestParameters.veglenkesekvens(), requestParameters.tidspunkt(), requestParameters.srid(), requestParameters.kommune());
+    }
+
+    /**
+     * Slå opp posisjon på veglenkesekvens eller vegsystemreferanse
+     * 
+     * <p><b>400</b> - Bad Request
+     * <p><b>404</b> - Not Found
+     * <p><b>500</b> - Internal Server Error
      * <p><b>200</b> - OK
      * @param vegsystemreferanse Finn posisjon for [vegsystemreferanse](https://nvdb-docs.atlas.vegvesen.no/nvdbapil/v4/introduksjon/Vegsystemreferanse). Må inneholde én enkelt meterverdi. Legg til kommunenummer i starten av vegsystemreferansen for å filtrere på område.  Eksempel: &#x60;EV6S1D1m341&#x60;
      * @param veglenkesekvens Finn posisjon på veglenkesekvens. Format: &#x60;posisjon@veglenkesekvensid&#x60;.  Eksempel: &#x60;0.456@1226&#x60;
      * @param tidspunkt Begrens spørring til det gitte tidspunktet.
-     * @param srid Angir hvilket geografisk referansesystem geometrien skal returneres i. Utdata i UTM-formater begrenses til 3 desimaler, 4326/WGS84 begrenses til 8 desimaler. Mer informasjon: &lt;a href&#x3D;&#39;https://epsg.io/5972&#39;&gt;EPSG:5972&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5973&#39;&gt;EPSG:5973&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5975&#39;&gt;EPSG:5975&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/4326&#39;&gt;EPSG:4326&lt;/a&gt;.
-     * @param kommune Filtrer på kommune. Kommaseparert liste. Se [/omrader/api/v4/kommuner](https://nvdbapiles.atlas.vegvesen.no/webjars/swagger-ui/index.html?urls.primaryName&#x3D;Omr%C3%A5der#/Omr%C3%A5der/getKommuner) for mulige verdier.  Eksempel: &#x60;5001&#x60;
+     * @param srid Angir hvilket geografisk referansesystem geometrien skal returneres i. Utdata i UTM-formater begrenses til 3 desimaler, 4326/WGS84 begrenses til 8 desimaler. Query-parametere med koordinater oppgis i UTM33 for UTM-formater, 4326/WGS84 oppgis dersom srid er 4326/WGS84. Mer informasjon: &lt;a href&#x3D;&#39;https://epsg.io/5972&#39;&gt;EPSG:5972&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5973&#39;&gt;EPSG:5973&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5975&#39;&gt;EPSG:5975&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/4326&#39;&gt;EPSG:4326&lt;/a&gt;.
+     * @param kommune Filtrer på kommune. Kommaseparert liste. Se [/omrader/api/v4/kommuner](https://nvdbapiles.atlas.vegvesen.no/swagger-ui/index.html?urls.primaryName&#x3D;Omr%C3%A5der#/Omr%C3%A5der/getKommuner) for mulige verdier.  Eksempel: &#x60;5001&#x60;
      * @return Posisjon
      * @throws RestClientResponseException if an error occurs while attempting to invoke the API
      */
@@ -545,7 +544,7 @@ public class PosisjonApi {
         queryParams.putAll(apiClient.parameterToMultiValueMap(null, "tidspunkt", tidspunkt));
         queryParams.putAll(apiClient.parameterToMultiValueMap(null, "srid", srid));
         queryParams.putAll(apiClient.parameterToMultiValueMap(ApiClient.CollectionFormat.valueOf("multi".toUpperCase(Locale.ROOT)), "kommune", kommune));
-        
+
         final String[] localVarAccepts = { 
             "*/*"
         };
@@ -562,15 +561,15 @@ public class PosisjonApi {
     /**
      * Slå opp posisjon på veglenkesekvens eller vegsystemreferanse
      * 
-     * <p><b>500</b> - Internal Server Error
      * <p><b>400</b> - Bad Request
      * <p><b>404</b> - Not Found
+     * <p><b>500</b> - Internal Server Error
      * <p><b>200</b> - OK
      * @param vegsystemreferanse Finn posisjon for [vegsystemreferanse](https://nvdb-docs.atlas.vegvesen.no/nvdbapil/v4/introduksjon/Vegsystemreferanse). Må inneholde én enkelt meterverdi. Legg til kommunenummer i starten av vegsystemreferansen for å filtrere på område.  Eksempel: &#x60;EV6S1D1m341&#x60;
      * @param veglenkesekvens Finn posisjon på veglenkesekvens. Format: &#x60;posisjon@veglenkesekvensid&#x60;.  Eksempel: &#x60;0.456@1226&#x60;
      * @param tidspunkt Begrens spørring til det gitte tidspunktet.
-     * @param srid Angir hvilket geografisk referansesystem geometrien skal returneres i. Utdata i UTM-formater begrenses til 3 desimaler, 4326/WGS84 begrenses til 8 desimaler. Mer informasjon: &lt;a href&#x3D;&#39;https://epsg.io/5972&#39;&gt;EPSG:5972&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5973&#39;&gt;EPSG:5973&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5975&#39;&gt;EPSG:5975&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/4326&#39;&gt;EPSG:4326&lt;/a&gt;.
-     * @param kommune Filtrer på kommune. Kommaseparert liste. Se [/omrader/api/v4/kommuner](https://nvdbapiles.atlas.vegvesen.no/webjars/swagger-ui/index.html?urls.primaryName&#x3D;Omr%C3%A5der#/Omr%C3%A5der/getKommuner) for mulige verdier.  Eksempel: &#x60;5001&#x60;
+     * @param srid Angir hvilket geografisk referansesystem geometrien skal returneres i. Utdata i UTM-formater begrenses til 3 desimaler, 4326/WGS84 begrenses til 8 desimaler. Query-parametere med koordinater oppgis i UTM33 for UTM-formater, 4326/WGS84 oppgis dersom srid er 4326/WGS84. Mer informasjon: &lt;a href&#x3D;&#39;https://epsg.io/5972&#39;&gt;EPSG:5972&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5973&#39;&gt;EPSG:5973&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5975&#39;&gt;EPSG:5975&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/4326&#39;&gt;EPSG:4326&lt;/a&gt;.
+     * @param kommune Filtrer på kommune. Kommaseparert liste. Se [/omrader/api/v4/kommuner](https://nvdbapiles.atlas.vegvesen.no/swagger-ui/index.html?urls.primaryName&#x3D;Omr%C3%A5der#/Omr%C3%A5der/getKommuner) for mulige verdier.  Eksempel: &#x60;5001&#x60;
      * @return Posisjon
      * @throws RestClientResponseException if an error occurs while attempting to invoke the API
      */
@@ -582,15 +581,15 @@ public class PosisjonApi {
     /**
      * Slå opp posisjon på veglenkesekvens eller vegsystemreferanse
      * 
-     * <p><b>500</b> - Internal Server Error
      * <p><b>400</b> - Bad Request
      * <p><b>404</b> - Not Found
+     * <p><b>500</b> - Internal Server Error
      * <p><b>200</b> - OK
      * @param vegsystemreferanse Finn posisjon for [vegsystemreferanse](https://nvdb-docs.atlas.vegvesen.no/nvdbapil/v4/introduksjon/Vegsystemreferanse). Må inneholde én enkelt meterverdi. Legg til kommunenummer i starten av vegsystemreferansen for å filtrere på område.  Eksempel: &#x60;EV6S1D1m341&#x60;
      * @param veglenkesekvens Finn posisjon på veglenkesekvens. Format: &#x60;posisjon@veglenkesekvensid&#x60;.  Eksempel: &#x60;0.456@1226&#x60;
      * @param tidspunkt Begrens spørring til det gitte tidspunktet.
-     * @param srid Angir hvilket geografisk referansesystem geometrien skal returneres i. Utdata i UTM-formater begrenses til 3 desimaler, 4326/WGS84 begrenses til 8 desimaler. Mer informasjon: &lt;a href&#x3D;&#39;https://epsg.io/5972&#39;&gt;EPSG:5972&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5973&#39;&gt;EPSG:5973&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5975&#39;&gt;EPSG:5975&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/4326&#39;&gt;EPSG:4326&lt;/a&gt;.
-     * @param kommune Filtrer på kommune. Kommaseparert liste. Se [/omrader/api/v4/kommuner](https://nvdbapiles.atlas.vegvesen.no/webjars/swagger-ui/index.html?urls.primaryName&#x3D;Omr%C3%A5der#/Omr%C3%A5der/getKommuner) for mulige verdier.  Eksempel: &#x60;5001&#x60;
+     * @param srid Angir hvilket geografisk referansesystem geometrien skal returneres i. Utdata i UTM-formater begrenses til 3 desimaler, 4326/WGS84 begrenses til 8 desimaler. Query-parametere med koordinater oppgis i UTM33 for UTM-formater, 4326/WGS84 oppgis dersom srid er 4326/WGS84. Mer informasjon: &lt;a href&#x3D;&#39;https://epsg.io/5972&#39;&gt;EPSG:5972&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5973&#39;&gt;EPSG:5973&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5975&#39;&gt;EPSG:5975&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/4326&#39;&gt;EPSG:4326&lt;/a&gt;.
+     * @param kommune Filtrer på kommune. Kommaseparert liste. Se [/omrader/api/v4/kommuner](https://nvdbapiles.atlas.vegvesen.no/swagger-ui/index.html?urls.primaryName&#x3D;Omr%C3%A5der#/Omr%C3%A5der/getKommuner) for mulige verdier.  Eksempel: &#x60;5001&#x60;
      * @return ResponseEntity&lt;Posisjon&gt;
      * @throws RestClientResponseException if an error occurs while attempting to invoke the API
      */
@@ -602,15 +601,15 @@ public class PosisjonApi {
     /**
      * Slå opp posisjon på veglenkesekvens eller vegsystemreferanse
      * 
-     * <p><b>500</b> - Internal Server Error
      * <p><b>400</b> - Bad Request
      * <p><b>404</b> - Not Found
+     * <p><b>500</b> - Internal Server Error
      * <p><b>200</b> - OK
      * @param vegsystemreferanse Finn posisjon for [vegsystemreferanse](https://nvdb-docs.atlas.vegvesen.no/nvdbapil/v4/introduksjon/Vegsystemreferanse). Må inneholde én enkelt meterverdi. Legg til kommunenummer i starten av vegsystemreferansen for å filtrere på område.  Eksempel: &#x60;EV6S1D1m341&#x60;
      * @param veglenkesekvens Finn posisjon på veglenkesekvens. Format: &#x60;posisjon@veglenkesekvensid&#x60;.  Eksempel: &#x60;0.456@1226&#x60;
      * @param tidspunkt Begrens spørring til det gitte tidspunktet.
-     * @param srid Angir hvilket geografisk referansesystem geometrien skal returneres i. Utdata i UTM-formater begrenses til 3 desimaler, 4326/WGS84 begrenses til 8 desimaler. Mer informasjon: &lt;a href&#x3D;&#39;https://epsg.io/5972&#39;&gt;EPSG:5972&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5973&#39;&gt;EPSG:5973&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5975&#39;&gt;EPSG:5975&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/4326&#39;&gt;EPSG:4326&lt;/a&gt;.
-     * @param kommune Filtrer på kommune. Kommaseparert liste. Se [/omrader/api/v4/kommuner](https://nvdbapiles.atlas.vegvesen.no/webjars/swagger-ui/index.html?urls.primaryName&#x3D;Omr%C3%A5der#/Omr%C3%A5der/getKommuner) for mulige verdier.  Eksempel: &#x60;5001&#x60;
+     * @param srid Angir hvilket geografisk referansesystem geometrien skal returneres i. Utdata i UTM-formater begrenses til 3 desimaler, 4326/WGS84 begrenses til 8 desimaler. Query-parametere med koordinater oppgis i UTM33 for UTM-formater, 4326/WGS84 oppgis dersom srid er 4326/WGS84. Mer informasjon: &lt;a href&#x3D;&#39;https://epsg.io/5972&#39;&gt;EPSG:5972&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5973&#39;&gt;EPSG:5973&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5975&#39;&gt;EPSG:5975&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/4326&#39;&gt;EPSG:4326&lt;/a&gt;.
+     * @param kommune Filtrer på kommune. Kommaseparert liste. Se [/omrader/api/v4/kommuner](https://nvdbapiles.atlas.vegvesen.no/swagger-ui/index.html?urls.primaryName&#x3D;Omr%C3%A5der#/Omr%C3%A5der/getKommuner) for mulige verdier.  Eksempel: &#x60;5001&#x60;
      * @return ResponseSpec
      * @throws RestClientResponseException if an error occurs while attempting to invoke the API
      */
@@ -687,61 +686,61 @@ public class PosisjonApi {
     }
 
     /**
-    * Slå opp flere posisjoner på veglenkesekvens eller vegsystemreferanse
-    * 
-     * <p><b>500</b> - Internal Server Error
+     * Slå opp flere posisjoner på veglenkesekvens eller vegsystemreferanse
+     * 
      * <p><b>400</b> - Bad Request
      * <p><b>404</b> - Not Found
+     * <p><b>500</b> - Internal Server Error
      * <p><b>200</b> - OK
      * @param requestParameters The findPosisjonerForVeg request parameters as object
      * @return AlwaysIncludeMapStringPosisjon
      * @throws RestClientResponseException if an error occurs while attempting to invoke the API
-    */
+     */
     public AlwaysIncludeMapStringPosisjon findPosisjonerForVeg(FindPosisjonerForVegRequest requestParameters) throws RestClientResponseException {
-      return this.findPosisjonerForVeg(requestParameters.vegsystemreferanser(), requestParameters.veglenkesekvenser(), requestParameters.kommune(), requestParameters.srid());
-    }
-
-  /**
-  * Slå opp flere posisjoner på veglenkesekvens eller vegsystemreferanse
-  * 
-     * <p><b>500</b> - Internal Server Error
-     * <p><b>400</b> - Bad Request
-     * <p><b>404</b> - Not Found
-     * <p><b>200</b> - OK
-     * @param requestParameters The findPosisjonerForVeg request parameters as object
-     * @return ResponseEntity&lt;AlwaysIncludeMapStringPosisjon&gt;
-     * @throws RestClientResponseException if an error occurs while attempting to invoke the API
-    */
-    public ResponseEntity<AlwaysIncludeMapStringPosisjon> findPosisjonerForVegWithHttpInfo(FindPosisjonerForVegRequest requestParameters) throws RestClientResponseException {
-      return this.findPosisjonerForVegWithHttpInfo(requestParameters.vegsystemreferanser(), requestParameters.veglenkesekvenser(), requestParameters.kommune(), requestParameters.srid());
-    }
-
-  /**
-  * Slå opp flere posisjoner på veglenkesekvens eller vegsystemreferanse
-  * 
-     * <p><b>500</b> - Internal Server Error
-     * <p><b>400</b> - Bad Request
-     * <p><b>404</b> - Not Found
-     * <p><b>200</b> - OK
-     * @param requestParameters The findPosisjonerForVeg request parameters as object
-  * @return ResponseSpec
-  * @throws RestClientResponseException if an error occurs while attempting to invoke the API
-    */
-    public ResponseSpec findPosisjonerForVegWithResponseSpec(FindPosisjonerForVegRequest requestParameters) throws RestClientResponseException {
-      return this.findPosisjonerForVegWithResponseSpec(requestParameters.vegsystemreferanser(), requestParameters.veglenkesekvenser(), requestParameters.kommune(), requestParameters.srid());
+        return this.findPosisjonerForVeg(requestParameters.vegsystemreferanser(), requestParameters.veglenkesekvenser(), requestParameters.kommune(), requestParameters.srid());
     }
 
     /**
      * Slå opp flere posisjoner på veglenkesekvens eller vegsystemreferanse
      * 
-     * <p><b>500</b> - Internal Server Error
      * <p><b>400</b> - Bad Request
      * <p><b>404</b> - Not Found
+     * <p><b>500</b> - Internal Server Error
+     * <p><b>200</b> - OK
+     * @param requestParameters The findPosisjonerForVeg request parameters as object
+     * @return ResponseEntity&lt;AlwaysIncludeMapStringPosisjon&gt;
+     * @throws RestClientResponseException if an error occurs while attempting to invoke the API
+     */
+    public ResponseEntity<AlwaysIncludeMapStringPosisjon> findPosisjonerForVegWithHttpInfo(FindPosisjonerForVegRequest requestParameters) throws RestClientResponseException {
+        return this.findPosisjonerForVegWithHttpInfo(requestParameters.vegsystemreferanser(), requestParameters.veglenkesekvenser(), requestParameters.kommune(), requestParameters.srid());
+    }
+
+    /**
+     * Slå opp flere posisjoner på veglenkesekvens eller vegsystemreferanse
+     * 
+     * <p><b>400</b> - Bad Request
+     * <p><b>404</b> - Not Found
+     * <p><b>500</b> - Internal Server Error
+     * <p><b>200</b> - OK
+     * @param requestParameters The findPosisjonerForVeg request parameters as object
+     * @return ResponseSpec
+     * @throws RestClientResponseException if an error occurs while attempting to invoke the API
+     */
+    public ResponseSpec findPosisjonerForVegWithResponseSpec(FindPosisjonerForVegRequest requestParameters) throws RestClientResponseException {
+        return this.findPosisjonerForVegWithResponseSpec(requestParameters.vegsystemreferanser(), requestParameters.veglenkesekvenser(), requestParameters.kommune(), requestParameters.srid());
+    }
+
+    /**
+     * Slå opp flere posisjoner på veglenkesekvens eller vegsystemreferanse
+     * 
+     * <p><b>400</b> - Bad Request
+     * <p><b>404</b> - Not Found
+     * <p><b>500</b> - Internal Server Error
      * <p><b>200</b> - OK
      * @param vegsystemreferanser Finn posisjoner for [vegsystemreferanser](https://nvdb-docs.atlas.vegvesen.no/nvdbapil/v4/introduksjon/Vegsystemreferanse). Må inneholde én enkelt meterverdi. Legg til kommunenummer i starten av vegsystemreferansen for å filtrere på område.  Eksempel: &#x60;EV6S1D1m341&#x60;
      * @param veglenkesekvenser Finn posisjoner på veglenkesekvenser. Format: &#x60;posisjon@veglenkesekvensid&#x60;.  Eksempel: &#x60;0.456@1226&#x60;
-     * @param kommune Filtrer på kommune. Kommaseparert liste. Se [/omrader/api/v4/kommuner](https://nvdbapiles.atlas.vegvesen.no/webjars/swagger-ui/index.html?urls.primaryName&#x3D;Omr%C3%A5der#/Omr%C3%A5der/getKommuner) for mulige verdier.  Eksempel: &#x60;5001&#x60;
-     * @param srid Angir hvilket geografisk referansesystem geometrien skal returneres i. Utdata i UTM-formater begrenses til 3 desimaler, 4326/WGS84 begrenses til 8 desimaler. Mer informasjon: &lt;a href&#x3D;&#39;https://epsg.io/5972&#39;&gt;EPSG:5972&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5973&#39;&gt;EPSG:5973&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5975&#39;&gt;EPSG:5975&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/4326&#39;&gt;EPSG:4326&lt;/a&gt;.
+     * @param kommune Filtrer på kommune. Kommaseparert liste. Se [/omrader/api/v4/kommuner](https://nvdbapiles.atlas.vegvesen.no/swagger-ui/index.html?urls.primaryName&#x3D;Omr%C3%A5der#/Omr%C3%A5der/getKommuner) for mulige verdier.  Eksempel: &#x60;5001&#x60;
+     * @param srid Angir hvilket geografisk referansesystem geometrien skal returneres i. Utdata i UTM-formater begrenses til 3 desimaler, 4326/WGS84 begrenses til 8 desimaler. Query-parametere med koordinater oppgis i UTM33 for UTM-formater, 4326/WGS84 oppgis dersom srid er 4326/WGS84. Mer informasjon: &lt;a href&#x3D;&#39;https://epsg.io/5972&#39;&gt;EPSG:5972&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5973&#39;&gt;EPSG:5973&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5975&#39;&gt;EPSG:5975&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/4326&#39;&gt;EPSG:4326&lt;/a&gt;.
      * @return AlwaysIncludeMapStringPosisjon
      * @throws RestClientResponseException if an error occurs while attempting to invoke the API
      */
@@ -759,7 +758,7 @@ public class PosisjonApi {
         queryParams.putAll(apiClient.parameterToMultiValueMap(ApiClient.CollectionFormat.valueOf("multi".toUpperCase(Locale.ROOT)), "veglenkesekvenser", veglenkesekvenser));
         queryParams.putAll(apiClient.parameterToMultiValueMap(ApiClient.CollectionFormat.valueOf("multi".toUpperCase(Locale.ROOT)), "kommune", kommune));
         queryParams.putAll(apiClient.parameterToMultiValueMap(null, "srid", srid));
-        
+
         final String[] localVarAccepts = { 
             "*/*"
         };
@@ -776,14 +775,14 @@ public class PosisjonApi {
     /**
      * Slå opp flere posisjoner på veglenkesekvens eller vegsystemreferanse
      * 
-     * <p><b>500</b> - Internal Server Error
      * <p><b>400</b> - Bad Request
      * <p><b>404</b> - Not Found
+     * <p><b>500</b> - Internal Server Error
      * <p><b>200</b> - OK
      * @param vegsystemreferanser Finn posisjoner for [vegsystemreferanser](https://nvdb-docs.atlas.vegvesen.no/nvdbapil/v4/introduksjon/Vegsystemreferanse). Må inneholde én enkelt meterverdi. Legg til kommunenummer i starten av vegsystemreferansen for å filtrere på område.  Eksempel: &#x60;EV6S1D1m341&#x60;
      * @param veglenkesekvenser Finn posisjoner på veglenkesekvenser. Format: &#x60;posisjon@veglenkesekvensid&#x60;.  Eksempel: &#x60;0.456@1226&#x60;
-     * @param kommune Filtrer på kommune. Kommaseparert liste. Se [/omrader/api/v4/kommuner](https://nvdbapiles.atlas.vegvesen.no/webjars/swagger-ui/index.html?urls.primaryName&#x3D;Omr%C3%A5der#/Omr%C3%A5der/getKommuner) for mulige verdier.  Eksempel: &#x60;5001&#x60;
-     * @param srid Angir hvilket geografisk referansesystem geometrien skal returneres i. Utdata i UTM-formater begrenses til 3 desimaler, 4326/WGS84 begrenses til 8 desimaler. Mer informasjon: &lt;a href&#x3D;&#39;https://epsg.io/5972&#39;&gt;EPSG:5972&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5973&#39;&gt;EPSG:5973&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5975&#39;&gt;EPSG:5975&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/4326&#39;&gt;EPSG:4326&lt;/a&gt;.
+     * @param kommune Filtrer på kommune. Kommaseparert liste. Se [/omrader/api/v4/kommuner](https://nvdbapiles.atlas.vegvesen.no/swagger-ui/index.html?urls.primaryName&#x3D;Omr%C3%A5der#/Omr%C3%A5der/getKommuner) for mulige verdier.  Eksempel: &#x60;5001&#x60;
+     * @param srid Angir hvilket geografisk referansesystem geometrien skal returneres i. Utdata i UTM-formater begrenses til 3 desimaler, 4326/WGS84 begrenses til 8 desimaler. Query-parametere med koordinater oppgis i UTM33 for UTM-formater, 4326/WGS84 oppgis dersom srid er 4326/WGS84. Mer informasjon: &lt;a href&#x3D;&#39;https://epsg.io/5972&#39;&gt;EPSG:5972&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5973&#39;&gt;EPSG:5973&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5975&#39;&gt;EPSG:5975&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/4326&#39;&gt;EPSG:4326&lt;/a&gt;.
      * @return AlwaysIncludeMapStringPosisjon
      * @throws RestClientResponseException if an error occurs while attempting to invoke the API
      */
@@ -795,14 +794,14 @@ public class PosisjonApi {
     /**
      * Slå opp flere posisjoner på veglenkesekvens eller vegsystemreferanse
      * 
-     * <p><b>500</b> - Internal Server Error
      * <p><b>400</b> - Bad Request
      * <p><b>404</b> - Not Found
+     * <p><b>500</b> - Internal Server Error
      * <p><b>200</b> - OK
      * @param vegsystemreferanser Finn posisjoner for [vegsystemreferanser](https://nvdb-docs.atlas.vegvesen.no/nvdbapil/v4/introduksjon/Vegsystemreferanse). Må inneholde én enkelt meterverdi. Legg til kommunenummer i starten av vegsystemreferansen for å filtrere på område.  Eksempel: &#x60;EV6S1D1m341&#x60;
      * @param veglenkesekvenser Finn posisjoner på veglenkesekvenser. Format: &#x60;posisjon@veglenkesekvensid&#x60;.  Eksempel: &#x60;0.456@1226&#x60;
-     * @param kommune Filtrer på kommune. Kommaseparert liste. Se [/omrader/api/v4/kommuner](https://nvdbapiles.atlas.vegvesen.no/webjars/swagger-ui/index.html?urls.primaryName&#x3D;Omr%C3%A5der#/Omr%C3%A5der/getKommuner) for mulige verdier.  Eksempel: &#x60;5001&#x60;
-     * @param srid Angir hvilket geografisk referansesystem geometrien skal returneres i. Utdata i UTM-formater begrenses til 3 desimaler, 4326/WGS84 begrenses til 8 desimaler. Mer informasjon: &lt;a href&#x3D;&#39;https://epsg.io/5972&#39;&gt;EPSG:5972&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5973&#39;&gt;EPSG:5973&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5975&#39;&gt;EPSG:5975&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/4326&#39;&gt;EPSG:4326&lt;/a&gt;.
+     * @param kommune Filtrer på kommune. Kommaseparert liste. Se [/omrader/api/v4/kommuner](https://nvdbapiles.atlas.vegvesen.no/swagger-ui/index.html?urls.primaryName&#x3D;Omr%C3%A5der#/Omr%C3%A5der/getKommuner) for mulige verdier.  Eksempel: &#x60;5001&#x60;
+     * @param srid Angir hvilket geografisk referansesystem geometrien skal returneres i. Utdata i UTM-formater begrenses til 3 desimaler, 4326/WGS84 begrenses til 8 desimaler. Query-parametere med koordinater oppgis i UTM33 for UTM-formater, 4326/WGS84 oppgis dersom srid er 4326/WGS84. Mer informasjon: &lt;a href&#x3D;&#39;https://epsg.io/5972&#39;&gt;EPSG:5972&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5973&#39;&gt;EPSG:5973&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5975&#39;&gt;EPSG:5975&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/4326&#39;&gt;EPSG:4326&lt;/a&gt;.
      * @return ResponseEntity&lt;AlwaysIncludeMapStringPosisjon&gt;
      * @throws RestClientResponseException if an error occurs while attempting to invoke the API
      */
@@ -814,14 +813,14 @@ public class PosisjonApi {
     /**
      * Slå opp flere posisjoner på veglenkesekvens eller vegsystemreferanse
      * 
-     * <p><b>500</b> - Internal Server Error
      * <p><b>400</b> - Bad Request
      * <p><b>404</b> - Not Found
+     * <p><b>500</b> - Internal Server Error
      * <p><b>200</b> - OK
      * @param vegsystemreferanser Finn posisjoner for [vegsystemreferanser](https://nvdb-docs.atlas.vegvesen.no/nvdbapil/v4/introduksjon/Vegsystemreferanse). Må inneholde én enkelt meterverdi. Legg til kommunenummer i starten av vegsystemreferansen for å filtrere på område.  Eksempel: &#x60;EV6S1D1m341&#x60;
      * @param veglenkesekvenser Finn posisjoner på veglenkesekvenser. Format: &#x60;posisjon@veglenkesekvensid&#x60;.  Eksempel: &#x60;0.456@1226&#x60;
-     * @param kommune Filtrer på kommune. Kommaseparert liste. Se [/omrader/api/v4/kommuner](https://nvdbapiles.atlas.vegvesen.no/webjars/swagger-ui/index.html?urls.primaryName&#x3D;Omr%C3%A5der#/Omr%C3%A5der/getKommuner) for mulige verdier.  Eksempel: &#x60;5001&#x60;
-     * @param srid Angir hvilket geografisk referansesystem geometrien skal returneres i. Utdata i UTM-formater begrenses til 3 desimaler, 4326/WGS84 begrenses til 8 desimaler. Mer informasjon: &lt;a href&#x3D;&#39;https://epsg.io/5972&#39;&gt;EPSG:5972&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5973&#39;&gt;EPSG:5973&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5975&#39;&gt;EPSG:5975&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/4326&#39;&gt;EPSG:4326&lt;/a&gt;.
+     * @param kommune Filtrer på kommune. Kommaseparert liste. Se [/omrader/api/v4/kommuner](https://nvdbapiles.atlas.vegvesen.no/swagger-ui/index.html?urls.primaryName&#x3D;Omr%C3%A5der#/Omr%C3%A5der/getKommuner) for mulige verdier.  Eksempel: &#x60;5001&#x60;
+     * @param srid Angir hvilket geografisk referansesystem geometrien skal returneres i. Utdata i UTM-formater begrenses til 3 desimaler, 4326/WGS84 begrenses til 8 desimaler. Query-parametere med koordinater oppgis i UTM33 for UTM-formater, 4326/WGS84 oppgis dersom srid er 4326/WGS84. Mer informasjon: &lt;a href&#x3D;&#39;https://epsg.io/5972&#39;&gt;EPSG:5972&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5973&#39;&gt;EPSG:5973&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5975&#39;&gt;EPSG:5975&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/4326&#39;&gt;EPSG:4326&lt;/a&gt;.
      * @return ResponseSpec
      * @throws RestClientResponseException if an error occurs while attempting to invoke the API
      */

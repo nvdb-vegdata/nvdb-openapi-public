@@ -40,9 +40,11 @@ src/main/java/no/vegvesen/vt/nvdb/datakatalog/model/Enhet.java
 src/main/java/no/vegvesen/vt/nvdb/datakatalog/model/EnumverdiFlyttall.java
 src/main/java/no/vegvesen/vt/nvdb/datakatalog/model/EnumverdiHeltall.java
 src/main/java/no/vegvesen/vt/nvdb/datakatalog/model/EnumverdiTekst.java
+src/main/java/no/vegvesen/vt/nvdb/datakatalog/model/Example.java
 src/main/java/no/vegvesen/vt/nvdb/datakatalog/model/Kategori.java
 src/main/java/no/vegvesen/vt/nvdb/datakatalog/model/ProblemDetail.java
 src/main/java/no/vegvesen/vt/nvdb/datakatalog/model/ProductSpecification.java
+src/main/java/no/vegvesen/vt/nvdb/datakatalog/model/RegistrationConstraint.java
 src/main/java/no/vegvesen/vt/nvdb/datakatalog/model/Relasjonstyper.java
 src/main/java/no/vegvesen/vt/nvdb/datakatalog/model/Stedfesting.java
 src/main/java/no/vegvesen/vt/nvdb/datakatalog/model/StedfestingEnkel.java

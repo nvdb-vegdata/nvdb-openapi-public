@@ -1,6 +1,6 @@
 /*
  * NVDB API Les Vegobjekter
- * Dette API-et brukes til å lese vegobjekter. Les mer om bruk av API-et på https://nvdb.atlas.vegvesen.no/produkter/nvdbapil/v4/Vegobjekter
+ * Dette API-et brukes til å lese vegobjekter.<br><br>[Dokumentasjon for Vegobjekter API](https://nvdb-docs.atlas.vegvesen.no/nvdbapil/v4/Vegobjekter)
  *
  * The version of the OpenAPI document: v4
  * Contact: nvdb@vegvesen.no
@@ -33,7 +33,7 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
   VegobjekterStatistikkMedType.JSON_PROPERTY_HREF,
   VegobjekterStatistikkMedType.JSON_PROPERTY_STATISTIKK
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.14.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0")
 public class VegobjekterStatistikkMedType {
   public static final String JSON_PROPERTY_ID = "id";
   @jakarta.annotation.Nonnull
@@ -65,7 +65,7 @@ public class VegobjekterStatistikkMedType {
    * @return id
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonProperty(value = JSON_PROPERTY_ID, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Integer getId() {
@@ -73,7 +73,7 @@ public class VegobjekterStatistikkMedType {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonProperty(value = JSON_PROPERTY_ID, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setId(@jakarta.annotation.Nonnull Integer id) {
     this.id = id;
@@ -90,7 +90,7 @@ public class VegobjekterStatistikkMedType {
    * @return navn
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_NAVN)
+  @JsonProperty(value = JSON_PROPERTY_NAVN, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getNavn() {
@@ -98,7 +98,7 @@ public class VegobjekterStatistikkMedType {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_NAVN)
+  @JsonProperty(value = JSON_PROPERTY_NAVN, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setNavn(@jakarta.annotation.Nonnull String navn) {
     this.navn = navn;
@@ -115,7 +115,7 @@ public class VegobjekterStatistikkMedType {
    * @return href
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_HREF)
+  @JsonProperty(value = JSON_PROPERTY_HREF, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getHref() {
@@ -123,7 +123,7 @@ public class VegobjekterStatistikkMedType {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_HREF)
+  @JsonProperty(value = JSON_PROPERTY_HREF, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setHref(@jakarta.annotation.Nonnull String href) {
     this.href = href;
@@ -140,7 +140,7 @@ public class VegobjekterStatistikkMedType {
    * @return statistikk
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_STATISTIKK)
+  @JsonProperty(value = JSON_PROPERTY_STATISTIKK, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public VegobjekterStatistikk getStatistikk() {
@@ -148,7 +148,7 @@ public class VegobjekterStatistikkMedType {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_STATISTIKK)
+  @JsonProperty(value = JSON_PROPERTY_STATISTIKK, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setStatistikk(@jakarta.annotation.Nonnull VegobjekterStatistikk statistikk) {
     this.statistikk = statistikk;

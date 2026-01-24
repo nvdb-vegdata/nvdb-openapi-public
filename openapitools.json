@@ -2,7 +2,7 @@
   "$schema": "./node_modules/@openapitools/openapi-generator-cli/config.schema.json",
   "spaces": 2,
   "generator-cli": {
-    "version": "7.14.0",
+    "version": "7.19.0",
     "generators": {
       "datakatalog-java": {
         "inputSpec": "https://nvdbapiles.atlas.vegvesen.no/api-docs/datakatalog",
@@ -58,7 +58,8 @@
       "datakatalog-ts": {
         "inputSpec": "https://nvdbapiles.atlas.vegvesen.no/api-docs/datakatalog",
         "output": "typescript/datakatalog",
-        "generatorName": "typescript-fetch"
+        "generatorName": "typescript-fetch",
+        "globalProperty": "modelDocs=false,modelTests=false,apiTests=false"
       }
     }
   }

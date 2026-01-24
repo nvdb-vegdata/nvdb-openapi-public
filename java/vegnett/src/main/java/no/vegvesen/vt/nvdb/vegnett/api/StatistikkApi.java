@@ -5,6 +5,7 @@ import no.vegvesen.vt.nvdb.vegnett.infrastructure.ApiClient;
 import no.vegvesen.vt.nvdb.vegnett.model.Gruppering;
 import no.vegvesen.vt.nvdb.vegnett.model.ProblemDetail;
 import no.vegvesen.vt.nvdb.vegnett.model.SridParameter;
+import no.vegvesen.vt.nvdb.vegnett.model.VeglenkesegmenterStatistikk;
 import no.vegvesen.vt.nvdb.vegnett.model.VeglenkesegmenterStatistikkGruppert;
 
 import java.util.HashMap;
@@ -27,7 +28,7 @@ import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestClient.ResponseSpec;
 import org.springframework.web.client.RestClientResponseException;
 
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.14.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0")
 public class StatistikkApi {
     private ApiClient apiClient;
 
@@ -47,6 +48,82 @@ public class StatistikkApi {
         this.apiClient = apiClient;
     }
 
+    /**
+     * Hent statistikk for det aktive segmenterte vegnettet
+     * 
+     * <p><b>400</b> - Bad Request
+     * <p><b>404</b> - Not Found
+     * <p><b>500</b> - Internal Server Error
+     * <p><b>200</b> - OK
+     * @return VeglenkesegmenterStatistikk
+     * @throws RestClientResponseException if an error occurs while attempting to invoke the API
+     */
+    private ResponseSpec getVeglenkesegmenterStatistikkRequestCreation() throws RestClientResponseException {
+        Object postBody = null;
+        // create path and map variables
+        final Map<String, Object> pathParams = new HashMap<>();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+        final HttpHeaders headerParams = new HttpHeaders();
+        final MultiValueMap<String, String> cookieParams = new LinkedMultiValueMap<>();
+        final MultiValueMap<String, Object> formParams = new LinkedMultiValueMap<>();
+
+        final String[] localVarAccepts = { 
+            "*/*"
+        };
+        final List<MediaType> localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        final String[] localVarContentTypes = { };
+        final MediaType localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+        String[] localVarAuthNames = new String[] {  };
+
+        ParameterizedTypeReference<VeglenkesegmenterStatistikk> localVarReturnType = new ParameterizedTypeReference<>() {};
+        return apiClient.invokeAPI("/api/v4/veglenkesekvenser/segmentert/statistikk", HttpMethod.GET, pathParams, queryParams, postBody, headerParams, cookieParams, formParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+    }
+
+    /**
+     * Hent statistikk for det aktive segmenterte vegnettet
+     * 
+     * <p><b>400</b> - Bad Request
+     * <p><b>404</b> - Not Found
+     * <p><b>500</b> - Internal Server Error
+     * <p><b>200</b> - OK
+     * @return VeglenkesegmenterStatistikk
+     * @throws RestClientResponseException if an error occurs while attempting to invoke the API
+     */
+    public VeglenkesegmenterStatistikk getVeglenkesegmenterStatistikk() throws RestClientResponseException {
+        ParameterizedTypeReference<VeglenkesegmenterStatistikk> localVarReturnType = new ParameterizedTypeReference<>() {};
+        return getVeglenkesegmenterStatistikkRequestCreation().body(localVarReturnType);
+    }
+
+    /**
+     * Hent statistikk for det aktive segmenterte vegnettet
+     * 
+     * <p><b>400</b> - Bad Request
+     * <p><b>404</b> - Not Found
+     * <p><b>500</b> - Internal Server Error
+     * <p><b>200</b> - OK
+     * @return ResponseEntity&lt;VeglenkesegmenterStatistikk&gt;
+     * @throws RestClientResponseException if an error occurs while attempting to invoke the API
+     */
+    public ResponseEntity<VeglenkesegmenterStatistikk> getVeglenkesegmenterStatistikkWithHttpInfo() throws RestClientResponseException {
+        ParameterizedTypeReference<VeglenkesegmenterStatistikk> localVarReturnType = new ParameterizedTypeReference<>() {};
+        return getVeglenkesegmenterStatistikkRequestCreation().toEntity(localVarReturnType);
+    }
+
+    /**
+     * Hent statistikk for det aktive segmenterte vegnettet
+     * 
+     * <p><b>400</b> - Bad Request
+     * <p><b>404</b> - Not Found
+     * <p><b>500</b> - Internal Server Error
+     * <p><b>200</b> - OK
+     * @return ResponseSpec
+     * @throws RestClientResponseException if an error occurs while attempting to invoke the API
+     */
+    public ResponseSpec getVeglenkesegmenterStatistikkWithResponseSpec() throws RestClientResponseException {
+        return getVeglenkesegmenterStatistikkRequestCreation();
+    }
 
     public static class GetVeglenkesegmenterStatistikkGruppertRequest {
         private @jakarta.annotation.Nonnull List<Gruppering> gruppering;
@@ -106,60 +183,60 @@ public class StatistikkApi {
     }
 
     /**
-    * Hent statistikk for segmentert vegnett, gruppert på en eller flere felter
-    * 
-     * <p><b>500</b> - Internal Server Error
+     * Hent statistikk for segmentert vegnett, gruppert på en eller flere felter
+     * 
      * <p><b>400</b> - Bad Request
      * <p><b>404</b> - Not Found
+     * <p><b>500</b> - Internal Server Error
      * <p><b>200</b> - OK
      * @param requestParameters The getVeglenkesegmenterStatistikkGruppert request parameters as object
      * @return List&lt;VeglenkesegmenterStatistikkGruppert&gt;
      * @throws RestClientResponseException if an error occurs while attempting to invoke the API
-    */
+     */
     public List<VeglenkesegmenterStatistikkGruppert> getVeglenkesegmenterStatistikkGruppert(GetVeglenkesegmenterStatistikkGruppertRequest requestParameters) throws RestClientResponseException {
-      return this.getVeglenkesegmenterStatistikkGruppert(requestParameters.gruppering(), requestParameters.srid(), requestParameters.kartutsnitt());
-    }
-
-  /**
-  * Hent statistikk for segmentert vegnett, gruppert på en eller flere felter
-  * 
-     * <p><b>500</b> - Internal Server Error
-     * <p><b>400</b> - Bad Request
-     * <p><b>404</b> - Not Found
-     * <p><b>200</b> - OK
-     * @param requestParameters The getVeglenkesegmenterStatistikkGruppert request parameters as object
-     * @return ResponseEntity&lt;List&lt;VeglenkesegmenterStatistikkGruppert&gt;&gt;
-     * @throws RestClientResponseException if an error occurs while attempting to invoke the API
-    */
-    public ResponseEntity<List<VeglenkesegmenterStatistikkGruppert>> getVeglenkesegmenterStatistikkGruppertWithHttpInfo(GetVeglenkesegmenterStatistikkGruppertRequest requestParameters) throws RestClientResponseException {
-      return this.getVeglenkesegmenterStatistikkGruppertWithHttpInfo(requestParameters.gruppering(), requestParameters.srid(), requestParameters.kartutsnitt());
-    }
-
-  /**
-  * Hent statistikk for segmentert vegnett, gruppert på en eller flere felter
-  * 
-     * <p><b>500</b> - Internal Server Error
-     * <p><b>400</b> - Bad Request
-     * <p><b>404</b> - Not Found
-     * <p><b>200</b> - OK
-     * @param requestParameters The getVeglenkesegmenterStatistikkGruppert request parameters as object
-  * @return ResponseSpec
-  * @throws RestClientResponseException if an error occurs while attempting to invoke the API
-    */
-    public ResponseSpec getVeglenkesegmenterStatistikkGruppertWithResponseSpec(GetVeglenkesegmenterStatistikkGruppertRequest requestParameters) throws RestClientResponseException {
-      return this.getVeglenkesegmenterStatistikkGruppertWithResponseSpec(requestParameters.gruppering(), requestParameters.srid(), requestParameters.kartutsnitt());
+        return this.getVeglenkesegmenterStatistikkGruppert(requestParameters.gruppering(), requestParameters.srid(), requestParameters.kartutsnitt());
     }
 
     /**
      * Hent statistikk for segmentert vegnett, gruppert på en eller flere felter
      * 
-     * <p><b>500</b> - Internal Server Error
      * <p><b>400</b> - Bad Request
      * <p><b>404</b> - Not Found
+     * <p><b>500</b> - Internal Server Error
+     * <p><b>200</b> - OK
+     * @param requestParameters The getVeglenkesegmenterStatistikkGruppert request parameters as object
+     * @return ResponseEntity&lt;List&lt;VeglenkesegmenterStatistikkGruppert&gt;&gt;
+     * @throws RestClientResponseException if an error occurs while attempting to invoke the API
+     */
+    public ResponseEntity<List<VeglenkesegmenterStatistikkGruppert>> getVeglenkesegmenterStatistikkGruppertWithHttpInfo(GetVeglenkesegmenterStatistikkGruppertRequest requestParameters) throws RestClientResponseException {
+        return this.getVeglenkesegmenterStatistikkGruppertWithHttpInfo(requestParameters.gruppering(), requestParameters.srid(), requestParameters.kartutsnitt());
+    }
+
+    /**
+     * Hent statistikk for segmentert vegnett, gruppert på en eller flere felter
+     * 
+     * <p><b>400</b> - Bad Request
+     * <p><b>404</b> - Not Found
+     * <p><b>500</b> - Internal Server Error
+     * <p><b>200</b> - OK
+     * @param requestParameters The getVeglenkesegmenterStatistikkGruppert request parameters as object
+     * @return ResponseSpec
+     * @throws RestClientResponseException if an error occurs while attempting to invoke the API
+     */
+    public ResponseSpec getVeglenkesegmenterStatistikkGruppertWithResponseSpec(GetVeglenkesegmenterStatistikkGruppertRequest requestParameters) throws RestClientResponseException {
+        return this.getVeglenkesegmenterStatistikkGruppertWithResponseSpec(requestParameters.gruppering(), requestParameters.srid(), requestParameters.kartutsnitt());
+    }
+
+    /**
+     * Hent statistikk for segmentert vegnett, gruppert på en eller flere felter
+     * 
+     * <p><b>400</b> - Bad Request
+     * <p><b>404</b> - Not Found
+     * <p><b>500</b> - Internal Server Error
      * <p><b>200</b> - OK
      * @param gruppering Velg en eller flere felter som statistikken skal grupperes på.
-     * @param srid Angir hvilket geografisk referansesystem geometrien skal returneres i. Utdata i UTM-formater begrenses til 3 desimaler, 4326/WGS84 begrenses til 8 desimaler. Mer informasjon: &lt;a href&#x3D;&#39;https://epsg.io/5972&#39;&gt;EPSG:5972&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5973&#39;&gt;EPSG:5973&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5975&#39;&gt;EPSG:5975&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/4326&#39;&gt;EPSG:4326&lt;/a&gt;.
-     * @param kartutsnitt Filtrer med kartutsnitt i det gjeldende geografiske referansesystemet (&#x60;srid&#x60;-paramteret). Formatet er &#x60;minX, minY, maxX, maxY&#x60;.  Eksempel: &#x60;265273, 7019372, 346553, 7061071&#x60;
+     * @param srid Angir hvilket geografisk referansesystem geometrien skal returneres i. Utdata i UTM-formater begrenses til 3 desimaler, 4326/WGS84 begrenses til 8 desimaler. Query-parametere med koordinater oppgis i UTM33 for UTM-formater, 4326/WGS84 oppgis dersom srid er 4326/WGS84. Mer informasjon: &lt;a href&#x3D;&#39;https://epsg.io/5972&#39;&gt;EPSG:5972&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5973&#39;&gt;EPSG:5973&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5975&#39;&gt;EPSG:5975&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/4326&#39;&gt;EPSG:4326&lt;/a&gt;.
+     * @param kartutsnitt Filtrer med kartutsnitt i UTM 33. Formatet er &#x60;minX, minY, maxX, maxY&#x60;.  Eksempel: &#x60;265273, 7019372, 346553, 7061071&#x60;
      * @return List&lt;VeglenkesegmenterStatistikkGruppert&gt;
      * @throws RestClientResponseException if an error occurs while attempting to invoke the API
      */
@@ -180,7 +257,7 @@ public class StatistikkApi {
         queryParams.putAll(apiClient.parameterToMultiValueMap(null, "srid", srid));
         queryParams.putAll(apiClient.parameterToMultiValueMap(null, "kartutsnitt", kartutsnitt));
         queryParams.putAll(apiClient.parameterToMultiValueMap(ApiClient.CollectionFormat.valueOf("multi".toUpperCase(Locale.ROOT)), "gruppering", gruppering));
-        
+
         final String[] localVarAccepts = { 
             "*/*"
         };
@@ -197,13 +274,13 @@ public class StatistikkApi {
     /**
      * Hent statistikk for segmentert vegnett, gruppert på en eller flere felter
      * 
-     * <p><b>500</b> - Internal Server Error
      * <p><b>400</b> - Bad Request
      * <p><b>404</b> - Not Found
+     * <p><b>500</b> - Internal Server Error
      * <p><b>200</b> - OK
      * @param gruppering Velg en eller flere felter som statistikken skal grupperes på.
-     * @param srid Angir hvilket geografisk referansesystem geometrien skal returneres i. Utdata i UTM-formater begrenses til 3 desimaler, 4326/WGS84 begrenses til 8 desimaler. Mer informasjon: &lt;a href&#x3D;&#39;https://epsg.io/5972&#39;&gt;EPSG:5972&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5973&#39;&gt;EPSG:5973&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5975&#39;&gt;EPSG:5975&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/4326&#39;&gt;EPSG:4326&lt;/a&gt;.
-     * @param kartutsnitt Filtrer med kartutsnitt i det gjeldende geografiske referansesystemet (&#x60;srid&#x60;-paramteret). Formatet er &#x60;minX, minY, maxX, maxY&#x60;.  Eksempel: &#x60;265273, 7019372, 346553, 7061071&#x60;
+     * @param srid Angir hvilket geografisk referansesystem geometrien skal returneres i. Utdata i UTM-formater begrenses til 3 desimaler, 4326/WGS84 begrenses til 8 desimaler. Query-parametere med koordinater oppgis i UTM33 for UTM-formater, 4326/WGS84 oppgis dersom srid er 4326/WGS84. Mer informasjon: &lt;a href&#x3D;&#39;https://epsg.io/5972&#39;&gt;EPSG:5972&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5973&#39;&gt;EPSG:5973&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5975&#39;&gt;EPSG:5975&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/4326&#39;&gt;EPSG:4326&lt;/a&gt;.
+     * @param kartutsnitt Filtrer med kartutsnitt i UTM 33. Formatet er &#x60;minX, minY, maxX, maxY&#x60;.  Eksempel: &#x60;265273, 7019372, 346553, 7061071&#x60;
      * @return List&lt;VeglenkesegmenterStatistikkGruppert&gt;
      * @throws RestClientResponseException if an error occurs while attempting to invoke the API
      */
@@ -215,13 +292,13 @@ public class StatistikkApi {
     /**
      * Hent statistikk for segmentert vegnett, gruppert på en eller flere felter
      * 
-     * <p><b>500</b> - Internal Server Error
      * <p><b>400</b> - Bad Request
      * <p><b>404</b> - Not Found
+     * <p><b>500</b> - Internal Server Error
      * <p><b>200</b> - OK
      * @param gruppering Velg en eller flere felter som statistikken skal grupperes på.
-     * @param srid Angir hvilket geografisk referansesystem geometrien skal returneres i. Utdata i UTM-formater begrenses til 3 desimaler, 4326/WGS84 begrenses til 8 desimaler. Mer informasjon: &lt;a href&#x3D;&#39;https://epsg.io/5972&#39;&gt;EPSG:5972&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5973&#39;&gt;EPSG:5973&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5975&#39;&gt;EPSG:5975&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/4326&#39;&gt;EPSG:4326&lt;/a&gt;.
-     * @param kartutsnitt Filtrer med kartutsnitt i det gjeldende geografiske referansesystemet (&#x60;srid&#x60;-paramteret). Formatet er &#x60;minX, minY, maxX, maxY&#x60;.  Eksempel: &#x60;265273, 7019372, 346553, 7061071&#x60;
+     * @param srid Angir hvilket geografisk referansesystem geometrien skal returneres i. Utdata i UTM-formater begrenses til 3 desimaler, 4326/WGS84 begrenses til 8 desimaler. Query-parametere med koordinater oppgis i UTM33 for UTM-formater, 4326/WGS84 oppgis dersom srid er 4326/WGS84. Mer informasjon: &lt;a href&#x3D;&#39;https://epsg.io/5972&#39;&gt;EPSG:5972&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5973&#39;&gt;EPSG:5973&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5975&#39;&gt;EPSG:5975&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/4326&#39;&gt;EPSG:4326&lt;/a&gt;.
+     * @param kartutsnitt Filtrer med kartutsnitt i UTM 33. Formatet er &#x60;minX, minY, maxX, maxY&#x60;.  Eksempel: &#x60;265273, 7019372, 346553, 7061071&#x60;
      * @return ResponseEntity&lt;List&lt;VeglenkesegmenterStatistikkGruppert&gt;&gt;
      * @throws RestClientResponseException if an error occurs while attempting to invoke the API
      */
@@ -233,13 +310,13 @@ public class StatistikkApi {
     /**
      * Hent statistikk for segmentert vegnett, gruppert på en eller flere felter
      * 
-     * <p><b>500</b> - Internal Server Error
      * <p><b>400</b> - Bad Request
      * <p><b>404</b> - Not Found
+     * <p><b>500</b> - Internal Server Error
      * <p><b>200</b> - OK
      * @param gruppering Velg en eller flere felter som statistikken skal grupperes på.
-     * @param srid Angir hvilket geografisk referansesystem geometrien skal returneres i. Utdata i UTM-formater begrenses til 3 desimaler, 4326/WGS84 begrenses til 8 desimaler. Mer informasjon: &lt;a href&#x3D;&#39;https://epsg.io/5972&#39;&gt;EPSG:5972&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5973&#39;&gt;EPSG:5973&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5975&#39;&gt;EPSG:5975&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/4326&#39;&gt;EPSG:4326&lt;/a&gt;.
-     * @param kartutsnitt Filtrer med kartutsnitt i det gjeldende geografiske referansesystemet (&#x60;srid&#x60;-paramteret). Formatet er &#x60;minX, minY, maxX, maxY&#x60;.  Eksempel: &#x60;265273, 7019372, 346553, 7061071&#x60;
+     * @param srid Angir hvilket geografisk referansesystem geometrien skal returneres i. Utdata i UTM-formater begrenses til 3 desimaler, 4326/WGS84 begrenses til 8 desimaler. Query-parametere med koordinater oppgis i UTM33 for UTM-formater, 4326/WGS84 oppgis dersom srid er 4326/WGS84. Mer informasjon: &lt;a href&#x3D;&#39;https://epsg.io/5972&#39;&gt;EPSG:5972&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5973&#39;&gt;EPSG:5973&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5975&#39;&gt;EPSG:5975&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/4326&#39;&gt;EPSG:4326&lt;/a&gt;.
+     * @param kartutsnitt Filtrer med kartutsnitt i UTM 33. Formatet er &#x60;minX, minY, maxX, maxY&#x60;.  Eksempel: &#x60;265273, 7019372, 346553, 7061071&#x60;
      * @return ResponseSpec
      * @throws RestClientResponseException if an error occurs while attempting to invoke the API
      */

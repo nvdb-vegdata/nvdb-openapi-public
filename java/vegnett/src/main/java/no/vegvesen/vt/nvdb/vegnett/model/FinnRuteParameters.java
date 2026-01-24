@@ -1,6 +1,6 @@
 /*
  * NVDB API Les Vegnett
- * Dette API-et brukes til å lese vegnettelementer. Les mer om bruk av API-et på https://nvdb.test.atlas.vegvesen.no/produkter/nvdbapil/v4/Vegnett
+ * Dette API-et brukes til å lese vegnettelementer.<br><br>[Dokumentasjon for Vegnett API](https://nvdb-docs.atlas.vegvesen.no/nvdbapil/v4/Vegnett)
  *
  * The version of the OpenAPI document: v4
  * Contact: nvdb@vegvesen.no
@@ -22,6 +22,7 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import java.time.LocalDate;
+import java.util.Arrays;
 import java.util.LinkedHashSet;
 import java.util.Set;
 import no.vegvesen.vt.nvdb.vegnett.model.SridParameter;
@@ -49,7 +50,7 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
   FinnRuteParameters.JSON_PROPERTY_TIDSPUNKT,
   FinnRuteParameters.JSON_PROPERTY_SRID
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.14.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0")
 public class FinnRuteParameters {
   public static final String JSON_PROPERTY_START = "start";
   @jakarta.annotation.Nullable
@@ -121,7 +122,7 @@ public class FinnRuteParameters {
    * @return start
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_START)
+  @JsonProperty(value = JSON_PROPERTY_START, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getStart() {
@@ -129,7 +130,7 @@ public class FinnRuteParameters {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_START)
+  @JsonProperty(value = JSON_PROPERTY_START, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStart(@jakarta.annotation.Nullable String start) {
     this.start = start;
@@ -146,7 +147,7 @@ public class FinnRuteParameters {
    * @return slutt
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SLUTT)
+  @JsonProperty(value = JSON_PROPERTY_SLUTT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getSlutt() {
@@ -154,7 +155,7 @@ public class FinnRuteParameters {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_SLUTT)
+  @JsonProperty(value = JSON_PROPERTY_SLUTT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSlutt(@jakarta.annotation.Nullable String slutt) {
     this.slutt = slutt;
@@ -171,7 +172,7 @@ public class FinnRuteParameters {
    * @return geometri
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_GEOMETRI)
+  @JsonProperty(value = JSON_PROPERTY_GEOMETRI, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getGeometri() {
@@ -179,7 +180,7 @@ public class FinnRuteParameters {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_GEOMETRI)
+  @JsonProperty(value = JSON_PROPERTY_GEOMETRI, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setGeometri(@jakarta.annotation.Nullable String geometri) {
     this.geometri = geometri;
@@ -196,7 +197,7 @@ public class FinnRuteParameters {
    * @return maksAvstand
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_MAKS_AVSTAND)
+  @JsonProperty(value = JSON_PROPERTY_MAKS_AVSTAND, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Integer getMaksAvstand() {
@@ -204,7 +205,7 @@ public class FinnRuteParameters {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_MAKS_AVSTAND)
+  @JsonProperty(value = JSON_PROPERTY_MAKS_AVSTAND, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setMaksAvstand(@jakarta.annotation.Nonnull Integer maksAvstand) {
     this.maksAvstand = maksAvstand;
@@ -221,7 +222,7 @@ public class FinnRuteParameters {
    * @return omkrets
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_OMKRETS)
+  @JsonProperty(value = JSON_PROPERTY_OMKRETS, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Integer getOmkrets() {
@@ -229,7 +230,7 @@ public class FinnRuteParameters {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_OMKRETS)
+  @JsonProperty(value = JSON_PROPERTY_OMKRETS, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setOmkrets(@jakarta.annotation.Nonnull Integer omkrets) {
     this.omkrets = omkrets;
@@ -246,7 +247,7 @@ public class FinnRuteParameters {
    * @return konnekteringslenker
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_KONNEKTERINGSLENKER)
+  @JsonProperty(value = JSON_PROPERTY_KONNEKTERINGSLENKER, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Boolean getKonnekteringslenker() {
@@ -254,7 +255,7 @@ public class FinnRuteParameters {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_KONNEKTERINGSLENKER)
+  @JsonProperty(value = JSON_PROPERTY_KONNEKTERINGSLENKER, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setKonnekteringslenker(@jakarta.annotation.Nonnull Boolean konnekteringslenker) {
     this.konnekteringslenker = konnekteringslenker;
@@ -271,7 +272,7 @@ public class FinnRuteParameters {
    * @return detaljerteLenker
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_DETALJERTE_LENKER)
+  @JsonProperty(value = JSON_PROPERTY_DETALJERTE_LENKER, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Boolean getDetaljerteLenker() {
@@ -279,7 +280,7 @@ public class FinnRuteParameters {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_DETALJERTE_LENKER)
+  @JsonProperty(value = JSON_PROPERTY_DETALJERTE_LENKER, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setDetaljerteLenker(@jakarta.annotation.Nonnull Boolean detaljerteLenker) {
     this.detaljerteLenker = detaljerteLenker;
@@ -296,7 +297,7 @@ public class FinnRuteParameters {
    * @return kortform
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_KORTFORM)
+  @JsonProperty(value = JSON_PROPERTY_KORTFORM, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Boolean getKortform() {
@@ -304,7 +305,7 @@ public class FinnRuteParameters {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_KORTFORM)
+  @JsonProperty(value = JSON_PROPERTY_KORTFORM, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setKortform(@jakarta.annotation.Nonnull Boolean kortform) {
     this.kortform = kortform;
@@ -329,7 +330,7 @@ public class FinnRuteParameters {
    * @return vegsystemreferanse
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_VEGSYSTEMREFERANSE)
+  @JsonProperty(value = JSON_PROPERTY_VEGSYSTEMREFERANSE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Set<String> getVegsystemreferanse() {
@@ -338,7 +339,7 @@ public class FinnRuteParameters {
 
 
   @JsonDeserialize(as = LinkedHashSet.class)
-  @JsonProperty(JSON_PROPERTY_VEGSYSTEMREFERANSE)
+  @JsonProperty(value = JSON_PROPERTY_VEGSYSTEMREFERANSE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setVegsystemreferanse(@jakarta.annotation.Nullable Set<String> vegsystemreferanse) {
     this.vegsystemreferanse = vegsystemreferanse;
@@ -355,7 +356,7 @@ public class FinnRuteParameters {
    * @return trafikantgruppe
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TRAFIKANTGRUPPE)
+  @JsonProperty(value = JSON_PROPERTY_TRAFIKANTGRUPPE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Trafikantgruppe getTrafikantgruppe() {
@@ -363,7 +364,7 @@ public class FinnRuteParameters {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_TRAFIKANTGRUPPE)
+  @JsonProperty(value = JSON_PROPERTY_TRAFIKANTGRUPPE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTrafikantgruppe(@jakarta.annotation.Nullable Trafikantgruppe trafikantgruppe) {
     this.trafikantgruppe = trafikantgruppe;
@@ -380,7 +381,7 @@ public class FinnRuteParameters {
    * @return beholdTrafikantgruppe
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_BEHOLD_TRAFIKANTGRUPPE)
+  @JsonProperty(value = JSON_PROPERTY_BEHOLD_TRAFIKANTGRUPPE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Boolean getBeholdTrafikantgruppe() {
@@ -388,7 +389,7 @@ public class FinnRuteParameters {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_BEHOLD_TRAFIKANTGRUPPE)
+  @JsonProperty(value = JSON_PROPERTY_BEHOLD_TRAFIKANTGRUPPE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setBeholdTrafikantgruppe(@jakarta.annotation.Nonnull Boolean beholdTrafikantgruppe) {
     this.beholdTrafikantgruppe = beholdTrafikantgruppe;
@@ -413,7 +414,7 @@ public class FinnRuteParameters {
    * @return typeveg
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TYPEVEG)
+  @JsonProperty(value = JSON_PROPERTY_TYPEVEG, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Set<TypeVeg> getTypeveg() {
@@ -422,7 +423,7 @@ public class FinnRuteParameters {
 
 
   @JsonDeserialize(as = LinkedHashSet.class)
-  @JsonProperty(JSON_PROPERTY_TYPEVEG)
+  @JsonProperty(value = JSON_PROPERTY_TYPEVEG, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTypeveg(@jakarta.annotation.Nullable Set<TypeVeg> typeveg) {
     this.typeveg = typeveg;
@@ -439,7 +440,7 @@ public class FinnRuteParameters {
    * @return tidspunkt
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TIDSPUNKT)
+  @JsonProperty(value = JSON_PROPERTY_TIDSPUNKT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public LocalDate getTidspunkt() {
@@ -447,7 +448,7 @@ public class FinnRuteParameters {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_TIDSPUNKT)
+  @JsonProperty(value = JSON_PROPERTY_TIDSPUNKT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTidspunkt(@jakarta.annotation.Nullable LocalDate tidspunkt) {
     this.tidspunkt = tidspunkt;
@@ -464,7 +465,7 @@ public class FinnRuteParameters {
    * @return srid
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SRID)
+  @JsonProperty(value = JSON_PROPERTY_SRID, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public SridParameter getSrid() {
@@ -472,7 +473,7 @@ public class FinnRuteParameters {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_SRID)
+  @JsonProperty(value = JSON_PROPERTY_SRID, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSrid(@jakarta.annotation.Nullable SridParameter srid) {
     this.srid = srid;

@@ -1,6 +1,6 @@
 /*
  * NVDB API Les Vegobjekter
- * Dette API-et brukes til å lese vegobjekter. Les mer om bruk av API-et på https://nvdb.atlas.vegvesen.no/produkter/nvdbapil/v4/Vegobjekter
+ * Dette API-et brukes til å lese vegobjekter.<br><br>[Dokumentasjon for Vegobjekter API](https://nvdb-docs.atlas.vegvesen.no/nvdbapil/v4/Vegobjekter)
  *
  * The version of the OpenAPI document: v4
  * Contact: nvdb@vegvesen.no
@@ -48,7 +48,7 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
   Lokasjon.JSON_PROPERTY_GEOMETRI,
   Lokasjon.JSON_PROPERTY_LENGDE
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.14.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0")
 public class Lokasjon {
   public static final String JSON_PROPERTY_KOMMUNER = "kommuner";
   @jakarta.annotation.Nonnull
@@ -112,7 +112,7 @@ public class Lokasjon {
    * @return kommuner
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_KOMMUNER)
+  @JsonProperty(value = JSON_PROPERTY_KOMMUNER, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public List<Integer> getKommuner() {
@@ -120,7 +120,7 @@ public class Lokasjon {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_KOMMUNER)
+  @JsonProperty(value = JSON_PROPERTY_KOMMUNER, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setKommuner(@jakarta.annotation.Nonnull List<Integer> kommuner) {
     this.kommuner = kommuner;
@@ -145,7 +145,7 @@ public class Lokasjon {
    * @return fylker
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_FYLKER)
+  @JsonProperty(value = JSON_PROPERTY_FYLKER, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public List<Integer> getFylker() {
@@ -153,7 +153,7 @@ public class Lokasjon {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_FYLKER)
+  @JsonProperty(value = JSON_PROPERTY_FYLKER, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setFylker(@jakarta.annotation.Nonnull List<Integer> fylker) {
     this.fylker = fylker;
@@ -178,7 +178,7 @@ public class Lokasjon {
    * @return kontraktsområder
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_KONTRAKTSOMRåDER)
+  @JsonProperty(value = JSON_PROPERTY_KONTRAKTSOMRåDER, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public List<Kontraktsomrade> getKontraktsområder() {
@@ -186,7 +186,7 @@ public class Lokasjon {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_KONTRAKTSOMRåDER)
+  @JsonProperty(value = JSON_PROPERTY_KONTRAKTSOMRåDER, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setKontraktsområder(@jakarta.annotation.Nullable List<Kontraktsomrade> kontraktsområder) {
     this.kontraktsområder = kontraktsområder;
@@ -211,7 +211,7 @@ public class Lokasjon {
    * @return riksvegruter
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_RIKSVEGRUTER)
+  @JsonProperty(value = JSON_PROPERTY_RIKSVEGRUTER, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public List<Riksvegrute> getRiksvegruter() {
@@ -219,7 +219,7 @@ public class Lokasjon {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_RIKSVEGRUTER)
+  @JsonProperty(value = JSON_PROPERTY_RIKSVEGRUTER, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRiksvegruter(@jakarta.annotation.Nullable List<Riksvegrute> riksvegruter) {
     this.riksvegruter = riksvegruter;
@@ -244,7 +244,7 @@ public class Lokasjon {
    * @return vegforvaltere
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_VEGFORVALTERE)
+  @JsonProperty(value = JSON_PROPERTY_VEGFORVALTERE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public List<Vegforvalter> getVegforvaltere() {
@@ -252,7 +252,7 @@ public class Lokasjon {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_VEGFORVALTERE)
+  @JsonProperty(value = JSON_PROPERTY_VEGFORVALTERE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setVegforvaltere(@jakarta.annotation.Nullable List<Vegforvalter> vegforvaltere) {
     this.vegforvaltere = vegforvaltere;
@@ -277,7 +277,7 @@ public class Lokasjon {
    * @return adresser
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ADRESSER)
+  @JsonProperty(value = JSON_PROPERTY_ADRESSER, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public List<Adresse> getAdresser() {
@@ -285,7 +285,7 @@ public class Lokasjon {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ADRESSER)
+  @JsonProperty(value = JSON_PROPERTY_ADRESSER, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAdresser(@jakarta.annotation.Nullable List<Adresse> adresser) {
     this.adresser = adresser;
@@ -310,7 +310,7 @@ public class Lokasjon {
    * @return vegsystemreferanser
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_VEGSYSTEMREFERANSER)
+  @JsonProperty(value = JSON_PROPERTY_VEGSYSTEMREFERANSER, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public List<Vegsystemreferanse> getVegsystemreferanser() {
@@ -318,7 +318,7 @@ public class Lokasjon {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_VEGSYSTEMREFERANSER)
+  @JsonProperty(value = JSON_PROPERTY_VEGSYSTEMREFERANSER, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setVegsystemreferanser(@jakarta.annotation.Nullable List<Vegsystemreferanse> vegsystemreferanser) {
     this.vegsystemreferanser = vegsystemreferanser;
@@ -343,7 +343,7 @@ public class Lokasjon {
    * @return stedfestinger
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_STEDFESTINGER)
+  @JsonProperty(value = JSON_PROPERTY_STEDFESTINGER, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public List<Stedfesting> getStedfestinger() {
@@ -351,7 +351,7 @@ public class Lokasjon {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_STEDFESTINGER)
+  @JsonProperty(value = JSON_PROPERTY_STEDFESTINGER, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStedfestinger(@jakarta.annotation.Nullable List<Stedfesting> stedfestinger) {
     this.stedfestinger = stedfestinger;
@@ -368,7 +368,7 @@ public class Lokasjon {
    * @return geometri
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_GEOMETRI)
+  @JsonProperty(value = JSON_PROPERTY_GEOMETRI, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Geometri getGeometri() {
@@ -376,7 +376,7 @@ public class Lokasjon {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_GEOMETRI)
+  @JsonProperty(value = JSON_PROPERTY_GEOMETRI, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setGeometri(@jakarta.annotation.Nullable Geometri geometri) {
     this.geometri = geometri;
@@ -393,7 +393,7 @@ public class Lokasjon {
    * @return lengde
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_LENGDE)
+  @JsonProperty(value = JSON_PROPERTY_LENGDE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Double getLengde() {
@@ -401,7 +401,7 @@ public class Lokasjon {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_LENGDE)
+  @JsonProperty(value = JSON_PROPERTY_LENGDE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLengde(@jakarta.annotation.Nullable Double lengde) {
     this.lengde = lengde;

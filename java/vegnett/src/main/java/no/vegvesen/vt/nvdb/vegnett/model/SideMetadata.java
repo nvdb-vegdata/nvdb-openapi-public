@@ -1,6 +1,6 @@
 /*
  * NVDB API Les Vegnett
- * Dette API-et brukes til å lese vegnettelementer. Les mer om bruk av API-et på https://nvdb.test.atlas.vegvesen.no/produkter/nvdbapil/v4/Vegnett
+ * Dette API-et brukes til å lese vegnettelementer.<br><br>[Dokumentasjon for Vegnett API](https://nvdb-docs.atlas.vegvesen.no/nvdbapil/v4/Vegnett)
  *
  * The version of the OpenAPI document: v4
  * Contact: nvdb@vegvesen.no
@@ -33,7 +33,7 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
   SideMetadata.JSON_PROPERTY_SIDESTøRRELSE,
   SideMetadata.JSON_PROPERTY_NESTE
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.14.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0")
 public class SideMetadata {
   public static final String JSON_PROPERTY_ANTALL = "antall";
   @jakarta.annotation.Nullable
@@ -65,7 +65,7 @@ public class SideMetadata {
    * @return antall
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_ANTALL)
+  @JsonProperty(value = JSON_PROPERTY_ANTALL, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Long getAntall() {
@@ -73,7 +73,7 @@ public class SideMetadata {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ANTALL)
+  @JsonProperty(value = JSON_PROPERTY_ANTALL, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setAntall(@jakarta.annotation.Nullable Long antall) {
     this.antall = antall;
@@ -90,7 +90,7 @@ public class SideMetadata {
    * @return returnert
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_RETURNERT)
+  @JsonProperty(value = JSON_PROPERTY_RETURNERT, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Integer getReturnert() {
@@ -98,7 +98,7 @@ public class SideMetadata {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_RETURNERT)
+  @JsonProperty(value = JSON_PROPERTY_RETURNERT, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setReturnert(@jakarta.annotation.Nonnull Integer returnert) {
     this.returnert = returnert;
@@ -115,7 +115,7 @@ public class SideMetadata {
    * @return sidestørrelse
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_SIDESTøRRELSE)
+  @JsonProperty(value = JSON_PROPERTY_SIDESTøRRELSE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Integer getSidestørrelse() {
@@ -123,7 +123,7 @@ public class SideMetadata {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_SIDESTøRRELSE)
+  @JsonProperty(value = JSON_PROPERTY_SIDESTøRRELSE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setSidestørrelse(@jakarta.annotation.Nonnull Integer sidestørrelse) {
     this.sidestørrelse = sidestørrelse;
@@ -140,7 +140,7 @@ public class SideMetadata {
    * @return neste
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_NESTE)
+  @JsonProperty(value = JSON_PROPERTY_NESTE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public NesteSide getNeste() {
@@ -148,7 +148,7 @@ public class SideMetadata {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_NESTE)
+  @JsonProperty(value = JSON_PROPERTY_NESTE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setNeste(@jakarta.annotation.Nullable NesteSide neste) {
     this.neste = neste;

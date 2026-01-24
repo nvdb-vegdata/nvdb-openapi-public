@@ -1,6 +1,6 @@
 /*
  * NVDB API Les Vegnett
- * Dette API-et brukes til å lese vegnettelementer. Les mer om bruk av API-et på https://nvdb.test.atlas.vegvesen.no/produkter/nvdbapil/v4/Vegnett
+ * Dette API-et brukes til å lese vegnettelementer.<br><br>[Dokumentasjon for Vegnett API](https://nvdb-docs.atlas.vegvesen.no/nvdbapil/v4/Vegnett)
  *
  * The version of the OpenAPI document: v4
  * Contact: nvdb@vegvesen.no
@@ -32,7 +32,7 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
   RuteMetadata.JSON_PROPERTY_STATUS,
   RuteMetadata.JSON_PROPERTY_STATUS_TEKST
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.14.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0")
 public class RuteMetadata {
   public static final String JSON_PROPERTY_ANTALL = "antall";
   @jakarta.annotation.Nonnull
@@ -64,7 +64,7 @@ public class RuteMetadata {
    * @return antall
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_ANTALL)
+  @JsonProperty(value = JSON_PROPERTY_ANTALL, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Integer getAntall() {
@@ -72,7 +72,7 @@ public class RuteMetadata {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ANTALL)
+  @JsonProperty(value = JSON_PROPERTY_ANTALL, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setAntall(@jakarta.annotation.Nonnull Integer antall) {
     this.antall = antall;
@@ -89,7 +89,7 @@ public class RuteMetadata {
    * @return lengde
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_LENGDE)
+  @JsonProperty(value = JSON_PROPERTY_LENGDE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Double getLengde() {
@@ -97,7 +97,7 @@ public class RuteMetadata {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_LENGDE)
+  @JsonProperty(value = JSON_PROPERTY_LENGDE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setLengde(@jakarta.annotation.Nonnull Double lengde) {
     this.lengde = lengde;
@@ -114,7 +114,7 @@ public class RuteMetadata {
    * @return status
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_STATUS)
+  @JsonProperty(value = JSON_PROPERTY_STATUS, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Integer getStatus() {
@@ -122,7 +122,7 @@ public class RuteMetadata {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_STATUS)
+  @JsonProperty(value = JSON_PROPERTY_STATUS, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setStatus(@jakarta.annotation.Nonnull Integer status) {
     this.status = status;
@@ -139,7 +139,7 @@ public class RuteMetadata {
    * @return statusTekst
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_STATUS_TEKST)
+  @JsonProperty(value = JSON_PROPERTY_STATUS_TEKST, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getStatusTekst() {
@@ -147,7 +147,7 @@ public class RuteMetadata {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_STATUS_TEKST)
+  @JsonProperty(value = JSON_PROPERTY_STATUS_TEKST, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setStatusTekst(@jakarta.annotation.Nonnull String statusTekst) {
     this.statusTekst = statusTekst;

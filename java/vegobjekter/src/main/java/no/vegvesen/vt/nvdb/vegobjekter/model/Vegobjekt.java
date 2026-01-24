@@ -1,6 +1,6 @@
 /*
  * NVDB API Les Vegobjekter
- * Dette API-et brukes til å lese vegobjekter. Les mer om bruk av API-et på https://nvdb.atlas.vegvesen.no/produkter/nvdbapil/v4/Vegobjekter
+ * Dette API-et brukes til å lese vegobjekter.<br><br>[Dokumentasjon for Vegobjekter API](https://nvdb-docs.atlas.vegvesen.no/nvdbapil/v4/Vegobjekter)
  *
  * The version of the OpenAPI document: v4
  * Contact: nvdb@vegvesen.no
@@ -45,7 +45,7 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
   Vegobjekt.JSON_PROPERTY_RELASJONER,
   Vegobjekt.JSON_PROPERTY_VEGSEGMENTER
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.14.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0")
 public class Vegobjekt {
   public static final String JSON_PROPERTY_ID = "id";
   @jakarta.annotation.Nonnull
@@ -93,7 +93,7 @@ public class Vegobjekt {
    * @return id
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonProperty(value = JSON_PROPERTY_ID, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Long getId() {
@@ -101,7 +101,7 @@ public class Vegobjekt {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonProperty(value = JSON_PROPERTY_ID, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setId(@jakarta.annotation.Nonnull Long id) {
     this.id = id;
@@ -118,7 +118,7 @@ public class Vegobjekt {
    * @return href
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_HREF)
+  @JsonProperty(value = JSON_PROPERTY_HREF, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getHref() {
@@ -126,7 +126,7 @@ public class Vegobjekt {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_HREF)
+  @JsonProperty(value = JSON_PROPERTY_HREF, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setHref(@jakarta.annotation.Nonnull String href) {
     this.href = href;
@@ -143,7 +143,7 @@ public class Vegobjekt {
    * @return metadata
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_METADATA)
+  @JsonProperty(value = JSON_PROPERTY_METADATA, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public VegobjektMetadata getMetadata() {
@@ -151,7 +151,7 @@ public class Vegobjekt {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_METADATA)
+  @JsonProperty(value = JSON_PROPERTY_METADATA, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMetadata(@jakarta.annotation.Nullable VegobjektMetadata metadata) {
     this.metadata = metadata;
@@ -176,7 +176,7 @@ public class Vegobjekt {
    * @return egenskaper
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_EGENSKAPER)
+  @JsonProperty(value = JSON_PROPERTY_EGENSKAPER, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public List<Egenskap> getEgenskaper() {
@@ -184,7 +184,7 @@ public class Vegobjekt {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_EGENSKAPER)
+  @JsonProperty(value = JSON_PROPERTY_EGENSKAPER, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEgenskaper(@jakarta.annotation.Nullable List<Egenskap> egenskaper) {
     this.egenskaper = egenskaper;
@@ -201,7 +201,7 @@ public class Vegobjekt {
    * @return geometri
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_GEOMETRI)
+  @JsonProperty(value = JSON_PROPERTY_GEOMETRI, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public UtledetGeometri getGeometri() {
@@ -209,7 +209,7 @@ public class Vegobjekt {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_GEOMETRI)
+  @JsonProperty(value = JSON_PROPERTY_GEOMETRI, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setGeometri(@jakarta.annotation.Nullable UtledetGeometri geometri) {
     this.geometri = geometri;
@@ -226,7 +226,7 @@ public class Vegobjekt {
    * @return lokasjon
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_LOKASJON)
+  @JsonProperty(value = JSON_PROPERTY_LOKASJON, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Lokasjon getLokasjon() {
@@ -234,7 +234,7 @@ public class Vegobjekt {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_LOKASJON)
+  @JsonProperty(value = JSON_PROPERTY_LOKASJON, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setLokasjon(@jakarta.annotation.Nullable Lokasjon lokasjon) {
     this.lokasjon = lokasjon;
@@ -251,7 +251,7 @@ public class Vegobjekt {
    * @return relasjoner
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_RELASJONER)
+  @JsonProperty(value = JSON_PROPERTY_RELASJONER, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Relasjoner getRelasjoner() {
@@ -259,7 +259,7 @@ public class Vegobjekt {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_RELASJONER)
+  @JsonProperty(value = JSON_PROPERTY_RELASJONER, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRelasjoner(@jakarta.annotation.Nullable Relasjoner relasjoner) {
     this.relasjoner = relasjoner;
@@ -284,7 +284,7 @@ public class Vegobjekt {
    * @return vegsegmenter
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_VEGSEGMENTER)
+  @JsonProperty(value = JSON_PROPERTY_VEGSEGMENTER, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public List<Vegsegment> getVegsegmenter() {
@@ -292,7 +292,7 @@ public class Vegobjekt {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_VEGSEGMENTER)
+  @JsonProperty(value = JSON_PROPERTY_VEGSEGMENTER, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setVegsegmenter(@jakarta.annotation.Nullable List<Vegsegment> vegsegmenter) {
     this.vegsegmenter = vegsegmenter;

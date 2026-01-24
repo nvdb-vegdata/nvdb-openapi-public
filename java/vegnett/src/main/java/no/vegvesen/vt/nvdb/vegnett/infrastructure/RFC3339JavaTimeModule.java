@@ -1,6 +1,6 @@
 /*
  * NVDB API Les Vegnett
- * Dette API-et brukes til å lese vegnettelementer. Les mer om bruk av API-et på https://nvdb.test.atlas.vegvesen.no/produkter/nvdbapil/v4/Vegnett
+ * Dette API-et brukes til å lese vegnettelementer.<br><br>[Dokumentasjon for Vegnett API](https://nvdb-docs.atlas.vegvesen.no/nvdbapil/v4/Vegnett)
  *
  * The version of the OpenAPI document: v4
  * Contact: nvdb@vegvesen.no
@@ -17,16 +17,23 @@ import java.time.OffsetDateTime;
 import java.time.ZonedDateTime;
 
 import com.fasterxml.jackson.databind.module.SimpleModule;
+import com.fasterxml.jackson.databind.Module.SetupContext;
 
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.14.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0")
 public class RFC3339JavaTimeModule extends SimpleModule {
     private static final long serialVersionUID = 1L;
 
     public RFC3339JavaTimeModule() {
         super("RFC3339JavaTimeModule");
-
-        addDeserializer(Instant.class, RFC3339InstantDeserializer.INSTANT);
-        addDeserializer(OffsetDateTime.class, RFC3339InstantDeserializer.OFFSET_DATE_TIME);
-        addDeserializer(ZonedDateTime.class, RFC3339InstantDeserializer.ZONED_DATE_TIME);
     }
+
+   @Override
+   public void setupModule(SetupContext context) {
+       super.setupModule(context);
+
+       addDeserializer(Instant.class, RFC3339InstantDeserializer.INSTANT);
+       addDeserializer(OffsetDateTime.class, RFC3339InstantDeserializer.OFFSET_DATE_TIME);
+       addDeserializer(ZonedDateTime.class, RFC3339InstantDeserializer.ZONED_DATE_TIME);
+   }
+
 }

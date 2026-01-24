@@ -1,6 +1,6 @@
 /*
  * NVDB API Les Vegobjekter
- * Dette API-et brukes til å lese vegobjekter. Les mer om bruk av API-et på https://nvdb.atlas.vegvesen.no/produkter/nvdbapil/v4/Vegobjekter
+ * Dette API-et brukes til å lese vegobjekter.<br><br>[Dokumentasjon for Vegobjekter API](https://nvdb-docs.atlas.vegvesen.no/nvdbapil/v4/Vegobjekter)
  *
  * The version of the OpenAPI document: v4
  * Contact: nvdb@vegvesen.no
@@ -24,8 +24,10 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import no.vegvesen.vt.nvdb.vegobjekter.model.SideMetadata;
-import no.vegvesen.vt.nvdb.vegobjekter.model.VegobjektEndret;
-import no.vegvesen.vt.nvdb.vegobjekter.model.VegobjektFjernet;
+import no.vegvesen.vt.nvdb.vegobjekter.model.VegobjektVersjonEndret;
+import no.vegvesen.vt.nvdb.vegobjekter.model.VegobjektVersjonFjernet;
+import no.vegvesen.vt.nvdb.vegobjekter.model.VegobjektVersjonOpprettet;
+import no.vegvesen.vt.nvdb.vegobjekter.model.VegobjektVersjonSegmentert;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 
@@ -35,17 +37,27 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 @JsonPropertyOrder({
   VegobjektEndringerSide.JSON_PROPERTY_VEGOBJEKT_VERSJONER_ENDRET,
   VegobjektEndringerSide.JSON_PROPERTY_VEGOBJEKT_VERSJONER_FJERNET,
+  VegobjektEndringerSide.JSON_PROPERTY_VEGOBJEKT_VERSJONER_SEGMENTERT,
+  VegobjektEndringerSide.JSON_PROPERTY_VEGOBJEKT_VERSJONER_OPPRETTET,
   VegobjektEndringerSide.JSON_PROPERTY_METADATA
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.14.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0")
 public class VegobjektEndringerSide {
   public static final String JSON_PROPERTY_VEGOBJEKT_VERSJONER_ENDRET = "vegobjektVersjonerEndret";
   @jakarta.annotation.Nonnull
-  private List<VegobjektEndret> vegobjektVersjonerEndret = new ArrayList<>();
+  private List<VegobjektVersjonEndret> vegobjektVersjonerEndret = new ArrayList<>();
 
   public static final String JSON_PROPERTY_VEGOBJEKT_VERSJONER_FJERNET = "vegobjektVersjonerFjernet";
   @jakarta.annotation.Nonnull
-  private List<VegobjektFjernet> vegobjektVersjonerFjernet = new ArrayList<>();
+  private List<VegobjektVersjonFjernet> vegobjektVersjonerFjernet = new ArrayList<>();
+
+  public static final String JSON_PROPERTY_VEGOBJEKT_VERSJONER_SEGMENTERT = "vegobjektVersjonerSegmentert";
+  @jakarta.annotation.Nonnull
+  private List<VegobjektVersjonSegmentert> vegobjektVersjonerSegmentert = new ArrayList<>();
+
+  public static final String JSON_PROPERTY_VEGOBJEKT_VERSJONER_OPPRETTET = "vegobjektVersjonerOpprettet";
+  @jakarta.annotation.Nonnull
+  private List<VegobjektVersjonOpprettet> vegobjektVersjonerOpprettet = new ArrayList<>();
 
   public static final String JSON_PROPERTY_METADATA = "metadata";
   @jakarta.annotation.Nonnull
@@ -54,13 +66,13 @@ public class VegobjektEndringerSide {
   public VegobjektEndringerSide() {
   }
 
-  public VegobjektEndringerSide vegobjektVersjonerEndret(@jakarta.annotation.Nonnull List<VegobjektEndret> vegobjektVersjonerEndret) {
+  public VegobjektEndringerSide vegobjektVersjonerEndret(@jakarta.annotation.Nonnull List<VegobjektVersjonEndret> vegobjektVersjonerEndret) {
     
     this.vegobjektVersjonerEndret = vegobjektVersjonerEndret;
     return this;
   }
 
-  public VegobjektEndringerSide addVegobjektVersjonerEndretItem(VegobjektEndret vegobjektVersjonerEndretItem) {
+  public VegobjektEndringerSide addVegobjektVersjonerEndretItem(VegobjektVersjonEndret vegobjektVersjonerEndretItem) {
     if (this.vegobjektVersjonerEndret == null) {
       this.vegobjektVersjonerEndret = new ArrayList<>();
     }
@@ -69,31 +81,31 @@ public class VegobjektEndringerSide {
   }
 
   /**
-   * Liste med alle endringer som oppretter eller endrer versjoner av vegobjekter
+   * Alle endringer som endrer på versjoner av vegobjekter
    * @return vegobjektVersjonerEndret
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_VEGOBJEKT_VERSJONER_ENDRET)
+  @JsonProperty(value = JSON_PROPERTY_VEGOBJEKT_VERSJONER_ENDRET, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public List<VegobjektEndret> getVegobjektVersjonerEndret() {
+  public List<VegobjektVersjonEndret> getVegobjektVersjonerEndret() {
     return vegobjektVersjonerEndret;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_VEGOBJEKT_VERSJONER_ENDRET)
+  @JsonProperty(value = JSON_PROPERTY_VEGOBJEKT_VERSJONER_ENDRET, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setVegobjektVersjonerEndret(@jakarta.annotation.Nonnull List<VegobjektEndret> vegobjektVersjonerEndret) {
+  public void setVegobjektVersjonerEndret(@jakarta.annotation.Nonnull List<VegobjektVersjonEndret> vegobjektVersjonerEndret) {
     this.vegobjektVersjonerEndret = vegobjektVersjonerEndret;
   }
 
-  public VegobjektEndringerSide vegobjektVersjonerFjernet(@jakarta.annotation.Nonnull List<VegobjektFjernet> vegobjektVersjonerFjernet) {
+  public VegobjektEndringerSide vegobjektVersjonerFjernet(@jakarta.annotation.Nonnull List<VegobjektVersjonFjernet> vegobjektVersjonerFjernet) {
     
     this.vegobjektVersjonerFjernet = vegobjektVersjonerFjernet;
     return this;
   }
 
-  public VegobjektEndringerSide addVegobjektVersjonerFjernetItem(VegobjektFjernet vegobjektVersjonerFjernetItem) {
+  public VegobjektEndringerSide addVegobjektVersjonerFjernetItem(VegobjektVersjonFjernet vegobjektVersjonerFjernetItem) {
     if (this.vegobjektVersjonerFjernet == null) {
       this.vegobjektVersjonerFjernet = new ArrayList<>();
     }
@@ -102,22 +114,88 @@ public class VegobjektEndringerSide {
   }
 
   /**
-   * Liste med alle endringer som fjerner versjoner av vegobjekter
+   * Alle endringer som fjerner versjoner av vegobjekter
    * @return vegobjektVersjonerFjernet
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_VEGOBJEKT_VERSJONER_FJERNET)
+  @JsonProperty(value = JSON_PROPERTY_VEGOBJEKT_VERSJONER_FJERNET, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
-  public List<VegobjektFjernet> getVegobjektVersjonerFjernet() {
+  public List<VegobjektVersjonFjernet> getVegobjektVersjonerFjernet() {
     return vegobjektVersjonerFjernet;
   }
 
 
-  @JsonProperty(JSON_PROPERTY_VEGOBJEKT_VERSJONER_FJERNET)
+  @JsonProperty(value = JSON_PROPERTY_VEGOBJEKT_VERSJONER_FJERNET, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setVegobjektVersjonerFjernet(@jakarta.annotation.Nonnull List<VegobjektFjernet> vegobjektVersjonerFjernet) {
+  public void setVegobjektVersjonerFjernet(@jakarta.annotation.Nonnull List<VegobjektVersjonFjernet> vegobjektVersjonerFjernet) {
     this.vegobjektVersjonerFjernet = vegobjektVersjonerFjernet;
+  }
+
+  public VegobjektEndringerSide vegobjektVersjonerSegmentert(@jakarta.annotation.Nonnull List<VegobjektVersjonSegmentert> vegobjektVersjonerSegmentert) {
+    
+    this.vegobjektVersjonerSegmentert = vegobjektVersjonerSegmentert;
+    return this;
+  }
+
+  public VegobjektEndringerSide addVegobjektVersjonerSegmentertItem(VegobjektVersjonSegmentert vegobjektVersjonerSegmentertItem) {
+    if (this.vegobjektVersjonerSegmentert == null) {
+      this.vegobjektVersjonerSegmentert = new ArrayList<>();
+    }
+    this.vegobjektVersjonerSegmentert.add(vegobjektVersjonerSegmentertItem);
+    return this;
+  }
+
+  /**
+   * Alle endringer der et vegobjekt har blitt segmentert på nytt
+   * @return vegobjektVersjonerSegmentert
+   */
+  @jakarta.annotation.Nonnull
+  @JsonProperty(value = JSON_PROPERTY_VEGOBJEKT_VERSJONER_SEGMENTERT, required = true)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public List<VegobjektVersjonSegmentert> getVegobjektVersjonerSegmentert() {
+    return vegobjektVersjonerSegmentert;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_VEGOBJEKT_VERSJONER_SEGMENTERT, required = true)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setVegobjektVersjonerSegmentert(@jakarta.annotation.Nonnull List<VegobjektVersjonSegmentert> vegobjektVersjonerSegmentert) {
+    this.vegobjektVersjonerSegmentert = vegobjektVersjonerSegmentert;
+  }
+
+  public VegobjektEndringerSide vegobjektVersjonerOpprettet(@jakarta.annotation.Nonnull List<VegobjektVersjonOpprettet> vegobjektVersjonerOpprettet) {
+    
+    this.vegobjektVersjonerOpprettet = vegobjektVersjonerOpprettet;
+    return this;
+  }
+
+  public VegobjektEndringerSide addVegobjektVersjonerOpprettetItem(VegobjektVersjonOpprettet vegobjektVersjonerOpprettetItem) {
+    if (this.vegobjektVersjonerOpprettet == null) {
+      this.vegobjektVersjonerOpprettet = new ArrayList<>();
+    }
+    this.vegobjektVersjonerOpprettet.add(vegobjektVersjonerOpprettetItem);
+    return this;
+  }
+
+  /**
+   * Alle endringer som oppretter nye versjoner av vegobjekter
+   * @return vegobjektVersjonerOpprettet
+   */
+  @jakarta.annotation.Nonnull
+  @JsonProperty(value = JSON_PROPERTY_VEGOBJEKT_VERSJONER_OPPRETTET, required = true)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+
+  public List<VegobjektVersjonOpprettet> getVegobjektVersjonerOpprettet() {
+    return vegobjektVersjonerOpprettet;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_VEGOBJEKT_VERSJONER_OPPRETTET, required = true)
+  @JsonInclude(value = JsonInclude.Include.ALWAYS)
+  public void setVegobjektVersjonerOpprettet(@jakarta.annotation.Nonnull List<VegobjektVersjonOpprettet> vegobjektVersjonerOpprettet) {
+    this.vegobjektVersjonerOpprettet = vegobjektVersjonerOpprettet;
   }
 
   public VegobjektEndringerSide metadata(@jakarta.annotation.Nonnull SideMetadata metadata) {
@@ -131,7 +209,7 @@ public class VegobjektEndringerSide {
    * @return metadata
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_METADATA)
+  @JsonProperty(value = JSON_PROPERTY_METADATA, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public SideMetadata getMetadata() {
@@ -139,7 +217,7 @@ public class VegobjektEndringerSide {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_METADATA)
+  @JsonProperty(value = JSON_PROPERTY_METADATA, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setMetadata(@jakarta.annotation.Nonnull SideMetadata metadata) {
     this.metadata = metadata;
@@ -157,12 +235,14 @@ public class VegobjektEndringerSide {
     VegobjektEndringerSide vegobjektEndringerSide = (VegobjektEndringerSide) o;
     return Objects.equals(this.vegobjektVersjonerEndret, vegobjektEndringerSide.vegobjektVersjonerEndret) &&
         Objects.equals(this.vegobjektVersjonerFjernet, vegobjektEndringerSide.vegobjektVersjonerFjernet) &&
+        Objects.equals(this.vegobjektVersjonerSegmentert, vegobjektEndringerSide.vegobjektVersjonerSegmentert) &&
+        Objects.equals(this.vegobjektVersjonerOpprettet, vegobjektEndringerSide.vegobjektVersjonerOpprettet) &&
         Objects.equals(this.metadata, vegobjektEndringerSide.metadata);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(vegobjektVersjonerEndret, vegobjektVersjonerFjernet, metadata);
+    return Objects.hash(vegobjektVersjonerEndret, vegobjektVersjonerFjernet, vegobjektVersjonerSegmentert, vegobjektVersjonerOpprettet, metadata);
   }
 
   @Override
@@ -171,6 +251,8 @@ public class VegobjektEndringerSide {
     sb.append("class VegobjektEndringerSide {\n");
     sb.append("    vegobjektVersjonerEndret: ").append(toIndentedString(vegobjektVersjonerEndret)).append("\n");
     sb.append("    vegobjektVersjonerFjernet: ").append(toIndentedString(vegobjektVersjonerFjernet)).append("\n");
+    sb.append("    vegobjektVersjonerSegmentert: ").append(toIndentedString(vegobjektVersjonerSegmentert)).append("\n");
+    sb.append("    vegobjektVersjonerOpprettet: ").append(toIndentedString(vegobjektVersjonerOpprettet)).append("\n");
     sb.append("    metadata: ").append(toIndentedString(metadata)).append("\n");
     sb.append("}");
     return sb.toString();

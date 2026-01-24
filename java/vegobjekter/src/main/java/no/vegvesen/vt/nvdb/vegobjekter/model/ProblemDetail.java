@@ -1,6 +1,6 @@
 /*
  * NVDB API Les Vegobjekter
- * Dette API-et brukes til å lese vegobjekter. Les mer om bruk av API-et på https://nvdb.atlas.vegvesen.no/produkter/nvdbapil/v4/Vegobjekter
+ * Dette API-et brukes til å lese vegobjekter.<br><br>[Dokumentasjon for Vegobjekter API](https://nvdb-docs.atlas.vegvesen.no/nvdbapil/v4/Vegobjekter)
  *
  * The version of the OpenAPI document: v4
  * Contact: nvdb@vegvesen.no
@@ -37,7 +37,7 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
   ProblemDetail.JSON_PROPERTY_INSTANCE,
   ProblemDetail.JSON_PROPERTY_PROPERTIES
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.14.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0")
 public class ProblemDetail {
   public static final String JSON_PROPERTY_TYPE = "type";
   @jakarta.annotation.Nullable
@@ -77,7 +77,7 @@ public class ProblemDetail {
    * @return type
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonProperty(value = JSON_PROPERTY_TYPE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public URI getType() {
@@ -85,7 +85,7 @@ public class ProblemDetail {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonProperty(value = JSON_PROPERTY_TYPE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setType(@jakarta.annotation.Nullable URI type) {
     this.type = type;
@@ -102,7 +102,7 @@ public class ProblemDetail {
    * @return title
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TITLE)
+  @JsonProperty(value = JSON_PROPERTY_TITLE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getTitle() {
@@ -110,7 +110,7 @@ public class ProblemDetail {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_TITLE)
+  @JsonProperty(value = JSON_PROPERTY_TITLE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTitle(@jakarta.annotation.Nullable String title) {
     this.title = title;
@@ -127,7 +127,7 @@ public class ProblemDetail {
    * @return status
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_STATUS)
+  @JsonProperty(value = JSON_PROPERTY_STATUS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Integer getStatus() {
@@ -135,7 +135,7 @@ public class ProblemDetail {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_STATUS)
+  @JsonProperty(value = JSON_PROPERTY_STATUS, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStatus(@jakarta.annotation.Nullable Integer status) {
     this.status = status;
@@ -152,7 +152,7 @@ public class ProblemDetail {
    * @return detail
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DETAIL)
+  @JsonProperty(value = JSON_PROPERTY_DETAIL, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getDetail() {
@@ -160,7 +160,7 @@ public class ProblemDetail {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_DETAIL)
+  @JsonProperty(value = JSON_PROPERTY_DETAIL, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDetail(@jakarta.annotation.Nullable String detail) {
     this.detail = detail;
@@ -177,7 +177,7 @@ public class ProblemDetail {
    * @return instance
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_INSTANCE)
+  @JsonProperty(value = JSON_PROPERTY_INSTANCE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public URI getInstance() {
@@ -185,7 +185,7 @@ public class ProblemDetail {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_INSTANCE)
+  @JsonProperty(value = JSON_PROPERTY_INSTANCE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setInstance(@jakarta.annotation.Nullable URI instance) {
     this.instance = instance;
@@ -210,7 +210,7 @@ public class ProblemDetail {
    * @return properties
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_PROPERTIES)
+  @JsonProperty(value = JSON_PROPERTY_PROPERTIES, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Map<String, Object> getProperties() {
@@ -218,7 +218,7 @@ public class ProblemDetail {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_PROPERTIES)
+  @JsonProperty(value = JSON_PROPERTY_PROPERTIES, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setProperties(@jakarta.annotation.Nullable Map<String, Object> properties) {
     this.properties = properties;

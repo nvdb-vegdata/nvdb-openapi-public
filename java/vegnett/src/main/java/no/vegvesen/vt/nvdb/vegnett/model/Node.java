@@ -1,6 +1,6 @@
 /*
  * NVDB API Les Vegnett
- * Dette API-et brukes til å lese vegnettelementer. Les mer om bruk av API-et på https://nvdb.test.atlas.vegvesen.no/produkter/nvdbapil/v4/Vegnett
+ * Dette API-et brukes til å lese vegnettelementer.<br><br>[Dokumentasjon for Vegnett API](https://nvdb-docs.atlas.vegvesen.no/nvdbapil/v4/Vegnett)
  *
  * The version of the OpenAPI document: v4
  * Contact: nvdb@vegvesen.no
@@ -44,7 +44,7 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
   Node.JSON_PROPERTY_GEOMETRI,
   Node.JSON_PROPERTY_PORTER
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.14.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0")
 public class Node {
   public static final String JSON_PROPERTY_ID = "id";
   @jakarta.annotation.Nonnull
@@ -88,7 +88,7 @@ public class Node {
    * @return id
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonProperty(value = JSON_PROPERTY_ID, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Long getId() {
@@ -96,7 +96,7 @@ public class Node {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonProperty(value = JSON_PROPERTY_ID, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setId(@jakarta.annotation.Nonnull Long id) {
     this.id = id;
@@ -113,7 +113,7 @@ public class Node {
    * @return href
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_HREF)
+  @JsonProperty(value = JSON_PROPERTY_HREF, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getHref() {
@@ -121,7 +121,7 @@ public class Node {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_HREF)
+  @JsonProperty(value = JSON_PROPERTY_HREF, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setHref(@jakarta.annotation.Nonnull String href) {
     this.href = href;
@@ -138,7 +138,7 @@ public class Node {
    * @return startdato
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_STARTDATO)
+  @JsonProperty(value = JSON_PROPERTY_STARTDATO, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public LocalDate getStartdato() {
@@ -146,7 +146,7 @@ public class Node {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_STARTDATO)
+  @JsonProperty(value = JSON_PROPERTY_STARTDATO, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setStartdato(@jakarta.annotation.Nonnull LocalDate startdato) {
     this.startdato = startdato;
@@ -163,7 +163,7 @@ public class Node {
    * @return sluttdato
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SLUTTDATO)
+  @JsonProperty(value = JSON_PROPERTY_SLUTTDATO, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public LocalDate getSluttdato() {
@@ -171,7 +171,7 @@ public class Node {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_SLUTTDATO)
+  @JsonProperty(value = JSON_PROPERTY_SLUTTDATO, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSluttdato(@jakarta.annotation.Nullable LocalDate sluttdato) {
     this.sluttdato = sluttdato;
@@ -196,7 +196,7 @@ public class Node {
    * @return kommuner
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_KOMMUNER)
+  @JsonProperty(value = JSON_PROPERTY_KOMMUNER, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Set<Integer> getKommuner() {
@@ -205,7 +205,7 @@ public class Node {
 
 
   @JsonDeserialize(as = LinkedHashSet.class)
-  @JsonProperty(JSON_PROPERTY_KOMMUNER)
+  @JsonProperty(value = JSON_PROPERTY_KOMMUNER, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setKommuner(@jakarta.annotation.Nonnull Set<Integer> kommuner) {
     this.kommuner = kommuner;
@@ -222,7 +222,7 @@ public class Node {
    * @return geometri
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_GEOMETRI)
+  @JsonProperty(value = JSON_PROPERTY_GEOMETRI, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public NodeGeometri getGeometri() {
@@ -230,7 +230,7 @@ public class Node {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_GEOMETRI)
+  @JsonProperty(value = JSON_PROPERTY_GEOMETRI, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setGeometri(@jakarta.annotation.Nonnull NodeGeometri geometri) {
     this.geometri = geometri;
@@ -255,7 +255,7 @@ public class Node {
    * @return porter
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_PORTER)
+  @JsonProperty(value = JSON_PROPERTY_PORTER, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public List<Nodeport> getPorter() {
@@ -263,7 +263,7 @@ public class Node {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_PORTER)
+  @JsonProperty(value = JSON_PROPERTY_PORTER, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setPorter(@jakarta.annotation.Nonnull List<Nodeport> porter) {
     this.porter = porter;

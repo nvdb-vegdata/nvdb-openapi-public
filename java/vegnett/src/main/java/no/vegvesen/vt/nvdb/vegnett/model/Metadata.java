@@ -1,6 +1,6 @@
 /*
  * NVDB API Les Vegnett
- * Dette API-et brukes til å lese vegnettelementer. Les mer om bruk av API-et på https://nvdb.test.atlas.vegvesen.no/produkter/nvdbapil/v4/Vegnett
+ * Dette API-et brukes til å lese vegnettelementer.<br><br>[Dokumentasjon for Vegnett API](https://nvdb-docs.atlas.vegvesen.no/nvdbapil/v4/Vegnett)
  *
  * The version of the OpenAPI document: v4
  * Contact: nvdb@vegvesen.no
@@ -31,7 +31,7 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
   Metadata.JSON_PROPERTY_STARTDATO,
   Metadata.JSON_PROPERTY_SLUTTDATO
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.14.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0")
 public class Metadata {
   public static final String JSON_PROPERTY_STARTDATO = "startdato";
   @jakarta.annotation.Nonnull
@@ -55,7 +55,7 @@ public class Metadata {
    * @return startdato
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_STARTDATO)
+  @JsonProperty(value = JSON_PROPERTY_STARTDATO, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public LocalDate getStartdato() {
@@ -63,7 +63,7 @@ public class Metadata {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_STARTDATO)
+  @JsonProperty(value = JSON_PROPERTY_STARTDATO, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setStartdato(@jakarta.annotation.Nonnull LocalDate startdato) {
     this.startdato = startdato;
@@ -80,7 +80,7 @@ public class Metadata {
    * @return sluttdato
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SLUTTDATO)
+  @JsonProperty(value = JSON_PROPERTY_SLUTTDATO, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public LocalDate getSluttdato() {
@@ -88,7 +88,7 @@ public class Metadata {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_SLUTTDATO)
+  @JsonProperty(value = JSON_PROPERTY_SLUTTDATO, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSluttdato(@jakarta.annotation.Nullable LocalDate sluttdato) {
     this.sluttdato = sluttdato;

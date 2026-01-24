@@ -1,6 +1,6 @@
 /*
  * NVDB API Les Vegnett
- * Dette API-et brukes til å lese vegnettelementer. Les mer om bruk av API-et på https://nvdb.test.atlas.vegvesen.no/produkter/nvdbapil/v4/Vegnett
+ * Dette API-et brukes til å lese vegnettelementer.<br><br>[Dokumentasjon for Vegnett API](https://nvdb-docs.atlas.vegvesen.no/nvdbapil/v4/Vegnett)
  *
  * The version of the OpenAPI document: v4
  * Contact: nvdb@vegvesen.no
@@ -29,9 +29,10 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
 @JsonPropertyOrder({
   Adresse.JSON_PROPERTY_ID,
   Adresse.JSON_PROPERTY_NAVN,
-  Adresse.JSON_PROPERTY_ADRESSEKODE
+  Adresse.JSON_PROPERTY_ADRESSEKODE,
+  Adresse.JSON_PROPERTY_SIDEVEG
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.14.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0")
 public class Adresse {
   public static final String JSON_PROPERTY_ID = "id";
   @jakarta.annotation.Nonnull
@@ -44,6 +45,10 @@ public class Adresse {
   public static final String JSON_PROPERTY_ADRESSEKODE = "adressekode";
   @jakarta.annotation.Nonnull
   private Integer adressekode;
+
+  public static final String JSON_PROPERTY_SIDEVEG = "sideveg";
+  @jakarta.annotation.Nullable
+  private Boolean sideveg;
 
   public Adresse() {
   }
@@ -59,7 +64,7 @@ public class Adresse {
    * @return id
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonProperty(value = JSON_PROPERTY_ID, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Long getId() {
@@ -67,7 +72,7 @@ public class Adresse {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonProperty(value = JSON_PROPERTY_ID, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setId(@jakarta.annotation.Nonnull Long id) {
     this.id = id;
@@ -84,7 +89,7 @@ public class Adresse {
    * @return navn
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_NAVN)
+  @JsonProperty(value = JSON_PROPERTY_NAVN, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getNavn() {
@@ -92,7 +97,7 @@ public class Adresse {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_NAVN)
+  @JsonProperty(value = JSON_PROPERTY_NAVN, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setNavn(@jakarta.annotation.Nonnull String navn) {
     this.navn = navn;
@@ -109,7 +114,7 @@ public class Adresse {
    * @return adressekode
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_ADRESSEKODE)
+  @JsonProperty(value = JSON_PROPERTY_ADRESSEKODE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Integer getAdressekode() {
@@ -117,10 +122,35 @@ public class Adresse {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ADRESSEKODE)
+  @JsonProperty(value = JSON_PROPERTY_ADRESSEKODE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setAdressekode(@jakarta.annotation.Nonnull Integer adressekode) {
     this.adressekode = adressekode;
+  }
+
+  public Adresse sideveg(@jakarta.annotation.Nullable Boolean sideveg) {
+    
+    this.sideveg = sideveg;
+    return this;
+  }
+
+  /**
+   * Get sideveg
+   * @return sideveg
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(value = JSON_PROPERTY_SIDEVEG, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public Boolean getSideveg() {
+    return sideveg;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_SIDEVEG, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setSideveg(@jakarta.annotation.Nullable Boolean sideveg) {
+    this.sideveg = sideveg;
   }
 
 
@@ -135,12 +165,13 @@ public class Adresse {
     Adresse adresse = (Adresse) o;
     return Objects.equals(this.id, adresse.id) &&
         Objects.equals(this.navn, adresse.navn) &&
-        Objects.equals(this.adressekode, adresse.adressekode);
+        Objects.equals(this.adressekode, adresse.adressekode) &&
+        Objects.equals(this.sideveg, adresse.sideveg);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, navn, adressekode);
+    return Objects.hash(id, navn, adressekode, sideveg);
   }
 
   @Override
@@ -150,6 +181,7 @@ public class Adresse {
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    navn: ").append(toIndentedString(navn)).append("\n");
     sb.append("    adressekode: ").append(toIndentedString(adressekode)).append("\n");
+    sb.append("    sideveg: ").append(toIndentedString(sideveg)).append("\n");
     sb.append("}");
     return sb.toString();
   }

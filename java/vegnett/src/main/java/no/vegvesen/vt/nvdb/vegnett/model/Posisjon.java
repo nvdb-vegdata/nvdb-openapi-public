@@ -1,6 +1,6 @@
 /*
  * NVDB API Les Vegnett
- * Dette API-et brukes til å lese vegnettelementer. Les mer om bruk av API-et på https://nvdb.test.atlas.vegvesen.no/produkter/nvdbapil/v4/Vegnett
+ * Dette API-et brukes til å lese vegnettelementer.<br><br>[Dokumentasjon for Vegnett API](https://nvdb-docs.atlas.vegvesen.no/nvdbapil/v4/Vegnett)
  *
  * The version of the OpenAPI document: v4
  * Contact: nvdb@vegvesen.no
@@ -35,7 +35,7 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
   Posisjon.JSON_PROPERTY_GEOMETRI,
   Posisjon.JSON_PROPERTY_KOMMUNE
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.14.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0")
 public class Posisjon {
   public static final String JSON_PROPERTY_VEGSYSTEMREFERANSE = "vegsystemreferanse";
   @jakarta.annotation.Nonnull
@@ -67,7 +67,7 @@ public class Posisjon {
    * @return vegsystemreferanse
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_VEGSYSTEMREFERANSE)
+  @JsonProperty(value = JSON_PROPERTY_VEGSYSTEMREFERANSE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Vegsystemreferanse getVegsystemreferanse() {
@@ -75,7 +75,7 @@ public class Posisjon {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_VEGSYSTEMREFERANSE)
+  @JsonProperty(value = JSON_PROPERTY_VEGSYSTEMREFERANSE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setVegsystemreferanse(@jakarta.annotation.Nonnull Vegsystemreferanse vegsystemreferanse) {
     this.vegsystemreferanse = vegsystemreferanse;
@@ -92,7 +92,7 @@ public class Posisjon {
    * @return veglenkesekvens
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_VEGLENKESEKVENS)
+  @JsonProperty(value = JSON_PROPERTY_VEGLENKESEKVENS, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public PosisjonVeglenkesekvens getVeglenkesekvens() {
@@ -100,7 +100,7 @@ public class Posisjon {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_VEGLENKESEKVENS)
+  @JsonProperty(value = JSON_PROPERTY_VEGLENKESEKVENS, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setVeglenkesekvens(@jakarta.annotation.Nonnull PosisjonVeglenkesekvens veglenkesekvens) {
     this.veglenkesekvens = veglenkesekvens;
@@ -117,7 +117,7 @@ public class Posisjon {
    * @return geometri
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_GEOMETRI)
+  @JsonProperty(value = JSON_PROPERTY_GEOMETRI, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public PosisjonGeometri getGeometri() {
@@ -125,7 +125,7 @@ public class Posisjon {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_GEOMETRI)
+  @JsonProperty(value = JSON_PROPERTY_GEOMETRI, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setGeometri(@jakarta.annotation.Nonnull PosisjonGeometri geometri) {
     this.geometri = geometri;
@@ -142,7 +142,7 @@ public class Posisjon {
    * @return kommune
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_KOMMUNE)
+  @JsonProperty(value = JSON_PROPERTY_KOMMUNE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Integer getKommune() {
@@ -150,7 +150,7 @@ public class Posisjon {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_KOMMUNE)
+  @JsonProperty(value = JSON_PROPERTY_KOMMUNE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setKommune(@jakarta.annotation.Nonnull Integer kommune) {
     this.kommune = kommune;

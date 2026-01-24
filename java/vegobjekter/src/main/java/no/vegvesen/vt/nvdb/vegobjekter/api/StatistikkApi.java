@@ -38,7 +38,7 @@ import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestClient.ResponseSpec;
 import org.springframework.web.client.RestClientResponseException;
 
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.14.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0")
 public class StatistikkApi {
     private ApiClient apiClient;
 
@@ -57,7 +57,6 @@ public class StatistikkApi {
     public void setApiClient(ApiClient apiClient) {
         this.apiClient = apiClient;
     }
-
 
     public static class GetVegobjekterStatistikkRequest {
         private @jakarta.annotation.Nonnull Integer vegobjekttypeid;
@@ -348,76 +347,76 @@ public class StatistikkApi {
     }
 
     /**
-    * Hent statistikk for en vegobjekttype
-    * 
-     * <p><b>500</b> - Internal Server Error
+     * Hent statistikk for en vegobjekttype
+     * 
      * <p><b>400</b> - Bad Request
      * <p><b>404</b> - Not Found
      * <p><b>401</b> - Unauthorized
      * <p><b>403</b> - Forbidden
+     * <p><b>500</b> - Internal Server Error
      * <p><b>200</b> - OK
      * @param requestParameters The getVegobjekterStatistikk request parameters as object
      * @return VegobjekterStatistikk
      * @throws RestClientResponseException if an error occurs while attempting to invoke the API
-    */
+     */
     public VegobjekterStatistikk getVegobjekterStatistikk(GetVegobjekterStatistikkRequest requestParameters) throws RestClientResponseException {
-      return this.getVegobjekterStatistikk(requestParameters.vegobjekttypeid(), requestParameters.srid(), requestParameters.segmentering(), requestParameters.fylke(), requestParameters.kommune(), requestParameters.kontraktsomrade(), requestParameters.riksvegrute(), requestParameters.vegforvalter(), requestParameters.vegsystemreferanse(), requestParameters.kartutsnitt(), requestParameters.polygon(), requestParameters.typeveg(), requestParameters.adskiltelop(), requestParameters.kryssystem(), requestParameters.sideanlegg(), requestParameters.trafikantgruppe(), requestParameters.inkluder(), requestParameters.veglenkesekvens(), requestParameters.veglenketype(), requestParameters.detaljniva(), requestParameters.endretEtter(), requestParameters.tidspunkt(), requestParameters.egenskap(), requestParameters.overlapp());
-    }
-
-  /**
-  * Hent statistikk for en vegobjekttype
-  * 
-     * <p><b>500</b> - Internal Server Error
-     * <p><b>400</b> - Bad Request
-     * <p><b>404</b> - Not Found
-     * <p><b>401</b> - Unauthorized
-     * <p><b>403</b> - Forbidden
-     * <p><b>200</b> - OK
-     * @param requestParameters The getVegobjekterStatistikk request parameters as object
-     * @return ResponseEntity&lt;VegobjekterStatistikk&gt;
-     * @throws RestClientResponseException if an error occurs while attempting to invoke the API
-    */
-    public ResponseEntity<VegobjekterStatistikk> getVegobjekterStatistikkWithHttpInfo(GetVegobjekterStatistikkRequest requestParameters) throws RestClientResponseException {
-      return this.getVegobjekterStatistikkWithHttpInfo(requestParameters.vegobjekttypeid(), requestParameters.srid(), requestParameters.segmentering(), requestParameters.fylke(), requestParameters.kommune(), requestParameters.kontraktsomrade(), requestParameters.riksvegrute(), requestParameters.vegforvalter(), requestParameters.vegsystemreferanse(), requestParameters.kartutsnitt(), requestParameters.polygon(), requestParameters.typeveg(), requestParameters.adskiltelop(), requestParameters.kryssystem(), requestParameters.sideanlegg(), requestParameters.trafikantgruppe(), requestParameters.inkluder(), requestParameters.veglenkesekvens(), requestParameters.veglenketype(), requestParameters.detaljniva(), requestParameters.endretEtter(), requestParameters.tidspunkt(), requestParameters.egenskap(), requestParameters.overlapp());
-    }
-
-  /**
-  * Hent statistikk for en vegobjekttype
-  * 
-     * <p><b>500</b> - Internal Server Error
-     * <p><b>400</b> - Bad Request
-     * <p><b>404</b> - Not Found
-     * <p><b>401</b> - Unauthorized
-     * <p><b>403</b> - Forbidden
-     * <p><b>200</b> - OK
-     * @param requestParameters The getVegobjekterStatistikk request parameters as object
-  * @return ResponseSpec
-  * @throws RestClientResponseException if an error occurs while attempting to invoke the API
-    */
-    public ResponseSpec getVegobjekterStatistikkWithResponseSpec(GetVegobjekterStatistikkRequest requestParameters) throws RestClientResponseException {
-      return this.getVegobjekterStatistikkWithResponseSpec(requestParameters.vegobjekttypeid(), requestParameters.srid(), requestParameters.segmentering(), requestParameters.fylke(), requestParameters.kommune(), requestParameters.kontraktsomrade(), requestParameters.riksvegrute(), requestParameters.vegforvalter(), requestParameters.vegsystemreferanse(), requestParameters.kartutsnitt(), requestParameters.polygon(), requestParameters.typeveg(), requestParameters.adskiltelop(), requestParameters.kryssystem(), requestParameters.sideanlegg(), requestParameters.trafikantgruppe(), requestParameters.inkluder(), requestParameters.veglenkesekvens(), requestParameters.veglenketype(), requestParameters.detaljniva(), requestParameters.endretEtter(), requestParameters.tidspunkt(), requestParameters.egenskap(), requestParameters.overlapp());
+        return this.getVegobjekterStatistikk(requestParameters.vegobjekttypeid(), requestParameters.srid(), requestParameters.segmentering(), requestParameters.fylke(), requestParameters.kommune(), requestParameters.kontraktsomrade(), requestParameters.riksvegrute(), requestParameters.vegforvalter(), requestParameters.vegsystemreferanse(), requestParameters.kartutsnitt(), requestParameters.polygon(), requestParameters.typeveg(), requestParameters.adskiltelop(), requestParameters.kryssystem(), requestParameters.sideanlegg(), requestParameters.trafikantgruppe(), requestParameters.inkluder(), requestParameters.veglenkesekvens(), requestParameters.veglenketype(), requestParameters.detaljniva(), requestParameters.endretEtter(), requestParameters.tidspunkt(), requestParameters.egenskap(), requestParameters.overlapp());
     }
 
     /**
      * Hent statistikk for en vegobjekttype
      * 
-     * <p><b>500</b> - Internal Server Error
      * <p><b>400</b> - Bad Request
      * <p><b>404</b> - Not Found
      * <p><b>401</b> - Unauthorized
      * <p><b>403</b> - Forbidden
+     * <p><b>500</b> - Internal Server Error
+     * <p><b>200</b> - OK
+     * @param requestParameters The getVegobjekterStatistikk request parameters as object
+     * @return ResponseEntity&lt;VegobjekterStatistikk&gt;
+     * @throws RestClientResponseException if an error occurs while attempting to invoke the API
+     */
+    public ResponseEntity<VegobjekterStatistikk> getVegobjekterStatistikkWithHttpInfo(GetVegobjekterStatistikkRequest requestParameters) throws RestClientResponseException {
+        return this.getVegobjekterStatistikkWithHttpInfo(requestParameters.vegobjekttypeid(), requestParameters.srid(), requestParameters.segmentering(), requestParameters.fylke(), requestParameters.kommune(), requestParameters.kontraktsomrade(), requestParameters.riksvegrute(), requestParameters.vegforvalter(), requestParameters.vegsystemreferanse(), requestParameters.kartutsnitt(), requestParameters.polygon(), requestParameters.typeveg(), requestParameters.adskiltelop(), requestParameters.kryssystem(), requestParameters.sideanlegg(), requestParameters.trafikantgruppe(), requestParameters.inkluder(), requestParameters.veglenkesekvens(), requestParameters.veglenketype(), requestParameters.detaljniva(), requestParameters.endretEtter(), requestParameters.tidspunkt(), requestParameters.egenskap(), requestParameters.overlapp());
+    }
+
+    /**
+     * Hent statistikk for en vegobjekttype
+     * 
+     * <p><b>400</b> - Bad Request
+     * <p><b>404</b> - Not Found
+     * <p><b>401</b> - Unauthorized
+     * <p><b>403</b> - Forbidden
+     * <p><b>500</b> - Internal Server Error
+     * <p><b>200</b> - OK
+     * @param requestParameters The getVegobjekterStatistikk request parameters as object
+     * @return ResponseSpec
+     * @throws RestClientResponseException if an error occurs while attempting to invoke the API
+     */
+    public ResponseSpec getVegobjekterStatistikkWithResponseSpec(GetVegobjekterStatistikkRequest requestParameters) throws RestClientResponseException {
+        return this.getVegobjekterStatistikkWithResponseSpec(requestParameters.vegobjekttypeid(), requestParameters.srid(), requestParameters.segmentering(), requestParameters.fylke(), requestParameters.kommune(), requestParameters.kontraktsomrade(), requestParameters.riksvegrute(), requestParameters.vegforvalter(), requestParameters.vegsystemreferanse(), requestParameters.kartutsnitt(), requestParameters.polygon(), requestParameters.typeveg(), requestParameters.adskiltelop(), requestParameters.kryssystem(), requestParameters.sideanlegg(), requestParameters.trafikantgruppe(), requestParameters.inkluder(), requestParameters.veglenkesekvens(), requestParameters.veglenketype(), requestParameters.detaljniva(), requestParameters.endretEtter(), requestParameters.tidspunkt(), requestParameters.egenskap(), requestParameters.overlapp());
+    }
+
+    /**
+     * Hent statistikk for en vegobjekttype
+     * 
+     * <p><b>400</b> - Bad Request
+     * <p><b>404</b> - Not Found
+     * <p><b>401</b> - Unauthorized
+     * <p><b>403</b> - Forbidden
+     * <p><b>500</b> - Internal Server Error
      * <p><b>200</b> - OK
      * @param vegobjekttypeid Finn vegobjekter med denne vegobjekttypen. Se [Datakatalogen](https://datakatalogen.atlas.vegvesen.no) for mulige verdier.  Eksempel: 581         
-     * @param srid Angir hvilket geografisk referansesystem som benyttes for geografisk søk, og som geometrien skal returneres i (hvis relevant). Utdata i UTM-formater begrenses til 3 desimaler, 4326/WGS84 begrenses til 8 desimaler. Mer informasjon: &lt;a href&#x3D;&#39;https://epsg.io/5972&#39;&gt;EPSG:5972&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5973&#39;&gt;EPSG:5973&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5975&#39;&gt;EPSG:5975&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/4326&#39;&gt;EPSG:4326&lt;/a&gt;.
+     * @param srid Angir hvilket geografisk referansesystem geometrien skal returneres i. Utdata i UTM-formater begrenses til 3 desimaler, 4326/WGS84 begrenses til 8 desimaler. Query-parametere med koordinater oppgis i UTM33 for UTM-formater, 4326/WGS84 oppgis dersom srid er 4326/WGS84. Mer informasjon: &lt;a href&#x3D;&#39;https://epsg.io/5972&#39;&gt;EPSG:5972&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5973&#39;&gt;EPSG:5973&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5975&#39;&gt;EPSG:5975&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/4326&#39;&gt;EPSG:4326&lt;/a&gt;.
      * @param segmentering Angir om lengde skal inkludere bare deler av vegnettet som er innenfor søkeparametre tilknyttet segmentering (fylke, kommune, vegsystemreferanse, kontraktsområde, riksvegrute, vegforvalter).  Default: &#x60;false&#x60;
      * @param fylke Filtrer på fylke. Kommaseparert liste. Se /omrader/fylker for mulige verdier.  Eksempel: &#x60;50&#x60;
      * @param kommune Filtrer på kommune. Kommaseparert liste. Se /omrader/kommuner for mulige verdier.  Eksempel: &#x60;5001&#x60;
      * @param kontraktsomrade Filtrer på kontraktsomrade. Kommaseparert liste. Se /omrader/kontraktsomrader for mulige verdier. Det er mulig å bruke ID-en for kontraktsområdet istedenfor det fulle navnet.  Eksempel: &#x60;9503 Midtre Hålogaland 2021-2026&#x60;
      * @param riksvegrute Filtrer på riksvegrute. Kommaseparert liste. Se /omrader/riksvegruter for mulige verdier.  Eksempel: &#x60;RUTE4A&#x60; eller som enumid &#x60;20290&#x60;
-     * @param vegforvalter Filtrer på vegforvalter. Kommaseparert liste. Se [/omrader/api/v4/vegforvaltere](https://nvdbapiles.atlas.vegvesen.no/webjars/swagger-ui/index.html?urls.primaryName&#x3D;Omr%C3%A5der#/Omr%C3%A5der/getVegforvaltere) for mulige verdier.  Eksempel: &#x60;Møre og Romsdal fylkeskommune&#x60; eller som enumid &#x60;21774&#x60;
+     * @param vegforvalter Filtrer på vegforvalter. Kommaseparert liste. Se [/omrader/api/v4/vegforvaltere](https://nvdbapiles.atlas.vegvesen.no/swagger-ui/index.html?urls.primaryName&#x3D;Omr%C3%A5der#/Omr%C3%A5der/getVegforvaltere) for mulige verdier.  Eksempel: &#x60;Møre og Romsdal fylkeskommune&#x60; eller som enumid &#x60;21774&#x60;
      * @param vegsystemreferanse Filtrer vegobjekter på [vegsystemreferanse](https://nvdb-docs.atlas.vegvesen.no/nvdbapil/v4/introduksjon/Vegsystemreferanse). Kommaseparert liste. Legg til kommunenummer i starten av vegsystemreferansen for å filtrere på område.  Eksempel: &#x60;EV6S1D1 m12&#x60;
-     * @param kartutsnitt Filtrer vegobjekter med kartutsnitt i det gjeldende geografiske referansesystemet (&#x60;srid&#x60;-paramteret). Formatet er &#x60;minX, minY, maxX, maxY&#x60;. Merk at vegobjektets bounding box benyttes for sammenligning, som kan medføre at vegobjekter som er utenfor kartutsnittet også returneres. For å unngå dette, kan du bruke &#x60;polygon&#x60; i stedet.  Eksempel: &#x60;265273, 7019372, 346553, 7061071&#x60;
-     * @param polygon Filtrer vegobjekter med polygon i det gjeldende geografiske referansesystemet (&#x60;srid&#x60;-paramteret). Merk: For statistikk-spørringer vil polygonets bounding box benyttes, ikke polygonet selv.  Eksempel: &#x60;20000 6520000, 20500 6520000, 21000 6500000, 20000 6520000&#x60;
+     * @param kartutsnitt Filtrer vegobjekter med kartutsnitt i UTM 33. Formatet er &#x60;minX, minY, maxX, maxY&#x60;. Merk at vegobjektets bounding box benyttes for sammenligning, som kan medføre at vegobjekter som er utenfor kartutsnittet også returneres. For å unngå dette, kan du bruke &#x60;polygon&#x60; i stedet.  Eksempel: &#x60;265273, 7019372, 346553, 7061071&#x60;
+     * @param polygon Filtrer vegobjekter med polygon i UTM 33. Merk: For statistikk-spørringer vil bounding box for polygonet og objektet benyttes, ikke den nøyaktige geometrien.  Eksempel: &#x60;20000 6520000, 20500 6520000, 21000 6500000, 20000 6520000&#x60;
      * @param typeveg Filtrer Relasjonstype.vegobjekter på type veg på vegnettet objektet er stedfestet på. Kommaseparert liste.  Eksempel: &#x60;kanalisertVeg, enkelBilveg, rampe, rundkjøring, bilferje, passasjerferje, gangOgSykkelveg, sykkelveg, gangveg, gågate, fortau, trapp, gangfelt, gatetun, traktorveg, sti, annet&#x60;
      * @param adskiltelop Filtrer vegobjekter på om de er stedfestet hvor det er en Strekning med verdi satt for «adskilte løp».
      * @param kryssystem Filtrer vegobjekter på om de er stedfestet på samme sted hvor det er et Kryssystem.
@@ -473,7 +472,7 @@ public class StatistikkApi {
         queryParams.putAll(apiClient.parameterToMultiValueMap(null, "tidspunkt", tidspunkt));
         queryParams.putAll(apiClient.parameterToMultiValueMap(ApiClient.CollectionFormat.valueOf("multi".toUpperCase(Locale.ROOT)), "egenskap", egenskap));
         queryParams.putAll(apiClient.parameterToMultiValueMap(ApiClient.CollectionFormat.valueOf("multi".toUpperCase(Locale.ROOT)), "overlapp", overlapp));
-        
+
         final String[] localVarAccepts = { 
             "*/*"
         };
@@ -490,23 +489,23 @@ public class StatistikkApi {
     /**
      * Hent statistikk for en vegobjekttype
      * 
-     * <p><b>500</b> - Internal Server Error
      * <p><b>400</b> - Bad Request
      * <p><b>404</b> - Not Found
      * <p><b>401</b> - Unauthorized
      * <p><b>403</b> - Forbidden
+     * <p><b>500</b> - Internal Server Error
      * <p><b>200</b> - OK
      * @param vegobjekttypeid Finn vegobjekter med denne vegobjekttypen. Se [Datakatalogen](https://datakatalogen.atlas.vegvesen.no) for mulige verdier.  Eksempel: 581         
-     * @param srid Angir hvilket geografisk referansesystem som benyttes for geografisk søk, og som geometrien skal returneres i (hvis relevant). Utdata i UTM-formater begrenses til 3 desimaler, 4326/WGS84 begrenses til 8 desimaler. Mer informasjon: &lt;a href&#x3D;&#39;https://epsg.io/5972&#39;&gt;EPSG:5972&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5973&#39;&gt;EPSG:5973&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5975&#39;&gt;EPSG:5975&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/4326&#39;&gt;EPSG:4326&lt;/a&gt;.
+     * @param srid Angir hvilket geografisk referansesystem geometrien skal returneres i. Utdata i UTM-formater begrenses til 3 desimaler, 4326/WGS84 begrenses til 8 desimaler. Query-parametere med koordinater oppgis i UTM33 for UTM-formater, 4326/WGS84 oppgis dersom srid er 4326/WGS84. Mer informasjon: &lt;a href&#x3D;&#39;https://epsg.io/5972&#39;&gt;EPSG:5972&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5973&#39;&gt;EPSG:5973&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5975&#39;&gt;EPSG:5975&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/4326&#39;&gt;EPSG:4326&lt;/a&gt;.
      * @param segmentering Angir om lengde skal inkludere bare deler av vegnettet som er innenfor søkeparametre tilknyttet segmentering (fylke, kommune, vegsystemreferanse, kontraktsområde, riksvegrute, vegforvalter).  Default: &#x60;false&#x60;
      * @param fylke Filtrer på fylke. Kommaseparert liste. Se /omrader/fylker for mulige verdier.  Eksempel: &#x60;50&#x60;
      * @param kommune Filtrer på kommune. Kommaseparert liste. Se /omrader/kommuner for mulige verdier.  Eksempel: &#x60;5001&#x60;
      * @param kontraktsomrade Filtrer på kontraktsomrade. Kommaseparert liste. Se /omrader/kontraktsomrader for mulige verdier. Det er mulig å bruke ID-en for kontraktsområdet istedenfor det fulle navnet.  Eksempel: &#x60;9503 Midtre Hålogaland 2021-2026&#x60;
      * @param riksvegrute Filtrer på riksvegrute. Kommaseparert liste. Se /omrader/riksvegruter for mulige verdier.  Eksempel: &#x60;RUTE4A&#x60; eller som enumid &#x60;20290&#x60;
-     * @param vegforvalter Filtrer på vegforvalter. Kommaseparert liste. Se [/omrader/api/v4/vegforvaltere](https://nvdbapiles.atlas.vegvesen.no/webjars/swagger-ui/index.html?urls.primaryName&#x3D;Omr%C3%A5der#/Omr%C3%A5der/getVegforvaltere) for mulige verdier.  Eksempel: &#x60;Møre og Romsdal fylkeskommune&#x60; eller som enumid &#x60;21774&#x60;
+     * @param vegforvalter Filtrer på vegforvalter. Kommaseparert liste. Se [/omrader/api/v4/vegforvaltere](https://nvdbapiles.atlas.vegvesen.no/swagger-ui/index.html?urls.primaryName&#x3D;Omr%C3%A5der#/Omr%C3%A5der/getVegforvaltere) for mulige verdier.  Eksempel: &#x60;Møre og Romsdal fylkeskommune&#x60; eller som enumid &#x60;21774&#x60;
      * @param vegsystemreferanse Filtrer vegobjekter på [vegsystemreferanse](https://nvdb-docs.atlas.vegvesen.no/nvdbapil/v4/introduksjon/Vegsystemreferanse). Kommaseparert liste. Legg til kommunenummer i starten av vegsystemreferansen for å filtrere på område.  Eksempel: &#x60;EV6S1D1 m12&#x60;
-     * @param kartutsnitt Filtrer vegobjekter med kartutsnitt i det gjeldende geografiske referansesystemet (&#x60;srid&#x60;-paramteret). Formatet er &#x60;minX, minY, maxX, maxY&#x60;. Merk at vegobjektets bounding box benyttes for sammenligning, som kan medføre at vegobjekter som er utenfor kartutsnittet også returneres. For å unngå dette, kan du bruke &#x60;polygon&#x60; i stedet.  Eksempel: &#x60;265273, 7019372, 346553, 7061071&#x60;
-     * @param polygon Filtrer vegobjekter med polygon i det gjeldende geografiske referansesystemet (&#x60;srid&#x60;-paramteret). Merk: For statistikk-spørringer vil polygonets bounding box benyttes, ikke polygonet selv.  Eksempel: &#x60;20000 6520000, 20500 6520000, 21000 6500000, 20000 6520000&#x60;
+     * @param kartutsnitt Filtrer vegobjekter med kartutsnitt i UTM 33. Formatet er &#x60;minX, minY, maxX, maxY&#x60;. Merk at vegobjektets bounding box benyttes for sammenligning, som kan medføre at vegobjekter som er utenfor kartutsnittet også returneres. For å unngå dette, kan du bruke &#x60;polygon&#x60; i stedet.  Eksempel: &#x60;265273, 7019372, 346553, 7061071&#x60;
+     * @param polygon Filtrer vegobjekter med polygon i UTM 33. Merk: For statistikk-spørringer vil bounding box for polygonet og objektet benyttes, ikke den nøyaktige geometrien.  Eksempel: &#x60;20000 6520000, 20500 6520000, 21000 6500000, 20000 6520000&#x60;
      * @param typeveg Filtrer Relasjonstype.vegobjekter på type veg på vegnettet objektet er stedfestet på. Kommaseparert liste.  Eksempel: &#x60;kanalisertVeg, enkelBilveg, rampe, rundkjøring, bilferje, passasjerferje, gangOgSykkelveg, sykkelveg, gangveg, gågate, fortau, trapp, gangfelt, gatetun, traktorveg, sti, annet&#x60;
      * @param adskiltelop Filtrer vegobjekter på om de er stedfestet hvor det er en Strekning med verdi satt for «adskilte løp».
      * @param kryssystem Filtrer vegobjekter på om de er stedfestet på samme sted hvor det er et Kryssystem.
@@ -531,23 +530,23 @@ public class StatistikkApi {
     /**
      * Hent statistikk for en vegobjekttype
      * 
-     * <p><b>500</b> - Internal Server Error
      * <p><b>400</b> - Bad Request
      * <p><b>404</b> - Not Found
      * <p><b>401</b> - Unauthorized
      * <p><b>403</b> - Forbidden
+     * <p><b>500</b> - Internal Server Error
      * <p><b>200</b> - OK
      * @param vegobjekttypeid Finn vegobjekter med denne vegobjekttypen. Se [Datakatalogen](https://datakatalogen.atlas.vegvesen.no) for mulige verdier.  Eksempel: 581         
-     * @param srid Angir hvilket geografisk referansesystem som benyttes for geografisk søk, og som geometrien skal returneres i (hvis relevant). Utdata i UTM-formater begrenses til 3 desimaler, 4326/WGS84 begrenses til 8 desimaler. Mer informasjon: &lt;a href&#x3D;&#39;https://epsg.io/5972&#39;&gt;EPSG:5972&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5973&#39;&gt;EPSG:5973&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5975&#39;&gt;EPSG:5975&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/4326&#39;&gt;EPSG:4326&lt;/a&gt;.
+     * @param srid Angir hvilket geografisk referansesystem geometrien skal returneres i. Utdata i UTM-formater begrenses til 3 desimaler, 4326/WGS84 begrenses til 8 desimaler. Query-parametere med koordinater oppgis i UTM33 for UTM-formater, 4326/WGS84 oppgis dersom srid er 4326/WGS84. Mer informasjon: &lt;a href&#x3D;&#39;https://epsg.io/5972&#39;&gt;EPSG:5972&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5973&#39;&gt;EPSG:5973&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5975&#39;&gt;EPSG:5975&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/4326&#39;&gt;EPSG:4326&lt;/a&gt;.
      * @param segmentering Angir om lengde skal inkludere bare deler av vegnettet som er innenfor søkeparametre tilknyttet segmentering (fylke, kommune, vegsystemreferanse, kontraktsområde, riksvegrute, vegforvalter).  Default: &#x60;false&#x60;
      * @param fylke Filtrer på fylke. Kommaseparert liste. Se /omrader/fylker for mulige verdier.  Eksempel: &#x60;50&#x60;
      * @param kommune Filtrer på kommune. Kommaseparert liste. Se /omrader/kommuner for mulige verdier.  Eksempel: &#x60;5001&#x60;
      * @param kontraktsomrade Filtrer på kontraktsomrade. Kommaseparert liste. Se /omrader/kontraktsomrader for mulige verdier. Det er mulig å bruke ID-en for kontraktsområdet istedenfor det fulle navnet.  Eksempel: &#x60;9503 Midtre Hålogaland 2021-2026&#x60;
      * @param riksvegrute Filtrer på riksvegrute. Kommaseparert liste. Se /omrader/riksvegruter for mulige verdier.  Eksempel: &#x60;RUTE4A&#x60; eller som enumid &#x60;20290&#x60;
-     * @param vegforvalter Filtrer på vegforvalter. Kommaseparert liste. Se [/omrader/api/v4/vegforvaltere](https://nvdbapiles.atlas.vegvesen.no/webjars/swagger-ui/index.html?urls.primaryName&#x3D;Omr%C3%A5der#/Omr%C3%A5der/getVegforvaltere) for mulige verdier.  Eksempel: &#x60;Møre og Romsdal fylkeskommune&#x60; eller som enumid &#x60;21774&#x60;
+     * @param vegforvalter Filtrer på vegforvalter. Kommaseparert liste. Se [/omrader/api/v4/vegforvaltere](https://nvdbapiles.atlas.vegvesen.no/swagger-ui/index.html?urls.primaryName&#x3D;Omr%C3%A5der#/Omr%C3%A5der/getVegforvaltere) for mulige verdier.  Eksempel: &#x60;Møre og Romsdal fylkeskommune&#x60; eller som enumid &#x60;21774&#x60;
      * @param vegsystemreferanse Filtrer vegobjekter på [vegsystemreferanse](https://nvdb-docs.atlas.vegvesen.no/nvdbapil/v4/introduksjon/Vegsystemreferanse). Kommaseparert liste. Legg til kommunenummer i starten av vegsystemreferansen for å filtrere på område.  Eksempel: &#x60;EV6S1D1 m12&#x60;
-     * @param kartutsnitt Filtrer vegobjekter med kartutsnitt i det gjeldende geografiske referansesystemet (&#x60;srid&#x60;-paramteret). Formatet er &#x60;minX, minY, maxX, maxY&#x60;. Merk at vegobjektets bounding box benyttes for sammenligning, som kan medføre at vegobjekter som er utenfor kartutsnittet også returneres. For å unngå dette, kan du bruke &#x60;polygon&#x60; i stedet.  Eksempel: &#x60;265273, 7019372, 346553, 7061071&#x60;
-     * @param polygon Filtrer vegobjekter med polygon i det gjeldende geografiske referansesystemet (&#x60;srid&#x60;-paramteret). Merk: For statistikk-spørringer vil polygonets bounding box benyttes, ikke polygonet selv.  Eksempel: &#x60;20000 6520000, 20500 6520000, 21000 6500000, 20000 6520000&#x60;
+     * @param kartutsnitt Filtrer vegobjekter med kartutsnitt i UTM 33. Formatet er &#x60;minX, minY, maxX, maxY&#x60;. Merk at vegobjektets bounding box benyttes for sammenligning, som kan medføre at vegobjekter som er utenfor kartutsnittet også returneres. For å unngå dette, kan du bruke &#x60;polygon&#x60; i stedet.  Eksempel: &#x60;265273, 7019372, 346553, 7061071&#x60;
+     * @param polygon Filtrer vegobjekter med polygon i UTM 33. Merk: For statistikk-spørringer vil bounding box for polygonet og objektet benyttes, ikke den nøyaktige geometrien.  Eksempel: &#x60;20000 6520000, 20500 6520000, 21000 6500000, 20000 6520000&#x60;
      * @param typeveg Filtrer Relasjonstype.vegobjekter på type veg på vegnettet objektet er stedfestet på. Kommaseparert liste.  Eksempel: &#x60;kanalisertVeg, enkelBilveg, rampe, rundkjøring, bilferje, passasjerferje, gangOgSykkelveg, sykkelveg, gangveg, gågate, fortau, trapp, gangfelt, gatetun, traktorveg, sti, annet&#x60;
      * @param adskiltelop Filtrer vegobjekter på om de er stedfestet hvor det er en Strekning med verdi satt for «adskilte løp».
      * @param kryssystem Filtrer vegobjekter på om de er stedfestet på samme sted hvor det er et Kryssystem.
@@ -572,23 +571,23 @@ public class StatistikkApi {
     /**
      * Hent statistikk for en vegobjekttype
      * 
-     * <p><b>500</b> - Internal Server Error
      * <p><b>400</b> - Bad Request
      * <p><b>404</b> - Not Found
      * <p><b>401</b> - Unauthorized
      * <p><b>403</b> - Forbidden
+     * <p><b>500</b> - Internal Server Error
      * <p><b>200</b> - OK
      * @param vegobjekttypeid Finn vegobjekter med denne vegobjekttypen. Se [Datakatalogen](https://datakatalogen.atlas.vegvesen.no) for mulige verdier.  Eksempel: 581         
-     * @param srid Angir hvilket geografisk referansesystem som benyttes for geografisk søk, og som geometrien skal returneres i (hvis relevant). Utdata i UTM-formater begrenses til 3 desimaler, 4326/WGS84 begrenses til 8 desimaler. Mer informasjon: &lt;a href&#x3D;&#39;https://epsg.io/5972&#39;&gt;EPSG:5972&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5973&#39;&gt;EPSG:5973&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5975&#39;&gt;EPSG:5975&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/4326&#39;&gt;EPSG:4326&lt;/a&gt;.
+     * @param srid Angir hvilket geografisk referansesystem geometrien skal returneres i. Utdata i UTM-formater begrenses til 3 desimaler, 4326/WGS84 begrenses til 8 desimaler. Query-parametere med koordinater oppgis i UTM33 for UTM-formater, 4326/WGS84 oppgis dersom srid er 4326/WGS84. Mer informasjon: &lt;a href&#x3D;&#39;https://epsg.io/5972&#39;&gt;EPSG:5972&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5973&#39;&gt;EPSG:5973&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5975&#39;&gt;EPSG:5975&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/4326&#39;&gt;EPSG:4326&lt;/a&gt;.
      * @param segmentering Angir om lengde skal inkludere bare deler av vegnettet som er innenfor søkeparametre tilknyttet segmentering (fylke, kommune, vegsystemreferanse, kontraktsområde, riksvegrute, vegforvalter).  Default: &#x60;false&#x60;
      * @param fylke Filtrer på fylke. Kommaseparert liste. Se /omrader/fylker for mulige verdier.  Eksempel: &#x60;50&#x60;
      * @param kommune Filtrer på kommune. Kommaseparert liste. Se /omrader/kommuner for mulige verdier.  Eksempel: &#x60;5001&#x60;
      * @param kontraktsomrade Filtrer på kontraktsomrade. Kommaseparert liste. Se /omrader/kontraktsomrader for mulige verdier. Det er mulig å bruke ID-en for kontraktsområdet istedenfor det fulle navnet.  Eksempel: &#x60;9503 Midtre Hålogaland 2021-2026&#x60;
      * @param riksvegrute Filtrer på riksvegrute. Kommaseparert liste. Se /omrader/riksvegruter for mulige verdier.  Eksempel: &#x60;RUTE4A&#x60; eller som enumid &#x60;20290&#x60;
-     * @param vegforvalter Filtrer på vegforvalter. Kommaseparert liste. Se [/omrader/api/v4/vegforvaltere](https://nvdbapiles.atlas.vegvesen.no/webjars/swagger-ui/index.html?urls.primaryName&#x3D;Omr%C3%A5der#/Omr%C3%A5der/getVegforvaltere) for mulige verdier.  Eksempel: &#x60;Møre og Romsdal fylkeskommune&#x60; eller som enumid &#x60;21774&#x60;
+     * @param vegforvalter Filtrer på vegforvalter. Kommaseparert liste. Se [/omrader/api/v4/vegforvaltere](https://nvdbapiles.atlas.vegvesen.no/swagger-ui/index.html?urls.primaryName&#x3D;Omr%C3%A5der#/Omr%C3%A5der/getVegforvaltere) for mulige verdier.  Eksempel: &#x60;Møre og Romsdal fylkeskommune&#x60; eller som enumid &#x60;21774&#x60;
      * @param vegsystemreferanse Filtrer vegobjekter på [vegsystemreferanse](https://nvdb-docs.atlas.vegvesen.no/nvdbapil/v4/introduksjon/Vegsystemreferanse). Kommaseparert liste. Legg til kommunenummer i starten av vegsystemreferansen for å filtrere på område.  Eksempel: &#x60;EV6S1D1 m12&#x60;
-     * @param kartutsnitt Filtrer vegobjekter med kartutsnitt i det gjeldende geografiske referansesystemet (&#x60;srid&#x60;-paramteret). Formatet er &#x60;minX, minY, maxX, maxY&#x60;. Merk at vegobjektets bounding box benyttes for sammenligning, som kan medføre at vegobjekter som er utenfor kartutsnittet også returneres. For å unngå dette, kan du bruke &#x60;polygon&#x60; i stedet.  Eksempel: &#x60;265273, 7019372, 346553, 7061071&#x60;
-     * @param polygon Filtrer vegobjekter med polygon i det gjeldende geografiske referansesystemet (&#x60;srid&#x60;-paramteret). Merk: For statistikk-spørringer vil polygonets bounding box benyttes, ikke polygonet selv.  Eksempel: &#x60;20000 6520000, 20500 6520000, 21000 6500000, 20000 6520000&#x60;
+     * @param kartutsnitt Filtrer vegobjekter med kartutsnitt i UTM 33. Formatet er &#x60;minX, minY, maxX, maxY&#x60;. Merk at vegobjektets bounding box benyttes for sammenligning, som kan medføre at vegobjekter som er utenfor kartutsnittet også returneres. For å unngå dette, kan du bruke &#x60;polygon&#x60; i stedet.  Eksempel: &#x60;265273, 7019372, 346553, 7061071&#x60;
+     * @param polygon Filtrer vegobjekter med polygon i UTM 33. Merk: For statistikk-spørringer vil bounding box for polygonet og objektet benyttes, ikke den nøyaktige geometrien.  Eksempel: &#x60;20000 6520000, 20500 6520000, 21000 6500000, 20000 6520000&#x60;
      * @param typeveg Filtrer Relasjonstype.vegobjekter på type veg på vegnettet objektet er stedfestet på. Kommaseparert liste.  Eksempel: &#x60;kanalisertVeg, enkelBilveg, rampe, rundkjøring, bilferje, passasjerferje, gangOgSykkelveg, sykkelveg, gangveg, gågate, fortau, trapp, gangfelt, gatetun, traktorveg, sti, annet&#x60;
      * @param adskiltelop Filtrer vegobjekter på om de er stedfestet hvor det er en Strekning med verdi satt for «adskilte løp».
      * @param kryssystem Filtrer vegobjekter på om de er stedfestet på samme sted hvor det er et Kryssystem.
@@ -711,69 +710,69 @@ public class StatistikkApi {
     }
 
     /**
-    * Hent statistikk for en vegobjekttype, gruppert på ett eller flere felter
-    * 
-     * <p><b>500</b> - Internal Server Error
+     * Hent statistikk for en vegobjekttype, gruppert på ett eller flere felter
+     * 
      * <p><b>400</b> - Bad Request
      * <p><b>404</b> - Not Found
      * <p><b>401</b> - Unauthorized
      * <p><b>403</b> - Forbidden
+     * <p><b>500</b> - Internal Server Error
      * <p><b>200</b> - OK
      * @param requestParameters The getVegobjekterStatistikkGruppert request parameters as object
      * @return List&lt;VegobjekterStatistikkGruppert&gt;
      * @throws RestClientResponseException if an error occurs while attempting to invoke the API
-    */
+     */
     public List<VegobjekterStatistikkGruppert> getVegobjekterStatistikkGruppert(GetVegobjekterStatistikkGruppertRequest requestParameters) throws RestClientResponseException {
-      return this.getVegobjekterStatistikkGruppert(requestParameters.vegobjekttypeid(), requestParameters.gruppering(), requestParameters.srid(), requestParameters.kartutsnitt(), requestParameters.inkluder(), requestParameters.veglenkesekvens(), requestParameters.tidspunkt());
-    }
-
-  /**
-  * Hent statistikk for en vegobjekttype, gruppert på ett eller flere felter
-  * 
-     * <p><b>500</b> - Internal Server Error
-     * <p><b>400</b> - Bad Request
-     * <p><b>404</b> - Not Found
-     * <p><b>401</b> - Unauthorized
-     * <p><b>403</b> - Forbidden
-     * <p><b>200</b> - OK
-     * @param requestParameters The getVegobjekterStatistikkGruppert request parameters as object
-     * @return ResponseEntity&lt;List&lt;VegobjekterStatistikkGruppert&gt;&gt;
-     * @throws RestClientResponseException if an error occurs while attempting to invoke the API
-    */
-    public ResponseEntity<List<VegobjekterStatistikkGruppert>> getVegobjekterStatistikkGruppertWithHttpInfo(GetVegobjekterStatistikkGruppertRequest requestParameters) throws RestClientResponseException {
-      return this.getVegobjekterStatistikkGruppertWithHttpInfo(requestParameters.vegobjekttypeid(), requestParameters.gruppering(), requestParameters.srid(), requestParameters.kartutsnitt(), requestParameters.inkluder(), requestParameters.veglenkesekvens(), requestParameters.tidspunkt());
-    }
-
-  /**
-  * Hent statistikk for en vegobjekttype, gruppert på ett eller flere felter
-  * 
-     * <p><b>500</b> - Internal Server Error
-     * <p><b>400</b> - Bad Request
-     * <p><b>404</b> - Not Found
-     * <p><b>401</b> - Unauthorized
-     * <p><b>403</b> - Forbidden
-     * <p><b>200</b> - OK
-     * @param requestParameters The getVegobjekterStatistikkGruppert request parameters as object
-  * @return ResponseSpec
-  * @throws RestClientResponseException if an error occurs while attempting to invoke the API
-    */
-    public ResponseSpec getVegobjekterStatistikkGruppertWithResponseSpec(GetVegobjekterStatistikkGruppertRequest requestParameters) throws RestClientResponseException {
-      return this.getVegobjekterStatistikkGruppertWithResponseSpec(requestParameters.vegobjekttypeid(), requestParameters.gruppering(), requestParameters.srid(), requestParameters.kartutsnitt(), requestParameters.inkluder(), requestParameters.veglenkesekvens(), requestParameters.tidspunkt());
+        return this.getVegobjekterStatistikkGruppert(requestParameters.vegobjekttypeid(), requestParameters.gruppering(), requestParameters.srid(), requestParameters.kartutsnitt(), requestParameters.inkluder(), requestParameters.veglenkesekvens(), requestParameters.tidspunkt());
     }
 
     /**
      * Hent statistikk for en vegobjekttype, gruppert på ett eller flere felter
      * 
-     * <p><b>500</b> - Internal Server Error
      * <p><b>400</b> - Bad Request
      * <p><b>404</b> - Not Found
      * <p><b>401</b> - Unauthorized
      * <p><b>403</b> - Forbidden
+     * <p><b>500</b> - Internal Server Error
+     * <p><b>200</b> - OK
+     * @param requestParameters The getVegobjekterStatistikkGruppert request parameters as object
+     * @return ResponseEntity&lt;List&lt;VegobjekterStatistikkGruppert&gt;&gt;
+     * @throws RestClientResponseException if an error occurs while attempting to invoke the API
+     */
+    public ResponseEntity<List<VegobjekterStatistikkGruppert>> getVegobjekterStatistikkGruppertWithHttpInfo(GetVegobjekterStatistikkGruppertRequest requestParameters) throws RestClientResponseException {
+        return this.getVegobjekterStatistikkGruppertWithHttpInfo(requestParameters.vegobjekttypeid(), requestParameters.gruppering(), requestParameters.srid(), requestParameters.kartutsnitt(), requestParameters.inkluder(), requestParameters.veglenkesekvens(), requestParameters.tidspunkt());
+    }
+
+    /**
+     * Hent statistikk for en vegobjekttype, gruppert på ett eller flere felter
+     * 
+     * <p><b>400</b> - Bad Request
+     * <p><b>404</b> - Not Found
+     * <p><b>401</b> - Unauthorized
+     * <p><b>403</b> - Forbidden
+     * <p><b>500</b> - Internal Server Error
+     * <p><b>200</b> - OK
+     * @param requestParameters The getVegobjekterStatistikkGruppert request parameters as object
+     * @return ResponseSpec
+     * @throws RestClientResponseException if an error occurs while attempting to invoke the API
+     */
+    public ResponseSpec getVegobjekterStatistikkGruppertWithResponseSpec(GetVegobjekterStatistikkGruppertRequest requestParameters) throws RestClientResponseException {
+        return this.getVegobjekterStatistikkGruppertWithResponseSpec(requestParameters.vegobjekttypeid(), requestParameters.gruppering(), requestParameters.srid(), requestParameters.kartutsnitt(), requestParameters.inkluder(), requestParameters.veglenkesekvens(), requestParameters.tidspunkt());
+    }
+
+    /**
+     * Hent statistikk for en vegobjekttype, gruppert på ett eller flere felter
+     * 
+     * <p><b>400</b> - Bad Request
+     * <p><b>404</b> - Not Found
+     * <p><b>401</b> - Unauthorized
+     * <p><b>403</b> - Forbidden
+     * <p><b>500</b> - Internal Server Error
      * <p><b>200</b> - OK
      * @param vegobjekttypeid The vegobjekttypeid parameter
      * @param gruppering Velg en eller flere felter som statistikken skal grupperes på.
-     * @param srid Angir hvilket geografisk referansesystem som benyttes for geografisk søk, og som geometrien skal returneres i (hvis relevant). Utdata i UTM-formater begrenses til 3 desimaler, 4326/WGS84 begrenses til 8 desimaler. Mer informasjon: &lt;a href&#x3D;&#39;https://epsg.io/5972&#39;&gt;EPSG:5972&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5973&#39;&gt;EPSG:5973&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5975&#39;&gt;EPSG:5975&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/4326&#39;&gt;EPSG:4326&lt;/a&gt;.
-     * @param kartutsnitt Filtrer vegobjekter med kartutsnitt i det gjeldende geografiske referansesystemet (&#x60;srid&#x60;-paramteret). Formatet er &#x60;minX, minY, maxX, maxY&#x60;. Merk at vegobjektets bounding box benyttes for sammenligning, som kan medføre at vegobjekter som er utenfor kartutsnittet også returneres. For å unngå dette, kan du bruke &#x60;polygon&#x60; i stedet.  Eksempel: &#x60;265273, 7019372, 346553, 7061071&#x60;
+     * @param srid Angir hvilket geografisk referansesystem geometrien skal returneres i. Utdata i UTM-formater begrenses til 3 desimaler, 4326/WGS84 begrenses til 8 desimaler. Query-parametere med koordinater oppgis i UTM33 for UTM-formater, 4326/WGS84 oppgis dersom srid er 4326/WGS84. Mer informasjon: &lt;a href&#x3D;&#39;https://epsg.io/5972&#39;&gt;EPSG:5972&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5973&#39;&gt;EPSG:5973&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5975&#39;&gt;EPSG:5975&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/4326&#39;&gt;EPSG:4326&lt;/a&gt;.
+     * @param kartutsnitt Filtrer vegobjekter med kartutsnitt i UTM 33. Formatet er &#x60;minX, minY, maxX, maxY&#x60;. Merk at vegobjektets bounding box benyttes for sammenligning, som kan medføre at vegobjekter som er utenfor kartutsnittet også returneres. For å unngå dette, kan du bruke &#x60;polygon&#x60; i stedet.  Eksempel: &#x60;265273, 7019372, 346553, 7061071&#x60;
      * @param inkluder Kommaseparert liste av statistikkfelt som skal inkluderes i resultatet.
      * @param veglenkesekvens Filtrer vegobjekter på om de er stedfestet på gjeldende veglenkesekvenser. Kommaseparert liste.  Eksempel: &#x60;0.37@319531,0.83-0.97@41640&#x60;
      * @param tidspunkt Finner versjonen som var gyldig denne datoen.
@@ -806,7 +805,7 @@ public class StatistikkApi {
         queryParams.putAll(apiClient.parameterToMultiValueMap(ApiClient.CollectionFormat.valueOf("multi".toUpperCase(Locale.ROOT)), "inkluder", inkluder));
         queryParams.putAll(apiClient.parameterToMultiValueMap(ApiClient.CollectionFormat.valueOf("multi".toUpperCase(Locale.ROOT)), "veglenkesekvens", veglenkesekvens));
         queryParams.putAll(apiClient.parameterToMultiValueMap(null, "tidspunkt", tidspunkt));
-        
+
         final String[] localVarAccepts = { 
             "*/*"
         };
@@ -823,16 +822,16 @@ public class StatistikkApi {
     /**
      * Hent statistikk for en vegobjekttype, gruppert på ett eller flere felter
      * 
-     * <p><b>500</b> - Internal Server Error
      * <p><b>400</b> - Bad Request
      * <p><b>404</b> - Not Found
      * <p><b>401</b> - Unauthorized
      * <p><b>403</b> - Forbidden
+     * <p><b>500</b> - Internal Server Error
      * <p><b>200</b> - OK
      * @param vegobjekttypeid The vegobjekttypeid parameter
      * @param gruppering Velg en eller flere felter som statistikken skal grupperes på.
-     * @param srid Angir hvilket geografisk referansesystem som benyttes for geografisk søk, og som geometrien skal returneres i (hvis relevant). Utdata i UTM-formater begrenses til 3 desimaler, 4326/WGS84 begrenses til 8 desimaler. Mer informasjon: &lt;a href&#x3D;&#39;https://epsg.io/5972&#39;&gt;EPSG:5972&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5973&#39;&gt;EPSG:5973&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5975&#39;&gt;EPSG:5975&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/4326&#39;&gt;EPSG:4326&lt;/a&gt;.
-     * @param kartutsnitt Filtrer vegobjekter med kartutsnitt i det gjeldende geografiske referansesystemet (&#x60;srid&#x60;-paramteret). Formatet er &#x60;minX, minY, maxX, maxY&#x60;. Merk at vegobjektets bounding box benyttes for sammenligning, som kan medføre at vegobjekter som er utenfor kartutsnittet også returneres. For å unngå dette, kan du bruke &#x60;polygon&#x60; i stedet.  Eksempel: &#x60;265273, 7019372, 346553, 7061071&#x60;
+     * @param srid Angir hvilket geografisk referansesystem geometrien skal returneres i. Utdata i UTM-formater begrenses til 3 desimaler, 4326/WGS84 begrenses til 8 desimaler. Query-parametere med koordinater oppgis i UTM33 for UTM-formater, 4326/WGS84 oppgis dersom srid er 4326/WGS84. Mer informasjon: &lt;a href&#x3D;&#39;https://epsg.io/5972&#39;&gt;EPSG:5972&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5973&#39;&gt;EPSG:5973&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5975&#39;&gt;EPSG:5975&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/4326&#39;&gt;EPSG:4326&lt;/a&gt;.
+     * @param kartutsnitt Filtrer vegobjekter med kartutsnitt i UTM 33. Formatet er &#x60;minX, minY, maxX, maxY&#x60;. Merk at vegobjektets bounding box benyttes for sammenligning, som kan medføre at vegobjekter som er utenfor kartutsnittet også returneres. For å unngå dette, kan du bruke &#x60;polygon&#x60; i stedet.  Eksempel: &#x60;265273, 7019372, 346553, 7061071&#x60;
      * @param inkluder Kommaseparert liste av statistikkfelt som skal inkluderes i resultatet.
      * @param veglenkesekvens Filtrer vegobjekter på om de er stedfestet på gjeldende veglenkesekvenser. Kommaseparert liste.  Eksempel: &#x60;0.37@319531,0.83-0.97@41640&#x60;
      * @param tidspunkt Finner versjonen som var gyldig denne datoen.
@@ -847,16 +846,16 @@ public class StatistikkApi {
     /**
      * Hent statistikk for en vegobjekttype, gruppert på ett eller flere felter
      * 
-     * <p><b>500</b> - Internal Server Error
      * <p><b>400</b> - Bad Request
      * <p><b>404</b> - Not Found
      * <p><b>401</b> - Unauthorized
      * <p><b>403</b> - Forbidden
+     * <p><b>500</b> - Internal Server Error
      * <p><b>200</b> - OK
      * @param vegobjekttypeid The vegobjekttypeid parameter
      * @param gruppering Velg en eller flere felter som statistikken skal grupperes på.
-     * @param srid Angir hvilket geografisk referansesystem som benyttes for geografisk søk, og som geometrien skal returneres i (hvis relevant). Utdata i UTM-formater begrenses til 3 desimaler, 4326/WGS84 begrenses til 8 desimaler. Mer informasjon: &lt;a href&#x3D;&#39;https://epsg.io/5972&#39;&gt;EPSG:5972&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5973&#39;&gt;EPSG:5973&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5975&#39;&gt;EPSG:5975&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/4326&#39;&gt;EPSG:4326&lt;/a&gt;.
-     * @param kartutsnitt Filtrer vegobjekter med kartutsnitt i det gjeldende geografiske referansesystemet (&#x60;srid&#x60;-paramteret). Formatet er &#x60;minX, minY, maxX, maxY&#x60;. Merk at vegobjektets bounding box benyttes for sammenligning, som kan medføre at vegobjekter som er utenfor kartutsnittet også returneres. For å unngå dette, kan du bruke &#x60;polygon&#x60; i stedet.  Eksempel: &#x60;265273, 7019372, 346553, 7061071&#x60;
+     * @param srid Angir hvilket geografisk referansesystem geometrien skal returneres i. Utdata i UTM-formater begrenses til 3 desimaler, 4326/WGS84 begrenses til 8 desimaler. Query-parametere med koordinater oppgis i UTM33 for UTM-formater, 4326/WGS84 oppgis dersom srid er 4326/WGS84. Mer informasjon: &lt;a href&#x3D;&#39;https://epsg.io/5972&#39;&gt;EPSG:5972&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5973&#39;&gt;EPSG:5973&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5975&#39;&gt;EPSG:5975&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/4326&#39;&gt;EPSG:4326&lt;/a&gt;.
+     * @param kartutsnitt Filtrer vegobjekter med kartutsnitt i UTM 33. Formatet er &#x60;minX, minY, maxX, maxY&#x60;. Merk at vegobjektets bounding box benyttes for sammenligning, som kan medføre at vegobjekter som er utenfor kartutsnittet også returneres. For å unngå dette, kan du bruke &#x60;polygon&#x60; i stedet.  Eksempel: &#x60;265273, 7019372, 346553, 7061071&#x60;
      * @param inkluder Kommaseparert liste av statistikkfelt som skal inkluderes i resultatet.
      * @param veglenkesekvens Filtrer vegobjekter på om de er stedfestet på gjeldende veglenkesekvenser. Kommaseparert liste.  Eksempel: &#x60;0.37@319531,0.83-0.97@41640&#x60;
      * @param tidspunkt Finner versjonen som var gyldig denne datoen.
@@ -871,16 +870,16 @@ public class StatistikkApi {
     /**
      * Hent statistikk for en vegobjekttype, gruppert på ett eller flere felter
      * 
-     * <p><b>500</b> - Internal Server Error
      * <p><b>400</b> - Bad Request
      * <p><b>404</b> - Not Found
      * <p><b>401</b> - Unauthorized
      * <p><b>403</b> - Forbidden
+     * <p><b>500</b> - Internal Server Error
      * <p><b>200</b> - OK
      * @param vegobjekttypeid The vegobjekttypeid parameter
      * @param gruppering Velg en eller flere felter som statistikken skal grupperes på.
-     * @param srid Angir hvilket geografisk referansesystem som benyttes for geografisk søk, og som geometrien skal returneres i (hvis relevant). Utdata i UTM-formater begrenses til 3 desimaler, 4326/WGS84 begrenses til 8 desimaler. Mer informasjon: &lt;a href&#x3D;&#39;https://epsg.io/5972&#39;&gt;EPSG:5972&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5973&#39;&gt;EPSG:5973&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5975&#39;&gt;EPSG:5975&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/4326&#39;&gt;EPSG:4326&lt;/a&gt;.
-     * @param kartutsnitt Filtrer vegobjekter med kartutsnitt i det gjeldende geografiske referansesystemet (&#x60;srid&#x60;-paramteret). Formatet er &#x60;minX, minY, maxX, maxY&#x60;. Merk at vegobjektets bounding box benyttes for sammenligning, som kan medføre at vegobjekter som er utenfor kartutsnittet også returneres. For å unngå dette, kan du bruke &#x60;polygon&#x60; i stedet.  Eksempel: &#x60;265273, 7019372, 346553, 7061071&#x60;
+     * @param srid Angir hvilket geografisk referansesystem geometrien skal returneres i. Utdata i UTM-formater begrenses til 3 desimaler, 4326/WGS84 begrenses til 8 desimaler. Query-parametere med koordinater oppgis i UTM33 for UTM-formater, 4326/WGS84 oppgis dersom srid er 4326/WGS84. Mer informasjon: &lt;a href&#x3D;&#39;https://epsg.io/5972&#39;&gt;EPSG:5972&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5973&#39;&gt;EPSG:5973&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5975&#39;&gt;EPSG:5975&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/4326&#39;&gt;EPSG:4326&lt;/a&gt;.
+     * @param kartutsnitt Filtrer vegobjekter med kartutsnitt i UTM 33. Formatet er &#x60;minX, minY, maxX, maxY&#x60;. Merk at vegobjektets bounding box benyttes for sammenligning, som kan medføre at vegobjekter som er utenfor kartutsnittet også returneres. For å unngå dette, kan du bruke &#x60;polygon&#x60; i stedet.  Eksempel: &#x60;265273, 7019372, 346553, 7061071&#x60;
      * @param inkluder Kommaseparert liste av statistikkfelt som skal inkluderes i resultatet.
      * @param veglenkesekvens Filtrer vegobjekter på om de er stedfestet på gjeldende veglenkesekvenser. Kommaseparert liste.  Eksempel: &#x60;0.37@319531,0.83-0.97@41640&#x60;
      * @param tidspunkt Finner versjonen som var gyldig denne datoen.
@@ -895,13 +894,15 @@ public class StatistikkApi {
         private @jakarta.annotation.Nullable Set<InkluderIStatistikk> inkluder;
         private @jakarta.annotation.Nullable Set<String> kontraktsomrade;
         private @jakarta.annotation.Nullable LocalDate tidspunkt;
+        private @jakarta.annotation.Nullable Set<String> vegsystemreferanse;
 
         public GetVegobjekterStatistikkMedTyperRequest() {}
 
-        public GetVegobjekterStatistikkMedTyperRequest(@jakarta.annotation.Nullable Set<InkluderIStatistikk> inkluder, @jakarta.annotation.Nullable Set<String> kontraktsomrade, @jakarta.annotation.Nullable LocalDate tidspunkt) {
+        public GetVegobjekterStatistikkMedTyperRequest(@jakarta.annotation.Nullable Set<InkluderIStatistikk> inkluder, @jakarta.annotation.Nullable Set<String> kontraktsomrade, @jakarta.annotation.Nullable LocalDate tidspunkt, @jakarta.annotation.Nullable Set<String> vegsystemreferanse) {
             this.inkluder = inkluder;
             this.kontraktsomrade = kontraktsomrade;
             this.tidspunkt = tidspunkt;
+            this.vegsystemreferanse = vegsystemreferanse;
         }
 
         public @jakarta.annotation.Nullable Set<InkluderIStatistikk> inkluder() {
@@ -928,6 +929,14 @@ public class StatistikkApi {
             return this;
         }
 
+        public @jakarta.annotation.Nullable Set<String> vegsystemreferanse() {
+            return this.vegsystemreferanse;
+        }
+        public GetVegobjekterStatistikkMedTyperRequest vegsystemreferanse(@jakarta.annotation.Nullable Set<String> vegsystemreferanse) {
+            this.vegsystemreferanse = vegsystemreferanse;
+            return this;
+        }
+
         @Override
         public boolean equals(Object o) {
             if (this == o) {
@@ -939,82 +948,84 @@ public class StatistikkApi {
             GetVegobjekterStatistikkMedTyperRequest request = (GetVegobjekterStatistikkMedTyperRequest) o;
             return Objects.equals(this.inkluder, request.inkluder()) &&
                 Objects.equals(this.kontraktsomrade, request.kontraktsomrade()) &&
-                Objects.equals(this.tidspunkt, request.tidspunkt());
+                Objects.equals(this.tidspunkt, request.tidspunkt()) &&
+                Objects.equals(this.vegsystemreferanse, request.vegsystemreferanse());
         }
 
         @Override
         public int hashCode() {
-            return Objects.hash(inkluder, kontraktsomrade, tidspunkt);
+            return Objects.hash(inkluder, kontraktsomrade, tidspunkt, vegsystemreferanse);
         }
-    }
-
-    /**
-    * Hent overordnet statistikk for alle vegobjekttyper
-    * 
-     * <p><b>500</b> - Internal Server Error
-     * <p><b>400</b> - Bad Request
-     * <p><b>404</b> - Not Found
-     * <p><b>401</b> - Unauthorized
-     * <p><b>403</b> - Forbidden
-     * <p><b>200</b> - OK
-     * @param requestParameters The getVegobjekterStatistikkMedTyper request parameters as object
-     * @return List&lt;VegobjekterStatistikkMedType&gt;
-     * @throws RestClientResponseException if an error occurs while attempting to invoke the API
-    */
-    public List<VegobjekterStatistikkMedType> getVegobjekterStatistikkMedTyper(GetVegobjekterStatistikkMedTyperRequest requestParameters) throws RestClientResponseException {
-      return this.getVegobjekterStatistikkMedTyper(requestParameters.inkluder(), requestParameters.kontraktsomrade(), requestParameters.tidspunkt());
-    }
-
-  /**
-  * Hent overordnet statistikk for alle vegobjekttyper
-  * 
-     * <p><b>500</b> - Internal Server Error
-     * <p><b>400</b> - Bad Request
-     * <p><b>404</b> - Not Found
-     * <p><b>401</b> - Unauthorized
-     * <p><b>403</b> - Forbidden
-     * <p><b>200</b> - OK
-     * @param requestParameters The getVegobjekterStatistikkMedTyper request parameters as object
-     * @return ResponseEntity&lt;List&lt;VegobjekterStatistikkMedType&gt;&gt;
-     * @throws RestClientResponseException if an error occurs while attempting to invoke the API
-    */
-    public ResponseEntity<List<VegobjekterStatistikkMedType>> getVegobjekterStatistikkMedTyperWithHttpInfo(GetVegobjekterStatistikkMedTyperRequest requestParameters) throws RestClientResponseException {
-      return this.getVegobjekterStatistikkMedTyperWithHttpInfo(requestParameters.inkluder(), requestParameters.kontraktsomrade(), requestParameters.tidspunkt());
-    }
-
-  /**
-  * Hent overordnet statistikk for alle vegobjekttyper
-  * 
-     * <p><b>500</b> - Internal Server Error
-     * <p><b>400</b> - Bad Request
-     * <p><b>404</b> - Not Found
-     * <p><b>401</b> - Unauthorized
-     * <p><b>403</b> - Forbidden
-     * <p><b>200</b> - OK
-     * @param requestParameters The getVegobjekterStatistikkMedTyper request parameters as object
-  * @return ResponseSpec
-  * @throws RestClientResponseException if an error occurs while attempting to invoke the API
-    */
-    public ResponseSpec getVegobjekterStatistikkMedTyperWithResponseSpec(GetVegobjekterStatistikkMedTyperRequest requestParameters) throws RestClientResponseException {
-      return this.getVegobjekterStatistikkMedTyperWithResponseSpec(requestParameters.inkluder(), requestParameters.kontraktsomrade(), requestParameters.tidspunkt());
     }
 
     /**
      * Hent overordnet statistikk for alle vegobjekttyper
      * 
-     * <p><b>500</b> - Internal Server Error
      * <p><b>400</b> - Bad Request
      * <p><b>404</b> - Not Found
      * <p><b>401</b> - Unauthorized
      * <p><b>403</b> - Forbidden
+     * <p><b>500</b> - Internal Server Error
+     * <p><b>200</b> - OK
+     * @param requestParameters The getVegobjekterStatistikkMedTyper request parameters as object
+     * @return List&lt;VegobjekterStatistikkMedType&gt;
+     * @throws RestClientResponseException if an error occurs while attempting to invoke the API
+     */
+    public List<VegobjekterStatistikkMedType> getVegobjekterStatistikkMedTyper(GetVegobjekterStatistikkMedTyperRequest requestParameters) throws RestClientResponseException {
+        return this.getVegobjekterStatistikkMedTyper(requestParameters.inkluder(), requestParameters.kontraktsomrade(), requestParameters.tidspunkt(), requestParameters.vegsystemreferanse());
+    }
+
+    /**
+     * Hent overordnet statistikk for alle vegobjekttyper
+     * 
+     * <p><b>400</b> - Bad Request
+     * <p><b>404</b> - Not Found
+     * <p><b>401</b> - Unauthorized
+     * <p><b>403</b> - Forbidden
+     * <p><b>500</b> - Internal Server Error
+     * <p><b>200</b> - OK
+     * @param requestParameters The getVegobjekterStatistikkMedTyper request parameters as object
+     * @return ResponseEntity&lt;List&lt;VegobjekterStatistikkMedType&gt;&gt;
+     * @throws RestClientResponseException if an error occurs while attempting to invoke the API
+     */
+    public ResponseEntity<List<VegobjekterStatistikkMedType>> getVegobjekterStatistikkMedTyperWithHttpInfo(GetVegobjekterStatistikkMedTyperRequest requestParameters) throws RestClientResponseException {
+        return this.getVegobjekterStatistikkMedTyperWithHttpInfo(requestParameters.inkluder(), requestParameters.kontraktsomrade(), requestParameters.tidspunkt(), requestParameters.vegsystemreferanse());
+    }
+
+    /**
+     * Hent overordnet statistikk for alle vegobjekttyper
+     * 
+     * <p><b>400</b> - Bad Request
+     * <p><b>404</b> - Not Found
+     * <p><b>401</b> - Unauthorized
+     * <p><b>403</b> - Forbidden
+     * <p><b>500</b> - Internal Server Error
+     * <p><b>200</b> - OK
+     * @param requestParameters The getVegobjekterStatistikkMedTyper request parameters as object
+     * @return ResponseSpec
+     * @throws RestClientResponseException if an error occurs while attempting to invoke the API
+     */
+    public ResponseSpec getVegobjekterStatistikkMedTyperWithResponseSpec(GetVegobjekterStatistikkMedTyperRequest requestParameters) throws RestClientResponseException {
+        return this.getVegobjekterStatistikkMedTyperWithResponseSpec(requestParameters.inkluder(), requestParameters.kontraktsomrade(), requestParameters.tidspunkt(), requestParameters.vegsystemreferanse());
+    }
+
+    /**
+     * Hent overordnet statistikk for alle vegobjekttyper
+     * 
+     * <p><b>400</b> - Bad Request
+     * <p><b>404</b> - Not Found
+     * <p><b>401</b> - Unauthorized
+     * <p><b>403</b> - Forbidden
+     * <p><b>500</b> - Internal Server Error
      * <p><b>200</b> - OK
      * @param inkluder Kommaseparert liste av statistikkfelt som skal inkluderes i resultatet.
      * @param kontraktsomrade Filtrer på kontraktsomrade. Kommaseparert liste. Se /omrader/kontraktsomrader for mulige verdier. Det er mulig å bruke ID-en for kontraktsområdet istedenfor det fulle navnet.  Eksempel: &#x60;9503 Midtre Hålogaland 2021-2026&#x60;
      * @param tidspunkt Finner versjonen som var gyldig denne datoen.
+     * @param vegsystemreferanse Filtrer vegobjekter på [vegsystemreferanse](https://nvdb-docs.atlas.vegvesen.no/nvdbapil/v4/introduksjon/Vegsystemreferanse). Kommaseparert liste. Legg til kommunenummer i starten av vegsystemreferansen for å filtrere på område.  Eksempel: &#x60;EV6S1D1 m12&#x60;
      * @return List&lt;VegobjekterStatistikkMedType&gt;
      * @throws RestClientResponseException if an error occurs while attempting to invoke the API
      */
-    private ResponseSpec getVegobjekterStatistikkMedTyperRequestCreation(@jakarta.annotation.Nullable Set<InkluderIStatistikk> inkluder, @jakarta.annotation.Nullable Set<String> kontraktsomrade, @jakarta.annotation.Nullable LocalDate tidspunkt) throws RestClientResponseException {
+    private ResponseSpec getVegobjekterStatistikkMedTyperRequestCreation(@jakarta.annotation.Nullable Set<InkluderIStatistikk> inkluder, @jakarta.annotation.Nullable Set<String> kontraktsomrade, @jakarta.annotation.Nullable LocalDate tidspunkt, @jakarta.annotation.Nullable Set<String> vegsystemreferanse) throws RestClientResponseException {
         Object postBody = null;
         // create path and map variables
         final Map<String, Object> pathParams = new HashMap<>();
@@ -1027,7 +1038,8 @@ public class StatistikkApi {
         queryParams.putAll(apiClient.parameterToMultiValueMap(ApiClient.CollectionFormat.valueOf("multi".toUpperCase(Locale.ROOT)), "inkluder", inkluder));
         queryParams.putAll(apiClient.parameterToMultiValueMap(ApiClient.CollectionFormat.valueOf("multi".toUpperCase(Locale.ROOT)), "kontraktsomrade", kontraktsomrade));
         queryParams.putAll(apiClient.parameterToMultiValueMap(null, "tidspunkt", tidspunkt));
-        
+        queryParams.putAll(apiClient.parameterToMultiValueMap(ApiClient.CollectionFormat.valueOf("multi".toUpperCase(Locale.ROOT)), "vegsystemreferanse", vegsystemreferanse));
+
         final String[] localVarAccepts = { 
             "*/*"
         };
@@ -1044,59 +1056,62 @@ public class StatistikkApi {
     /**
      * Hent overordnet statistikk for alle vegobjekttyper
      * 
-     * <p><b>500</b> - Internal Server Error
      * <p><b>400</b> - Bad Request
      * <p><b>404</b> - Not Found
      * <p><b>401</b> - Unauthorized
      * <p><b>403</b> - Forbidden
+     * <p><b>500</b> - Internal Server Error
      * <p><b>200</b> - OK
      * @param inkluder Kommaseparert liste av statistikkfelt som skal inkluderes i resultatet.
      * @param kontraktsomrade Filtrer på kontraktsomrade. Kommaseparert liste. Se /omrader/kontraktsomrader for mulige verdier. Det er mulig å bruke ID-en for kontraktsområdet istedenfor det fulle navnet.  Eksempel: &#x60;9503 Midtre Hålogaland 2021-2026&#x60;
      * @param tidspunkt Finner versjonen som var gyldig denne datoen.
+     * @param vegsystemreferanse Filtrer vegobjekter på [vegsystemreferanse](https://nvdb-docs.atlas.vegvesen.no/nvdbapil/v4/introduksjon/Vegsystemreferanse). Kommaseparert liste. Legg til kommunenummer i starten av vegsystemreferansen for å filtrere på område.  Eksempel: &#x60;EV6S1D1 m12&#x60;
      * @return List&lt;VegobjekterStatistikkMedType&gt;
      * @throws RestClientResponseException if an error occurs while attempting to invoke the API
      */
-    public List<VegobjekterStatistikkMedType> getVegobjekterStatistikkMedTyper(@jakarta.annotation.Nullable Set<InkluderIStatistikk> inkluder, @jakarta.annotation.Nullable Set<String> kontraktsomrade, @jakarta.annotation.Nullable LocalDate tidspunkt) throws RestClientResponseException {
+    public List<VegobjekterStatistikkMedType> getVegobjekterStatistikkMedTyper(@jakarta.annotation.Nullable Set<InkluderIStatistikk> inkluder, @jakarta.annotation.Nullable Set<String> kontraktsomrade, @jakarta.annotation.Nullable LocalDate tidspunkt, @jakarta.annotation.Nullable Set<String> vegsystemreferanse) throws RestClientResponseException {
         ParameterizedTypeReference<List<VegobjekterStatistikkMedType>> localVarReturnType = new ParameterizedTypeReference<>() {};
-        return getVegobjekterStatistikkMedTyperRequestCreation(inkluder, kontraktsomrade, tidspunkt).body(localVarReturnType);
+        return getVegobjekterStatistikkMedTyperRequestCreation(inkluder, kontraktsomrade, tidspunkt, vegsystemreferanse).body(localVarReturnType);
     }
 
     /**
      * Hent overordnet statistikk for alle vegobjekttyper
      * 
-     * <p><b>500</b> - Internal Server Error
      * <p><b>400</b> - Bad Request
      * <p><b>404</b> - Not Found
      * <p><b>401</b> - Unauthorized
      * <p><b>403</b> - Forbidden
+     * <p><b>500</b> - Internal Server Error
      * <p><b>200</b> - OK
      * @param inkluder Kommaseparert liste av statistikkfelt som skal inkluderes i resultatet.
      * @param kontraktsomrade Filtrer på kontraktsomrade. Kommaseparert liste. Se /omrader/kontraktsomrader for mulige verdier. Det er mulig å bruke ID-en for kontraktsområdet istedenfor det fulle navnet.  Eksempel: &#x60;9503 Midtre Hålogaland 2021-2026&#x60;
      * @param tidspunkt Finner versjonen som var gyldig denne datoen.
+     * @param vegsystemreferanse Filtrer vegobjekter på [vegsystemreferanse](https://nvdb-docs.atlas.vegvesen.no/nvdbapil/v4/introduksjon/Vegsystemreferanse). Kommaseparert liste. Legg til kommunenummer i starten av vegsystemreferansen for å filtrere på område.  Eksempel: &#x60;EV6S1D1 m12&#x60;
      * @return ResponseEntity&lt;List&lt;VegobjekterStatistikkMedType&gt;&gt;
      * @throws RestClientResponseException if an error occurs while attempting to invoke the API
      */
-    public ResponseEntity<List<VegobjekterStatistikkMedType>> getVegobjekterStatistikkMedTyperWithHttpInfo(@jakarta.annotation.Nullable Set<InkluderIStatistikk> inkluder, @jakarta.annotation.Nullable Set<String> kontraktsomrade, @jakarta.annotation.Nullable LocalDate tidspunkt) throws RestClientResponseException {
+    public ResponseEntity<List<VegobjekterStatistikkMedType>> getVegobjekterStatistikkMedTyperWithHttpInfo(@jakarta.annotation.Nullable Set<InkluderIStatistikk> inkluder, @jakarta.annotation.Nullable Set<String> kontraktsomrade, @jakarta.annotation.Nullable LocalDate tidspunkt, @jakarta.annotation.Nullable Set<String> vegsystemreferanse) throws RestClientResponseException {
         ParameterizedTypeReference<List<VegobjekterStatistikkMedType>> localVarReturnType = new ParameterizedTypeReference<>() {};
-        return getVegobjekterStatistikkMedTyperRequestCreation(inkluder, kontraktsomrade, tidspunkt).toEntity(localVarReturnType);
+        return getVegobjekterStatistikkMedTyperRequestCreation(inkluder, kontraktsomrade, tidspunkt, vegsystemreferanse).toEntity(localVarReturnType);
     }
 
     /**
      * Hent overordnet statistikk for alle vegobjekttyper
      * 
-     * <p><b>500</b> - Internal Server Error
      * <p><b>400</b> - Bad Request
      * <p><b>404</b> - Not Found
      * <p><b>401</b> - Unauthorized
      * <p><b>403</b> - Forbidden
+     * <p><b>500</b> - Internal Server Error
      * <p><b>200</b> - OK
      * @param inkluder Kommaseparert liste av statistikkfelt som skal inkluderes i resultatet.
      * @param kontraktsomrade Filtrer på kontraktsomrade. Kommaseparert liste. Se /omrader/kontraktsomrader for mulige verdier. Det er mulig å bruke ID-en for kontraktsområdet istedenfor det fulle navnet.  Eksempel: &#x60;9503 Midtre Hålogaland 2021-2026&#x60;
      * @param tidspunkt Finner versjonen som var gyldig denne datoen.
+     * @param vegsystemreferanse Filtrer vegobjekter på [vegsystemreferanse](https://nvdb-docs.atlas.vegvesen.no/nvdbapil/v4/introduksjon/Vegsystemreferanse). Kommaseparert liste. Legg til kommunenummer i starten av vegsystemreferansen for å filtrere på område.  Eksempel: &#x60;EV6S1D1 m12&#x60;
      * @return ResponseSpec
      * @throws RestClientResponseException if an error occurs while attempting to invoke the API
      */
-    public ResponseSpec getVegobjekterStatistikkMedTyperWithResponseSpec(@jakarta.annotation.Nullable Set<InkluderIStatistikk> inkluder, @jakarta.annotation.Nullable Set<String> kontraktsomrade, @jakarta.annotation.Nullable LocalDate tidspunkt) throws RestClientResponseException {
-        return getVegobjekterStatistikkMedTyperRequestCreation(inkluder, kontraktsomrade, tidspunkt);
+    public ResponseSpec getVegobjekterStatistikkMedTyperWithResponseSpec(@jakarta.annotation.Nullable Set<InkluderIStatistikk> inkluder, @jakarta.annotation.Nullable Set<String> kontraktsomrade, @jakarta.annotation.Nullable LocalDate tidspunkt, @jakarta.annotation.Nullable Set<String> vegsystemreferanse) throws RestClientResponseException {
+        return getVegobjekterStatistikkMedTyperRequestCreation(inkluder, kontraktsomrade, tidspunkt, vegsystemreferanse);
     }
 }

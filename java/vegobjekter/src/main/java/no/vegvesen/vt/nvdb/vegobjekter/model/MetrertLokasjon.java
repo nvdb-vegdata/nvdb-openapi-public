@@ -1,6 +1,6 @@
 /*
  * NVDB API Les Vegobjekter
- * Dette API-et brukes til å lese vegobjekter. Les mer om bruk av API-et på https://nvdb.atlas.vegvesen.no/produkter/nvdbapil/v4/Vegobjekter
+ * Dette API-et brukes til å lese vegobjekter.<br><br>[Dokumentasjon for Vegobjekter API](https://nvdb-docs.atlas.vegvesen.no/nvdbapil/v4/Vegobjekter)
  *
  * The version of the OpenAPI document: v4
  * Contact: nvdb@vegvesen.no
@@ -36,7 +36,7 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
   MetrertLokasjon.JSON_PROPERTY_SIDEPOSISJON,
   MetrertLokasjon.JSON_PROPERTY_KJøREFELT
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.14.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0")
 public class MetrertLokasjon {
   public static final String JSON_PROPERTY_RETNING = "retning";
   @jakarta.annotation.Nullable
@@ -64,7 +64,7 @@ public class MetrertLokasjon {
    * @return retning
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_RETNING)
+  @JsonProperty(value = JSON_PROPERTY_RETNING, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Retning getRetning() {
@@ -72,7 +72,7 @@ public class MetrertLokasjon {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_RETNING)
+  @JsonProperty(value = JSON_PROPERTY_RETNING, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setRetning(@jakarta.annotation.Nullable Retning retning) {
     this.retning = retning;
@@ -89,7 +89,7 @@ public class MetrertLokasjon {
    * @return sideposisjon
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SIDEPOSISJON)
+  @JsonProperty(value = JSON_PROPERTY_SIDEPOSISJON, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Sideposisjon getSideposisjon() {
@@ -97,7 +97,7 @@ public class MetrertLokasjon {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_SIDEPOSISJON)
+  @JsonProperty(value = JSON_PROPERTY_SIDEPOSISJON, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSideposisjon(@jakarta.annotation.Nullable Sideposisjon sideposisjon) {
     this.sideposisjon = sideposisjon;
@@ -122,7 +122,7 @@ public class MetrertLokasjon {
    * @return kjørefelt
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_KJøREFELT)
+  @JsonProperty(value = JSON_PROPERTY_KJøREFELT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public List<String> getKjørefelt() {
@@ -130,7 +130,7 @@ public class MetrertLokasjon {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_KJøREFELT)
+  @JsonProperty(value = JSON_PROPERTY_KJøREFELT, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setKjørefelt(@jakarta.annotation.Nullable List<String> kjørefelt) {
     this.kjørefelt = kjørefelt;

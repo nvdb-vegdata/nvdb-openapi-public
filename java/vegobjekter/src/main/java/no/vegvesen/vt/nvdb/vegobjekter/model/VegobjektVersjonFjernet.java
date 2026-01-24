@@ -1,6 +1,6 @@
 /*
  * NVDB API Les Vegobjekter
- * Dette API-et brukes til å lese vegobjekter. Les mer om bruk av API-et på https://nvdb.atlas.vegvesen.no/produkter/nvdbapil/v4/Vegobjekter
+ * Dette API-et brukes til å lese vegobjekter.<br><br>[Dokumentasjon for Vegobjekter API](https://nvdb-docs.atlas.vegvesen.no/nvdbapil/v4/Vegobjekter)
  *
  * The version of the OpenAPI document: v4
  * Contact: nvdb@vegvesen.no
@@ -20,24 +20,21 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonValue;
-import java.time.LocalDate;
 import java.time.OffsetDateTime;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 
 /**
- * VegobjektEndret
+ * VegobjektVersjonFjernet
  */
 @JsonPropertyOrder({
-  VegobjektEndret.JSON_PROPERTY_ID,
-  VegobjektEndret.JSON_PROPERTY_VERSJON,
-  VegobjektEndret.JSON_PROPERTY_TYPE,
-  VegobjektEndret.JSON_PROPERTY_TIDSPUNKT,
-  VegobjektEndret.JSON_PROPERTY_STARTDATO,
-  VegobjektEndret.JSON_PROPERTY_SLUTTDATO
+  VegobjektVersjonFjernet.JSON_PROPERTY_ID,
+  VegobjektVersjonFjernet.JSON_PROPERTY_VERSJON,
+  VegobjektVersjonFjernet.JSON_PROPERTY_TYPE,
+  VegobjektVersjonFjernet.JSON_PROPERTY_TIDSPUNKT
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.14.0")
-public class VegobjektEndret {
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0")
+public class VegobjektVersjonFjernet {
   public static final String JSON_PROPERTY_ID = "id";
   @jakarta.annotation.Nonnull
   private Long id;
@@ -54,18 +51,10 @@ public class VegobjektEndret {
   @jakarta.annotation.Nonnull
   private OffsetDateTime tidspunkt;
 
-  public static final String JSON_PROPERTY_STARTDATO = "startdato";
-  @jakarta.annotation.Nonnull
-  private LocalDate startdato;
-
-  public static final String JSON_PROPERTY_SLUTTDATO = "sluttdato";
-  @jakarta.annotation.Nullable
-  private LocalDate sluttdato;
-
-  public VegobjektEndret() {
+  public VegobjektVersjonFjernet() {
   }
 
-  public VegobjektEndret id(@jakarta.annotation.Nonnull Long id) {
+  public VegobjektVersjonFjernet id(@jakarta.annotation.Nonnull Long id) {
     
     this.id = id;
     return this;
@@ -76,7 +65,7 @@ public class VegobjektEndret {
    * @return id
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonProperty(value = JSON_PROPERTY_ID, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Long getId() {
@@ -84,24 +73,24 @@ public class VegobjektEndret {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonProperty(value = JSON_PROPERTY_ID, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setId(@jakarta.annotation.Nonnull Long id) {
     this.id = id;
   }
 
-  public VegobjektEndret versjon(@jakarta.annotation.Nonnull Integer versjon) {
+  public VegobjektVersjonFjernet versjon(@jakarta.annotation.Nonnull Integer versjon) {
     
     this.versjon = versjon;
     return this;
   }
 
   /**
-   * Versjon av vegobjektet som er endret. Dersom ny versjon er opprettet, vil dette være den nye versjonen
+   * Get versjon
    * @return versjon
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_VERSJON)
+  @JsonProperty(value = JSON_PROPERTY_VERSJON, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Integer getVersjon() {
@@ -109,13 +98,13 @@ public class VegobjektEndret {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_VERSJON)
+  @JsonProperty(value = JSON_PROPERTY_VERSJON, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setVersjon(@jakarta.annotation.Nonnull Integer versjon) {
     this.versjon = versjon;
   }
 
-  public VegobjektEndret type(@jakarta.annotation.Nonnull Integer type) {
+  public VegobjektVersjonFjernet type(@jakarta.annotation.Nonnull Integer type) {
     
     this.type = type;
     return this;
@@ -126,7 +115,7 @@ public class VegobjektEndret {
    * @return type
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonProperty(value = JSON_PROPERTY_TYPE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Integer getType() {
@@ -134,13 +123,13 @@ public class VegobjektEndret {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonProperty(value = JSON_PROPERTY_TYPE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setType(@jakarta.annotation.Nonnull Integer type) {
     this.type = type;
   }
 
-  public VegobjektEndret tidspunkt(@jakarta.annotation.Nonnull OffsetDateTime tidspunkt) {
+  public VegobjektVersjonFjernet tidspunkt(@jakarta.annotation.Nonnull OffsetDateTime tidspunkt) {
     
     this.tidspunkt = tidspunkt;
     return this;
@@ -151,7 +140,7 @@ public class VegobjektEndret {
    * @return tidspunkt
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_TIDSPUNKT)
+  @JsonProperty(value = JSON_PROPERTY_TIDSPUNKT, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public OffsetDateTime getTidspunkt() {
@@ -159,60 +148,10 @@ public class VegobjektEndret {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_TIDSPUNKT)
+  @JsonProperty(value = JSON_PROPERTY_TIDSPUNKT, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setTidspunkt(@jakarta.annotation.Nonnull OffsetDateTime tidspunkt) {
     this.tidspunkt = tidspunkt;
-  }
-
-  public VegobjektEndret startdato(@jakarta.annotation.Nonnull LocalDate startdato) {
-    
-    this.startdato = startdato;
-    return this;
-  }
-
-  /**
-   * Get startdato
-   * @return startdato
-   */
-  @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_STARTDATO)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-
-  public LocalDate getStartdato() {
-    return startdato;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_STARTDATO)
-  @JsonInclude(value = JsonInclude.Include.ALWAYS)
-  public void setStartdato(@jakarta.annotation.Nonnull LocalDate startdato) {
-    this.startdato = startdato;
-  }
-
-  public VegobjektEndret sluttdato(@jakarta.annotation.Nullable LocalDate sluttdato) {
-    
-    this.sluttdato = sluttdato;
-    return this;
-  }
-
-  /**
-   * Utelatt dersom sluttdato ikke er satt
-   * @return sluttdato
-   */
-  @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SLUTTDATO)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-
-  public LocalDate getSluttdato() {
-    return sluttdato;
-  }
-
-
-  @JsonProperty(JSON_PROPERTY_SLUTTDATO)
-  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
-  public void setSluttdato(@jakarta.annotation.Nullable LocalDate sluttdato) {
-    this.sluttdato = sluttdato;
   }
 
 
@@ -224,30 +163,26 @@ public class VegobjektEndret {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    VegobjektEndret vegobjektEndret = (VegobjektEndret) o;
-    return Objects.equals(this.id, vegobjektEndret.id) &&
-        Objects.equals(this.versjon, vegobjektEndret.versjon) &&
-        Objects.equals(this.type, vegobjektEndret.type) &&
-        Objects.equals(this.tidspunkt, vegobjektEndret.tidspunkt) &&
-        Objects.equals(this.startdato, vegobjektEndret.startdato) &&
-        Objects.equals(this.sluttdato, vegobjektEndret.sluttdato);
+    VegobjektVersjonFjernet vegobjektVersjonFjernet = (VegobjektVersjonFjernet) o;
+    return Objects.equals(this.id, vegobjektVersjonFjernet.id) &&
+        Objects.equals(this.versjon, vegobjektVersjonFjernet.versjon) &&
+        Objects.equals(this.type, vegobjektVersjonFjernet.type) &&
+        Objects.equals(this.tidspunkt, vegobjektVersjonFjernet.tidspunkt);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, versjon, type, tidspunkt, startdato, sluttdato);
+    return Objects.hash(id, versjon, type, tidspunkt);
   }
 
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class VegobjektEndret {\n");
+    sb.append("class VegobjektVersjonFjernet {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    versjon: ").append(toIndentedString(versjon)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");
     sb.append("    tidspunkt: ").append(toIndentedString(tidspunkt)).append("\n");
-    sb.append("    startdato: ").append(toIndentedString(startdato)).append("\n");
-    sb.append("    sluttdato: ").append(toIndentedString(sluttdato)).append("\n");
     sb.append("}");
     return sb.toString();
   }

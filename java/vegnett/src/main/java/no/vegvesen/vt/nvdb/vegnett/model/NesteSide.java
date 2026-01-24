@@ -1,6 +1,6 @@
 /*
  * NVDB API Les Vegnett
- * Dette API-et brukes til å lese vegnettelementer. Les mer om bruk av API-et på https://nvdb.test.atlas.vegvesen.no/produkter/nvdbapil/v4/Vegnett
+ * Dette API-et brukes til å lese vegnettelementer.<br><br>[Dokumentasjon for Vegnett API](https://nvdb-docs.atlas.vegvesen.no/nvdbapil/v4/Vegnett)
  *
  * The version of the OpenAPI document: v4
  * Contact: nvdb@vegvesen.no
@@ -30,7 +30,7 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
   NesteSide.JSON_PROPERTY_START,
   NesteSide.JSON_PROPERTY_HREF
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.14.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0")
 public class NesteSide {
   public static final String JSON_PROPERTY_START = "start";
   @jakarta.annotation.Nonnull
@@ -54,7 +54,7 @@ public class NesteSide {
    * @return start
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_START)
+  @JsonProperty(value = JSON_PROPERTY_START, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getStart() {
@@ -62,7 +62,7 @@ public class NesteSide {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_START)
+  @JsonProperty(value = JSON_PROPERTY_START, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setStart(@jakarta.annotation.Nonnull String start) {
     this.start = start;
@@ -79,7 +79,7 @@ public class NesteSide {
    * @return href
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_HREF)
+  @JsonProperty(value = JSON_PROPERTY_HREF, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getHref() {
@@ -87,7 +87,7 @@ public class NesteSide {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_HREF)
+  @JsonProperty(value = JSON_PROPERTY_HREF, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setHref(@jakarta.annotation.Nonnull String href) {
     this.href = href;

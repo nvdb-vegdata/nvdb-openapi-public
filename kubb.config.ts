@@ -1,5 +1,5 @@
 import { defineConfig } from '@kubb/core'
-import { pluginOas } from '@kubb/plugin-oas'
+import { Include, pluginOas } from '@kubb/plugin-oas'
 import { pluginReactQuery } from '@kubb/plugin-react-query'
 import { pluginTs } from '@kubb/plugin-ts'
 import { pluginZod } from '@kubb/plugin-zod'
@@ -9,7 +9,7 @@ const includeVegobjekter = [
     type: 'tag',
     pattern: 'Vegobjekter',
   },
-] as const
+] as Array<Include>
 
 export default defineConfig([
   {
@@ -23,10 +23,11 @@ export default defineConfig([
       clean: true,
     },
     hooks: {
-      done: ['npm run lint'],
+      done: ['bun run lint'],
     },
     plugins: [
       pluginOas({
+        // @ts-ignore
         output: false,
         validate: true,
       }),
@@ -55,10 +56,11 @@ export default defineConfig([
       clean: true,
     },
     hooks: {
-      done: ['npm run lint'],
+      done: ['bun run lint'],
     },
     plugins: [
       pluginOas({
+        // @ts-ignore
         output: false,
         validate: true,
       }),

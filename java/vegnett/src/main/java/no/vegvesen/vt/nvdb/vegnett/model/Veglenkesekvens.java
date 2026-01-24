@@ -1,6 +1,6 @@
 /*
  * NVDB API Les Vegnett
- * Dette API-et brukes til å lese vegnettelementer. Les mer om bruk av API-et på https://nvdb.test.atlas.vegvesen.no/produkter/nvdbapil/v4/Vegnett
+ * Dette API-et brukes til å lese vegnettelementer.<br><br>[Dokumentasjon for Vegnett API](https://nvdb-docs.atlas.vegvesen.no/nvdbapil/v4/Vegnett)
  *
  * The version of the OpenAPI document: v4
  * Contact: nvdb@vegvesen.no
@@ -39,7 +39,7 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
   Veglenkesekvens.JSON_PROPERTY_VEGLENKER,
   Veglenkesekvens.JSON_PROPERTY_LåST_LENGDE
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.14.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0")
 public class Veglenkesekvens {
   public static final String JSON_PROPERTY_VEGLENKESEKVENSID = "veglenkesekvensid";
   @jakarta.annotation.Nonnull
@@ -79,7 +79,7 @@ public class Veglenkesekvens {
    * @return veglenkesekvensid
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_VEGLENKESEKVENSID)
+  @JsonProperty(value = JSON_PROPERTY_VEGLENKESEKVENSID, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Long getVeglenkesekvensid() {
@@ -87,7 +87,7 @@ public class Veglenkesekvens {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_VEGLENKESEKVENSID)
+  @JsonProperty(value = JSON_PROPERTY_VEGLENKESEKVENSID, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setVeglenkesekvensid(@jakarta.annotation.Nonnull Long veglenkesekvensid) {
     this.veglenkesekvensid = veglenkesekvensid;
@@ -104,7 +104,7 @@ public class Veglenkesekvens {
    * @return href
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_HREF)
+  @JsonProperty(value = JSON_PROPERTY_HREF, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getHref() {
@@ -112,7 +112,7 @@ public class Veglenkesekvens {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_HREF)
+  @JsonProperty(value = JSON_PROPERTY_HREF, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setHref(@jakarta.annotation.Nonnull String href) {
     this.href = href;
@@ -129,7 +129,7 @@ public class Veglenkesekvens {
    * @return lengde
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_LENGDE)
+  @JsonProperty(value = JSON_PROPERTY_LENGDE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Double getLengde() {
@@ -137,7 +137,7 @@ public class Veglenkesekvens {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_LENGDE)
+  @JsonProperty(value = JSON_PROPERTY_LENGDE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setLengde(@jakarta.annotation.Nonnull Double lengde) {
     this.lengde = lengde;
@@ -162,7 +162,7 @@ public class Veglenkesekvens {
    * @return porter
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_PORTER)
+  @JsonProperty(value = JSON_PROPERTY_PORTER, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public List<Veglenkeport> getPorter() {
@@ -170,7 +170,7 @@ public class Veglenkesekvens {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_PORTER)
+  @JsonProperty(value = JSON_PROPERTY_PORTER, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setPorter(@jakarta.annotation.Nonnull List<Veglenkeport> porter) {
     this.porter = porter;
@@ -195,7 +195,7 @@ public class Veglenkesekvens {
    * @return veglenker
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_VEGLENKER)
+  @JsonProperty(value = JSON_PROPERTY_VEGLENKER, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public List<Veglenke> getVeglenker() {
@@ -203,7 +203,7 @@ public class Veglenkesekvens {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_VEGLENKER)
+  @JsonProperty(value = JSON_PROPERTY_VEGLENKER, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setVeglenker(@jakarta.annotation.Nonnull List<Veglenke> veglenker) {
     this.veglenker = veglenker;
@@ -220,7 +220,7 @@ public class Veglenkesekvens {
    * @return låstLengde
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_LåST_LENGDE)
+  @JsonProperty(value = JSON_PROPERTY_LåST_LENGDE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Boolean getLåstLengde() {
@@ -228,7 +228,7 @@ public class Veglenkesekvens {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_LåST_LENGDE)
+  @JsonProperty(value = JSON_PROPERTY_LåST_LENGDE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setLåstLengde(@jakarta.annotation.Nonnull Boolean låstLengde) {
     this.låstLengde = låstLengde;

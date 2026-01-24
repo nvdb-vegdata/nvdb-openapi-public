@@ -28,7 +28,7 @@ import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestClient.ResponseSpec;
 import org.springframework.web.client.RestClientResponseException;
 
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.14.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0")
 public class NoderApi {
     private ApiClient apiClient;
 
@@ -47,7 +47,6 @@ public class NoderApi {
     public void setApiClient(ApiClient apiClient) {
         this.apiClient = apiClient;
     }
-
 
     public static class GetNodeRequest {
         private @jakarta.annotation.Nonnull Long id;
@@ -96,59 +95,59 @@ public class NoderApi {
     }
 
     /**
-    * Hent en node
-    * 
-     * <p><b>500</b> - Internal Server Error
+     * Hent en node
+     * 
      * <p><b>400</b> - Bad Request
      * <p><b>404</b> - Not Found
+     * <p><b>500</b> - Internal Server Error
      * <p><b>200</b> - OK
      * @param requestParameters The getNode request parameters as object
      * @return Node
      * @throws RestClientResponseException if an error occurs while attempting to invoke the API
-    */
+     */
     public Node getNode(GetNodeRequest requestParameters) throws RestClientResponseException {
-      return this.getNode(requestParameters.id(), requestParameters.srid());
-    }
-
-  /**
-  * Hent en node
-  * 
-     * <p><b>500</b> - Internal Server Error
-     * <p><b>400</b> - Bad Request
-     * <p><b>404</b> - Not Found
-     * <p><b>200</b> - OK
-     * @param requestParameters The getNode request parameters as object
-     * @return ResponseEntity&lt;Node&gt;
-     * @throws RestClientResponseException if an error occurs while attempting to invoke the API
-    */
-    public ResponseEntity<Node> getNodeWithHttpInfo(GetNodeRequest requestParameters) throws RestClientResponseException {
-      return this.getNodeWithHttpInfo(requestParameters.id(), requestParameters.srid());
-    }
-
-  /**
-  * Hent en node
-  * 
-     * <p><b>500</b> - Internal Server Error
-     * <p><b>400</b> - Bad Request
-     * <p><b>404</b> - Not Found
-     * <p><b>200</b> - OK
-     * @param requestParameters The getNode request parameters as object
-  * @return ResponseSpec
-  * @throws RestClientResponseException if an error occurs while attempting to invoke the API
-    */
-    public ResponseSpec getNodeWithResponseSpec(GetNodeRequest requestParameters) throws RestClientResponseException {
-      return this.getNodeWithResponseSpec(requestParameters.id(), requestParameters.srid());
+        return this.getNode(requestParameters.id(), requestParameters.srid());
     }
 
     /**
      * Hent en node
      * 
-     * <p><b>500</b> - Internal Server Error
      * <p><b>400</b> - Bad Request
      * <p><b>404</b> - Not Found
+     * <p><b>500</b> - Internal Server Error
+     * <p><b>200</b> - OK
+     * @param requestParameters The getNode request parameters as object
+     * @return ResponseEntity&lt;Node&gt;
+     * @throws RestClientResponseException if an error occurs while attempting to invoke the API
+     */
+    public ResponseEntity<Node> getNodeWithHttpInfo(GetNodeRequest requestParameters) throws RestClientResponseException {
+        return this.getNodeWithHttpInfo(requestParameters.id(), requestParameters.srid());
+    }
+
+    /**
+     * Hent en node
+     * 
+     * <p><b>400</b> - Bad Request
+     * <p><b>404</b> - Not Found
+     * <p><b>500</b> - Internal Server Error
+     * <p><b>200</b> - OK
+     * @param requestParameters The getNode request parameters as object
+     * @return ResponseSpec
+     * @throws RestClientResponseException if an error occurs while attempting to invoke the API
+     */
+    public ResponseSpec getNodeWithResponseSpec(GetNodeRequest requestParameters) throws RestClientResponseException {
+        return this.getNodeWithResponseSpec(requestParameters.id(), requestParameters.srid());
+    }
+
+    /**
+     * Hent en node
+     * 
+     * <p><b>400</b> - Bad Request
+     * <p><b>404</b> - Not Found
+     * <p><b>500</b> - Internal Server Error
      * <p><b>200</b> - OK
      * @param id ID for noden.
-     * @param srid Angir hvilket geografisk referansesystem geometrien skal returneres i. Utdata i UTM-formater begrenses til 3 desimaler, 4326/WGS84 begrenses til 8 desimaler. Mer informasjon: &lt;a href&#x3D;&#39;https://epsg.io/5972&#39;&gt;EPSG:5972&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5973&#39;&gt;EPSG:5973&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5975&#39;&gt;EPSG:5975&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/4326&#39;&gt;EPSG:4326&lt;/a&gt;.
+     * @param srid Angir hvilket geografisk referansesystem geometrien skal returneres i. Utdata i UTM-formater begrenses til 3 desimaler, 4326/WGS84 begrenses til 8 desimaler. Query-parametere med koordinater oppgis i UTM33 for UTM-formater, 4326/WGS84 oppgis dersom srid er 4326/WGS84. Mer informasjon: &lt;a href&#x3D;&#39;https://epsg.io/5972&#39;&gt;EPSG:5972&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5973&#39;&gt;EPSG:5973&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5975&#39;&gt;EPSG:5975&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/4326&#39;&gt;EPSG:4326&lt;/a&gt;.
      * @return Node
      * @throws RestClientResponseException if an error occurs while attempting to invoke the API
      */
@@ -169,7 +168,7 @@ public class NoderApi {
         final MultiValueMap<String, Object> formParams = new LinkedMultiValueMap<>();
 
         queryParams.putAll(apiClient.parameterToMultiValueMap(null, "srid", srid));
-        
+
         final String[] localVarAccepts = { 
             "*/*"
         };
@@ -186,12 +185,12 @@ public class NoderApi {
     /**
      * Hent en node
      * 
-     * <p><b>500</b> - Internal Server Error
      * <p><b>400</b> - Bad Request
      * <p><b>404</b> - Not Found
+     * <p><b>500</b> - Internal Server Error
      * <p><b>200</b> - OK
      * @param id ID for noden.
-     * @param srid Angir hvilket geografisk referansesystem geometrien skal returneres i. Utdata i UTM-formater begrenses til 3 desimaler, 4326/WGS84 begrenses til 8 desimaler. Mer informasjon: &lt;a href&#x3D;&#39;https://epsg.io/5972&#39;&gt;EPSG:5972&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5973&#39;&gt;EPSG:5973&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5975&#39;&gt;EPSG:5975&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/4326&#39;&gt;EPSG:4326&lt;/a&gt;.
+     * @param srid Angir hvilket geografisk referansesystem geometrien skal returneres i. Utdata i UTM-formater begrenses til 3 desimaler, 4326/WGS84 begrenses til 8 desimaler. Query-parametere med koordinater oppgis i UTM33 for UTM-formater, 4326/WGS84 oppgis dersom srid er 4326/WGS84. Mer informasjon: &lt;a href&#x3D;&#39;https://epsg.io/5972&#39;&gt;EPSG:5972&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5973&#39;&gt;EPSG:5973&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5975&#39;&gt;EPSG:5975&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/4326&#39;&gt;EPSG:4326&lt;/a&gt;.
      * @return Node
      * @throws RestClientResponseException if an error occurs while attempting to invoke the API
      */
@@ -203,12 +202,12 @@ public class NoderApi {
     /**
      * Hent en node
      * 
-     * <p><b>500</b> - Internal Server Error
      * <p><b>400</b> - Bad Request
      * <p><b>404</b> - Not Found
+     * <p><b>500</b> - Internal Server Error
      * <p><b>200</b> - OK
      * @param id ID for noden.
-     * @param srid Angir hvilket geografisk referansesystem geometrien skal returneres i. Utdata i UTM-formater begrenses til 3 desimaler, 4326/WGS84 begrenses til 8 desimaler. Mer informasjon: &lt;a href&#x3D;&#39;https://epsg.io/5972&#39;&gt;EPSG:5972&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5973&#39;&gt;EPSG:5973&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5975&#39;&gt;EPSG:5975&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/4326&#39;&gt;EPSG:4326&lt;/a&gt;.
+     * @param srid Angir hvilket geografisk referansesystem geometrien skal returneres i. Utdata i UTM-formater begrenses til 3 desimaler, 4326/WGS84 begrenses til 8 desimaler. Query-parametere med koordinater oppgis i UTM33 for UTM-formater, 4326/WGS84 oppgis dersom srid er 4326/WGS84. Mer informasjon: &lt;a href&#x3D;&#39;https://epsg.io/5972&#39;&gt;EPSG:5972&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5973&#39;&gt;EPSG:5973&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5975&#39;&gt;EPSG:5975&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/4326&#39;&gt;EPSG:4326&lt;/a&gt;.
      * @return ResponseEntity&lt;Node&gt;
      * @throws RestClientResponseException if an error occurs while attempting to invoke the API
      */
@@ -220,12 +219,12 @@ public class NoderApi {
     /**
      * Hent en node
      * 
-     * <p><b>500</b> - Internal Server Error
      * <p><b>400</b> - Bad Request
      * <p><b>404</b> - Not Found
+     * <p><b>500</b> - Internal Server Error
      * <p><b>200</b> - OK
      * @param id ID for noden.
-     * @param srid Angir hvilket geografisk referansesystem geometrien skal returneres i. Utdata i UTM-formater begrenses til 3 desimaler, 4326/WGS84 begrenses til 8 desimaler. Mer informasjon: &lt;a href&#x3D;&#39;https://epsg.io/5972&#39;&gt;EPSG:5972&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5973&#39;&gt;EPSG:5973&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5975&#39;&gt;EPSG:5975&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/4326&#39;&gt;EPSG:4326&lt;/a&gt;.
+     * @param srid Angir hvilket geografisk referansesystem geometrien skal returneres i. Utdata i UTM-formater begrenses til 3 desimaler, 4326/WGS84 begrenses til 8 desimaler. Query-parametere med koordinater oppgis i UTM33 for UTM-formater, 4326/WGS84 oppgis dersom srid er 4326/WGS84. Mer informasjon: &lt;a href&#x3D;&#39;https://epsg.io/5972&#39;&gt;EPSG:5972&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5973&#39;&gt;EPSG:5973&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5975&#39;&gt;EPSG:5975&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/4326&#39;&gt;EPSG:4326&lt;/a&gt;.
      * @return ResponseSpec
      * @throws RestClientResponseException if an error occurs while attempting to invoke the API
      */
@@ -390,65 +389,65 @@ public class NoderApi {
     }
 
     /**
-    * Hent noder
-    * 
-     * <p><b>500</b> - Internal Server Error
+     * Hent noder
+     * 
      * <p><b>400</b> - Bad Request
      * <p><b>404</b> - Not Found
+     * <p><b>500</b> - Internal Server Error
      * <p><b>200</b> - OK
      * @param requestParameters The getNoder request parameters as object
      * @return NodeSide
      * @throws RestClientResponseException if an error occurs while attempting to invoke the API
-    */
+     */
     public NodeSide getNoder(GetNoderRequest requestParameters) throws RestClientResponseException {
-      return this.getNoder(requestParameters.srid(), requestParameters.ider(), requestParameters.fylke(), requestParameters.kommune(), requestParameters.kontraktsomrade(), requestParameters.vegsystemreferanse(), requestParameters.kartutsnitt(), requestParameters.polygon(), requestParameters.superid(), requestParameters.antall(), requestParameters.start(), requestParameters.inkluderAntall());
-    }
-
-  /**
-  * Hent noder
-  * 
-     * <p><b>500</b> - Internal Server Error
-     * <p><b>400</b> - Bad Request
-     * <p><b>404</b> - Not Found
-     * <p><b>200</b> - OK
-     * @param requestParameters The getNoder request parameters as object
-     * @return ResponseEntity&lt;NodeSide&gt;
-     * @throws RestClientResponseException if an error occurs while attempting to invoke the API
-    */
-    public ResponseEntity<NodeSide> getNoderWithHttpInfo(GetNoderRequest requestParameters) throws RestClientResponseException {
-      return this.getNoderWithHttpInfo(requestParameters.srid(), requestParameters.ider(), requestParameters.fylke(), requestParameters.kommune(), requestParameters.kontraktsomrade(), requestParameters.vegsystemreferanse(), requestParameters.kartutsnitt(), requestParameters.polygon(), requestParameters.superid(), requestParameters.antall(), requestParameters.start(), requestParameters.inkluderAntall());
-    }
-
-  /**
-  * Hent noder
-  * 
-     * <p><b>500</b> - Internal Server Error
-     * <p><b>400</b> - Bad Request
-     * <p><b>404</b> - Not Found
-     * <p><b>200</b> - OK
-     * @param requestParameters The getNoder request parameters as object
-  * @return ResponseSpec
-  * @throws RestClientResponseException if an error occurs while attempting to invoke the API
-    */
-    public ResponseSpec getNoderWithResponseSpec(GetNoderRequest requestParameters) throws RestClientResponseException {
-      return this.getNoderWithResponseSpec(requestParameters.srid(), requestParameters.ider(), requestParameters.fylke(), requestParameters.kommune(), requestParameters.kontraktsomrade(), requestParameters.vegsystemreferanse(), requestParameters.kartutsnitt(), requestParameters.polygon(), requestParameters.superid(), requestParameters.antall(), requestParameters.start(), requestParameters.inkluderAntall());
+        return this.getNoder(requestParameters.srid(), requestParameters.ider(), requestParameters.fylke(), requestParameters.kommune(), requestParameters.kontraktsomrade(), requestParameters.vegsystemreferanse(), requestParameters.kartutsnitt(), requestParameters.polygon(), requestParameters.superid(), requestParameters.antall(), requestParameters.start(), requestParameters.inkluderAntall());
     }
 
     /**
      * Hent noder
      * 
-     * <p><b>500</b> - Internal Server Error
      * <p><b>400</b> - Bad Request
      * <p><b>404</b> - Not Found
+     * <p><b>500</b> - Internal Server Error
      * <p><b>200</b> - OK
-     * @param srid Angir hvilket geografisk referansesystem geometrien skal returneres i. Utdata i UTM-formater begrenses til 3 desimaler, 4326/WGS84 begrenses til 8 desimaler. Mer informasjon: &lt;a href&#x3D;&#39;https://epsg.io/5972&#39;&gt;EPSG:5972&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5973&#39;&gt;EPSG:5973&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5975&#39;&gt;EPSG:5975&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/4326&#39;&gt;EPSG:4326&lt;/a&gt;.
+     * @param requestParameters The getNoder request parameters as object
+     * @return ResponseEntity&lt;NodeSide&gt;
+     * @throws RestClientResponseException if an error occurs while attempting to invoke the API
+     */
+    public ResponseEntity<NodeSide> getNoderWithHttpInfo(GetNoderRequest requestParameters) throws RestClientResponseException {
+        return this.getNoderWithHttpInfo(requestParameters.srid(), requestParameters.ider(), requestParameters.fylke(), requestParameters.kommune(), requestParameters.kontraktsomrade(), requestParameters.vegsystemreferanse(), requestParameters.kartutsnitt(), requestParameters.polygon(), requestParameters.superid(), requestParameters.antall(), requestParameters.start(), requestParameters.inkluderAntall());
+    }
+
+    /**
+     * Hent noder
+     * 
+     * <p><b>400</b> - Bad Request
+     * <p><b>404</b> - Not Found
+     * <p><b>500</b> - Internal Server Error
+     * <p><b>200</b> - OK
+     * @param requestParameters The getNoder request parameters as object
+     * @return ResponseSpec
+     * @throws RestClientResponseException if an error occurs while attempting to invoke the API
+     */
+    public ResponseSpec getNoderWithResponseSpec(GetNoderRequest requestParameters) throws RestClientResponseException {
+        return this.getNoderWithResponseSpec(requestParameters.srid(), requestParameters.ider(), requestParameters.fylke(), requestParameters.kommune(), requestParameters.kontraktsomrade(), requestParameters.vegsystemreferanse(), requestParameters.kartutsnitt(), requestParameters.polygon(), requestParameters.superid(), requestParameters.antall(), requestParameters.start(), requestParameters.inkluderAntall());
+    }
+
+    /**
+     * Hent noder
+     * 
+     * <p><b>400</b> - Bad Request
+     * <p><b>404</b> - Not Found
+     * <p><b>500</b> - Internal Server Error
+     * <p><b>200</b> - OK
+     * @param srid Angir hvilket geografisk referansesystem geometrien skal returneres i. Utdata i UTM-formater begrenses til 3 desimaler, 4326/WGS84 begrenses til 8 desimaler. Query-parametere med koordinater oppgis i UTM33 for UTM-formater, 4326/WGS84 oppgis dersom srid er 4326/WGS84. Mer informasjon: &lt;a href&#x3D;&#39;https://epsg.io/5972&#39;&gt;EPSG:5972&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5973&#39;&gt;EPSG:5973&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5975&#39;&gt;EPSG:5975&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/4326&#39;&gt;EPSG:4326&lt;/a&gt;.
      * @param ider Kommaseparert liste med IDer.
-     * @param fylke Filtrer på fylke. Kommaseparert liste. Se [/omrader/api/v4/fylker](https://nvdbapiles.atlas.vegvesen.no/webjars/swagger-ui/index.html?urls.primaryName&#x3D;Omr%C3%A5der#/Omr%C3%A5der/getFylker) for mulige verdier.  Eksempel: &#x60;50&#x60;
-     * @param kommune Filtrer på kommune. Kommaseparert liste. Se [/omrader/api/v4/kommuner](https://nvdbapiles.atlas.vegvesen.no/webjars/swagger-ui/index.html?urls.primaryName&#x3D;Omr%C3%A5der#/Omr%C3%A5der/getKommuner) for mulige verdier.  Eksempel: &#x60;5001&#x60;
-     * @param kontraktsomrade Filtrer på kontraktsomrade. Kommaseparert liste. Se [/omrader/api/v4/kontraktsomrader](https://nvdbapiles.atlas.vegvesen.no/webjars/swagger-ui/index.html?urls.primaryName&#x3D;Omr%C3%A5der#/Omr%C3%A5der/getKontraktsomrader) for mulige verdier.  Eksempel: &#x60;9503 Midtre Hålogaland 2021-2026&#x60;
+     * @param fylke Filtrer på fylke. Kommaseparert liste. Se [/omrader/api/v4/fylker](https://nvdbapiles.atlas.vegvesen.no/swagger-ui/index.html?urls.primaryName&#x3D;Omr%C3%A5der#/Omr%C3%A5der/getFylker) for mulige verdier.  Eksempel: &#x60;50&#x60;
+     * @param kommune Filtrer på kommune. Kommaseparert liste. Se [/omrader/api/v4/kommuner](https://nvdbapiles.atlas.vegvesen.no/swagger-ui/index.html?urls.primaryName&#x3D;Omr%C3%A5der#/Omr%C3%A5der/getKommuner) for mulige verdier.  Eksempel: &#x60;5001&#x60;
+     * @param kontraktsomrade Filtrer på kontraktsomrade. Kommaseparert liste. Se [/omrader/api/v4/kontraktsomrader](https://nvdbapiles.atlas.vegvesen.no/swagger-ui/index.html?urls.primaryName&#x3D;Omr%C3%A5der#/Omr%C3%A5der/getKontraktsomrader) for mulige verdier.  Eksempel: &#x60;9503 Midtre Hålogaland 2021-2026&#x60;
      * @param vegsystemreferanse Filtrer på [vegsystemreferanse](https://nvdb-docs.atlas.vegvesen.no/nvdbapil/v4/introduksjon/Vegsystemreferanse). Kommaseparert liste. Legg til kommunenummer i starten av vegsystemreferansen for å filtrere på område.  Eksempel: &#x60;EV6S1D1 m12&#x60;
-     * @param kartutsnitt Filtrer med kartutsnitt i det gjeldende geografiske referansesystemet (&#x60;srid&#x60;-paramteret). Formatet er &#x60;minX, minY, maxX, maxY&#x60;.  Eksempel: &#x60;265273, 7019372, 346553, 7061071&#x60;
-     * @param polygon Filtrer med polygon i det gjeldende geografiske referansesystemet (&#x60;srid&#x60;-paramteret).  Eksempel: &#x60;20000 6520000, 20500 6520000, 21000 6500000, 20000 6520000&#x60;
+     * @param kartutsnitt Filtrer med kartutsnitt i UTM 33. Formatet er &#x60;minX, minY, maxX, maxY&#x60;.  Eksempel: &#x60;265273, 7019372, 346553, 7061071&#x60;
+     * @param polygon Filtrer med polygon i UTM 33.  Eksempel: &#x60;20000 6520000, 20500 6520000, 21000 6500000, 20000 6520000&#x60;
      * @param superid Hent noder tilkoblet detaljerte veglenker stedfestet på veglenkesekvens med denne IDen.
      * @param antall Angir hvor mange objekter som skal returneres. Se også &#x60;sidestørrelse&#x60; i responsens &#x60;metadata&#x60;-objekt.
      * @param start Angir paginerings-start for objekter som skal returneres. Brukes sammen med &#x60;antall&#x60;. Neste start får man i metadata-feltet i responsen. Settes blankt for å starte fra begynnelsen.
@@ -478,7 +477,7 @@ public class NoderApi {
         queryParams.putAll(apiClient.parameterToMultiValueMap(null, "antall", antall));
         queryParams.putAll(apiClient.parameterToMultiValueMap(null, "start", start));
         queryParams.putAll(apiClient.parameterToMultiValueMap(null, "inkluderAntall", inkluderAntall));
-        
+
         final String[] localVarAccepts = { 
             "*/*"
         };
@@ -495,18 +494,18 @@ public class NoderApi {
     /**
      * Hent noder
      * 
-     * <p><b>500</b> - Internal Server Error
      * <p><b>400</b> - Bad Request
      * <p><b>404</b> - Not Found
+     * <p><b>500</b> - Internal Server Error
      * <p><b>200</b> - OK
-     * @param srid Angir hvilket geografisk referansesystem geometrien skal returneres i. Utdata i UTM-formater begrenses til 3 desimaler, 4326/WGS84 begrenses til 8 desimaler. Mer informasjon: &lt;a href&#x3D;&#39;https://epsg.io/5972&#39;&gt;EPSG:5972&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5973&#39;&gt;EPSG:5973&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5975&#39;&gt;EPSG:5975&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/4326&#39;&gt;EPSG:4326&lt;/a&gt;.
+     * @param srid Angir hvilket geografisk referansesystem geometrien skal returneres i. Utdata i UTM-formater begrenses til 3 desimaler, 4326/WGS84 begrenses til 8 desimaler. Query-parametere med koordinater oppgis i UTM33 for UTM-formater, 4326/WGS84 oppgis dersom srid er 4326/WGS84. Mer informasjon: &lt;a href&#x3D;&#39;https://epsg.io/5972&#39;&gt;EPSG:5972&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5973&#39;&gt;EPSG:5973&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5975&#39;&gt;EPSG:5975&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/4326&#39;&gt;EPSG:4326&lt;/a&gt;.
      * @param ider Kommaseparert liste med IDer.
-     * @param fylke Filtrer på fylke. Kommaseparert liste. Se [/omrader/api/v4/fylker](https://nvdbapiles.atlas.vegvesen.no/webjars/swagger-ui/index.html?urls.primaryName&#x3D;Omr%C3%A5der#/Omr%C3%A5der/getFylker) for mulige verdier.  Eksempel: &#x60;50&#x60;
-     * @param kommune Filtrer på kommune. Kommaseparert liste. Se [/omrader/api/v4/kommuner](https://nvdbapiles.atlas.vegvesen.no/webjars/swagger-ui/index.html?urls.primaryName&#x3D;Omr%C3%A5der#/Omr%C3%A5der/getKommuner) for mulige verdier.  Eksempel: &#x60;5001&#x60;
-     * @param kontraktsomrade Filtrer på kontraktsomrade. Kommaseparert liste. Se [/omrader/api/v4/kontraktsomrader](https://nvdbapiles.atlas.vegvesen.no/webjars/swagger-ui/index.html?urls.primaryName&#x3D;Omr%C3%A5der#/Omr%C3%A5der/getKontraktsomrader) for mulige verdier.  Eksempel: &#x60;9503 Midtre Hålogaland 2021-2026&#x60;
+     * @param fylke Filtrer på fylke. Kommaseparert liste. Se [/omrader/api/v4/fylker](https://nvdbapiles.atlas.vegvesen.no/swagger-ui/index.html?urls.primaryName&#x3D;Omr%C3%A5der#/Omr%C3%A5der/getFylker) for mulige verdier.  Eksempel: &#x60;50&#x60;
+     * @param kommune Filtrer på kommune. Kommaseparert liste. Se [/omrader/api/v4/kommuner](https://nvdbapiles.atlas.vegvesen.no/swagger-ui/index.html?urls.primaryName&#x3D;Omr%C3%A5der#/Omr%C3%A5der/getKommuner) for mulige verdier.  Eksempel: &#x60;5001&#x60;
+     * @param kontraktsomrade Filtrer på kontraktsomrade. Kommaseparert liste. Se [/omrader/api/v4/kontraktsomrader](https://nvdbapiles.atlas.vegvesen.no/swagger-ui/index.html?urls.primaryName&#x3D;Omr%C3%A5der#/Omr%C3%A5der/getKontraktsomrader) for mulige verdier.  Eksempel: &#x60;9503 Midtre Hålogaland 2021-2026&#x60;
      * @param vegsystemreferanse Filtrer på [vegsystemreferanse](https://nvdb-docs.atlas.vegvesen.no/nvdbapil/v4/introduksjon/Vegsystemreferanse). Kommaseparert liste. Legg til kommunenummer i starten av vegsystemreferansen for å filtrere på område.  Eksempel: &#x60;EV6S1D1 m12&#x60;
-     * @param kartutsnitt Filtrer med kartutsnitt i det gjeldende geografiske referansesystemet (&#x60;srid&#x60;-paramteret). Formatet er &#x60;minX, minY, maxX, maxY&#x60;.  Eksempel: &#x60;265273, 7019372, 346553, 7061071&#x60;
-     * @param polygon Filtrer med polygon i det gjeldende geografiske referansesystemet (&#x60;srid&#x60;-paramteret).  Eksempel: &#x60;20000 6520000, 20500 6520000, 21000 6500000, 20000 6520000&#x60;
+     * @param kartutsnitt Filtrer med kartutsnitt i UTM 33. Formatet er &#x60;minX, minY, maxX, maxY&#x60;.  Eksempel: &#x60;265273, 7019372, 346553, 7061071&#x60;
+     * @param polygon Filtrer med polygon i UTM 33.  Eksempel: &#x60;20000 6520000, 20500 6520000, 21000 6500000, 20000 6520000&#x60;
      * @param superid Hent noder tilkoblet detaljerte veglenker stedfestet på veglenkesekvens med denne IDen.
      * @param antall Angir hvor mange objekter som skal returneres. Se også &#x60;sidestørrelse&#x60; i responsens &#x60;metadata&#x60;-objekt.
      * @param start Angir paginerings-start for objekter som skal returneres. Brukes sammen med &#x60;antall&#x60;. Neste start får man i metadata-feltet i responsen. Settes blankt for å starte fra begynnelsen.
@@ -522,18 +521,18 @@ public class NoderApi {
     /**
      * Hent noder
      * 
-     * <p><b>500</b> - Internal Server Error
      * <p><b>400</b> - Bad Request
      * <p><b>404</b> - Not Found
+     * <p><b>500</b> - Internal Server Error
      * <p><b>200</b> - OK
-     * @param srid Angir hvilket geografisk referansesystem geometrien skal returneres i. Utdata i UTM-formater begrenses til 3 desimaler, 4326/WGS84 begrenses til 8 desimaler. Mer informasjon: &lt;a href&#x3D;&#39;https://epsg.io/5972&#39;&gt;EPSG:5972&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5973&#39;&gt;EPSG:5973&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5975&#39;&gt;EPSG:5975&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/4326&#39;&gt;EPSG:4326&lt;/a&gt;.
+     * @param srid Angir hvilket geografisk referansesystem geometrien skal returneres i. Utdata i UTM-formater begrenses til 3 desimaler, 4326/WGS84 begrenses til 8 desimaler. Query-parametere med koordinater oppgis i UTM33 for UTM-formater, 4326/WGS84 oppgis dersom srid er 4326/WGS84. Mer informasjon: &lt;a href&#x3D;&#39;https://epsg.io/5972&#39;&gt;EPSG:5972&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5973&#39;&gt;EPSG:5973&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5975&#39;&gt;EPSG:5975&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/4326&#39;&gt;EPSG:4326&lt;/a&gt;.
      * @param ider Kommaseparert liste med IDer.
-     * @param fylke Filtrer på fylke. Kommaseparert liste. Se [/omrader/api/v4/fylker](https://nvdbapiles.atlas.vegvesen.no/webjars/swagger-ui/index.html?urls.primaryName&#x3D;Omr%C3%A5der#/Omr%C3%A5der/getFylker) for mulige verdier.  Eksempel: &#x60;50&#x60;
-     * @param kommune Filtrer på kommune. Kommaseparert liste. Se [/omrader/api/v4/kommuner](https://nvdbapiles.atlas.vegvesen.no/webjars/swagger-ui/index.html?urls.primaryName&#x3D;Omr%C3%A5der#/Omr%C3%A5der/getKommuner) for mulige verdier.  Eksempel: &#x60;5001&#x60;
-     * @param kontraktsomrade Filtrer på kontraktsomrade. Kommaseparert liste. Se [/omrader/api/v4/kontraktsomrader](https://nvdbapiles.atlas.vegvesen.no/webjars/swagger-ui/index.html?urls.primaryName&#x3D;Omr%C3%A5der#/Omr%C3%A5der/getKontraktsomrader) for mulige verdier.  Eksempel: &#x60;9503 Midtre Hålogaland 2021-2026&#x60;
+     * @param fylke Filtrer på fylke. Kommaseparert liste. Se [/omrader/api/v4/fylker](https://nvdbapiles.atlas.vegvesen.no/swagger-ui/index.html?urls.primaryName&#x3D;Omr%C3%A5der#/Omr%C3%A5der/getFylker) for mulige verdier.  Eksempel: &#x60;50&#x60;
+     * @param kommune Filtrer på kommune. Kommaseparert liste. Se [/omrader/api/v4/kommuner](https://nvdbapiles.atlas.vegvesen.no/swagger-ui/index.html?urls.primaryName&#x3D;Omr%C3%A5der#/Omr%C3%A5der/getKommuner) for mulige verdier.  Eksempel: &#x60;5001&#x60;
+     * @param kontraktsomrade Filtrer på kontraktsomrade. Kommaseparert liste. Se [/omrader/api/v4/kontraktsomrader](https://nvdbapiles.atlas.vegvesen.no/swagger-ui/index.html?urls.primaryName&#x3D;Omr%C3%A5der#/Omr%C3%A5der/getKontraktsomrader) for mulige verdier.  Eksempel: &#x60;9503 Midtre Hålogaland 2021-2026&#x60;
      * @param vegsystemreferanse Filtrer på [vegsystemreferanse](https://nvdb-docs.atlas.vegvesen.no/nvdbapil/v4/introduksjon/Vegsystemreferanse). Kommaseparert liste. Legg til kommunenummer i starten av vegsystemreferansen for å filtrere på område.  Eksempel: &#x60;EV6S1D1 m12&#x60;
-     * @param kartutsnitt Filtrer med kartutsnitt i det gjeldende geografiske referansesystemet (&#x60;srid&#x60;-paramteret). Formatet er &#x60;minX, minY, maxX, maxY&#x60;.  Eksempel: &#x60;265273, 7019372, 346553, 7061071&#x60;
-     * @param polygon Filtrer med polygon i det gjeldende geografiske referansesystemet (&#x60;srid&#x60;-paramteret).  Eksempel: &#x60;20000 6520000, 20500 6520000, 21000 6500000, 20000 6520000&#x60;
+     * @param kartutsnitt Filtrer med kartutsnitt i UTM 33. Formatet er &#x60;minX, minY, maxX, maxY&#x60;.  Eksempel: &#x60;265273, 7019372, 346553, 7061071&#x60;
+     * @param polygon Filtrer med polygon i UTM 33.  Eksempel: &#x60;20000 6520000, 20500 6520000, 21000 6500000, 20000 6520000&#x60;
      * @param superid Hent noder tilkoblet detaljerte veglenker stedfestet på veglenkesekvens med denne IDen.
      * @param antall Angir hvor mange objekter som skal returneres. Se også &#x60;sidestørrelse&#x60; i responsens &#x60;metadata&#x60;-objekt.
      * @param start Angir paginerings-start for objekter som skal returneres. Brukes sammen med &#x60;antall&#x60;. Neste start får man i metadata-feltet i responsen. Settes blankt for å starte fra begynnelsen.
@@ -549,18 +548,18 @@ public class NoderApi {
     /**
      * Hent noder
      * 
-     * <p><b>500</b> - Internal Server Error
      * <p><b>400</b> - Bad Request
      * <p><b>404</b> - Not Found
+     * <p><b>500</b> - Internal Server Error
      * <p><b>200</b> - OK
-     * @param srid Angir hvilket geografisk referansesystem geometrien skal returneres i. Utdata i UTM-formater begrenses til 3 desimaler, 4326/WGS84 begrenses til 8 desimaler. Mer informasjon: &lt;a href&#x3D;&#39;https://epsg.io/5972&#39;&gt;EPSG:5972&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5973&#39;&gt;EPSG:5973&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5975&#39;&gt;EPSG:5975&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/4326&#39;&gt;EPSG:4326&lt;/a&gt;.
+     * @param srid Angir hvilket geografisk referansesystem geometrien skal returneres i. Utdata i UTM-formater begrenses til 3 desimaler, 4326/WGS84 begrenses til 8 desimaler. Query-parametere med koordinater oppgis i UTM33 for UTM-formater, 4326/WGS84 oppgis dersom srid er 4326/WGS84. Mer informasjon: &lt;a href&#x3D;&#39;https://epsg.io/5972&#39;&gt;EPSG:5972&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5973&#39;&gt;EPSG:5973&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5975&#39;&gt;EPSG:5975&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/4326&#39;&gt;EPSG:4326&lt;/a&gt;.
      * @param ider Kommaseparert liste med IDer.
-     * @param fylke Filtrer på fylke. Kommaseparert liste. Se [/omrader/api/v4/fylker](https://nvdbapiles.atlas.vegvesen.no/webjars/swagger-ui/index.html?urls.primaryName&#x3D;Omr%C3%A5der#/Omr%C3%A5der/getFylker) for mulige verdier.  Eksempel: &#x60;50&#x60;
-     * @param kommune Filtrer på kommune. Kommaseparert liste. Se [/omrader/api/v4/kommuner](https://nvdbapiles.atlas.vegvesen.no/webjars/swagger-ui/index.html?urls.primaryName&#x3D;Omr%C3%A5der#/Omr%C3%A5der/getKommuner) for mulige verdier.  Eksempel: &#x60;5001&#x60;
-     * @param kontraktsomrade Filtrer på kontraktsomrade. Kommaseparert liste. Se [/omrader/api/v4/kontraktsomrader](https://nvdbapiles.atlas.vegvesen.no/webjars/swagger-ui/index.html?urls.primaryName&#x3D;Omr%C3%A5der#/Omr%C3%A5der/getKontraktsomrader) for mulige verdier.  Eksempel: &#x60;9503 Midtre Hålogaland 2021-2026&#x60;
+     * @param fylke Filtrer på fylke. Kommaseparert liste. Se [/omrader/api/v4/fylker](https://nvdbapiles.atlas.vegvesen.no/swagger-ui/index.html?urls.primaryName&#x3D;Omr%C3%A5der#/Omr%C3%A5der/getFylker) for mulige verdier.  Eksempel: &#x60;50&#x60;
+     * @param kommune Filtrer på kommune. Kommaseparert liste. Se [/omrader/api/v4/kommuner](https://nvdbapiles.atlas.vegvesen.no/swagger-ui/index.html?urls.primaryName&#x3D;Omr%C3%A5der#/Omr%C3%A5der/getKommuner) for mulige verdier.  Eksempel: &#x60;5001&#x60;
+     * @param kontraktsomrade Filtrer på kontraktsomrade. Kommaseparert liste. Se [/omrader/api/v4/kontraktsomrader](https://nvdbapiles.atlas.vegvesen.no/swagger-ui/index.html?urls.primaryName&#x3D;Omr%C3%A5der#/Omr%C3%A5der/getKontraktsomrader) for mulige verdier.  Eksempel: &#x60;9503 Midtre Hålogaland 2021-2026&#x60;
      * @param vegsystemreferanse Filtrer på [vegsystemreferanse](https://nvdb-docs.atlas.vegvesen.no/nvdbapil/v4/introduksjon/Vegsystemreferanse). Kommaseparert liste. Legg til kommunenummer i starten av vegsystemreferansen for å filtrere på område.  Eksempel: &#x60;EV6S1D1 m12&#x60;
-     * @param kartutsnitt Filtrer med kartutsnitt i det gjeldende geografiske referansesystemet (&#x60;srid&#x60;-paramteret). Formatet er &#x60;minX, minY, maxX, maxY&#x60;.  Eksempel: &#x60;265273, 7019372, 346553, 7061071&#x60;
-     * @param polygon Filtrer med polygon i det gjeldende geografiske referansesystemet (&#x60;srid&#x60;-paramteret).  Eksempel: &#x60;20000 6520000, 20500 6520000, 21000 6500000, 20000 6520000&#x60;
+     * @param kartutsnitt Filtrer med kartutsnitt i UTM 33. Formatet er &#x60;minX, minY, maxX, maxY&#x60;.  Eksempel: &#x60;265273, 7019372, 346553, 7061071&#x60;
+     * @param polygon Filtrer med polygon i UTM 33.  Eksempel: &#x60;20000 6520000, 20500 6520000, 21000 6500000, 20000 6520000&#x60;
      * @param superid Hent noder tilkoblet detaljerte veglenker stedfestet på veglenkesekvens med denne IDen.
      * @param antall Angir hvor mange objekter som skal returneres. Se også &#x60;sidestørrelse&#x60; i responsens &#x60;metadata&#x60;-objekt.
      * @param start Angir paginerings-start for objekter som skal returneres. Brukes sammen med &#x60;antall&#x60;. Neste start får man i metadata-feltet i responsen. Settes blankt for å starte fra begynnelsen.

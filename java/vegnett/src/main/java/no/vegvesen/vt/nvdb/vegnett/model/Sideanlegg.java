@@ -1,6 +1,6 @@
 /*
  * NVDB API Les Vegnett
- * Dette API-et brukes til å lese vegnettelementer. Les mer om bruk av API-et på https://nvdb.test.atlas.vegvesen.no/produkter/nvdbapil/v4/Vegnett
+ * Dette API-et brukes til å lese vegnettelementer.<br><br>[Dokumentasjon for Vegnett API](https://nvdb-docs.atlas.vegvesen.no/nvdbapil/v4/Vegnett)
  *
  * The version of the OpenAPI document: v4
  * Contact: nvdb@vegvesen.no
@@ -37,7 +37,7 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
   Sideanlegg.JSON_PROPERTY_FRA_METER,
   Sideanlegg.JSON_PROPERTY_TIL_METER
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.14.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0")
 public class Sideanlegg {
   public static final String JSON_PROPERTY_SIDEANLEGG = "sideanlegg";
   @jakarta.annotation.Nonnull
@@ -81,7 +81,7 @@ public class Sideanlegg {
    * @return sideanlegg
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_SIDEANLEGG)
+  @JsonProperty(value = JSON_PROPERTY_SIDEANLEGG, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Integer getSideanlegg() {
@@ -89,7 +89,7 @@ public class Sideanlegg {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_SIDEANLEGG)
+  @JsonProperty(value = JSON_PROPERTY_SIDEANLEGG, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setSideanlegg(@jakarta.annotation.Nonnull Integer sideanlegg) {
     this.sideanlegg = sideanlegg;
@@ -106,7 +106,7 @@ public class Sideanlegg {
    * @return sideanleggsdel
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_SIDEANLEGGSDEL)
+  @JsonProperty(value = JSON_PROPERTY_SIDEANLEGGSDEL, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Integer getSideanleggsdel() {
@@ -114,7 +114,7 @@ public class Sideanlegg {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_SIDEANLEGGSDEL)
+  @JsonProperty(value = JSON_PROPERTY_SIDEANLEGGSDEL, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setSideanleggsdel(@jakarta.annotation.Nonnull Integer sideanleggsdel) {
     this.sideanleggsdel = sideanleggsdel;
@@ -131,7 +131,7 @@ public class Sideanlegg {
    * @return retning
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_RETNING)
+  @JsonProperty(value = JSON_PROPERTY_RETNING, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Retning getRetning() {
@@ -139,7 +139,7 @@ public class Sideanlegg {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_RETNING)
+  @JsonProperty(value = JSON_PROPERTY_RETNING, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setRetning(@jakarta.annotation.Nonnull Retning retning) {
     this.retning = retning;
@@ -156,7 +156,7 @@ public class Sideanlegg {
    * @return trafikantgruppe
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_TRAFIKANTGRUPPE)
+  @JsonProperty(value = JSON_PROPERTY_TRAFIKANTGRUPPE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Trafikantgruppe getTrafikantgruppe() {
@@ -164,7 +164,7 @@ public class Sideanlegg {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_TRAFIKANTGRUPPE)
+  @JsonProperty(value = JSON_PROPERTY_TRAFIKANTGRUPPE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setTrafikantgruppe(@jakarta.annotation.Nonnull Trafikantgruppe trafikantgruppe) {
     this.trafikantgruppe = trafikantgruppe;
@@ -181,7 +181,7 @@ public class Sideanlegg {
    * @return meter
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_METER)
+  @JsonProperty(value = JSON_PROPERTY_METER, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Double getMeter() {
@@ -189,7 +189,7 @@ public class Sideanlegg {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_METER)
+  @JsonProperty(value = JSON_PROPERTY_METER, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMeter(@jakarta.annotation.Nullable Double meter) {
     this.meter = meter;
@@ -206,7 +206,7 @@ public class Sideanlegg {
    * @return fraMeter
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_FRA_METER)
+  @JsonProperty(value = JSON_PROPERTY_FRA_METER, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Double getFraMeter() {
@@ -214,7 +214,7 @@ public class Sideanlegg {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_FRA_METER)
+  @JsonProperty(value = JSON_PROPERTY_FRA_METER, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFraMeter(@jakarta.annotation.Nullable Double fraMeter) {
     this.fraMeter = fraMeter;
@@ -231,7 +231,7 @@ public class Sideanlegg {
    * @return tilMeter
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_TIL_METER)
+  @JsonProperty(value = JSON_PROPERTY_TIL_METER, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Double getTilMeter() {
@@ -239,7 +239,7 @@ public class Sideanlegg {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_TIL_METER)
+  @JsonProperty(value = JSON_PROPERTY_TIL_METER, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setTilMeter(@jakarta.annotation.Nullable Double tilMeter) {
     this.tilMeter = tilMeter;

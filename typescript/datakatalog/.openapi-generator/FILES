@@ -1,6 +1,7 @@
 .openapi-generator-ignore
 apis/DatakatalogenApi.ts
 apis/index.ts
+docs/DatakatalogenApi.md
 index.ts
 models/Assosiasjonstype.ts
 models/AssosiasjonstypeListeInnhold.ts
@@ -28,9 +29,11 @@ models/Enhet.ts
 models/EnumverdiFlyttall.ts
 models/EnumverdiHeltall.ts
 models/EnumverdiTekst.ts
+models/Example.ts
 models/Kategori.ts
 models/ProblemDetail.ts
 models/ProductSpecification.ts
+models/RegistrationConstraint.ts
 models/Relasjonstyper.ts
 models/Stedfesting.ts
 models/StedfestingEnkel.ts

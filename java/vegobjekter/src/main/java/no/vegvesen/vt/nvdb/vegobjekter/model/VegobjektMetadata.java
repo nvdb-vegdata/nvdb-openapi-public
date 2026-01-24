@@ -1,6 +1,6 @@
 /*
  * NVDB API Les Vegobjekter
- * Dette API-et brukes til å lese vegobjekter. Les mer om bruk av API-et på https://nvdb.atlas.vegvesen.no/produkter/nvdbapil/v4/Vegobjekter
+ * Dette API-et brukes til å lese vegobjekter.<br><br>[Dokumentasjon for Vegobjekter API](https://nvdb-docs.atlas.vegvesen.no/nvdbapil/v4/Vegobjekter)
  *
  * The version of the OpenAPI document: v4
  * Contact: nvdb@vegvesen.no
@@ -35,7 +35,7 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
   VegobjektMetadata.JSON_PROPERTY_SLUTTDATO,
   VegobjektMetadata.JSON_PROPERTY_SIST_MODIFISERT
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.14.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0")
 public class VegobjektMetadata {
   public static final String JSON_PROPERTY_TYPE = "type";
   @jakarta.annotation.Nonnull
@@ -71,7 +71,7 @@ public class VegobjektMetadata {
    * @return type
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonProperty(value = JSON_PROPERTY_TYPE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public VegobjektType getType() {
@@ -79,7 +79,7 @@ public class VegobjektMetadata {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonProperty(value = JSON_PROPERTY_TYPE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setType(@jakarta.annotation.Nonnull VegobjektType type) {
     this.type = type;
@@ -96,7 +96,7 @@ public class VegobjektMetadata {
    * @return versjon
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_VERSJON)
+  @JsonProperty(value = JSON_PROPERTY_VERSJON, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Integer getVersjon() {
@@ -104,7 +104,7 @@ public class VegobjektMetadata {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_VERSJON)
+  @JsonProperty(value = JSON_PROPERTY_VERSJON, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setVersjon(@jakarta.annotation.Nonnull Integer versjon) {
     this.versjon = versjon;
@@ -121,7 +121,7 @@ public class VegobjektMetadata {
    * @return startdato
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_STARTDATO)
+  @JsonProperty(value = JSON_PROPERTY_STARTDATO, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public LocalDate getStartdato() {
@@ -129,7 +129,7 @@ public class VegobjektMetadata {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_STARTDATO)
+  @JsonProperty(value = JSON_PROPERTY_STARTDATO, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setStartdato(@jakarta.annotation.Nonnull LocalDate startdato) {
     this.startdato = startdato;
@@ -146,7 +146,7 @@ public class VegobjektMetadata {
    * @return sluttdato
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SLUTTDATO)
+  @JsonProperty(value = JSON_PROPERTY_SLUTTDATO, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public LocalDate getSluttdato() {
@@ -154,7 +154,7 @@ public class VegobjektMetadata {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_SLUTTDATO)
+  @JsonProperty(value = JSON_PROPERTY_SLUTTDATO, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSluttdato(@jakarta.annotation.Nullable LocalDate sluttdato) {
     this.sluttdato = sluttdato;
@@ -171,7 +171,7 @@ public class VegobjektMetadata {
    * @return sistModifisert
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_SIST_MODIFISERT)
+  @JsonProperty(value = JSON_PROPERTY_SIST_MODIFISERT, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getSistModifisert() {
@@ -179,7 +179,7 @@ public class VegobjektMetadata {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_SIST_MODIFISERT)
+  @JsonProperty(value = JSON_PROPERTY_SIST_MODIFISERT, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setSistModifisert(@jakarta.annotation.Nonnull String sistModifisert) {
     this.sistModifisert = sistModifisert;

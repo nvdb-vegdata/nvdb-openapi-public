@@ -1,6 +1,6 @@
 /*
  * NVDB API Les Vegnett
- * Dette API-et brukes til å lese vegnettelementer. Les mer om bruk av API-et på https://nvdb.test.atlas.vegvesen.no/produkter/nvdbapil/v4/Vegnett
+ * Dette API-et brukes til å lese vegnettelementer.<br><br>[Dokumentasjon for Vegnett API](https://nvdb-docs.atlas.vegvesen.no/nvdbapil/v4/Vegnett)
  *
  * The version of the OpenAPI document: v4
  * Contact: nvdb@vegvesen.no
@@ -37,7 +37,7 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
   AlwaysIncludeMapStringPosisjon.JSON_PROPERTY_MAP,
   AlwaysIncludeMapStringPosisjon.JSON_PROPERTY_EMPTY
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.14.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0")
 public class AlwaysIncludeMapStringPosisjon {
   public static final String JSON_PROPERTY_MAP = "map";
   @jakarta.annotation.Nullable
@@ -69,7 +69,7 @@ public class AlwaysIncludeMapStringPosisjon {
    * @return map
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_MAP)
+  @JsonProperty(value = JSON_PROPERTY_MAP, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Map<String, Posisjon> getMap() {
@@ -77,7 +77,7 @@ public class AlwaysIncludeMapStringPosisjon {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_MAP)
+  @JsonProperty(value = JSON_PROPERTY_MAP, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMap(@jakarta.annotation.Nullable Map<String, Posisjon> map) {
     this.map = map;
@@ -94,7 +94,7 @@ public class AlwaysIncludeMapStringPosisjon {
    * @return empty
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_EMPTY)
+  @JsonProperty(value = JSON_PROPERTY_EMPTY, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Boolean getEmpty() {
@@ -102,7 +102,7 @@ public class AlwaysIncludeMapStringPosisjon {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_EMPTY)
+  @JsonProperty(value = JSON_PROPERTY_EMPTY, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setEmpty(@jakarta.annotation.Nullable Boolean empty) {
     this.empty = empty;

@@ -39,7 +39,7 @@ import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestClient.ResponseSpec;
 import org.springframework.web.client.RestClientResponseException;
 
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.14.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0")
 public class VegobjekterApi {
     private ApiClient apiClient;
 
@@ -58,7 +58,6 @@ public class VegobjekterApi {
     public void setApiClient(ApiClient apiClient) {
         this.apiClient = apiClient;
     }
-
 
     public static class GetVegobjektByIdRequest {
         private @jakarta.annotation.Nonnull Long id;
@@ -173,68 +172,68 @@ public class VegobjekterApi {
     }
 
     /**
-    * Hent enkelt vegobjekt
-    * 
-     * <p><b>500</b> - Internal Server Error
+     * Hent enkelt vegobjekt
+     * 
      * <p><b>400</b> - Bad Request
      * <p><b>404</b> - Not Found
      * <p><b>401</b> - Unauthorized
      * <p><b>403</b> - Forbidden
+     * <p><b>500</b> - Internal Server Error
      * <p><b>200</b> - OK
      * @param requestParameters The getVegobjektById request parameters as object
      * @return Vegobjekt
      * @throws RestClientResponseException if an error occurs while attempting to invoke the API
-    */
+     */
     public Vegobjekt getVegobjektById(GetVegobjektByIdRequest requestParameters) throws RestClientResponseException {
-      return this.getVegobjektById(requestParameters.id(), requestParameters.inkluder(), requestParameters.srid(), requestParameters.inkludergeometri(), requestParameters.inkluderEgenskaper(), requestParameters.dybde(), requestParameters.geometritoleranse(), requestParameters.tidspunkt());
-    }
-
-  /**
-  * Hent enkelt vegobjekt
-  * 
-     * <p><b>500</b> - Internal Server Error
-     * <p><b>400</b> - Bad Request
-     * <p><b>404</b> - Not Found
-     * <p><b>401</b> - Unauthorized
-     * <p><b>403</b> - Forbidden
-     * <p><b>200</b> - OK
-     * @param requestParameters The getVegobjektById request parameters as object
-     * @return ResponseEntity&lt;Vegobjekt&gt;
-     * @throws RestClientResponseException if an error occurs while attempting to invoke the API
-    */
-    public ResponseEntity<Vegobjekt> getVegobjektByIdWithHttpInfo(GetVegobjektByIdRequest requestParameters) throws RestClientResponseException {
-      return this.getVegobjektByIdWithHttpInfo(requestParameters.id(), requestParameters.inkluder(), requestParameters.srid(), requestParameters.inkludergeometri(), requestParameters.inkluderEgenskaper(), requestParameters.dybde(), requestParameters.geometritoleranse(), requestParameters.tidspunkt());
-    }
-
-  /**
-  * Hent enkelt vegobjekt
-  * 
-     * <p><b>500</b> - Internal Server Error
-     * <p><b>400</b> - Bad Request
-     * <p><b>404</b> - Not Found
-     * <p><b>401</b> - Unauthorized
-     * <p><b>403</b> - Forbidden
-     * <p><b>200</b> - OK
-     * @param requestParameters The getVegobjektById request parameters as object
-  * @return ResponseSpec
-  * @throws RestClientResponseException if an error occurs while attempting to invoke the API
-    */
-    public ResponseSpec getVegobjektByIdWithResponseSpec(GetVegobjektByIdRequest requestParameters) throws RestClientResponseException {
-      return this.getVegobjektByIdWithResponseSpec(requestParameters.id(), requestParameters.inkluder(), requestParameters.srid(), requestParameters.inkludergeometri(), requestParameters.inkluderEgenskaper(), requestParameters.dybde(), requestParameters.geometritoleranse(), requestParameters.tidspunkt());
+        return this.getVegobjektById(requestParameters.id(), requestParameters.inkluder(), requestParameters.srid(), requestParameters.inkludergeometri(), requestParameters.inkluderEgenskaper(), requestParameters.dybde(), requestParameters.geometritoleranse(), requestParameters.tidspunkt());
     }
 
     /**
      * Hent enkelt vegobjekt
      * 
-     * <p><b>500</b> - Internal Server Error
      * <p><b>400</b> - Bad Request
      * <p><b>404</b> - Not Found
      * <p><b>401</b> - Unauthorized
      * <p><b>403</b> - Forbidden
+     * <p><b>500</b> - Internal Server Error
+     * <p><b>200</b> - OK
+     * @param requestParameters The getVegobjektById request parameters as object
+     * @return ResponseEntity&lt;Vegobjekt&gt;
+     * @throws RestClientResponseException if an error occurs while attempting to invoke the API
+     */
+    public ResponseEntity<Vegobjekt> getVegobjektByIdWithHttpInfo(GetVegobjektByIdRequest requestParameters) throws RestClientResponseException {
+        return this.getVegobjektByIdWithHttpInfo(requestParameters.id(), requestParameters.inkluder(), requestParameters.srid(), requestParameters.inkludergeometri(), requestParameters.inkluderEgenskaper(), requestParameters.dybde(), requestParameters.geometritoleranse(), requestParameters.tidspunkt());
+    }
+
+    /**
+     * Hent enkelt vegobjekt
+     * 
+     * <p><b>400</b> - Bad Request
+     * <p><b>404</b> - Not Found
+     * <p><b>401</b> - Unauthorized
+     * <p><b>403</b> - Forbidden
+     * <p><b>500</b> - Internal Server Error
+     * <p><b>200</b> - OK
+     * @param requestParameters The getVegobjektById request parameters as object
+     * @return ResponseSpec
+     * @throws RestClientResponseException if an error occurs while attempting to invoke the API
+     */
+    public ResponseSpec getVegobjektByIdWithResponseSpec(GetVegobjektByIdRequest requestParameters) throws RestClientResponseException {
+        return this.getVegobjektByIdWithResponseSpec(requestParameters.id(), requestParameters.inkluder(), requestParameters.srid(), requestParameters.inkludergeometri(), requestParameters.inkluderEgenskaper(), requestParameters.dybde(), requestParameters.geometritoleranse(), requestParameters.tidspunkt());
+    }
+
+    /**
+     * Hent enkelt vegobjekt
+     * 
+     * <p><b>400</b> - Bad Request
+     * <p><b>404</b> - Not Found
+     * <p><b>401</b> - Unauthorized
+     * <p><b>403</b> - Forbidden
+     * <p><b>500</b> - Internal Server Error
      * <p><b>200</b> - OK
      * @param id ID for vegobjekt som skal hentes.
      * @param inkluder Kommaseparert liste over hvilke informasjonselementer som skal returneres i tillegg til vegobjektenes ID.
-     * @param srid Angir hvilket geografisk referansesystem som benyttes for geografisk søk, og som geometrien skal returneres i (hvis relevant). Utdata i UTM-formater begrenses til 3 desimaler, 4326/WGS84 begrenses til 8 desimaler. Mer informasjon: &lt;a href&#x3D;&#39;https://epsg.io/5972&#39;&gt;EPSG:5972&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5973&#39;&gt;EPSG:5973&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5975&#39;&gt;EPSG:5975&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/4326&#39;&gt;EPSG:4326&lt;/a&gt;.
+     * @param srid Angir hvilket geografisk referansesystem geometrien skal returneres i. Utdata i UTM-formater begrenses til 3 desimaler, 4326/WGS84 begrenses til 8 desimaler. Query-parametere med koordinater oppgis i UTM33 for UTM-formater, 4326/WGS84 oppgis dersom srid er 4326/WGS84. Mer informasjon: &lt;a href&#x3D;&#39;https://epsg.io/5972&#39;&gt;EPSG:5972&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5973&#39;&gt;EPSG:5973&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5975&#39;&gt;EPSG:5975&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/4326&#39;&gt;EPSG:4326&lt;/a&gt;.
      * @param inkludergeometri Et vegobjekt har opptil to geometrier, egengeometri og stedfestet geometri. Egengeometrien er plassert under &#x60;vegobjekt.egenskaper&#x60; om den finnes, stedfestet geometri er plassert under &#x60;vegobjekt.lokasjon&#x60;. I tillegg til de nevnte feltene på vegobjekt-responsen returneres også &#x60;vegobjekt.geometri&#x60; (dersom man har &#x60;inkluder&#x3D;geometri&#x60; eller &#x60;alle&#x60;), slik at man alltid finner geometrien for vegobjektet ett sted. Dette feltet er egengeometri dersom objektet har det, hvis ikke har feltet stedfestet geometri Ved hvilken av disse som er tilfelle finner man ut ved å se på &#x60;vegobjekt.geometri.egengeometri&#x60;.
      * @param inkluderEgenskaper Gir mulighet til å filtrere hvilke egenskaper som skal returneres med inkluder&#x3D;egenskaper. &#x60;basis&#x60; er alle egenskaper som ikke er geometri, eller lister av geometri.
      * @param dybde Hvor mange nivå barn skal inkluderes. 1 betyr bare IDer, 2-n betyr ett eller flere mellomnivåer, &#39;full&#39; betyr alle nivåer.
@@ -265,7 +264,7 @@ public class VegobjekterApi {
         queryParams.putAll(apiClient.parameterToMultiValueMap(null, "dybde", dybde));
         queryParams.putAll(apiClient.parameterToMultiValueMap(null, "geometritoleranse", geometritoleranse));
         queryParams.putAll(apiClient.parameterToMultiValueMap(null, "tidspunkt", tidspunkt));
-        
+
         final String[] localVarAccepts = { 
             "*/*"
         };
@@ -282,15 +281,15 @@ public class VegobjekterApi {
     /**
      * Hent enkelt vegobjekt
      * 
-     * <p><b>500</b> - Internal Server Error
      * <p><b>400</b> - Bad Request
      * <p><b>404</b> - Not Found
      * <p><b>401</b> - Unauthorized
      * <p><b>403</b> - Forbidden
+     * <p><b>500</b> - Internal Server Error
      * <p><b>200</b> - OK
      * @param id ID for vegobjekt som skal hentes.
      * @param inkluder Kommaseparert liste over hvilke informasjonselementer som skal returneres i tillegg til vegobjektenes ID.
-     * @param srid Angir hvilket geografisk referansesystem som benyttes for geografisk søk, og som geometrien skal returneres i (hvis relevant). Utdata i UTM-formater begrenses til 3 desimaler, 4326/WGS84 begrenses til 8 desimaler. Mer informasjon: &lt;a href&#x3D;&#39;https://epsg.io/5972&#39;&gt;EPSG:5972&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5973&#39;&gt;EPSG:5973&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5975&#39;&gt;EPSG:5975&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/4326&#39;&gt;EPSG:4326&lt;/a&gt;.
+     * @param srid Angir hvilket geografisk referansesystem geometrien skal returneres i. Utdata i UTM-formater begrenses til 3 desimaler, 4326/WGS84 begrenses til 8 desimaler. Query-parametere med koordinater oppgis i UTM33 for UTM-formater, 4326/WGS84 oppgis dersom srid er 4326/WGS84. Mer informasjon: &lt;a href&#x3D;&#39;https://epsg.io/5972&#39;&gt;EPSG:5972&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5973&#39;&gt;EPSG:5973&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5975&#39;&gt;EPSG:5975&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/4326&#39;&gt;EPSG:4326&lt;/a&gt;.
      * @param inkludergeometri Et vegobjekt har opptil to geometrier, egengeometri og stedfestet geometri. Egengeometrien er plassert under &#x60;vegobjekt.egenskaper&#x60; om den finnes, stedfestet geometri er plassert under &#x60;vegobjekt.lokasjon&#x60;. I tillegg til de nevnte feltene på vegobjekt-responsen returneres også &#x60;vegobjekt.geometri&#x60; (dersom man har &#x60;inkluder&#x3D;geometri&#x60; eller &#x60;alle&#x60;), slik at man alltid finner geometrien for vegobjektet ett sted. Dette feltet er egengeometri dersom objektet har det, hvis ikke har feltet stedfestet geometri Ved hvilken av disse som er tilfelle finner man ut ved å se på &#x60;vegobjekt.geometri.egengeometri&#x60;.
      * @param inkluderEgenskaper Gir mulighet til å filtrere hvilke egenskaper som skal returneres med inkluder&#x3D;egenskaper. &#x60;basis&#x60; er alle egenskaper som ikke er geometri, eller lister av geometri.
      * @param dybde Hvor mange nivå barn skal inkluderes. 1 betyr bare IDer, 2-n betyr ett eller flere mellomnivåer, &#39;full&#39; betyr alle nivåer.
@@ -307,15 +306,15 @@ public class VegobjekterApi {
     /**
      * Hent enkelt vegobjekt
      * 
-     * <p><b>500</b> - Internal Server Error
      * <p><b>400</b> - Bad Request
      * <p><b>404</b> - Not Found
      * <p><b>401</b> - Unauthorized
      * <p><b>403</b> - Forbidden
+     * <p><b>500</b> - Internal Server Error
      * <p><b>200</b> - OK
      * @param id ID for vegobjekt som skal hentes.
      * @param inkluder Kommaseparert liste over hvilke informasjonselementer som skal returneres i tillegg til vegobjektenes ID.
-     * @param srid Angir hvilket geografisk referansesystem som benyttes for geografisk søk, og som geometrien skal returneres i (hvis relevant). Utdata i UTM-formater begrenses til 3 desimaler, 4326/WGS84 begrenses til 8 desimaler. Mer informasjon: &lt;a href&#x3D;&#39;https://epsg.io/5972&#39;&gt;EPSG:5972&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5973&#39;&gt;EPSG:5973&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5975&#39;&gt;EPSG:5975&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/4326&#39;&gt;EPSG:4326&lt;/a&gt;.
+     * @param srid Angir hvilket geografisk referansesystem geometrien skal returneres i. Utdata i UTM-formater begrenses til 3 desimaler, 4326/WGS84 begrenses til 8 desimaler. Query-parametere med koordinater oppgis i UTM33 for UTM-formater, 4326/WGS84 oppgis dersom srid er 4326/WGS84. Mer informasjon: &lt;a href&#x3D;&#39;https://epsg.io/5972&#39;&gt;EPSG:5972&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5973&#39;&gt;EPSG:5973&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5975&#39;&gt;EPSG:5975&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/4326&#39;&gt;EPSG:4326&lt;/a&gt;.
      * @param inkludergeometri Et vegobjekt har opptil to geometrier, egengeometri og stedfestet geometri. Egengeometrien er plassert under &#x60;vegobjekt.egenskaper&#x60; om den finnes, stedfestet geometri er plassert under &#x60;vegobjekt.lokasjon&#x60;. I tillegg til de nevnte feltene på vegobjekt-responsen returneres også &#x60;vegobjekt.geometri&#x60; (dersom man har &#x60;inkluder&#x3D;geometri&#x60; eller &#x60;alle&#x60;), slik at man alltid finner geometrien for vegobjektet ett sted. Dette feltet er egengeometri dersom objektet har det, hvis ikke har feltet stedfestet geometri Ved hvilken av disse som er tilfelle finner man ut ved å se på &#x60;vegobjekt.geometri.egengeometri&#x60;.
      * @param inkluderEgenskaper Gir mulighet til å filtrere hvilke egenskaper som skal returneres med inkluder&#x3D;egenskaper. &#x60;basis&#x60; er alle egenskaper som ikke er geometri, eller lister av geometri.
      * @param dybde Hvor mange nivå barn skal inkluderes. 1 betyr bare IDer, 2-n betyr ett eller flere mellomnivåer, &#39;full&#39; betyr alle nivåer.
@@ -332,15 +331,15 @@ public class VegobjekterApi {
     /**
      * Hent enkelt vegobjekt
      * 
-     * <p><b>500</b> - Internal Server Error
      * <p><b>400</b> - Bad Request
      * <p><b>404</b> - Not Found
      * <p><b>401</b> - Unauthorized
      * <p><b>403</b> - Forbidden
+     * <p><b>500</b> - Internal Server Error
      * <p><b>200</b> - OK
      * @param id ID for vegobjekt som skal hentes.
      * @param inkluder Kommaseparert liste over hvilke informasjonselementer som skal returneres i tillegg til vegobjektenes ID.
-     * @param srid Angir hvilket geografisk referansesystem som benyttes for geografisk søk, og som geometrien skal returneres i (hvis relevant). Utdata i UTM-formater begrenses til 3 desimaler, 4326/WGS84 begrenses til 8 desimaler. Mer informasjon: &lt;a href&#x3D;&#39;https://epsg.io/5972&#39;&gt;EPSG:5972&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5973&#39;&gt;EPSG:5973&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5975&#39;&gt;EPSG:5975&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/4326&#39;&gt;EPSG:4326&lt;/a&gt;.
+     * @param srid Angir hvilket geografisk referansesystem geometrien skal returneres i. Utdata i UTM-formater begrenses til 3 desimaler, 4326/WGS84 begrenses til 8 desimaler. Query-parametere med koordinater oppgis i UTM33 for UTM-formater, 4326/WGS84 oppgis dersom srid er 4326/WGS84. Mer informasjon: &lt;a href&#x3D;&#39;https://epsg.io/5972&#39;&gt;EPSG:5972&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5973&#39;&gt;EPSG:5973&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5975&#39;&gt;EPSG:5975&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/4326&#39;&gt;EPSG:4326&lt;/a&gt;.
      * @param inkludergeometri Et vegobjekt har opptil to geometrier, egengeometri og stedfestet geometri. Egengeometrien er plassert under &#x60;vegobjekt.egenskaper&#x60; om den finnes, stedfestet geometri er plassert under &#x60;vegobjekt.lokasjon&#x60;. I tillegg til de nevnte feltene på vegobjekt-responsen returneres også &#x60;vegobjekt.geometri&#x60; (dersom man har &#x60;inkluder&#x3D;geometri&#x60; eller &#x60;alle&#x60;), slik at man alltid finner geometrien for vegobjektet ett sted. Dette feltet er egengeometri dersom objektet har det, hvis ikke har feltet stedfestet geometri Ved hvilken av disse som er tilfelle finner man ut ved å se på &#x60;vegobjekt.geometri.egengeometri&#x60;.
      * @param inkluderEgenskaper Gir mulighet til å filtrere hvilke egenskaper som skal returneres med inkluder&#x3D;egenskaper. &#x60;basis&#x60; er alle egenskaper som ikke er geometri, eller lister av geometri.
      * @param dybde Hvor mange nivå barn skal inkluderes. 1 betyr bare IDer, 2-n betyr ett eller flere mellomnivåer, &#39;full&#39; betyr alle nivåer.
@@ -477,69 +476,69 @@ public class VegobjekterApi {
     }
 
     /**
-    * Hent gjeldende versjon av et vegobjekt
-    * 
-     * <p><b>500</b> - Internal Server Error
+     * Hent gjeldende versjon av et vegobjekt
+     * 
      * <p><b>400</b> - Bad Request
      * <p><b>404</b> - Not Found
      * <p><b>401</b> - Unauthorized
      * <p><b>403</b> - Forbidden
+     * <p><b>500</b> - Internal Server Error
      * <p><b>200</b> - OK
      * @param requestParameters The getVegobjektByTypeAndId request parameters as object
      * @return Vegobjekt
      * @throws RestClientResponseException if an error occurs while attempting to invoke the API
-    */
+     */
     public Vegobjekt getVegobjektByTypeAndId(GetVegobjektByTypeAndIdRequest requestParameters) throws RestClientResponseException {
-      return this.getVegobjektByTypeAndId(requestParameters.vegobjekttypeId(), requestParameters.vegobjektId(), requestParameters.inkluder(), requestParameters.srid(), requestParameters.inkludergeometri(), requestParameters.inkluderEgenskaper(), requestParameters.dybde(), requestParameters.geometritoleranse(), requestParameters.tidspunkt());
-    }
-
-  /**
-  * Hent gjeldende versjon av et vegobjekt
-  * 
-     * <p><b>500</b> - Internal Server Error
-     * <p><b>400</b> - Bad Request
-     * <p><b>404</b> - Not Found
-     * <p><b>401</b> - Unauthorized
-     * <p><b>403</b> - Forbidden
-     * <p><b>200</b> - OK
-     * @param requestParameters The getVegobjektByTypeAndId request parameters as object
-     * @return ResponseEntity&lt;Vegobjekt&gt;
-     * @throws RestClientResponseException if an error occurs while attempting to invoke the API
-    */
-    public ResponseEntity<Vegobjekt> getVegobjektByTypeAndIdWithHttpInfo(GetVegobjektByTypeAndIdRequest requestParameters) throws RestClientResponseException {
-      return this.getVegobjektByTypeAndIdWithHttpInfo(requestParameters.vegobjekttypeId(), requestParameters.vegobjektId(), requestParameters.inkluder(), requestParameters.srid(), requestParameters.inkludergeometri(), requestParameters.inkluderEgenskaper(), requestParameters.dybde(), requestParameters.geometritoleranse(), requestParameters.tidspunkt());
-    }
-
-  /**
-  * Hent gjeldende versjon av et vegobjekt
-  * 
-     * <p><b>500</b> - Internal Server Error
-     * <p><b>400</b> - Bad Request
-     * <p><b>404</b> - Not Found
-     * <p><b>401</b> - Unauthorized
-     * <p><b>403</b> - Forbidden
-     * <p><b>200</b> - OK
-     * @param requestParameters The getVegobjektByTypeAndId request parameters as object
-  * @return ResponseSpec
-  * @throws RestClientResponseException if an error occurs while attempting to invoke the API
-    */
-    public ResponseSpec getVegobjektByTypeAndIdWithResponseSpec(GetVegobjektByTypeAndIdRequest requestParameters) throws RestClientResponseException {
-      return this.getVegobjektByTypeAndIdWithResponseSpec(requestParameters.vegobjekttypeId(), requestParameters.vegobjektId(), requestParameters.inkluder(), requestParameters.srid(), requestParameters.inkludergeometri(), requestParameters.inkluderEgenskaper(), requestParameters.dybde(), requestParameters.geometritoleranse(), requestParameters.tidspunkt());
+        return this.getVegobjektByTypeAndId(requestParameters.vegobjekttypeId(), requestParameters.vegobjektId(), requestParameters.inkluder(), requestParameters.srid(), requestParameters.inkludergeometri(), requestParameters.inkluderEgenskaper(), requestParameters.dybde(), requestParameters.geometritoleranse(), requestParameters.tidspunkt());
     }
 
     /**
      * Hent gjeldende versjon av et vegobjekt
      * 
-     * <p><b>500</b> - Internal Server Error
      * <p><b>400</b> - Bad Request
      * <p><b>404</b> - Not Found
      * <p><b>401</b> - Unauthorized
      * <p><b>403</b> - Forbidden
+     * <p><b>500</b> - Internal Server Error
+     * <p><b>200</b> - OK
+     * @param requestParameters The getVegobjektByTypeAndId request parameters as object
+     * @return ResponseEntity&lt;Vegobjekt&gt;
+     * @throws RestClientResponseException if an error occurs while attempting to invoke the API
+     */
+    public ResponseEntity<Vegobjekt> getVegobjektByTypeAndIdWithHttpInfo(GetVegobjektByTypeAndIdRequest requestParameters) throws RestClientResponseException {
+        return this.getVegobjektByTypeAndIdWithHttpInfo(requestParameters.vegobjekttypeId(), requestParameters.vegobjektId(), requestParameters.inkluder(), requestParameters.srid(), requestParameters.inkludergeometri(), requestParameters.inkluderEgenskaper(), requestParameters.dybde(), requestParameters.geometritoleranse(), requestParameters.tidspunkt());
+    }
+
+    /**
+     * Hent gjeldende versjon av et vegobjekt
+     * 
+     * <p><b>400</b> - Bad Request
+     * <p><b>404</b> - Not Found
+     * <p><b>401</b> - Unauthorized
+     * <p><b>403</b> - Forbidden
+     * <p><b>500</b> - Internal Server Error
+     * <p><b>200</b> - OK
+     * @param requestParameters The getVegobjektByTypeAndId request parameters as object
+     * @return ResponseSpec
+     * @throws RestClientResponseException if an error occurs while attempting to invoke the API
+     */
+    public ResponseSpec getVegobjektByTypeAndIdWithResponseSpec(GetVegobjektByTypeAndIdRequest requestParameters) throws RestClientResponseException {
+        return this.getVegobjektByTypeAndIdWithResponseSpec(requestParameters.vegobjekttypeId(), requestParameters.vegobjektId(), requestParameters.inkluder(), requestParameters.srid(), requestParameters.inkludergeometri(), requestParameters.inkluderEgenskaper(), requestParameters.dybde(), requestParameters.geometritoleranse(), requestParameters.tidspunkt());
+    }
+
+    /**
+     * Hent gjeldende versjon av et vegobjekt
+     * 
+     * <p><b>400</b> - Bad Request
+     * <p><b>404</b> - Not Found
+     * <p><b>401</b> - Unauthorized
+     * <p><b>403</b> - Forbidden
+     * <p><b>500</b> - Internal Server Error
      * <p><b>200</b> - OK
      * @param vegobjekttypeId Finn vegobjekter med denne vegobjekttypen. Se [Datakatalogen](https://datakatalogen.atlas.vegvesen.no) for mulige verdier.  Eksempel: 581         
      * @param vegobjektId The vegobjektId parameter
      * @param inkluder Kommaseparert liste over hvilke informasjonselementer som skal returneres i tillegg til vegobjektenes ID.
-     * @param srid Angir hvilket geografisk referansesystem som benyttes for geografisk søk, og som geometrien skal returneres i (hvis relevant). Utdata i UTM-formater begrenses til 3 desimaler, 4326/WGS84 begrenses til 8 desimaler. Mer informasjon: &lt;a href&#x3D;&#39;https://epsg.io/5972&#39;&gt;EPSG:5972&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5973&#39;&gt;EPSG:5973&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5975&#39;&gt;EPSG:5975&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/4326&#39;&gt;EPSG:4326&lt;/a&gt;.
+     * @param srid Angir hvilket geografisk referansesystem geometrien skal returneres i. Utdata i UTM-formater begrenses til 3 desimaler, 4326/WGS84 begrenses til 8 desimaler. Query-parametere med koordinater oppgis i UTM33 for UTM-formater, 4326/WGS84 oppgis dersom srid er 4326/WGS84. Mer informasjon: &lt;a href&#x3D;&#39;https://epsg.io/5972&#39;&gt;EPSG:5972&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5973&#39;&gt;EPSG:5973&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5975&#39;&gt;EPSG:5975&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/4326&#39;&gt;EPSG:4326&lt;/a&gt;.
      * @param inkludergeometri Et vegobjekt har opptil to geometrier, egengeometri og stedfestet geometri. Egengeometrien er plassert under &#x60;vegobjekt.egenskaper&#x60; om den finnes, stedfestet geometri er plassert under &#x60;vegobjekt.lokasjon&#x60;. I tillegg til de nevnte feltene på vegobjekt-responsen returneres også &#x60;vegobjekt.geometri&#x60; (dersom man har &#x60;inkluder&#x3D;geometri&#x60; eller &#x60;alle&#x60;), slik at man alltid finner geometrien for vegobjektet ett sted. Dette feltet er egengeometri dersom objektet har det, hvis ikke har feltet stedfestet geometri Ved hvilken av disse som er tilfelle finner man ut ved å se på &#x60;vegobjekt.geometri.egengeometri&#x60;.
      * @param inkluderEgenskaper Gir mulighet til å filtrere hvilke egenskaper som skal returneres med inkluder&#x3D;egenskaper. &#x60;basis&#x60; er alle egenskaper som ikke er geometri, eller lister av geometri.
      * @param dybde Hvor mange nivå barn skal inkluderes. 1 betyr bare IDer, 2-n betyr ett eller flere mellomnivåer, &#39;full&#39; betyr alle nivåer.
@@ -576,7 +575,7 @@ public class VegobjekterApi {
         queryParams.putAll(apiClient.parameterToMultiValueMap(null, "dybde", dybde));
         queryParams.putAll(apiClient.parameterToMultiValueMap(null, "geometritoleranse", geometritoleranse));
         queryParams.putAll(apiClient.parameterToMultiValueMap(null, "tidspunkt", tidspunkt));
-        
+
         final String[] localVarAccepts = { 
             "*/*"
         };
@@ -593,16 +592,16 @@ public class VegobjekterApi {
     /**
      * Hent gjeldende versjon av et vegobjekt
      * 
-     * <p><b>500</b> - Internal Server Error
      * <p><b>400</b> - Bad Request
      * <p><b>404</b> - Not Found
      * <p><b>401</b> - Unauthorized
      * <p><b>403</b> - Forbidden
+     * <p><b>500</b> - Internal Server Error
      * <p><b>200</b> - OK
      * @param vegobjekttypeId Finn vegobjekter med denne vegobjekttypen. Se [Datakatalogen](https://datakatalogen.atlas.vegvesen.no) for mulige verdier.  Eksempel: 581         
      * @param vegobjektId The vegobjektId parameter
      * @param inkluder Kommaseparert liste over hvilke informasjonselementer som skal returneres i tillegg til vegobjektenes ID.
-     * @param srid Angir hvilket geografisk referansesystem som benyttes for geografisk søk, og som geometrien skal returneres i (hvis relevant). Utdata i UTM-formater begrenses til 3 desimaler, 4326/WGS84 begrenses til 8 desimaler. Mer informasjon: &lt;a href&#x3D;&#39;https://epsg.io/5972&#39;&gt;EPSG:5972&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5973&#39;&gt;EPSG:5973&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5975&#39;&gt;EPSG:5975&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/4326&#39;&gt;EPSG:4326&lt;/a&gt;.
+     * @param srid Angir hvilket geografisk referansesystem geometrien skal returneres i. Utdata i UTM-formater begrenses til 3 desimaler, 4326/WGS84 begrenses til 8 desimaler. Query-parametere med koordinater oppgis i UTM33 for UTM-formater, 4326/WGS84 oppgis dersom srid er 4326/WGS84. Mer informasjon: &lt;a href&#x3D;&#39;https://epsg.io/5972&#39;&gt;EPSG:5972&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5973&#39;&gt;EPSG:5973&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5975&#39;&gt;EPSG:5975&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/4326&#39;&gt;EPSG:4326&lt;/a&gt;.
      * @param inkludergeometri Et vegobjekt har opptil to geometrier, egengeometri og stedfestet geometri. Egengeometrien er plassert under &#x60;vegobjekt.egenskaper&#x60; om den finnes, stedfestet geometri er plassert under &#x60;vegobjekt.lokasjon&#x60;. I tillegg til de nevnte feltene på vegobjekt-responsen returneres også &#x60;vegobjekt.geometri&#x60; (dersom man har &#x60;inkluder&#x3D;geometri&#x60; eller &#x60;alle&#x60;), slik at man alltid finner geometrien for vegobjektet ett sted. Dette feltet er egengeometri dersom objektet har det, hvis ikke har feltet stedfestet geometri Ved hvilken av disse som er tilfelle finner man ut ved å se på &#x60;vegobjekt.geometri.egengeometri&#x60;.
      * @param inkluderEgenskaper Gir mulighet til å filtrere hvilke egenskaper som skal returneres med inkluder&#x3D;egenskaper. &#x60;basis&#x60; er alle egenskaper som ikke er geometri, eller lister av geometri.
      * @param dybde Hvor mange nivå barn skal inkluderes. 1 betyr bare IDer, 2-n betyr ett eller flere mellomnivåer, &#39;full&#39; betyr alle nivåer.
@@ -619,16 +618,16 @@ public class VegobjekterApi {
     /**
      * Hent gjeldende versjon av et vegobjekt
      * 
-     * <p><b>500</b> - Internal Server Error
      * <p><b>400</b> - Bad Request
      * <p><b>404</b> - Not Found
      * <p><b>401</b> - Unauthorized
      * <p><b>403</b> - Forbidden
+     * <p><b>500</b> - Internal Server Error
      * <p><b>200</b> - OK
      * @param vegobjekttypeId Finn vegobjekter med denne vegobjekttypen. Se [Datakatalogen](https://datakatalogen.atlas.vegvesen.no) for mulige verdier.  Eksempel: 581         
      * @param vegobjektId The vegobjektId parameter
      * @param inkluder Kommaseparert liste over hvilke informasjonselementer som skal returneres i tillegg til vegobjektenes ID.
-     * @param srid Angir hvilket geografisk referansesystem som benyttes for geografisk søk, og som geometrien skal returneres i (hvis relevant). Utdata i UTM-formater begrenses til 3 desimaler, 4326/WGS84 begrenses til 8 desimaler. Mer informasjon: &lt;a href&#x3D;&#39;https://epsg.io/5972&#39;&gt;EPSG:5972&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5973&#39;&gt;EPSG:5973&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5975&#39;&gt;EPSG:5975&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/4326&#39;&gt;EPSG:4326&lt;/a&gt;.
+     * @param srid Angir hvilket geografisk referansesystem geometrien skal returneres i. Utdata i UTM-formater begrenses til 3 desimaler, 4326/WGS84 begrenses til 8 desimaler. Query-parametere med koordinater oppgis i UTM33 for UTM-formater, 4326/WGS84 oppgis dersom srid er 4326/WGS84. Mer informasjon: &lt;a href&#x3D;&#39;https://epsg.io/5972&#39;&gt;EPSG:5972&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5973&#39;&gt;EPSG:5973&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5975&#39;&gt;EPSG:5975&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/4326&#39;&gt;EPSG:4326&lt;/a&gt;.
      * @param inkludergeometri Et vegobjekt har opptil to geometrier, egengeometri og stedfestet geometri. Egengeometrien er plassert under &#x60;vegobjekt.egenskaper&#x60; om den finnes, stedfestet geometri er plassert under &#x60;vegobjekt.lokasjon&#x60;. I tillegg til de nevnte feltene på vegobjekt-responsen returneres også &#x60;vegobjekt.geometri&#x60; (dersom man har &#x60;inkluder&#x3D;geometri&#x60; eller &#x60;alle&#x60;), slik at man alltid finner geometrien for vegobjektet ett sted. Dette feltet er egengeometri dersom objektet har det, hvis ikke har feltet stedfestet geometri Ved hvilken av disse som er tilfelle finner man ut ved å se på &#x60;vegobjekt.geometri.egengeometri&#x60;.
      * @param inkluderEgenskaper Gir mulighet til å filtrere hvilke egenskaper som skal returneres med inkluder&#x3D;egenskaper. &#x60;basis&#x60; er alle egenskaper som ikke er geometri, eller lister av geometri.
      * @param dybde Hvor mange nivå barn skal inkluderes. 1 betyr bare IDer, 2-n betyr ett eller flere mellomnivåer, &#39;full&#39; betyr alle nivåer.
@@ -645,16 +644,16 @@ public class VegobjekterApi {
     /**
      * Hent gjeldende versjon av et vegobjekt
      * 
-     * <p><b>500</b> - Internal Server Error
      * <p><b>400</b> - Bad Request
      * <p><b>404</b> - Not Found
      * <p><b>401</b> - Unauthorized
      * <p><b>403</b> - Forbidden
+     * <p><b>500</b> - Internal Server Error
      * <p><b>200</b> - OK
      * @param vegobjekttypeId Finn vegobjekter med denne vegobjekttypen. Se [Datakatalogen](https://datakatalogen.atlas.vegvesen.no) for mulige verdier.  Eksempel: 581         
      * @param vegobjektId The vegobjektId parameter
      * @param inkluder Kommaseparert liste over hvilke informasjonselementer som skal returneres i tillegg til vegobjektenes ID.
-     * @param srid Angir hvilket geografisk referansesystem som benyttes for geografisk søk, og som geometrien skal returneres i (hvis relevant). Utdata i UTM-formater begrenses til 3 desimaler, 4326/WGS84 begrenses til 8 desimaler. Mer informasjon: &lt;a href&#x3D;&#39;https://epsg.io/5972&#39;&gt;EPSG:5972&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5973&#39;&gt;EPSG:5973&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5975&#39;&gt;EPSG:5975&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/4326&#39;&gt;EPSG:4326&lt;/a&gt;.
+     * @param srid Angir hvilket geografisk referansesystem geometrien skal returneres i. Utdata i UTM-formater begrenses til 3 desimaler, 4326/WGS84 begrenses til 8 desimaler. Query-parametere med koordinater oppgis i UTM33 for UTM-formater, 4326/WGS84 oppgis dersom srid er 4326/WGS84. Mer informasjon: &lt;a href&#x3D;&#39;https://epsg.io/5972&#39;&gt;EPSG:5972&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5973&#39;&gt;EPSG:5973&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5975&#39;&gt;EPSG:5975&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/4326&#39;&gt;EPSG:4326&lt;/a&gt;.
      * @param inkludergeometri Et vegobjekt har opptil to geometrier, egengeometri og stedfestet geometri. Egengeometrien er plassert under &#x60;vegobjekt.egenskaper&#x60; om den finnes, stedfestet geometri er plassert under &#x60;vegobjekt.lokasjon&#x60;. I tillegg til de nevnte feltene på vegobjekt-responsen returneres også &#x60;vegobjekt.geometri&#x60; (dersom man har &#x60;inkluder&#x3D;geometri&#x60; eller &#x60;alle&#x60;), slik at man alltid finner geometrien for vegobjektet ett sted. Dette feltet er egengeometri dersom objektet har det, hvis ikke har feltet stedfestet geometri Ved hvilken av disse som er tilfelle finner man ut ved å se på &#x60;vegobjekt.geometri.egengeometri&#x60;.
      * @param inkluderEgenskaper Gir mulighet til å filtrere hvilke egenskaper som skal returneres med inkluder&#x3D;egenskaper. &#x60;basis&#x60; er alle egenskaper som ikke er geometri, eller lister av geometri.
      * @param dybde Hvor mange nivå barn skal inkluderes. 1 betyr bare IDer, 2-n betyr ett eller flere mellomnivåer, &#39;full&#39; betyr alle nivåer.
@@ -802,70 +801,70 @@ public class VegobjekterApi {
     }
 
     /**
-    * Hent spesifikk versjon av et vegobjekt
-    * 
-     * <p><b>500</b> - Internal Server Error
+     * Hent spesifikk versjon av et vegobjekt
+     * 
      * <p><b>400</b> - Bad Request
      * <p><b>404</b> - Not Found
      * <p><b>401</b> - Unauthorized
      * <p><b>403</b> - Forbidden
+     * <p><b>500</b> - Internal Server Error
      * <p><b>200</b> - OK
      * @param requestParameters The getVegobjektByTypeIdAndVersjon request parameters as object
      * @return Vegobjekt
      * @throws RestClientResponseException if an error occurs while attempting to invoke the API
-    */
+     */
     public Vegobjekt getVegobjektByTypeIdAndVersjon(GetVegobjektByTypeIdAndVersjonRequest requestParameters) throws RestClientResponseException {
-      return this.getVegobjektByTypeIdAndVersjon(requestParameters.vegobjekttypeId(), requestParameters.vegobjektId(), requestParameters.versjon(), requestParameters.inkluder(), requestParameters.srid(), requestParameters.inkludergeometri(), requestParameters.inkluderEgenskaper(), requestParameters.dybde(), requestParameters.geometritoleranse(), requestParameters.tidspunkt());
-    }
-
-  /**
-  * Hent spesifikk versjon av et vegobjekt
-  * 
-     * <p><b>500</b> - Internal Server Error
-     * <p><b>400</b> - Bad Request
-     * <p><b>404</b> - Not Found
-     * <p><b>401</b> - Unauthorized
-     * <p><b>403</b> - Forbidden
-     * <p><b>200</b> - OK
-     * @param requestParameters The getVegobjektByTypeIdAndVersjon request parameters as object
-     * @return ResponseEntity&lt;Vegobjekt&gt;
-     * @throws RestClientResponseException if an error occurs while attempting to invoke the API
-    */
-    public ResponseEntity<Vegobjekt> getVegobjektByTypeIdAndVersjonWithHttpInfo(GetVegobjektByTypeIdAndVersjonRequest requestParameters) throws RestClientResponseException {
-      return this.getVegobjektByTypeIdAndVersjonWithHttpInfo(requestParameters.vegobjekttypeId(), requestParameters.vegobjektId(), requestParameters.versjon(), requestParameters.inkluder(), requestParameters.srid(), requestParameters.inkludergeometri(), requestParameters.inkluderEgenskaper(), requestParameters.dybde(), requestParameters.geometritoleranse(), requestParameters.tidspunkt());
-    }
-
-  /**
-  * Hent spesifikk versjon av et vegobjekt
-  * 
-     * <p><b>500</b> - Internal Server Error
-     * <p><b>400</b> - Bad Request
-     * <p><b>404</b> - Not Found
-     * <p><b>401</b> - Unauthorized
-     * <p><b>403</b> - Forbidden
-     * <p><b>200</b> - OK
-     * @param requestParameters The getVegobjektByTypeIdAndVersjon request parameters as object
-  * @return ResponseSpec
-  * @throws RestClientResponseException if an error occurs while attempting to invoke the API
-    */
-    public ResponseSpec getVegobjektByTypeIdAndVersjonWithResponseSpec(GetVegobjektByTypeIdAndVersjonRequest requestParameters) throws RestClientResponseException {
-      return this.getVegobjektByTypeIdAndVersjonWithResponseSpec(requestParameters.vegobjekttypeId(), requestParameters.vegobjektId(), requestParameters.versjon(), requestParameters.inkluder(), requestParameters.srid(), requestParameters.inkludergeometri(), requestParameters.inkluderEgenskaper(), requestParameters.dybde(), requestParameters.geometritoleranse(), requestParameters.tidspunkt());
+        return this.getVegobjektByTypeIdAndVersjon(requestParameters.vegobjekttypeId(), requestParameters.vegobjektId(), requestParameters.versjon(), requestParameters.inkluder(), requestParameters.srid(), requestParameters.inkludergeometri(), requestParameters.inkluderEgenskaper(), requestParameters.dybde(), requestParameters.geometritoleranse(), requestParameters.tidspunkt());
     }
 
     /**
      * Hent spesifikk versjon av et vegobjekt
      * 
-     * <p><b>500</b> - Internal Server Error
      * <p><b>400</b> - Bad Request
      * <p><b>404</b> - Not Found
      * <p><b>401</b> - Unauthorized
      * <p><b>403</b> - Forbidden
+     * <p><b>500</b> - Internal Server Error
+     * <p><b>200</b> - OK
+     * @param requestParameters The getVegobjektByTypeIdAndVersjon request parameters as object
+     * @return ResponseEntity&lt;Vegobjekt&gt;
+     * @throws RestClientResponseException if an error occurs while attempting to invoke the API
+     */
+    public ResponseEntity<Vegobjekt> getVegobjektByTypeIdAndVersjonWithHttpInfo(GetVegobjektByTypeIdAndVersjonRequest requestParameters) throws RestClientResponseException {
+        return this.getVegobjektByTypeIdAndVersjonWithHttpInfo(requestParameters.vegobjekttypeId(), requestParameters.vegobjektId(), requestParameters.versjon(), requestParameters.inkluder(), requestParameters.srid(), requestParameters.inkludergeometri(), requestParameters.inkluderEgenskaper(), requestParameters.dybde(), requestParameters.geometritoleranse(), requestParameters.tidspunkt());
+    }
+
+    /**
+     * Hent spesifikk versjon av et vegobjekt
+     * 
+     * <p><b>400</b> - Bad Request
+     * <p><b>404</b> - Not Found
+     * <p><b>401</b> - Unauthorized
+     * <p><b>403</b> - Forbidden
+     * <p><b>500</b> - Internal Server Error
+     * <p><b>200</b> - OK
+     * @param requestParameters The getVegobjektByTypeIdAndVersjon request parameters as object
+     * @return ResponseSpec
+     * @throws RestClientResponseException if an error occurs while attempting to invoke the API
+     */
+    public ResponseSpec getVegobjektByTypeIdAndVersjonWithResponseSpec(GetVegobjektByTypeIdAndVersjonRequest requestParameters) throws RestClientResponseException {
+        return this.getVegobjektByTypeIdAndVersjonWithResponseSpec(requestParameters.vegobjekttypeId(), requestParameters.vegobjektId(), requestParameters.versjon(), requestParameters.inkluder(), requestParameters.srid(), requestParameters.inkludergeometri(), requestParameters.inkluderEgenskaper(), requestParameters.dybde(), requestParameters.geometritoleranse(), requestParameters.tidspunkt());
+    }
+
+    /**
+     * Hent spesifikk versjon av et vegobjekt
+     * 
+     * <p><b>400</b> - Bad Request
+     * <p><b>404</b> - Not Found
+     * <p><b>401</b> - Unauthorized
+     * <p><b>403</b> - Forbidden
+     * <p><b>500</b> - Internal Server Error
      * <p><b>200</b> - OK
      * @param vegobjekttypeId Finn vegobjekter med denne vegobjekttypen. Se [Datakatalogen](https://datakatalogen.atlas.vegvesen.no) for mulige verdier.  Eksempel: 581         
      * @param vegobjektId The vegobjektId parameter
      * @param versjon The versjon parameter
      * @param inkluder Kommaseparert liste over hvilke informasjonselementer som skal returneres i tillegg til vegobjektenes ID.
-     * @param srid Angir hvilket geografisk referansesystem som benyttes for geografisk søk, og som geometrien skal returneres i (hvis relevant). Utdata i UTM-formater begrenses til 3 desimaler, 4326/WGS84 begrenses til 8 desimaler. Mer informasjon: &lt;a href&#x3D;&#39;https://epsg.io/5972&#39;&gt;EPSG:5972&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5973&#39;&gt;EPSG:5973&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5975&#39;&gt;EPSG:5975&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/4326&#39;&gt;EPSG:4326&lt;/a&gt;.
+     * @param srid Angir hvilket geografisk referansesystem geometrien skal returneres i. Utdata i UTM-formater begrenses til 3 desimaler, 4326/WGS84 begrenses til 8 desimaler. Query-parametere med koordinater oppgis i UTM33 for UTM-formater, 4326/WGS84 oppgis dersom srid er 4326/WGS84. Mer informasjon: &lt;a href&#x3D;&#39;https://epsg.io/5972&#39;&gt;EPSG:5972&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5973&#39;&gt;EPSG:5973&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5975&#39;&gt;EPSG:5975&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/4326&#39;&gt;EPSG:4326&lt;/a&gt;.
      * @param inkludergeometri Et vegobjekt har opptil to geometrier, egengeometri og stedfestet geometri. Egengeometrien er plassert under &#x60;vegobjekt.egenskaper&#x60; om den finnes, stedfestet geometri er plassert under &#x60;vegobjekt.lokasjon&#x60;. I tillegg til de nevnte feltene på vegobjekt-responsen returneres også &#x60;vegobjekt.geometri&#x60; (dersom man har &#x60;inkluder&#x3D;geometri&#x60; eller &#x60;alle&#x60;), slik at man alltid finner geometrien for vegobjektet ett sted. Dette feltet er egengeometri dersom objektet har det, hvis ikke har feltet stedfestet geometri Ved hvilken av disse som er tilfelle finner man ut ved å se på &#x60;vegobjekt.geometri.egengeometri&#x60;.
      * @param inkluderEgenskaper Gir mulighet til å filtrere hvilke egenskaper som skal returneres med inkluder&#x3D;egenskaper. &#x60;basis&#x60; er alle egenskaper som ikke er geometri, eller lister av geometri.
      * @param dybde Hvor mange nivå barn skal inkluderes. 1 betyr bare IDer, 2-n betyr ett eller flere mellomnivåer, &#39;full&#39; betyr alle nivåer.
@@ -907,7 +906,7 @@ public class VegobjekterApi {
         queryParams.putAll(apiClient.parameterToMultiValueMap(null, "dybde", dybde));
         queryParams.putAll(apiClient.parameterToMultiValueMap(null, "geometritoleranse", geometritoleranse));
         queryParams.putAll(apiClient.parameterToMultiValueMap(null, "tidspunkt", tidspunkt));
-        
+
         final String[] localVarAccepts = { 
             "*/*"
         };
@@ -924,17 +923,17 @@ public class VegobjekterApi {
     /**
      * Hent spesifikk versjon av et vegobjekt
      * 
-     * <p><b>500</b> - Internal Server Error
      * <p><b>400</b> - Bad Request
      * <p><b>404</b> - Not Found
      * <p><b>401</b> - Unauthorized
      * <p><b>403</b> - Forbidden
+     * <p><b>500</b> - Internal Server Error
      * <p><b>200</b> - OK
      * @param vegobjekttypeId Finn vegobjekter med denne vegobjekttypen. Se [Datakatalogen](https://datakatalogen.atlas.vegvesen.no) for mulige verdier.  Eksempel: 581         
      * @param vegobjektId The vegobjektId parameter
      * @param versjon The versjon parameter
      * @param inkluder Kommaseparert liste over hvilke informasjonselementer som skal returneres i tillegg til vegobjektenes ID.
-     * @param srid Angir hvilket geografisk referansesystem som benyttes for geografisk søk, og som geometrien skal returneres i (hvis relevant). Utdata i UTM-formater begrenses til 3 desimaler, 4326/WGS84 begrenses til 8 desimaler. Mer informasjon: &lt;a href&#x3D;&#39;https://epsg.io/5972&#39;&gt;EPSG:5972&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5973&#39;&gt;EPSG:5973&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5975&#39;&gt;EPSG:5975&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/4326&#39;&gt;EPSG:4326&lt;/a&gt;.
+     * @param srid Angir hvilket geografisk referansesystem geometrien skal returneres i. Utdata i UTM-formater begrenses til 3 desimaler, 4326/WGS84 begrenses til 8 desimaler. Query-parametere med koordinater oppgis i UTM33 for UTM-formater, 4326/WGS84 oppgis dersom srid er 4326/WGS84. Mer informasjon: &lt;a href&#x3D;&#39;https://epsg.io/5972&#39;&gt;EPSG:5972&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5973&#39;&gt;EPSG:5973&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5975&#39;&gt;EPSG:5975&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/4326&#39;&gt;EPSG:4326&lt;/a&gt;.
      * @param inkludergeometri Et vegobjekt har opptil to geometrier, egengeometri og stedfestet geometri. Egengeometrien er plassert under &#x60;vegobjekt.egenskaper&#x60; om den finnes, stedfestet geometri er plassert under &#x60;vegobjekt.lokasjon&#x60;. I tillegg til de nevnte feltene på vegobjekt-responsen returneres også &#x60;vegobjekt.geometri&#x60; (dersom man har &#x60;inkluder&#x3D;geometri&#x60; eller &#x60;alle&#x60;), slik at man alltid finner geometrien for vegobjektet ett sted. Dette feltet er egengeometri dersom objektet har det, hvis ikke har feltet stedfestet geometri Ved hvilken av disse som er tilfelle finner man ut ved å se på &#x60;vegobjekt.geometri.egengeometri&#x60;.
      * @param inkluderEgenskaper Gir mulighet til å filtrere hvilke egenskaper som skal returneres med inkluder&#x3D;egenskaper. &#x60;basis&#x60; er alle egenskaper som ikke er geometri, eller lister av geometri.
      * @param dybde Hvor mange nivå barn skal inkluderes. 1 betyr bare IDer, 2-n betyr ett eller flere mellomnivåer, &#39;full&#39; betyr alle nivåer.
@@ -951,17 +950,17 @@ public class VegobjekterApi {
     /**
      * Hent spesifikk versjon av et vegobjekt
      * 
-     * <p><b>500</b> - Internal Server Error
      * <p><b>400</b> - Bad Request
      * <p><b>404</b> - Not Found
      * <p><b>401</b> - Unauthorized
      * <p><b>403</b> - Forbidden
+     * <p><b>500</b> - Internal Server Error
      * <p><b>200</b> - OK
      * @param vegobjekttypeId Finn vegobjekter med denne vegobjekttypen. Se [Datakatalogen](https://datakatalogen.atlas.vegvesen.no) for mulige verdier.  Eksempel: 581         
      * @param vegobjektId The vegobjektId parameter
      * @param versjon The versjon parameter
      * @param inkluder Kommaseparert liste over hvilke informasjonselementer som skal returneres i tillegg til vegobjektenes ID.
-     * @param srid Angir hvilket geografisk referansesystem som benyttes for geografisk søk, og som geometrien skal returneres i (hvis relevant). Utdata i UTM-formater begrenses til 3 desimaler, 4326/WGS84 begrenses til 8 desimaler. Mer informasjon: &lt;a href&#x3D;&#39;https://epsg.io/5972&#39;&gt;EPSG:5972&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5973&#39;&gt;EPSG:5973&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5975&#39;&gt;EPSG:5975&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/4326&#39;&gt;EPSG:4326&lt;/a&gt;.
+     * @param srid Angir hvilket geografisk referansesystem geometrien skal returneres i. Utdata i UTM-formater begrenses til 3 desimaler, 4326/WGS84 begrenses til 8 desimaler. Query-parametere med koordinater oppgis i UTM33 for UTM-formater, 4326/WGS84 oppgis dersom srid er 4326/WGS84. Mer informasjon: &lt;a href&#x3D;&#39;https://epsg.io/5972&#39;&gt;EPSG:5972&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5973&#39;&gt;EPSG:5973&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5975&#39;&gt;EPSG:5975&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/4326&#39;&gt;EPSG:4326&lt;/a&gt;.
      * @param inkludergeometri Et vegobjekt har opptil to geometrier, egengeometri og stedfestet geometri. Egengeometrien er plassert under &#x60;vegobjekt.egenskaper&#x60; om den finnes, stedfestet geometri er plassert under &#x60;vegobjekt.lokasjon&#x60;. I tillegg til de nevnte feltene på vegobjekt-responsen returneres også &#x60;vegobjekt.geometri&#x60; (dersom man har &#x60;inkluder&#x3D;geometri&#x60; eller &#x60;alle&#x60;), slik at man alltid finner geometrien for vegobjektet ett sted. Dette feltet er egengeometri dersom objektet har det, hvis ikke har feltet stedfestet geometri Ved hvilken av disse som er tilfelle finner man ut ved å se på &#x60;vegobjekt.geometri.egengeometri&#x60;.
      * @param inkluderEgenskaper Gir mulighet til å filtrere hvilke egenskaper som skal returneres med inkluder&#x3D;egenskaper. &#x60;basis&#x60; er alle egenskaper som ikke er geometri, eller lister av geometri.
      * @param dybde Hvor mange nivå barn skal inkluderes. 1 betyr bare IDer, 2-n betyr ett eller flere mellomnivåer, &#39;full&#39; betyr alle nivåer.
@@ -978,17 +977,17 @@ public class VegobjekterApi {
     /**
      * Hent spesifikk versjon av et vegobjekt
      * 
-     * <p><b>500</b> - Internal Server Error
      * <p><b>400</b> - Bad Request
      * <p><b>404</b> - Not Found
      * <p><b>401</b> - Unauthorized
      * <p><b>403</b> - Forbidden
+     * <p><b>500</b> - Internal Server Error
      * <p><b>200</b> - OK
      * @param vegobjekttypeId Finn vegobjekter med denne vegobjekttypen. Se [Datakatalogen](https://datakatalogen.atlas.vegvesen.no) for mulige verdier.  Eksempel: 581         
      * @param vegobjektId The vegobjektId parameter
      * @param versjon The versjon parameter
      * @param inkluder Kommaseparert liste over hvilke informasjonselementer som skal returneres i tillegg til vegobjektenes ID.
-     * @param srid Angir hvilket geografisk referansesystem som benyttes for geografisk søk, og som geometrien skal returneres i (hvis relevant). Utdata i UTM-formater begrenses til 3 desimaler, 4326/WGS84 begrenses til 8 desimaler. Mer informasjon: &lt;a href&#x3D;&#39;https://epsg.io/5972&#39;&gt;EPSG:5972&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5973&#39;&gt;EPSG:5973&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5975&#39;&gt;EPSG:5975&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/4326&#39;&gt;EPSG:4326&lt;/a&gt;.
+     * @param srid Angir hvilket geografisk referansesystem geometrien skal returneres i. Utdata i UTM-formater begrenses til 3 desimaler, 4326/WGS84 begrenses til 8 desimaler. Query-parametere med koordinater oppgis i UTM33 for UTM-formater, 4326/WGS84 oppgis dersom srid er 4326/WGS84. Mer informasjon: &lt;a href&#x3D;&#39;https://epsg.io/5972&#39;&gt;EPSG:5972&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5973&#39;&gt;EPSG:5973&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5975&#39;&gt;EPSG:5975&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/4326&#39;&gt;EPSG:4326&lt;/a&gt;.
      * @param inkludergeometri Et vegobjekt har opptil to geometrier, egengeometri og stedfestet geometri. Egengeometrien er plassert under &#x60;vegobjekt.egenskaper&#x60; om den finnes, stedfestet geometri er plassert under &#x60;vegobjekt.lokasjon&#x60;. I tillegg til de nevnte feltene på vegobjekt-responsen returneres også &#x60;vegobjekt.geometri&#x60; (dersom man har &#x60;inkluder&#x3D;geometri&#x60; eller &#x60;alle&#x60;), slik at man alltid finner geometrien for vegobjektet ett sted. Dette feltet er egengeometri dersom objektet har det, hvis ikke har feltet stedfestet geometri Ved hvilken av disse som er tilfelle finner man ut ved å se på &#x60;vegobjekt.geometri.egengeometri&#x60;.
      * @param inkluderEgenskaper Gir mulighet til å filtrere hvilke egenskaper som skal returneres med inkluder&#x3D;egenskaper. &#x60;basis&#x60; er alle egenskaper som ikke er geometri, eller lister av geometri.
      * @param dybde Hvor mange nivå barn skal inkluderes. 1 betyr bare IDer, 2-n betyr ett eller flere mellomnivåer, &#39;full&#39; betyr alle nivåer.
@@ -1006,16 +1005,16 @@ public class VegobjekterApi {
         private @jakarta.annotation.Nullable Set<Long> ider;
         private @jakarta.annotation.Nullable String start;
         private @jakarta.annotation.Nullable Integer antall;
-        private @jakarta.annotation.Nullable Boolean historisk;
+        private @jakarta.annotation.Nullable String slutt;
 
         public GetVegobjektEndringerForTypeRequest() {}
 
-        public GetVegobjektEndringerForTypeRequest(@jakarta.annotation.Nonnull Integer vegobjekttypeId, @jakarta.annotation.Nullable Set<Long> ider, @jakarta.annotation.Nullable String start, @jakarta.annotation.Nullable Integer antall, @jakarta.annotation.Nullable Boolean historisk) {
+        public GetVegobjektEndringerForTypeRequest(@jakarta.annotation.Nonnull Integer vegobjekttypeId, @jakarta.annotation.Nullable Set<Long> ider, @jakarta.annotation.Nullable String start, @jakarta.annotation.Nullable Integer antall, @jakarta.annotation.Nullable String slutt) {
             this.vegobjekttypeId = vegobjekttypeId;
             this.ider = ider;
             this.start = start;
             this.antall = antall;
-            this.historisk = historisk;
+            this.slutt = slutt;
         }
 
         public @jakarta.annotation.Nonnull Integer vegobjekttypeId() {
@@ -1050,11 +1049,11 @@ public class VegobjekterApi {
             return this;
         }
 
-        public @jakarta.annotation.Nullable Boolean historisk() {
-            return this.historisk;
+        public @jakarta.annotation.Nullable String slutt() {
+            return this.slutt;
         }
-        public GetVegobjektEndringerForTypeRequest historisk(@jakarta.annotation.Nullable Boolean historisk) {
-            this.historisk = historisk;
+        public GetVegobjektEndringerForTypeRequest slutt(@jakarta.annotation.Nullable String slutt) {
+            this.slutt = slutt;
             return this;
         }
 
@@ -1071,84 +1070,84 @@ public class VegobjekterApi {
                 Objects.equals(this.ider, request.ider()) &&
                 Objects.equals(this.start, request.start()) &&
                 Objects.equals(this.antall, request.antall()) &&
-                Objects.equals(this.historisk, request.historisk());
+                Objects.equals(this.slutt, request.slutt());
         }
 
         @Override
         public int hashCode() {
-            return Objects.hash(vegobjekttypeId, ider, start, antall, historisk);
+            return Objects.hash(vegobjekttypeId, ider, start, antall, slutt);
         }
-    }
-
-    /**
-    * Hent endringer for en vegobjekttype innen 30 dager
-    * 
-     * <p><b>500</b> - Internal Server Error
-     * <p><b>400</b> - Bad Request
-     * <p><b>404</b> - Not Found
-     * <p><b>401</b> - Unauthorized
-     * <p><b>403</b> - Forbidden
-     * <p><b>200</b> - OK
-     * @param requestParameters The getVegobjektEndringerForType request parameters as object
-     * @return VegobjektEndringerSide
-     * @throws RestClientResponseException if an error occurs while attempting to invoke the API
-    */
-    public VegobjektEndringerSide getVegobjektEndringerForType(GetVegobjektEndringerForTypeRequest requestParameters) throws RestClientResponseException {
-      return this.getVegobjektEndringerForType(requestParameters.vegobjekttypeId(), requestParameters.ider(), requestParameters.start(), requestParameters.antall(), requestParameters.historisk());
-    }
-
-  /**
-  * Hent endringer for en vegobjekttype innen 30 dager
-  * 
-     * <p><b>500</b> - Internal Server Error
-     * <p><b>400</b> - Bad Request
-     * <p><b>404</b> - Not Found
-     * <p><b>401</b> - Unauthorized
-     * <p><b>403</b> - Forbidden
-     * <p><b>200</b> - OK
-     * @param requestParameters The getVegobjektEndringerForType request parameters as object
-     * @return ResponseEntity&lt;VegobjektEndringerSide&gt;
-     * @throws RestClientResponseException if an error occurs while attempting to invoke the API
-    */
-    public ResponseEntity<VegobjektEndringerSide> getVegobjektEndringerForTypeWithHttpInfo(GetVegobjektEndringerForTypeRequest requestParameters) throws RestClientResponseException {
-      return this.getVegobjektEndringerForTypeWithHttpInfo(requestParameters.vegobjekttypeId(), requestParameters.ider(), requestParameters.start(), requestParameters.antall(), requestParameters.historisk());
-    }
-
-  /**
-  * Hent endringer for en vegobjekttype innen 30 dager
-  * 
-     * <p><b>500</b> - Internal Server Error
-     * <p><b>400</b> - Bad Request
-     * <p><b>404</b> - Not Found
-     * <p><b>401</b> - Unauthorized
-     * <p><b>403</b> - Forbidden
-     * <p><b>200</b> - OK
-     * @param requestParameters The getVegobjektEndringerForType request parameters as object
-  * @return ResponseSpec
-  * @throws RestClientResponseException if an error occurs while attempting to invoke the API
-    */
-    public ResponseSpec getVegobjektEndringerForTypeWithResponseSpec(GetVegobjektEndringerForTypeRequest requestParameters) throws RestClientResponseException {
-      return this.getVegobjektEndringerForTypeWithResponseSpec(requestParameters.vegobjekttypeId(), requestParameters.ider(), requestParameters.start(), requestParameters.antall(), requestParameters.historisk());
     }
 
     /**
      * Hent endringer for en vegobjekttype innen 30 dager
      * 
-     * <p><b>500</b> - Internal Server Error
      * <p><b>400</b> - Bad Request
      * <p><b>404</b> - Not Found
      * <p><b>401</b> - Unauthorized
      * <p><b>403</b> - Forbidden
+     * <p><b>500</b> - Internal Server Error
+     * <p><b>200</b> - OK
+     * @param requestParameters The getVegobjektEndringerForType request parameters as object
+     * @return VegobjektEndringerSide
+     * @throws RestClientResponseException if an error occurs while attempting to invoke the API
+     */
+    public VegobjektEndringerSide getVegobjektEndringerForType(GetVegobjektEndringerForTypeRequest requestParameters) throws RestClientResponseException {
+        return this.getVegobjektEndringerForType(requestParameters.vegobjekttypeId(), requestParameters.ider(), requestParameters.start(), requestParameters.antall(), requestParameters.slutt());
+    }
+
+    /**
+     * Hent endringer for en vegobjekttype innen 30 dager
+     * 
+     * <p><b>400</b> - Bad Request
+     * <p><b>404</b> - Not Found
+     * <p><b>401</b> - Unauthorized
+     * <p><b>403</b> - Forbidden
+     * <p><b>500</b> - Internal Server Error
+     * <p><b>200</b> - OK
+     * @param requestParameters The getVegobjektEndringerForType request parameters as object
+     * @return ResponseEntity&lt;VegobjektEndringerSide&gt;
+     * @throws RestClientResponseException if an error occurs while attempting to invoke the API
+     */
+    public ResponseEntity<VegobjektEndringerSide> getVegobjektEndringerForTypeWithHttpInfo(GetVegobjektEndringerForTypeRequest requestParameters) throws RestClientResponseException {
+        return this.getVegobjektEndringerForTypeWithHttpInfo(requestParameters.vegobjekttypeId(), requestParameters.ider(), requestParameters.start(), requestParameters.antall(), requestParameters.slutt());
+    }
+
+    /**
+     * Hent endringer for en vegobjekttype innen 30 dager
+     * 
+     * <p><b>400</b> - Bad Request
+     * <p><b>404</b> - Not Found
+     * <p><b>401</b> - Unauthorized
+     * <p><b>403</b> - Forbidden
+     * <p><b>500</b> - Internal Server Error
+     * <p><b>200</b> - OK
+     * @param requestParameters The getVegobjektEndringerForType request parameters as object
+     * @return ResponseSpec
+     * @throws RestClientResponseException if an error occurs while attempting to invoke the API
+     */
+    public ResponseSpec getVegobjektEndringerForTypeWithResponseSpec(GetVegobjektEndringerForTypeRequest requestParameters) throws RestClientResponseException {
+        return this.getVegobjektEndringerForTypeWithResponseSpec(requestParameters.vegobjekttypeId(), requestParameters.ider(), requestParameters.start(), requestParameters.antall(), requestParameters.slutt());
+    }
+
+    /**
+     * Hent endringer for en vegobjekttype innen 30 dager
+     * 
+     * <p><b>400</b> - Bad Request
+     * <p><b>404</b> - Not Found
+     * <p><b>401</b> - Unauthorized
+     * <p><b>403</b> - Forbidden
+     * <p><b>500</b> - Internal Server Error
      * <p><b>200</b> - OK
      * @param vegobjekttypeId Finn vegobjekter med denne vegobjekttypen. Se [Datakatalogen](https://datakatalogen.atlas.vegvesen.no) for mulige verdier.  Eksempel: 581         
      * @param ider Hent endringer for oppgitte vegobjekt IDer. Dersom denne utelates vil alle endringer for den angitte typen hentes.
      * @param start Hent alle endringer etter gitt tidspunkt. Dersom denne utelates vil de eldste endringene hentes først.  Format kan være dato (&#x60;2025-06-01&#x60;) eller tidspunkt med tidssone (&#x60;2025-06-01T12:00:00Z&#x60; eller &#x60;2025-06-01T14:00:00+02:00&#x60;). For paginering vil det bli lagt ved siste vegobjekt-ID og versjon innen siste tidspunkt i responsen, i tilfelle flere endringer har skjedd på samme tidspunkt. Format for dette er &#x60;2025-06-01T12:00:00Z,12345,1&#x60; hvor &#x60;12345&#x60; er vegobjekt-ID og &#x60;1&#x60; er versjon.
      * @param antall Antall endringer som skal være med i responsen. Merk at det faktiske antallet kan variere fra respons til respons. Dette er fordi endringer på samme vegobjektversjon innenfor samme side blir aggregert sammen ved å ta den nyeste endringen. Maksverdi: 1000
-     * @param historisk Bestem om du ønsker endringer for aktive eller historiske vegobjekter. Standardverdi: &#x60;false&#x60;
+     * @param slutt Hent alle endringer før gitt tidspunkt. Dersom denne utelates vil alle endringer hentes.  Format kan være dato (&#x60;2025-06-01&#x60;) eller tidspunkt med tidssone (&#x60;2025-06-01T12:00:00Z&#x60; eller &#x60;2025-06-01T14:00:00+02:00&#x60;).
      * @return VegobjektEndringerSide
      * @throws RestClientResponseException if an error occurs while attempting to invoke the API
      */
-    private ResponseSpec getVegobjektEndringerForTypeRequestCreation(@jakarta.annotation.Nonnull Integer vegobjekttypeId, @jakarta.annotation.Nullable Set<Long> ider, @jakarta.annotation.Nullable String start, @jakarta.annotation.Nullable Integer antall, @jakarta.annotation.Nullable Boolean historisk) throws RestClientResponseException {
+    private ResponseSpec getVegobjektEndringerForTypeRequestCreation(@jakarta.annotation.Nonnull Integer vegobjekttypeId, @jakarta.annotation.Nullable Set<Long> ider, @jakarta.annotation.Nullable String start, @jakarta.annotation.Nullable Integer antall, @jakarta.annotation.Nullable String slutt) throws RestClientResponseException {
         Object postBody = null;
         // verify the required parameter 'vegobjekttypeId' is set
         if (vegobjekttypeId == null) {
@@ -1167,8 +1166,8 @@ public class VegobjekterApi {
         queryParams.putAll(apiClient.parameterToMultiValueMap(ApiClient.CollectionFormat.valueOf("multi".toUpperCase(Locale.ROOT)), "ider", ider));
         queryParams.putAll(apiClient.parameterToMultiValueMap(null, "start", start));
         queryParams.putAll(apiClient.parameterToMultiValueMap(null, "antall", antall));
-        queryParams.putAll(apiClient.parameterToMultiValueMap(null, "historisk", historisk));
-        
+        queryParams.putAll(apiClient.parameterToMultiValueMap(null, "slutt", slutt));
+
         final String[] localVarAccepts = { 
             "*/*"
         };
@@ -1185,66 +1184,311 @@ public class VegobjekterApi {
     /**
      * Hent endringer for en vegobjekttype innen 30 dager
      * 
-     * <p><b>500</b> - Internal Server Error
      * <p><b>400</b> - Bad Request
      * <p><b>404</b> - Not Found
      * <p><b>401</b> - Unauthorized
      * <p><b>403</b> - Forbidden
+     * <p><b>500</b> - Internal Server Error
      * <p><b>200</b> - OK
      * @param vegobjekttypeId Finn vegobjekter med denne vegobjekttypen. Se [Datakatalogen](https://datakatalogen.atlas.vegvesen.no) for mulige verdier.  Eksempel: 581         
      * @param ider Hent endringer for oppgitte vegobjekt IDer. Dersom denne utelates vil alle endringer for den angitte typen hentes.
      * @param start Hent alle endringer etter gitt tidspunkt. Dersom denne utelates vil de eldste endringene hentes først.  Format kan være dato (&#x60;2025-06-01&#x60;) eller tidspunkt med tidssone (&#x60;2025-06-01T12:00:00Z&#x60; eller &#x60;2025-06-01T14:00:00+02:00&#x60;). For paginering vil det bli lagt ved siste vegobjekt-ID og versjon innen siste tidspunkt i responsen, i tilfelle flere endringer har skjedd på samme tidspunkt. Format for dette er &#x60;2025-06-01T12:00:00Z,12345,1&#x60; hvor &#x60;12345&#x60; er vegobjekt-ID og &#x60;1&#x60; er versjon.
      * @param antall Antall endringer som skal være med i responsen. Merk at det faktiske antallet kan variere fra respons til respons. Dette er fordi endringer på samme vegobjektversjon innenfor samme side blir aggregert sammen ved å ta den nyeste endringen. Maksverdi: 1000
-     * @param historisk Bestem om du ønsker endringer for aktive eller historiske vegobjekter. Standardverdi: &#x60;false&#x60;
+     * @param slutt Hent alle endringer før gitt tidspunkt. Dersom denne utelates vil alle endringer hentes.  Format kan være dato (&#x60;2025-06-01&#x60;) eller tidspunkt med tidssone (&#x60;2025-06-01T12:00:00Z&#x60; eller &#x60;2025-06-01T14:00:00+02:00&#x60;).
      * @return VegobjektEndringerSide
      * @throws RestClientResponseException if an error occurs while attempting to invoke the API
      */
-    public VegobjektEndringerSide getVegobjektEndringerForType(@jakarta.annotation.Nonnull Integer vegobjekttypeId, @jakarta.annotation.Nullable Set<Long> ider, @jakarta.annotation.Nullable String start, @jakarta.annotation.Nullable Integer antall, @jakarta.annotation.Nullable Boolean historisk) throws RestClientResponseException {
+    public VegobjektEndringerSide getVegobjektEndringerForType(@jakarta.annotation.Nonnull Integer vegobjekttypeId, @jakarta.annotation.Nullable Set<Long> ider, @jakarta.annotation.Nullable String start, @jakarta.annotation.Nullable Integer antall, @jakarta.annotation.Nullable String slutt) throws RestClientResponseException {
         ParameterizedTypeReference<VegobjektEndringerSide> localVarReturnType = new ParameterizedTypeReference<>() {};
-        return getVegobjektEndringerForTypeRequestCreation(vegobjekttypeId, ider, start, antall, historisk).body(localVarReturnType);
+        return getVegobjektEndringerForTypeRequestCreation(vegobjekttypeId, ider, start, antall, slutt).body(localVarReturnType);
     }
 
     /**
      * Hent endringer for en vegobjekttype innen 30 dager
      * 
-     * <p><b>500</b> - Internal Server Error
      * <p><b>400</b> - Bad Request
      * <p><b>404</b> - Not Found
      * <p><b>401</b> - Unauthorized
      * <p><b>403</b> - Forbidden
+     * <p><b>500</b> - Internal Server Error
      * <p><b>200</b> - OK
      * @param vegobjekttypeId Finn vegobjekter med denne vegobjekttypen. Se [Datakatalogen](https://datakatalogen.atlas.vegvesen.no) for mulige verdier.  Eksempel: 581         
      * @param ider Hent endringer for oppgitte vegobjekt IDer. Dersom denne utelates vil alle endringer for den angitte typen hentes.
      * @param start Hent alle endringer etter gitt tidspunkt. Dersom denne utelates vil de eldste endringene hentes først.  Format kan være dato (&#x60;2025-06-01&#x60;) eller tidspunkt med tidssone (&#x60;2025-06-01T12:00:00Z&#x60; eller &#x60;2025-06-01T14:00:00+02:00&#x60;). For paginering vil det bli lagt ved siste vegobjekt-ID og versjon innen siste tidspunkt i responsen, i tilfelle flere endringer har skjedd på samme tidspunkt. Format for dette er &#x60;2025-06-01T12:00:00Z,12345,1&#x60; hvor &#x60;12345&#x60; er vegobjekt-ID og &#x60;1&#x60; er versjon.
      * @param antall Antall endringer som skal være med i responsen. Merk at det faktiske antallet kan variere fra respons til respons. Dette er fordi endringer på samme vegobjektversjon innenfor samme side blir aggregert sammen ved å ta den nyeste endringen. Maksverdi: 1000
-     * @param historisk Bestem om du ønsker endringer for aktive eller historiske vegobjekter. Standardverdi: &#x60;false&#x60;
+     * @param slutt Hent alle endringer før gitt tidspunkt. Dersom denne utelates vil alle endringer hentes.  Format kan være dato (&#x60;2025-06-01&#x60;) eller tidspunkt med tidssone (&#x60;2025-06-01T12:00:00Z&#x60; eller &#x60;2025-06-01T14:00:00+02:00&#x60;).
      * @return ResponseEntity&lt;VegobjektEndringerSide&gt;
      * @throws RestClientResponseException if an error occurs while attempting to invoke the API
      */
-    public ResponseEntity<VegobjektEndringerSide> getVegobjektEndringerForTypeWithHttpInfo(@jakarta.annotation.Nonnull Integer vegobjekttypeId, @jakarta.annotation.Nullable Set<Long> ider, @jakarta.annotation.Nullable String start, @jakarta.annotation.Nullable Integer antall, @jakarta.annotation.Nullable Boolean historisk) throws RestClientResponseException {
+    public ResponseEntity<VegobjektEndringerSide> getVegobjektEndringerForTypeWithHttpInfo(@jakarta.annotation.Nonnull Integer vegobjekttypeId, @jakarta.annotation.Nullable Set<Long> ider, @jakarta.annotation.Nullable String start, @jakarta.annotation.Nullable Integer antall, @jakarta.annotation.Nullable String slutt) throws RestClientResponseException {
         ParameterizedTypeReference<VegobjektEndringerSide> localVarReturnType = new ParameterizedTypeReference<>() {};
-        return getVegobjektEndringerForTypeRequestCreation(vegobjekttypeId, ider, start, antall, historisk).toEntity(localVarReturnType);
+        return getVegobjektEndringerForTypeRequestCreation(vegobjekttypeId, ider, start, antall, slutt).toEntity(localVarReturnType);
     }
 
     /**
      * Hent endringer for en vegobjekttype innen 30 dager
      * 
-     * <p><b>500</b> - Internal Server Error
      * <p><b>400</b> - Bad Request
      * <p><b>404</b> - Not Found
      * <p><b>401</b> - Unauthorized
      * <p><b>403</b> - Forbidden
+     * <p><b>500</b> - Internal Server Error
      * <p><b>200</b> - OK
      * @param vegobjekttypeId Finn vegobjekter med denne vegobjekttypen. Se [Datakatalogen](https://datakatalogen.atlas.vegvesen.no) for mulige verdier.  Eksempel: 581         
      * @param ider Hent endringer for oppgitte vegobjekt IDer. Dersom denne utelates vil alle endringer for den angitte typen hentes.
      * @param start Hent alle endringer etter gitt tidspunkt. Dersom denne utelates vil de eldste endringene hentes først.  Format kan være dato (&#x60;2025-06-01&#x60;) eller tidspunkt med tidssone (&#x60;2025-06-01T12:00:00Z&#x60; eller &#x60;2025-06-01T14:00:00+02:00&#x60;). For paginering vil det bli lagt ved siste vegobjekt-ID og versjon innen siste tidspunkt i responsen, i tilfelle flere endringer har skjedd på samme tidspunkt. Format for dette er &#x60;2025-06-01T12:00:00Z,12345,1&#x60; hvor &#x60;12345&#x60; er vegobjekt-ID og &#x60;1&#x60; er versjon.
      * @param antall Antall endringer som skal være med i responsen. Merk at det faktiske antallet kan variere fra respons til respons. Dette er fordi endringer på samme vegobjektversjon innenfor samme side blir aggregert sammen ved å ta den nyeste endringen. Maksverdi: 1000
-     * @param historisk Bestem om du ønsker endringer for aktive eller historiske vegobjekter. Standardverdi: &#x60;false&#x60;
+     * @param slutt Hent alle endringer før gitt tidspunkt. Dersom denne utelates vil alle endringer hentes.  Format kan være dato (&#x60;2025-06-01&#x60;) eller tidspunkt med tidssone (&#x60;2025-06-01T12:00:00Z&#x60; eller &#x60;2025-06-01T14:00:00+02:00&#x60;).
      * @return ResponseSpec
      * @throws RestClientResponseException if an error occurs while attempting to invoke the API
      */
-    public ResponseSpec getVegobjektEndringerForTypeWithResponseSpec(@jakarta.annotation.Nonnull Integer vegobjekttypeId, @jakarta.annotation.Nullable Set<Long> ider, @jakarta.annotation.Nullable String start, @jakarta.annotation.Nullable Integer antall, @jakarta.annotation.Nullable Boolean historisk) throws RestClientResponseException {
-        return getVegobjektEndringerForTypeRequestCreation(vegobjekttypeId, ider, start, antall, historisk);
+    public ResponseSpec getVegobjektEndringerForTypeWithResponseSpec(@jakarta.annotation.Nonnull Integer vegobjekttypeId, @jakarta.annotation.Nullable Set<Long> ider, @jakarta.annotation.Nullable String start, @jakarta.annotation.Nullable Integer antall, @jakarta.annotation.Nullable String slutt) throws RestClientResponseException {
+        return getVegobjektEndringerForTypeRequestCreation(vegobjekttypeId, ider, start, antall, slutt);
+    }
+
+    public static class GetVegobjektEndringerForTyperRequest {
+        private @jakarta.annotation.Nonnull Set<Integer> typeIder;
+        private @jakarta.annotation.Nullable Set<Long> ider;
+        private @jakarta.annotation.Nullable String start;
+        private @jakarta.annotation.Nullable Integer antall;
+        private @jakarta.annotation.Nullable String slutt;
+
+        public GetVegobjektEndringerForTyperRequest() {}
+
+        public GetVegobjektEndringerForTyperRequest(@jakarta.annotation.Nonnull Set<Integer> typeIder, @jakarta.annotation.Nullable Set<Long> ider, @jakarta.annotation.Nullable String start, @jakarta.annotation.Nullable Integer antall, @jakarta.annotation.Nullable String slutt) {
+            this.typeIder = typeIder;
+            this.ider = ider;
+            this.start = start;
+            this.antall = antall;
+            this.slutt = slutt;
+        }
+
+        public @jakarta.annotation.Nonnull Set<Integer> typeIder() {
+            return this.typeIder;
+        }
+        public GetVegobjektEndringerForTyperRequest typeIder(@jakarta.annotation.Nonnull Set<Integer> typeIder) {
+            this.typeIder = typeIder;
+            return this;
+        }
+
+        public @jakarta.annotation.Nullable Set<Long> ider() {
+            return this.ider;
+        }
+        public GetVegobjektEndringerForTyperRequest ider(@jakarta.annotation.Nullable Set<Long> ider) {
+            this.ider = ider;
+            return this;
+        }
+
+        public @jakarta.annotation.Nullable String start() {
+            return this.start;
+        }
+        public GetVegobjektEndringerForTyperRequest start(@jakarta.annotation.Nullable String start) {
+            this.start = start;
+            return this;
+        }
+
+        public @jakarta.annotation.Nullable Integer antall() {
+            return this.antall;
+        }
+        public GetVegobjektEndringerForTyperRequest antall(@jakarta.annotation.Nullable Integer antall) {
+            this.antall = antall;
+            return this;
+        }
+
+        public @jakarta.annotation.Nullable String slutt() {
+            return this.slutt;
+        }
+        public GetVegobjektEndringerForTyperRequest slutt(@jakarta.annotation.Nullable String slutt) {
+            this.slutt = slutt;
+            return this;
+        }
+
+        @Override
+        public boolean equals(Object o) {
+            if (this == o) {
+                return true;
+            }
+            if (o == null || getClass() != o.getClass()) {
+                return false;
+            }
+            GetVegobjektEndringerForTyperRequest request = (GetVegobjektEndringerForTyperRequest) o;
+            return Objects.equals(this.typeIder, request.typeIder()) &&
+                Objects.equals(this.ider, request.ider()) &&
+                Objects.equals(this.start, request.start()) &&
+                Objects.equals(this.antall, request.antall()) &&
+                Objects.equals(this.slutt, request.slutt());
+        }
+
+        @Override
+        public int hashCode() {
+            return Objects.hash(typeIder, ider, start, antall, slutt);
+        }
+    }
+
+    /**
+     * Hent endringer for gitte vegobjekttyper innen 30 dager
+     * 
+     * <p><b>400</b> - Bad Request
+     * <p><b>404</b> - Not Found
+     * <p><b>401</b> - Unauthorized
+     * <p><b>403</b> - Forbidden
+     * <p><b>500</b> - Internal Server Error
+     * <p><b>200</b> - OK
+     * @param requestParameters The getVegobjektEndringerForTyper request parameters as object
+     * @return VegobjektEndringerSide
+     * @throws RestClientResponseException if an error occurs while attempting to invoke the API
+     */
+    public VegobjektEndringerSide getVegobjektEndringerForTyper(GetVegobjektEndringerForTyperRequest requestParameters) throws RestClientResponseException {
+        return this.getVegobjektEndringerForTyper(requestParameters.typeIder(), requestParameters.ider(), requestParameters.start(), requestParameters.antall(), requestParameters.slutt());
+    }
+
+    /**
+     * Hent endringer for gitte vegobjekttyper innen 30 dager
+     * 
+     * <p><b>400</b> - Bad Request
+     * <p><b>404</b> - Not Found
+     * <p><b>401</b> - Unauthorized
+     * <p><b>403</b> - Forbidden
+     * <p><b>500</b> - Internal Server Error
+     * <p><b>200</b> - OK
+     * @param requestParameters The getVegobjektEndringerForTyper request parameters as object
+     * @return ResponseEntity&lt;VegobjektEndringerSide&gt;
+     * @throws RestClientResponseException if an error occurs while attempting to invoke the API
+     */
+    public ResponseEntity<VegobjektEndringerSide> getVegobjektEndringerForTyperWithHttpInfo(GetVegobjektEndringerForTyperRequest requestParameters) throws RestClientResponseException {
+        return this.getVegobjektEndringerForTyperWithHttpInfo(requestParameters.typeIder(), requestParameters.ider(), requestParameters.start(), requestParameters.antall(), requestParameters.slutt());
+    }
+
+    /**
+     * Hent endringer for gitte vegobjekttyper innen 30 dager
+     * 
+     * <p><b>400</b> - Bad Request
+     * <p><b>404</b> - Not Found
+     * <p><b>401</b> - Unauthorized
+     * <p><b>403</b> - Forbidden
+     * <p><b>500</b> - Internal Server Error
+     * <p><b>200</b> - OK
+     * @param requestParameters The getVegobjektEndringerForTyper request parameters as object
+     * @return ResponseSpec
+     * @throws RestClientResponseException if an error occurs while attempting to invoke the API
+     */
+    public ResponseSpec getVegobjektEndringerForTyperWithResponseSpec(GetVegobjektEndringerForTyperRequest requestParameters) throws RestClientResponseException {
+        return this.getVegobjektEndringerForTyperWithResponseSpec(requestParameters.typeIder(), requestParameters.ider(), requestParameters.start(), requestParameters.antall(), requestParameters.slutt());
+    }
+
+    /**
+     * Hent endringer for gitte vegobjekttyper innen 30 dager
+     * 
+     * <p><b>400</b> - Bad Request
+     * <p><b>404</b> - Not Found
+     * <p><b>401</b> - Unauthorized
+     * <p><b>403</b> - Forbidden
+     * <p><b>500</b> - Internal Server Error
+     * <p><b>200</b> - OK
+     * @param typeIder Hent endringer for oppgitte vegobjekt type IDer. Kan ikke være tom.
+     * @param ider Hent endringer for oppgitte vegobjekt IDer. Dersom denne utelates vil alle endringer for den angitte typen hentes.
+     * @param start Hent alle endringer etter gitt tidspunkt. Dersom denne utelates vil de eldste endringene hentes først.  Format kan være dato (&#x60;2025-06-01&#x60;) eller tidspunkt med tidssone (&#x60;2025-06-01T12:00:00Z&#x60; eller &#x60;2025-06-01T14:00:00+02:00&#x60;). For paginering vil det bli lagt ved siste vegobjekt-ID og versjon innen siste tidspunkt i responsen, i tilfelle flere endringer har skjedd på samme tidspunkt. Format for dette er &#x60;2025-06-01T12:00:00Z,12345,1&#x60; hvor &#x60;12345&#x60; er vegobjekt-ID og &#x60;1&#x60; er versjon.
+     * @param antall Antall endringer som skal være med i responsen. Merk at det faktiske antallet kan variere fra respons til respons. Dette er fordi endringer på samme vegobjektversjon innenfor samme side blir aggregert sammen ved å ta den nyeste endringen. Maksverdi: 1000
+     * @param slutt Hent alle endringer før gitt tidspunkt. Dersom denne utelates vil alle endringer hentes.  Format kan være dato (&#x60;2025-06-01&#x60;) eller tidspunkt med tidssone (&#x60;2025-06-01T12:00:00Z&#x60; eller &#x60;2025-06-01T14:00:00+02:00&#x60;).
+     * @return VegobjektEndringerSide
+     * @throws RestClientResponseException if an error occurs while attempting to invoke the API
+     */
+    private ResponseSpec getVegobjektEndringerForTyperRequestCreation(@jakarta.annotation.Nonnull Set<Integer> typeIder, @jakarta.annotation.Nullable Set<Long> ider, @jakarta.annotation.Nullable String start, @jakarta.annotation.Nullable Integer antall, @jakarta.annotation.Nullable String slutt) throws RestClientResponseException {
+        Object postBody = null;
+        // verify the required parameter 'typeIder' is set
+        if (typeIder == null) {
+            throw new RestClientResponseException("Missing the required parameter 'typeIder' when calling getVegobjektEndringerForTyper", HttpStatus.BAD_REQUEST.value(), HttpStatus.BAD_REQUEST.getReasonPhrase(), null, null, null);
+        }
+        // create path and map variables
+        final Map<String, Object> pathParams = new HashMap<>();
+
+        final MultiValueMap<String, String> queryParams = new LinkedMultiValueMap<>();
+        final HttpHeaders headerParams = new HttpHeaders();
+        final MultiValueMap<String, String> cookieParams = new LinkedMultiValueMap<>();
+        final MultiValueMap<String, Object> formParams = new LinkedMultiValueMap<>();
+
+        queryParams.putAll(apiClient.parameterToMultiValueMap(ApiClient.CollectionFormat.valueOf("multi".toUpperCase(Locale.ROOT)), "typeIder", typeIder));
+        queryParams.putAll(apiClient.parameterToMultiValueMap(ApiClient.CollectionFormat.valueOf("multi".toUpperCase(Locale.ROOT)), "ider", ider));
+        queryParams.putAll(apiClient.parameterToMultiValueMap(null, "start", start));
+        queryParams.putAll(apiClient.parameterToMultiValueMap(null, "antall", antall));
+        queryParams.putAll(apiClient.parameterToMultiValueMap(null, "slutt", slutt));
+
+        final String[] localVarAccepts = { 
+            "*/*"
+        };
+        final List<MediaType> localVarAccept = apiClient.selectHeaderAccept(localVarAccepts);
+        final String[] localVarContentTypes = { };
+        final MediaType localVarContentType = apiClient.selectHeaderContentType(localVarContentTypes);
+
+        String[] localVarAuthNames = new String[] { "bearerAuth" };
+
+        ParameterizedTypeReference<VegobjektEndringerSide> localVarReturnType = new ParameterizedTypeReference<>() {};
+        return apiClient.invokeAPI("/api/v4/vegobjekter/endringer", HttpMethod.GET, pathParams, queryParams, postBody, headerParams, cookieParams, formParams, localVarAccept, localVarContentType, localVarAuthNames, localVarReturnType);
+    }
+
+    /**
+     * Hent endringer for gitte vegobjekttyper innen 30 dager
+     * 
+     * <p><b>400</b> - Bad Request
+     * <p><b>404</b> - Not Found
+     * <p><b>401</b> - Unauthorized
+     * <p><b>403</b> - Forbidden
+     * <p><b>500</b> - Internal Server Error
+     * <p><b>200</b> - OK
+     * @param typeIder Hent endringer for oppgitte vegobjekt type IDer. Kan ikke være tom.
+     * @param ider Hent endringer for oppgitte vegobjekt IDer. Dersom denne utelates vil alle endringer for den angitte typen hentes.
+     * @param start Hent alle endringer etter gitt tidspunkt. Dersom denne utelates vil de eldste endringene hentes først.  Format kan være dato (&#x60;2025-06-01&#x60;) eller tidspunkt med tidssone (&#x60;2025-06-01T12:00:00Z&#x60; eller &#x60;2025-06-01T14:00:00+02:00&#x60;). For paginering vil det bli lagt ved siste vegobjekt-ID og versjon innen siste tidspunkt i responsen, i tilfelle flere endringer har skjedd på samme tidspunkt. Format for dette er &#x60;2025-06-01T12:00:00Z,12345,1&#x60; hvor &#x60;12345&#x60; er vegobjekt-ID og &#x60;1&#x60; er versjon.
+     * @param antall Antall endringer som skal være med i responsen. Merk at det faktiske antallet kan variere fra respons til respons. Dette er fordi endringer på samme vegobjektversjon innenfor samme side blir aggregert sammen ved å ta den nyeste endringen. Maksverdi: 1000
+     * @param slutt Hent alle endringer før gitt tidspunkt. Dersom denne utelates vil alle endringer hentes.  Format kan være dato (&#x60;2025-06-01&#x60;) eller tidspunkt med tidssone (&#x60;2025-06-01T12:00:00Z&#x60; eller &#x60;2025-06-01T14:00:00+02:00&#x60;).
+     * @return VegobjektEndringerSide
+     * @throws RestClientResponseException if an error occurs while attempting to invoke the API
+     */
+    public VegobjektEndringerSide getVegobjektEndringerForTyper(@jakarta.annotation.Nonnull Set<Integer> typeIder, @jakarta.annotation.Nullable Set<Long> ider, @jakarta.annotation.Nullable String start, @jakarta.annotation.Nullable Integer antall, @jakarta.annotation.Nullable String slutt) throws RestClientResponseException {
+        ParameterizedTypeReference<VegobjektEndringerSide> localVarReturnType = new ParameterizedTypeReference<>() {};
+        return getVegobjektEndringerForTyperRequestCreation(typeIder, ider, start, antall, slutt).body(localVarReturnType);
+    }
+
+    /**
+     * Hent endringer for gitte vegobjekttyper innen 30 dager
+     * 
+     * <p><b>400</b> - Bad Request
+     * <p><b>404</b> - Not Found
+     * <p><b>401</b> - Unauthorized
+     * <p><b>403</b> - Forbidden
+     * <p><b>500</b> - Internal Server Error
+     * <p><b>200</b> - OK
+     * @param typeIder Hent endringer for oppgitte vegobjekt type IDer. Kan ikke være tom.
+     * @param ider Hent endringer for oppgitte vegobjekt IDer. Dersom denne utelates vil alle endringer for den angitte typen hentes.
+     * @param start Hent alle endringer etter gitt tidspunkt. Dersom denne utelates vil de eldste endringene hentes først.  Format kan være dato (&#x60;2025-06-01&#x60;) eller tidspunkt med tidssone (&#x60;2025-06-01T12:00:00Z&#x60; eller &#x60;2025-06-01T14:00:00+02:00&#x60;). For paginering vil det bli lagt ved siste vegobjekt-ID og versjon innen siste tidspunkt i responsen, i tilfelle flere endringer har skjedd på samme tidspunkt. Format for dette er &#x60;2025-06-01T12:00:00Z,12345,1&#x60; hvor &#x60;12345&#x60; er vegobjekt-ID og &#x60;1&#x60; er versjon.
+     * @param antall Antall endringer som skal være med i responsen. Merk at det faktiske antallet kan variere fra respons til respons. Dette er fordi endringer på samme vegobjektversjon innenfor samme side blir aggregert sammen ved å ta den nyeste endringen. Maksverdi: 1000
+     * @param slutt Hent alle endringer før gitt tidspunkt. Dersom denne utelates vil alle endringer hentes.  Format kan være dato (&#x60;2025-06-01&#x60;) eller tidspunkt med tidssone (&#x60;2025-06-01T12:00:00Z&#x60; eller &#x60;2025-06-01T14:00:00+02:00&#x60;).
+     * @return ResponseEntity&lt;VegobjektEndringerSide&gt;
+     * @throws RestClientResponseException if an error occurs while attempting to invoke the API
+     */
+    public ResponseEntity<VegobjektEndringerSide> getVegobjektEndringerForTyperWithHttpInfo(@jakarta.annotation.Nonnull Set<Integer> typeIder, @jakarta.annotation.Nullable Set<Long> ider, @jakarta.annotation.Nullable String start, @jakarta.annotation.Nullable Integer antall, @jakarta.annotation.Nullable String slutt) throws RestClientResponseException {
+        ParameterizedTypeReference<VegobjektEndringerSide> localVarReturnType = new ParameterizedTypeReference<>() {};
+        return getVegobjektEndringerForTyperRequestCreation(typeIder, ider, start, antall, slutt).toEntity(localVarReturnType);
+    }
+
+    /**
+     * Hent endringer for gitte vegobjekttyper innen 30 dager
+     * 
+     * <p><b>400</b> - Bad Request
+     * <p><b>404</b> - Not Found
+     * <p><b>401</b> - Unauthorized
+     * <p><b>403</b> - Forbidden
+     * <p><b>500</b> - Internal Server Error
+     * <p><b>200</b> - OK
+     * @param typeIder Hent endringer for oppgitte vegobjekt type IDer. Kan ikke være tom.
+     * @param ider Hent endringer for oppgitte vegobjekt IDer. Dersom denne utelates vil alle endringer for den angitte typen hentes.
+     * @param start Hent alle endringer etter gitt tidspunkt. Dersom denne utelates vil de eldste endringene hentes først.  Format kan være dato (&#x60;2025-06-01&#x60;) eller tidspunkt med tidssone (&#x60;2025-06-01T12:00:00Z&#x60; eller &#x60;2025-06-01T14:00:00+02:00&#x60;). For paginering vil det bli lagt ved siste vegobjekt-ID og versjon innen siste tidspunkt i responsen, i tilfelle flere endringer har skjedd på samme tidspunkt. Format for dette er &#x60;2025-06-01T12:00:00Z,12345,1&#x60; hvor &#x60;12345&#x60; er vegobjekt-ID og &#x60;1&#x60; er versjon.
+     * @param antall Antall endringer som skal være med i responsen. Merk at det faktiske antallet kan variere fra respons til respons. Dette er fordi endringer på samme vegobjektversjon innenfor samme side blir aggregert sammen ved å ta den nyeste endringen. Maksverdi: 1000
+     * @param slutt Hent alle endringer før gitt tidspunkt. Dersom denne utelates vil alle endringer hentes.  Format kan være dato (&#x60;2025-06-01&#x60;) eller tidspunkt med tidssone (&#x60;2025-06-01T12:00:00Z&#x60; eller &#x60;2025-06-01T14:00:00+02:00&#x60;).
+     * @return ResponseSpec
+     * @throws RestClientResponseException if an error occurs while attempting to invoke the API
+     */
+    public ResponseSpec getVegobjektEndringerForTyperWithResponseSpec(@jakarta.annotation.Nonnull Set<Integer> typeIder, @jakarta.annotation.Nullable Set<Long> ider, @jakarta.annotation.Nullable String start, @jakarta.annotation.Nullable Integer antall, @jakarta.annotation.Nullable String slutt) throws RestClientResponseException {
+        return getVegobjektEndringerForTyperRequestCreation(typeIder, ider, start, antall, slutt);
     }
 
     public static class GetVegobjektVersjonerRequest {
@@ -1371,69 +1615,69 @@ public class VegobjekterApi {
     }
 
     /**
-    * Hent alle versjoner av et vegobjekt
-    * 
-     * <p><b>500</b> - Internal Server Error
+     * Hent alle versjoner av et vegobjekt
+     * 
      * <p><b>400</b> - Bad Request
      * <p><b>404</b> - Not Found
      * <p><b>401</b> - Unauthorized
      * <p><b>403</b> - Forbidden
+     * <p><b>500</b> - Internal Server Error
      * <p><b>200</b> - OK
      * @param requestParameters The getVegobjektVersjoner request parameters as object
      * @return List&lt;Vegobjekt&gt;
      * @throws RestClientResponseException if an error occurs while attempting to invoke the API
-    */
+     */
     public List<Vegobjekt> getVegobjektVersjoner(GetVegobjektVersjonerRequest requestParameters) throws RestClientResponseException {
-      return this.getVegobjektVersjoner(requestParameters.vegobjekttypeId(), requestParameters.vegobjektId(), requestParameters.inkluder(), requestParameters.srid(), requestParameters.inkludergeometri(), requestParameters.inkluderEgenskaper(), requestParameters.dybde(), requestParameters.geometritoleranse(), requestParameters.tidspunkt());
-    }
-
-  /**
-  * Hent alle versjoner av et vegobjekt
-  * 
-     * <p><b>500</b> - Internal Server Error
-     * <p><b>400</b> - Bad Request
-     * <p><b>404</b> - Not Found
-     * <p><b>401</b> - Unauthorized
-     * <p><b>403</b> - Forbidden
-     * <p><b>200</b> - OK
-     * @param requestParameters The getVegobjektVersjoner request parameters as object
-     * @return ResponseEntity&lt;List&lt;Vegobjekt&gt;&gt;
-     * @throws RestClientResponseException if an error occurs while attempting to invoke the API
-    */
-    public ResponseEntity<List<Vegobjekt>> getVegobjektVersjonerWithHttpInfo(GetVegobjektVersjonerRequest requestParameters) throws RestClientResponseException {
-      return this.getVegobjektVersjonerWithHttpInfo(requestParameters.vegobjekttypeId(), requestParameters.vegobjektId(), requestParameters.inkluder(), requestParameters.srid(), requestParameters.inkludergeometri(), requestParameters.inkluderEgenskaper(), requestParameters.dybde(), requestParameters.geometritoleranse(), requestParameters.tidspunkt());
-    }
-
-  /**
-  * Hent alle versjoner av et vegobjekt
-  * 
-     * <p><b>500</b> - Internal Server Error
-     * <p><b>400</b> - Bad Request
-     * <p><b>404</b> - Not Found
-     * <p><b>401</b> - Unauthorized
-     * <p><b>403</b> - Forbidden
-     * <p><b>200</b> - OK
-     * @param requestParameters The getVegobjektVersjoner request parameters as object
-  * @return ResponseSpec
-  * @throws RestClientResponseException if an error occurs while attempting to invoke the API
-    */
-    public ResponseSpec getVegobjektVersjonerWithResponseSpec(GetVegobjektVersjonerRequest requestParameters) throws RestClientResponseException {
-      return this.getVegobjektVersjonerWithResponseSpec(requestParameters.vegobjekttypeId(), requestParameters.vegobjektId(), requestParameters.inkluder(), requestParameters.srid(), requestParameters.inkludergeometri(), requestParameters.inkluderEgenskaper(), requestParameters.dybde(), requestParameters.geometritoleranse(), requestParameters.tidspunkt());
+        return this.getVegobjektVersjoner(requestParameters.vegobjekttypeId(), requestParameters.vegobjektId(), requestParameters.inkluder(), requestParameters.srid(), requestParameters.inkludergeometri(), requestParameters.inkluderEgenskaper(), requestParameters.dybde(), requestParameters.geometritoleranse(), requestParameters.tidspunkt());
     }
 
     /**
      * Hent alle versjoner av et vegobjekt
      * 
-     * <p><b>500</b> - Internal Server Error
      * <p><b>400</b> - Bad Request
      * <p><b>404</b> - Not Found
      * <p><b>401</b> - Unauthorized
      * <p><b>403</b> - Forbidden
+     * <p><b>500</b> - Internal Server Error
+     * <p><b>200</b> - OK
+     * @param requestParameters The getVegobjektVersjoner request parameters as object
+     * @return ResponseEntity&lt;List&lt;Vegobjekt&gt;&gt;
+     * @throws RestClientResponseException if an error occurs while attempting to invoke the API
+     */
+    public ResponseEntity<List<Vegobjekt>> getVegobjektVersjonerWithHttpInfo(GetVegobjektVersjonerRequest requestParameters) throws RestClientResponseException {
+        return this.getVegobjektVersjonerWithHttpInfo(requestParameters.vegobjekttypeId(), requestParameters.vegobjektId(), requestParameters.inkluder(), requestParameters.srid(), requestParameters.inkludergeometri(), requestParameters.inkluderEgenskaper(), requestParameters.dybde(), requestParameters.geometritoleranse(), requestParameters.tidspunkt());
+    }
+
+    /**
+     * Hent alle versjoner av et vegobjekt
+     * 
+     * <p><b>400</b> - Bad Request
+     * <p><b>404</b> - Not Found
+     * <p><b>401</b> - Unauthorized
+     * <p><b>403</b> - Forbidden
+     * <p><b>500</b> - Internal Server Error
+     * <p><b>200</b> - OK
+     * @param requestParameters The getVegobjektVersjoner request parameters as object
+     * @return ResponseSpec
+     * @throws RestClientResponseException if an error occurs while attempting to invoke the API
+     */
+    public ResponseSpec getVegobjektVersjonerWithResponseSpec(GetVegobjektVersjonerRequest requestParameters) throws RestClientResponseException {
+        return this.getVegobjektVersjonerWithResponseSpec(requestParameters.vegobjekttypeId(), requestParameters.vegobjektId(), requestParameters.inkluder(), requestParameters.srid(), requestParameters.inkludergeometri(), requestParameters.inkluderEgenskaper(), requestParameters.dybde(), requestParameters.geometritoleranse(), requestParameters.tidspunkt());
+    }
+
+    /**
+     * Hent alle versjoner av et vegobjekt
+     * 
+     * <p><b>400</b> - Bad Request
+     * <p><b>404</b> - Not Found
+     * <p><b>401</b> - Unauthorized
+     * <p><b>403</b> - Forbidden
+     * <p><b>500</b> - Internal Server Error
      * <p><b>200</b> - OK
      * @param vegobjekttypeId Finn vegobjekter med denne vegobjekttypen. Se [Datakatalogen](https://datakatalogen.atlas.vegvesen.no) for mulige verdier.  Eksempel: 581         
      * @param vegobjektId The vegobjektId parameter
      * @param inkluder Kommaseparert liste over hvilke informasjonselementer som skal returneres i tillegg til vegobjektenes ID.
-     * @param srid Angir hvilket geografisk referansesystem som benyttes for geografisk søk, og som geometrien skal returneres i (hvis relevant). Utdata i UTM-formater begrenses til 3 desimaler, 4326/WGS84 begrenses til 8 desimaler. Mer informasjon: &lt;a href&#x3D;&#39;https://epsg.io/5972&#39;&gt;EPSG:5972&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5973&#39;&gt;EPSG:5973&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5975&#39;&gt;EPSG:5975&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/4326&#39;&gt;EPSG:4326&lt;/a&gt;.
+     * @param srid Angir hvilket geografisk referansesystem geometrien skal returneres i. Utdata i UTM-formater begrenses til 3 desimaler, 4326/WGS84 begrenses til 8 desimaler. Query-parametere med koordinater oppgis i UTM33 for UTM-formater, 4326/WGS84 oppgis dersom srid er 4326/WGS84. Mer informasjon: &lt;a href&#x3D;&#39;https://epsg.io/5972&#39;&gt;EPSG:5972&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5973&#39;&gt;EPSG:5973&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5975&#39;&gt;EPSG:5975&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/4326&#39;&gt;EPSG:4326&lt;/a&gt;.
      * @param inkludergeometri Et vegobjekt har opptil to geometrier, egengeometri og stedfestet geometri. Egengeometrien er plassert under &#x60;vegobjekt.egenskaper&#x60; om den finnes, stedfestet geometri er plassert under &#x60;vegobjekt.lokasjon&#x60;. I tillegg til de nevnte feltene på vegobjekt-responsen returneres også &#x60;vegobjekt.geometri&#x60; (dersom man har &#x60;inkluder&#x3D;geometri&#x60; eller &#x60;alle&#x60;), slik at man alltid finner geometrien for vegobjektet ett sted. Dette feltet er egengeometri dersom objektet har det, hvis ikke har feltet stedfestet geometri Ved hvilken av disse som er tilfelle finner man ut ved å se på &#x60;vegobjekt.geometri.egengeometri&#x60;.
      * @param inkluderEgenskaper Gir mulighet til å filtrere hvilke egenskaper som skal returneres med inkluder&#x3D;egenskaper. &#x60;basis&#x60; er alle egenskaper som ikke er geometri, eller lister av geometri.
      * @param dybde Hvor mange nivå barn skal inkluderes. 1 betyr bare IDer, 2-n betyr ett eller flere mellomnivåer, &#39;full&#39; betyr alle nivåer.
@@ -1470,7 +1714,7 @@ public class VegobjekterApi {
         queryParams.putAll(apiClient.parameterToMultiValueMap(null, "dybde", dybde));
         queryParams.putAll(apiClient.parameterToMultiValueMap(null, "geometritoleranse", geometritoleranse));
         queryParams.putAll(apiClient.parameterToMultiValueMap(null, "tidspunkt", tidspunkt));
-        
+
         final String[] localVarAccepts = { 
             "*/*"
         };
@@ -1487,16 +1731,16 @@ public class VegobjekterApi {
     /**
      * Hent alle versjoner av et vegobjekt
      * 
-     * <p><b>500</b> - Internal Server Error
      * <p><b>400</b> - Bad Request
      * <p><b>404</b> - Not Found
      * <p><b>401</b> - Unauthorized
      * <p><b>403</b> - Forbidden
+     * <p><b>500</b> - Internal Server Error
      * <p><b>200</b> - OK
      * @param vegobjekttypeId Finn vegobjekter med denne vegobjekttypen. Se [Datakatalogen](https://datakatalogen.atlas.vegvesen.no) for mulige verdier.  Eksempel: 581         
      * @param vegobjektId The vegobjektId parameter
      * @param inkluder Kommaseparert liste over hvilke informasjonselementer som skal returneres i tillegg til vegobjektenes ID.
-     * @param srid Angir hvilket geografisk referansesystem som benyttes for geografisk søk, og som geometrien skal returneres i (hvis relevant). Utdata i UTM-formater begrenses til 3 desimaler, 4326/WGS84 begrenses til 8 desimaler. Mer informasjon: &lt;a href&#x3D;&#39;https://epsg.io/5972&#39;&gt;EPSG:5972&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5973&#39;&gt;EPSG:5973&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5975&#39;&gt;EPSG:5975&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/4326&#39;&gt;EPSG:4326&lt;/a&gt;.
+     * @param srid Angir hvilket geografisk referansesystem geometrien skal returneres i. Utdata i UTM-formater begrenses til 3 desimaler, 4326/WGS84 begrenses til 8 desimaler. Query-parametere med koordinater oppgis i UTM33 for UTM-formater, 4326/WGS84 oppgis dersom srid er 4326/WGS84. Mer informasjon: &lt;a href&#x3D;&#39;https://epsg.io/5972&#39;&gt;EPSG:5972&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5973&#39;&gt;EPSG:5973&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5975&#39;&gt;EPSG:5975&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/4326&#39;&gt;EPSG:4326&lt;/a&gt;.
      * @param inkludergeometri Et vegobjekt har opptil to geometrier, egengeometri og stedfestet geometri. Egengeometrien er plassert under &#x60;vegobjekt.egenskaper&#x60; om den finnes, stedfestet geometri er plassert under &#x60;vegobjekt.lokasjon&#x60;. I tillegg til de nevnte feltene på vegobjekt-responsen returneres også &#x60;vegobjekt.geometri&#x60; (dersom man har &#x60;inkluder&#x3D;geometri&#x60; eller &#x60;alle&#x60;), slik at man alltid finner geometrien for vegobjektet ett sted. Dette feltet er egengeometri dersom objektet har det, hvis ikke har feltet stedfestet geometri Ved hvilken av disse som er tilfelle finner man ut ved å se på &#x60;vegobjekt.geometri.egengeometri&#x60;.
      * @param inkluderEgenskaper Gir mulighet til å filtrere hvilke egenskaper som skal returneres med inkluder&#x3D;egenskaper. &#x60;basis&#x60; er alle egenskaper som ikke er geometri, eller lister av geometri.
      * @param dybde Hvor mange nivå barn skal inkluderes. 1 betyr bare IDer, 2-n betyr ett eller flere mellomnivåer, &#39;full&#39; betyr alle nivåer.
@@ -1513,16 +1757,16 @@ public class VegobjekterApi {
     /**
      * Hent alle versjoner av et vegobjekt
      * 
-     * <p><b>500</b> - Internal Server Error
      * <p><b>400</b> - Bad Request
      * <p><b>404</b> - Not Found
      * <p><b>401</b> - Unauthorized
      * <p><b>403</b> - Forbidden
+     * <p><b>500</b> - Internal Server Error
      * <p><b>200</b> - OK
      * @param vegobjekttypeId Finn vegobjekter med denne vegobjekttypen. Se [Datakatalogen](https://datakatalogen.atlas.vegvesen.no) for mulige verdier.  Eksempel: 581         
      * @param vegobjektId The vegobjektId parameter
      * @param inkluder Kommaseparert liste over hvilke informasjonselementer som skal returneres i tillegg til vegobjektenes ID.
-     * @param srid Angir hvilket geografisk referansesystem som benyttes for geografisk søk, og som geometrien skal returneres i (hvis relevant). Utdata i UTM-formater begrenses til 3 desimaler, 4326/WGS84 begrenses til 8 desimaler. Mer informasjon: &lt;a href&#x3D;&#39;https://epsg.io/5972&#39;&gt;EPSG:5972&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5973&#39;&gt;EPSG:5973&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5975&#39;&gt;EPSG:5975&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/4326&#39;&gt;EPSG:4326&lt;/a&gt;.
+     * @param srid Angir hvilket geografisk referansesystem geometrien skal returneres i. Utdata i UTM-formater begrenses til 3 desimaler, 4326/WGS84 begrenses til 8 desimaler. Query-parametere med koordinater oppgis i UTM33 for UTM-formater, 4326/WGS84 oppgis dersom srid er 4326/WGS84. Mer informasjon: &lt;a href&#x3D;&#39;https://epsg.io/5972&#39;&gt;EPSG:5972&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5973&#39;&gt;EPSG:5973&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5975&#39;&gt;EPSG:5975&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/4326&#39;&gt;EPSG:4326&lt;/a&gt;.
      * @param inkludergeometri Et vegobjekt har opptil to geometrier, egengeometri og stedfestet geometri. Egengeometrien er plassert under &#x60;vegobjekt.egenskaper&#x60; om den finnes, stedfestet geometri er plassert under &#x60;vegobjekt.lokasjon&#x60;. I tillegg til de nevnte feltene på vegobjekt-responsen returneres også &#x60;vegobjekt.geometri&#x60; (dersom man har &#x60;inkluder&#x3D;geometri&#x60; eller &#x60;alle&#x60;), slik at man alltid finner geometrien for vegobjektet ett sted. Dette feltet er egengeometri dersom objektet har det, hvis ikke har feltet stedfestet geometri Ved hvilken av disse som er tilfelle finner man ut ved å se på &#x60;vegobjekt.geometri.egengeometri&#x60;.
      * @param inkluderEgenskaper Gir mulighet til å filtrere hvilke egenskaper som skal returneres med inkluder&#x3D;egenskaper. &#x60;basis&#x60; er alle egenskaper som ikke er geometri, eller lister av geometri.
      * @param dybde Hvor mange nivå barn skal inkluderes. 1 betyr bare IDer, 2-n betyr ett eller flere mellomnivåer, &#39;full&#39; betyr alle nivåer.
@@ -1539,16 +1783,16 @@ public class VegobjekterApi {
     /**
      * Hent alle versjoner av et vegobjekt
      * 
-     * <p><b>500</b> - Internal Server Error
      * <p><b>400</b> - Bad Request
      * <p><b>404</b> - Not Found
      * <p><b>401</b> - Unauthorized
      * <p><b>403</b> - Forbidden
+     * <p><b>500</b> - Internal Server Error
      * <p><b>200</b> - OK
      * @param vegobjekttypeId Finn vegobjekter med denne vegobjekttypen. Se [Datakatalogen](https://datakatalogen.atlas.vegvesen.no) for mulige verdier.  Eksempel: 581         
      * @param vegobjektId The vegobjektId parameter
      * @param inkluder Kommaseparert liste over hvilke informasjonselementer som skal returneres i tillegg til vegobjektenes ID.
-     * @param srid Angir hvilket geografisk referansesystem som benyttes for geografisk søk, og som geometrien skal returneres i (hvis relevant). Utdata i UTM-formater begrenses til 3 desimaler, 4326/WGS84 begrenses til 8 desimaler. Mer informasjon: &lt;a href&#x3D;&#39;https://epsg.io/5972&#39;&gt;EPSG:5972&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5973&#39;&gt;EPSG:5973&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5975&#39;&gt;EPSG:5975&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/4326&#39;&gt;EPSG:4326&lt;/a&gt;.
+     * @param srid Angir hvilket geografisk referansesystem geometrien skal returneres i. Utdata i UTM-formater begrenses til 3 desimaler, 4326/WGS84 begrenses til 8 desimaler. Query-parametere med koordinater oppgis i UTM33 for UTM-formater, 4326/WGS84 oppgis dersom srid er 4326/WGS84. Mer informasjon: &lt;a href&#x3D;&#39;https://epsg.io/5972&#39;&gt;EPSG:5972&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5973&#39;&gt;EPSG:5973&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5975&#39;&gt;EPSG:5975&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/4326&#39;&gt;EPSG:4326&lt;/a&gt;.
      * @param inkludergeometri Et vegobjekt har opptil to geometrier, egengeometri og stedfestet geometri. Egengeometrien er plassert under &#x60;vegobjekt.egenskaper&#x60; om den finnes, stedfestet geometri er plassert under &#x60;vegobjekt.lokasjon&#x60;. I tillegg til de nevnte feltene på vegobjekt-responsen returneres også &#x60;vegobjekt.geometri&#x60; (dersom man har &#x60;inkluder&#x3D;geometri&#x60; eller &#x60;alle&#x60;), slik at man alltid finner geometrien for vegobjektet ett sted. Dette feltet er egengeometri dersom objektet har det, hvis ikke har feltet stedfestet geometri Ved hvilken av disse som er tilfelle finner man ut ved å se på &#x60;vegobjekt.geometri.egengeometri&#x60;.
      * @param inkluderEgenskaper Gir mulighet til å filtrere hvilke egenskaper som skal returneres med inkluder&#x3D;egenskaper. &#x60;basis&#x60; er alle egenskaper som ikke er geometri, eller lister av geometri.
      * @param dybde Hvor mange nivå barn skal inkluderes. 1 betyr bare IDer, 2-n betyr ett eller flere mellomnivåer, &#39;full&#39; betyr alle nivåer.
@@ -1938,69 +2182,69 @@ public class VegobjekterApi {
     }
 
     /**
-    * Hent vegobjekter av en type
-    * 
-     * <p><b>500</b> - Internal Server Error
+     * Hent vegobjekter av en type
+     * 
      * <p><b>400</b> - Bad Request
      * <p><b>404</b> - Not Found
      * <p><b>401</b> - Unauthorized
      * <p><b>403</b> - Forbidden
+     * <p><b>500</b> - Internal Server Error
      * <p><b>200</b> - OK
      * @param requestParameters The getVegobjekterByType request parameters as object
      * @return VegobjekterSide
      * @throws RestClientResponseException if an error occurs while attempting to invoke the API
-    */
+     */
     public VegobjekterSide getVegobjekterByType(GetVegobjekterByTypeRequest requestParameters) throws RestClientResponseException {
-      return this.getVegobjekterByType(requestParameters.vegobjekttypeId(), requestParameters.ider(), requestParameters.inkluder(), requestParameters.srid(), requestParameters.inkludergeometri(), requestParameters.inkluderEgenskaper(), requestParameters.segmentering(), requestParameters.fylke(), requestParameters.kommune(), requestParameters.kontraktsomrade(), requestParameters.riksvegrute(), requestParameters.vegforvalter(), requestParameters.vegsystemreferanse(), requestParameters.kartutsnitt(), requestParameters.polygon(), requestParameters.typeveg(), requestParameters.adskiltelop(), requestParameters.kryssystem(), requestParameters.sideanlegg(), requestParameters.trafikantgruppe(), requestParameters.antall(), requestParameters.start(), requestParameters.geometritoleranse(), requestParameters.tidspunkt(), requestParameters.alleVersjoner(), requestParameters.inkluderAntall(), requestParameters.veglenkesekvens(), requestParameters.egenskap(), requestParameters.overlapp(), requestParameters.veglenketype(), requestParameters.detaljniva(), requestParameters.endretEtter());
-    }
-
-  /**
-  * Hent vegobjekter av en type
-  * 
-     * <p><b>500</b> - Internal Server Error
-     * <p><b>400</b> - Bad Request
-     * <p><b>404</b> - Not Found
-     * <p><b>401</b> - Unauthorized
-     * <p><b>403</b> - Forbidden
-     * <p><b>200</b> - OK
-     * @param requestParameters The getVegobjekterByType request parameters as object
-     * @return ResponseEntity&lt;VegobjekterSide&gt;
-     * @throws RestClientResponseException if an error occurs while attempting to invoke the API
-    */
-    public ResponseEntity<VegobjekterSide> getVegobjekterByTypeWithHttpInfo(GetVegobjekterByTypeRequest requestParameters) throws RestClientResponseException {
-      return this.getVegobjekterByTypeWithHttpInfo(requestParameters.vegobjekttypeId(), requestParameters.ider(), requestParameters.inkluder(), requestParameters.srid(), requestParameters.inkludergeometri(), requestParameters.inkluderEgenskaper(), requestParameters.segmentering(), requestParameters.fylke(), requestParameters.kommune(), requestParameters.kontraktsomrade(), requestParameters.riksvegrute(), requestParameters.vegforvalter(), requestParameters.vegsystemreferanse(), requestParameters.kartutsnitt(), requestParameters.polygon(), requestParameters.typeveg(), requestParameters.adskiltelop(), requestParameters.kryssystem(), requestParameters.sideanlegg(), requestParameters.trafikantgruppe(), requestParameters.antall(), requestParameters.start(), requestParameters.geometritoleranse(), requestParameters.tidspunkt(), requestParameters.alleVersjoner(), requestParameters.inkluderAntall(), requestParameters.veglenkesekvens(), requestParameters.egenskap(), requestParameters.overlapp(), requestParameters.veglenketype(), requestParameters.detaljniva(), requestParameters.endretEtter());
-    }
-
-  /**
-  * Hent vegobjekter av en type
-  * 
-     * <p><b>500</b> - Internal Server Error
-     * <p><b>400</b> - Bad Request
-     * <p><b>404</b> - Not Found
-     * <p><b>401</b> - Unauthorized
-     * <p><b>403</b> - Forbidden
-     * <p><b>200</b> - OK
-     * @param requestParameters The getVegobjekterByType request parameters as object
-  * @return ResponseSpec
-  * @throws RestClientResponseException if an error occurs while attempting to invoke the API
-    */
-    public ResponseSpec getVegobjekterByTypeWithResponseSpec(GetVegobjekterByTypeRequest requestParameters) throws RestClientResponseException {
-      return this.getVegobjekterByTypeWithResponseSpec(requestParameters.vegobjekttypeId(), requestParameters.ider(), requestParameters.inkluder(), requestParameters.srid(), requestParameters.inkludergeometri(), requestParameters.inkluderEgenskaper(), requestParameters.segmentering(), requestParameters.fylke(), requestParameters.kommune(), requestParameters.kontraktsomrade(), requestParameters.riksvegrute(), requestParameters.vegforvalter(), requestParameters.vegsystemreferanse(), requestParameters.kartutsnitt(), requestParameters.polygon(), requestParameters.typeveg(), requestParameters.adskiltelop(), requestParameters.kryssystem(), requestParameters.sideanlegg(), requestParameters.trafikantgruppe(), requestParameters.antall(), requestParameters.start(), requestParameters.geometritoleranse(), requestParameters.tidspunkt(), requestParameters.alleVersjoner(), requestParameters.inkluderAntall(), requestParameters.veglenkesekvens(), requestParameters.egenskap(), requestParameters.overlapp(), requestParameters.veglenketype(), requestParameters.detaljniva(), requestParameters.endretEtter());
+        return this.getVegobjekterByType(requestParameters.vegobjekttypeId(), requestParameters.ider(), requestParameters.inkluder(), requestParameters.srid(), requestParameters.inkludergeometri(), requestParameters.inkluderEgenskaper(), requestParameters.segmentering(), requestParameters.fylke(), requestParameters.kommune(), requestParameters.kontraktsomrade(), requestParameters.riksvegrute(), requestParameters.vegforvalter(), requestParameters.vegsystemreferanse(), requestParameters.kartutsnitt(), requestParameters.polygon(), requestParameters.typeveg(), requestParameters.adskiltelop(), requestParameters.kryssystem(), requestParameters.sideanlegg(), requestParameters.trafikantgruppe(), requestParameters.antall(), requestParameters.start(), requestParameters.geometritoleranse(), requestParameters.tidspunkt(), requestParameters.alleVersjoner(), requestParameters.inkluderAntall(), requestParameters.veglenkesekvens(), requestParameters.egenskap(), requestParameters.overlapp(), requestParameters.veglenketype(), requestParameters.detaljniva(), requestParameters.endretEtter());
     }
 
     /**
      * Hent vegobjekter av en type
      * 
-     * <p><b>500</b> - Internal Server Error
      * <p><b>400</b> - Bad Request
      * <p><b>404</b> - Not Found
      * <p><b>401</b> - Unauthorized
      * <p><b>403</b> - Forbidden
+     * <p><b>500</b> - Internal Server Error
+     * <p><b>200</b> - OK
+     * @param requestParameters The getVegobjekterByType request parameters as object
+     * @return ResponseEntity&lt;VegobjekterSide&gt;
+     * @throws RestClientResponseException if an error occurs while attempting to invoke the API
+     */
+    public ResponseEntity<VegobjekterSide> getVegobjekterByTypeWithHttpInfo(GetVegobjekterByTypeRequest requestParameters) throws RestClientResponseException {
+        return this.getVegobjekterByTypeWithHttpInfo(requestParameters.vegobjekttypeId(), requestParameters.ider(), requestParameters.inkluder(), requestParameters.srid(), requestParameters.inkludergeometri(), requestParameters.inkluderEgenskaper(), requestParameters.segmentering(), requestParameters.fylke(), requestParameters.kommune(), requestParameters.kontraktsomrade(), requestParameters.riksvegrute(), requestParameters.vegforvalter(), requestParameters.vegsystemreferanse(), requestParameters.kartutsnitt(), requestParameters.polygon(), requestParameters.typeveg(), requestParameters.adskiltelop(), requestParameters.kryssystem(), requestParameters.sideanlegg(), requestParameters.trafikantgruppe(), requestParameters.antall(), requestParameters.start(), requestParameters.geometritoleranse(), requestParameters.tidspunkt(), requestParameters.alleVersjoner(), requestParameters.inkluderAntall(), requestParameters.veglenkesekvens(), requestParameters.egenskap(), requestParameters.overlapp(), requestParameters.veglenketype(), requestParameters.detaljniva(), requestParameters.endretEtter());
+    }
+
+    /**
+     * Hent vegobjekter av en type
+     * 
+     * <p><b>400</b> - Bad Request
+     * <p><b>404</b> - Not Found
+     * <p><b>401</b> - Unauthorized
+     * <p><b>403</b> - Forbidden
+     * <p><b>500</b> - Internal Server Error
+     * <p><b>200</b> - OK
+     * @param requestParameters The getVegobjekterByType request parameters as object
+     * @return ResponseSpec
+     * @throws RestClientResponseException if an error occurs while attempting to invoke the API
+     */
+    public ResponseSpec getVegobjekterByTypeWithResponseSpec(GetVegobjekterByTypeRequest requestParameters) throws RestClientResponseException {
+        return this.getVegobjekterByTypeWithResponseSpec(requestParameters.vegobjekttypeId(), requestParameters.ider(), requestParameters.inkluder(), requestParameters.srid(), requestParameters.inkludergeometri(), requestParameters.inkluderEgenskaper(), requestParameters.segmentering(), requestParameters.fylke(), requestParameters.kommune(), requestParameters.kontraktsomrade(), requestParameters.riksvegrute(), requestParameters.vegforvalter(), requestParameters.vegsystemreferanse(), requestParameters.kartutsnitt(), requestParameters.polygon(), requestParameters.typeveg(), requestParameters.adskiltelop(), requestParameters.kryssystem(), requestParameters.sideanlegg(), requestParameters.trafikantgruppe(), requestParameters.antall(), requestParameters.start(), requestParameters.geometritoleranse(), requestParameters.tidspunkt(), requestParameters.alleVersjoner(), requestParameters.inkluderAntall(), requestParameters.veglenkesekvens(), requestParameters.egenskap(), requestParameters.overlapp(), requestParameters.veglenketype(), requestParameters.detaljniva(), requestParameters.endretEtter());
+    }
+
+    /**
+     * Hent vegobjekter av en type
+     * 
+     * <p><b>400</b> - Bad Request
+     * <p><b>404</b> - Not Found
+     * <p><b>401</b> - Unauthorized
+     * <p><b>403</b> - Forbidden
+     * <p><b>500</b> - Internal Server Error
      * <p><b>200</b> - OK
      * @param vegobjekttypeId Finn vegobjekter med denne vegobjekttypen. Se [Datakatalogen](https://datakatalogen.atlas.vegvesen.no) for mulige verdier.  Eksempel: 581         
      * @param ider Kommaseparert liste med vegobjekt-IDer.
      * @param inkluder Kommaseparert liste over hvilke informasjonselementer som skal returneres i tillegg til vegobjektenes ID.
-     * @param srid Angir hvilket geografisk referansesystem som benyttes for geografisk søk, og som geometrien skal returneres i (hvis relevant). Utdata i UTM-formater begrenses til 3 desimaler, 4326/WGS84 begrenses til 8 desimaler. Mer informasjon: &lt;a href&#x3D;&#39;https://epsg.io/5972&#39;&gt;EPSG:5972&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5973&#39;&gt;EPSG:5973&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5975&#39;&gt;EPSG:5975&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/4326&#39;&gt;EPSG:4326&lt;/a&gt;.
+     * @param srid Angir hvilket geografisk referansesystem geometrien skal returneres i. Utdata i UTM-formater begrenses til 3 desimaler, 4326/WGS84 begrenses til 8 desimaler. Query-parametere med koordinater oppgis i UTM33 for UTM-formater, 4326/WGS84 oppgis dersom srid er 4326/WGS84. Mer informasjon: &lt;a href&#x3D;&#39;https://epsg.io/5972&#39;&gt;EPSG:5972&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5973&#39;&gt;EPSG:5973&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5975&#39;&gt;EPSG:5975&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/4326&#39;&gt;EPSG:4326&lt;/a&gt;.
      * @param inkludergeometri Et vegobjekt har opptil to geometrier, egengeometri og stedfestet geometri. Egengeometrien er plassert under &#x60;vegobjekt.egenskaper&#x60; om den finnes, stedfestet geometri er plassert under &#x60;vegobjekt.lokasjon&#x60;. I tillegg til de nevnte feltene på vegobjekt-responsen returneres også &#x60;vegobjekt.geometri&#x60; (dersom man har &#x60;inkluder&#x3D;geometri&#x60; eller &#x60;alle&#x60;), slik at man alltid finner geometrien for vegobjektet ett sted. Dette feltet er egengeometri dersom objektet har det, hvis ikke har feltet stedfestet geometri Ved hvilken av disse som er tilfelle finner man ut ved å se på &#x60;vegobjekt.geometri.egengeometri&#x60;.
      * @param inkluderEgenskaper Gir mulighet til å filtrere hvilke egenskaper som skal returneres med inkluder&#x3D;egenskaper. &#x60;basis&#x60; er alle egenskaper som ikke er geometri, eller lister av geometri.
      * @param segmentering Angir om strekningsobjekter skal segmenteres etter søkeområdet (fylke, kommune, vegsystemreferanse, kontraktsområde, riksvegrute, vegforvalter).  Default: &#x60;false&#x60;
@@ -2008,10 +2252,10 @@ public class VegobjekterApi {
      * @param kommune Filtrer på kommune. Kommaseparert liste. Se /omrader/kommuner for mulige verdier.  Eksempel: &#x60;5001&#x60;
      * @param kontraktsomrade Filtrer på kontraktsomrade. Kommaseparert liste. Se /omrader/kontraktsomrader for mulige verdier. Det er mulig å bruke ID-en for kontraktsområdet istedenfor det fulle navnet.  Eksempel: &#x60;9503 Midtre Hålogaland 2021-2026&#x60;
      * @param riksvegrute Filtrer på riksvegrute. Kommaseparert liste. Se /omrader/riksvegruter for mulige verdier.  Eksempel: &#x60;RUTE4A&#x60; eller som enumid &#x60;20290&#x60;
-     * @param vegforvalter Filtrer på vegforvalter. Kommaseparert liste. Se [/omrader/api/v4/vegforvaltere](https://nvdbapiles.atlas.vegvesen.no/webjars/swagger-ui/index.html?urls.primaryName&#x3D;Omr%C3%A5der#/Omr%C3%A5der/getVegforvaltere) for mulige verdier.  Eksempel: &#x60;Møre og Romsdal fylkeskommune&#x60; eller som enumid &#x60;21774&#x60;
+     * @param vegforvalter Filtrer på vegforvalter. Kommaseparert liste. Se [/omrader/api/v4/vegforvaltere](https://nvdbapiles.atlas.vegvesen.no/swagger-ui/index.html?urls.primaryName&#x3D;Omr%C3%A5der#/Omr%C3%A5der/getVegforvaltere) for mulige verdier.  Eksempel: &#x60;Møre og Romsdal fylkeskommune&#x60; eller som enumid &#x60;21774&#x60;
      * @param vegsystemreferanse Filtrer vegobjekter på [vegsystemreferanse](https://nvdb-docs.atlas.vegvesen.no/nvdbapil/v4/introduksjon/Vegsystemreferanse). Kommaseparert liste. Legg til kommunenummer i starten av vegsystemreferansen for å filtrere på område.  Eksempel: &#x60;EV6S1D1 m12&#x60;
-     * @param kartutsnitt Filtrer vegobjekter med kartutsnitt i det gjeldende geografiske referansesystemet (&#x60;srid&#x60;-paramteret). Formatet er &#x60;minX, minY, maxX, maxY&#x60;. Merk at vegobjektets bounding box benyttes for sammenligning, som kan medføre at vegobjekter som er utenfor kartutsnittet også returneres. For å unngå dette, kan du bruke &#x60;polygon&#x60; i stedet.  Eksempel: &#x60;265273, 7019372, 346553, 7061071&#x60;
-     * @param polygon Filtrer vegobjekter med polygon i det gjeldende geografiske referansesystemet (&#x60;srid&#x60;-paramteret).  Eksempel: &#x60;20000 6520000, 20500 6520000, 21000 6500000, 20000 6520000&#x60;
+     * @param kartutsnitt Filtrer vegobjekter med kartutsnitt i UTM 33. Formatet er &#x60;minX, minY, maxX, maxY&#x60;. Merk at vegobjektets bounding box benyttes for sammenligning, som kan medføre at vegobjekter som er utenfor kartutsnittet også returneres. For å unngå dette, kan du bruke &#x60;polygon&#x60; i stedet.  Eksempel: &#x60;265273, 7019372, 346553, 7061071&#x60;
+     * @param polygon Filtrer vegobjekter med polygon i UTM 33.  Eksempel: &#x60;20000 6520000, 20500 6520000, 21000 6500000, 20000 6520000&#x60;
      * @param typeveg Filtrer Relasjonstype.vegobjekter på type veg på vegnettet objektet er stedfestet på. Kommaseparert liste.  Eksempel: &#x60;kanalisertVeg, enkelBilveg, rampe, rundkjøring, bilferje, passasjerferje, gangOgSykkelveg, sykkelveg, gangveg, gågate, fortau, trapp, gangfelt, gatetun, traktorveg, sti, annet&#x60;
      * @param adskiltelop Filtrer vegobjekter på om de er stedfestet hvor det er en Strekning med verdi satt for «adskilte løp».
      * @param kryssystem Filtrer vegobjekter på om de er stedfestet på samme sted hvor det er et Kryssystem.
@@ -2079,7 +2323,7 @@ public class VegobjekterApi {
         queryParams.putAll(apiClient.parameterToMultiValueMap(ApiClient.CollectionFormat.valueOf("multi".toUpperCase(Locale.ROOT)), "veglenketype", veglenketype));
         queryParams.putAll(apiClient.parameterToMultiValueMap(ApiClient.CollectionFormat.valueOf("multi".toUpperCase(Locale.ROOT)), "detaljniva", detaljniva));
         queryParams.putAll(apiClient.parameterToMultiValueMap(null, "endret_etter", endretEtter));
-        
+
         final String[] localVarAccepts = { 
             "*/*"
         };
@@ -2096,16 +2340,16 @@ public class VegobjekterApi {
     /**
      * Hent vegobjekter av en type
      * 
-     * <p><b>500</b> - Internal Server Error
      * <p><b>400</b> - Bad Request
      * <p><b>404</b> - Not Found
      * <p><b>401</b> - Unauthorized
      * <p><b>403</b> - Forbidden
+     * <p><b>500</b> - Internal Server Error
      * <p><b>200</b> - OK
      * @param vegobjekttypeId Finn vegobjekter med denne vegobjekttypen. Se [Datakatalogen](https://datakatalogen.atlas.vegvesen.no) for mulige verdier.  Eksempel: 581         
      * @param ider Kommaseparert liste med vegobjekt-IDer.
      * @param inkluder Kommaseparert liste over hvilke informasjonselementer som skal returneres i tillegg til vegobjektenes ID.
-     * @param srid Angir hvilket geografisk referansesystem som benyttes for geografisk søk, og som geometrien skal returneres i (hvis relevant). Utdata i UTM-formater begrenses til 3 desimaler, 4326/WGS84 begrenses til 8 desimaler. Mer informasjon: &lt;a href&#x3D;&#39;https://epsg.io/5972&#39;&gt;EPSG:5972&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5973&#39;&gt;EPSG:5973&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5975&#39;&gt;EPSG:5975&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/4326&#39;&gt;EPSG:4326&lt;/a&gt;.
+     * @param srid Angir hvilket geografisk referansesystem geometrien skal returneres i. Utdata i UTM-formater begrenses til 3 desimaler, 4326/WGS84 begrenses til 8 desimaler. Query-parametere med koordinater oppgis i UTM33 for UTM-formater, 4326/WGS84 oppgis dersom srid er 4326/WGS84. Mer informasjon: &lt;a href&#x3D;&#39;https://epsg.io/5972&#39;&gt;EPSG:5972&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5973&#39;&gt;EPSG:5973&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5975&#39;&gt;EPSG:5975&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/4326&#39;&gt;EPSG:4326&lt;/a&gt;.
      * @param inkludergeometri Et vegobjekt har opptil to geometrier, egengeometri og stedfestet geometri. Egengeometrien er plassert under &#x60;vegobjekt.egenskaper&#x60; om den finnes, stedfestet geometri er plassert under &#x60;vegobjekt.lokasjon&#x60;. I tillegg til de nevnte feltene på vegobjekt-responsen returneres også &#x60;vegobjekt.geometri&#x60; (dersom man har &#x60;inkluder&#x3D;geometri&#x60; eller &#x60;alle&#x60;), slik at man alltid finner geometrien for vegobjektet ett sted. Dette feltet er egengeometri dersom objektet har det, hvis ikke har feltet stedfestet geometri Ved hvilken av disse som er tilfelle finner man ut ved å se på &#x60;vegobjekt.geometri.egengeometri&#x60;.
      * @param inkluderEgenskaper Gir mulighet til å filtrere hvilke egenskaper som skal returneres med inkluder&#x3D;egenskaper. &#x60;basis&#x60; er alle egenskaper som ikke er geometri, eller lister av geometri.
      * @param segmentering Angir om strekningsobjekter skal segmenteres etter søkeområdet (fylke, kommune, vegsystemreferanse, kontraktsområde, riksvegrute, vegforvalter).  Default: &#x60;false&#x60;
@@ -2113,10 +2357,10 @@ public class VegobjekterApi {
      * @param kommune Filtrer på kommune. Kommaseparert liste. Se /omrader/kommuner for mulige verdier.  Eksempel: &#x60;5001&#x60;
      * @param kontraktsomrade Filtrer på kontraktsomrade. Kommaseparert liste. Se /omrader/kontraktsomrader for mulige verdier. Det er mulig å bruke ID-en for kontraktsområdet istedenfor det fulle navnet.  Eksempel: &#x60;9503 Midtre Hålogaland 2021-2026&#x60;
      * @param riksvegrute Filtrer på riksvegrute. Kommaseparert liste. Se /omrader/riksvegruter for mulige verdier.  Eksempel: &#x60;RUTE4A&#x60; eller som enumid &#x60;20290&#x60;
-     * @param vegforvalter Filtrer på vegforvalter. Kommaseparert liste. Se [/omrader/api/v4/vegforvaltere](https://nvdbapiles.atlas.vegvesen.no/webjars/swagger-ui/index.html?urls.primaryName&#x3D;Omr%C3%A5der#/Omr%C3%A5der/getVegforvaltere) for mulige verdier.  Eksempel: &#x60;Møre og Romsdal fylkeskommune&#x60; eller som enumid &#x60;21774&#x60;
+     * @param vegforvalter Filtrer på vegforvalter. Kommaseparert liste. Se [/omrader/api/v4/vegforvaltere](https://nvdbapiles.atlas.vegvesen.no/swagger-ui/index.html?urls.primaryName&#x3D;Omr%C3%A5der#/Omr%C3%A5der/getVegforvaltere) for mulige verdier.  Eksempel: &#x60;Møre og Romsdal fylkeskommune&#x60; eller som enumid &#x60;21774&#x60;
      * @param vegsystemreferanse Filtrer vegobjekter på [vegsystemreferanse](https://nvdb-docs.atlas.vegvesen.no/nvdbapil/v4/introduksjon/Vegsystemreferanse). Kommaseparert liste. Legg til kommunenummer i starten av vegsystemreferansen for å filtrere på område.  Eksempel: &#x60;EV6S1D1 m12&#x60;
-     * @param kartutsnitt Filtrer vegobjekter med kartutsnitt i det gjeldende geografiske referansesystemet (&#x60;srid&#x60;-paramteret). Formatet er &#x60;minX, minY, maxX, maxY&#x60;. Merk at vegobjektets bounding box benyttes for sammenligning, som kan medføre at vegobjekter som er utenfor kartutsnittet også returneres. For å unngå dette, kan du bruke &#x60;polygon&#x60; i stedet.  Eksempel: &#x60;265273, 7019372, 346553, 7061071&#x60;
-     * @param polygon Filtrer vegobjekter med polygon i det gjeldende geografiske referansesystemet (&#x60;srid&#x60;-paramteret).  Eksempel: &#x60;20000 6520000, 20500 6520000, 21000 6500000, 20000 6520000&#x60;
+     * @param kartutsnitt Filtrer vegobjekter med kartutsnitt i UTM 33. Formatet er &#x60;minX, minY, maxX, maxY&#x60;. Merk at vegobjektets bounding box benyttes for sammenligning, som kan medføre at vegobjekter som er utenfor kartutsnittet også returneres. For å unngå dette, kan du bruke &#x60;polygon&#x60; i stedet.  Eksempel: &#x60;265273, 7019372, 346553, 7061071&#x60;
+     * @param polygon Filtrer vegobjekter med polygon i UTM 33.  Eksempel: &#x60;20000 6520000, 20500 6520000, 21000 6500000, 20000 6520000&#x60;
      * @param typeveg Filtrer Relasjonstype.vegobjekter på type veg på vegnettet objektet er stedfestet på. Kommaseparert liste.  Eksempel: &#x60;kanalisertVeg, enkelBilveg, rampe, rundkjøring, bilferje, passasjerferje, gangOgSykkelveg, sykkelveg, gangveg, gågate, fortau, trapp, gangfelt, gatetun, traktorveg, sti, annet&#x60;
      * @param adskiltelop Filtrer vegobjekter på om de er stedfestet hvor det er en Strekning med verdi satt for «adskilte løp».
      * @param kryssystem Filtrer vegobjekter på om de er stedfestet på samme sted hvor det er et Kryssystem.
@@ -2145,16 +2389,16 @@ public class VegobjekterApi {
     /**
      * Hent vegobjekter av en type
      * 
-     * <p><b>500</b> - Internal Server Error
      * <p><b>400</b> - Bad Request
      * <p><b>404</b> - Not Found
      * <p><b>401</b> - Unauthorized
      * <p><b>403</b> - Forbidden
+     * <p><b>500</b> - Internal Server Error
      * <p><b>200</b> - OK
      * @param vegobjekttypeId Finn vegobjekter med denne vegobjekttypen. Se [Datakatalogen](https://datakatalogen.atlas.vegvesen.no) for mulige verdier.  Eksempel: 581         
      * @param ider Kommaseparert liste med vegobjekt-IDer.
      * @param inkluder Kommaseparert liste over hvilke informasjonselementer som skal returneres i tillegg til vegobjektenes ID.
-     * @param srid Angir hvilket geografisk referansesystem som benyttes for geografisk søk, og som geometrien skal returneres i (hvis relevant). Utdata i UTM-formater begrenses til 3 desimaler, 4326/WGS84 begrenses til 8 desimaler. Mer informasjon: &lt;a href&#x3D;&#39;https://epsg.io/5972&#39;&gt;EPSG:5972&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5973&#39;&gt;EPSG:5973&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5975&#39;&gt;EPSG:5975&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/4326&#39;&gt;EPSG:4326&lt;/a&gt;.
+     * @param srid Angir hvilket geografisk referansesystem geometrien skal returneres i. Utdata i UTM-formater begrenses til 3 desimaler, 4326/WGS84 begrenses til 8 desimaler. Query-parametere med koordinater oppgis i UTM33 for UTM-formater, 4326/WGS84 oppgis dersom srid er 4326/WGS84. Mer informasjon: &lt;a href&#x3D;&#39;https://epsg.io/5972&#39;&gt;EPSG:5972&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5973&#39;&gt;EPSG:5973&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5975&#39;&gt;EPSG:5975&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/4326&#39;&gt;EPSG:4326&lt;/a&gt;.
      * @param inkludergeometri Et vegobjekt har opptil to geometrier, egengeometri og stedfestet geometri. Egengeometrien er plassert under &#x60;vegobjekt.egenskaper&#x60; om den finnes, stedfestet geometri er plassert under &#x60;vegobjekt.lokasjon&#x60;. I tillegg til de nevnte feltene på vegobjekt-responsen returneres også &#x60;vegobjekt.geometri&#x60; (dersom man har &#x60;inkluder&#x3D;geometri&#x60; eller &#x60;alle&#x60;), slik at man alltid finner geometrien for vegobjektet ett sted. Dette feltet er egengeometri dersom objektet har det, hvis ikke har feltet stedfestet geometri Ved hvilken av disse som er tilfelle finner man ut ved å se på &#x60;vegobjekt.geometri.egengeometri&#x60;.
      * @param inkluderEgenskaper Gir mulighet til å filtrere hvilke egenskaper som skal returneres med inkluder&#x3D;egenskaper. &#x60;basis&#x60; er alle egenskaper som ikke er geometri, eller lister av geometri.
      * @param segmentering Angir om strekningsobjekter skal segmenteres etter søkeområdet (fylke, kommune, vegsystemreferanse, kontraktsområde, riksvegrute, vegforvalter).  Default: &#x60;false&#x60;
@@ -2162,10 +2406,10 @@ public class VegobjekterApi {
      * @param kommune Filtrer på kommune. Kommaseparert liste. Se /omrader/kommuner for mulige verdier.  Eksempel: &#x60;5001&#x60;
      * @param kontraktsomrade Filtrer på kontraktsomrade. Kommaseparert liste. Se /omrader/kontraktsomrader for mulige verdier. Det er mulig å bruke ID-en for kontraktsområdet istedenfor det fulle navnet.  Eksempel: &#x60;9503 Midtre Hålogaland 2021-2026&#x60;
      * @param riksvegrute Filtrer på riksvegrute. Kommaseparert liste. Se /omrader/riksvegruter for mulige verdier.  Eksempel: &#x60;RUTE4A&#x60; eller som enumid &#x60;20290&#x60;
-     * @param vegforvalter Filtrer på vegforvalter. Kommaseparert liste. Se [/omrader/api/v4/vegforvaltere](https://nvdbapiles.atlas.vegvesen.no/webjars/swagger-ui/index.html?urls.primaryName&#x3D;Omr%C3%A5der#/Omr%C3%A5der/getVegforvaltere) for mulige verdier.  Eksempel: &#x60;Møre og Romsdal fylkeskommune&#x60; eller som enumid &#x60;21774&#x60;
+     * @param vegforvalter Filtrer på vegforvalter. Kommaseparert liste. Se [/omrader/api/v4/vegforvaltere](https://nvdbapiles.atlas.vegvesen.no/swagger-ui/index.html?urls.primaryName&#x3D;Omr%C3%A5der#/Omr%C3%A5der/getVegforvaltere) for mulige verdier.  Eksempel: &#x60;Møre og Romsdal fylkeskommune&#x60; eller som enumid &#x60;21774&#x60;
      * @param vegsystemreferanse Filtrer vegobjekter på [vegsystemreferanse](https://nvdb-docs.atlas.vegvesen.no/nvdbapil/v4/introduksjon/Vegsystemreferanse). Kommaseparert liste. Legg til kommunenummer i starten av vegsystemreferansen for å filtrere på område.  Eksempel: &#x60;EV6S1D1 m12&#x60;
-     * @param kartutsnitt Filtrer vegobjekter med kartutsnitt i det gjeldende geografiske referansesystemet (&#x60;srid&#x60;-paramteret). Formatet er &#x60;minX, minY, maxX, maxY&#x60;. Merk at vegobjektets bounding box benyttes for sammenligning, som kan medføre at vegobjekter som er utenfor kartutsnittet også returneres. For å unngå dette, kan du bruke &#x60;polygon&#x60; i stedet.  Eksempel: &#x60;265273, 7019372, 346553, 7061071&#x60;
-     * @param polygon Filtrer vegobjekter med polygon i det gjeldende geografiske referansesystemet (&#x60;srid&#x60;-paramteret).  Eksempel: &#x60;20000 6520000, 20500 6520000, 21000 6500000, 20000 6520000&#x60;
+     * @param kartutsnitt Filtrer vegobjekter med kartutsnitt i UTM 33. Formatet er &#x60;minX, minY, maxX, maxY&#x60;. Merk at vegobjektets bounding box benyttes for sammenligning, som kan medføre at vegobjekter som er utenfor kartutsnittet også returneres. For å unngå dette, kan du bruke &#x60;polygon&#x60; i stedet.  Eksempel: &#x60;265273, 7019372, 346553, 7061071&#x60;
+     * @param polygon Filtrer vegobjekter med polygon i UTM 33.  Eksempel: &#x60;20000 6520000, 20500 6520000, 21000 6500000, 20000 6520000&#x60;
      * @param typeveg Filtrer Relasjonstype.vegobjekter på type veg på vegnettet objektet er stedfestet på. Kommaseparert liste.  Eksempel: &#x60;kanalisertVeg, enkelBilveg, rampe, rundkjøring, bilferje, passasjerferje, gangOgSykkelveg, sykkelveg, gangveg, gågate, fortau, trapp, gangfelt, gatetun, traktorveg, sti, annet&#x60;
      * @param adskiltelop Filtrer vegobjekter på om de er stedfestet hvor det er en Strekning med verdi satt for «adskilte løp».
      * @param kryssystem Filtrer vegobjekter på om de er stedfestet på samme sted hvor det er et Kryssystem.
@@ -2194,16 +2438,16 @@ public class VegobjekterApi {
     /**
      * Hent vegobjekter av en type
      * 
-     * <p><b>500</b> - Internal Server Error
      * <p><b>400</b> - Bad Request
      * <p><b>404</b> - Not Found
      * <p><b>401</b> - Unauthorized
      * <p><b>403</b> - Forbidden
+     * <p><b>500</b> - Internal Server Error
      * <p><b>200</b> - OK
      * @param vegobjekttypeId Finn vegobjekter med denne vegobjekttypen. Se [Datakatalogen](https://datakatalogen.atlas.vegvesen.no) for mulige verdier.  Eksempel: 581         
      * @param ider Kommaseparert liste med vegobjekt-IDer.
      * @param inkluder Kommaseparert liste over hvilke informasjonselementer som skal returneres i tillegg til vegobjektenes ID.
-     * @param srid Angir hvilket geografisk referansesystem som benyttes for geografisk søk, og som geometrien skal returneres i (hvis relevant). Utdata i UTM-formater begrenses til 3 desimaler, 4326/WGS84 begrenses til 8 desimaler. Mer informasjon: &lt;a href&#x3D;&#39;https://epsg.io/5972&#39;&gt;EPSG:5972&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5973&#39;&gt;EPSG:5973&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5975&#39;&gt;EPSG:5975&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/4326&#39;&gt;EPSG:4326&lt;/a&gt;.
+     * @param srid Angir hvilket geografisk referansesystem geometrien skal returneres i. Utdata i UTM-formater begrenses til 3 desimaler, 4326/WGS84 begrenses til 8 desimaler. Query-parametere med koordinater oppgis i UTM33 for UTM-formater, 4326/WGS84 oppgis dersom srid er 4326/WGS84. Mer informasjon: &lt;a href&#x3D;&#39;https://epsg.io/5972&#39;&gt;EPSG:5972&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5973&#39;&gt;EPSG:5973&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5975&#39;&gt;EPSG:5975&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/4326&#39;&gt;EPSG:4326&lt;/a&gt;.
      * @param inkludergeometri Et vegobjekt har opptil to geometrier, egengeometri og stedfestet geometri. Egengeometrien er plassert under &#x60;vegobjekt.egenskaper&#x60; om den finnes, stedfestet geometri er plassert under &#x60;vegobjekt.lokasjon&#x60;. I tillegg til de nevnte feltene på vegobjekt-responsen returneres også &#x60;vegobjekt.geometri&#x60; (dersom man har &#x60;inkluder&#x3D;geometri&#x60; eller &#x60;alle&#x60;), slik at man alltid finner geometrien for vegobjektet ett sted. Dette feltet er egengeometri dersom objektet har det, hvis ikke har feltet stedfestet geometri Ved hvilken av disse som er tilfelle finner man ut ved å se på &#x60;vegobjekt.geometri.egengeometri&#x60;.
      * @param inkluderEgenskaper Gir mulighet til å filtrere hvilke egenskaper som skal returneres med inkluder&#x3D;egenskaper. &#x60;basis&#x60; er alle egenskaper som ikke er geometri, eller lister av geometri.
      * @param segmentering Angir om strekningsobjekter skal segmenteres etter søkeområdet (fylke, kommune, vegsystemreferanse, kontraktsområde, riksvegrute, vegforvalter).  Default: &#x60;false&#x60;
@@ -2211,10 +2455,10 @@ public class VegobjekterApi {
      * @param kommune Filtrer på kommune. Kommaseparert liste. Se /omrader/kommuner for mulige verdier.  Eksempel: &#x60;5001&#x60;
      * @param kontraktsomrade Filtrer på kontraktsomrade. Kommaseparert liste. Se /omrader/kontraktsomrader for mulige verdier. Det er mulig å bruke ID-en for kontraktsområdet istedenfor det fulle navnet.  Eksempel: &#x60;9503 Midtre Hålogaland 2021-2026&#x60;
      * @param riksvegrute Filtrer på riksvegrute. Kommaseparert liste. Se /omrader/riksvegruter for mulige verdier.  Eksempel: &#x60;RUTE4A&#x60; eller som enumid &#x60;20290&#x60;
-     * @param vegforvalter Filtrer på vegforvalter. Kommaseparert liste. Se [/omrader/api/v4/vegforvaltere](https://nvdbapiles.atlas.vegvesen.no/webjars/swagger-ui/index.html?urls.primaryName&#x3D;Omr%C3%A5der#/Omr%C3%A5der/getVegforvaltere) for mulige verdier.  Eksempel: &#x60;Møre og Romsdal fylkeskommune&#x60; eller som enumid &#x60;21774&#x60;
+     * @param vegforvalter Filtrer på vegforvalter. Kommaseparert liste. Se [/omrader/api/v4/vegforvaltere](https://nvdbapiles.atlas.vegvesen.no/swagger-ui/index.html?urls.primaryName&#x3D;Omr%C3%A5der#/Omr%C3%A5der/getVegforvaltere) for mulige verdier.  Eksempel: &#x60;Møre og Romsdal fylkeskommune&#x60; eller som enumid &#x60;21774&#x60;
      * @param vegsystemreferanse Filtrer vegobjekter på [vegsystemreferanse](https://nvdb-docs.atlas.vegvesen.no/nvdbapil/v4/introduksjon/Vegsystemreferanse). Kommaseparert liste. Legg til kommunenummer i starten av vegsystemreferansen for å filtrere på område.  Eksempel: &#x60;EV6S1D1 m12&#x60;
-     * @param kartutsnitt Filtrer vegobjekter med kartutsnitt i det gjeldende geografiske referansesystemet (&#x60;srid&#x60;-paramteret). Formatet er &#x60;minX, minY, maxX, maxY&#x60;. Merk at vegobjektets bounding box benyttes for sammenligning, som kan medføre at vegobjekter som er utenfor kartutsnittet også returneres. For å unngå dette, kan du bruke &#x60;polygon&#x60; i stedet.  Eksempel: &#x60;265273, 7019372, 346553, 7061071&#x60;
-     * @param polygon Filtrer vegobjekter med polygon i det gjeldende geografiske referansesystemet (&#x60;srid&#x60;-paramteret).  Eksempel: &#x60;20000 6520000, 20500 6520000, 21000 6500000, 20000 6520000&#x60;
+     * @param kartutsnitt Filtrer vegobjekter med kartutsnitt i UTM 33. Formatet er &#x60;minX, minY, maxX, maxY&#x60;. Merk at vegobjektets bounding box benyttes for sammenligning, som kan medføre at vegobjekter som er utenfor kartutsnittet også returneres. For å unngå dette, kan du bruke &#x60;polygon&#x60; i stedet.  Eksempel: &#x60;265273, 7019372, 346553, 7061071&#x60;
+     * @param polygon Filtrer vegobjekter med polygon i UTM 33.  Eksempel: &#x60;20000 6520000, 20500 6520000, 21000 6500000, 20000 6520000&#x60;
      * @param typeveg Filtrer Relasjonstype.vegobjekter på type veg på vegnettet objektet er stedfestet på. Kommaseparert liste.  Eksempel: &#x60;kanalisertVeg, enkelBilveg, rampe, rundkjøring, bilferje, passasjerferje, gangOgSykkelveg, sykkelveg, gangveg, gågate, fortau, trapp, gangfelt, gatetun, traktorveg, sti, annet&#x60;
      * @param adskiltelop Filtrer vegobjekter på om de er stedfestet hvor det er en Strekning med verdi satt for «adskilte løp».
      * @param kryssystem Filtrer vegobjekter på om de er stedfestet på samme sted hvor det er et Kryssystem.

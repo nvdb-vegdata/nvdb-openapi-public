@@ -32,7 +32,7 @@ import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestClient.ResponseSpec;
 import org.springframework.web.client.RestClientResponseException;
 
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.14.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0")
 public class DatakatalogenApi {
     private ApiClient apiClient;
 
@@ -186,8 +186,8 @@ public class DatakatalogenApi {
     }
 
     /**
-    * Returnerer angitt egenskapstype for angitt vegobjekttype
-    * 
+     * Returnerer angitt egenskapstype for angitt vegobjekttype
+     * 
      * <p><b>500</b> - Internal Server Error
      * <p><b>503</b> - Service Unavailable
      * <p><b>404</b> - Not Found
@@ -195,14 +195,14 @@ public class DatakatalogenApi {
      * @param requestParameters The getEgenskapstypeForVegobjekttype request parameters as object
      * @return Egenskapstype
      * @throws RestClientResponseException if an error occurs while attempting to invoke the API
-    */
+     */
     public Egenskapstype getEgenskapstypeForVegobjekttype(GetEgenskapstypeForVegobjekttypeRequest requestParameters) throws RestClientResponseException {
-      return this.getEgenskapstypeForVegobjekttype(requestParameters.vegobjekttypeid(), requestParameters.egenskapstypeid());
+        return this.getEgenskapstypeForVegobjekttype(requestParameters.vegobjekttypeid(), requestParameters.egenskapstypeid());
     }
 
-  /**
-  * Returnerer angitt egenskapstype for angitt vegobjekttype
-  * 
+    /**
+     * Returnerer angitt egenskapstype for angitt vegobjekttype
+     * 
      * <p><b>500</b> - Internal Server Error
      * <p><b>503</b> - Service Unavailable
      * <p><b>404</b> - Not Found
@@ -210,24 +210,24 @@ public class DatakatalogenApi {
      * @param requestParameters The getEgenskapstypeForVegobjekttype request parameters as object
      * @return ResponseEntity&lt;Egenskapstype&gt;
      * @throws RestClientResponseException if an error occurs while attempting to invoke the API
-    */
+     */
     public ResponseEntity<Egenskapstype> getEgenskapstypeForVegobjekttypeWithHttpInfo(GetEgenskapstypeForVegobjekttypeRequest requestParameters) throws RestClientResponseException {
-      return this.getEgenskapstypeForVegobjekttypeWithHttpInfo(requestParameters.vegobjekttypeid(), requestParameters.egenskapstypeid());
+        return this.getEgenskapstypeForVegobjekttypeWithHttpInfo(requestParameters.vegobjekttypeid(), requestParameters.egenskapstypeid());
     }
 
-  /**
-  * Returnerer angitt egenskapstype for angitt vegobjekttype
-  * 
+    /**
+     * Returnerer angitt egenskapstype for angitt vegobjekttype
+     * 
      * <p><b>500</b> - Internal Server Error
      * <p><b>503</b> - Service Unavailable
      * <p><b>404</b> - Not Found
      * <p><b>200</b> - OK
      * @param requestParameters The getEgenskapstypeForVegobjekttype request parameters as object
-  * @return ResponseSpec
-  * @throws RestClientResponseException if an error occurs while attempting to invoke the API
-    */
+     * @return ResponseSpec
+     * @throws RestClientResponseException if an error occurs while attempting to invoke the API
+     */
     public ResponseSpec getEgenskapstypeForVegobjekttypeWithResponseSpec(GetEgenskapstypeForVegobjekttypeRequest requestParameters) throws RestClientResponseException {
-      return this.getEgenskapstypeForVegobjekttypeWithResponseSpec(requestParameters.vegobjekttypeid(), requestParameters.egenskapstypeid());
+        return this.getEgenskapstypeForVegobjekttypeWithResponseSpec(requestParameters.vegobjekttypeid(), requestParameters.egenskapstypeid());
     }
 
     /**
@@ -325,6 +325,7 @@ public class DatakatalogenApi {
     public ResponseSpec getEgenskapstypeForVegobjekttypeWithResponseSpec(@jakarta.annotation.Nonnull Integer vegobjekttypeid, @jakarta.annotation.Nonnull Integer egenskapstypeid) throws RestClientResponseException {
         return getEgenskapstypeForVegobjekttypeRequestCreation(vegobjekttypeid, egenskapstypeid);
     }
+
     /**
      * Returnerer alle kategorier for egenskapstypene
      * 
@@ -401,6 +402,7 @@ public class DatakatalogenApi {
     public ResponseSpec getEgenskapstypeKategorierWithResponseSpec() throws RestClientResponseException {
         return getEgenskapstypeKategorierRequestCreation();
     }
+
     /**
      * Returnerer alle enheter
      * 
@@ -477,6 +479,7 @@ public class DatakatalogenApi {
     public ResponseSpec getEnheterWithResponseSpec() throws RestClientResponseException {
         return getEnheterRequestCreation();
     }
+
     /**
      * Returnerer alle kategorier for vegobjekter
      * 
@@ -553,6 +556,7 @@ public class DatakatalogenApi {
     public ResponseSpec getKategorierWithResponseSpec() throws RestClientResponseException {
         return getKategorierRequestCreation();
     }
+
     /**
      * Returnerer produktspesifikasjonen til den angitte vegobjekttypen
      * 
@@ -687,8 +691,8 @@ public class DatakatalogenApi {
     }
 
     /**
-    * Returnerer angitt vegobjekttype
-    * 
+     * Returnerer angitt vegobjekttype
+     * 
      * <p><b>500</b> - Internal Server Error
      * <p><b>503</b> - Service Unavailable
      * <p><b>404</b> - Not Found
@@ -696,14 +700,14 @@ public class DatakatalogenApi {
      * @param requestParameters The getVegobjekttype request parameters as object
      * @return Vegobjekttype
      * @throws RestClientResponseException if an error occurs while attempting to invoke the API
-    */
+     */
     public Vegobjekttype getVegobjekttype(GetVegobjekttypeRequest requestParameters) throws RestClientResponseException {
-      return this.getVegobjekttype(requestParameters.vegobjekttypeid(), requestParameters.inkluder());
+        return this.getVegobjekttype(requestParameters.vegobjekttypeid(), requestParameters.inkluder());
     }
 
-  /**
-  * Returnerer angitt vegobjekttype
-  * 
+    /**
+     * Returnerer angitt vegobjekttype
+     * 
      * <p><b>500</b> - Internal Server Error
      * <p><b>503</b> - Service Unavailable
      * <p><b>404</b> - Not Found
@@ -711,24 +715,24 @@ public class DatakatalogenApi {
      * @param requestParameters The getVegobjekttype request parameters as object
      * @return ResponseEntity&lt;Vegobjekttype&gt;
      * @throws RestClientResponseException if an error occurs while attempting to invoke the API
-    */
+     */
     public ResponseEntity<Vegobjekttype> getVegobjekttypeWithHttpInfo(GetVegobjekttypeRequest requestParameters) throws RestClientResponseException {
-      return this.getVegobjekttypeWithHttpInfo(requestParameters.vegobjekttypeid(), requestParameters.inkluder());
+        return this.getVegobjekttypeWithHttpInfo(requestParameters.vegobjekttypeid(), requestParameters.inkluder());
     }
 
-  /**
-  * Returnerer angitt vegobjekttype
-  * 
+    /**
+     * Returnerer angitt vegobjekttype
+     * 
      * <p><b>500</b> - Internal Server Error
      * <p><b>503</b> - Service Unavailable
      * <p><b>404</b> - Not Found
      * <p><b>200</b> - OK
      * @param requestParameters The getVegobjekttype request parameters as object
-  * @return ResponseSpec
-  * @throws RestClientResponseException if an error occurs while attempting to invoke the API
-    */
+     * @return ResponseSpec
+     * @throws RestClientResponseException if an error occurs while attempting to invoke the API
+     */
     public ResponseSpec getVegobjekttypeWithResponseSpec(GetVegobjekttypeRequest requestParameters) throws RestClientResponseException {
-      return this.getVegobjekttypeWithResponseSpec(requestParameters.vegobjekttypeid(), requestParameters.inkluder());
+        return this.getVegobjekttypeWithResponseSpec(requestParameters.vegobjekttypeid(), requestParameters.inkluder());
     }
 
     /**
@@ -760,7 +764,7 @@ public class DatakatalogenApi {
         final MultiValueMap<String, Object> formParams = new LinkedMultiValueMap<>();
 
         queryParams.putAll(apiClient.parameterToMultiValueMap(ApiClient.CollectionFormat.valueOf("multi".toUpperCase(Locale.ROOT)), "inkluder", inkluder));
-        
+
         final String[] localVarAccepts = { 
             "*/*"
         };
@@ -871,8 +875,8 @@ public class DatakatalogenApi {
     }
 
     /**
-    * Returnerer alle vegobjekttypene
-    * 
+     * Returnerer alle vegobjekttypene
+     * 
      * <p><b>500</b> - Internal Server Error
      * <p><b>503</b> - Service Unavailable
      * <p><b>404</b> - Not Found
@@ -880,14 +884,14 @@ public class DatakatalogenApi {
      * @param requestParameters The getVegobjekttyper request parameters as object
      * @return List&lt;Vegobjekttype&gt;
      * @throws RestClientResponseException if an error occurs while attempting to invoke the API
-    */
+     */
     public List<Vegobjekttype> getVegobjekttyper(GetVegobjekttyperRequest requestParameters) throws RestClientResponseException {
-      return this.getVegobjekttyper(requestParameters.inkluder(), requestParameters.kategori());
+        return this.getVegobjekttyper(requestParameters.inkluder(), requestParameters.kategori());
     }
 
-  /**
-  * Returnerer alle vegobjekttypene
-  * 
+    /**
+     * Returnerer alle vegobjekttypene
+     * 
      * <p><b>500</b> - Internal Server Error
      * <p><b>503</b> - Service Unavailable
      * <p><b>404</b> - Not Found
@@ -895,24 +899,24 @@ public class DatakatalogenApi {
      * @param requestParameters The getVegobjekttyper request parameters as object
      * @return ResponseEntity&lt;List&lt;Vegobjekttype&gt;&gt;
      * @throws RestClientResponseException if an error occurs while attempting to invoke the API
-    */
+     */
     public ResponseEntity<List<Vegobjekttype>> getVegobjekttyperWithHttpInfo(GetVegobjekttyperRequest requestParameters) throws RestClientResponseException {
-      return this.getVegobjekttyperWithHttpInfo(requestParameters.inkluder(), requestParameters.kategori());
+        return this.getVegobjekttyperWithHttpInfo(requestParameters.inkluder(), requestParameters.kategori());
     }
 
-  /**
-  * Returnerer alle vegobjekttypene
-  * 
+    /**
+     * Returnerer alle vegobjekttypene
+     * 
      * <p><b>500</b> - Internal Server Error
      * <p><b>503</b> - Service Unavailable
      * <p><b>404</b> - Not Found
      * <p><b>200</b> - OK
      * @param requestParameters The getVegobjekttyper request parameters as object
-  * @return ResponseSpec
-  * @throws RestClientResponseException if an error occurs while attempting to invoke the API
-    */
+     * @return ResponseSpec
+     * @throws RestClientResponseException if an error occurs while attempting to invoke the API
+     */
     public ResponseSpec getVegobjekttyperWithResponseSpec(GetVegobjekttyperRequest requestParameters) throws RestClientResponseException {
-      return this.getVegobjekttyperWithResponseSpec(requestParameters.inkluder(), requestParameters.kategori());
+        return this.getVegobjekttyperWithResponseSpec(requestParameters.inkluder(), requestParameters.kategori());
     }
 
     /**
@@ -939,7 +943,7 @@ public class DatakatalogenApi {
 
         queryParams.putAll(apiClient.parameterToMultiValueMap(ApiClient.CollectionFormat.valueOf("multi".toUpperCase(Locale.ROOT)), "inkluder", inkluder));
         queryParams.putAll(apiClient.parameterToMultiValueMap(null, "kategori", kategori));
-        
+
         final String[] localVarAccepts = { 
             "*/*"
         };
@@ -1061,8 +1065,8 @@ public class DatakatalogenApi {
     }
 
     /**
-    * Returnerer alle vegobjekttypene for en gitt versjon av datakatalogen, f.eks. 2.31
-    * 
+     * Returnerer alle vegobjekttypene for en gitt versjon av datakatalogen, f.eks. 2.31
+     * 
      * <p><b>500</b> - Internal Server Error
      * <p><b>503</b> - Service Unavailable
      * <p><b>404</b> - Not Found
@@ -1070,14 +1074,14 @@ public class DatakatalogenApi {
      * @param requestParameters The getVegobjekttyperHistorisk request parameters as object
      * @return List&lt;Vegobjekttype&gt;
      * @throws RestClientResponseException if an error occurs while attempting to invoke the API
-    */
+     */
     public List<Vegobjekttype> getVegobjekttyperHistorisk(GetVegobjekttyperHistoriskRequest requestParameters) throws RestClientResponseException {
-      return this.getVegobjekttyperHistorisk(requestParameters.versjon(), requestParameters.inkluder(), requestParameters.kategori());
+        return this.getVegobjekttyperHistorisk(requestParameters.versjon(), requestParameters.inkluder(), requestParameters.kategori());
     }
 
-  /**
-  * Returnerer alle vegobjekttypene for en gitt versjon av datakatalogen, f.eks. 2.31
-  * 
+    /**
+     * Returnerer alle vegobjekttypene for en gitt versjon av datakatalogen, f.eks. 2.31
+     * 
      * <p><b>500</b> - Internal Server Error
      * <p><b>503</b> - Service Unavailable
      * <p><b>404</b> - Not Found
@@ -1085,24 +1089,24 @@ public class DatakatalogenApi {
      * @param requestParameters The getVegobjekttyperHistorisk request parameters as object
      * @return ResponseEntity&lt;List&lt;Vegobjekttype&gt;&gt;
      * @throws RestClientResponseException if an error occurs while attempting to invoke the API
-    */
+     */
     public ResponseEntity<List<Vegobjekttype>> getVegobjekttyperHistoriskWithHttpInfo(GetVegobjekttyperHistoriskRequest requestParameters) throws RestClientResponseException {
-      return this.getVegobjekttyperHistoriskWithHttpInfo(requestParameters.versjon(), requestParameters.inkluder(), requestParameters.kategori());
+        return this.getVegobjekttyperHistoriskWithHttpInfo(requestParameters.versjon(), requestParameters.inkluder(), requestParameters.kategori());
     }
 
-  /**
-  * Returnerer alle vegobjekttypene for en gitt versjon av datakatalogen, f.eks. 2.31
-  * 
+    /**
+     * Returnerer alle vegobjekttypene for en gitt versjon av datakatalogen, f.eks. 2.31
+     * 
      * <p><b>500</b> - Internal Server Error
      * <p><b>503</b> - Service Unavailable
      * <p><b>404</b> - Not Found
      * <p><b>200</b> - OK
      * @param requestParameters The getVegobjekttyperHistorisk request parameters as object
-  * @return ResponseSpec
-  * @throws RestClientResponseException if an error occurs while attempting to invoke the API
-    */
+     * @return ResponseSpec
+     * @throws RestClientResponseException if an error occurs while attempting to invoke the API
+     */
     public ResponseSpec getVegobjekttyperHistoriskWithResponseSpec(GetVegobjekttyperHistoriskRequest requestParameters) throws RestClientResponseException {
-      return this.getVegobjekttyperHistoriskWithResponseSpec(requestParameters.versjon(), requestParameters.inkluder(), requestParameters.kategori());
+        return this.getVegobjekttyperHistoriskWithResponseSpec(requestParameters.versjon(), requestParameters.inkluder(), requestParameters.kategori());
     }
 
     /**
@@ -1136,7 +1140,7 @@ public class DatakatalogenApi {
 
         queryParams.putAll(apiClient.parameterToMultiValueMap(ApiClient.CollectionFormat.valueOf("multi".toUpperCase(Locale.ROOT)), "inkluder", inkluder));
         queryParams.putAll(apiClient.parameterToMultiValueMap(null, "kategori", kategori));
-        
+
         final String[] localVarAccepts = { 
             "*/*"
         };
@@ -1202,6 +1206,7 @@ public class DatakatalogenApi {
     public ResponseSpec getVegobjekttyperHistoriskWithResponseSpec(@jakarta.annotation.Nonnull String versjon, @jakarta.annotation.Nullable Set<String> inkluder, @jakarta.annotation.Nullable Integer kategori) throws RestClientResponseException {
         return getVegobjekttyperHistoriskRequestCreation(versjon, inkluder, kategori);
     }
+
     /**
      * Returnerer aktiv versjon på datakatalog
      * 

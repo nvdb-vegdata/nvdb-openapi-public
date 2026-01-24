@@ -63,6 +63,7 @@ src/main/java/no/vegvesen/vt/nvdb/vegnett/model/SosiMedium.java
 src/main/java/no/vegvesen/vt/nvdb/vegnett/model/SridParameter.java
 src/main/java/no/vegvesen/vt/nvdb/vegnett/model/Strekning.java
 src/main/java/no/vegvesen/vt/nvdb/vegnett/model/Superstedfesting.java
+src/main/java/no/vegvesen/vt/nvdb/vegnett/model/Topologiniva.java
 src/main/java/no/vegvesen/vt/nvdb/vegnett/model/TopologinivaParameter.java
 src/main/java/no/vegvesen/vt/nvdb/vegnett/model/Trafikantgruppe.java
 src/main/java/no/vegvesen/vt/nvdb/vegnett/model/TypeVeg.java
@@ -76,6 +77,7 @@ src/main/java/no/vegvesen/vt/nvdb/vegnett/model/Veglenkeport.java
 src/main/java/no/vegvesen/vt/nvdb/vegnett/model/VeglenkeportTilkobling.java
 src/main/java/no/vegvesen/vt/nvdb/vegnett/model/Veglenkesegment.java
 src/main/java/no/vegvesen/vt/nvdb/vegnett/model/VeglenkesegmenterSide.java
+src/main/java/no/vegvesen/vt/nvdb/vegnett/model/VeglenkesegmenterStatistikk.java
 src/main/java/no/vegvesen/vt/nvdb/vegnett/model/VeglenkesegmenterStatistikkGruppert.java
 src/main/java/no/vegvesen/vt/nvdb/vegnett/model/Veglenkesekvens.java
 src/main/java/no/vegvesen/vt/nvdb/vegnett/model/VeglenkesekvensEndringerSide.java

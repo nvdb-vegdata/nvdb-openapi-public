@@ -1,6 +1,6 @@
 /*
  * NVDB API Les Vegnett
- * Dette API-et brukes til å lese vegnettelementer. Les mer om bruk av API-et på https://nvdb.test.atlas.vegvesen.no/produkter/nvdbapil/v4/Vegnett
+ * Dette API-et brukes til å lese vegnettelementer.<br><br>[Dokumentasjon for Vegnett API](https://nvdb-docs.atlas.vegvesen.no/nvdbapil/v4/Vegnett)
  *
  * The version of the OpenAPI document: v4
  * Contact: nvdb@vegvesen.no
@@ -30,7 +30,7 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
   NodeGeometri.JSON_PROPERTY_WKT,
   NodeGeometri.JSON_PROPERTY_SRID
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.14.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0")
 public class NodeGeometri {
   public static final String JSON_PROPERTY_WKT = "wkt";
   @jakarta.annotation.Nonnull
@@ -54,7 +54,7 @@ public class NodeGeometri {
    * @return wkt
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_WKT)
+  @JsonProperty(value = JSON_PROPERTY_WKT, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getWkt() {
@@ -62,7 +62,7 @@ public class NodeGeometri {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_WKT)
+  @JsonProperty(value = JSON_PROPERTY_WKT, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setWkt(@jakarta.annotation.Nonnull String wkt) {
     this.wkt = wkt;
@@ -79,7 +79,7 @@ public class NodeGeometri {
    * @return srid
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_SRID)
+  @JsonProperty(value = JSON_PROPERTY_SRID, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Integer getSrid() {
@@ -87,7 +87,7 @@ public class NodeGeometri {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_SRID)
+  @JsonProperty(value = JSON_PROPERTY_SRID, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setSrid(@jakarta.annotation.Nonnull Integer srid) {
     this.srid = srid;

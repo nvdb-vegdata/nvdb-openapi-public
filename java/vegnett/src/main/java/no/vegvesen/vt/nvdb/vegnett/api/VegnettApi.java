@@ -38,7 +38,7 @@ import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestClient.ResponseSpec;
 import org.springframework.web.client.RestClientResponseException;
 
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.14.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0")
 public class VegnettApi {
     private ApiClient apiClient;
 
@@ -57,7 +57,6 @@ public class VegnettApi {
     public void setApiClient(ApiClient apiClient) {
         this.apiClient = apiClient;
     }
-
 
     public static class GetSegmentertVeglenkesekvensRequest {
         private @jakarta.annotation.Nonnull Long veglenkesekvensId;
@@ -128,59 +127,59 @@ public class VegnettApi {
     }
 
     /**
-    * Hent en segmentert veglenkesekvens
-    * 
-     * <p><b>500</b> - Internal Server Error
+     * Hent en segmentert veglenkesekvens
+     * 
      * <p><b>400</b> - Bad Request
      * <p><b>404</b> - Not Found
+     * <p><b>500</b> - Internal Server Error
      * <p><b>200</b> - OK
      * @param requestParameters The getSegmentertVeglenkesekvens request parameters as object
      * @return List&lt;Veglenkesegment&gt;
      * @throws RestClientResponseException if an error occurs while attempting to invoke the API
-    */
+     */
     public List<Veglenkesegment> getSegmentertVeglenkesekvens(GetSegmentertVeglenkesekvensRequest requestParameters) throws RestClientResponseException {
-      return this.getSegmentertVeglenkesekvens(requestParameters.veglenkesekvensId(), requestParameters.srid(), requestParameters.historisk(), requestParameters.tidspunkt());
-    }
-
-  /**
-  * Hent en segmentert veglenkesekvens
-  * 
-     * <p><b>500</b> - Internal Server Error
-     * <p><b>400</b> - Bad Request
-     * <p><b>404</b> - Not Found
-     * <p><b>200</b> - OK
-     * @param requestParameters The getSegmentertVeglenkesekvens request parameters as object
-     * @return ResponseEntity&lt;List&lt;Veglenkesegment&gt;&gt;
-     * @throws RestClientResponseException if an error occurs while attempting to invoke the API
-    */
-    public ResponseEntity<List<Veglenkesegment>> getSegmentertVeglenkesekvensWithHttpInfo(GetSegmentertVeglenkesekvensRequest requestParameters) throws RestClientResponseException {
-      return this.getSegmentertVeglenkesekvensWithHttpInfo(requestParameters.veglenkesekvensId(), requestParameters.srid(), requestParameters.historisk(), requestParameters.tidspunkt());
-    }
-
-  /**
-  * Hent en segmentert veglenkesekvens
-  * 
-     * <p><b>500</b> - Internal Server Error
-     * <p><b>400</b> - Bad Request
-     * <p><b>404</b> - Not Found
-     * <p><b>200</b> - OK
-     * @param requestParameters The getSegmentertVeglenkesekvens request parameters as object
-  * @return ResponseSpec
-  * @throws RestClientResponseException if an error occurs while attempting to invoke the API
-    */
-    public ResponseSpec getSegmentertVeglenkesekvensWithResponseSpec(GetSegmentertVeglenkesekvensRequest requestParameters) throws RestClientResponseException {
-      return this.getSegmentertVeglenkesekvensWithResponseSpec(requestParameters.veglenkesekvensId(), requestParameters.srid(), requestParameters.historisk(), requestParameters.tidspunkt());
+        return this.getSegmentertVeglenkesekvens(requestParameters.veglenkesekvensId(), requestParameters.srid(), requestParameters.historisk(), requestParameters.tidspunkt());
     }
 
     /**
      * Hent en segmentert veglenkesekvens
      * 
-     * <p><b>500</b> - Internal Server Error
      * <p><b>400</b> - Bad Request
      * <p><b>404</b> - Not Found
+     * <p><b>500</b> - Internal Server Error
+     * <p><b>200</b> - OK
+     * @param requestParameters The getSegmentertVeglenkesekvens request parameters as object
+     * @return ResponseEntity&lt;List&lt;Veglenkesegment&gt;&gt;
+     * @throws RestClientResponseException if an error occurs while attempting to invoke the API
+     */
+    public ResponseEntity<List<Veglenkesegment>> getSegmentertVeglenkesekvensWithHttpInfo(GetSegmentertVeglenkesekvensRequest requestParameters) throws RestClientResponseException {
+        return this.getSegmentertVeglenkesekvensWithHttpInfo(requestParameters.veglenkesekvensId(), requestParameters.srid(), requestParameters.historisk(), requestParameters.tidspunkt());
+    }
+
+    /**
+     * Hent en segmentert veglenkesekvens
+     * 
+     * <p><b>400</b> - Bad Request
+     * <p><b>404</b> - Not Found
+     * <p><b>500</b> - Internal Server Error
+     * <p><b>200</b> - OK
+     * @param requestParameters The getSegmentertVeglenkesekvens request parameters as object
+     * @return ResponseSpec
+     * @throws RestClientResponseException if an error occurs while attempting to invoke the API
+     */
+    public ResponseSpec getSegmentertVeglenkesekvensWithResponseSpec(GetSegmentertVeglenkesekvensRequest requestParameters) throws RestClientResponseException {
+        return this.getSegmentertVeglenkesekvensWithResponseSpec(requestParameters.veglenkesekvensId(), requestParameters.srid(), requestParameters.historisk(), requestParameters.tidspunkt());
+    }
+
+    /**
+     * Hent en segmentert veglenkesekvens
+     * 
+     * <p><b>400</b> - Bad Request
+     * <p><b>404</b> - Not Found
+     * <p><b>500</b> - Internal Server Error
      * <p><b>200</b> - OK
      * @param veglenkesekvensId ID for veglenkesekvensen.
-     * @param srid Angir hvilket geografisk referansesystem geometrien skal returneres i. Utdata i UTM-formater begrenses til 3 desimaler, 4326/WGS84 begrenses til 8 desimaler. Mer informasjon: &lt;a href&#x3D;&#39;https://epsg.io/5972&#39;&gt;EPSG:5972&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5973&#39;&gt;EPSG:5973&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5975&#39;&gt;EPSG:5975&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/4326&#39;&gt;EPSG:4326&lt;/a&gt;.
+     * @param srid Angir hvilket geografisk referansesystem geometrien skal returneres i. Utdata i UTM-formater begrenses til 3 desimaler, 4326/WGS84 begrenses til 8 desimaler. Query-parametere med koordinater oppgis i UTM33 for UTM-formater, 4326/WGS84 oppgis dersom srid er 4326/WGS84. Mer informasjon: &lt;a href&#x3D;&#39;https://epsg.io/5972&#39;&gt;EPSG:5972&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5973&#39;&gt;EPSG:5973&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5975&#39;&gt;EPSG:5975&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/4326&#39;&gt;EPSG:4326&lt;/a&gt;.
      * @param historisk For &#x60;false&#x60; returneres kun dagens veglenkesegmenter. For &#x60;true&#x60; returneres dagens og historiske veglenkesegmenter. Default er &#x60;false&#x60;.
      * @param tidspunkt Begrens spørring til det gitte tidspunktet.
      * @return List&lt;Veglenkesegment&gt;
@@ -205,7 +204,7 @@ public class VegnettApi {
         queryParams.putAll(apiClient.parameterToMultiValueMap(null, "srid", srid));
         queryParams.putAll(apiClient.parameterToMultiValueMap(null, "historisk", historisk));
         queryParams.putAll(apiClient.parameterToMultiValueMap(null, "tidspunkt", tidspunkt));
-        
+
         final String[] localVarAccepts = { 
             "*/*"
         };
@@ -222,12 +221,12 @@ public class VegnettApi {
     /**
      * Hent en segmentert veglenkesekvens
      * 
-     * <p><b>500</b> - Internal Server Error
      * <p><b>400</b> - Bad Request
      * <p><b>404</b> - Not Found
+     * <p><b>500</b> - Internal Server Error
      * <p><b>200</b> - OK
      * @param veglenkesekvensId ID for veglenkesekvensen.
-     * @param srid Angir hvilket geografisk referansesystem geometrien skal returneres i. Utdata i UTM-formater begrenses til 3 desimaler, 4326/WGS84 begrenses til 8 desimaler. Mer informasjon: &lt;a href&#x3D;&#39;https://epsg.io/5972&#39;&gt;EPSG:5972&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5973&#39;&gt;EPSG:5973&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5975&#39;&gt;EPSG:5975&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/4326&#39;&gt;EPSG:4326&lt;/a&gt;.
+     * @param srid Angir hvilket geografisk referansesystem geometrien skal returneres i. Utdata i UTM-formater begrenses til 3 desimaler, 4326/WGS84 begrenses til 8 desimaler. Query-parametere med koordinater oppgis i UTM33 for UTM-formater, 4326/WGS84 oppgis dersom srid er 4326/WGS84. Mer informasjon: &lt;a href&#x3D;&#39;https://epsg.io/5972&#39;&gt;EPSG:5972&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5973&#39;&gt;EPSG:5973&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5975&#39;&gt;EPSG:5975&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/4326&#39;&gt;EPSG:4326&lt;/a&gt;.
      * @param historisk For &#x60;false&#x60; returneres kun dagens veglenkesegmenter. For &#x60;true&#x60; returneres dagens og historiske veglenkesegmenter. Default er &#x60;false&#x60;.
      * @param tidspunkt Begrens spørring til det gitte tidspunktet.
      * @return List&lt;Veglenkesegment&gt;
@@ -241,12 +240,12 @@ public class VegnettApi {
     /**
      * Hent en segmentert veglenkesekvens
      * 
-     * <p><b>500</b> - Internal Server Error
      * <p><b>400</b> - Bad Request
      * <p><b>404</b> - Not Found
+     * <p><b>500</b> - Internal Server Error
      * <p><b>200</b> - OK
      * @param veglenkesekvensId ID for veglenkesekvensen.
-     * @param srid Angir hvilket geografisk referansesystem geometrien skal returneres i. Utdata i UTM-formater begrenses til 3 desimaler, 4326/WGS84 begrenses til 8 desimaler. Mer informasjon: &lt;a href&#x3D;&#39;https://epsg.io/5972&#39;&gt;EPSG:5972&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5973&#39;&gt;EPSG:5973&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5975&#39;&gt;EPSG:5975&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/4326&#39;&gt;EPSG:4326&lt;/a&gt;.
+     * @param srid Angir hvilket geografisk referansesystem geometrien skal returneres i. Utdata i UTM-formater begrenses til 3 desimaler, 4326/WGS84 begrenses til 8 desimaler. Query-parametere med koordinater oppgis i UTM33 for UTM-formater, 4326/WGS84 oppgis dersom srid er 4326/WGS84. Mer informasjon: &lt;a href&#x3D;&#39;https://epsg.io/5972&#39;&gt;EPSG:5972&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5973&#39;&gt;EPSG:5973&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5975&#39;&gt;EPSG:5975&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/4326&#39;&gt;EPSG:4326&lt;/a&gt;.
      * @param historisk For &#x60;false&#x60; returneres kun dagens veglenkesegmenter. For &#x60;true&#x60; returneres dagens og historiske veglenkesegmenter. Default er &#x60;false&#x60;.
      * @param tidspunkt Begrens spørring til det gitte tidspunktet.
      * @return ResponseEntity&lt;List&lt;Veglenkesegment&gt;&gt;
@@ -260,12 +259,12 @@ public class VegnettApi {
     /**
      * Hent en segmentert veglenkesekvens
      * 
-     * <p><b>500</b> - Internal Server Error
      * <p><b>400</b> - Bad Request
      * <p><b>404</b> - Not Found
+     * <p><b>500</b> - Internal Server Error
      * <p><b>200</b> - OK
      * @param veglenkesekvensId ID for veglenkesekvensen.
-     * @param srid Angir hvilket geografisk referansesystem geometrien skal returneres i. Utdata i UTM-formater begrenses til 3 desimaler, 4326/WGS84 begrenses til 8 desimaler. Mer informasjon: &lt;a href&#x3D;&#39;https://epsg.io/5972&#39;&gt;EPSG:5972&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5973&#39;&gt;EPSG:5973&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5975&#39;&gt;EPSG:5975&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/4326&#39;&gt;EPSG:4326&lt;/a&gt;.
+     * @param srid Angir hvilket geografisk referansesystem geometrien skal returneres i. Utdata i UTM-formater begrenses til 3 desimaler, 4326/WGS84 begrenses til 8 desimaler. Query-parametere med koordinater oppgis i UTM33 for UTM-formater, 4326/WGS84 oppgis dersom srid er 4326/WGS84. Mer informasjon: &lt;a href&#x3D;&#39;https://epsg.io/5972&#39;&gt;EPSG:5972&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5973&#39;&gt;EPSG:5973&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5975&#39;&gt;EPSG:5975&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/4326&#39;&gt;EPSG:4326&lt;/a&gt;.
      * @param historisk For &#x60;false&#x60; returneres kun dagens veglenkesegmenter. For &#x60;true&#x60; returneres dagens og historiske veglenkesegmenter. Default er &#x60;false&#x60;.
      * @param tidspunkt Begrens spørring til det gitte tidspunktet.
      * @return ResponseSpec
@@ -284,6 +283,7 @@ public class VegnettApi {
         private @jakarta.annotation.Nullable Set<String> riksvegrute;
         private @jakarta.annotation.Nullable Set<String> vegforvalter;
         private @jakarta.annotation.Nullable Set<String> vegsystemreferanse;
+        private @jakarta.annotation.Nullable Set<String> veglenkesekvens;
         private @jakarta.annotation.Nullable String kartutsnitt;
         private @jakarta.annotation.Nullable String polygon;
         private @jakarta.annotation.Nullable Set<DetaljnivaParameter> detaljniva;
@@ -304,7 +304,7 @@ public class VegnettApi {
 
         public GetVeglenkesegmenterRequest() {}
 
-        public GetVeglenkesegmenterRequest(@jakarta.annotation.Nullable SridParameter srid, @jakarta.annotation.Nullable Set<Long> ider, @jakarta.annotation.Nullable Set<Integer> fylke, @jakarta.annotation.Nullable Set<Integer> kommune, @jakarta.annotation.Nullable Set<String> kontraktsomrade, @jakarta.annotation.Nullable Set<String> riksvegrute, @jakarta.annotation.Nullable Set<String> vegforvalter, @jakarta.annotation.Nullable Set<String> vegsystemreferanse, @jakarta.annotation.Nullable String kartutsnitt, @jakarta.annotation.Nullable String polygon, @jakarta.annotation.Nullable Set<DetaljnivaParameter> detaljniva, @jakarta.annotation.Nullable Set<TypeVegSosi> typeveg, @jakarta.annotation.Nullable Long superid, @jakarta.annotation.Nullable Set<AdskilteLop> adskiltelop, @jakarta.annotation.Nullable Boolean kryssystem, @jakarta.annotation.Nullable Boolean sideanlegg, @jakarta.annotation.Nullable Set<VeglenketypeParameter> veglenketype, @jakarta.annotation.Nullable Boolean arm, @jakarta.annotation.Nullable Trafikantgruppe trafikantgruppe, @jakarta.annotation.Nullable Integer geometritoleranse, @jakarta.annotation.Nullable Boolean historisk, @jakarta.annotation.Nullable LocalDate tidspunkt, @jakarta.annotation.Nullable Integer antall, @jakarta.annotation.Nullable String start, @jakarta.annotation.Nullable Boolean inkluderAntall) {
+        public GetVeglenkesegmenterRequest(@jakarta.annotation.Nullable SridParameter srid, @jakarta.annotation.Nullable Set<Long> ider, @jakarta.annotation.Nullable Set<Integer> fylke, @jakarta.annotation.Nullable Set<Integer> kommune, @jakarta.annotation.Nullable Set<String> kontraktsomrade, @jakarta.annotation.Nullable Set<String> riksvegrute, @jakarta.annotation.Nullable Set<String> vegforvalter, @jakarta.annotation.Nullable Set<String> vegsystemreferanse, @jakarta.annotation.Nullable Set<String> veglenkesekvens, @jakarta.annotation.Nullable String kartutsnitt, @jakarta.annotation.Nullable String polygon, @jakarta.annotation.Nullable Set<DetaljnivaParameter> detaljniva, @jakarta.annotation.Nullable Set<TypeVegSosi> typeveg, @jakarta.annotation.Nullable Long superid, @jakarta.annotation.Nullable Set<AdskilteLop> adskiltelop, @jakarta.annotation.Nullable Boolean kryssystem, @jakarta.annotation.Nullable Boolean sideanlegg, @jakarta.annotation.Nullable Set<VeglenketypeParameter> veglenketype, @jakarta.annotation.Nullable Boolean arm, @jakarta.annotation.Nullable Trafikantgruppe trafikantgruppe, @jakarta.annotation.Nullable Integer geometritoleranse, @jakarta.annotation.Nullable Boolean historisk, @jakarta.annotation.Nullable LocalDate tidspunkt, @jakarta.annotation.Nullable Integer antall, @jakarta.annotation.Nullable String start, @jakarta.annotation.Nullable Boolean inkluderAntall) {
             this.srid = srid;
             this.ider = ider;
             this.fylke = fylke;
@@ -313,6 +313,7 @@ public class VegnettApi {
             this.riksvegrute = riksvegrute;
             this.vegforvalter = vegforvalter;
             this.vegsystemreferanse = vegsystemreferanse;
+            this.veglenkesekvens = veglenkesekvens;
             this.kartutsnitt = kartutsnitt;
             this.polygon = polygon;
             this.detaljniva = detaljniva;
@@ -393,6 +394,14 @@ public class VegnettApi {
         }
         public GetVeglenkesegmenterRequest vegsystemreferanse(@jakarta.annotation.Nullable Set<String> vegsystemreferanse) {
             this.vegsystemreferanse = vegsystemreferanse;
+            return this;
+        }
+
+        public @jakarta.annotation.Nullable Set<String> veglenkesekvens() {
+            return this.veglenkesekvens;
+        }
+        public GetVeglenkesegmenterRequest veglenkesekvens(@jakarta.annotation.Nullable Set<String> veglenkesekvens) {
+            this.veglenkesekvens = veglenkesekvens;
             return this;
         }
 
@@ -549,6 +558,7 @@ public class VegnettApi {
                 Objects.equals(this.riksvegrute, request.riksvegrute()) &&
                 Objects.equals(this.vegforvalter, request.vegforvalter()) &&
                 Objects.equals(this.vegsystemreferanse, request.vegsystemreferanse()) &&
+                Objects.equals(this.veglenkesekvens, request.veglenkesekvens()) &&
                 Objects.equals(this.kartutsnitt, request.kartutsnitt()) &&
                 Objects.equals(this.polygon, request.polygon()) &&
                 Objects.equals(this.detaljniva, request.detaljniva()) &&
@@ -570,72 +580,73 @@ public class VegnettApi {
 
         @Override
         public int hashCode() {
-            return Objects.hash(srid, ider, fylke, kommune, kontraktsomrade, riksvegrute, vegforvalter, vegsystemreferanse, kartutsnitt, polygon, detaljniva, typeveg, superid, adskiltelop, kryssystem, sideanlegg, veglenketype, arm, trafikantgruppe, geometritoleranse, historisk, tidspunkt, antall, start, inkluderAntall);
+            return Objects.hash(srid, ider, fylke, kommune, kontraktsomrade, riksvegrute, vegforvalter, vegsystemreferanse, veglenkesekvens, kartutsnitt, polygon, detaljniva, typeveg, superid, adskiltelop, kryssystem, sideanlegg, veglenketype, arm, trafikantgruppe, geometritoleranse, historisk, tidspunkt, antall, start, inkluderAntall);
         }
-    }
-
-    /**
-    * Hent segmenterte veglenkesekvenser
-    * 
-     * <p><b>500</b> - Internal Server Error
-     * <p><b>400</b> - Bad Request
-     * <p><b>404</b> - Not Found
-     * <p><b>200</b> - OK
-     * @param requestParameters The getVeglenkesegmenter request parameters as object
-     * @return VeglenkesegmenterSide
-     * @throws RestClientResponseException if an error occurs while attempting to invoke the API
-    */
-    public VeglenkesegmenterSide getVeglenkesegmenter(GetVeglenkesegmenterRequest requestParameters) throws RestClientResponseException {
-      return this.getVeglenkesegmenter(requestParameters.srid(), requestParameters.ider(), requestParameters.fylke(), requestParameters.kommune(), requestParameters.kontraktsomrade(), requestParameters.riksvegrute(), requestParameters.vegforvalter(), requestParameters.vegsystemreferanse(), requestParameters.kartutsnitt(), requestParameters.polygon(), requestParameters.detaljniva(), requestParameters.typeveg(), requestParameters.superid(), requestParameters.adskiltelop(), requestParameters.kryssystem(), requestParameters.sideanlegg(), requestParameters.veglenketype(), requestParameters.arm(), requestParameters.trafikantgruppe(), requestParameters.geometritoleranse(), requestParameters.historisk(), requestParameters.tidspunkt(), requestParameters.antall(), requestParameters.start(), requestParameters.inkluderAntall());
-    }
-
-  /**
-  * Hent segmenterte veglenkesekvenser
-  * 
-     * <p><b>500</b> - Internal Server Error
-     * <p><b>400</b> - Bad Request
-     * <p><b>404</b> - Not Found
-     * <p><b>200</b> - OK
-     * @param requestParameters The getVeglenkesegmenter request parameters as object
-     * @return ResponseEntity&lt;VeglenkesegmenterSide&gt;
-     * @throws RestClientResponseException if an error occurs while attempting to invoke the API
-    */
-    public ResponseEntity<VeglenkesegmenterSide> getVeglenkesegmenterWithHttpInfo(GetVeglenkesegmenterRequest requestParameters) throws RestClientResponseException {
-      return this.getVeglenkesegmenterWithHttpInfo(requestParameters.srid(), requestParameters.ider(), requestParameters.fylke(), requestParameters.kommune(), requestParameters.kontraktsomrade(), requestParameters.riksvegrute(), requestParameters.vegforvalter(), requestParameters.vegsystemreferanse(), requestParameters.kartutsnitt(), requestParameters.polygon(), requestParameters.detaljniva(), requestParameters.typeveg(), requestParameters.superid(), requestParameters.adskiltelop(), requestParameters.kryssystem(), requestParameters.sideanlegg(), requestParameters.veglenketype(), requestParameters.arm(), requestParameters.trafikantgruppe(), requestParameters.geometritoleranse(), requestParameters.historisk(), requestParameters.tidspunkt(), requestParameters.antall(), requestParameters.start(), requestParameters.inkluderAntall());
-    }
-
-  /**
-  * Hent segmenterte veglenkesekvenser
-  * 
-     * <p><b>500</b> - Internal Server Error
-     * <p><b>400</b> - Bad Request
-     * <p><b>404</b> - Not Found
-     * <p><b>200</b> - OK
-     * @param requestParameters The getVeglenkesegmenter request parameters as object
-  * @return ResponseSpec
-  * @throws RestClientResponseException if an error occurs while attempting to invoke the API
-    */
-    public ResponseSpec getVeglenkesegmenterWithResponseSpec(GetVeglenkesegmenterRequest requestParameters) throws RestClientResponseException {
-      return this.getVeglenkesegmenterWithResponseSpec(requestParameters.srid(), requestParameters.ider(), requestParameters.fylke(), requestParameters.kommune(), requestParameters.kontraktsomrade(), requestParameters.riksvegrute(), requestParameters.vegforvalter(), requestParameters.vegsystemreferanse(), requestParameters.kartutsnitt(), requestParameters.polygon(), requestParameters.detaljniva(), requestParameters.typeveg(), requestParameters.superid(), requestParameters.adskiltelop(), requestParameters.kryssystem(), requestParameters.sideanlegg(), requestParameters.veglenketype(), requestParameters.arm(), requestParameters.trafikantgruppe(), requestParameters.geometritoleranse(), requestParameters.historisk(), requestParameters.tidspunkt(), requestParameters.antall(), requestParameters.start(), requestParameters.inkluderAntall());
     }
 
     /**
      * Hent segmenterte veglenkesekvenser
      * 
-     * <p><b>500</b> - Internal Server Error
      * <p><b>400</b> - Bad Request
      * <p><b>404</b> - Not Found
+     * <p><b>500</b> - Internal Server Error
      * <p><b>200</b> - OK
-     * @param srid Angir hvilket geografisk referansesystem geometrien skal returneres i. Utdata i UTM-formater begrenses til 3 desimaler, 4326/WGS84 begrenses til 8 desimaler. Mer informasjon: &lt;a href&#x3D;&#39;https://epsg.io/5972&#39;&gt;EPSG:5972&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5973&#39;&gt;EPSG:5973&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5975&#39;&gt;EPSG:5975&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/4326&#39;&gt;EPSG:4326&lt;/a&gt;.
+     * @param requestParameters The getVeglenkesegmenter request parameters as object
+     * @return VeglenkesegmenterSide
+     * @throws RestClientResponseException if an error occurs while attempting to invoke the API
+     */
+    public VeglenkesegmenterSide getVeglenkesegmenter(GetVeglenkesegmenterRequest requestParameters) throws RestClientResponseException {
+        return this.getVeglenkesegmenter(requestParameters.srid(), requestParameters.ider(), requestParameters.fylke(), requestParameters.kommune(), requestParameters.kontraktsomrade(), requestParameters.riksvegrute(), requestParameters.vegforvalter(), requestParameters.vegsystemreferanse(), requestParameters.veglenkesekvens(), requestParameters.kartutsnitt(), requestParameters.polygon(), requestParameters.detaljniva(), requestParameters.typeveg(), requestParameters.superid(), requestParameters.adskiltelop(), requestParameters.kryssystem(), requestParameters.sideanlegg(), requestParameters.veglenketype(), requestParameters.arm(), requestParameters.trafikantgruppe(), requestParameters.geometritoleranse(), requestParameters.historisk(), requestParameters.tidspunkt(), requestParameters.antall(), requestParameters.start(), requestParameters.inkluderAntall());
+    }
+
+    /**
+     * Hent segmenterte veglenkesekvenser
+     * 
+     * <p><b>400</b> - Bad Request
+     * <p><b>404</b> - Not Found
+     * <p><b>500</b> - Internal Server Error
+     * <p><b>200</b> - OK
+     * @param requestParameters The getVeglenkesegmenter request parameters as object
+     * @return ResponseEntity&lt;VeglenkesegmenterSide&gt;
+     * @throws RestClientResponseException if an error occurs while attempting to invoke the API
+     */
+    public ResponseEntity<VeglenkesegmenterSide> getVeglenkesegmenterWithHttpInfo(GetVeglenkesegmenterRequest requestParameters) throws RestClientResponseException {
+        return this.getVeglenkesegmenterWithHttpInfo(requestParameters.srid(), requestParameters.ider(), requestParameters.fylke(), requestParameters.kommune(), requestParameters.kontraktsomrade(), requestParameters.riksvegrute(), requestParameters.vegforvalter(), requestParameters.vegsystemreferanse(), requestParameters.veglenkesekvens(), requestParameters.kartutsnitt(), requestParameters.polygon(), requestParameters.detaljniva(), requestParameters.typeveg(), requestParameters.superid(), requestParameters.adskiltelop(), requestParameters.kryssystem(), requestParameters.sideanlegg(), requestParameters.veglenketype(), requestParameters.arm(), requestParameters.trafikantgruppe(), requestParameters.geometritoleranse(), requestParameters.historisk(), requestParameters.tidspunkt(), requestParameters.antall(), requestParameters.start(), requestParameters.inkluderAntall());
+    }
+
+    /**
+     * Hent segmenterte veglenkesekvenser
+     * 
+     * <p><b>400</b> - Bad Request
+     * <p><b>404</b> - Not Found
+     * <p><b>500</b> - Internal Server Error
+     * <p><b>200</b> - OK
+     * @param requestParameters The getVeglenkesegmenter request parameters as object
+     * @return ResponseSpec
+     * @throws RestClientResponseException if an error occurs while attempting to invoke the API
+     */
+    public ResponseSpec getVeglenkesegmenterWithResponseSpec(GetVeglenkesegmenterRequest requestParameters) throws RestClientResponseException {
+        return this.getVeglenkesegmenterWithResponseSpec(requestParameters.srid(), requestParameters.ider(), requestParameters.fylke(), requestParameters.kommune(), requestParameters.kontraktsomrade(), requestParameters.riksvegrute(), requestParameters.vegforvalter(), requestParameters.vegsystemreferanse(), requestParameters.veglenkesekvens(), requestParameters.kartutsnitt(), requestParameters.polygon(), requestParameters.detaljniva(), requestParameters.typeveg(), requestParameters.superid(), requestParameters.adskiltelop(), requestParameters.kryssystem(), requestParameters.sideanlegg(), requestParameters.veglenketype(), requestParameters.arm(), requestParameters.trafikantgruppe(), requestParameters.geometritoleranse(), requestParameters.historisk(), requestParameters.tidspunkt(), requestParameters.antall(), requestParameters.start(), requestParameters.inkluderAntall());
+    }
+
+    /**
+     * Hent segmenterte veglenkesekvenser
+     * 
+     * <p><b>400</b> - Bad Request
+     * <p><b>404</b> - Not Found
+     * <p><b>500</b> - Internal Server Error
+     * <p><b>200</b> - OK
+     * @param srid Angir hvilket geografisk referansesystem geometrien skal returneres i. Utdata i UTM-formater begrenses til 3 desimaler, 4326/WGS84 begrenses til 8 desimaler. Query-parametere med koordinater oppgis i UTM33 for UTM-formater, 4326/WGS84 oppgis dersom srid er 4326/WGS84. Mer informasjon: &lt;a href&#x3D;&#39;https://epsg.io/5972&#39;&gt;EPSG:5972&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5973&#39;&gt;EPSG:5973&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5975&#39;&gt;EPSG:5975&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/4326&#39;&gt;EPSG:4326&lt;/a&gt;.
      * @param ider Kommaseparert liste med IDer.
-     * @param fylke Filtrer på fylke. Kommaseparert liste. Se [/omrader/api/v4/fylker](https://nvdbapiles.atlas.vegvesen.no/webjars/swagger-ui/index.html?urls.primaryName&#x3D;Omr%C3%A5der#/Omr%C3%A5der/getFylker) for mulige verdier.  Eksempel: &#x60;50&#x60;
-     * @param kommune Filtrer på kommune. Kommaseparert liste. Se [/omrader/api/v4/kommuner](https://nvdbapiles.atlas.vegvesen.no/webjars/swagger-ui/index.html?urls.primaryName&#x3D;Omr%C3%A5der#/Omr%C3%A5der/getKommuner) for mulige verdier.  Eksempel: &#x60;5001&#x60;
-     * @param kontraktsomrade Filtrer på kontraktsomrade. Kommaseparert liste. Se [/omrader/api/v4/kontraktsomrader](https://nvdbapiles.atlas.vegvesen.no/webjars/swagger-ui/index.html?urls.primaryName&#x3D;Omr%C3%A5der#/Omr%C3%A5der/getKontraktsomrader) for mulige verdier.  Eksempel: &#x60;9503 Midtre Hålogaland 2021-2026&#x60;
-     * @param riksvegrute Filtrer på riksvegrute. Kommaseparert liste. Se [/omrader/api/v4/riksvegruter](https://nvdbapiles.atlas.vegvesen.no/webjars/swagger-ui/index.html?urls.primaryName&#x3D;Omr%C3%A5der#/Omr%C3%A5der/getRiksvegruter) for mulige verdier.  Eksempel: &#x60;RUTE4A&#x60; eller som enumid &#x60;20290&#x60;
-     * @param vegforvalter Filtrer på vegforvalter. Kommaseparert liste. Se [/omrader/api/v4/vegforvaltere](https://nvdbapiles.atlas.vegvesen.no/webjars/swagger-ui/index.html?urls.primaryName&#x3D;Omr%C3%A5der#/Omr%C3%A5der/getVegforvaltere) for mulige verdier.  Eksempel: &#x60;Møre og Romsdal fylkeskommune&#x60; eller som enumid &#x60;21774&#x60;
+     * @param fylke Filtrer på fylke. Kommaseparert liste. Se [/omrader/api/v4/fylker](https://nvdbapiles.atlas.vegvesen.no/swagger-ui/index.html?urls.primaryName&#x3D;Omr%C3%A5der#/Omr%C3%A5der/getFylker) for mulige verdier.  Eksempel: &#x60;50&#x60;
+     * @param kommune Filtrer på kommune. Kommaseparert liste. Se [/omrader/api/v4/kommuner](https://nvdbapiles.atlas.vegvesen.no/swagger-ui/index.html?urls.primaryName&#x3D;Omr%C3%A5der#/Omr%C3%A5der/getKommuner) for mulige verdier.  Eksempel: &#x60;5001&#x60;
+     * @param kontraktsomrade Filtrer på kontraktsomrade. Kommaseparert liste. Se [/omrader/api/v4/kontraktsomrader](https://nvdbapiles.atlas.vegvesen.no/swagger-ui/index.html?urls.primaryName&#x3D;Omr%C3%A5der#/Omr%C3%A5der/getKontraktsomrader) for mulige verdier.  Eksempel: &#x60;9503 Midtre Hålogaland 2021-2026&#x60;
+     * @param riksvegrute Filtrer på riksvegrute. Kommaseparert liste. Se [/omrader/api/v4/riksvegruter](https://nvdbapiles.atlas.vegvesen.no/swagger-ui/index.html?urls.primaryName&#x3D;Omr%C3%A5der#/Omr%C3%A5der/getRiksvegruter) for mulige verdier.  Eksempel: &#x60;RUTE4A&#x60; eller som enumid &#x60;20290&#x60;
+     * @param vegforvalter Filtrer på vegforvalter. Kommaseparert liste. Se [/omrader/api/v4/vegforvaltere](https://nvdbapiles.atlas.vegvesen.no/swagger-ui/index.html?urls.primaryName&#x3D;Omr%C3%A5der#/Omr%C3%A5der/getVegforvaltere) for mulige verdier.  Eksempel: &#x60;Møre og Romsdal fylkeskommune&#x60; eller som enumid &#x60;21774&#x60;
      * @param vegsystemreferanse Filtrer på [vegsystemreferanse](https://nvdb-docs.atlas.vegvesen.no/nvdbapil/v4/introduksjon/Vegsystemreferanse). Kommaseparert liste. Legg til kommunenummer i starten av vegsystemreferansen for å filtrere på område.  Eksempel: &#x60;EV6S1D1 m12&#x60;
-     * @param kartutsnitt Filtrer med kartutsnitt i det gjeldende geografiske referansesystemet (&#x60;srid&#x60;-paramteret). Formatet er &#x60;minX, minY, maxX, maxY&#x60;.  Eksempel: &#x60;265273, 7019372, 346553, 7061071&#x60;
-     * @param polygon Filtrer med polygon i det gjeldende geografiske referansesystemet (&#x60;srid&#x60;-paramteret).  Eksempel: &#x60;20000 6520000, 20500 6520000, 21000 6500000, 20000 6520000&#x60;
+     * @param veglenkesekvens Filtrer på relativ posisjon på veglenkesekvens. Kan være punkt eller utstrekning. Kommaseparert liste.  Eksempel: &#x60;0.37@319531,0.83-0.97@41640&#x60;
+     * @param kartutsnitt Filtrer med kartutsnitt i UTM 33. Formatet er &#x60;minX, minY, maxX, maxY&#x60;.  Eksempel: &#x60;265273, 7019372, 346553, 7061071&#x60;
+     * @param polygon Filtrer med polygon i UTM 33.  Eksempel: &#x60;20000 6520000, 20500 6520000, 21000 6500000, 20000 6520000&#x60;
      * @param detaljniva Filtrer på veglenkens detaljnivå (kortnavn fra datakatalogen). Kommaseparert liste.   Eksempel: &#x60;VT,VTKB&#x60;
      * @param typeveg Filtrer veglenker på type veg. Kommaseparert liste.  Eksempel: &#x60;kanalisertVeg, enkelBilveg, rampe, rundkjøring, bilferje, passasjerferje, gangOgSykkelveg, sykkelveg, gangveg, gågate, fortau, trapp, gangfelt, gatetun, traktorveg, sti, annet&#x60;
      * @param superid Hent detaljerte veglenkesegmenter stedfestet på veglenkesekvens med denne IDen.
@@ -654,7 +665,7 @@ public class VegnettApi {
      * @return VeglenkesegmenterSide
      * @throws RestClientResponseException if an error occurs while attempting to invoke the API
      */
-    private ResponseSpec getVeglenkesegmenterRequestCreation(@jakarta.annotation.Nullable SridParameter srid, @jakarta.annotation.Nullable Set<Long> ider, @jakarta.annotation.Nullable Set<Integer> fylke, @jakarta.annotation.Nullable Set<Integer> kommune, @jakarta.annotation.Nullable Set<String> kontraktsomrade, @jakarta.annotation.Nullable Set<String> riksvegrute, @jakarta.annotation.Nullable Set<String> vegforvalter, @jakarta.annotation.Nullable Set<String> vegsystemreferanse, @jakarta.annotation.Nullable String kartutsnitt, @jakarta.annotation.Nullable String polygon, @jakarta.annotation.Nullable Set<DetaljnivaParameter> detaljniva, @jakarta.annotation.Nullable Set<TypeVegSosi> typeveg, @jakarta.annotation.Nullable Long superid, @jakarta.annotation.Nullable Set<AdskilteLop> adskiltelop, @jakarta.annotation.Nullable Boolean kryssystem, @jakarta.annotation.Nullable Boolean sideanlegg, @jakarta.annotation.Nullable Set<VeglenketypeParameter> veglenketype, @jakarta.annotation.Nullable Boolean arm, @jakarta.annotation.Nullable Trafikantgruppe trafikantgruppe, @jakarta.annotation.Nullable Integer geometritoleranse, @jakarta.annotation.Nullable Boolean historisk, @jakarta.annotation.Nullable LocalDate tidspunkt, @jakarta.annotation.Nullable Integer antall, @jakarta.annotation.Nullable String start, @jakarta.annotation.Nullable Boolean inkluderAntall) throws RestClientResponseException {
+    private ResponseSpec getVeglenkesegmenterRequestCreation(@jakarta.annotation.Nullable SridParameter srid, @jakarta.annotation.Nullable Set<Long> ider, @jakarta.annotation.Nullable Set<Integer> fylke, @jakarta.annotation.Nullable Set<Integer> kommune, @jakarta.annotation.Nullable Set<String> kontraktsomrade, @jakarta.annotation.Nullable Set<String> riksvegrute, @jakarta.annotation.Nullable Set<String> vegforvalter, @jakarta.annotation.Nullable Set<String> vegsystemreferanse, @jakarta.annotation.Nullable Set<String> veglenkesekvens, @jakarta.annotation.Nullable String kartutsnitt, @jakarta.annotation.Nullable String polygon, @jakarta.annotation.Nullable Set<DetaljnivaParameter> detaljniva, @jakarta.annotation.Nullable Set<TypeVegSosi> typeveg, @jakarta.annotation.Nullable Long superid, @jakarta.annotation.Nullable Set<AdskilteLop> adskiltelop, @jakarta.annotation.Nullable Boolean kryssystem, @jakarta.annotation.Nullable Boolean sideanlegg, @jakarta.annotation.Nullable Set<VeglenketypeParameter> veglenketype, @jakarta.annotation.Nullable Boolean arm, @jakarta.annotation.Nullable Trafikantgruppe trafikantgruppe, @jakarta.annotation.Nullable Integer geometritoleranse, @jakarta.annotation.Nullable Boolean historisk, @jakarta.annotation.Nullable LocalDate tidspunkt, @jakarta.annotation.Nullable Integer antall, @jakarta.annotation.Nullable String start, @jakarta.annotation.Nullable Boolean inkluderAntall) throws RestClientResponseException {
         Object postBody = null;
         // create path and map variables
         final Map<String, Object> pathParams = new HashMap<>();
@@ -672,6 +683,7 @@ public class VegnettApi {
         queryParams.putAll(apiClient.parameterToMultiValueMap(ApiClient.CollectionFormat.valueOf("multi".toUpperCase(Locale.ROOT)), "riksvegrute", riksvegrute));
         queryParams.putAll(apiClient.parameterToMultiValueMap(ApiClient.CollectionFormat.valueOf("multi".toUpperCase(Locale.ROOT)), "vegforvalter", vegforvalter));
         queryParams.putAll(apiClient.parameterToMultiValueMap(ApiClient.CollectionFormat.valueOf("multi".toUpperCase(Locale.ROOT)), "vegsystemreferanse", vegsystemreferanse));
+        queryParams.putAll(apiClient.parameterToMultiValueMap(ApiClient.CollectionFormat.valueOf("multi".toUpperCase(Locale.ROOT)), "veglenkesekvens", veglenkesekvens));
         queryParams.putAll(apiClient.parameterToMultiValueMap(null, "kartutsnitt", kartutsnitt));
         queryParams.putAll(apiClient.parameterToMultiValueMap(null, "polygon", polygon));
         queryParams.putAll(apiClient.parameterToMultiValueMap(ApiClient.CollectionFormat.valueOf("multi".toUpperCase(Locale.ROOT)), "detaljniva", detaljniva));
@@ -689,7 +701,7 @@ public class VegnettApi {
         queryParams.putAll(apiClient.parameterToMultiValueMap(null, "antall", antall));
         queryParams.putAll(apiClient.parameterToMultiValueMap(null, "start", start));
         queryParams.putAll(apiClient.parameterToMultiValueMap(null, "inkluderAntall", inkluderAntall));
-        
+
         final String[] localVarAccepts = { 
             "*/*"
         };
@@ -706,20 +718,21 @@ public class VegnettApi {
     /**
      * Hent segmenterte veglenkesekvenser
      * 
-     * <p><b>500</b> - Internal Server Error
      * <p><b>400</b> - Bad Request
      * <p><b>404</b> - Not Found
+     * <p><b>500</b> - Internal Server Error
      * <p><b>200</b> - OK
-     * @param srid Angir hvilket geografisk referansesystem geometrien skal returneres i. Utdata i UTM-formater begrenses til 3 desimaler, 4326/WGS84 begrenses til 8 desimaler. Mer informasjon: &lt;a href&#x3D;&#39;https://epsg.io/5972&#39;&gt;EPSG:5972&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5973&#39;&gt;EPSG:5973&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5975&#39;&gt;EPSG:5975&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/4326&#39;&gt;EPSG:4326&lt;/a&gt;.
+     * @param srid Angir hvilket geografisk referansesystem geometrien skal returneres i. Utdata i UTM-formater begrenses til 3 desimaler, 4326/WGS84 begrenses til 8 desimaler. Query-parametere med koordinater oppgis i UTM33 for UTM-formater, 4326/WGS84 oppgis dersom srid er 4326/WGS84. Mer informasjon: &lt;a href&#x3D;&#39;https://epsg.io/5972&#39;&gt;EPSG:5972&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5973&#39;&gt;EPSG:5973&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5975&#39;&gt;EPSG:5975&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/4326&#39;&gt;EPSG:4326&lt;/a&gt;.
      * @param ider Kommaseparert liste med IDer.
-     * @param fylke Filtrer på fylke. Kommaseparert liste. Se [/omrader/api/v4/fylker](https://nvdbapiles.atlas.vegvesen.no/webjars/swagger-ui/index.html?urls.primaryName&#x3D;Omr%C3%A5der#/Omr%C3%A5der/getFylker) for mulige verdier.  Eksempel: &#x60;50&#x60;
-     * @param kommune Filtrer på kommune. Kommaseparert liste. Se [/omrader/api/v4/kommuner](https://nvdbapiles.atlas.vegvesen.no/webjars/swagger-ui/index.html?urls.primaryName&#x3D;Omr%C3%A5der#/Omr%C3%A5der/getKommuner) for mulige verdier.  Eksempel: &#x60;5001&#x60;
-     * @param kontraktsomrade Filtrer på kontraktsomrade. Kommaseparert liste. Se [/omrader/api/v4/kontraktsomrader](https://nvdbapiles.atlas.vegvesen.no/webjars/swagger-ui/index.html?urls.primaryName&#x3D;Omr%C3%A5der#/Omr%C3%A5der/getKontraktsomrader) for mulige verdier.  Eksempel: &#x60;9503 Midtre Hålogaland 2021-2026&#x60;
-     * @param riksvegrute Filtrer på riksvegrute. Kommaseparert liste. Se [/omrader/api/v4/riksvegruter](https://nvdbapiles.atlas.vegvesen.no/webjars/swagger-ui/index.html?urls.primaryName&#x3D;Omr%C3%A5der#/Omr%C3%A5der/getRiksvegruter) for mulige verdier.  Eksempel: &#x60;RUTE4A&#x60; eller som enumid &#x60;20290&#x60;
-     * @param vegforvalter Filtrer på vegforvalter. Kommaseparert liste. Se [/omrader/api/v4/vegforvaltere](https://nvdbapiles.atlas.vegvesen.no/webjars/swagger-ui/index.html?urls.primaryName&#x3D;Omr%C3%A5der#/Omr%C3%A5der/getVegforvaltere) for mulige verdier.  Eksempel: &#x60;Møre og Romsdal fylkeskommune&#x60; eller som enumid &#x60;21774&#x60;
+     * @param fylke Filtrer på fylke. Kommaseparert liste. Se [/omrader/api/v4/fylker](https://nvdbapiles.atlas.vegvesen.no/swagger-ui/index.html?urls.primaryName&#x3D;Omr%C3%A5der#/Omr%C3%A5der/getFylker) for mulige verdier.  Eksempel: &#x60;50&#x60;
+     * @param kommune Filtrer på kommune. Kommaseparert liste. Se [/omrader/api/v4/kommuner](https://nvdbapiles.atlas.vegvesen.no/swagger-ui/index.html?urls.primaryName&#x3D;Omr%C3%A5der#/Omr%C3%A5der/getKommuner) for mulige verdier.  Eksempel: &#x60;5001&#x60;
+     * @param kontraktsomrade Filtrer på kontraktsomrade. Kommaseparert liste. Se [/omrader/api/v4/kontraktsomrader](https://nvdbapiles.atlas.vegvesen.no/swagger-ui/index.html?urls.primaryName&#x3D;Omr%C3%A5der#/Omr%C3%A5der/getKontraktsomrader) for mulige verdier.  Eksempel: &#x60;9503 Midtre Hålogaland 2021-2026&#x60;
+     * @param riksvegrute Filtrer på riksvegrute. Kommaseparert liste. Se [/omrader/api/v4/riksvegruter](https://nvdbapiles.atlas.vegvesen.no/swagger-ui/index.html?urls.primaryName&#x3D;Omr%C3%A5der#/Omr%C3%A5der/getRiksvegruter) for mulige verdier.  Eksempel: &#x60;RUTE4A&#x60; eller som enumid &#x60;20290&#x60;
+     * @param vegforvalter Filtrer på vegforvalter. Kommaseparert liste. Se [/omrader/api/v4/vegforvaltere](https://nvdbapiles.atlas.vegvesen.no/swagger-ui/index.html?urls.primaryName&#x3D;Omr%C3%A5der#/Omr%C3%A5der/getVegforvaltere) for mulige verdier.  Eksempel: &#x60;Møre og Romsdal fylkeskommune&#x60; eller som enumid &#x60;21774&#x60;
      * @param vegsystemreferanse Filtrer på [vegsystemreferanse](https://nvdb-docs.atlas.vegvesen.no/nvdbapil/v4/introduksjon/Vegsystemreferanse). Kommaseparert liste. Legg til kommunenummer i starten av vegsystemreferansen for å filtrere på område.  Eksempel: &#x60;EV6S1D1 m12&#x60;
-     * @param kartutsnitt Filtrer med kartutsnitt i det gjeldende geografiske referansesystemet (&#x60;srid&#x60;-paramteret). Formatet er &#x60;minX, minY, maxX, maxY&#x60;.  Eksempel: &#x60;265273, 7019372, 346553, 7061071&#x60;
-     * @param polygon Filtrer med polygon i det gjeldende geografiske referansesystemet (&#x60;srid&#x60;-paramteret).  Eksempel: &#x60;20000 6520000, 20500 6520000, 21000 6500000, 20000 6520000&#x60;
+     * @param veglenkesekvens Filtrer på relativ posisjon på veglenkesekvens. Kan være punkt eller utstrekning. Kommaseparert liste.  Eksempel: &#x60;0.37@319531,0.83-0.97@41640&#x60;
+     * @param kartutsnitt Filtrer med kartutsnitt i UTM 33. Formatet er &#x60;minX, minY, maxX, maxY&#x60;.  Eksempel: &#x60;265273, 7019372, 346553, 7061071&#x60;
+     * @param polygon Filtrer med polygon i UTM 33.  Eksempel: &#x60;20000 6520000, 20500 6520000, 21000 6500000, 20000 6520000&#x60;
      * @param detaljniva Filtrer på veglenkens detaljnivå (kortnavn fra datakatalogen). Kommaseparert liste.   Eksempel: &#x60;VT,VTKB&#x60;
      * @param typeveg Filtrer veglenker på type veg. Kommaseparert liste.  Eksempel: &#x60;kanalisertVeg, enkelBilveg, rampe, rundkjøring, bilferje, passasjerferje, gangOgSykkelveg, sykkelveg, gangveg, gågate, fortau, trapp, gangfelt, gatetun, traktorveg, sti, annet&#x60;
      * @param superid Hent detaljerte veglenkesegmenter stedfestet på veglenkesekvens med denne IDen.
@@ -738,28 +751,29 @@ public class VegnettApi {
      * @return VeglenkesegmenterSide
      * @throws RestClientResponseException if an error occurs while attempting to invoke the API
      */
-    public VeglenkesegmenterSide getVeglenkesegmenter(@jakarta.annotation.Nullable SridParameter srid, @jakarta.annotation.Nullable Set<Long> ider, @jakarta.annotation.Nullable Set<Integer> fylke, @jakarta.annotation.Nullable Set<Integer> kommune, @jakarta.annotation.Nullable Set<String> kontraktsomrade, @jakarta.annotation.Nullable Set<String> riksvegrute, @jakarta.annotation.Nullable Set<String> vegforvalter, @jakarta.annotation.Nullable Set<String> vegsystemreferanse, @jakarta.annotation.Nullable String kartutsnitt, @jakarta.annotation.Nullable String polygon, @jakarta.annotation.Nullable Set<DetaljnivaParameter> detaljniva, @jakarta.annotation.Nullable Set<TypeVegSosi> typeveg, @jakarta.annotation.Nullable Long superid, @jakarta.annotation.Nullable Set<AdskilteLop> adskiltelop, @jakarta.annotation.Nullable Boolean kryssystem, @jakarta.annotation.Nullable Boolean sideanlegg, @jakarta.annotation.Nullable Set<VeglenketypeParameter> veglenketype, @jakarta.annotation.Nullable Boolean arm, @jakarta.annotation.Nullable Trafikantgruppe trafikantgruppe, @jakarta.annotation.Nullable Integer geometritoleranse, @jakarta.annotation.Nullable Boolean historisk, @jakarta.annotation.Nullable LocalDate tidspunkt, @jakarta.annotation.Nullable Integer antall, @jakarta.annotation.Nullable String start, @jakarta.annotation.Nullable Boolean inkluderAntall) throws RestClientResponseException {
+    public VeglenkesegmenterSide getVeglenkesegmenter(@jakarta.annotation.Nullable SridParameter srid, @jakarta.annotation.Nullable Set<Long> ider, @jakarta.annotation.Nullable Set<Integer> fylke, @jakarta.annotation.Nullable Set<Integer> kommune, @jakarta.annotation.Nullable Set<String> kontraktsomrade, @jakarta.annotation.Nullable Set<String> riksvegrute, @jakarta.annotation.Nullable Set<String> vegforvalter, @jakarta.annotation.Nullable Set<String> vegsystemreferanse, @jakarta.annotation.Nullable Set<String> veglenkesekvens, @jakarta.annotation.Nullable String kartutsnitt, @jakarta.annotation.Nullable String polygon, @jakarta.annotation.Nullable Set<DetaljnivaParameter> detaljniva, @jakarta.annotation.Nullable Set<TypeVegSosi> typeveg, @jakarta.annotation.Nullable Long superid, @jakarta.annotation.Nullable Set<AdskilteLop> adskiltelop, @jakarta.annotation.Nullable Boolean kryssystem, @jakarta.annotation.Nullable Boolean sideanlegg, @jakarta.annotation.Nullable Set<VeglenketypeParameter> veglenketype, @jakarta.annotation.Nullable Boolean arm, @jakarta.annotation.Nullable Trafikantgruppe trafikantgruppe, @jakarta.annotation.Nullable Integer geometritoleranse, @jakarta.annotation.Nullable Boolean historisk, @jakarta.annotation.Nullable LocalDate tidspunkt, @jakarta.annotation.Nullable Integer antall, @jakarta.annotation.Nullable String start, @jakarta.annotation.Nullable Boolean inkluderAntall) throws RestClientResponseException {
         ParameterizedTypeReference<VeglenkesegmenterSide> localVarReturnType = new ParameterizedTypeReference<>() {};
-        return getVeglenkesegmenterRequestCreation(srid, ider, fylke, kommune, kontraktsomrade, riksvegrute, vegforvalter, vegsystemreferanse, kartutsnitt, polygon, detaljniva, typeveg, superid, adskiltelop, kryssystem, sideanlegg, veglenketype, arm, trafikantgruppe, geometritoleranse, historisk, tidspunkt, antall, start, inkluderAntall).body(localVarReturnType);
+        return getVeglenkesegmenterRequestCreation(srid, ider, fylke, kommune, kontraktsomrade, riksvegrute, vegforvalter, vegsystemreferanse, veglenkesekvens, kartutsnitt, polygon, detaljniva, typeveg, superid, adskiltelop, kryssystem, sideanlegg, veglenketype, arm, trafikantgruppe, geometritoleranse, historisk, tidspunkt, antall, start, inkluderAntall).body(localVarReturnType);
     }
 
     /**
      * Hent segmenterte veglenkesekvenser
      * 
-     * <p><b>500</b> - Internal Server Error
      * <p><b>400</b> - Bad Request
      * <p><b>404</b> - Not Found
+     * <p><b>500</b> - Internal Server Error
      * <p><b>200</b> - OK
-     * @param srid Angir hvilket geografisk referansesystem geometrien skal returneres i. Utdata i UTM-formater begrenses til 3 desimaler, 4326/WGS84 begrenses til 8 desimaler. Mer informasjon: &lt;a href&#x3D;&#39;https://epsg.io/5972&#39;&gt;EPSG:5972&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5973&#39;&gt;EPSG:5973&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5975&#39;&gt;EPSG:5975&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/4326&#39;&gt;EPSG:4326&lt;/a&gt;.
+     * @param srid Angir hvilket geografisk referansesystem geometrien skal returneres i. Utdata i UTM-formater begrenses til 3 desimaler, 4326/WGS84 begrenses til 8 desimaler. Query-parametere med koordinater oppgis i UTM33 for UTM-formater, 4326/WGS84 oppgis dersom srid er 4326/WGS84. Mer informasjon: &lt;a href&#x3D;&#39;https://epsg.io/5972&#39;&gt;EPSG:5972&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5973&#39;&gt;EPSG:5973&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5975&#39;&gt;EPSG:5975&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/4326&#39;&gt;EPSG:4326&lt;/a&gt;.
      * @param ider Kommaseparert liste med IDer.
-     * @param fylke Filtrer på fylke. Kommaseparert liste. Se [/omrader/api/v4/fylker](https://nvdbapiles.atlas.vegvesen.no/webjars/swagger-ui/index.html?urls.primaryName&#x3D;Omr%C3%A5der#/Omr%C3%A5der/getFylker) for mulige verdier.  Eksempel: &#x60;50&#x60;
-     * @param kommune Filtrer på kommune. Kommaseparert liste. Se [/omrader/api/v4/kommuner](https://nvdbapiles.atlas.vegvesen.no/webjars/swagger-ui/index.html?urls.primaryName&#x3D;Omr%C3%A5der#/Omr%C3%A5der/getKommuner) for mulige verdier.  Eksempel: &#x60;5001&#x60;
-     * @param kontraktsomrade Filtrer på kontraktsomrade. Kommaseparert liste. Se [/omrader/api/v4/kontraktsomrader](https://nvdbapiles.atlas.vegvesen.no/webjars/swagger-ui/index.html?urls.primaryName&#x3D;Omr%C3%A5der#/Omr%C3%A5der/getKontraktsomrader) for mulige verdier.  Eksempel: &#x60;9503 Midtre Hålogaland 2021-2026&#x60;
-     * @param riksvegrute Filtrer på riksvegrute. Kommaseparert liste. Se [/omrader/api/v4/riksvegruter](https://nvdbapiles.atlas.vegvesen.no/webjars/swagger-ui/index.html?urls.primaryName&#x3D;Omr%C3%A5der#/Omr%C3%A5der/getRiksvegruter) for mulige verdier.  Eksempel: &#x60;RUTE4A&#x60; eller som enumid &#x60;20290&#x60;
-     * @param vegforvalter Filtrer på vegforvalter. Kommaseparert liste. Se [/omrader/api/v4/vegforvaltere](https://nvdbapiles.atlas.vegvesen.no/webjars/swagger-ui/index.html?urls.primaryName&#x3D;Omr%C3%A5der#/Omr%C3%A5der/getVegforvaltere) for mulige verdier.  Eksempel: &#x60;Møre og Romsdal fylkeskommune&#x60; eller som enumid &#x60;21774&#x60;
+     * @param fylke Filtrer på fylke. Kommaseparert liste. Se [/omrader/api/v4/fylker](https://nvdbapiles.atlas.vegvesen.no/swagger-ui/index.html?urls.primaryName&#x3D;Omr%C3%A5der#/Omr%C3%A5der/getFylker) for mulige verdier.  Eksempel: &#x60;50&#x60;
+     * @param kommune Filtrer på kommune. Kommaseparert liste. Se [/omrader/api/v4/kommuner](https://nvdbapiles.atlas.vegvesen.no/swagger-ui/index.html?urls.primaryName&#x3D;Omr%C3%A5der#/Omr%C3%A5der/getKommuner) for mulige verdier.  Eksempel: &#x60;5001&#x60;
+     * @param kontraktsomrade Filtrer på kontraktsomrade. Kommaseparert liste. Se [/omrader/api/v4/kontraktsomrader](https://nvdbapiles.atlas.vegvesen.no/swagger-ui/index.html?urls.primaryName&#x3D;Omr%C3%A5der#/Omr%C3%A5der/getKontraktsomrader) for mulige verdier.  Eksempel: &#x60;9503 Midtre Hålogaland 2021-2026&#x60;
+     * @param riksvegrute Filtrer på riksvegrute. Kommaseparert liste. Se [/omrader/api/v4/riksvegruter](https://nvdbapiles.atlas.vegvesen.no/swagger-ui/index.html?urls.primaryName&#x3D;Omr%C3%A5der#/Omr%C3%A5der/getRiksvegruter) for mulige verdier.  Eksempel: &#x60;RUTE4A&#x60; eller som enumid &#x60;20290&#x60;
+     * @param vegforvalter Filtrer på vegforvalter. Kommaseparert liste. Se [/omrader/api/v4/vegforvaltere](https://nvdbapiles.atlas.vegvesen.no/swagger-ui/index.html?urls.primaryName&#x3D;Omr%C3%A5der#/Omr%C3%A5der/getVegforvaltere) for mulige verdier.  Eksempel: &#x60;Møre og Romsdal fylkeskommune&#x60; eller som enumid &#x60;21774&#x60;
      * @param vegsystemreferanse Filtrer på [vegsystemreferanse](https://nvdb-docs.atlas.vegvesen.no/nvdbapil/v4/introduksjon/Vegsystemreferanse). Kommaseparert liste. Legg til kommunenummer i starten av vegsystemreferansen for å filtrere på område.  Eksempel: &#x60;EV6S1D1 m12&#x60;
-     * @param kartutsnitt Filtrer med kartutsnitt i det gjeldende geografiske referansesystemet (&#x60;srid&#x60;-paramteret). Formatet er &#x60;minX, minY, maxX, maxY&#x60;.  Eksempel: &#x60;265273, 7019372, 346553, 7061071&#x60;
-     * @param polygon Filtrer med polygon i det gjeldende geografiske referansesystemet (&#x60;srid&#x60;-paramteret).  Eksempel: &#x60;20000 6520000, 20500 6520000, 21000 6500000, 20000 6520000&#x60;
+     * @param veglenkesekvens Filtrer på relativ posisjon på veglenkesekvens. Kan være punkt eller utstrekning. Kommaseparert liste.  Eksempel: &#x60;0.37@319531,0.83-0.97@41640&#x60;
+     * @param kartutsnitt Filtrer med kartutsnitt i UTM 33. Formatet er &#x60;minX, minY, maxX, maxY&#x60;.  Eksempel: &#x60;265273, 7019372, 346553, 7061071&#x60;
+     * @param polygon Filtrer med polygon i UTM 33.  Eksempel: &#x60;20000 6520000, 20500 6520000, 21000 6500000, 20000 6520000&#x60;
      * @param detaljniva Filtrer på veglenkens detaljnivå (kortnavn fra datakatalogen). Kommaseparert liste.   Eksempel: &#x60;VT,VTKB&#x60;
      * @param typeveg Filtrer veglenker på type veg. Kommaseparert liste.  Eksempel: &#x60;kanalisertVeg, enkelBilveg, rampe, rundkjøring, bilferje, passasjerferje, gangOgSykkelveg, sykkelveg, gangveg, gågate, fortau, trapp, gangfelt, gatetun, traktorveg, sti, annet&#x60;
      * @param superid Hent detaljerte veglenkesegmenter stedfestet på veglenkesekvens med denne IDen.
@@ -778,28 +792,29 @@ public class VegnettApi {
      * @return ResponseEntity&lt;VeglenkesegmenterSide&gt;
      * @throws RestClientResponseException if an error occurs while attempting to invoke the API
      */
-    public ResponseEntity<VeglenkesegmenterSide> getVeglenkesegmenterWithHttpInfo(@jakarta.annotation.Nullable SridParameter srid, @jakarta.annotation.Nullable Set<Long> ider, @jakarta.annotation.Nullable Set<Integer> fylke, @jakarta.annotation.Nullable Set<Integer> kommune, @jakarta.annotation.Nullable Set<String> kontraktsomrade, @jakarta.annotation.Nullable Set<String> riksvegrute, @jakarta.annotation.Nullable Set<String> vegforvalter, @jakarta.annotation.Nullable Set<String> vegsystemreferanse, @jakarta.annotation.Nullable String kartutsnitt, @jakarta.annotation.Nullable String polygon, @jakarta.annotation.Nullable Set<DetaljnivaParameter> detaljniva, @jakarta.annotation.Nullable Set<TypeVegSosi> typeveg, @jakarta.annotation.Nullable Long superid, @jakarta.annotation.Nullable Set<AdskilteLop> adskiltelop, @jakarta.annotation.Nullable Boolean kryssystem, @jakarta.annotation.Nullable Boolean sideanlegg, @jakarta.annotation.Nullable Set<VeglenketypeParameter> veglenketype, @jakarta.annotation.Nullable Boolean arm, @jakarta.annotation.Nullable Trafikantgruppe trafikantgruppe, @jakarta.annotation.Nullable Integer geometritoleranse, @jakarta.annotation.Nullable Boolean historisk, @jakarta.annotation.Nullable LocalDate tidspunkt, @jakarta.annotation.Nullable Integer antall, @jakarta.annotation.Nullable String start, @jakarta.annotation.Nullable Boolean inkluderAntall) throws RestClientResponseException {
+    public ResponseEntity<VeglenkesegmenterSide> getVeglenkesegmenterWithHttpInfo(@jakarta.annotation.Nullable SridParameter srid, @jakarta.annotation.Nullable Set<Long> ider, @jakarta.annotation.Nullable Set<Integer> fylke, @jakarta.annotation.Nullable Set<Integer> kommune, @jakarta.annotation.Nullable Set<String> kontraktsomrade, @jakarta.annotation.Nullable Set<String> riksvegrute, @jakarta.annotation.Nullable Set<String> vegforvalter, @jakarta.annotation.Nullable Set<String> vegsystemreferanse, @jakarta.annotation.Nullable Set<String> veglenkesekvens, @jakarta.annotation.Nullable String kartutsnitt, @jakarta.annotation.Nullable String polygon, @jakarta.annotation.Nullable Set<DetaljnivaParameter> detaljniva, @jakarta.annotation.Nullable Set<TypeVegSosi> typeveg, @jakarta.annotation.Nullable Long superid, @jakarta.annotation.Nullable Set<AdskilteLop> adskiltelop, @jakarta.annotation.Nullable Boolean kryssystem, @jakarta.annotation.Nullable Boolean sideanlegg, @jakarta.annotation.Nullable Set<VeglenketypeParameter> veglenketype, @jakarta.annotation.Nullable Boolean arm, @jakarta.annotation.Nullable Trafikantgruppe trafikantgruppe, @jakarta.annotation.Nullable Integer geometritoleranse, @jakarta.annotation.Nullable Boolean historisk, @jakarta.annotation.Nullable LocalDate tidspunkt, @jakarta.annotation.Nullable Integer antall, @jakarta.annotation.Nullable String start, @jakarta.annotation.Nullable Boolean inkluderAntall) throws RestClientResponseException {
         ParameterizedTypeReference<VeglenkesegmenterSide> localVarReturnType = new ParameterizedTypeReference<>() {};
-        return getVeglenkesegmenterRequestCreation(srid, ider, fylke, kommune, kontraktsomrade, riksvegrute, vegforvalter, vegsystemreferanse, kartutsnitt, polygon, detaljniva, typeveg, superid, adskiltelop, kryssystem, sideanlegg, veglenketype, arm, trafikantgruppe, geometritoleranse, historisk, tidspunkt, antall, start, inkluderAntall).toEntity(localVarReturnType);
+        return getVeglenkesegmenterRequestCreation(srid, ider, fylke, kommune, kontraktsomrade, riksvegrute, vegforvalter, vegsystemreferanse, veglenkesekvens, kartutsnitt, polygon, detaljniva, typeveg, superid, adskiltelop, kryssystem, sideanlegg, veglenketype, arm, trafikantgruppe, geometritoleranse, historisk, tidspunkt, antall, start, inkluderAntall).toEntity(localVarReturnType);
     }
 
     /**
      * Hent segmenterte veglenkesekvenser
      * 
-     * <p><b>500</b> - Internal Server Error
      * <p><b>400</b> - Bad Request
      * <p><b>404</b> - Not Found
+     * <p><b>500</b> - Internal Server Error
      * <p><b>200</b> - OK
-     * @param srid Angir hvilket geografisk referansesystem geometrien skal returneres i. Utdata i UTM-formater begrenses til 3 desimaler, 4326/WGS84 begrenses til 8 desimaler. Mer informasjon: &lt;a href&#x3D;&#39;https://epsg.io/5972&#39;&gt;EPSG:5972&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5973&#39;&gt;EPSG:5973&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5975&#39;&gt;EPSG:5975&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/4326&#39;&gt;EPSG:4326&lt;/a&gt;.
+     * @param srid Angir hvilket geografisk referansesystem geometrien skal returneres i. Utdata i UTM-formater begrenses til 3 desimaler, 4326/WGS84 begrenses til 8 desimaler. Query-parametere med koordinater oppgis i UTM33 for UTM-formater, 4326/WGS84 oppgis dersom srid er 4326/WGS84. Mer informasjon: &lt;a href&#x3D;&#39;https://epsg.io/5972&#39;&gt;EPSG:5972&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5973&#39;&gt;EPSG:5973&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5975&#39;&gt;EPSG:5975&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/4326&#39;&gt;EPSG:4326&lt;/a&gt;.
      * @param ider Kommaseparert liste med IDer.
-     * @param fylke Filtrer på fylke. Kommaseparert liste. Se [/omrader/api/v4/fylker](https://nvdbapiles.atlas.vegvesen.no/webjars/swagger-ui/index.html?urls.primaryName&#x3D;Omr%C3%A5der#/Omr%C3%A5der/getFylker) for mulige verdier.  Eksempel: &#x60;50&#x60;
-     * @param kommune Filtrer på kommune. Kommaseparert liste. Se [/omrader/api/v4/kommuner](https://nvdbapiles.atlas.vegvesen.no/webjars/swagger-ui/index.html?urls.primaryName&#x3D;Omr%C3%A5der#/Omr%C3%A5der/getKommuner) for mulige verdier.  Eksempel: &#x60;5001&#x60;
-     * @param kontraktsomrade Filtrer på kontraktsomrade. Kommaseparert liste. Se [/omrader/api/v4/kontraktsomrader](https://nvdbapiles.atlas.vegvesen.no/webjars/swagger-ui/index.html?urls.primaryName&#x3D;Omr%C3%A5der#/Omr%C3%A5der/getKontraktsomrader) for mulige verdier.  Eksempel: &#x60;9503 Midtre Hålogaland 2021-2026&#x60;
-     * @param riksvegrute Filtrer på riksvegrute. Kommaseparert liste. Se [/omrader/api/v4/riksvegruter](https://nvdbapiles.atlas.vegvesen.no/webjars/swagger-ui/index.html?urls.primaryName&#x3D;Omr%C3%A5der#/Omr%C3%A5der/getRiksvegruter) for mulige verdier.  Eksempel: &#x60;RUTE4A&#x60; eller som enumid &#x60;20290&#x60;
-     * @param vegforvalter Filtrer på vegforvalter. Kommaseparert liste. Se [/omrader/api/v4/vegforvaltere](https://nvdbapiles.atlas.vegvesen.no/webjars/swagger-ui/index.html?urls.primaryName&#x3D;Omr%C3%A5der#/Omr%C3%A5der/getVegforvaltere) for mulige verdier.  Eksempel: &#x60;Møre og Romsdal fylkeskommune&#x60; eller som enumid &#x60;21774&#x60;
+     * @param fylke Filtrer på fylke. Kommaseparert liste. Se [/omrader/api/v4/fylker](https://nvdbapiles.atlas.vegvesen.no/swagger-ui/index.html?urls.primaryName&#x3D;Omr%C3%A5der#/Omr%C3%A5der/getFylker) for mulige verdier.  Eksempel: &#x60;50&#x60;
+     * @param kommune Filtrer på kommune. Kommaseparert liste. Se [/omrader/api/v4/kommuner](https://nvdbapiles.atlas.vegvesen.no/swagger-ui/index.html?urls.primaryName&#x3D;Omr%C3%A5der#/Omr%C3%A5der/getKommuner) for mulige verdier.  Eksempel: &#x60;5001&#x60;
+     * @param kontraktsomrade Filtrer på kontraktsomrade. Kommaseparert liste. Se [/omrader/api/v4/kontraktsomrader](https://nvdbapiles.atlas.vegvesen.no/swagger-ui/index.html?urls.primaryName&#x3D;Omr%C3%A5der#/Omr%C3%A5der/getKontraktsomrader) for mulige verdier.  Eksempel: &#x60;9503 Midtre Hålogaland 2021-2026&#x60;
+     * @param riksvegrute Filtrer på riksvegrute. Kommaseparert liste. Se [/omrader/api/v4/riksvegruter](https://nvdbapiles.atlas.vegvesen.no/swagger-ui/index.html?urls.primaryName&#x3D;Omr%C3%A5der#/Omr%C3%A5der/getRiksvegruter) for mulige verdier.  Eksempel: &#x60;RUTE4A&#x60; eller som enumid &#x60;20290&#x60;
+     * @param vegforvalter Filtrer på vegforvalter. Kommaseparert liste. Se [/omrader/api/v4/vegforvaltere](https://nvdbapiles.atlas.vegvesen.no/swagger-ui/index.html?urls.primaryName&#x3D;Omr%C3%A5der#/Omr%C3%A5der/getVegforvaltere) for mulige verdier.  Eksempel: &#x60;Møre og Romsdal fylkeskommune&#x60; eller som enumid &#x60;21774&#x60;
      * @param vegsystemreferanse Filtrer på [vegsystemreferanse](https://nvdb-docs.atlas.vegvesen.no/nvdbapil/v4/introduksjon/Vegsystemreferanse). Kommaseparert liste. Legg til kommunenummer i starten av vegsystemreferansen for å filtrere på område.  Eksempel: &#x60;EV6S1D1 m12&#x60;
-     * @param kartutsnitt Filtrer med kartutsnitt i det gjeldende geografiske referansesystemet (&#x60;srid&#x60;-paramteret). Formatet er &#x60;minX, minY, maxX, maxY&#x60;.  Eksempel: &#x60;265273, 7019372, 346553, 7061071&#x60;
-     * @param polygon Filtrer med polygon i det gjeldende geografiske referansesystemet (&#x60;srid&#x60;-paramteret).  Eksempel: &#x60;20000 6520000, 20500 6520000, 21000 6500000, 20000 6520000&#x60;
+     * @param veglenkesekvens Filtrer på relativ posisjon på veglenkesekvens. Kan være punkt eller utstrekning. Kommaseparert liste.  Eksempel: &#x60;0.37@319531,0.83-0.97@41640&#x60;
+     * @param kartutsnitt Filtrer med kartutsnitt i UTM 33. Formatet er &#x60;minX, minY, maxX, maxY&#x60;.  Eksempel: &#x60;265273, 7019372, 346553, 7061071&#x60;
+     * @param polygon Filtrer med polygon i UTM 33.  Eksempel: &#x60;20000 6520000, 20500 6520000, 21000 6500000, 20000 6520000&#x60;
      * @param detaljniva Filtrer på veglenkens detaljnivå (kortnavn fra datakatalogen). Kommaseparert liste.   Eksempel: &#x60;VT,VTKB&#x60;
      * @param typeveg Filtrer veglenker på type veg. Kommaseparert liste.  Eksempel: &#x60;kanalisertVeg, enkelBilveg, rampe, rundkjøring, bilferje, passasjerferje, gangOgSykkelveg, sykkelveg, gangveg, gågate, fortau, trapp, gangfelt, gatetun, traktorveg, sti, annet&#x60;
      * @param superid Hent detaljerte veglenkesegmenter stedfestet på veglenkesekvens med denne IDen.
@@ -818,8 +833,8 @@ public class VegnettApi {
      * @return ResponseSpec
      * @throws RestClientResponseException if an error occurs while attempting to invoke the API
      */
-    public ResponseSpec getVeglenkesegmenterWithResponseSpec(@jakarta.annotation.Nullable SridParameter srid, @jakarta.annotation.Nullable Set<Long> ider, @jakarta.annotation.Nullable Set<Integer> fylke, @jakarta.annotation.Nullable Set<Integer> kommune, @jakarta.annotation.Nullable Set<String> kontraktsomrade, @jakarta.annotation.Nullable Set<String> riksvegrute, @jakarta.annotation.Nullable Set<String> vegforvalter, @jakarta.annotation.Nullable Set<String> vegsystemreferanse, @jakarta.annotation.Nullable String kartutsnitt, @jakarta.annotation.Nullable String polygon, @jakarta.annotation.Nullable Set<DetaljnivaParameter> detaljniva, @jakarta.annotation.Nullable Set<TypeVegSosi> typeveg, @jakarta.annotation.Nullable Long superid, @jakarta.annotation.Nullable Set<AdskilteLop> adskiltelop, @jakarta.annotation.Nullable Boolean kryssystem, @jakarta.annotation.Nullable Boolean sideanlegg, @jakarta.annotation.Nullable Set<VeglenketypeParameter> veglenketype, @jakarta.annotation.Nullable Boolean arm, @jakarta.annotation.Nullable Trafikantgruppe trafikantgruppe, @jakarta.annotation.Nullable Integer geometritoleranse, @jakarta.annotation.Nullable Boolean historisk, @jakarta.annotation.Nullable LocalDate tidspunkt, @jakarta.annotation.Nullable Integer antall, @jakarta.annotation.Nullable String start, @jakarta.annotation.Nullable Boolean inkluderAntall) throws RestClientResponseException {
-        return getVeglenkesegmenterRequestCreation(srid, ider, fylke, kommune, kontraktsomrade, riksvegrute, vegforvalter, vegsystemreferanse, kartutsnitt, polygon, detaljniva, typeveg, superid, adskiltelop, kryssystem, sideanlegg, veglenketype, arm, trafikantgruppe, geometritoleranse, historisk, tidspunkt, antall, start, inkluderAntall);
+    public ResponseSpec getVeglenkesegmenterWithResponseSpec(@jakarta.annotation.Nullable SridParameter srid, @jakarta.annotation.Nullable Set<Long> ider, @jakarta.annotation.Nullable Set<Integer> fylke, @jakarta.annotation.Nullable Set<Integer> kommune, @jakarta.annotation.Nullable Set<String> kontraktsomrade, @jakarta.annotation.Nullable Set<String> riksvegrute, @jakarta.annotation.Nullable Set<String> vegforvalter, @jakarta.annotation.Nullable Set<String> vegsystemreferanse, @jakarta.annotation.Nullable Set<String> veglenkesekvens, @jakarta.annotation.Nullable String kartutsnitt, @jakarta.annotation.Nullable String polygon, @jakarta.annotation.Nullable Set<DetaljnivaParameter> detaljniva, @jakarta.annotation.Nullable Set<TypeVegSosi> typeveg, @jakarta.annotation.Nullable Long superid, @jakarta.annotation.Nullable Set<AdskilteLop> adskiltelop, @jakarta.annotation.Nullable Boolean kryssystem, @jakarta.annotation.Nullable Boolean sideanlegg, @jakarta.annotation.Nullable Set<VeglenketypeParameter> veglenketype, @jakarta.annotation.Nullable Boolean arm, @jakarta.annotation.Nullable Trafikantgruppe trafikantgruppe, @jakarta.annotation.Nullable Integer geometritoleranse, @jakarta.annotation.Nullable Boolean historisk, @jakarta.annotation.Nullable LocalDate tidspunkt, @jakarta.annotation.Nullable Integer antall, @jakarta.annotation.Nullable String start, @jakarta.annotation.Nullable Boolean inkluderAntall) throws RestClientResponseException {
+        return getVeglenkesegmenterRequestCreation(srid, ider, fylke, kommune, kontraktsomrade, riksvegrute, vegforvalter, vegsystemreferanse, veglenkesekvens, kartutsnitt, polygon, detaljniva, typeveg, superid, adskiltelop, kryssystem, sideanlegg, veglenketype, arm, trafikantgruppe, geometritoleranse, historisk, tidspunkt, antall, start, inkluderAntall);
     }
 
     public static class GetVeglenkesekvensRequest {
@@ -869,59 +884,59 @@ public class VegnettApi {
     }
 
     /**
-    * Hent en veglenkesekvens
-    * 
-     * <p><b>500</b> - Internal Server Error
+     * Hent en veglenkesekvens
+     * 
      * <p><b>400</b> - Bad Request
      * <p><b>404</b> - Not Found
+     * <p><b>500</b> - Internal Server Error
      * <p><b>200</b> - OK
      * @param requestParameters The getVeglenkesekvens request parameters as object
      * @return Veglenkesekvens
      * @throws RestClientResponseException if an error occurs while attempting to invoke the API
-    */
+     */
     public Veglenkesekvens getVeglenkesekvens(GetVeglenkesekvensRequest requestParameters) throws RestClientResponseException {
-      return this.getVeglenkesekvens(requestParameters.veglenkesekvensId(), requestParameters.srid());
-    }
-
-  /**
-  * Hent en veglenkesekvens
-  * 
-     * <p><b>500</b> - Internal Server Error
-     * <p><b>400</b> - Bad Request
-     * <p><b>404</b> - Not Found
-     * <p><b>200</b> - OK
-     * @param requestParameters The getVeglenkesekvens request parameters as object
-     * @return ResponseEntity&lt;Veglenkesekvens&gt;
-     * @throws RestClientResponseException if an error occurs while attempting to invoke the API
-    */
-    public ResponseEntity<Veglenkesekvens> getVeglenkesekvensWithHttpInfo(GetVeglenkesekvensRequest requestParameters) throws RestClientResponseException {
-      return this.getVeglenkesekvensWithHttpInfo(requestParameters.veglenkesekvensId(), requestParameters.srid());
-    }
-
-  /**
-  * Hent en veglenkesekvens
-  * 
-     * <p><b>500</b> - Internal Server Error
-     * <p><b>400</b> - Bad Request
-     * <p><b>404</b> - Not Found
-     * <p><b>200</b> - OK
-     * @param requestParameters The getVeglenkesekvens request parameters as object
-  * @return ResponseSpec
-  * @throws RestClientResponseException if an error occurs while attempting to invoke the API
-    */
-    public ResponseSpec getVeglenkesekvensWithResponseSpec(GetVeglenkesekvensRequest requestParameters) throws RestClientResponseException {
-      return this.getVeglenkesekvensWithResponseSpec(requestParameters.veglenkesekvensId(), requestParameters.srid());
+        return this.getVeglenkesekvens(requestParameters.veglenkesekvensId(), requestParameters.srid());
     }
 
     /**
      * Hent en veglenkesekvens
      * 
-     * <p><b>500</b> - Internal Server Error
      * <p><b>400</b> - Bad Request
      * <p><b>404</b> - Not Found
+     * <p><b>500</b> - Internal Server Error
+     * <p><b>200</b> - OK
+     * @param requestParameters The getVeglenkesekvens request parameters as object
+     * @return ResponseEntity&lt;Veglenkesekvens&gt;
+     * @throws RestClientResponseException if an error occurs while attempting to invoke the API
+     */
+    public ResponseEntity<Veglenkesekvens> getVeglenkesekvensWithHttpInfo(GetVeglenkesekvensRequest requestParameters) throws RestClientResponseException {
+        return this.getVeglenkesekvensWithHttpInfo(requestParameters.veglenkesekvensId(), requestParameters.srid());
+    }
+
+    /**
+     * Hent en veglenkesekvens
+     * 
+     * <p><b>400</b> - Bad Request
+     * <p><b>404</b> - Not Found
+     * <p><b>500</b> - Internal Server Error
+     * <p><b>200</b> - OK
+     * @param requestParameters The getVeglenkesekvens request parameters as object
+     * @return ResponseSpec
+     * @throws RestClientResponseException if an error occurs while attempting to invoke the API
+     */
+    public ResponseSpec getVeglenkesekvensWithResponseSpec(GetVeglenkesekvensRequest requestParameters) throws RestClientResponseException {
+        return this.getVeglenkesekvensWithResponseSpec(requestParameters.veglenkesekvensId(), requestParameters.srid());
+    }
+
+    /**
+     * Hent en veglenkesekvens
+     * 
+     * <p><b>400</b> - Bad Request
+     * <p><b>404</b> - Not Found
+     * <p><b>500</b> - Internal Server Error
      * <p><b>200</b> - OK
      * @param veglenkesekvensId ID for veglenkesekvensen.
-     * @param srid Angir hvilket geografisk referansesystem geometrien skal returneres i. Utdata i UTM-formater begrenses til 3 desimaler, 4326/WGS84 begrenses til 8 desimaler. Mer informasjon: &lt;a href&#x3D;&#39;https://epsg.io/5972&#39;&gt;EPSG:5972&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5973&#39;&gt;EPSG:5973&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5975&#39;&gt;EPSG:5975&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/4326&#39;&gt;EPSG:4326&lt;/a&gt;.
+     * @param srid Angir hvilket geografisk referansesystem geometrien skal returneres i. Utdata i UTM-formater begrenses til 3 desimaler, 4326/WGS84 begrenses til 8 desimaler. Query-parametere med koordinater oppgis i UTM33 for UTM-formater, 4326/WGS84 oppgis dersom srid er 4326/WGS84. Mer informasjon: &lt;a href&#x3D;&#39;https://epsg.io/5972&#39;&gt;EPSG:5972&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5973&#39;&gt;EPSG:5973&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5975&#39;&gt;EPSG:5975&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/4326&#39;&gt;EPSG:4326&lt;/a&gt;.
      * @return Veglenkesekvens
      * @throws RestClientResponseException if an error occurs while attempting to invoke the API
      */
@@ -942,7 +957,7 @@ public class VegnettApi {
         final MultiValueMap<String, Object> formParams = new LinkedMultiValueMap<>();
 
         queryParams.putAll(apiClient.parameterToMultiValueMap(null, "srid", srid));
-        
+
         final String[] localVarAccepts = { 
             "*/*"
         };
@@ -959,12 +974,12 @@ public class VegnettApi {
     /**
      * Hent en veglenkesekvens
      * 
-     * <p><b>500</b> - Internal Server Error
      * <p><b>400</b> - Bad Request
      * <p><b>404</b> - Not Found
+     * <p><b>500</b> - Internal Server Error
      * <p><b>200</b> - OK
      * @param veglenkesekvensId ID for veglenkesekvensen.
-     * @param srid Angir hvilket geografisk referansesystem geometrien skal returneres i. Utdata i UTM-formater begrenses til 3 desimaler, 4326/WGS84 begrenses til 8 desimaler. Mer informasjon: &lt;a href&#x3D;&#39;https://epsg.io/5972&#39;&gt;EPSG:5972&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5973&#39;&gt;EPSG:5973&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5975&#39;&gt;EPSG:5975&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/4326&#39;&gt;EPSG:4326&lt;/a&gt;.
+     * @param srid Angir hvilket geografisk referansesystem geometrien skal returneres i. Utdata i UTM-formater begrenses til 3 desimaler, 4326/WGS84 begrenses til 8 desimaler. Query-parametere med koordinater oppgis i UTM33 for UTM-formater, 4326/WGS84 oppgis dersom srid er 4326/WGS84. Mer informasjon: &lt;a href&#x3D;&#39;https://epsg.io/5972&#39;&gt;EPSG:5972&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5973&#39;&gt;EPSG:5973&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5975&#39;&gt;EPSG:5975&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/4326&#39;&gt;EPSG:4326&lt;/a&gt;.
      * @return Veglenkesekvens
      * @throws RestClientResponseException if an error occurs while attempting to invoke the API
      */
@@ -976,12 +991,12 @@ public class VegnettApi {
     /**
      * Hent en veglenkesekvens
      * 
-     * <p><b>500</b> - Internal Server Error
      * <p><b>400</b> - Bad Request
      * <p><b>404</b> - Not Found
+     * <p><b>500</b> - Internal Server Error
      * <p><b>200</b> - OK
      * @param veglenkesekvensId ID for veglenkesekvensen.
-     * @param srid Angir hvilket geografisk referansesystem geometrien skal returneres i. Utdata i UTM-formater begrenses til 3 desimaler, 4326/WGS84 begrenses til 8 desimaler. Mer informasjon: &lt;a href&#x3D;&#39;https://epsg.io/5972&#39;&gt;EPSG:5972&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5973&#39;&gt;EPSG:5973&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5975&#39;&gt;EPSG:5975&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/4326&#39;&gt;EPSG:4326&lt;/a&gt;.
+     * @param srid Angir hvilket geografisk referansesystem geometrien skal returneres i. Utdata i UTM-formater begrenses til 3 desimaler, 4326/WGS84 begrenses til 8 desimaler. Query-parametere med koordinater oppgis i UTM33 for UTM-formater, 4326/WGS84 oppgis dersom srid er 4326/WGS84. Mer informasjon: &lt;a href&#x3D;&#39;https://epsg.io/5972&#39;&gt;EPSG:5972&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5973&#39;&gt;EPSG:5973&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5975&#39;&gt;EPSG:5975&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/4326&#39;&gt;EPSG:4326&lt;/a&gt;.
      * @return ResponseEntity&lt;Veglenkesekvens&gt;
      * @throws RestClientResponseException if an error occurs while attempting to invoke the API
      */
@@ -993,12 +1008,12 @@ public class VegnettApi {
     /**
      * Hent en veglenkesekvens
      * 
-     * <p><b>500</b> - Internal Server Error
      * <p><b>400</b> - Bad Request
      * <p><b>404</b> - Not Found
+     * <p><b>500</b> - Internal Server Error
      * <p><b>200</b> - OK
      * @param veglenkesekvensId ID for veglenkesekvensen.
-     * @param srid Angir hvilket geografisk referansesystem geometrien skal returneres i. Utdata i UTM-formater begrenses til 3 desimaler, 4326/WGS84 begrenses til 8 desimaler. Mer informasjon: &lt;a href&#x3D;&#39;https://epsg.io/5972&#39;&gt;EPSG:5972&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5973&#39;&gt;EPSG:5973&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5975&#39;&gt;EPSG:5975&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/4326&#39;&gt;EPSG:4326&lt;/a&gt;.
+     * @param srid Angir hvilket geografisk referansesystem geometrien skal returneres i. Utdata i UTM-formater begrenses til 3 desimaler, 4326/WGS84 begrenses til 8 desimaler. Query-parametere med koordinater oppgis i UTM33 for UTM-formater, 4326/WGS84 oppgis dersom srid er 4326/WGS84. Mer informasjon: &lt;a href&#x3D;&#39;https://epsg.io/5972&#39;&gt;EPSG:5972&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5973&#39;&gt;EPSG:5973&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5975&#39;&gt;EPSG:5975&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/4326&#39;&gt;EPSG:4326&lt;/a&gt;.
      * @return ResponseSpec
      * @throws RestClientResponseException if an error occurs while attempting to invoke the API
      */
@@ -1009,15 +1024,17 @@ public class VegnettApi {
     public static class GetVeglenkesekvensEndringerRequest {
         private @jakarta.annotation.Nullable String start;
         private @jakarta.annotation.Nullable Integer antall;
+        private @jakarta.annotation.Nullable String slutt;
         private @jakarta.annotation.Nullable Set<Long> ider;
         private @jakarta.annotation.Nullable Set<Integer> fylke;
         private @jakarta.annotation.Nullable Set<Integer> kommune;
 
         public GetVeglenkesekvensEndringerRequest() {}
 
-        public GetVeglenkesekvensEndringerRequest(@jakarta.annotation.Nullable String start, @jakarta.annotation.Nullable Integer antall, @jakarta.annotation.Nullable Set<Long> ider, @jakarta.annotation.Nullable Set<Integer> fylke, @jakarta.annotation.Nullable Set<Integer> kommune) {
+        public GetVeglenkesekvensEndringerRequest(@jakarta.annotation.Nullable String start, @jakarta.annotation.Nullable Integer antall, @jakarta.annotation.Nullable String slutt, @jakarta.annotation.Nullable Set<Long> ider, @jakarta.annotation.Nullable Set<Integer> fylke, @jakarta.annotation.Nullable Set<Integer> kommune) {
             this.start = start;
             this.antall = antall;
+            this.slutt = slutt;
             this.ider = ider;
             this.fylke = fylke;
             this.kommune = kommune;
@@ -1036,6 +1053,14 @@ public class VegnettApi {
         }
         public GetVeglenkesekvensEndringerRequest antall(@jakarta.annotation.Nullable Integer antall) {
             this.antall = antall;
+            return this;
+        }
+
+        public @jakarta.annotation.Nullable String slutt() {
+            return this.slutt;
+        }
+        public GetVeglenkesekvensEndringerRequest slutt(@jakarta.annotation.Nullable String slutt) {
+            this.slutt = slutt;
             return this;
         }
 
@@ -1074,6 +1099,7 @@ public class VegnettApi {
             GetVeglenkesekvensEndringerRequest request = (GetVeglenkesekvensEndringerRequest) o;
             return Objects.equals(this.start, request.start()) &&
                 Objects.equals(this.antall, request.antall()) &&
+                Objects.equals(this.slutt, request.slutt()) &&
                 Objects.equals(this.ider, request.ider()) &&
                 Objects.equals(this.fylke, request.fylke()) &&
                 Objects.equals(this.kommune, request.kommune());
@@ -1081,71 +1107,72 @@ public class VegnettApi {
 
         @Override
         public int hashCode() {
-            return Objects.hash(start, antall, ider, fylke, kommune);
+            return Objects.hash(start, antall, slutt, ider, fylke, kommune);
         }
     }
 
     /**
-    * Hent endringer på veglenkesekvenser innen siste 30 dager
-    * 
-     * <p><b>500</b> - Internal Server Error
+     * Hent endringer på veglenkesekvenser innen siste 30 dager
+     * Dette endepunktet publiserer bare endringer for det berikede API-et, blant annet segmenteringsendringer. Hvis du er interessert i andre endringer, som opprettelse og sletting av veglenkesekvenser, bruk [/hendelser-endepunktene](https://nvdbapiles.atlas.vegvesen.no/swagger-ui/index.html?urls.primaryName&#x3D;Uberiket+API#/Hendelser) i det uberikede APIet
      * <p><b>400</b> - Bad Request
      * <p><b>404</b> - Not Found
+     * <p><b>500</b> - Internal Server Error
      * <p><b>200</b> - OK
      * @param requestParameters The getVeglenkesekvensEndringer request parameters as object
      * @return VeglenkesekvensEndringerSide
      * @throws RestClientResponseException if an error occurs while attempting to invoke the API
-    */
+     */
     public VeglenkesekvensEndringerSide getVeglenkesekvensEndringer(GetVeglenkesekvensEndringerRequest requestParameters) throws RestClientResponseException {
-      return this.getVeglenkesekvensEndringer(requestParameters.start(), requestParameters.antall(), requestParameters.ider(), requestParameters.fylke(), requestParameters.kommune());
-    }
-
-  /**
-  * Hent endringer på veglenkesekvenser innen siste 30 dager
-  * 
-     * <p><b>500</b> - Internal Server Error
-     * <p><b>400</b> - Bad Request
-     * <p><b>404</b> - Not Found
-     * <p><b>200</b> - OK
-     * @param requestParameters The getVeglenkesekvensEndringer request parameters as object
-     * @return ResponseEntity&lt;VeglenkesekvensEndringerSide&gt;
-     * @throws RestClientResponseException if an error occurs while attempting to invoke the API
-    */
-    public ResponseEntity<VeglenkesekvensEndringerSide> getVeglenkesekvensEndringerWithHttpInfo(GetVeglenkesekvensEndringerRequest requestParameters) throws RestClientResponseException {
-      return this.getVeglenkesekvensEndringerWithHttpInfo(requestParameters.start(), requestParameters.antall(), requestParameters.ider(), requestParameters.fylke(), requestParameters.kommune());
-    }
-
-  /**
-  * Hent endringer på veglenkesekvenser innen siste 30 dager
-  * 
-     * <p><b>500</b> - Internal Server Error
-     * <p><b>400</b> - Bad Request
-     * <p><b>404</b> - Not Found
-     * <p><b>200</b> - OK
-     * @param requestParameters The getVeglenkesekvensEndringer request parameters as object
-  * @return ResponseSpec
-  * @throws RestClientResponseException if an error occurs while attempting to invoke the API
-    */
-    public ResponseSpec getVeglenkesekvensEndringerWithResponseSpec(GetVeglenkesekvensEndringerRequest requestParameters) throws RestClientResponseException {
-      return this.getVeglenkesekvensEndringerWithResponseSpec(requestParameters.start(), requestParameters.antall(), requestParameters.ider(), requestParameters.fylke(), requestParameters.kommune());
+        return this.getVeglenkesekvensEndringer(requestParameters.start(), requestParameters.antall(), requestParameters.slutt(), requestParameters.ider(), requestParameters.fylke(), requestParameters.kommune());
     }
 
     /**
      * Hent endringer på veglenkesekvenser innen siste 30 dager
-     * 
-     * <p><b>500</b> - Internal Server Error
+     * Dette endepunktet publiserer bare endringer for det berikede API-et, blant annet segmenteringsendringer. Hvis du er interessert i andre endringer, som opprettelse og sletting av veglenkesekvenser, bruk [/hendelser-endepunktene](https://nvdbapiles.atlas.vegvesen.no/swagger-ui/index.html?urls.primaryName&#x3D;Uberiket+API#/Hendelser) i det uberikede APIet
      * <p><b>400</b> - Bad Request
      * <p><b>404</b> - Not Found
+     * <p><b>500</b> - Internal Server Error
+     * <p><b>200</b> - OK
+     * @param requestParameters The getVeglenkesekvensEndringer request parameters as object
+     * @return ResponseEntity&lt;VeglenkesekvensEndringerSide&gt;
+     * @throws RestClientResponseException if an error occurs while attempting to invoke the API
+     */
+    public ResponseEntity<VeglenkesekvensEndringerSide> getVeglenkesekvensEndringerWithHttpInfo(GetVeglenkesekvensEndringerRequest requestParameters) throws RestClientResponseException {
+        return this.getVeglenkesekvensEndringerWithHttpInfo(requestParameters.start(), requestParameters.antall(), requestParameters.slutt(), requestParameters.ider(), requestParameters.fylke(), requestParameters.kommune());
+    }
+
+    /**
+     * Hent endringer på veglenkesekvenser innen siste 30 dager
+     * Dette endepunktet publiserer bare endringer for det berikede API-et, blant annet segmenteringsendringer. Hvis du er interessert i andre endringer, som opprettelse og sletting av veglenkesekvenser, bruk [/hendelser-endepunktene](https://nvdbapiles.atlas.vegvesen.no/swagger-ui/index.html?urls.primaryName&#x3D;Uberiket+API#/Hendelser) i det uberikede APIet
+     * <p><b>400</b> - Bad Request
+     * <p><b>404</b> - Not Found
+     * <p><b>500</b> - Internal Server Error
+     * <p><b>200</b> - OK
+     * @param requestParameters The getVeglenkesekvensEndringer request parameters as object
+     * @return ResponseSpec
+     * @throws RestClientResponseException if an error occurs while attempting to invoke the API
+     */
+    public ResponseSpec getVeglenkesekvensEndringerWithResponseSpec(GetVeglenkesekvensEndringerRequest requestParameters) throws RestClientResponseException {
+        return this.getVeglenkesekvensEndringerWithResponseSpec(requestParameters.start(), requestParameters.antall(), requestParameters.slutt(), requestParameters.ider(), requestParameters.fylke(), requestParameters.kommune());
+    }
+
+    /**
+     * Hent endringer på veglenkesekvenser innen siste 30 dager
+     * Dette endepunktet publiserer bare endringer for det berikede API-et, blant annet segmenteringsendringer. Hvis du er interessert i andre endringer, som opprettelse og sletting av veglenkesekvenser, bruk [/hendelser-endepunktene](https://nvdbapiles.atlas.vegvesen.no/swagger-ui/index.html?urls.primaryName&#x3D;Uberiket+API#/Hendelser) i det uberikede APIet
+     * <p><b>400</b> - Bad Request
+     * <p><b>404</b> - Not Found
+     * <p><b>500</b> - Internal Server Error
      * <p><b>200</b> - OK
      * @param start Hent alle endringer etter gitt tidspunkt. Dersom denne utelates vil de eldste endringene hentes først.  Format kan være dato (&#x60;2025-06-01&#x60;) eller tidspunkt med tidssone (&#x60;2025-06-01T12:00:00Z&#x60; eller &#x60;2025-06-01T14:00:00+02:00&#x60;). For paginering vil det bli lagt ved siste veglenkesekvens innen siste tidspunkt i responsen, i tilfelle flere endringer har skjedd på samme tidspunkt. Format for dette er &#x60;2025-06-01T12:00:00Z,12345&#x60; hvor &#x60;12345&#x60; er IDen til veglenkesekvensen.
      * @param antall Antall endringer som skal være med i responsen. Merk at det faktiske antallet kan variere fra respons til respons. Dette er fordi endringer på samme veglenkesekvens innenfor samme side blir aggregert sammen ved å ta den nyeste endringen.
+     * @param slutt Hent alle endringer før gitt tidspunkt. Dersom denne utelates vil alle endringer hentes.  Format kan være dato (&#x60;2025-06-01&#x60;) eller tidspunkt med tidssone (&#x60;2025-06-01T12:00:00Z&#x60; eller &#x60;2025-06-01T14:00:00+02:00&#x60;).
      * @param ider Hent endringer for oppgitte veglenkesekvens IDer. Dersom denne utelates vil alle endringer hentes.
-     * @param fylke Filtrer på fylke. Kommaseparert liste. Se [/omrader/api/v4/fylker](https://nvdbapiles.atlas.vegvesen.no/webjars/swagger-ui/index.html?urls.primaryName&#x3D;Omr%C3%A5der#/Omr%C3%A5der/getFylker) for mulige verdier.  Eksempel: &#x60;50&#x60;
-     * @param kommune Filtrer på kommune. Kommaseparert liste. Se [/omrader/api/v4/kommuner](https://nvdbapiles.atlas.vegvesen.no/webjars/swagger-ui/index.html?urls.primaryName&#x3D;Omr%C3%A5der#/Omr%C3%A5der/getKommuner) for mulige verdier.  Eksempel: &#x60;5001&#x60;
+     * @param fylke Filtrer på fylke. Kommaseparert liste. Se [/omrader/api/v4/fylker](https://nvdbapiles.atlas.vegvesen.no/swagger-ui/index.html?urls.primaryName&#x3D;Omr%C3%A5der#/Omr%C3%A5der/getFylker) for mulige verdier.  Eksempel: &#x60;50&#x60;
+     * @param kommune Filtrer på kommune. Kommaseparert liste. Se [/omrader/api/v4/kommuner](https://nvdbapiles.atlas.vegvesen.no/swagger-ui/index.html?urls.primaryName&#x3D;Omr%C3%A5der#/Omr%C3%A5der/getKommuner) for mulige verdier.  Eksempel: &#x60;5001&#x60;
      * @return VeglenkesekvensEndringerSide
      * @throws RestClientResponseException if an error occurs while attempting to invoke the API
      */
-    private ResponseSpec getVeglenkesekvensEndringerRequestCreation(@jakarta.annotation.Nullable String start, @jakarta.annotation.Nullable Integer antall, @jakarta.annotation.Nullable Set<Long> ider, @jakarta.annotation.Nullable Set<Integer> fylke, @jakarta.annotation.Nullable Set<Integer> kommune) throws RestClientResponseException {
+    private ResponseSpec getVeglenkesekvensEndringerRequestCreation(@jakarta.annotation.Nullable String start, @jakarta.annotation.Nullable Integer antall, @jakarta.annotation.Nullable String slutt, @jakarta.annotation.Nullable Set<Long> ider, @jakarta.annotation.Nullable Set<Integer> fylke, @jakarta.annotation.Nullable Set<Integer> kommune) throws RestClientResponseException {
         Object postBody = null;
         // create path and map variables
         final Map<String, Object> pathParams = new HashMap<>();
@@ -1157,10 +1184,11 @@ public class VegnettApi {
 
         queryParams.putAll(apiClient.parameterToMultiValueMap(null, "start", start));
         queryParams.putAll(apiClient.parameterToMultiValueMap(null, "antall", antall));
+        queryParams.putAll(apiClient.parameterToMultiValueMap(null, "slutt", slutt));
         queryParams.putAll(apiClient.parameterToMultiValueMap(ApiClient.CollectionFormat.valueOf("multi".toUpperCase(Locale.ROOT)), "ider", ider));
         queryParams.putAll(apiClient.parameterToMultiValueMap(ApiClient.CollectionFormat.valueOf("multi".toUpperCase(Locale.ROOT)), "fylke", fylke));
         queryParams.putAll(apiClient.parameterToMultiValueMap(ApiClient.CollectionFormat.valueOf("multi".toUpperCase(Locale.ROOT)), "kommune", kommune));
-        
+
         final String[] localVarAccepts = { 
             "*/*"
         };
@@ -1176,61 +1204,64 @@ public class VegnettApi {
 
     /**
      * Hent endringer på veglenkesekvenser innen siste 30 dager
-     * 
-     * <p><b>500</b> - Internal Server Error
+     * Dette endepunktet publiserer bare endringer for det berikede API-et, blant annet segmenteringsendringer. Hvis du er interessert i andre endringer, som opprettelse og sletting av veglenkesekvenser, bruk [/hendelser-endepunktene](https://nvdbapiles.atlas.vegvesen.no/swagger-ui/index.html?urls.primaryName&#x3D;Uberiket+API#/Hendelser) i det uberikede APIet
      * <p><b>400</b> - Bad Request
      * <p><b>404</b> - Not Found
+     * <p><b>500</b> - Internal Server Error
      * <p><b>200</b> - OK
      * @param start Hent alle endringer etter gitt tidspunkt. Dersom denne utelates vil de eldste endringene hentes først.  Format kan være dato (&#x60;2025-06-01&#x60;) eller tidspunkt med tidssone (&#x60;2025-06-01T12:00:00Z&#x60; eller &#x60;2025-06-01T14:00:00+02:00&#x60;). For paginering vil det bli lagt ved siste veglenkesekvens innen siste tidspunkt i responsen, i tilfelle flere endringer har skjedd på samme tidspunkt. Format for dette er &#x60;2025-06-01T12:00:00Z,12345&#x60; hvor &#x60;12345&#x60; er IDen til veglenkesekvensen.
      * @param antall Antall endringer som skal være med i responsen. Merk at det faktiske antallet kan variere fra respons til respons. Dette er fordi endringer på samme veglenkesekvens innenfor samme side blir aggregert sammen ved å ta den nyeste endringen.
+     * @param slutt Hent alle endringer før gitt tidspunkt. Dersom denne utelates vil alle endringer hentes.  Format kan være dato (&#x60;2025-06-01&#x60;) eller tidspunkt med tidssone (&#x60;2025-06-01T12:00:00Z&#x60; eller &#x60;2025-06-01T14:00:00+02:00&#x60;).
      * @param ider Hent endringer for oppgitte veglenkesekvens IDer. Dersom denne utelates vil alle endringer hentes.
-     * @param fylke Filtrer på fylke. Kommaseparert liste. Se [/omrader/api/v4/fylker](https://nvdbapiles.atlas.vegvesen.no/webjars/swagger-ui/index.html?urls.primaryName&#x3D;Omr%C3%A5der#/Omr%C3%A5der/getFylker) for mulige verdier.  Eksempel: &#x60;50&#x60;
-     * @param kommune Filtrer på kommune. Kommaseparert liste. Se [/omrader/api/v4/kommuner](https://nvdbapiles.atlas.vegvesen.no/webjars/swagger-ui/index.html?urls.primaryName&#x3D;Omr%C3%A5der#/Omr%C3%A5der/getKommuner) for mulige verdier.  Eksempel: &#x60;5001&#x60;
+     * @param fylke Filtrer på fylke. Kommaseparert liste. Se [/omrader/api/v4/fylker](https://nvdbapiles.atlas.vegvesen.no/swagger-ui/index.html?urls.primaryName&#x3D;Omr%C3%A5der#/Omr%C3%A5der/getFylker) for mulige verdier.  Eksempel: &#x60;50&#x60;
+     * @param kommune Filtrer på kommune. Kommaseparert liste. Se [/omrader/api/v4/kommuner](https://nvdbapiles.atlas.vegvesen.no/swagger-ui/index.html?urls.primaryName&#x3D;Omr%C3%A5der#/Omr%C3%A5der/getKommuner) for mulige verdier.  Eksempel: &#x60;5001&#x60;
      * @return VeglenkesekvensEndringerSide
      * @throws RestClientResponseException if an error occurs while attempting to invoke the API
      */
-    public VeglenkesekvensEndringerSide getVeglenkesekvensEndringer(@jakarta.annotation.Nullable String start, @jakarta.annotation.Nullable Integer antall, @jakarta.annotation.Nullable Set<Long> ider, @jakarta.annotation.Nullable Set<Integer> fylke, @jakarta.annotation.Nullable Set<Integer> kommune) throws RestClientResponseException {
+    public VeglenkesekvensEndringerSide getVeglenkesekvensEndringer(@jakarta.annotation.Nullable String start, @jakarta.annotation.Nullable Integer antall, @jakarta.annotation.Nullable String slutt, @jakarta.annotation.Nullable Set<Long> ider, @jakarta.annotation.Nullable Set<Integer> fylke, @jakarta.annotation.Nullable Set<Integer> kommune) throws RestClientResponseException {
         ParameterizedTypeReference<VeglenkesekvensEndringerSide> localVarReturnType = new ParameterizedTypeReference<>() {};
-        return getVeglenkesekvensEndringerRequestCreation(start, antall, ider, fylke, kommune).body(localVarReturnType);
+        return getVeglenkesekvensEndringerRequestCreation(start, antall, slutt, ider, fylke, kommune).body(localVarReturnType);
     }
 
     /**
      * Hent endringer på veglenkesekvenser innen siste 30 dager
-     * 
-     * <p><b>500</b> - Internal Server Error
+     * Dette endepunktet publiserer bare endringer for det berikede API-et, blant annet segmenteringsendringer. Hvis du er interessert i andre endringer, som opprettelse og sletting av veglenkesekvenser, bruk [/hendelser-endepunktene](https://nvdbapiles.atlas.vegvesen.no/swagger-ui/index.html?urls.primaryName&#x3D;Uberiket+API#/Hendelser) i det uberikede APIet
      * <p><b>400</b> - Bad Request
      * <p><b>404</b> - Not Found
+     * <p><b>500</b> - Internal Server Error
      * <p><b>200</b> - OK
      * @param start Hent alle endringer etter gitt tidspunkt. Dersom denne utelates vil de eldste endringene hentes først.  Format kan være dato (&#x60;2025-06-01&#x60;) eller tidspunkt med tidssone (&#x60;2025-06-01T12:00:00Z&#x60; eller &#x60;2025-06-01T14:00:00+02:00&#x60;). For paginering vil det bli lagt ved siste veglenkesekvens innen siste tidspunkt i responsen, i tilfelle flere endringer har skjedd på samme tidspunkt. Format for dette er &#x60;2025-06-01T12:00:00Z,12345&#x60; hvor &#x60;12345&#x60; er IDen til veglenkesekvensen.
      * @param antall Antall endringer som skal være med i responsen. Merk at det faktiske antallet kan variere fra respons til respons. Dette er fordi endringer på samme veglenkesekvens innenfor samme side blir aggregert sammen ved å ta den nyeste endringen.
+     * @param slutt Hent alle endringer før gitt tidspunkt. Dersom denne utelates vil alle endringer hentes.  Format kan være dato (&#x60;2025-06-01&#x60;) eller tidspunkt med tidssone (&#x60;2025-06-01T12:00:00Z&#x60; eller &#x60;2025-06-01T14:00:00+02:00&#x60;).
      * @param ider Hent endringer for oppgitte veglenkesekvens IDer. Dersom denne utelates vil alle endringer hentes.
-     * @param fylke Filtrer på fylke. Kommaseparert liste. Se [/omrader/api/v4/fylker](https://nvdbapiles.atlas.vegvesen.no/webjars/swagger-ui/index.html?urls.primaryName&#x3D;Omr%C3%A5der#/Omr%C3%A5der/getFylker) for mulige verdier.  Eksempel: &#x60;50&#x60;
-     * @param kommune Filtrer på kommune. Kommaseparert liste. Se [/omrader/api/v4/kommuner](https://nvdbapiles.atlas.vegvesen.no/webjars/swagger-ui/index.html?urls.primaryName&#x3D;Omr%C3%A5der#/Omr%C3%A5der/getKommuner) for mulige verdier.  Eksempel: &#x60;5001&#x60;
+     * @param fylke Filtrer på fylke. Kommaseparert liste. Se [/omrader/api/v4/fylker](https://nvdbapiles.atlas.vegvesen.no/swagger-ui/index.html?urls.primaryName&#x3D;Omr%C3%A5der#/Omr%C3%A5der/getFylker) for mulige verdier.  Eksempel: &#x60;50&#x60;
+     * @param kommune Filtrer på kommune. Kommaseparert liste. Se [/omrader/api/v4/kommuner](https://nvdbapiles.atlas.vegvesen.no/swagger-ui/index.html?urls.primaryName&#x3D;Omr%C3%A5der#/Omr%C3%A5der/getKommuner) for mulige verdier.  Eksempel: &#x60;5001&#x60;
      * @return ResponseEntity&lt;VeglenkesekvensEndringerSide&gt;
      * @throws RestClientResponseException if an error occurs while attempting to invoke the API
      */
-    public ResponseEntity<VeglenkesekvensEndringerSide> getVeglenkesekvensEndringerWithHttpInfo(@jakarta.annotation.Nullable String start, @jakarta.annotation.Nullable Integer antall, @jakarta.annotation.Nullable Set<Long> ider, @jakarta.annotation.Nullable Set<Integer> fylke, @jakarta.annotation.Nullable Set<Integer> kommune) throws RestClientResponseException {
+    public ResponseEntity<VeglenkesekvensEndringerSide> getVeglenkesekvensEndringerWithHttpInfo(@jakarta.annotation.Nullable String start, @jakarta.annotation.Nullable Integer antall, @jakarta.annotation.Nullable String slutt, @jakarta.annotation.Nullable Set<Long> ider, @jakarta.annotation.Nullable Set<Integer> fylke, @jakarta.annotation.Nullable Set<Integer> kommune) throws RestClientResponseException {
         ParameterizedTypeReference<VeglenkesekvensEndringerSide> localVarReturnType = new ParameterizedTypeReference<>() {};
-        return getVeglenkesekvensEndringerRequestCreation(start, antall, ider, fylke, kommune).toEntity(localVarReturnType);
+        return getVeglenkesekvensEndringerRequestCreation(start, antall, slutt, ider, fylke, kommune).toEntity(localVarReturnType);
     }
 
     /**
      * Hent endringer på veglenkesekvenser innen siste 30 dager
-     * 
-     * <p><b>500</b> - Internal Server Error
+     * Dette endepunktet publiserer bare endringer for det berikede API-et, blant annet segmenteringsendringer. Hvis du er interessert i andre endringer, som opprettelse og sletting av veglenkesekvenser, bruk [/hendelser-endepunktene](https://nvdbapiles.atlas.vegvesen.no/swagger-ui/index.html?urls.primaryName&#x3D;Uberiket+API#/Hendelser) i det uberikede APIet
      * <p><b>400</b> - Bad Request
      * <p><b>404</b> - Not Found
+     * <p><b>500</b> - Internal Server Error
      * <p><b>200</b> - OK
      * @param start Hent alle endringer etter gitt tidspunkt. Dersom denne utelates vil de eldste endringene hentes først.  Format kan være dato (&#x60;2025-06-01&#x60;) eller tidspunkt med tidssone (&#x60;2025-06-01T12:00:00Z&#x60; eller &#x60;2025-06-01T14:00:00+02:00&#x60;). For paginering vil det bli lagt ved siste veglenkesekvens innen siste tidspunkt i responsen, i tilfelle flere endringer har skjedd på samme tidspunkt. Format for dette er &#x60;2025-06-01T12:00:00Z,12345&#x60; hvor &#x60;12345&#x60; er IDen til veglenkesekvensen.
      * @param antall Antall endringer som skal være med i responsen. Merk at det faktiske antallet kan variere fra respons til respons. Dette er fordi endringer på samme veglenkesekvens innenfor samme side blir aggregert sammen ved å ta den nyeste endringen.
+     * @param slutt Hent alle endringer før gitt tidspunkt. Dersom denne utelates vil alle endringer hentes.  Format kan være dato (&#x60;2025-06-01&#x60;) eller tidspunkt med tidssone (&#x60;2025-06-01T12:00:00Z&#x60; eller &#x60;2025-06-01T14:00:00+02:00&#x60;).
      * @param ider Hent endringer for oppgitte veglenkesekvens IDer. Dersom denne utelates vil alle endringer hentes.
-     * @param fylke Filtrer på fylke. Kommaseparert liste. Se [/omrader/api/v4/fylker](https://nvdbapiles.atlas.vegvesen.no/webjars/swagger-ui/index.html?urls.primaryName&#x3D;Omr%C3%A5der#/Omr%C3%A5der/getFylker) for mulige verdier.  Eksempel: &#x60;50&#x60;
-     * @param kommune Filtrer på kommune. Kommaseparert liste. Se [/omrader/api/v4/kommuner](https://nvdbapiles.atlas.vegvesen.no/webjars/swagger-ui/index.html?urls.primaryName&#x3D;Omr%C3%A5der#/Omr%C3%A5der/getKommuner) for mulige verdier.  Eksempel: &#x60;5001&#x60;
+     * @param fylke Filtrer på fylke. Kommaseparert liste. Se [/omrader/api/v4/fylker](https://nvdbapiles.atlas.vegvesen.no/swagger-ui/index.html?urls.primaryName&#x3D;Omr%C3%A5der#/Omr%C3%A5der/getFylker) for mulige verdier.  Eksempel: &#x60;50&#x60;
+     * @param kommune Filtrer på kommune. Kommaseparert liste. Se [/omrader/api/v4/kommuner](https://nvdbapiles.atlas.vegvesen.no/swagger-ui/index.html?urls.primaryName&#x3D;Omr%C3%A5der#/Omr%C3%A5der/getKommuner) for mulige verdier.  Eksempel: &#x60;5001&#x60;
      * @return ResponseSpec
      * @throws RestClientResponseException if an error occurs while attempting to invoke the API
      */
-    public ResponseSpec getVeglenkesekvensEndringerWithResponseSpec(@jakarta.annotation.Nullable String start, @jakarta.annotation.Nullable Integer antall, @jakarta.annotation.Nullable Set<Long> ider, @jakarta.annotation.Nullable Set<Integer> fylke, @jakarta.annotation.Nullable Set<Integer> kommune) throws RestClientResponseException {
-        return getVeglenkesekvensEndringerRequestCreation(start, antall, ider, fylke, kommune);
+    public ResponseSpec getVeglenkesekvensEndringerWithResponseSpec(@jakarta.annotation.Nullable String start, @jakarta.annotation.Nullable Integer antall, @jakarta.annotation.Nullable String slutt, @jakarta.annotation.Nullable Set<Long> ider, @jakarta.annotation.Nullable Set<Integer> fylke, @jakarta.annotation.Nullable Set<Integer> kommune) throws RestClientResponseException {
+        return getVeglenkesekvensEndringerRequestCreation(start, antall, slutt, ider, fylke, kommune);
     }
 
     public static class GetVeglenkesekvenserRequest {
@@ -1401,67 +1432,67 @@ public class VegnettApi {
     }
 
     /**
-    * Hent veglenkesekvenser
-    * 
-     * <p><b>500</b> - Internal Server Error
+     * Hent veglenkesekvenser
+     * 
      * <p><b>400</b> - Bad Request
      * <p><b>404</b> - Not Found
+     * <p><b>500</b> - Internal Server Error
      * <p><b>200</b> - OK
      * @param requestParameters The getVeglenkesekvenser request parameters as object
      * @return VeglenkesekvenserSide
      * @throws RestClientResponseException if an error occurs while attempting to invoke the API
-    */
+     */
     public VeglenkesekvenserSide getVeglenkesekvenser(GetVeglenkesekvenserRequest requestParameters) throws RestClientResponseException {
-      return this.getVeglenkesekvenser(requestParameters.ider(), requestParameters.fylke(), requestParameters.kommune(), requestParameters.kontraktsomrade(), requestParameters.riksvegrute(), requestParameters.vegsystemreferanse(), requestParameters.topologiniva(), requestParameters.superid(), requestParameters.srid(), requestParameters.polygon(), requestParameters.antall(), requestParameters.start(), requestParameters.inkluderAntall());
-    }
-
-  /**
-  * Hent veglenkesekvenser
-  * 
-     * <p><b>500</b> - Internal Server Error
-     * <p><b>400</b> - Bad Request
-     * <p><b>404</b> - Not Found
-     * <p><b>200</b> - OK
-     * @param requestParameters The getVeglenkesekvenser request parameters as object
-     * @return ResponseEntity&lt;VeglenkesekvenserSide&gt;
-     * @throws RestClientResponseException if an error occurs while attempting to invoke the API
-    */
-    public ResponseEntity<VeglenkesekvenserSide> getVeglenkesekvenserWithHttpInfo(GetVeglenkesekvenserRequest requestParameters) throws RestClientResponseException {
-      return this.getVeglenkesekvenserWithHttpInfo(requestParameters.ider(), requestParameters.fylke(), requestParameters.kommune(), requestParameters.kontraktsomrade(), requestParameters.riksvegrute(), requestParameters.vegsystemreferanse(), requestParameters.topologiniva(), requestParameters.superid(), requestParameters.srid(), requestParameters.polygon(), requestParameters.antall(), requestParameters.start(), requestParameters.inkluderAntall());
-    }
-
-  /**
-  * Hent veglenkesekvenser
-  * 
-     * <p><b>500</b> - Internal Server Error
-     * <p><b>400</b> - Bad Request
-     * <p><b>404</b> - Not Found
-     * <p><b>200</b> - OK
-     * @param requestParameters The getVeglenkesekvenser request parameters as object
-  * @return ResponseSpec
-  * @throws RestClientResponseException if an error occurs while attempting to invoke the API
-    */
-    public ResponseSpec getVeglenkesekvenserWithResponseSpec(GetVeglenkesekvenserRequest requestParameters) throws RestClientResponseException {
-      return this.getVeglenkesekvenserWithResponseSpec(requestParameters.ider(), requestParameters.fylke(), requestParameters.kommune(), requestParameters.kontraktsomrade(), requestParameters.riksvegrute(), requestParameters.vegsystemreferanse(), requestParameters.topologiniva(), requestParameters.superid(), requestParameters.srid(), requestParameters.polygon(), requestParameters.antall(), requestParameters.start(), requestParameters.inkluderAntall());
+        return this.getVeglenkesekvenser(requestParameters.ider(), requestParameters.fylke(), requestParameters.kommune(), requestParameters.kontraktsomrade(), requestParameters.riksvegrute(), requestParameters.vegsystemreferanse(), requestParameters.topologiniva(), requestParameters.superid(), requestParameters.srid(), requestParameters.polygon(), requestParameters.antall(), requestParameters.start(), requestParameters.inkluderAntall());
     }
 
     /**
      * Hent veglenkesekvenser
      * 
-     * <p><b>500</b> - Internal Server Error
      * <p><b>400</b> - Bad Request
      * <p><b>404</b> - Not Found
+     * <p><b>500</b> - Internal Server Error
+     * <p><b>200</b> - OK
+     * @param requestParameters The getVeglenkesekvenser request parameters as object
+     * @return ResponseEntity&lt;VeglenkesekvenserSide&gt;
+     * @throws RestClientResponseException if an error occurs while attempting to invoke the API
+     */
+    public ResponseEntity<VeglenkesekvenserSide> getVeglenkesekvenserWithHttpInfo(GetVeglenkesekvenserRequest requestParameters) throws RestClientResponseException {
+        return this.getVeglenkesekvenserWithHttpInfo(requestParameters.ider(), requestParameters.fylke(), requestParameters.kommune(), requestParameters.kontraktsomrade(), requestParameters.riksvegrute(), requestParameters.vegsystemreferanse(), requestParameters.topologiniva(), requestParameters.superid(), requestParameters.srid(), requestParameters.polygon(), requestParameters.antall(), requestParameters.start(), requestParameters.inkluderAntall());
+    }
+
+    /**
+     * Hent veglenkesekvenser
+     * 
+     * <p><b>400</b> - Bad Request
+     * <p><b>404</b> - Not Found
+     * <p><b>500</b> - Internal Server Error
+     * <p><b>200</b> - OK
+     * @param requestParameters The getVeglenkesekvenser request parameters as object
+     * @return ResponseSpec
+     * @throws RestClientResponseException if an error occurs while attempting to invoke the API
+     */
+    public ResponseSpec getVeglenkesekvenserWithResponseSpec(GetVeglenkesekvenserRequest requestParameters) throws RestClientResponseException {
+        return this.getVeglenkesekvenserWithResponseSpec(requestParameters.ider(), requestParameters.fylke(), requestParameters.kommune(), requestParameters.kontraktsomrade(), requestParameters.riksvegrute(), requestParameters.vegsystemreferanse(), requestParameters.topologiniva(), requestParameters.superid(), requestParameters.srid(), requestParameters.polygon(), requestParameters.antall(), requestParameters.start(), requestParameters.inkluderAntall());
+    }
+
+    /**
+     * Hent veglenkesekvenser
+     * 
+     * <p><b>400</b> - Bad Request
+     * <p><b>404</b> - Not Found
+     * <p><b>500</b> - Internal Server Error
      * <p><b>200</b> - OK
      * @param ider Kommaseparert liste med IDer.
-     * @param fylke Filtrer på fylke. Kommaseparert liste. Se [/omrader/api/v4/fylker](https://nvdbapiles.atlas.vegvesen.no/webjars/swagger-ui/index.html?urls.primaryName&#x3D;Omr%C3%A5der#/Omr%C3%A5der/getFylker) for mulige verdier.  Eksempel: &#x60;50&#x60;
-     * @param kommune Filtrer på kommune. Kommaseparert liste. Se [/omrader/api/v4/kommuner](https://nvdbapiles.atlas.vegvesen.no/webjars/swagger-ui/index.html?urls.primaryName&#x3D;Omr%C3%A5der#/Omr%C3%A5der/getKommuner) for mulige verdier.  Eksempel: &#x60;5001&#x60;
-     * @param kontraktsomrade Filtrer på kontraktsomrade. Kommaseparert liste. Se [/omrader/api/v4/kontraktsomrader](https://nvdbapiles.atlas.vegvesen.no/webjars/swagger-ui/index.html?urls.primaryName&#x3D;Omr%C3%A5der#/Omr%C3%A5der/getKontraktsomrader) for mulige verdier.  Eksempel: &#x60;9503 Midtre Hålogaland 2021-2026&#x60;
-     * @param riksvegrute Filtrer på riksvegrute. Kommaseparert liste. Se [/omrader/api/v4/riksvegruter](https://nvdbapiles.atlas.vegvesen.no/webjars/swagger-ui/index.html?urls.primaryName&#x3D;Omr%C3%A5der#/Omr%C3%A5der/getRiksvegruter) for mulige verdier.  Eksempel: &#x60;RUTE4A&#x60; eller som enumid &#x60;20290&#x60;
+     * @param fylke Filtrer på fylke. Kommaseparert liste. Se [/omrader/api/v4/fylker](https://nvdbapiles.atlas.vegvesen.no/swagger-ui/index.html?urls.primaryName&#x3D;Omr%C3%A5der#/Omr%C3%A5der/getFylker) for mulige verdier.  Eksempel: &#x60;50&#x60;
+     * @param kommune Filtrer på kommune. Kommaseparert liste. Se [/omrader/api/v4/kommuner](https://nvdbapiles.atlas.vegvesen.no/swagger-ui/index.html?urls.primaryName&#x3D;Omr%C3%A5der#/Omr%C3%A5der/getKommuner) for mulige verdier.  Eksempel: &#x60;5001&#x60;
+     * @param kontraktsomrade Filtrer på kontraktsomrade. Kommaseparert liste. Se [/omrader/api/v4/kontraktsomrader](https://nvdbapiles.atlas.vegvesen.no/swagger-ui/index.html?urls.primaryName&#x3D;Omr%C3%A5der#/Omr%C3%A5der/getKontraktsomrader) for mulige verdier.  Eksempel: &#x60;9503 Midtre Hålogaland 2021-2026&#x60;
+     * @param riksvegrute Filtrer på riksvegrute. Kommaseparert liste. Se [/omrader/api/v4/riksvegruter](https://nvdbapiles.atlas.vegvesen.no/swagger-ui/index.html?urls.primaryName&#x3D;Omr%C3%A5der#/Omr%C3%A5der/getRiksvegruter) for mulige verdier.  Eksempel: &#x60;RUTE4A&#x60; eller som enumid &#x60;20290&#x60;
      * @param vegsystemreferanse Filtrer på [vegsystemreferanse](https://nvdb-docs.atlas.vegvesen.no/nvdbapil/v4/introduksjon/Vegsystemreferanse). Kommaseparert liste. Legg til kommunenummer i starten av vegsystemreferansen for å filtrere på område.  Eksempel: &#x60;EV6S1D1 m12&#x60;
      * @param topologiniva Hent kun elementer på det gitte topologinivået. - Dersom en veglenke har nivå vegtrasé er ofte feltet for topologinivå ikke tilstede. Man vil da få alle veglenker som ikke har verdi &#x60;kjørefelt&#x60; eller &#x60;kjørebane&#x60;.
      * @param superid Hent detaljerte veglenkesekvenser stedfestet på veglenkesekvens med denne IDen.
-     * @param srid Angir hvilket geografisk referansesystem geometrien skal returneres i. Utdata i UTM-formater begrenses til 3 desimaler, 4326/WGS84 begrenses til 8 desimaler. Mer informasjon: &lt;a href&#x3D;&#39;https://epsg.io/5972&#39;&gt;EPSG:5972&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5973&#39;&gt;EPSG:5973&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5975&#39;&gt;EPSG:5975&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/4326&#39;&gt;EPSG:4326&lt;/a&gt;.
-     * @param polygon Filtrer med polygon i det gjeldende geografiske referansesystemet (&#x60;srid&#x60;-paramteret).  Eksempel: &#x60;20000 6520000, 20500 6520000, 21000 6500000, 20000 6520000&#x60;
+     * @param srid Angir hvilket geografisk referansesystem geometrien skal returneres i. Utdata i UTM-formater begrenses til 3 desimaler, 4326/WGS84 begrenses til 8 desimaler. Query-parametere med koordinater oppgis i UTM33 for UTM-formater, 4326/WGS84 oppgis dersom srid er 4326/WGS84. Mer informasjon: &lt;a href&#x3D;&#39;https://epsg.io/5972&#39;&gt;EPSG:5972&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5973&#39;&gt;EPSG:5973&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5975&#39;&gt;EPSG:5975&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/4326&#39;&gt;EPSG:4326&lt;/a&gt;.
+     * @param polygon Filtrer med polygon i UTM 33.  Eksempel: &#x60;20000 6520000, 20500 6520000, 21000 6500000, 20000 6520000&#x60;
      * @param antall Angir hvor mange objekter som skal returneres. Se også &#x60;sidestørrelse&#x60; i responsens &#x60;metadata&#x60;-objekt.
      * @param start Angir paginerings-start for objekter som skal returneres. Brukes sammen med &#x60;antall&#x60;. Neste start får man i metadata-feltet i responsen. Settes blankt for å starte fra begynnelsen.
      * @param inkluderAntall Hvorvidt totalt antall objekter skal returneres i responsen. Default er &#x60;false&#x60;.
@@ -1491,7 +1522,7 @@ public class VegnettApi {
         queryParams.putAll(apiClient.parameterToMultiValueMap(null, "antall", antall));
         queryParams.putAll(apiClient.parameterToMultiValueMap(null, "start", start));
         queryParams.putAll(apiClient.parameterToMultiValueMap(null, "inkluderAntall", inkluderAntall));
-        
+
         final String[] localVarAccepts = { 
             "*/*"
         };
@@ -1508,20 +1539,20 @@ public class VegnettApi {
     /**
      * Hent veglenkesekvenser
      * 
-     * <p><b>500</b> - Internal Server Error
      * <p><b>400</b> - Bad Request
      * <p><b>404</b> - Not Found
+     * <p><b>500</b> - Internal Server Error
      * <p><b>200</b> - OK
      * @param ider Kommaseparert liste med IDer.
-     * @param fylke Filtrer på fylke. Kommaseparert liste. Se [/omrader/api/v4/fylker](https://nvdbapiles.atlas.vegvesen.no/webjars/swagger-ui/index.html?urls.primaryName&#x3D;Omr%C3%A5der#/Omr%C3%A5der/getFylker) for mulige verdier.  Eksempel: &#x60;50&#x60;
-     * @param kommune Filtrer på kommune. Kommaseparert liste. Se [/omrader/api/v4/kommuner](https://nvdbapiles.atlas.vegvesen.no/webjars/swagger-ui/index.html?urls.primaryName&#x3D;Omr%C3%A5der#/Omr%C3%A5der/getKommuner) for mulige verdier.  Eksempel: &#x60;5001&#x60;
-     * @param kontraktsomrade Filtrer på kontraktsomrade. Kommaseparert liste. Se [/omrader/api/v4/kontraktsomrader](https://nvdbapiles.atlas.vegvesen.no/webjars/swagger-ui/index.html?urls.primaryName&#x3D;Omr%C3%A5der#/Omr%C3%A5der/getKontraktsomrader) for mulige verdier.  Eksempel: &#x60;9503 Midtre Hålogaland 2021-2026&#x60;
-     * @param riksvegrute Filtrer på riksvegrute. Kommaseparert liste. Se [/omrader/api/v4/riksvegruter](https://nvdbapiles.atlas.vegvesen.no/webjars/swagger-ui/index.html?urls.primaryName&#x3D;Omr%C3%A5der#/Omr%C3%A5der/getRiksvegruter) for mulige verdier.  Eksempel: &#x60;RUTE4A&#x60; eller som enumid &#x60;20290&#x60;
+     * @param fylke Filtrer på fylke. Kommaseparert liste. Se [/omrader/api/v4/fylker](https://nvdbapiles.atlas.vegvesen.no/swagger-ui/index.html?urls.primaryName&#x3D;Omr%C3%A5der#/Omr%C3%A5der/getFylker) for mulige verdier.  Eksempel: &#x60;50&#x60;
+     * @param kommune Filtrer på kommune. Kommaseparert liste. Se [/omrader/api/v4/kommuner](https://nvdbapiles.atlas.vegvesen.no/swagger-ui/index.html?urls.primaryName&#x3D;Omr%C3%A5der#/Omr%C3%A5der/getKommuner) for mulige verdier.  Eksempel: &#x60;5001&#x60;
+     * @param kontraktsomrade Filtrer på kontraktsomrade. Kommaseparert liste. Se [/omrader/api/v4/kontraktsomrader](https://nvdbapiles.atlas.vegvesen.no/swagger-ui/index.html?urls.primaryName&#x3D;Omr%C3%A5der#/Omr%C3%A5der/getKontraktsomrader) for mulige verdier.  Eksempel: &#x60;9503 Midtre Hålogaland 2021-2026&#x60;
+     * @param riksvegrute Filtrer på riksvegrute. Kommaseparert liste. Se [/omrader/api/v4/riksvegruter](https://nvdbapiles.atlas.vegvesen.no/swagger-ui/index.html?urls.primaryName&#x3D;Omr%C3%A5der#/Omr%C3%A5der/getRiksvegruter) for mulige verdier.  Eksempel: &#x60;RUTE4A&#x60; eller som enumid &#x60;20290&#x60;
      * @param vegsystemreferanse Filtrer på [vegsystemreferanse](https://nvdb-docs.atlas.vegvesen.no/nvdbapil/v4/introduksjon/Vegsystemreferanse). Kommaseparert liste. Legg til kommunenummer i starten av vegsystemreferansen for å filtrere på område.  Eksempel: &#x60;EV6S1D1 m12&#x60;
      * @param topologiniva Hent kun elementer på det gitte topologinivået. - Dersom en veglenke har nivå vegtrasé er ofte feltet for topologinivå ikke tilstede. Man vil da få alle veglenker som ikke har verdi &#x60;kjørefelt&#x60; eller &#x60;kjørebane&#x60;.
      * @param superid Hent detaljerte veglenkesekvenser stedfestet på veglenkesekvens med denne IDen.
-     * @param srid Angir hvilket geografisk referansesystem geometrien skal returneres i. Utdata i UTM-formater begrenses til 3 desimaler, 4326/WGS84 begrenses til 8 desimaler. Mer informasjon: &lt;a href&#x3D;&#39;https://epsg.io/5972&#39;&gt;EPSG:5972&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5973&#39;&gt;EPSG:5973&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5975&#39;&gt;EPSG:5975&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/4326&#39;&gt;EPSG:4326&lt;/a&gt;.
-     * @param polygon Filtrer med polygon i det gjeldende geografiske referansesystemet (&#x60;srid&#x60;-paramteret).  Eksempel: &#x60;20000 6520000, 20500 6520000, 21000 6500000, 20000 6520000&#x60;
+     * @param srid Angir hvilket geografisk referansesystem geometrien skal returneres i. Utdata i UTM-formater begrenses til 3 desimaler, 4326/WGS84 begrenses til 8 desimaler. Query-parametere med koordinater oppgis i UTM33 for UTM-formater, 4326/WGS84 oppgis dersom srid er 4326/WGS84. Mer informasjon: &lt;a href&#x3D;&#39;https://epsg.io/5972&#39;&gt;EPSG:5972&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5973&#39;&gt;EPSG:5973&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5975&#39;&gt;EPSG:5975&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/4326&#39;&gt;EPSG:4326&lt;/a&gt;.
+     * @param polygon Filtrer med polygon i UTM 33.  Eksempel: &#x60;20000 6520000, 20500 6520000, 21000 6500000, 20000 6520000&#x60;
      * @param antall Angir hvor mange objekter som skal returneres. Se også &#x60;sidestørrelse&#x60; i responsens &#x60;metadata&#x60;-objekt.
      * @param start Angir paginerings-start for objekter som skal returneres. Brukes sammen med &#x60;antall&#x60;. Neste start får man i metadata-feltet i responsen. Settes blankt for å starte fra begynnelsen.
      * @param inkluderAntall Hvorvidt totalt antall objekter skal returneres i responsen. Default er &#x60;false&#x60;.
@@ -1536,20 +1567,20 @@ public class VegnettApi {
     /**
      * Hent veglenkesekvenser
      * 
-     * <p><b>500</b> - Internal Server Error
      * <p><b>400</b> - Bad Request
      * <p><b>404</b> - Not Found
+     * <p><b>500</b> - Internal Server Error
      * <p><b>200</b> - OK
      * @param ider Kommaseparert liste med IDer.
-     * @param fylke Filtrer på fylke. Kommaseparert liste. Se [/omrader/api/v4/fylker](https://nvdbapiles.atlas.vegvesen.no/webjars/swagger-ui/index.html?urls.primaryName&#x3D;Omr%C3%A5der#/Omr%C3%A5der/getFylker) for mulige verdier.  Eksempel: &#x60;50&#x60;
-     * @param kommune Filtrer på kommune. Kommaseparert liste. Se [/omrader/api/v4/kommuner](https://nvdbapiles.atlas.vegvesen.no/webjars/swagger-ui/index.html?urls.primaryName&#x3D;Omr%C3%A5der#/Omr%C3%A5der/getKommuner) for mulige verdier.  Eksempel: &#x60;5001&#x60;
-     * @param kontraktsomrade Filtrer på kontraktsomrade. Kommaseparert liste. Se [/omrader/api/v4/kontraktsomrader](https://nvdbapiles.atlas.vegvesen.no/webjars/swagger-ui/index.html?urls.primaryName&#x3D;Omr%C3%A5der#/Omr%C3%A5der/getKontraktsomrader) for mulige verdier.  Eksempel: &#x60;9503 Midtre Hålogaland 2021-2026&#x60;
-     * @param riksvegrute Filtrer på riksvegrute. Kommaseparert liste. Se [/omrader/api/v4/riksvegruter](https://nvdbapiles.atlas.vegvesen.no/webjars/swagger-ui/index.html?urls.primaryName&#x3D;Omr%C3%A5der#/Omr%C3%A5der/getRiksvegruter) for mulige verdier.  Eksempel: &#x60;RUTE4A&#x60; eller som enumid &#x60;20290&#x60;
+     * @param fylke Filtrer på fylke. Kommaseparert liste. Se [/omrader/api/v4/fylker](https://nvdbapiles.atlas.vegvesen.no/swagger-ui/index.html?urls.primaryName&#x3D;Omr%C3%A5der#/Omr%C3%A5der/getFylker) for mulige verdier.  Eksempel: &#x60;50&#x60;
+     * @param kommune Filtrer på kommune. Kommaseparert liste. Se [/omrader/api/v4/kommuner](https://nvdbapiles.atlas.vegvesen.no/swagger-ui/index.html?urls.primaryName&#x3D;Omr%C3%A5der#/Omr%C3%A5der/getKommuner) for mulige verdier.  Eksempel: &#x60;5001&#x60;
+     * @param kontraktsomrade Filtrer på kontraktsomrade. Kommaseparert liste. Se [/omrader/api/v4/kontraktsomrader](https://nvdbapiles.atlas.vegvesen.no/swagger-ui/index.html?urls.primaryName&#x3D;Omr%C3%A5der#/Omr%C3%A5der/getKontraktsomrader) for mulige verdier.  Eksempel: &#x60;9503 Midtre Hålogaland 2021-2026&#x60;
+     * @param riksvegrute Filtrer på riksvegrute. Kommaseparert liste. Se [/omrader/api/v4/riksvegruter](https://nvdbapiles.atlas.vegvesen.no/swagger-ui/index.html?urls.primaryName&#x3D;Omr%C3%A5der#/Omr%C3%A5der/getRiksvegruter) for mulige verdier.  Eksempel: &#x60;RUTE4A&#x60; eller som enumid &#x60;20290&#x60;
      * @param vegsystemreferanse Filtrer på [vegsystemreferanse](https://nvdb-docs.atlas.vegvesen.no/nvdbapil/v4/introduksjon/Vegsystemreferanse). Kommaseparert liste. Legg til kommunenummer i starten av vegsystemreferansen for å filtrere på område.  Eksempel: &#x60;EV6S1D1 m12&#x60;
      * @param topologiniva Hent kun elementer på det gitte topologinivået. - Dersom en veglenke har nivå vegtrasé er ofte feltet for topologinivå ikke tilstede. Man vil da få alle veglenker som ikke har verdi &#x60;kjørefelt&#x60; eller &#x60;kjørebane&#x60;.
      * @param superid Hent detaljerte veglenkesekvenser stedfestet på veglenkesekvens med denne IDen.
-     * @param srid Angir hvilket geografisk referansesystem geometrien skal returneres i. Utdata i UTM-formater begrenses til 3 desimaler, 4326/WGS84 begrenses til 8 desimaler. Mer informasjon: &lt;a href&#x3D;&#39;https://epsg.io/5972&#39;&gt;EPSG:5972&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5973&#39;&gt;EPSG:5973&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5975&#39;&gt;EPSG:5975&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/4326&#39;&gt;EPSG:4326&lt;/a&gt;.
-     * @param polygon Filtrer med polygon i det gjeldende geografiske referansesystemet (&#x60;srid&#x60;-paramteret).  Eksempel: &#x60;20000 6520000, 20500 6520000, 21000 6500000, 20000 6520000&#x60;
+     * @param srid Angir hvilket geografisk referansesystem geometrien skal returneres i. Utdata i UTM-formater begrenses til 3 desimaler, 4326/WGS84 begrenses til 8 desimaler. Query-parametere med koordinater oppgis i UTM33 for UTM-formater, 4326/WGS84 oppgis dersom srid er 4326/WGS84. Mer informasjon: &lt;a href&#x3D;&#39;https://epsg.io/5972&#39;&gt;EPSG:5972&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5973&#39;&gt;EPSG:5973&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5975&#39;&gt;EPSG:5975&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/4326&#39;&gt;EPSG:4326&lt;/a&gt;.
+     * @param polygon Filtrer med polygon i UTM 33.  Eksempel: &#x60;20000 6520000, 20500 6520000, 21000 6500000, 20000 6520000&#x60;
      * @param antall Angir hvor mange objekter som skal returneres. Se også &#x60;sidestørrelse&#x60; i responsens &#x60;metadata&#x60;-objekt.
      * @param start Angir paginerings-start for objekter som skal returneres. Brukes sammen med &#x60;antall&#x60;. Neste start får man i metadata-feltet i responsen. Settes blankt for å starte fra begynnelsen.
      * @param inkluderAntall Hvorvidt totalt antall objekter skal returneres i responsen. Default er &#x60;false&#x60;.
@@ -1564,20 +1595,20 @@ public class VegnettApi {
     /**
      * Hent veglenkesekvenser
      * 
-     * <p><b>500</b> - Internal Server Error
      * <p><b>400</b> - Bad Request
      * <p><b>404</b> - Not Found
+     * <p><b>500</b> - Internal Server Error
      * <p><b>200</b> - OK
      * @param ider Kommaseparert liste med IDer.
-     * @param fylke Filtrer på fylke. Kommaseparert liste. Se [/omrader/api/v4/fylker](https://nvdbapiles.atlas.vegvesen.no/webjars/swagger-ui/index.html?urls.primaryName&#x3D;Omr%C3%A5der#/Omr%C3%A5der/getFylker) for mulige verdier.  Eksempel: &#x60;50&#x60;
-     * @param kommune Filtrer på kommune. Kommaseparert liste. Se [/omrader/api/v4/kommuner](https://nvdbapiles.atlas.vegvesen.no/webjars/swagger-ui/index.html?urls.primaryName&#x3D;Omr%C3%A5der#/Omr%C3%A5der/getKommuner) for mulige verdier.  Eksempel: &#x60;5001&#x60;
-     * @param kontraktsomrade Filtrer på kontraktsomrade. Kommaseparert liste. Se [/omrader/api/v4/kontraktsomrader](https://nvdbapiles.atlas.vegvesen.no/webjars/swagger-ui/index.html?urls.primaryName&#x3D;Omr%C3%A5der#/Omr%C3%A5der/getKontraktsomrader) for mulige verdier.  Eksempel: &#x60;9503 Midtre Hålogaland 2021-2026&#x60;
-     * @param riksvegrute Filtrer på riksvegrute. Kommaseparert liste. Se [/omrader/api/v4/riksvegruter](https://nvdbapiles.atlas.vegvesen.no/webjars/swagger-ui/index.html?urls.primaryName&#x3D;Omr%C3%A5der#/Omr%C3%A5der/getRiksvegruter) for mulige verdier.  Eksempel: &#x60;RUTE4A&#x60; eller som enumid &#x60;20290&#x60;
+     * @param fylke Filtrer på fylke. Kommaseparert liste. Se [/omrader/api/v4/fylker](https://nvdbapiles.atlas.vegvesen.no/swagger-ui/index.html?urls.primaryName&#x3D;Omr%C3%A5der#/Omr%C3%A5der/getFylker) for mulige verdier.  Eksempel: &#x60;50&#x60;
+     * @param kommune Filtrer på kommune. Kommaseparert liste. Se [/omrader/api/v4/kommuner](https://nvdbapiles.atlas.vegvesen.no/swagger-ui/index.html?urls.primaryName&#x3D;Omr%C3%A5der#/Omr%C3%A5der/getKommuner) for mulige verdier.  Eksempel: &#x60;5001&#x60;
+     * @param kontraktsomrade Filtrer på kontraktsomrade. Kommaseparert liste. Se [/omrader/api/v4/kontraktsomrader](https://nvdbapiles.atlas.vegvesen.no/swagger-ui/index.html?urls.primaryName&#x3D;Omr%C3%A5der#/Omr%C3%A5der/getKontraktsomrader) for mulige verdier.  Eksempel: &#x60;9503 Midtre Hålogaland 2021-2026&#x60;
+     * @param riksvegrute Filtrer på riksvegrute. Kommaseparert liste. Se [/omrader/api/v4/riksvegruter](https://nvdbapiles.atlas.vegvesen.no/swagger-ui/index.html?urls.primaryName&#x3D;Omr%C3%A5der#/Omr%C3%A5der/getRiksvegruter) for mulige verdier.  Eksempel: &#x60;RUTE4A&#x60; eller som enumid &#x60;20290&#x60;
      * @param vegsystemreferanse Filtrer på [vegsystemreferanse](https://nvdb-docs.atlas.vegvesen.no/nvdbapil/v4/introduksjon/Vegsystemreferanse). Kommaseparert liste. Legg til kommunenummer i starten av vegsystemreferansen for å filtrere på område.  Eksempel: &#x60;EV6S1D1 m12&#x60;
      * @param topologiniva Hent kun elementer på det gitte topologinivået. - Dersom en veglenke har nivå vegtrasé er ofte feltet for topologinivå ikke tilstede. Man vil da få alle veglenker som ikke har verdi &#x60;kjørefelt&#x60; eller &#x60;kjørebane&#x60;.
      * @param superid Hent detaljerte veglenkesekvenser stedfestet på veglenkesekvens med denne IDen.
-     * @param srid Angir hvilket geografisk referansesystem geometrien skal returneres i. Utdata i UTM-formater begrenses til 3 desimaler, 4326/WGS84 begrenses til 8 desimaler. Mer informasjon: &lt;a href&#x3D;&#39;https://epsg.io/5972&#39;&gt;EPSG:5972&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5973&#39;&gt;EPSG:5973&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5975&#39;&gt;EPSG:5975&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/4326&#39;&gt;EPSG:4326&lt;/a&gt;.
-     * @param polygon Filtrer med polygon i det gjeldende geografiske referansesystemet (&#x60;srid&#x60;-paramteret).  Eksempel: &#x60;20000 6520000, 20500 6520000, 21000 6500000, 20000 6520000&#x60;
+     * @param srid Angir hvilket geografisk referansesystem geometrien skal returneres i. Utdata i UTM-formater begrenses til 3 desimaler, 4326/WGS84 begrenses til 8 desimaler. Query-parametere med koordinater oppgis i UTM33 for UTM-formater, 4326/WGS84 oppgis dersom srid er 4326/WGS84. Mer informasjon: &lt;a href&#x3D;&#39;https://epsg.io/5972&#39;&gt;EPSG:5972&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5973&#39;&gt;EPSG:5973&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5975&#39;&gt;EPSG:5975&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/4326&#39;&gt;EPSG:4326&lt;/a&gt;.
+     * @param polygon Filtrer med polygon i UTM 33.  Eksempel: &#x60;20000 6520000, 20500 6520000, 21000 6500000, 20000 6520000&#x60;
      * @param antall Angir hvor mange objekter som skal returneres. Se også &#x60;sidestørrelse&#x60; i responsens &#x60;metadata&#x60;-objekt.
      * @param start Angir paginerings-start for objekter som skal returneres. Brukes sammen med &#x60;antall&#x60;. Neste start får man i metadata-feltet i responsen. Settes blankt for å starte fra begynnelsen.
      * @param inkluderAntall Hvorvidt totalt antall objekter skal returneres i responsen. Default er &#x60;false&#x60;.

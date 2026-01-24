@@ -31,7 +31,7 @@ import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestClient.ResponseSpec;
 import org.springframework.web.client.RestClientResponseException;
 
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.14.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0")
 public class RuteApi {
     private ApiClient apiClient;
 
@@ -50,7 +50,6 @@ public class RuteApi {
     public void setApiClient(ApiClient apiClient) {
         this.apiClient = apiClient;
     }
-
 
     public static class GetRuteRequest {
         private @jakarta.annotation.Nullable String start;
@@ -231,62 +230,62 @@ public class RuteApi {
     }
 
     /**
-    * 
-    * 
-     * <p><b>500</b> - Internal Server Error
+     * 
+     * 
      * <p><b>400</b> - Bad Request
      * <p><b>404</b> - Not Found
+     * <p><b>500</b> - Internal Server Error
      * <p><b>200</b> - OK
      * @param requestParameters The getRute request parameters as object
      * @return RuteResponse
      * @throws RestClientResponseException if an error occurs while attempting to invoke the API
-    */
+     */
     public RuteResponse getRute(GetRuteRequest requestParameters) throws RestClientResponseException {
-      return this.getRute(requestParameters.start(), requestParameters.slutt(), requestParameters.geometri(), requestParameters.maksAvstand(), requestParameters.omkrets(), requestParameters.konnekteringslenker(), requestParameters.detaljerteLenker(), requestParameters.kortform(), requestParameters.vegsystemreferanse(), requestParameters.trafikantgruppe(), requestParameters.beholdTrafikantgruppe(), requestParameters.typeveg(), requestParameters.tidspunkt(), requestParameters.srid());
-    }
-
-  /**
-  * 
-  * 
-     * <p><b>500</b> - Internal Server Error
-     * <p><b>400</b> - Bad Request
-     * <p><b>404</b> - Not Found
-     * <p><b>200</b> - OK
-     * @param requestParameters The getRute request parameters as object
-     * @return ResponseEntity&lt;RuteResponse&gt;
-     * @throws RestClientResponseException if an error occurs while attempting to invoke the API
-    */
-    public ResponseEntity<RuteResponse> getRuteWithHttpInfo(GetRuteRequest requestParameters) throws RestClientResponseException {
-      return this.getRuteWithHttpInfo(requestParameters.start(), requestParameters.slutt(), requestParameters.geometri(), requestParameters.maksAvstand(), requestParameters.omkrets(), requestParameters.konnekteringslenker(), requestParameters.detaljerteLenker(), requestParameters.kortform(), requestParameters.vegsystemreferanse(), requestParameters.trafikantgruppe(), requestParameters.beholdTrafikantgruppe(), requestParameters.typeveg(), requestParameters.tidspunkt(), requestParameters.srid());
-    }
-
-  /**
-  * 
-  * 
-     * <p><b>500</b> - Internal Server Error
-     * <p><b>400</b> - Bad Request
-     * <p><b>404</b> - Not Found
-     * <p><b>200</b> - OK
-     * @param requestParameters The getRute request parameters as object
-  * @return ResponseSpec
-  * @throws RestClientResponseException if an error occurs while attempting to invoke the API
-    */
-    public ResponseSpec getRuteWithResponseSpec(GetRuteRequest requestParameters) throws RestClientResponseException {
-      return this.getRuteWithResponseSpec(requestParameters.start(), requestParameters.slutt(), requestParameters.geometri(), requestParameters.maksAvstand(), requestParameters.omkrets(), requestParameters.konnekteringslenker(), requestParameters.detaljerteLenker(), requestParameters.kortform(), requestParameters.vegsystemreferanse(), requestParameters.trafikantgruppe(), requestParameters.beholdTrafikantgruppe(), requestParameters.typeveg(), requestParameters.tidspunkt(), requestParameters.srid());
+        return this.getRute(requestParameters.start(), requestParameters.slutt(), requestParameters.geometri(), requestParameters.maksAvstand(), requestParameters.omkrets(), requestParameters.konnekteringslenker(), requestParameters.detaljerteLenker(), requestParameters.kortform(), requestParameters.vegsystemreferanse(), requestParameters.trafikantgruppe(), requestParameters.beholdTrafikantgruppe(), requestParameters.typeveg(), requestParameters.tidspunkt(), requestParameters.srid());
     }
 
     /**
      * 
      * 
-     * <p><b>500</b> - Internal Server Error
      * <p><b>400</b> - Bad Request
      * <p><b>404</b> - Not Found
+     * <p><b>500</b> - Internal Server Error
+     * <p><b>200</b> - OK
+     * @param requestParameters The getRute request parameters as object
+     * @return ResponseEntity&lt;RuteResponse&gt;
+     * @throws RestClientResponseException if an error occurs while attempting to invoke the API
+     */
+    public ResponseEntity<RuteResponse> getRuteWithHttpInfo(GetRuteRequest requestParameters) throws RestClientResponseException {
+        return this.getRuteWithHttpInfo(requestParameters.start(), requestParameters.slutt(), requestParameters.geometri(), requestParameters.maksAvstand(), requestParameters.omkrets(), requestParameters.konnekteringslenker(), requestParameters.detaljerteLenker(), requestParameters.kortform(), requestParameters.vegsystemreferanse(), requestParameters.trafikantgruppe(), requestParameters.beholdTrafikantgruppe(), requestParameters.typeveg(), requestParameters.tidspunkt(), requestParameters.srid());
+    }
+
+    /**
+     * 
+     * 
+     * <p><b>400</b> - Bad Request
+     * <p><b>404</b> - Not Found
+     * <p><b>500</b> - Internal Server Error
+     * <p><b>200</b> - OK
+     * @param requestParameters The getRute request parameters as object
+     * @return ResponseSpec
+     * @throws RestClientResponseException if an error occurs while attempting to invoke the API
+     */
+    public ResponseSpec getRuteWithResponseSpec(GetRuteRequest requestParameters) throws RestClientResponseException {
+        return this.getRuteWithResponseSpec(requestParameters.start(), requestParameters.slutt(), requestParameters.geometri(), requestParameters.maksAvstand(), requestParameters.omkrets(), requestParameters.konnekteringslenker(), requestParameters.detaljerteLenker(), requestParameters.kortform(), requestParameters.vegsystemreferanse(), requestParameters.trafikantgruppe(), requestParameters.beholdTrafikantgruppe(), requestParameters.typeveg(), requestParameters.tidspunkt(), requestParameters.srid());
+    }
+
+    /**
+     * 
+     * 
+     * <p><b>400</b> - Bad Request
+     * <p><b>404</b> - Not Found
+     * <p><b>500</b> - Internal Server Error
      * <p><b>200</b> - OK
      * @param start Startposisjon som et punkt eller posisjon@veglenkesekvens.  Eksempler: &#x60;226761.786, 6564469.3787&#x60; &#x60;0.1@1234&#x60;
      * @param slutt Sluttposisjon som et punkt eller posisjon@veglenkesekvens.  Eksempler: &#x60;226855.034, 6564472.225&#x60; &#x60;0.9@4321&#x60;
      * @param geometri Finn sammenhengende vegnett som passer med denne geometrien.  Eksempel: &#x60;LINESTRING Z (226778.2 6564468.6 5, 226747.1 6564470.1 5, 226717.5 6564466.4 5, 226705.9 6564462.7 6.2, 226687.2 6564462.9 6, 226657.7 6564460.7 6, 226628.5 6564459.5 6, 226611.3 6564459.6 6.2)&#x60;
      * @param maksAvstand Maks avstand i meter til veglenker.  Standardverdi: &#x60;10&#x60;
-     * @param omkrets Konvolutt lagt rundt start- og slutt-punkt for å beregne rute.  Standardverdi: &#x60;200&#x60;. Må være større enn 0.
+     * @param omkrets Konvolutt lagt rundt start- og slutt-punkt for å beregne rute.  Standardverdi: &#x60;200&#x60;. Maksverdi: &#x60;1500&#x60;. Må være større enn 0.
      * @param konnekteringslenker Inkluder konnekteringslenker.  Standardverdi: &#x60;true&#x60;
      * @param detaljerteLenker Inkluder detaljerte lenker.  Standardverdi: &#x60;false&#x60;
      * @param kortform Returner minimal respons.  Standardverdi: &#x60;false&#x60;
@@ -295,7 +294,7 @@ public class RuteApi {
      * @param beholdTrafikantgruppe Behold trafikantgruppe gjennom ruten. Trafikantgruppe velges fra første og siste punkt i ruten, om de er ulike velges K (kjørende). Overstyres av parameteren trafikantgruppe.  Standardverdi: &#x60;false&#x60;
      * @param typeveg Filtrer på type veg. Kommaseparert liste.
      * @param tidspunkt Begrens spørring til dette tidspunktet.
-     * @param srid Angir hvilket geografisk referansesystem geometrien skal returneres i. Utdata i UTM-formater begrenses til 3 desimaler, 4326/WGS84 begrenses til 8 desimaler. Mer informasjon: &lt;a href&#x3D;&#39;https://epsg.io/5972&#39;&gt;EPSG:5972&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5973&#39;&gt;EPSG:5973&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5975&#39;&gt;EPSG:5975&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/4326&#39;&gt;EPSG:4326&lt;/a&gt;.
+     * @param srid Angir hvilket geografisk referansesystem geometrien skal returneres i. Utdata i UTM-formater begrenses til 3 desimaler, 4326/WGS84 begrenses til 8 desimaler. Query-parametere med koordinater oppgis i UTM33 for UTM-formater, 4326/WGS84 oppgis dersom srid er 4326/WGS84. Mer informasjon: &lt;a href&#x3D;&#39;https://epsg.io/5972&#39;&gt;EPSG:5972&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5973&#39;&gt;EPSG:5973&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5975&#39;&gt;EPSG:5975&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/4326&#39;&gt;EPSG:4326&lt;/a&gt;.
      * @return RuteResponse
      * @throws RestClientResponseException if an error occurs while attempting to invoke the API
      */
@@ -323,7 +322,7 @@ public class RuteApi {
         queryParams.putAll(apiClient.parameterToMultiValueMap(ApiClient.CollectionFormat.valueOf("multi".toUpperCase(Locale.ROOT)), "typeveg", typeveg));
         queryParams.putAll(apiClient.parameterToMultiValueMap(null, "tidspunkt", tidspunkt));
         queryParams.putAll(apiClient.parameterToMultiValueMap(null, "srid", srid));
-        
+
         final String[] localVarAccepts = { 
             "*/*"
         };
@@ -340,15 +339,15 @@ public class RuteApi {
     /**
      * 
      * 
-     * <p><b>500</b> - Internal Server Error
      * <p><b>400</b> - Bad Request
      * <p><b>404</b> - Not Found
+     * <p><b>500</b> - Internal Server Error
      * <p><b>200</b> - OK
      * @param start Startposisjon som et punkt eller posisjon@veglenkesekvens.  Eksempler: &#x60;226761.786, 6564469.3787&#x60; &#x60;0.1@1234&#x60;
      * @param slutt Sluttposisjon som et punkt eller posisjon@veglenkesekvens.  Eksempler: &#x60;226855.034, 6564472.225&#x60; &#x60;0.9@4321&#x60;
      * @param geometri Finn sammenhengende vegnett som passer med denne geometrien.  Eksempel: &#x60;LINESTRING Z (226778.2 6564468.6 5, 226747.1 6564470.1 5, 226717.5 6564466.4 5, 226705.9 6564462.7 6.2, 226687.2 6564462.9 6, 226657.7 6564460.7 6, 226628.5 6564459.5 6, 226611.3 6564459.6 6.2)&#x60;
      * @param maksAvstand Maks avstand i meter til veglenker.  Standardverdi: &#x60;10&#x60;
-     * @param omkrets Konvolutt lagt rundt start- og slutt-punkt for å beregne rute.  Standardverdi: &#x60;200&#x60;. Må være større enn 0.
+     * @param omkrets Konvolutt lagt rundt start- og slutt-punkt for å beregne rute.  Standardverdi: &#x60;200&#x60;. Maksverdi: &#x60;1500&#x60;. Må være større enn 0.
      * @param konnekteringslenker Inkluder konnekteringslenker.  Standardverdi: &#x60;true&#x60;
      * @param detaljerteLenker Inkluder detaljerte lenker.  Standardverdi: &#x60;false&#x60;
      * @param kortform Returner minimal respons.  Standardverdi: &#x60;false&#x60;
@@ -357,7 +356,7 @@ public class RuteApi {
      * @param beholdTrafikantgruppe Behold trafikantgruppe gjennom ruten. Trafikantgruppe velges fra første og siste punkt i ruten, om de er ulike velges K (kjørende). Overstyres av parameteren trafikantgruppe.  Standardverdi: &#x60;false&#x60;
      * @param typeveg Filtrer på type veg. Kommaseparert liste.
      * @param tidspunkt Begrens spørring til dette tidspunktet.
-     * @param srid Angir hvilket geografisk referansesystem geometrien skal returneres i. Utdata i UTM-formater begrenses til 3 desimaler, 4326/WGS84 begrenses til 8 desimaler. Mer informasjon: &lt;a href&#x3D;&#39;https://epsg.io/5972&#39;&gt;EPSG:5972&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5973&#39;&gt;EPSG:5973&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5975&#39;&gt;EPSG:5975&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/4326&#39;&gt;EPSG:4326&lt;/a&gt;.
+     * @param srid Angir hvilket geografisk referansesystem geometrien skal returneres i. Utdata i UTM-formater begrenses til 3 desimaler, 4326/WGS84 begrenses til 8 desimaler. Query-parametere med koordinater oppgis i UTM33 for UTM-formater, 4326/WGS84 oppgis dersom srid er 4326/WGS84. Mer informasjon: &lt;a href&#x3D;&#39;https://epsg.io/5972&#39;&gt;EPSG:5972&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5973&#39;&gt;EPSG:5973&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5975&#39;&gt;EPSG:5975&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/4326&#39;&gt;EPSG:4326&lt;/a&gt;.
      * @return RuteResponse
      * @throws RestClientResponseException if an error occurs while attempting to invoke the API
      */
@@ -369,15 +368,15 @@ public class RuteApi {
     /**
      * 
      * 
-     * <p><b>500</b> - Internal Server Error
      * <p><b>400</b> - Bad Request
      * <p><b>404</b> - Not Found
+     * <p><b>500</b> - Internal Server Error
      * <p><b>200</b> - OK
      * @param start Startposisjon som et punkt eller posisjon@veglenkesekvens.  Eksempler: &#x60;226761.786, 6564469.3787&#x60; &#x60;0.1@1234&#x60;
      * @param slutt Sluttposisjon som et punkt eller posisjon@veglenkesekvens.  Eksempler: &#x60;226855.034, 6564472.225&#x60; &#x60;0.9@4321&#x60;
      * @param geometri Finn sammenhengende vegnett som passer med denne geometrien.  Eksempel: &#x60;LINESTRING Z (226778.2 6564468.6 5, 226747.1 6564470.1 5, 226717.5 6564466.4 5, 226705.9 6564462.7 6.2, 226687.2 6564462.9 6, 226657.7 6564460.7 6, 226628.5 6564459.5 6, 226611.3 6564459.6 6.2)&#x60;
      * @param maksAvstand Maks avstand i meter til veglenker.  Standardverdi: &#x60;10&#x60;
-     * @param omkrets Konvolutt lagt rundt start- og slutt-punkt for å beregne rute.  Standardverdi: &#x60;200&#x60;. Må være større enn 0.
+     * @param omkrets Konvolutt lagt rundt start- og slutt-punkt for å beregne rute.  Standardverdi: &#x60;200&#x60;. Maksverdi: &#x60;1500&#x60;. Må være større enn 0.
      * @param konnekteringslenker Inkluder konnekteringslenker.  Standardverdi: &#x60;true&#x60;
      * @param detaljerteLenker Inkluder detaljerte lenker.  Standardverdi: &#x60;false&#x60;
      * @param kortform Returner minimal respons.  Standardverdi: &#x60;false&#x60;
@@ -386,7 +385,7 @@ public class RuteApi {
      * @param beholdTrafikantgruppe Behold trafikantgruppe gjennom ruten. Trafikantgruppe velges fra første og siste punkt i ruten, om de er ulike velges K (kjørende). Overstyres av parameteren trafikantgruppe.  Standardverdi: &#x60;false&#x60;
      * @param typeveg Filtrer på type veg. Kommaseparert liste.
      * @param tidspunkt Begrens spørring til dette tidspunktet.
-     * @param srid Angir hvilket geografisk referansesystem geometrien skal returneres i. Utdata i UTM-formater begrenses til 3 desimaler, 4326/WGS84 begrenses til 8 desimaler. Mer informasjon: &lt;a href&#x3D;&#39;https://epsg.io/5972&#39;&gt;EPSG:5972&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5973&#39;&gt;EPSG:5973&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5975&#39;&gt;EPSG:5975&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/4326&#39;&gt;EPSG:4326&lt;/a&gt;.
+     * @param srid Angir hvilket geografisk referansesystem geometrien skal returneres i. Utdata i UTM-formater begrenses til 3 desimaler, 4326/WGS84 begrenses til 8 desimaler. Query-parametere med koordinater oppgis i UTM33 for UTM-formater, 4326/WGS84 oppgis dersom srid er 4326/WGS84. Mer informasjon: &lt;a href&#x3D;&#39;https://epsg.io/5972&#39;&gt;EPSG:5972&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5973&#39;&gt;EPSG:5973&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5975&#39;&gt;EPSG:5975&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/4326&#39;&gt;EPSG:4326&lt;/a&gt;.
      * @return ResponseEntity&lt;RuteResponse&gt;
      * @throws RestClientResponseException if an error occurs while attempting to invoke the API
      */
@@ -398,15 +397,15 @@ public class RuteApi {
     /**
      * 
      * 
-     * <p><b>500</b> - Internal Server Error
      * <p><b>400</b> - Bad Request
      * <p><b>404</b> - Not Found
+     * <p><b>500</b> - Internal Server Error
      * <p><b>200</b> - OK
      * @param start Startposisjon som et punkt eller posisjon@veglenkesekvens.  Eksempler: &#x60;226761.786, 6564469.3787&#x60; &#x60;0.1@1234&#x60;
      * @param slutt Sluttposisjon som et punkt eller posisjon@veglenkesekvens.  Eksempler: &#x60;226855.034, 6564472.225&#x60; &#x60;0.9@4321&#x60;
      * @param geometri Finn sammenhengende vegnett som passer med denne geometrien.  Eksempel: &#x60;LINESTRING Z (226778.2 6564468.6 5, 226747.1 6564470.1 5, 226717.5 6564466.4 5, 226705.9 6564462.7 6.2, 226687.2 6564462.9 6, 226657.7 6564460.7 6, 226628.5 6564459.5 6, 226611.3 6564459.6 6.2)&#x60;
      * @param maksAvstand Maks avstand i meter til veglenker.  Standardverdi: &#x60;10&#x60;
-     * @param omkrets Konvolutt lagt rundt start- og slutt-punkt for å beregne rute.  Standardverdi: &#x60;200&#x60;. Må være større enn 0.
+     * @param omkrets Konvolutt lagt rundt start- og slutt-punkt for å beregne rute.  Standardverdi: &#x60;200&#x60;. Maksverdi: &#x60;1500&#x60;. Må være større enn 0.
      * @param konnekteringslenker Inkluder konnekteringslenker.  Standardverdi: &#x60;true&#x60;
      * @param detaljerteLenker Inkluder detaljerte lenker.  Standardverdi: &#x60;false&#x60;
      * @param kortform Returner minimal respons.  Standardverdi: &#x60;false&#x60;
@@ -415,19 +414,20 @@ public class RuteApi {
      * @param beholdTrafikantgruppe Behold trafikantgruppe gjennom ruten. Trafikantgruppe velges fra første og siste punkt i ruten, om de er ulike velges K (kjørende). Overstyres av parameteren trafikantgruppe.  Standardverdi: &#x60;false&#x60;
      * @param typeveg Filtrer på type veg. Kommaseparert liste.
      * @param tidspunkt Begrens spørring til dette tidspunktet.
-     * @param srid Angir hvilket geografisk referansesystem geometrien skal returneres i. Utdata i UTM-formater begrenses til 3 desimaler, 4326/WGS84 begrenses til 8 desimaler. Mer informasjon: &lt;a href&#x3D;&#39;https://epsg.io/5972&#39;&gt;EPSG:5972&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5973&#39;&gt;EPSG:5973&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5975&#39;&gt;EPSG:5975&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/4326&#39;&gt;EPSG:4326&lt;/a&gt;.
+     * @param srid Angir hvilket geografisk referansesystem geometrien skal returneres i. Utdata i UTM-formater begrenses til 3 desimaler, 4326/WGS84 begrenses til 8 desimaler. Query-parametere med koordinater oppgis i UTM33 for UTM-formater, 4326/WGS84 oppgis dersom srid er 4326/WGS84. Mer informasjon: &lt;a href&#x3D;&#39;https://epsg.io/5972&#39;&gt;EPSG:5972&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5973&#39;&gt;EPSG:5973&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/5975&#39;&gt;EPSG:5975&lt;/a&gt; &lt;a href&#x3D;&#39;https://epsg.io/4326&#39;&gt;EPSG:4326&lt;/a&gt;.
      * @return ResponseSpec
      * @throws RestClientResponseException if an error occurs while attempting to invoke the API
      */
     public ResponseSpec getRuteWithResponseSpec(@jakarta.annotation.Nullable String start, @jakarta.annotation.Nullable String slutt, @jakarta.annotation.Nullable String geometri, @jakarta.annotation.Nullable Integer maksAvstand, @jakarta.annotation.Nullable Integer omkrets, @jakarta.annotation.Nullable Boolean konnekteringslenker, @jakarta.annotation.Nullable Boolean detaljerteLenker, @jakarta.annotation.Nullable Boolean kortform, @jakarta.annotation.Nullable Set<String> vegsystemreferanse, @jakarta.annotation.Nullable Trafikantgruppe trafikantgruppe, @jakarta.annotation.Nullable Boolean beholdTrafikantgruppe, @jakarta.annotation.Nullable Set<TypeVeg> typeveg, @jakarta.annotation.Nullable LocalDate tidspunkt, @jakarta.annotation.Nullable SridParameter srid) throws RestClientResponseException {
         return getRuteRequestCreation(start, slutt, geometri, maksAvstand, omkrets, konnekteringslenker, detaljerteLenker, kortform, vegsystemreferanse, trafikantgruppe, beholdTrafikantgruppe, typeveg, tidspunkt, srid);
     }
+
     /**
      * 
      * 
-     * <p><b>500</b> - Internal Server Error
      * <p><b>400</b> - Bad Request
      * <p><b>404</b> - Not Found
+     * <p><b>500</b> - Internal Server Error
      * <p><b>200</b> - OK
      * @param finnRuteParameters The finnRuteParameters parameter
      * @return RuteResponse
@@ -465,9 +465,9 @@ public class RuteApi {
     /**
      * 
      * 
-     * <p><b>500</b> - Internal Server Error
      * <p><b>400</b> - Bad Request
      * <p><b>404</b> - Not Found
+     * <p><b>500</b> - Internal Server Error
      * <p><b>200</b> - OK
      * @param finnRuteParameters The finnRuteParameters parameter
      * @return RuteResponse
@@ -481,9 +481,9 @@ public class RuteApi {
     /**
      * 
      * 
-     * <p><b>500</b> - Internal Server Error
      * <p><b>400</b> - Bad Request
      * <p><b>404</b> - Not Found
+     * <p><b>500</b> - Internal Server Error
      * <p><b>200</b> - OK
      * @param finnRuteParameters The finnRuteParameters parameter
      * @return ResponseEntity&lt;RuteResponse&gt;
@@ -497,9 +497,9 @@ public class RuteApi {
     /**
      * 
      * 
-     * <p><b>500</b> - Internal Server Error
      * <p><b>400</b> - Bad Request
      * <p><b>404</b> - Not Found
+     * <p><b>500</b> - Internal Server Error
      * <p><b>200</b> - OK
      * @param finnRuteParameters The finnRuteParameters parameter
      * @return ResponseSpec

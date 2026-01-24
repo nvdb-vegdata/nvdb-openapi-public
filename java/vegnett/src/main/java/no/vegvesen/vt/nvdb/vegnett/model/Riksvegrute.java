@@ -1,6 +1,6 @@
 /*
  * NVDB API Les Vegnett
- * Dette API-et brukes til å lese vegnettelementer. Les mer om bruk av API-et på https://nvdb.test.atlas.vegvesen.no/produkter/nvdbapil/v4/Vegnett
+ * Dette API-et brukes til å lese vegnettelementer.<br><br>[Dokumentasjon for Vegnett API](https://nvdb-docs.atlas.vegvesen.no/nvdbapil/v4/Vegnett)
  *
  * The version of the OpenAPI document: v4
  * Contact: nvdb@vegvesen.no
@@ -30,7 +30,7 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
   Riksvegrute.JSON_PROPERTY_ENUMID,
   Riksvegrute.JSON_PROPERTY_RIKSVEGRUTE
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.14.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0")
 public class Riksvegrute {
   public static final String JSON_PROPERTY_ENUMID = "enumid";
   @jakarta.annotation.Nonnull
@@ -54,7 +54,7 @@ public class Riksvegrute {
    * @return enumid
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_ENUMID)
+  @JsonProperty(value = JSON_PROPERTY_ENUMID, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Integer getEnumid() {
@@ -62,7 +62,7 @@ public class Riksvegrute {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ENUMID)
+  @JsonProperty(value = JSON_PROPERTY_ENUMID, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setEnumid(@jakarta.annotation.Nonnull Integer enumid) {
     this.enumid = enumid;
@@ -79,7 +79,7 @@ public class Riksvegrute {
    * @return riksvegrute
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_RIKSVEGRUTE)
+  @JsonProperty(value = JSON_PROPERTY_RIKSVEGRUTE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getRiksvegrute() {
@@ -87,7 +87,7 @@ public class Riksvegrute {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_RIKSVEGRUTE)
+  @JsonProperty(value = JSON_PROPERTY_RIKSVEGRUTE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setRiksvegrute(@jakarta.annotation.Nonnull String riksvegrute) {
     this.riksvegrute = riksvegrute;

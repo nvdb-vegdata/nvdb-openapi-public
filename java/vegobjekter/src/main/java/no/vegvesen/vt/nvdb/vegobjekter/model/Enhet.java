@@ -1,6 +1,6 @@
 /*
  * NVDB API Les Vegobjekter
- * Dette API-et brukes til å lese vegobjekter. Les mer om bruk av API-et på https://nvdb.atlas.vegvesen.no/produkter/nvdbapil/v4/Vegobjekter
+ * Dette API-et brukes til å lese vegobjekter.<br><br>[Dokumentasjon for Vegobjekter API](https://nvdb-docs.atlas.vegvesen.no/nvdbapil/v4/Vegobjekter)
  *
  * The version of the OpenAPI document: v4
  * Contact: nvdb@vegvesen.no
@@ -31,7 +31,7 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
   Enhet.JSON_PROPERTY_NAVN,
   Enhet.JSON_PROPERTY_KORTNAVN
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.14.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0")
 public class Enhet {
   public static final String JSON_PROPERTY_ID = "id";
   @jakarta.annotation.Nonnull
@@ -59,7 +59,7 @@ public class Enhet {
    * @return id
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonProperty(value = JSON_PROPERTY_ID, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Integer getId() {
@@ -67,7 +67,7 @@ public class Enhet {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonProperty(value = JSON_PROPERTY_ID, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setId(@jakarta.annotation.Nonnull Integer id) {
     this.id = id;
@@ -84,7 +84,7 @@ public class Enhet {
    * @return navn
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_NAVN)
+  @JsonProperty(value = JSON_PROPERTY_NAVN, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getNavn() {
@@ -92,7 +92,7 @@ public class Enhet {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_NAVN)
+  @JsonProperty(value = JSON_PROPERTY_NAVN, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setNavn(@jakarta.annotation.Nullable String navn) {
     this.navn = navn;
@@ -109,7 +109,7 @@ public class Enhet {
    * @return kortnavn
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_KORTNAVN)
+  @JsonProperty(value = JSON_PROPERTY_KORTNAVN, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getKortnavn() {
@@ -117,7 +117,7 @@ public class Enhet {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_KORTNAVN)
+  @JsonProperty(value = JSON_PROPERTY_KORTNAVN, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setKortnavn(@jakarta.annotation.Nullable String kortnavn) {
     this.kortnavn = kortnavn;

@@ -1,6 +1,6 @@
 /*
  * NVDB API Les Vegobjekter
- * Dette API-et brukes til å lese vegobjekter. Les mer om bruk av API-et på https://nvdb.atlas.vegvesen.no/produkter/nvdbapil/v4/Vegobjekter
+ * Dette API-et brukes til å lese vegobjekter.<br><br>[Dokumentasjon for Vegobjekter API](https://nvdb-docs.atlas.vegvesen.no/nvdbapil/v4/Vegobjekter)
  *
  * The version of the OpenAPI document: v4
  * Contact: nvdb@vegvesen.no
@@ -13,6 +13,7 @@
 
 package no.vegvesen.vt.nvdb.vegobjekter.infrastructure;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
@@ -38,10 +39,12 @@ import java.util.Optional;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -57,7 +60,7 @@ import no.vegvesen.vt.nvdb.vegobjekter.infrastructure.auth.HttpBasicAuth;
 import no.vegvesen.vt.nvdb.vegobjekter.infrastructure.auth.HttpBearerAuth;
 import no.vegvesen.vt.nvdb.vegobjekter.infrastructure.auth.ApiKeyAuth;
 
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.14.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0")
 public class ApiClient extends JavaTimeFormatter {
     public enum CollectionFormat {
         CSV(","), TSV("\t"), SSV(" "), PIPES("|"), MULTI(null);
@@ -76,6 +79,15 @@ public class ApiClient extends JavaTimeFormatter {
     protected final MultiValueMap<String, String> defaultCookies = new LinkedMultiValueMap<>();
 
     protected String basePath = "https://nvdbapiles.atlas.vegvesen.no/vegobjekter";
+    protected List<ServerConfiguration> servers = new ArrayList<ServerConfiguration>(Arrays.asList(
+        new ServerConfiguration(
+            "https://nvdbapiles.atlas.vegvesen.no/vegobjekter",
+            "Default Server URL",
+            new HashMap<String, ServerVariable>()
+        )
+    ));
+    protected Integer serverIndex = 0;
+    protected Map<String, String> serverVariables = null;
 
     protected final RestClient restClient;
     protected final DateFormat dateFormat;
@@ -187,6 +199,34 @@ public class ApiClient extends JavaTimeFormatter {
      */
     public ApiClient setBasePath(String basePath) {
         this.basePath = basePath;
+        this.serverIndex = null;
+        return this;
+    }
+
+    public List<ServerConfiguration> getServers() {
+        return servers;
+    }
+
+    public ApiClient setServers(List<ServerConfiguration> servers) {
+        this.servers = servers;
+        return this;
+    }
+
+    public Integer getServerIndex() {
+        return serverIndex;
+    }
+
+    public ApiClient setServerIndex(Integer serverIndex) {
+        this.serverIndex = serverIndex;
+        return this;
+    }
+
+    public Map<String, String> getServerVariables() {
+        return serverVariables;
+    }
+
+    public ApiClient setServerVariables(Map<String, String> serverVariables) {
+        this.serverVariables = serverVariables;
         return this;
     }
 
@@ -311,10 +351,7 @@ public class ApiClient extends JavaTimeFormatter {
      * @return ApiClient this client
      */
     public ApiClient addDefaultHeader(String name, String value) {
-        if (defaultHeaders.containsKey(name)) {
-            defaultHeaders.remove(name);
-        }
-        defaultHeaders.add(name, value);
+        defaultHeaders.set(name, value);
         return this;
     }
 
@@ -399,6 +436,36 @@ public class ApiClient extends JavaTimeFormatter {
         } else {
             return String.valueOf(param);
         }
+    }
+
+    /**
+    * Converts a parameter to a {@link MultiValueMap} containing Json-serialized values for use in REST requests
+    * @param collectionFormat The format to convert to
+    * @param name The name of the parameter
+    * @param value The parameter's value
+    * @return a Map containing the Json-serialized String value(s) of the input parameter
+    */
+    public MultiValueMap<String, String> parameterToMultiValueMapJson(CollectionFormat collectionFormat, String name, Object value) {
+        Collection<?> valueCollection;
+        if (value instanceof Collection) {
+            valueCollection = (Collection<?>) value;
+        } else {
+            try {
+                return parameterToMultiValueMap(collectionFormat, name, objectMapper.writeValueAsString(value));
+            } catch (JsonProcessingException e) {
+                throw new RuntimeException(e);
+            }
+        }
+
+        List<String> values = new ArrayList<>();
+        for(Object o : valueCollection) {
+            try {
+                values.add(objectMapper.writeValueAsString(o));
+            } catch (JsonProcessingException e) {
+                throw new RuntimeException(e);
+            }
+        }
+        return parameterToMultiValueMap(collectionFormat, name, "[" + StringUtils.collectionToDelimitedString(values, collectionFormat.separator) + "]");
     }
 
     /**
@@ -611,7 +678,20 @@ public class ApiClient extends JavaTimeFormatter {
         MediaType contentType, String[] authNames) {
         updateParamsForAuth(authNames, queryParams, headerParams, cookieParams);
 
-        final UriComponentsBuilder builder = UriComponentsBuilder.fromUriString(basePath).path(path);
+        String baseUrl = basePath;
+        if (serverIndex != null) {
+            if (serverIndex < 0 || serverIndex >= servers.size()) {
+                throw new ArrayIndexOutOfBoundsException(String.format(
+                    java.util.Locale.ROOT,
+                    "Invalid index %d when selecting the host settings. Must be less than %d", serverIndex, servers.size()
+                ));
+            }
+            baseUrl = servers.get(serverIndex).URL(serverVariables);
+        }
+
+        final UriComponentsBuilder builder = UriComponentsBuilder
+                    .fromUriString(baseUrl)
+                    .path(path);
 
         String finalUri = builder.build(false).toUriString();
         Map<String, Object> uriParams = new HashMap<>();
@@ -664,7 +744,7 @@ public class ApiClient extends JavaTimeFormatter {
      * @param requestBuilder The current request
      */
     protected void addHeadersToRequest(HttpHeaders headers, RestClient.RequestBodySpec requestBuilder) {
-        for (Entry<String, List<String>> entry : headers.entrySet()) {
+        for (Entry<String, List<String>> entry : headers.headerSet()) {
             List<String> values = entry.getValue();
             for(String value : values) {
                 if (value != null) {
@@ -698,7 +778,7 @@ public class ApiClient extends JavaTimeFormatter {
         String delimiter = "";
         for (final Map.Entry<String, List<String>> entry : cookies.entrySet()) {
             final String value = entry.getValue().get(entry.getValue().size() - 1);
-            cookieValue.append(String.format("%s%s=%s", delimiter, entry.getKey(), value));
+            cookieValue.append(String.format(java.util.Locale.ROOT, "%s%s=%s", delimiter, entry.getKey(), value));
             delimiter = "; ";
         }
         return cookieValue.toString();

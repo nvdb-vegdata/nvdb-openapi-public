@@ -1,6 +1,6 @@
 /*
  * NVDB API Les Vegobjekter
- * Dette API-et brukes til å lese vegobjekter. Les mer om bruk av API-et på https://nvdb.atlas.vegvesen.no/produkter/nvdbapil/v4/Vegobjekter
+ * Dette API-et brukes til å lese vegobjekter.<br><br>[Dokumentasjon for Vegobjekter API](https://nvdb-docs.atlas.vegvesen.no/nvdbapil/v4/Vegobjekter)
  *
  * The version of the OpenAPI document: v4
  * Contact: nvdb@vegvesen.no
@@ -36,7 +36,7 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
   GeometriKvalitet.JSON_PROPERTY_NøYAKTIGHET_HøYDE,
   GeometriKvalitet.JSON_PROPERTY_MAKSIMALT_AVVIK
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.14.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0")
 public class GeometriKvalitet {
   public static final String JSON_PROPERTY_MåLEMETODE = "målemetode";
   @jakarta.annotation.Nullable
@@ -84,7 +84,7 @@ public class GeometriKvalitet {
    * @return målemetode
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_MåLEMETODE)
+  @JsonProperty(value = JSON_PROPERTY_MåLEMETODE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Integer getMålemetode() {
@@ -92,7 +92,7 @@ public class GeometriKvalitet {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_MåLEMETODE)
+  @JsonProperty(value = JSON_PROPERTY_MåLEMETODE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMålemetode(@jakarta.annotation.Nullable Integer målemetode) {
     this.målemetode = målemetode;
@@ -109,7 +109,7 @@ public class GeometriKvalitet {
    * @return datafangstmetode
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DATAFANGSTMETODE)
+  @JsonProperty(value = JSON_PROPERTY_DATAFANGSTMETODE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getDatafangstmetode() {
@@ -117,7 +117,7 @@ public class GeometriKvalitet {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_DATAFANGSTMETODE)
+  @JsonProperty(value = JSON_PROPERTY_DATAFANGSTMETODE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDatafangstmetode(@jakarta.annotation.Nullable String datafangstmetode) {
     this.datafangstmetode = datafangstmetode;
@@ -134,7 +134,7 @@ public class GeometriKvalitet {
    * @return nøyaktighet
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_NøYAKTIGHET)
+  @JsonProperty(value = JSON_PROPERTY_NøYAKTIGHET, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Integer getNøyaktighet() {
@@ -142,7 +142,7 @@ public class GeometriKvalitet {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_NøYAKTIGHET)
+  @JsonProperty(value = JSON_PROPERTY_NøYAKTIGHET, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setNøyaktighet(@jakarta.annotation.Nullable Integer nøyaktighet) {
     this.nøyaktighet = nøyaktighet;
@@ -159,7 +159,7 @@ public class GeometriKvalitet {
    * @return synbarhet
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SYNBARHET)
+  @JsonProperty(value = JSON_PROPERTY_SYNBARHET, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Integer getSynbarhet() {
@@ -167,7 +167,7 @@ public class GeometriKvalitet {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_SYNBARHET)
+  @JsonProperty(value = JSON_PROPERTY_SYNBARHET, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSynbarhet(@jakarta.annotation.Nullable Integer synbarhet) {
     this.synbarhet = synbarhet;
@@ -184,7 +184,7 @@ public class GeometriKvalitet {
    * @return målemetodeHøyde
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_MåLEMETODE_HøYDE)
+  @JsonProperty(value = JSON_PROPERTY_MåLEMETODE_HøYDE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Integer getMålemetodeHøyde() {
@@ -192,7 +192,7 @@ public class GeometriKvalitet {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_MåLEMETODE_HøYDE)
+  @JsonProperty(value = JSON_PROPERTY_MåLEMETODE_HøYDE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMålemetodeHøyde(@jakarta.annotation.Nullable Integer målemetodeHøyde) {
     this.målemetodeHøyde = målemetodeHøyde;
@@ -209,7 +209,7 @@ public class GeometriKvalitet {
    * @return datafangstmetodeHøyde
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_DATAFANGSTMETODE_HøYDE)
+  @JsonProperty(value = JSON_PROPERTY_DATAFANGSTMETODE_HøYDE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getDatafangstmetodeHøyde() {
@@ -217,7 +217,7 @@ public class GeometriKvalitet {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_DATAFANGSTMETODE_HøYDE)
+  @JsonProperty(value = JSON_PROPERTY_DATAFANGSTMETODE_HøYDE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setDatafangstmetodeHøyde(@jakarta.annotation.Nullable String datafangstmetodeHøyde) {
     this.datafangstmetodeHøyde = datafangstmetodeHøyde;
@@ -234,7 +234,7 @@ public class GeometriKvalitet {
    * @return nøyaktighetHøyde
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_NøYAKTIGHET_HøYDE)
+  @JsonProperty(value = JSON_PROPERTY_NøYAKTIGHET_HøYDE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Integer getNøyaktighetHøyde() {
@@ -242,7 +242,7 @@ public class GeometriKvalitet {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_NøYAKTIGHET_HøYDE)
+  @JsonProperty(value = JSON_PROPERTY_NøYAKTIGHET_HøYDE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setNøyaktighetHøyde(@jakarta.annotation.Nullable Integer nøyaktighetHøyde) {
     this.nøyaktighetHøyde = nøyaktighetHøyde;
@@ -259,7 +259,7 @@ public class GeometriKvalitet {
    * @return maksimaltAvvik
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_MAKSIMALT_AVVIK)
+  @JsonProperty(value = JSON_PROPERTY_MAKSIMALT_AVVIK, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Integer getMaksimaltAvvik() {
@@ -267,7 +267,7 @@ public class GeometriKvalitet {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_MAKSIMALT_AVVIK)
+  @JsonProperty(value = JSON_PROPERTY_MAKSIMALT_AVVIK, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMaksimaltAvvik(@jakarta.annotation.Nullable Integer maksimaltAvvik) {
     this.maksimaltAvvik = maksimaltAvvik;

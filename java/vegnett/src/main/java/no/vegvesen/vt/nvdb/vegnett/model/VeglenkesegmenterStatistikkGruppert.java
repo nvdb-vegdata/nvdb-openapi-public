@@ -1,6 +1,6 @@
 /*
  * NVDB API Les Vegnett
- * Dette API-et brukes til å lese vegnettelementer. Les mer om bruk av API-et på https://nvdb.test.atlas.vegvesen.no/produkter/nvdbapil/v4/Vegnett
+ * Dette API-et brukes til å lese vegnettelementer.<br><br>[Dokumentasjon for Vegnett API](https://nvdb-docs.atlas.vegvesen.no/nvdbapil/v4/Vegnett)
  *
  * The version of the OpenAPI document: v4
  * Contact: nvdb@vegvesen.no
@@ -32,7 +32,7 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
   VeglenkesegmenterStatistikkGruppert.JSON_PROPERTY_FYLKE,
   VeglenkesegmenterStatistikkGruppert.JSON_PROPERTY_VEGKATEGORI
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.14.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0")
 public class VeglenkesegmenterStatistikkGruppert {
   public static final String JSON_PROPERTY_ANTALL = "antall";
   @jakarta.annotation.Nonnull
@@ -60,7 +60,7 @@ public class VeglenkesegmenterStatistikkGruppert {
    * @return antall
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_ANTALL)
+  @JsonProperty(value = JSON_PROPERTY_ANTALL, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Integer getAntall() {
@@ -68,7 +68,7 @@ public class VeglenkesegmenterStatistikkGruppert {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ANTALL)
+  @JsonProperty(value = JSON_PROPERTY_ANTALL, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setAntall(@jakarta.annotation.Nonnull Integer antall) {
     this.antall = antall;
@@ -85,7 +85,7 @@ public class VeglenkesegmenterStatistikkGruppert {
    * @return fylke
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_FYLKE)
+  @JsonProperty(value = JSON_PROPERTY_FYLKE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Integer getFylke() {
@@ -93,7 +93,7 @@ public class VeglenkesegmenterStatistikkGruppert {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_FYLKE)
+  @JsonProperty(value = JSON_PROPERTY_FYLKE, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setFylke(@jakarta.annotation.Nullable Integer fylke) {
     this.fylke = fylke;
@@ -110,7 +110,7 @@ public class VeglenkesegmenterStatistikkGruppert {
    * @return vegkategori
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_VEGKATEGORI)
+  @JsonProperty(value = JSON_PROPERTY_VEGKATEGORI, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Vegkategori getVegkategori() {
@@ -118,7 +118,7 @@ public class VeglenkesegmenterStatistikkGruppert {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_VEGKATEGORI)
+  @JsonProperty(value = JSON_PROPERTY_VEGKATEGORI, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setVegkategori(@jakarta.annotation.Nullable Vegkategori vegkategori) {
     this.vegkategori = vegkategori;

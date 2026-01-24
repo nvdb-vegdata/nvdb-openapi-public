@@ -1,6 +1,6 @@
 /*
  * NVDB API Les Vegnett
- * Dette API-et brukes til å lese vegnettelementer. Les mer om bruk av API-et på https://nvdb.test.atlas.vegvesen.no/produkter/nvdbapil/v4/Vegnett
+ * Dette API-et brukes til å lese vegnettelementer.<br><br>[Dokumentasjon for Vegnett API](https://nvdb-docs.atlas.vegvesen.no/nvdbapil/v4/Vegnett)
  *
  * The version of the OpenAPI document: v4
  * Contact: nvdb@vegvesen.no
@@ -34,13 +34,15 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
   GeometriMedKvalitet.JSON_PROPERTY_SRID,
   GeometriMedKvalitet.JSON_PROPERTY_KVALITET,
   GeometriMedKvalitet.JSON_PROPERTY_DATAFANGSTDATO,
+  GeometriMedKvalitet.JSON_PROPERTY_OPPDATERINGSDATO,
+  GeometriMedKvalitet.JSON_PROPERTY_VERIFISERINGSDATO,
   GeometriMedKvalitet.JSON_PROPERTY_KOMMUNE,
   GeometriMedKvalitet.JSON_PROPERTY_TEMAKODE,
   GeometriMedKvalitet.JSON_PROPERTY_LENGDE,
   GeometriMedKvalitet.JSON_PROPERTY_MEDIUM,
   GeometriMedKvalitet.JSON_PROPERTY_MEDIUM_NVDB
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.14.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0")
 public class GeometriMedKvalitet {
   public static final String JSON_PROPERTY_WKT = "wkt";
   @jakarta.annotation.Nonnull
@@ -57,6 +59,14 @@ public class GeometriMedKvalitet {
   public static final String JSON_PROPERTY_DATAFANGSTDATO = "datafangstdato";
   @jakarta.annotation.Nonnull
   private LocalDate datafangstdato;
+
+  public static final String JSON_PROPERTY_OPPDATERINGSDATO = "oppdateringsdato";
+  @jakarta.annotation.Nullable
+  private LocalDate oppdateringsdato;
+
+  public static final String JSON_PROPERTY_VERIFISERINGSDATO = "verifiseringsdato";
+  @jakarta.annotation.Nullable
+  private LocalDate verifiseringsdato;
 
   public static final String JSON_PROPERTY_KOMMUNE = "kommune";
   @jakarta.annotation.Nonnull
@@ -92,7 +102,7 @@ public class GeometriMedKvalitet {
    * @return wkt
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_WKT)
+  @JsonProperty(value = JSON_PROPERTY_WKT, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getWkt() {
@@ -100,7 +110,7 @@ public class GeometriMedKvalitet {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_WKT)
+  @JsonProperty(value = JSON_PROPERTY_WKT, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setWkt(@jakarta.annotation.Nonnull String wkt) {
     this.wkt = wkt;
@@ -117,7 +127,7 @@ public class GeometriMedKvalitet {
    * @return srid
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_SRID)
+  @JsonProperty(value = JSON_PROPERTY_SRID, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Integer getSrid() {
@@ -125,7 +135,7 @@ public class GeometriMedKvalitet {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_SRID)
+  @JsonProperty(value = JSON_PROPERTY_SRID, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setSrid(@jakarta.annotation.Nonnull Integer srid) {
     this.srid = srid;
@@ -142,7 +152,7 @@ public class GeometriMedKvalitet {
    * @return kvalitet
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_KVALITET)
+  @JsonProperty(value = JSON_PROPERTY_KVALITET, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Kvalitet getKvalitet() {
@@ -150,7 +160,7 @@ public class GeometriMedKvalitet {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_KVALITET)
+  @JsonProperty(value = JSON_PROPERTY_KVALITET, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setKvalitet(@jakarta.annotation.Nonnull Kvalitet kvalitet) {
     this.kvalitet = kvalitet;
@@ -167,7 +177,7 @@ public class GeometriMedKvalitet {
    * @return datafangstdato
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_DATAFANGSTDATO)
+  @JsonProperty(value = JSON_PROPERTY_DATAFANGSTDATO, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public LocalDate getDatafangstdato() {
@@ -175,10 +185,60 @@ public class GeometriMedKvalitet {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_DATAFANGSTDATO)
+  @JsonProperty(value = JSON_PROPERTY_DATAFANGSTDATO, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setDatafangstdato(@jakarta.annotation.Nonnull LocalDate datafangstdato) {
     this.datafangstdato = datafangstdato;
+  }
+
+  public GeometriMedKvalitet oppdateringsdato(@jakarta.annotation.Nullable LocalDate oppdateringsdato) {
+    
+    this.oppdateringsdato = oppdateringsdato;
+    return this;
+  }
+
+  /**
+   * Get oppdateringsdato
+   * @return oppdateringsdato
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(value = JSON_PROPERTY_OPPDATERINGSDATO, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public LocalDate getOppdateringsdato() {
+    return oppdateringsdato;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_OPPDATERINGSDATO, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setOppdateringsdato(@jakarta.annotation.Nullable LocalDate oppdateringsdato) {
+    this.oppdateringsdato = oppdateringsdato;
+  }
+
+  public GeometriMedKvalitet verifiseringsdato(@jakarta.annotation.Nullable LocalDate verifiseringsdato) {
+    
+    this.verifiseringsdato = verifiseringsdato;
+    return this;
+  }
+
+  /**
+   * Get verifiseringsdato
+   * @return verifiseringsdato
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(value = JSON_PROPERTY_VERIFISERINGSDATO, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public LocalDate getVerifiseringsdato() {
+    return verifiseringsdato;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_VERIFISERINGSDATO, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setVerifiseringsdato(@jakarta.annotation.Nullable LocalDate verifiseringsdato) {
+    this.verifiseringsdato = verifiseringsdato;
   }
 
   public GeometriMedKvalitet kommune(@jakarta.annotation.Nonnull Integer kommune) {
@@ -192,7 +252,7 @@ public class GeometriMedKvalitet {
    * @return kommune
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_KOMMUNE)
+  @JsonProperty(value = JSON_PROPERTY_KOMMUNE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Integer getKommune() {
@@ -200,7 +260,7 @@ public class GeometriMedKvalitet {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_KOMMUNE)
+  @JsonProperty(value = JSON_PROPERTY_KOMMUNE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setKommune(@jakarta.annotation.Nonnull Integer kommune) {
     this.kommune = kommune;
@@ -217,7 +277,7 @@ public class GeometriMedKvalitet {
    * @return temakode
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_TEMAKODE)
+  @JsonProperty(value = JSON_PROPERTY_TEMAKODE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Integer getTemakode() {
@@ -225,7 +285,7 @@ public class GeometriMedKvalitet {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_TEMAKODE)
+  @JsonProperty(value = JSON_PROPERTY_TEMAKODE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setTemakode(@jakarta.annotation.Nonnull Integer temakode) {
     this.temakode = temakode;
@@ -242,7 +302,7 @@ public class GeometriMedKvalitet {
    * @return lengde
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_LENGDE)
+  @JsonProperty(value = JSON_PROPERTY_LENGDE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Double getLengde() {
@@ -250,7 +310,7 @@ public class GeometriMedKvalitet {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_LENGDE)
+  @JsonProperty(value = JSON_PROPERTY_LENGDE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setLengde(@jakarta.annotation.Nonnull Double lengde) {
     this.lengde = lengde;
@@ -267,7 +327,7 @@ public class GeometriMedKvalitet {
    * @return medium
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_MEDIUM)
+  @JsonProperty(value = JSON_PROPERTY_MEDIUM, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public SosiMedium getMedium() {
@@ -275,7 +335,7 @@ public class GeometriMedKvalitet {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_MEDIUM)
+  @JsonProperty(value = JSON_PROPERTY_MEDIUM, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMedium(@jakarta.annotation.Nullable SosiMedium medium) {
     this.medium = medium;
@@ -292,7 +352,7 @@ public class GeometriMedKvalitet {
    * @return mediumNvdb
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_MEDIUM_NVDB)
+  @JsonProperty(value = JSON_PROPERTY_MEDIUM_NVDB, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Integer getMediumNvdb() {
@@ -300,7 +360,7 @@ public class GeometriMedKvalitet {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_MEDIUM_NVDB)
+  @JsonProperty(value = JSON_PROPERTY_MEDIUM_NVDB, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMediumNvdb(@jakarta.annotation.Nullable Integer mediumNvdb) {
     this.mediumNvdb = mediumNvdb;
@@ -320,6 +380,8 @@ public class GeometriMedKvalitet {
         Objects.equals(this.srid, geometriMedKvalitet.srid) &&
         Objects.equals(this.kvalitet, geometriMedKvalitet.kvalitet) &&
         Objects.equals(this.datafangstdato, geometriMedKvalitet.datafangstdato) &&
+        Objects.equals(this.oppdateringsdato, geometriMedKvalitet.oppdateringsdato) &&
+        Objects.equals(this.verifiseringsdato, geometriMedKvalitet.verifiseringsdato) &&
         Objects.equals(this.kommune, geometriMedKvalitet.kommune) &&
         Objects.equals(this.temakode, geometriMedKvalitet.temakode) &&
         Objects.equals(this.lengde, geometriMedKvalitet.lengde) &&
@@ -329,7 +391,7 @@ public class GeometriMedKvalitet {
 
   @Override
   public int hashCode() {
-    return Objects.hash(wkt, srid, kvalitet, datafangstdato, kommune, temakode, lengde, medium, mediumNvdb);
+    return Objects.hash(wkt, srid, kvalitet, datafangstdato, oppdateringsdato, verifiseringsdato, kommune, temakode, lengde, medium, mediumNvdb);
   }
 
   @Override
@@ -340,6 +402,8 @@ public class GeometriMedKvalitet {
     sb.append("    srid: ").append(toIndentedString(srid)).append("\n");
     sb.append("    kvalitet: ").append(toIndentedString(kvalitet)).append("\n");
     sb.append("    datafangstdato: ").append(toIndentedString(datafangstdato)).append("\n");
+    sb.append("    oppdateringsdato: ").append(toIndentedString(oppdateringsdato)).append("\n");
+    sb.append("    verifiseringsdato: ").append(toIndentedString(verifiseringsdato)).append("\n");
     sb.append("    kommune: ").append(toIndentedString(kommune)).append("\n");
     sb.append("    temakode: ").append(toIndentedString(temakode)).append("\n");
     sb.append("    lengde: ").append(toIndentedString(lengde)).append("\n");

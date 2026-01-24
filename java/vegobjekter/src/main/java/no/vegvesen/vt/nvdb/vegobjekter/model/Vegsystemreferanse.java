@@ -1,6 +1,6 @@
 /*
  * NVDB API Les Vegobjekter
- * Dette API-et brukes til å lese vegobjekter. Les mer om bruk av API-et på https://nvdb.atlas.vegvesen.no/produkter/nvdbapil/v4/Vegobjekter
+ * Dette API-et brukes til å lese vegobjekter.<br><br>[Dokumentasjon for Vegobjekter API](https://nvdb-docs.atlas.vegvesen.no/nvdbapil/v4/Vegobjekter)
  *
  * The version of the OpenAPI document: v4
  * Contact: nvdb@vegvesen.no
@@ -39,7 +39,7 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
   Vegsystemreferanse.JSON_PROPERTY_METRERT_LOKASJON,
   Vegsystemreferanse.JSON_PROPERTY_KORTFORM
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.14.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0")
 public class Vegsystemreferanse {
   public static final String JSON_PROPERTY_VEGSYSTEM = "vegsystem";
   @jakarta.annotation.Nullable
@@ -79,7 +79,7 @@ public class Vegsystemreferanse {
    * @return vegsystem
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_VEGSYSTEM)
+  @JsonProperty(value = JSON_PROPERTY_VEGSYSTEM, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Vegsystem getVegsystem() {
@@ -87,7 +87,7 @@ public class Vegsystemreferanse {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_VEGSYSTEM)
+  @JsonProperty(value = JSON_PROPERTY_VEGSYSTEM, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setVegsystem(@jakarta.annotation.Nullable Vegsystem vegsystem) {
     this.vegsystem = vegsystem;
@@ -104,7 +104,7 @@ public class Vegsystemreferanse {
    * @return strekning
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_STREKNING)
+  @JsonProperty(value = JSON_PROPERTY_STREKNING, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Strekning getStrekning() {
@@ -112,7 +112,7 @@ public class Vegsystemreferanse {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_STREKNING)
+  @JsonProperty(value = JSON_PROPERTY_STREKNING, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setStrekning(@jakarta.annotation.Nullable Strekning strekning) {
     this.strekning = strekning;
@@ -129,7 +129,7 @@ public class Vegsystemreferanse {
    * @return kryssystem
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_KRYSSYSTEM)
+  @JsonProperty(value = JSON_PROPERTY_KRYSSYSTEM, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Kryssystem getKryssystem() {
@@ -137,7 +137,7 @@ public class Vegsystemreferanse {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_KRYSSYSTEM)
+  @JsonProperty(value = JSON_PROPERTY_KRYSSYSTEM, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setKryssystem(@jakarta.annotation.Nullable Kryssystem kryssystem) {
     this.kryssystem = kryssystem;
@@ -154,7 +154,7 @@ public class Vegsystemreferanse {
    * @return sideanlegg
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SIDEANLEGG)
+  @JsonProperty(value = JSON_PROPERTY_SIDEANLEGG, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Sideanlegg getSideanlegg() {
@@ -162,7 +162,7 @@ public class Vegsystemreferanse {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_SIDEANLEGG)
+  @JsonProperty(value = JSON_PROPERTY_SIDEANLEGG, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSideanlegg(@jakarta.annotation.Nullable Sideanlegg sideanlegg) {
     this.sideanlegg = sideanlegg;
@@ -179,7 +179,7 @@ public class Vegsystemreferanse {
    * @return metrertLokasjon
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_METRERT_LOKASJON)
+  @JsonProperty(value = JSON_PROPERTY_METRERT_LOKASJON, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public MetrertLokasjon getMetrertLokasjon() {
@@ -187,7 +187,7 @@ public class Vegsystemreferanse {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_METRERT_LOKASJON)
+  @JsonProperty(value = JSON_PROPERTY_METRERT_LOKASJON, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setMetrertLokasjon(@jakarta.annotation.Nullable MetrertLokasjon metrertLokasjon) {
     this.metrertLokasjon = metrertLokasjon;
@@ -204,7 +204,7 @@ public class Vegsystemreferanse {
    * @return kortform
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_KORTFORM)
+  @JsonProperty(value = JSON_PROPERTY_KORTFORM, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public String getKortform() {
@@ -212,7 +212,7 @@ public class Vegsystemreferanse {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_KORTFORM)
+  @JsonProperty(value = JSON_PROPERTY_KORTFORM, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setKortform(@jakarta.annotation.Nullable String kortform) {
     this.kortform = kortform;

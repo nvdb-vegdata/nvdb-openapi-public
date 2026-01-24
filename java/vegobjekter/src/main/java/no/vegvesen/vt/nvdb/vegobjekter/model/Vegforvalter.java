@@ -1,6 +1,6 @@
 /*
  * NVDB API Les Vegobjekter
- * Dette API-et brukes til å lese vegobjekter. Les mer om bruk av API-et på https://nvdb.atlas.vegvesen.no/produkter/nvdbapil/v4/Vegobjekter
+ * Dette API-et brukes til å lese vegobjekter.<br><br>[Dokumentasjon for Vegobjekter API](https://nvdb-docs.atlas.vegvesen.no/nvdbapil/v4/Vegobjekter)
  *
  * The version of the OpenAPI document: v4
  * Contact: nvdb@vegvesen.no
@@ -30,7 +30,7 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
   Vegforvalter.JSON_PROPERTY_ENUMID,
   Vegforvalter.JSON_PROPERTY_VEGFORVALTER
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.14.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0")
 public class Vegforvalter {
   public static final String JSON_PROPERTY_ENUMID = "enumid";
   @jakarta.annotation.Nonnull
@@ -54,7 +54,7 @@ public class Vegforvalter {
    * @return enumid
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_ENUMID)
+  @JsonProperty(value = JSON_PROPERTY_ENUMID, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Integer getEnumid() {
@@ -62,7 +62,7 @@ public class Vegforvalter {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ENUMID)
+  @JsonProperty(value = JSON_PROPERTY_ENUMID, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setEnumid(@jakarta.annotation.Nonnull Integer enumid) {
     this.enumid = enumid;
@@ -79,7 +79,7 @@ public class Vegforvalter {
    * @return vegforvalter
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_VEGFORVALTER)
+  @JsonProperty(value = JSON_PROPERTY_VEGFORVALTER, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getVegforvalter() {
@@ -87,7 +87,7 @@ public class Vegforvalter {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_VEGFORVALTER)
+  @JsonProperty(value = JSON_PROPERTY_VEGFORVALTER, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setVegforvalter(@jakarta.annotation.Nonnull String vegforvalter) {
     this.vegforvalter = vegforvalter;

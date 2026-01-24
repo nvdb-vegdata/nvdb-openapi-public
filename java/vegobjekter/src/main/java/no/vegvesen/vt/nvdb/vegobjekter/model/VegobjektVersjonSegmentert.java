@@ -1,6 +1,6 @@
 /*
  * NVDB API Les Vegobjekter
- * Dette API-et brukes til å lese vegobjekter. Les mer om bruk av API-et på https://nvdb.atlas.vegvesen.no/produkter/nvdbapil/v4/Vegobjekter
+ * Dette API-et brukes til å lese vegobjekter.<br><br>[Dokumentasjon for Vegobjekter API](https://nvdb-docs.atlas.vegvesen.no/nvdbapil/v4/Vegobjekter)
  *
  * The version of the OpenAPI document: v4
  * Contact: nvdb@vegvesen.no
@@ -25,16 +25,16 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 
 /**
- * VegobjektFjernet
+ * VegobjektVersjonSegmentert
  */
 @JsonPropertyOrder({
-  VegobjektFjernet.JSON_PROPERTY_ID,
-  VegobjektFjernet.JSON_PROPERTY_VERSJON,
-  VegobjektFjernet.JSON_PROPERTY_TYPE,
-  VegobjektFjernet.JSON_PROPERTY_TIDSPUNKT
+  VegobjektVersjonSegmentert.JSON_PROPERTY_ID,
+  VegobjektVersjonSegmentert.JSON_PROPERTY_VERSJON,
+  VegobjektVersjonSegmentert.JSON_PROPERTY_TYPE,
+  VegobjektVersjonSegmentert.JSON_PROPERTY_TIDSPUNKT
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.14.0")
-public class VegobjektFjernet {
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0")
+public class VegobjektVersjonSegmentert {
   public static final String JSON_PROPERTY_ID = "id";
   @jakarta.annotation.Nonnull
   private Long id;
@@ -51,10 +51,10 @@ public class VegobjektFjernet {
   @jakarta.annotation.Nonnull
   private OffsetDateTime tidspunkt;
 
-  public VegobjektFjernet() {
+  public VegobjektVersjonSegmentert() {
   }
 
-  public VegobjektFjernet id(@jakarta.annotation.Nonnull Long id) {
+  public VegobjektVersjonSegmentert id(@jakarta.annotation.Nonnull Long id) {
     
     this.id = id;
     return this;
@@ -65,7 +65,7 @@ public class VegobjektFjernet {
    * @return id
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonProperty(value = JSON_PROPERTY_ID, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Long getId() {
@@ -73,24 +73,24 @@ public class VegobjektFjernet {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonProperty(value = JSON_PROPERTY_ID, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setId(@jakarta.annotation.Nonnull Long id) {
     this.id = id;
   }
 
-  public VegobjektFjernet versjon(@jakarta.annotation.Nonnull Integer versjon) {
+  public VegobjektVersjonSegmentert versjon(@jakarta.annotation.Nonnull Integer versjon) {
     
     this.versjon = versjon;
     return this;
   }
 
   /**
-   * Versjon av vegobjektet som er fjernet
+   * Get versjon
    * @return versjon
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_VERSJON)
+  @JsonProperty(value = JSON_PROPERTY_VERSJON, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Integer getVersjon() {
@@ -98,13 +98,13 @@ public class VegobjektFjernet {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_VERSJON)
+  @JsonProperty(value = JSON_PROPERTY_VERSJON, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setVersjon(@jakarta.annotation.Nonnull Integer versjon) {
     this.versjon = versjon;
   }
 
-  public VegobjektFjernet type(@jakarta.annotation.Nonnull Integer type) {
+  public VegobjektVersjonSegmentert type(@jakarta.annotation.Nonnull Integer type) {
     
     this.type = type;
     return this;
@@ -115,7 +115,7 @@ public class VegobjektFjernet {
    * @return type
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonProperty(value = JSON_PROPERTY_TYPE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Integer getType() {
@@ -123,13 +123,13 @@ public class VegobjektFjernet {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_TYPE)
+  @JsonProperty(value = JSON_PROPERTY_TYPE, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setType(@jakarta.annotation.Nonnull Integer type) {
     this.type = type;
   }
 
-  public VegobjektFjernet tidspunkt(@jakarta.annotation.Nonnull OffsetDateTime tidspunkt) {
+  public VegobjektVersjonSegmentert tidspunkt(@jakarta.annotation.Nonnull OffsetDateTime tidspunkt) {
     
     this.tidspunkt = tidspunkt;
     return this;
@@ -140,7 +140,7 @@ public class VegobjektFjernet {
    * @return tidspunkt
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_TIDSPUNKT)
+  @JsonProperty(value = JSON_PROPERTY_TIDSPUNKT, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public OffsetDateTime getTidspunkt() {
@@ -148,7 +148,7 @@ public class VegobjektFjernet {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_TIDSPUNKT)
+  @JsonProperty(value = JSON_PROPERTY_TIDSPUNKT, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setTidspunkt(@jakarta.annotation.Nonnull OffsetDateTime tidspunkt) {
     this.tidspunkt = tidspunkt;
@@ -163,11 +163,11 @@ public class VegobjektFjernet {
     if (o == null || getClass() != o.getClass()) {
       return false;
     }
-    VegobjektFjernet vegobjektFjernet = (VegobjektFjernet) o;
-    return Objects.equals(this.id, vegobjektFjernet.id) &&
-        Objects.equals(this.versjon, vegobjektFjernet.versjon) &&
-        Objects.equals(this.type, vegobjektFjernet.type) &&
-        Objects.equals(this.tidspunkt, vegobjektFjernet.tidspunkt);
+    VegobjektVersjonSegmentert vegobjektVersjonSegmentert = (VegobjektVersjonSegmentert) o;
+    return Objects.equals(this.id, vegobjektVersjonSegmentert.id) &&
+        Objects.equals(this.versjon, vegobjektVersjonSegmentert.versjon) &&
+        Objects.equals(this.type, vegobjektVersjonSegmentert.type) &&
+        Objects.equals(this.tidspunkt, vegobjektVersjonSegmentert.tidspunkt);
   }
 
   @Override
@@ -178,7 +178,7 @@ public class VegobjektFjernet {
   @Override
   public String toString() {
     StringBuilder sb = new StringBuilder();
-    sb.append("class VegobjektFjernet {\n");
+    sb.append("class VegobjektVersjonSegmentert {\n");
     sb.append("    id: ").append(toIndentedString(id)).append("\n");
     sb.append("    versjon: ").append(toIndentedString(versjon)).append("\n");
     sb.append("    type: ").append(toIndentedString(type)).append("\n");

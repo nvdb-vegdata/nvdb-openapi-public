@@ -76,11 +76,13 @@ src/main/java/no/vegvesen/vt/nvdb/vegobjekter/model/Vegkategori.java
 src/main/java/no/vegvesen/vt/nvdb/vegobjekter/model/VeglenkeType.java
 src/main/java/no/vegvesen/vt/nvdb/vegobjekter/model/VeglenkeTypeParameter.java
 src/main/java/no/vegvesen/vt/nvdb/vegobjekter/model/Vegobjekt.java
-src/main/java/no/vegvesen/vt/nvdb/vegobjekter/model/VegobjektEndret.java
 src/main/java/no/vegvesen/vt/nvdb/vegobjekter/model/VegobjektEndringerSide.java
-src/main/java/no/vegvesen/vt/nvdb/vegobjekter/model/VegobjektFjernet.java
 src/main/java/no/vegvesen/vt/nvdb/vegobjekter/model/VegobjektMetadata.java
 src/main/java/no/vegvesen/vt/nvdb/vegobjekter/model/VegobjektType.java
+src/main/java/no/vegvesen/vt/nvdb/vegobjekter/model/VegobjektVersjonEndret.java
+src/main/java/no/vegvesen/vt/nvdb/vegobjekter/model/VegobjektVersjonFjernet.java
+src/main/java/no/vegvesen/vt/nvdb/vegobjekter/model/VegobjektVersjonOpprettet.java
+src/main/java/no/vegvesen/vt/nvdb/vegobjekter/model/VegobjektVersjonSegmentert.java
 src/main/java/no/vegvesen/vt/nvdb/vegobjekter/model/VegobjekterSide.java
 src/main/java/no/vegvesen/vt/nvdb/vegobjekter/model/VegobjekterStatistikk.java
 src/main/java/no/vegvesen/vt/nvdb/vegobjekter/model/VegobjekterStatistikkGruppert.java

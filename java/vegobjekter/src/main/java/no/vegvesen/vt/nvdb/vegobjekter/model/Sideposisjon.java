@@ -1,6 +1,6 @@
 /*
  * NVDB API Les Vegobjekter
- * Dette API-et brukes til å lese vegobjekter. Les mer om bruk av API-et på https://nvdb.atlas.vegvesen.no/produkter/nvdbapil/v4/Vegobjekter
+ * Dette API-et brukes til å lese vegobjekter.<br><br>[Dokumentasjon for Vegobjekter API](https://nvdb-docs.atlas.vegvesen.no/nvdbapil/v4/Vegobjekter)
  *
  * The version of the OpenAPI document: v4
  * Contact: nvdb@vegvesen.no
@@ -38,8 +38,6 @@ public enum Sideposisjon {
   
   HT("HT"),
   
-  VH("VH"),
-  
   HV("HV"),
   
   K("K"),
@@ -47,8 +45,6 @@ public enum Sideposisjon {
   V("V"),
   
   L("L"),
-  
-  R("R"),
   
   R0("R0");
 

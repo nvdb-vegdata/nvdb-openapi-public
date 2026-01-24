@@ -1,6 +1,6 @@
 /*
  * NVDB API Les Vegnett
- * Dette API-et brukes til å lese vegnettelementer. Les mer om bruk av API-et på https://nvdb.test.atlas.vegvesen.no/produkter/nvdbapil/v4/Vegnett
+ * Dette API-et brukes til å lese vegnettelementer.<br><br>[Dokumentasjon for Vegnett API](https://nvdb-docs.atlas.vegvesen.no/nvdbapil/v4/Vegnett)
  *
  * The version of the OpenAPI document: v4
  * Contact: nvdb@vegvesen.no
@@ -35,7 +35,7 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
   VeglenkesegmenterSide.JSON_PROPERTY_OBJEKTER,
   VeglenkesegmenterSide.JSON_PROPERTY_METADATA
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.14.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0")
 public class VeglenkesegmenterSide {
   public static final String JSON_PROPERTY_OBJEKTER = "objekter";
   @jakarta.annotation.Nonnull
@@ -67,7 +67,7 @@ public class VeglenkesegmenterSide {
    * @return objekter
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_OBJEKTER)
+  @JsonProperty(value = JSON_PROPERTY_OBJEKTER, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public List<Veglenkesegment> getObjekter() {
@@ -75,7 +75,7 @@ public class VeglenkesegmenterSide {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_OBJEKTER)
+  @JsonProperty(value = JSON_PROPERTY_OBJEKTER, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setObjekter(@jakarta.annotation.Nonnull List<Veglenkesegment> objekter) {
     this.objekter = objekter;
@@ -92,7 +92,7 @@ public class VeglenkesegmenterSide {
    * @return metadata
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_METADATA)
+  @JsonProperty(value = JSON_PROPERTY_METADATA, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public SideMetadata getMetadata() {
@@ -100,7 +100,7 @@ public class VeglenkesegmenterSide {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_METADATA)
+  @JsonProperty(value = JSON_PROPERTY_METADATA, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setMetadata(@jakarta.annotation.Nonnull SideMetadata metadata) {
     this.metadata = metadata;

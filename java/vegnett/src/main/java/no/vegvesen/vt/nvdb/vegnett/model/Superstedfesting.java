@@ -1,6 +1,6 @@
 /*
  * NVDB API Les Vegnett
- * Dette API-et brukes til å lese vegnettelementer. Les mer om bruk av API-et på https://nvdb.test.atlas.vegvesen.no/produkter/nvdbapil/v4/Vegnett
+ * Dette API-et brukes til å lese vegnettelementer.<br><br>[Dokumentasjon for Vegnett API](https://nvdb-docs.atlas.vegvesen.no/nvdbapil/v4/Vegnett)
  *
  * The version of the OpenAPI document: v4
  * Contact: nvdb@vegvesen.no
@@ -37,9 +37,10 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
   Superstedfesting.JSON_PROPERTY_SLUTTPOSISJON,
   Superstedfesting.JSON_PROPERTY_RETNING,
   Superstedfesting.JSON_PROPERTY_KJøREFELT,
+  Superstedfesting.JSON_PROPERTY_KJøREFELT_METRERING,
   Superstedfesting.JSON_PROPERTY_SIDEPOSISJON
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.14.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0")
 public class Superstedfesting {
   public static final String JSON_PROPERTY_VEGLENKESEKVENSID = "veglenkesekvensid";
   @jakarta.annotation.Nonnull
@@ -61,6 +62,10 @@ public class Superstedfesting {
   @jakarta.annotation.Nonnull
   private List<String> kjørefelt = new ArrayList<>();
 
+  public static final String JSON_PROPERTY_KJøREFELT_METRERING = "kjørefeltMetrering";
+  @jakarta.annotation.Nullable
+  private List<String> kjørefeltMetrering = new ArrayList<>();
+
   public static final String JSON_PROPERTY_SIDEPOSISJON = "sideposisjon";
   @jakarta.annotation.Nullable
   private Sideposisjon sideposisjon;
@@ -79,7 +84,7 @@ public class Superstedfesting {
    * @return veglenkesekvensid
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_VEGLENKESEKVENSID)
+  @JsonProperty(value = JSON_PROPERTY_VEGLENKESEKVENSID, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Long getVeglenkesekvensid() {
@@ -87,7 +92,7 @@ public class Superstedfesting {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_VEGLENKESEKVENSID)
+  @JsonProperty(value = JSON_PROPERTY_VEGLENKESEKVENSID, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setVeglenkesekvensid(@jakarta.annotation.Nonnull Long veglenkesekvensid) {
     this.veglenkesekvensid = veglenkesekvensid;
@@ -104,7 +109,7 @@ public class Superstedfesting {
    * @return startposisjon
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_STARTPOSISJON)
+  @JsonProperty(value = JSON_PROPERTY_STARTPOSISJON, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Double getStartposisjon() {
@@ -112,7 +117,7 @@ public class Superstedfesting {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_STARTPOSISJON)
+  @JsonProperty(value = JSON_PROPERTY_STARTPOSISJON, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setStartposisjon(@jakarta.annotation.Nonnull Double startposisjon) {
     this.startposisjon = startposisjon;
@@ -129,7 +134,7 @@ public class Superstedfesting {
    * @return sluttposisjon
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_SLUTTPOSISJON)
+  @JsonProperty(value = JSON_PROPERTY_SLUTTPOSISJON, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Double getSluttposisjon() {
@@ -137,7 +142,7 @@ public class Superstedfesting {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_SLUTTPOSISJON)
+  @JsonProperty(value = JSON_PROPERTY_SLUTTPOSISJON, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setSluttposisjon(@jakarta.annotation.Nonnull Double sluttposisjon) {
     this.sluttposisjon = sluttposisjon;
@@ -154,7 +159,7 @@ public class Superstedfesting {
    * @return retning
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_RETNING)
+  @JsonProperty(value = JSON_PROPERTY_RETNING, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Retning getRetning() {
@@ -162,7 +167,7 @@ public class Superstedfesting {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_RETNING)
+  @JsonProperty(value = JSON_PROPERTY_RETNING, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setRetning(@jakarta.annotation.Nonnull Retning retning) {
     this.retning = retning;
@@ -187,7 +192,7 @@ public class Superstedfesting {
    * @return kjørefelt
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_KJøREFELT)
+  @JsonProperty(value = JSON_PROPERTY_KJøREFELT, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public List<String> getKjørefelt() {
@@ -195,10 +200,43 @@ public class Superstedfesting {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_KJøREFELT)
+  @JsonProperty(value = JSON_PROPERTY_KJøREFELT, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setKjørefelt(@jakarta.annotation.Nonnull List<String> kjørefelt) {
     this.kjørefelt = kjørefelt;
+  }
+
+  public Superstedfesting kjørefeltMetrering(@jakarta.annotation.Nullable List<String> kjørefeltMetrering) {
+    
+    this.kjørefeltMetrering = kjørefeltMetrering;
+    return this;
+  }
+
+  public Superstedfesting addKjørefeltMetreringItem(String kjørefeltMetreringItem) {
+    if (this.kjørefeltMetrering == null) {
+      this.kjørefeltMetrering = new ArrayList<>();
+    }
+    this.kjørefeltMetrering.add(kjørefeltMetreringItem);
+    return this;
+  }
+
+  /**
+   * Get kjørefeltMetrering
+   * @return kjørefeltMetrering
+   */
+  @jakarta.annotation.Nullable
+  @JsonProperty(value = JSON_PROPERTY_KJøREFELT_METRERING, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+
+  public List<String> getKjørefeltMetrering() {
+    return kjørefeltMetrering;
+  }
+
+
+  @JsonProperty(value = JSON_PROPERTY_KJøREFELT_METRERING, required = false)
+  @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
+  public void setKjørefeltMetrering(@jakarta.annotation.Nullable List<String> kjørefeltMetrering) {
+    this.kjørefeltMetrering = kjørefeltMetrering;
   }
 
   public Superstedfesting sideposisjon(@jakarta.annotation.Nullable Sideposisjon sideposisjon) {
@@ -212,7 +250,7 @@ public class Superstedfesting {
    * @return sideposisjon
    */
   @jakarta.annotation.Nullable
-  @JsonProperty(JSON_PROPERTY_SIDEPOSISJON)
+  @JsonProperty(value = JSON_PROPERTY_SIDEPOSISJON, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
 
   public Sideposisjon getSideposisjon() {
@@ -220,7 +258,7 @@ public class Superstedfesting {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_SIDEPOSISJON)
+  @JsonProperty(value = JSON_PROPERTY_SIDEPOSISJON, required = false)
   @JsonInclude(value = JsonInclude.Include.USE_DEFAULTS)
   public void setSideposisjon(@jakarta.annotation.Nullable Sideposisjon sideposisjon) {
     this.sideposisjon = sideposisjon;
@@ -241,12 +279,13 @@ public class Superstedfesting {
         Objects.equals(this.sluttposisjon, superstedfesting.sluttposisjon) &&
         Objects.equals(this.retning, superstedfesting.retning) &&
         Objects.equals(this.kjørefelt, superstedfesting.kjørefelt) &&
+        Objects.equals(this.kjørefeltMetrering, superstedfesting.kjørefeltMetrering) &&
         Objects.equals(this.sideposisjon, superstedfesting.sideposisjon);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(veglenkesekvensid, startposisjon, sluttposisjon, retning, kjørefelt, sideposisjon);
+    return Objects.hash(veglenkesekvensid, startposisjon, sluttposisjon, retning, kjørefelt, kjørefeltMetrering, sideposisjon);
   }
 
   @Override
@@ -258,6 +297,7 @@ public class Superstedfesting {
     sb.append("    sluttposisjon: ").append(toIndentedString(sluttposisjon)).append("\n");
     sb.append("    retning: ").append(toIndentedString(retning)).append("\n");
     sb.append("    kjørefelt: ").append(toIndentedString(kjørefelt)).append("\n");
+    sb.append("    kjørefeltMetrering: ").append(toIndentedString(kjørefeltMetrering)).append("\n");
     sb.append("    sideposisjon: ").append(toIndentedString(sideposisjon)).append("\n");
     sb.append("}");
     return sb.toString();

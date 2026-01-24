@@ -1,6 +1,6 @@
 /*
  * NVDB API Les Vegobjekter
- * Dette API-et brukes til å lese vegobjekter. Les mer om bruk av API-et på https://nvdb.atlas.vegvesen.no/produkter/nvdbapil/v4/Vegobjekter
+ * Dette API-et brukes til å lese vegobjekter.<br><br>[Dokumentasjon for Vegobjekter API](https://nvdb-docs.atlas.vegvesen.no/nvdbapil/v4/Vegobjekter)
  *
  * The version of the OpenAPI document: v4
  * Contact: nvdb@vegvesen.no
@@ -30,7 +30,7 @@ import com.fasterxml.jackson.annotation.JsonTypeName;
   VegobjektType.JSON_PROPERTY_ID,
   VegobjektType.JSON_PROPERTY_NAVN
 })
-@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.14.0")
+@jakarta.annotation.Generated(value = "org.openapitools.codegen.languages.JavaClientCodegen", comments = "Generator version: 7.19.0")
 public class VegobjektType {
   public static final String JSON_PROPERTY_ID = "id";
   @jakarta.annotation.Nonnull
@@ -54,7 +54,7 @@ public class VegobjektType {
    * @return id
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonProperty(value = JSON_PROPERTY_ID, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public Integer getId() {
@@ -62,7 +62,7 @@ public class VegobjektType {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_ID)
+  @JsonProperty(value = JSON_PROPERTY_ID, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setId(@jakarta.annotation.Nonnull Integer id) {
     this.id = id;
@@ -79,7 +79,7 @@ public class VegobjektType {
    * @return navn
    */
   @jakarta.annotation.Nonnull
-  @JsonProperty(JSON_PROPERTY_NAVN)
+  @JsonProperty(value = JSON_PROPERTY_NAVN, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
 
   public String getNavn() {
@@ -87,7 +87,7 @@ public class VegobjektType {
   }
 
 
-  @JsonProperty(JSON_PROPERTY_NAVN)
+  @JsonProperty(value = JSON_PROPERTY_NAVN, required = true)
   @JsonInclude(value = JsonInclude.Include.ALWAYS)
   public void setNavn(@jakarta.annotation.Nonnull String navn) {
     this.navn = navn;
