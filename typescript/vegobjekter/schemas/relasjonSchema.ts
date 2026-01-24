@@ -12,8 +12,8 @@ export const relasjonSchema = z.object({
   get type() {
     return vegobjektTypeSchema
   },
-  listeid: z.optional(z.int()),
   get relasjonstype() {
     return relasjonstypeSchema
   },
+  listeid: z.optional(z.int()),
 })
