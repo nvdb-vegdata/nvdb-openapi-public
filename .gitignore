@@ -45,3 +45,6 @@ bun.lock*
 .gradle/
 
 *.db
+
+### Claude agent ###
+.claude/tsc-cache
